@@ -1,0 +1,63 @@
+{
+    "achievements": {
+      "title": "DOŽIVOTNÍ",
+      "reward": "OCENĚNÍ \n ÚSPĚCHŮ",
+      "achievements": "Úspěchy",
+      "achievementDescription": "Ocenění úspěchů jsou odměny udělované za dosažení nových milníků a překonání výzev. Oslavují váš pokrok a úspěch a odemykají zábavná překvapení, jakmile dosáhnete nových výkonů na cestě!",
+      "claimDistribution": "Distribuce nároku",
+"claimDistributionDescription": "Odměny jsou přidány do vašeho bonusového kalendáře na 3 dny po úspěšném uplatnění.",
+      "expiration": "Platnost",
+      "expirationDescription": "Žádná – odměny jsou automaticky zasílány do kalendáře.",
+      "generalTerms": "Obecné podmínky",
+      "generalTermsDescription": "Odměny jsou vypočítávány a přičítány v BUCK/USDT, poté jsou pro pohodlí zobrazeny ve vaší preferované fiat měně. Upozorňujeme, že převody měn jsou přibližné.\n\nKasino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost bez povinnosti zdůvodnění. Jakékoliv zneužití nebo podvodná činnost povedou k diskvalifikaci z promoce."
+    },
+    "luckyNumberSeven": {
+      "title": "ŠŤASTNÉ ČÍSLO \n SEDM",
+      "luckyNumberSeven": "Šťastné číslo sedm",
+      "luckyNumberSevenDescription": "Zasaďte šťastná čísla {{numberOne}} a získejte sladký bonus! Pokud váš ID sázky končí na {{numberTwo}}, {{numberThree}} nebo {{numberFour}} při hraní kvalifikovaných automatů, získáte překvapivý bonus – až {{money}}! Stačí zatočit, trefit ta šťastná čísla a nechat běžet dobré časy (a bonusy)!",
+      "automaticDistribution": "Automatická distribuce",
+      "automaticDistributionDescription": "Nemusíte nic nárokovat ani kliknout – vaše odměna je okamžitě přidána do vašeho bonusového kalendáře na 1 den v okamžiku výhry.",
+      "winningConditions": "Podmínky výhry",
+      "winningConditionsDescription": "Pokud váš ID sázky končí na {{number}}, obdržíte automaticky {{percentage}} z částky sázky do svého bonusového kalendáře.",
+      "winningConditionsDescription2": "Pokud váš ID sázky končí na {{number}}, obdržíte automaticky {{percentage}} z částky sázky do svého bonusového kalendáře.",
+      "winningConditionsDescription3": "Pokud váš ID sázky končí na {{number}}, obdržíte automaticky {{percentage}} z částky sázky do svého bonusového kalendáře.",
+      "expiration": "Platnost",
+      "expirationDescription": "Žádná – odměny jsou automaticky přičítány do vašeho bonusového kalendáře po splnění kritérií.",
+      "eligibility": "Způsobilost",
+      "eligibilityDescription": "Do této promoce se kvalifikují pouze sázky na automaty {{providerOne}} Soft, Pragmatic Play a {{providerTwo}}.",
+      "generalTerms": "Obecné podmínky",
+      "generalTermsDescription": "Každou kombinaci šťastných {{number}} můžete vyhrát jednou za den. \n\n Výše bonusu je omezena na {{money}} za kvalifikující se ID sázky. \n\n Odměny jsou vypočítávány a přičítány v BUCK/USDT, poté zobrazeny ve vaší preferované fiat měně pro pohodlí. Upozorňujeme, že převody měn jsou přibližné. \n\n Kasino si vyhrazuje právo kdykoli upravit nebo ukončit tuto promoakci. Zneužití nebo podvodná činnost vedou k diskvalifikaci."
+    },
+    "mysteryBox": {
+"title": "MĚSÍČNĚ",
+      "reward": "TAJNÝ \n BOX",
+      "mysteryBox": "Tajný box",
+  "mysteryBoxDescription": "Čím více hrajete, tím větší máte šanci vyhrát velké ceny. Otevřete svou Tajemnou krabici každého 7. dne v měsíci a odhalte překvapivé bonusy přizpůsobené vaší aktivitě. Točte, hrajte a získejte, co vás uvnitř čeká!",
+      "claimDistribution": "Distribuce nároku",
+      "claimDistributionDescription": "100% na váš zůstatek",
+      "goldMembersAndAbove": "Členové Gold a výše",
+      "yourBalance": "100% na váš zůstatek",
+      "yourCalendar": "",
+      "minimumClaimAmount": "Minimální částka pro nárok je {{money}}",
+      "expiration": "Platnost",
+  "expirationDescription": "Svou Tajemnou krabici musíte vyzvednout do 7 dnů od jejího udělení. Nevyzvednuté odměny po této době propadnou.",
+      "generalTerms": "Obecné podmínky",
+  "generalTermsDescription": "Odměny jsou vypočítávány a připisovány na základě první uživatelovy platby nebo v USDT, pokud nebyla provedena žádná platba, s požadavkem na 1x protočení. Částky jsou zobrazovány ve vámi preferované fiat měně; převody jsou přibližné.\n\nKasino si vyhrazuje právo kdykoli bez předchozího upozornění upravit nebo odebrat způsobilost. Jakékoliv zneužití nebo podvod bude mít za následek diskvalifikaci."
+    },
+    "TheCannon": {
+      "title": "KANÓN",
+      "reward": "KANÓN",
+      "theCannon": "Kanón",
+      "theCannonDescription": "Připravte se odpálit Kanón — naši největší měsíční odměnu! Každý {{day}}. den v měsíci mají způsobilí hráči šanci vystřelit kanón a prorazit cestu k explozivním cenám.",
+      "claimDistribution": "Distribuce nároku",
+      "claimDistributionDescription": "{{percentageOne}} na váš zůstatek \n {{percentageTwo}} do vašeho kalendáře na {{days}} dnů",
+      "goldMembersAndAbove": "Členové Gold a výše",
+      "yourBalance": "{{percentage}} na váš zůstatek",
+      "yourCalendar": "{{percentage}} do vašeho kalendáře na {{days}} dnů",
+      "minimumClaimAmount": "Minimální částka pro nárok je {{money}}",
+      "expiration": "Platnost",
+      "expirationDescription": "Váš kanón musíte vystřelit před dalším nahráním. Nenárokované odměny vyprší na začátku dalšího cyklu.",
+      "generalTerms": "Obecné podmínky",
+      "generalTermsDescription": "Odměny jsou vypočítávány a přičítány v BUCK/USDT, poté zobrazeny ve vaší preferované fiat měně pro pohodlí. Upozorňujeme, že převody měn jsou přibližné.\n\nKasino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost bez povinnosti zdůvodnění. Jakékoliv zneužití nebo podvodná činnost povedou k diskvalifikaci z promoce."
+    }
+  }  

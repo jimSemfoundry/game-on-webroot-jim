@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Mik azok a szintlépési bónuszok?",
+    "content": "<p class=\"leading-7\">A szintlépési bónusz a mi módunk arra, hogy kifejezzük elismerésünket a hűséges játékosok iránt, akik a kezdetektől velünk vannak. Ahogy a játékosok feljebb lépnek a VIP-szinteken, magasabb szintű jutalmakat oldanak fel.</p>"
+  },
+  "faqTwo": {
+    "title": "Mi az a Napi Cashback?",
+    "content": "<p class=\"leading-7\">A napi készpénzvisszatérítést azok a játékosok kapják, akik a befizetett összegükkel szemben veszteséget szenvedtek el. Ez a bónusz naponta kerül kiadásra a játékos veszteségének százalékában. A napi cashback százalékos aránya a VIP-szintekkel növekszik, maximum 40% caszfalthoz, ami a legmagasabb cashback bárhol. Kérjük, vegye figyelembe, hogy ez a bónusz csak olyan játékosok számára érvényes, akik nettó veszteséges pozícióban vannak.</p>"
+  },
+  "faqThree": {
+    "title": "Mi az a Conquests/Quests?",
+    "content": "<p class=\"leading-7\">A hódítások olyan napi küldetések, amelyeket véletlenszerűen kapnak a játékosok, hogy extra jutalmakat szerezzenek, amikor a weboldalunkon játszanak. A Hódítás jutalmakat a következő ciklus előtt 24 órával kell igényelni, és ha nem igénylik, akkor lejárnak. A Conquest jutalmak BUCK/USDT-ben kerülnek kifizetésre, és átválthatók az Ön által választott kriptopénzre a swap funkcióval.</p>"
+  },
+  "faqFour": {
+    "title": "Mik azok a versenyjutalmak?",
+    "content": "<p class=\"leading-7\">A versenyjutalmak a versenyeken nyújtott kiemelkedő teljesítményért járó díjak. A versenyjutalmak addig gyűlnek, amíg be nem váltják őket, és nem járnak le. A versenyjutalmak BUCK/USDT-ben kerülnek kifizetésre, és a swap funkcióval átválthatók az Ön által választott kriptopénzre.</p>"
+  },
+  "faqFive": {
+    "title": "Mi az a Super Rakeback?",
+    "content": "<p class=\"leading-7\">A Super Rakeback a mi mechanizmusunk a befizetési bónuszok feloldására. A tétje egy bizonyos százalékát (akár 3%) minden alkalommal visszakapja, amikor fogadást köt. Minél magasabb a VIP-szinted, annál magasabb a feloldási arány. Feloldott BUCK/USDT = tét x 2,5% x Feloldási arány%</p><p class=\"leading-7\">Feloldási arány:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Mi az a Booster?",
+    "content": "<p class=\"leading-7\">A Boosterek megduplázzák a Rakebacket egy órán keresztül minden alkalommal, amikor egy ajánló befizetést eszközöl.</p><p class=\"leading-7\">Fokozott feloldási arány:</p><p class=\"leading-7\">Feloldási arány:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Mi az a bónusz naptár?",
+    "content": "<p class=\"leading-7\">A legtöbb bónuszt 50% to a valós egyenlegedre és 50% to a bónusznaptáradra fizetik ki. A bónusznaptárba fizetett bónuszok 8 óránként igényelhetők, és 24 órán belül lejárnak, ha nem igényli őket. Ne feledje, hogy naponta legalább egyszer igényelje a bónusznaptárában lévő bónuszokat, hogy biztosítsa az összes jutalom begyűjtését!</p>"
+  },
+  "faqEight": {
+    "title": "Mi a heti bónusz?",
+    "content": "<p class=\"leading-7\">A Heti bónusz egy exkluzív juttatás weboldalunkon, amelyet VIP12 vagy magasabb szintű játékosok számára terveztünk. Ezt a bónuszt hetente adjuk ki, és minden pénteken automatikusan kifizetjük a VIP12 vagy magasabb szintű játékosoknak. A bónusz nagysága az elmúlt héten megjátszott összegtől függ, a minimális fogadási követelmény pedig a {{minWager}} az elmúlt héten.</p>"
+  },
+  "faqNine": {
+    "title": "Mik azok az eredmények?",
+    "content": "<p class=\"leading-7\">Az eredményekkel a platformunkon végzett tevékenységét ismerjük el. Amikor igényli a teljesítménybónuszát, az a bónuszkalendáriumába kerül, és 8 óránként igényelhető, és 24 óra múlva lejár, ha nem igényli.</p>"
+  }
+}

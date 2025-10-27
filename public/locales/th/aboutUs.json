@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "เกี่ยวกับเรา",
+"content": "<p class=\"leading-7\">\n      ที่ {{gameLink}} พันธมิตร เราได้รวบรวมทีมงานเพื่อมอบความบันเทิงออนไลน์ล่าสุด ประสบการณ์ที่เต็มไปด้วยความสนุกสนาน และการเข้าถึงเงินทุนของคุณอย่างรวดเร็ว ภารกิจของเราคือการเป็นจุดหมายปลายทางชั้นนำของเกมคริปโตสำหรับผู้ชมทั่วโลก\n    </p>\n    <p class=\"leading-7\">\n      เราเป็นส่วนหนึ่งของพันธมิตร OKVIP: ผู้สนับสนุนอย่างเป็นทางการของ Villareal CF, AC Milan และสมาคมฟุตบอลอาร์เจนตินา\n    </p>\n    <p class=\"leading-7\">\n      ดูการสนับสนุนจากพันธมิตร OKVIP ของเราที่นี่ {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} พันธมิตร เป็นเจ้าของโดย <span class=\"font-bold text-base\">Omnispect B.V.</span> บริษัทจำกัดที่จดทะเบียนในคูราเซา หมายเลขทะเบียนบริษัท <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span> ที่อยู่จดทะเบียน <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} พันธมิตร ได้ผ่านการปฏิบัติตามกฎระเบียบทั้งหมดและได้รับอนุญาตทางกฎหมายให้ดำเนินการเล่นเกมออนไลน์และการพนันทุกประเภท\n    </p>"
+  }
+}

@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "평생",
+      "reward": "업적 \n 수상",
+      "achievements": "업적",
+      "achievementDescription": "업적 수상은 새로운 이정표에 도달하고 도전을 극복했을 때 주어지는 보상입니다. 당신의 진행과 성공을 축하하며, 새로운 성과를 달성할 때마다 재미있는 깜짝 보상을 해제합니다!",
+      "claimDistribution": "청구 배분",
+"claimDistributionDescription": "보상은 성공적으로 클레임한 후 3일 동안 보너스 달력에 추가됩니다.",
+      "expiration": "만료",
+      "expirationDescription": "없음 - 보상은 자동으로 캘린더에 전송됩니다.",
+      "generalTerms": "일반 조건",
+      "generalTermsDescription": "보상은 BUCK/USDT로 계산 및 적립되며, 편의를 위해 선호하는 법정화폐로 표시됩니다. 환율 변환은 대략적인 값임을 유의하십시오.\n\n카지노는 언제든지 사유 설명 없이 자격을 변경하거나 취소할 권리를 보유합니다. 남용 또는 부정 행위 시 프로모션에서 제외됩니다."
+    },
+    "luckyNumberSeven": {
+      "title": "럭키 번호 \n 세븐",
+      "luckyNumberSeven": "럭키 번호 세븐",
+      "luckyNumberSevenDescription": "럭키 {{numberOne}}을 맞혀서 멋진 보너스를 받으세요! 해당 슬롯 게임에서 베팅 ID가 {{numberTwo}}, {{numberThree}} 또는 {{numberFour}}로 끝나면 최대 {{money}}까지 깜짝 보너스를 받게 됩니다! 그냥 돌리고, 행운의 숫자를 맞히고, 즐거운 시간(과 보너스)을 즐기세요!",
+      "automaticDistribution": "청구 배분",
+  "automaticDistributionDescription": "보상은 청구 시 보너스 달력에 추가됩니다.",
+      "winningConditions": "당첨 조건",
+      "winningConditionsDescription": "베팅 ID가 {{number}}로 끝나면 베팅 금액의 {{percentage}}가 자동으로 보너스 캘린더에 적립됩니다.",
+      "winningConditionsDescription2": "베팅 ID가 {{number}}로 끝나면 베팅 금액의 {{percentage}}가 자동으로 보너스 캘린더에 적립됩니다.",
+      "winningConditionsDescription3": "베팅 ID가 {{number}}로 끝나면 베팅 금액의 {{percentage}}가 자동으로 보너스 캘린더에 적립됩니다.",
+      "expiration": "만료",
+      "expirationDescription": "없음 - 보상은 자동으로 캘린더에 전송됩니다.",
+      "eligibility": "적격성",
+      "eligibilityDescription": "{{providerOne}} 소프트, Pragmatic Play 및 {{providerTwo}} 슬롯에서 베팅한 경우에만 이 프로모션에 참여할 수 있습니다.",
+      "generalTerms": "일반 조건",
+      "generalTermsDescription": "행운의 {{number}} 콤보는 하루에 한 번만 당첨될 수 있습니다.\n\n보너스 금액은 각 해당 베팅 ID당 {{money}}로 제한됩니다.\n\n보상은 BUCK/USDT로 계산 및 적립되며, 편의를 위해 선호하는 법정화폐로 표시됩니다. 환율 변환은 대략적인 값임을 유의하십시오.\n\n카지노는 언제든지 이 프로모션을 변경하거나 종료할 권리를 보유합니다. 남용 또는 부정 행위 시 프로모션에서 제외됩니다."
+    },
+    "mysteryBox": {
+"title": "월간",
+      "reward": "미스터리 \n 박스",
+      "mysteryBox": "미스터리 박스",
+  "mysteryBoxDescription": "플레이할수록 큰 상을 받을 확률이 높아집니다. 매달 7일에 미스터리 박스를 열어 활동에 맞춘 깜짝 보너스를 확인하세요. 돌리고, 플레이하고, 안에 있는 보상을 받으세요!",
+      "claimDistribution": "청구 배분",
+      "claimDistributionDescription": "100% 는 잔액으로",
+      "goldMembersAndAbove": "골드 회원 이상",
+      "yourBalance": "잔액에 {{percentage}}",
+      "yourCalendar": "{{days}}일 동안 캘린더에 {{percentage}}",
+      "minimumClaimAmount": "최소 청구 금액은 {{money}}입니다",
+      "expiration": "만료",
+  "expirationDescription": "미스터리 박스는 지급 후 7일 이내에 수령해야 합니다. 미수령 보상은 기간이 지나면 만료됩니다.",
+      "generalTerms": "일반 조건",
+  "generalTermsDescription": "보상은 사용자의 첫 입금 또는 입금이 없을 경우 USDT를 기준으로 계산 및 적립되며, 1배 롤오버 조건이 적용됩니다. 금액은 선호하는 법정 화폐로 표시되며, 환산은 대략적인 수치입니다.\n\n카지노는 사전 통보 없이 언제든지 적격성을 변경하거나 취소할 권리를 보유합니다. 부정 행위나 사기가 적발될 경우 실격 처리됩니다."
+    },
+    "TheCannon": {
+      "title": "더",
+      "reward": "캐논",
+      "theCannon": "더 캐논",
+      "theCannonDescription": "가장 큰 월간 보상 이벤트인 더 캐논을 발사할 준비를 하세요! 매달 {{day}}일에, 적격 플레이어는 캐논을 발사하여 폭발적인 상금을 획득할 기회를 얻습니다.",
+      "claimDistribution": "청구 배분",
+      "claimDistributionDescription": "{{percentageOne}}는 잔액으로 \n {{percentageTwo}}는 {{days}}일 동안 캘린더에",
+      "goldMembersAndAbove": "골드 회원 이상",
+      "yourBalance": "잔액에 {{percentage}}",
+      "yourCalendar": "{{days}}일 동안 캘린더에 {{percentage}}",
+      "minimumClaimAmount": "최소 청구 금액은 {{money}}입니다",
+      "expiration": "만료",
+      "expirationDescription": "다음 리로드 전까지 캐논을 발사해야 합니다. 미청구 보상은 다음 사이클 시작 시 만료됩니다.",
+      "generalTerms": "일반 조건",
+      "generalTermsDescription": "보상은 BUCK/USDT로 계산 및 적립되며, 편의를 위해 선호하는 법정화폐로 표시됩니다. 환율 변환은 대략적인 값임을 유의하십시오.\n\n카지노는 언제든지 사유 설명 없이 자격을 변경하거나 취소할 권리를 보유합니다. 남용 또는 부정 행위 시 프로모션에서 제외됩니다."
+    }
+  }
+  

@@ -1,0 +1,38 @@
+{
+    "goBack": "Kembali",
+    "tryAgain": "Coba Lagi",
+    "retry": "Ulangi",
+    "retryConnection": "Ulangi Koneksi",
+    "emptyStateNoContent": {
+        "title": "Belum Ada Apa-Apa Di Sini!",
+        "description": "Sepertinya tidak ada konten di sini saat ini. Periksa kembali nanti atau coba yang lain."
+    },
+    "failedToLoadPage": {
+        "title": "Sesuatu Salah",
+        "description": "Terjadi kesalahan sistem saat memuat halaman. Silakan muat ulang halaman, atau hubungi dukungan jika masalah terus berlanjut."
+    },
+    "otherActiveSession": {
+        "title": "Kesalahan Sesi!",
+        "description": "Akses dari perangkat ini tidak tersedia karena alasan keamanan. Ini mungkin karena login lain atau masalah sistem. Coba lagi atau gunakan perangkat lain."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Anda Offline",
+        "description": "Sepertinya Anda tidak terhubung ke internet. Periksa Wi-Fi atau data seluler Anda dan coba lagi saat online."
+    },
+    "pageNotFound": {
+        "title": "Ups! Halaman Ini Hilang",
+        "description": "Sepertinya halaman ini tidak ada atau dipindahkan. Periksa URL atau kembali ke beranda."
+    },
+    "tooManyRequest": {
+        "title": "Tunggu Sebentar! Kami Sedang Sibuk",
+        "description": "Sepertinya server kami sedang sibuk saat ini. Tunggu sebentar dan coba lagi."
+    },
+    "underMaintenance": {
+        "title": "Kami Akan Segera Kembali!",
+        "description": "Kami sedang melakukan pembaruan untuk menjaga kelancaran. Periksa kembali segera!"
+    },
+    "userRestriction": {
+        "title": "Ups! Anda Tidak Dapat Akses Ini",
+        "description": "Sepertinya Anda tidak punya izin untuk melihat ini. Periksa akses Anda atau cari bantuan."
+    }
+}

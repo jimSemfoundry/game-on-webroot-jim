@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "ELINAJAN",
+      "reward": "SAAVUTUKSET \n PALKINNOT",
+      "achievements": "Saavutukset",
+      "achievementDescription": "Saavutuspalkinnot ovat palkintoja uusien virstanpylväiden saavuttamisesta ja haasteiden voittamisesta. Ne juhlistavat edistymistäsi ja menestystäsi, avaten hauskoja yllätyksiä matkan varrella!",
+      "claimDistribution": "Vaatimusten Jakaminen",
+"claimDistributionDescription": "Palkinnot lisätään bonuskalenteriisi 3 päivän ajaksi onnistuneen lunastuksen jälkeen.",
+      "expiration": "Vanhentuminen",
+      "expirationDescription": "Ei vanhene - palkinnot lähetetään automaattisesti kalenteriin.",
+      "generalTerms": "Yleiset Ehdot",
+      "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään BUCK/USDT-muodossa, ja ne näytetään mieltyneessä fiat-valuutassasi mukavuuden vuoksi. Huomaa, että valuutanvaihdot ovat likimääräisiä.\n\nKasino pidättää oikeuden muuttaa tai peruuttaa oikeudet milloin tahansa ilman velvollisuutta perustella. Kaikki väärinkäytökset tai petollinen toiminta johtavat kilpailusta sulkemiseen."
+    },
+    "luckyNumberSeven": {
+      "title": "Onnennumero \n Seitsemän",
+      "luckyNumberSeven": "Onnennumero Seitsemän",
+      "luckyNumberSevenDescription": "Osu Onnen {{numberOne}}siin ja nappaa makea bonus! Jos Panoksesi tunnus päättyy numeroihin {{numberTwo}}, {{numberThree}} tai {{numberFour}} pelatessasi kelvollisilla kolikkopeleillä, saat yllätyspalkinnon – jopa {{money}}! Pyöritä, osu onnen numeroihin ja anna hauskan (ja bonusten) pyöriä!",
+  "automaticDistribution": "Vaatimusten jakaminen",
+  "automaticDistributionDescription": "Palkinnot lisätään bonusaikatauluusi vaatimuksen yhteydessä.",
+      "winningConditions": "Voittokriteerit",
+      "winningConditionsDescription": "Jos Panoksesi tunnus päättyy numeroon {{number}}, saat automaattisesti {{percentage}} panoksestasi bonuskalenteriisi.",
+      "winningConditionsDescription2": "Jos Panoksesi tunnus päättyy numeroon {{number}}, saat automaattisesti {{percentage}} panoksestasi bonuskalenteriisi.",
+      "winningConditionsDescription3": "Jos Panoksesi tunnus päättyy numeroon {{number}}, saat automaattisesti {{percentage}} panoksestasi bonuskalenteriisi.",
+      "expiration": "Vanhentuminen",
+      "expirationDescription": "Ei vanhene - palkinnot lähetetään automaattisesti kalenteriin.",
+      "eligibility": "Kelpoisuus",
+      "eligibilityDescription": "Vain {{providerOne}} Softin, Pragmatic Playn ja {{providerTwo}} kolikkopelit kelpaavat tähän kampanjaan.",
+      "generalTerms": "Yleiset Ehdot",
+      "generalTermsDescription": "Voit voittaa jokaisen onnen {{number}} yhdistelmän kerran päivässä.\n\nBonuksen enimmäismäärä on {{money}} per kelvollinen Panoksen tunnus.\n\nPalkinnot lasketaan ja hyvitetään BUCK/USDT:ssä, ja ne näytetään mieltyneessä fiat-valuutassasi mukavuuden vuoksi. Huomaa, että valuutanvaihdot ovat likimääräisiä.\n\nKasino pidättää oikeuden muuttaa tai lopettaa tämän kampanjan milloin tahansa. Väärinkäytökset tai petollinen toiminta johtavat kilpailusta sulkemiseen."
+    },
+    "mysteryBox": {
+"title": "KUUKAUSITTAIN",
+      "reward": "SALAINEN \n LAATIKKO",
+      "mysteryBox": "Salainen Laatikko",
+  "mysteryBoxDescription": "Mitä enemmän pelaat, sitä paremmat mahdollisuutesi ovat voittaa suuria palkintoja. Avaa mysteerilaatikkosi joka kuukauden 7. päivä paljastaaksesi yllätyspalkintoja, jotka on räätälöity toimintaasi varten. Pyöritä, pelaa ja lunasta se, mikä sinua odottaa sisällä!",
+      "claimDistribution": "Vaatimusten Jakaminen",
+      "claimDistributionDescription": "100% saldollesi",
+      "goldMembersAndAbove": "Kultajäsenet ja sitä ylemmät",
+      "yourBalance": "{{percentage}} saldollesi",
+      "yourCalendar": "{{percentage}} kalenteriisi {{days}} päivän ajaksi",
+      "minimumClaimAmount": "Vähimmäisvaatimus on {{money}}",
+      "expiration": "Vanhentuminen",
+  "expirationDescription": "Mysteerilaatikkosi tulee lunastaa 7 päivän kuluessa sen saamisesta. Lunastamattomat palkinnot vanhenevat tämän ajan jälkeen.",
+      "generalTerms": "Yleiset Ehdot",
+  "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään käyttäjän ensimmäisen talletuksen perusteella tai USDT:ssä, jos talletusta ei ole tehty, edellyttäen 1x kierrätysvaatimusta. Summat näytetään suosimassasi fiat-valuutassa; muunnokset ovat likimääräisiä.\n\nKasinolla on oikeus muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman erillistä ilmoitusta. Kaikki väärinkäytökset tai petokset johtavat hylkäykseen."
+    },
+    "TheCannon": {
+      "title": "TYKKI",
+      "reward": "TYKKI",
+      "theCannon": "Tykkipeli",
+      "theCannonDescription": "Valmistaudu laukaisemaan Tykkipeli — suurin kuukausittainen palkintotapahtumamme! Jokaisen kuukauden {{day}} päivä oikeutetut pelaajat saavat mahdollisuuden ampua tykillä ja voittaa räjähtäviä palkintoja.",
+      "claimDistribution": "Vaatimusten Jakaminen",
+      "claimDistributionDescription": "{{percentageOne}} saldollesi \n {{percentageTwo}} kalenteriisi {{days}} päivän ajaksi",
+      "goldMembersAndAbove": "Kultajäsenet ja sitä ylemmät",
+      "yourBalance": "{{percentage}} saldollesi",
+      "yourCalendar": "{{percentage}} kalenteriisi {{days}} päivän ajaksi",
+      "minimumClaimAmount": "Vähimmäisvaatimus on {{money}}",
+      "expiration": "Vanhentuminen",
+      "expirationDescription": "Tykkisi on ammuttava ennen seuraavaa latausta. Lunastamattomat palkinnot vanhenevat seuraavan kierroksen alussa.",
+      "generalTerms": "Yleiset Ehdot",
+      "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään BUCK/USDT-muodossa, ja ne näytetään mieltyneessä fiat-valuutassasi mukavuuden vuoksi. Huomaa, että valuutanvaihdot ovat likimääräisiä.\n\nKasino pidättää oikeuden muuttaa tai peruuttaa oikeudet milloin tahansa ilman velvollisuutta perustella. Kaikki väärinkäytökset tai petollinen toiminta johtavat kilpailusta sulkemiseen."
+    }
+  }
+  

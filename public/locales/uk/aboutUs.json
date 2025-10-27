@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Про нас",
+"content": "<p class=\"leading-7\">\n      У {{gameLink}} Альянсі ми зібрали команду, щоб запропонувати вам найновіші онлайн-розваги, захоплюючі враження та миттєвий доступ до ваших коштів. Наша місія — стати найкращим криптоігровим напрямком для нашої аудиторії у всьому світі.\n    </p>\n    <p class=\"leading-7\">\n      Ми є частиною альянсу OKVIP: офіційних спонсорів Villareal CF, AC Milan та Аргентинської футбольної асоціації.\n    </p>\n    <p class=\"leading-7\">\n      Ознайомтеся зі спонсорствами нашого альянсу OKVIP тут. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Альянс належить компанії <span class=\"font-bold text-base\">Omnispect B.V.</span>, товариству з обмеженою відповідальністю, зареєстрованому в Кюрасао з реєстраційним номером <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, з юридичною адресою за адресою <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Віллемстад.</span>\n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} Альянс пройшов усі регуляторні вимоги та має законне право здійснювати гральну діяльність для всіх онлайн-ігор та ставок.\n    </p>"
+  }
+}

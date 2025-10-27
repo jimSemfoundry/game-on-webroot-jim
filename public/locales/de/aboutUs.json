@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Über uns",
+"content": "<p class=\"leading-7\">\n      Bei {{gameLink}} Allianz haben wir ein Team zusammengestellt, um Ihnen die neuesten Online-Unterhaltungen, spaßige Erlebnisse und sofortigen Zugriff auf Ihre Gelder zu bieten. Unsere Mission ist es, das ultimative Krypto-Gaming-Ziel für unser Publikum weltweit zu werden.         \n    </p>\n    <p class=\"leading-7\">\n      Wir sind Teil der OKVIP Allianz: Offizielle Sponsoren von Villareal CF, AC Milan und dem argentinischen Fußballverband.\n    </p>\n    <p class=\"leading-7\">\n      Sehen Sie sich hier die Sponsorings unserer OKVIP Allianz an. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Allianz wird betrieben von <span class=\"font-bold text-base\">Omnispect B.V.</span>, einer Gesellschaft mit beschränkter Haftung, registriert in Curaçao mit der Handelsregisternummer <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, mit eingetragener Adresse in <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} Allianz hat alle regulatorischen Anforderungen erfüllt und ist gesetzlich befugt, Glücksspieloperationen für alle Online-Glücksspiele und Wetten durchzuführen.         \n    </p>"
+  }
+}

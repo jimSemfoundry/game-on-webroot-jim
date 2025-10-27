@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "私たちについて",
+"content": "<p class=\"leading-7\">\n      {{gameLink}}アライアンスでは、最新のオンラインエンターテインメント、楽しい体験、そして資金への即時アクセスを提供するためにチームを結成しました。私たちの使命は、世界中のユーザーにとって究極の暗号ゲームの目的地となることです。         \n    </p>\n    <p class=\"leading-7\">\n      私たちはOKVIPアライアンスの一員であり、ビジャレアルCF、ACミラン、アルゼンチンサッカー協会の公式スポンサーです。\n    </p>\n    <p class=\"leading-7\">\n      こちらでOKVIPアライアンスのスポンサーシップをご確認ください。{{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}}アライアンスは、<span class=\"font-bold text-base\">Omnispect B.V.</span>が所有しており、キュラソーに登録された有限責任会社で、会社登録番号は<span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>、登録住所は<span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, ウィレムスタッド</span>です。           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}}アライアンスはすべての規制要件をクリアしており、あらゆるオンラインギャンブルおよび賭博ゲームの運営を合法的に許可されています。         \n    </p>"
+  }
+}

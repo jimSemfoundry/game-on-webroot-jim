@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "CZYM SĄ BONUSY ZA AWANS NA WYŻSZY POZIOM?",
+    "content": "<p class=\"leading-7\">Bonus za awans to nasz sposób na okazanie uznania lojalnym graczom. WRAZ Z AWANSEM NA KOLEJNE POZIOMY VIP GRACZE ODBLOKOWUJĄ WYŻSZE NAGRODY.</p>"
+  },
+  "faqTwo": {
+    "title": "CZYM JEST CODZIENNY ZWROT GOTÓWKI?",
+    "content": "<p class=\"leading-7\">CODZIENNY ZWROT GOTÓWKI JEST PRZYZNAWANY GRACZOM, KTÓRZY PONIEŚLI STRATY W STOSUNKU DO DEPOZYTU. TEN BONUS JEST WYPŁACANY CODZIENNIE JAKO PROCENT STRAT GRACZA. CODZIENNY PROCENT ZWROTU GOTÓWKI WZRASTA WRAZ Z POZIOMAMI előttVIP, AŻ DO MAKSYMALNIE 40% ZWROTU GOTÓWKI, NAJWYŻSZEGO ZWROTU GOTÓWKI NA RYNKU. PAMIĘTAJ, ŻE TEN BONUS JEST PRZEZNACZONY TYLKO DLA GRACZY Z STRATĄ NETTO.</p>"
+  },
+  "faqThree": {
+    "title": "CZYM SĄ PODBOJE?",
+    "content": "<p class=\"leading-7\">PODBOJE TO CODZIENNE ZADANIA LOSOWO PRZYZNAWANE GRACZOM, ABY ZDOBYĆ DODATKOWE NAGRODY PODCZAS GRY NA NASZEJ STRONIE. NAGRODY ZA PODBOJE MUSZĄ ZOSTAĆ ODEBRANE W CIĄGU 24 GODZIN PRZED RESETEM CODZIENNYM, W PRZECIWNYM RAZIE WYGASAJĄ. NAGRODY ZA PODBOJE SĄ WYPŁACANE W WALUCIE BUCK/USDT I MOGĄ ZOSTAĆ ZAMIENIONE NA WYBRANĄ KRYPTOWALUTĘ ZA POŚREDNICTWEM NASZEJ FUNKCJI WYMIANY.</p>"
+  },
+  "faqFour": {
+    "title": "Czym są nagrody turniejowe?",
+    "content": "<p class=\"leading-7\">Nagrody turniejowe to nagrody przyznawane za wybitne osiągnięcia w zawodach. Nagrody turniejowe będą gromadzone do momentu ich odebrania i nie mają daty wygaśnięcia. Nagrody turniejowe są wypłacane w BUCK/USDT i mogą zostać zamienione na wybraną przez Ciebie kryptowalutę za pośrednictwem naszej funkcji wymiany.</p>"
+  },
+  "faqFive": {
+    "title": "Czym jest Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback to nasz mechanizm odblokowujący Twoje bonusy od depozytu. Procent Twojego zakładu (do 3%) jest zwracany za każdym razem, gdy postawisz zakład. Im wyższy poziom VIP, tym wyższy wskaźnik odblokowania. Odblokowane BUCK/USDT= Zakład x 2,5% x Stopa odblokowania%</p><p class=\"leading-7\">Współczynnik odblokowania:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Co to jest Booster?",
+    "content": "<p class=\"leading-7\">Boostery podwajają Twój Rakeback na godzinę za każdym razem, gdy polecony dokona wpłaty.</p><p class=\"leading-7\">Zwiększony współczynnik odblokowania:</p><p class=\"leading-7\">Współczynnik odblokowania:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Czym jest kalendarz bonusowy?",
+    "content": "<p class=\"leading-7\">Większość bonusów jest wypłacana w wysokości 50% do Twojego Salda Rzeczywistego i 50% do Twojego Kalendarza Bonusów. Bonusy wypłacane do Twojego Kalendarza Bonusów mogą być odbierane co 8 godzin i wygasają w ciągu 24 godzin, jeśli nie zostaną odebrane. Pamiętaj, aby odbierać bonusy z Kalendarza Bonusów przynajmniej raz dziennie, aby mieć pewność, że wszystkie nagrody zostaną odebrane!</p>"
+  },
+  "faqEight": {
+    "title": "Czym jest premia tygodniowa?",
+    "content": "<p class=\"leading-7\">Bonus tygodniowy to ekskluzywny dodatek na naszej stronie przeznaczony dla graczy o statusie VIP12 i wyższym. Bonus ten jest przyznawany co tydzień i automatycznie wypłacany w każdy piątek graczom VIP12 i wyższym. Wielkość bonusu zależy od kwoty postawionej w ciągu ostatniego tygodnia, przy czym minimalny wymagany zakład wynosi {{minWager}} w ciągu ostatniego tygodnia.</p>"
+  },
+  "faqNine": {
+    "title": "Czym są osiągnięcia?",
+    "content": "<p class=\"leading-7\">OSIĄGNIĘCIA TO NASZ SPOSÓB NA DOCENIENIE TWOJEJ AKTYWNOŚCI NA NASZEJ PLATFORMIE. KIEDY ODBIERZESZ BONUS ZA OSIĄGNIĘCIA, ZOSTANIE ON WYPŁACONY DO TWOJEGO KALENDARZA BONUSÓW I MOŻE BYĆ ODBIERANY CO 8 GODZIN. BONUSY WYGASAJĄ PO 24 GODZINACH, JEŚLI NIE ZOSTANĄ ODEBRANE.</p>"
+  }
+}

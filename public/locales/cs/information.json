@@ -1,0 +1,38 @@
+{
+    "goBack": "Zpět",
+    "tryAgain": "Zkusit znovu",
+    "retry": "Zkusit znovu",
+    "retryConnection": "Opakovat připojení",
+    "emptyStateNoContent": {
+ "title": "Zatím tu nic není!",
+ "description": "Vypadá to, že zde momentálně není žádný obsah. Zkuste to později nebo vyzkoušejte něco jiného."
+    },
+    "failedToLoadPage": {
+        "title": "Něco se pokazilo",
+        "description": "Při načítání stránky došlo k systémové chybě. Prosím, načtěte stránku znovu nebo kontaktujte podporu, pokud problém přetrvává."
+    },
+    "otherActiveSession": {
+        "title": "Chyba relace!",
+        "description": "Přístup z tohoto zařízení je v současné době z bezpečnostních důvodů nedostupný. Důvodem může být jiné přihlášení nebo problém se systémem. Zkuste to prosím znovu nebo použijte jiné zařízení."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Jste offline",
+        "description": "Vypadá to, že nejste připojeni k internetu. Zkontrolujte Wi-Fi nebo mobilní data a zkuste to znovu, jakmile budete opět online."
+    },
+    "pageNotFound": {
+        "title": "Ups! Tato stránka chybí",
+        "description": "Vypadá to, že tato stránka neexistuje nebo byla přesunuta. Zkuste zkontrolovat adresu URL nebo se vraťte domů."
+    },
+    "tooManyRequest": {
+ "title": "Momentík! Máme trochu napilno",
+ "description": "Vypadá to, že naše servery toho momentálně hodně zpracovávají. Dejte tomu chvíli a zkuste to znovu."
+    },
+    "underMaintenance": {
+        "title": "Hned se vrátíme!",
+ "description": "Provádíme několik aktualizací, aby vše fungovalo hladce. Brzy se vraťte!"
+    },
+    "userRestriction": {
+ "title": "Ups! K tomuto nemáte přístup",
+ "description": "Vypadá to, že nemáte oprávnění k zobrazení. Zkontrolujte si přístup nebo se obraťte na podporu."
+    }
+}

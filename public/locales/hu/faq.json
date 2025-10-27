@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Hány Évesnek Kell Lennem a Regisztrációhoz az Oldalukon?",
+    "content": "<p class=\"leading-7\">Legalább {{faqAge}} évesnek kell lennie, vagy az Ön joghatósága szerinti nagykorúsági korhatárt kell elérnie a regisztrációhoz. Továbbá az Önre vonatkozó törvények szerint jogszerűen engedélyezettnek kell lennie online játékok játszására. További információért kérjük, olvassa el szolgáltatási feltételeinket.</p><p class=\"leading-7\">A szerencsejáték függőséget okozhat, ezért javasoljuk az önkontroll gyakorlását.</p>"
+  },
+  "faqTwo": {
+    "title": "Milyen Pénznemeket Támogat a Pénztárca?",
+    "content": "<p class=\"leading-7\">Főbb kriptovalutákat támogatunk, például {{currency}}.</p>"
+  },
+  "faqThree": {
+    "title": "Hogyan Tudok Befizetni?",
+    "content": "<p class=\"leading-7\">Látogasson el az Ön profiloldalára, kattintson a \"Befizetés\" gombra, válassza ki a kívánt kriptovalutát, másolja ki a pénztárca címét, vagy szkennelje be a QR-kódot a fizetéshez.</p>"
+  },
+  "faqFour": {
+    "title": "Cserélhetem a Kriptovalutáimat az Oldalukon?",
+    "content": "<p class=\"leading-7\">Az {{siteName}} csere funkciót kínál, amely lehetővé teszi az Ön kriptovalutáinak biztonságos és egyszerű átváltását más kriptovalutákra. Az érmekeverési aggályok miatt azonban az {{siteName}}-ra befizetett kriptovalutákra 1x fogadási követelmény vonatkozik, ami azt jelenti, hogy legalább egyszer meg kell tennie a befizetett összeget, mielőtt átválthatja.</p>"
+  },
+  "faqFive": {
+    "title": "Hogyan Tudok Kifizetést Kezdeményezni?",
+    "content": "<p class=\"leading-7\">Látogasson el az Ön profiloldalára, kattintson a \"Kifizetés\" gombra, adja meg a pénztárca címét, ahová ki szeretné utalni a pénzt, valamint a kifizetni kívánt összeget. (Kérjük, vegye figyelembe, hogy a különböző blokkláncok eltérő díjakat számíthatnak fel.)</p>"
+  },
+  "faqSix": {
+    "title": "Mennyi az Egyes Kriptovaluták Minimális Kifizetési Összege?",
+    "content": "<p class=\"leading-7\">A kriptovaluták eltérő értéke és a kapcsolódó bányászati díjak miatt kérjük, ellenőrizze a kifizetési oldalon az egyes kriptovaluták minimális kifizetési összegeit.</p>"
+  },
+  "faqSeven": {
+    "title": "Mennyi Ideig Tart a Befizetés és a Kifizetés?",
+    "content": "<p class=\"leading-7\">Minden blokklánc-tranzakció több ciklust igényel a megerősítéshez.</p><p class=\"leading-7\">Általában a BTC és ETH láncokon egy tranzakció megerősítése 5-10 percet vesz igénybe a blokklánc hálózaton; a TRON, TON és SOLANA láncokon pedig körülbelül 1-2 percet.</p><p class=\"leading-7\">Ha problémát tapasztal a befizetés vagy kifizetés során, ellenőrizheti tranzakcióját a megfelelő blokklánc-kutatóval, vagy kapcsolatba léphet élő ügyfélszolgálatunkkal.</p>"
+  },
+  "faqEight": {
+    "title": "Honnan Származnak a Tranzakciós Megerősítések?",
+    "content": "<p class=\"leading-7\">Minden megerősítési információ a blokkláncból és a blokklánc bányászaiból származik.</p>"
+  },
+  "faqNine": {
+    "title": "Tisztességesek a Játékaik?",
+  "content": "<p class=\"leading-7\">Az Átláthatóság, a Bizalom és az Igazságosság a {{gameLink}} alapvető értékei és vállalkozásunk alapjai. Ezért csak megbízható, vezető játékpartnerekkel dolgozunk, hogy ügyfeleink megkaphassák a megérdemelt minőségi élményt.</p><p class=\"leading-7\">Partnereink minden játéka független auditorok által szigorúan tesztelt a véletlenszerűség szempontjából, és engedélyezett a szerencsejáték-szabályozók által, akik gyakori ellenőrzéseket végeznek a véletlenszám-generátorukon.</p>"
+  },
+  "faqTen": {
+    "title": "Mit Tegyek, Ha a Játékom Lefagy vagy Megszakad a Kapcsolat?",
+    "content": "<p class=\"leading-7\">Ha technikai problémába ütközik, kérjük, próbálja meg frissíteni az oldalt. A játékállapotokat szolgáltatóink mentik, így újracsatlakozáskor Önnek látnia kell a korábbi játékállapotot.</p>"
+  }
+}

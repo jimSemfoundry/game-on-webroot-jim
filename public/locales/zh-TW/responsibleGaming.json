@@ -1,0 +1,30 @@
+{
+  "responsibleGaming": {
+    "title": "負責任博彩",
+    "content": "<p class=\"leading-7\">{{gameLink}} 致力於促進我們平台及社區內所有客戶的負責任博彩實踐。我們致力確保客戶了解各種可用的負責任博彩工具，推廣博彩作為一種娛樂形式，並賦予個人做出明智博彩決策的能力。</p><br /><p class=\"leading-7\">有效管理您的博彩活動的6個提示</p><ol class=\"pl-2 leading-7\"><li><span class=\"\">• </span>透過優先考慮其他休閒活動來有效管理您的博彩活動</li><li><span class=\"\">• </span>在博彩前，計劃好您想花費多少錢及遊玩多長時間</li><li><span class=\"\">• </span>不要花費超過您能承受的損失</li><li><span class=\"\">• </span>了解賠率並認識博彩相關的風險</li><li><span class=\"\">• </span>當您不再感到樂趣或博彩對您造成問題時，請停止</li><li><span class=\"\">• </span>設定虧損限額及投注限額以協助管理您的博彩活動</li></ol>"
+  },
+  "houseAdvantage": {
+    "title": "莊家優勢",
+    "content": "<p class=\"leading-7\">遊戲具有莊家優勢，以確保總投注金額的一定比例返還給莊家，在本例中為 {{gameLink}}。</p>"
+  },
+  "randomness": {
+    "title": "隨機性",
+    "content": "<p class=\"leading-7\">所有博彩活動均具有隨機性；無法控制任何娛樂場遊戲或體育賽事的結果。</p>"
+  },
+  "independentOutcomes": {
+    "title": "獨立結果",
+    "content": "<p class=\"leading-7\">遊戲/旋轉之間互不相關。其結果與您之前玩遊戲的次數或時間無關。</p>"
+  },
+  "oddsAndProbability": {
+    "title": "賠率與機率",
+    "content": "<p class=\"leading-7\">賠率和機率是用來描述獲勝機會的方式。儘管賠率可能看似較低，但投注中不存在確定性。</p>"
+  },
+  "introducingOurResponsibleGamblingTools": {
+    "title": "負責任博彩工具介紹",
+  "content": "<p class=\"leading-7\">賭博應始終是一種娛樂方式。為了幫助您保持賭博活動的樂趣，{{gameLink}} 提供了一系列負責任的賭博工具，您可以隨時使用。玩得開心，不為錢財。</p><br /><p class=\"text-lg leading-7 font-bold\">賭博限制</p><br /><p class=\"text-base leading-7 font-semibold\">虧損限制</p><p class=\"leading-7\">虧損限制允許您設定在指定期間內您能承受的最大虧損額度。限制可以設定為一天、一週或一個月。這是淨虧損限制。在指定期間內獲得的盈利不會計入您的限制金額。如果您在該期間內盈利，您可以使用盈利繼續下注，直到達到虧損限制。未結算的賭注會計入限制。若您無法下注，請檢查未結算的賭注，因為這些可能導致您達到限制。</p><br /><p class=\"text-base leading-7 font-semibold\">下注限制</p><p class=\"leading-7\">下注限制（或投注限制）允許您設定在指定期間內您可下注的最大金額。最大投注限制可以設定為一天、一週或一個月。該限制非淨限制，因此盈利不計入。這表示若您在期間內盈利，這些盈利不會抵銷您的最大下注限制。減少現有限制立即生效。增加限制時，您的新限制需經過24小時冷靜期後才生效。</p><br /><p class=\"text-base leading-7 font-semibold\">自我排除</p><p class=\"leading-7\">自我排除工具讓您能夠暫停帳戶的所有存取權，若您感覺自己有發展賭博問題的風險，或在某些情況下，相信自己已有此問題。</p><br /><p class=\"leading-7\">可選擇的期間如下：</p><ol class=\"pl-2 leading-7\"><li>• 6個月</li><li>• 1年</li><li>• 無限期</li></ol><p class=\"leading-7\">若設定無限期排除，您的帳戶將持續被封鎖，直到您主動申請撤銷無限期排除。無限期排除自申請日起至少有6個月的最低排除期。6個月期滿後，您的帳戶可在正式的恢復遊戲審核後考慮重新啟用。欲啟動審核程序，請以電子郵件聯絡我們的客服團隊。</p><br /><p class=\"text-base leading-7 font-semibold\">臨時排除</p><p class=\"leading-7\">{{gameLink}} 亦提供替代方案，允許您暫時停用帳戶，稱為臨時排除。無論您是想暫時休息以重新評估個人目標、存錢或單純投入其他活動，該選項皆可供您使用。</p><br /><p class=\"leading-7\">可選擇的期間如下：</p><ol class=\"pl-2 leading-7\"><li>• 1天</li><li>• 1週</li><li>• 1個月</li><li>• 3個月</li></ol><br /><p class=\"leading-7\">注意：若我們判定繼續賭博對您可能不安全，{{gameLink}} 保留自行排除客戶帳戶之權利。</p><br /><p class=\"text-base leading-7 font-semibold\">臨時排除或自我排除的申請</p><ol class=\"list-decimal pl-4 leading-7\"><li>首次申請時，您的帳戶將進入24小時冷靜期</li><li>24小時冷靜期結束後，您將獲得適用時間範圍的資訊</li><li>若未選擇自我排除期間，您的帳戶將自動重新開啟</li><li>排除生效後，不允許任何進一步操作</li><li>在所選期間屆滿前，無法重新啟用帳戶</li><li>當指定自我排除生效時，您的帳戶將於期限屆滿後自動重新啟用</li><li>當無限期自我排除生效時，無論是由用戶或營運商設定，均須至少6個月後方可考慮帳戶審查</li></ol><br /><p class=\"text-base leading-7 font-semibold\">關閉我的 {{gameLink}} 帳戶</p><p class=\"leading-7\">{{gameLink}} 提供關閉帳戶的選項，若您願意。使用者可因各種原因選擇關閉帳戶，可能是不再覺得賭博有趣，或因其他與賭博問題無關的個人原因。</p><p class=\"leading-7\">若要關閉帳戶，請透過聊天或電子郵件聯絡我們的客服團隊，郵箱為 {{supportEmailLink}}</p><p class=\"leading-7\">請注意，帳戶關閉後，{{gameLink}} 將禁止您：</p><ol class=\"pl-2 leading-7\"><li>• 存取您的帳戶</li><li>• 接收任何額外獎金或推廣材料</li></ol><br /><p class=\"text-base leading-7 font-semibold\">重新啟用已關閉的帳戶</p><p class=\"leading-7\">若您想重新啟用帳戶，須透過聊天或電子郵件服務（{{supportEmailLink}}）正式提交書面申請，方可恢復帳戶。帳戶關閉後必須有至少24小時的冷靜期，才會考慮重新開啟。某些情況下，{{gameLink}} 可能會自行決定在做出重新開啟帳戶的決定前進行內部審查。</p><p class=\"leading-7\">注意：{{gameLink}} 保留隨時自行決定關閉客戶帳戶的權利。</p><br /><p class=\"text-base leading-7 font-semibold\">協助組織</p><p class=\"leading-7\">若您擔心自己，或認識有人在控制賭博方面遇到困難，有多個外部支援機構可提供諮詢協助。</p><br /><p class=\"text-base leading-7 font-semibold\">匿名賭徒協會</p><p class=\"leading-7\">網站：{{anonymousLink}}</p><br /><p class=\"text-base leading-7 font-semibold\">賭博治療</p><p class=\"leading-7\">網站：{{therapyLink}}</p><p class=\"leading-7\">聯絡方式：{{therapyEmailLink}}</p><br /><p class=\"text-base leading-7 font-semibold\">國家問題賭博委員會</p><p class=\"leading-7\">國家問題賭博委員會提供多種資源，包括常見問題解答、賭博行為自我評估、治療資訊及國家問題賭博求助熱線（1-800-GAMBLER），為您連結所在州的協助（加拿大）。</p><p class=\"leading-7\">電話：<span class=\"text-primary font-bold text-sm\">+18004262537</span></p><p class=\"leading-7\">聊天：{{chatLink}}</p><br /><p class=\"text-base leading-7 font-semibold\">Gamtalk</p><p class=\"leading-7\">Gamtalk 提供全球致力於幫助問題賭博者的組織之求助熱線、治療與線上資源資訊。</p><p class=\"leading-7\">網站：{{supportLink}}</p>"
+  },
+  "minors": {
+    "title": "未成年人",
+  "contentMinors": "<p class=\"leading-7\">{{gameLink}} 不支持未成年人賭博。</p><p class=\"leading-7\">未成年人賭博為非法，定義為註冊帳戶時年齡未滿 {{minorsAge}} 歲之任何人。</p><p class=\"leading-7\">若確認為未成年人，不應支付任何獎金給該玩家。</p><br /><p class=\"text-base leading-7 font-semibold\">給家長的建議</p><ol class=\"pl-2 leading-7\"><li>• 當賭場軟體運行時，請勿將電腦無人看管。</li><li>• 請為您的賭場程式設置密碼保護。</li><li>• 不允許未成年人參與任何賭博活動。</li><li>• 請將賭場帳號及付款卡片放置於未成年人無法接觸之處。</li><li>• 不要將密碼儲存在電腦中。</li><li>• 限制孩子上網時間，並使用軟體防止其接觸不當內容。</li></ol><br /><p class=\"text-base leading-7 font-semibold\">賭博封鎖</p><p class=\"leading-7\">市面上有賭博網站封鎖應用程式，可協助限制對賭博網站的存取，作為保護自己或在某些情況下保護未成年人免於賭博影響的措施。Betblocker</p><p class=\"leading-7\">{{blocksLink}}</p><br /><p class=\"text-base leading-7\">Netnanny：</p><p class=\"leading-7\">Netnanny 提供從網站與應用程式封鎖到家長監控的保護措施。</p><p class=\"leading-7\">網站：{{netnannyLink}}</p><br /><p class=\"text-base leading-7\">Gamblock：</p><p class=\"leading-7\">Gamblock 是一款行動應用，封鎖數千個賭博網站，並提供有用資源的存取。</p><p class=\"leading-7\">網站：{{gamblockLink}}</p><br /><p class=\"leading-7\">*{{gameLink}} Alliance 不對第三方軟體負責。</p>"
+  }
+}

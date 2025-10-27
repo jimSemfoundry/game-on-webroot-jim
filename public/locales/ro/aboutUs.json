@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Despre noi",
+"content": "<p class=\"leading-7\">\n      La {{gameLink}} alianță am format o echipă pentru a vă aduce cele mai noi experiențe de divertisment online, pline de distracție și acces instantaneu la fondurile dumneavoastră. Misiunea noastră este să devenim destinația supremă pentru jocurile crypto pentru audiența noastră din întreaga lume.         \n    </p>\n    <p class=\"leading-7\">\n      Facem parte din alianța OKVIP: Sponsori oficiali ai Villareal CF, AC Milan și Asociației de Fotbal din Argentina.\n    </p>\n    <p class=\"leading-7\">\n      Consultați sponsorizările alianței noastre OKVIP aici. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} alianță este deținută de <span class=\"font-bold text-base\">Omnispect B.V.</span>, o societate cu răspundere limitată înregistrată în Curacao cu numărul de înregistrare <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, cu sediul înregistrat la <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} alianță a trecut toate conformitățile reglementare și este autorizată legal să desfășoare operațiuni de jocuri pentru orice tipuri de jocuri de noroc și pariuri online.         \n    </p>"
+  }
+}

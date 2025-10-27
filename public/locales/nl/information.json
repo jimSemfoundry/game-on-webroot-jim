@@ -1,0 +1,38 @@
+{
+    "goBack": "Ga terug",
+    "tryAgain": "Probeer opnieuw",
+    "retry": "Opnieuw proberen",
+    "retryConnection": "Probeer opnieuw te verbinden",
+    "emptyStateNoContent": {
+        "title": "Nog niets hier!",
+        "description": "Het lijkt erop dat hier nu geen inhoud is. Kom later terug of probeer iets anders."
+    },
+    "failedToLoadPage": {
+        "title": "Er is iets misgegaan",
+        "description": "Er is een systeemfout opgetreden bij het laden van de pagina. Vernieuw de pagina of neem contact op met de ondersteuning als het probleem blijft bestaan."
+    },
+    "otherActiveSession": {
+        "title": "Sessie fout!",
+        "description": "Toegang vanaf dit apparaat is momenteel niet beschikbaar om veiligheidsredenen. Dit kan het gevolg zijn van een andere aanmelding of een systeemprobleem. Probeer het opnieuw of gebruik een ander apparaat."
+    },
+    "noInternetConnection": {
+        "title": "Oeps! Je bent offline",
+        "description": "Het lijkt erop dat je geen verbinding hebt met internet. Controleer je Wi-Fi of mobiele data en probeer het opnieuw zodra je weer online bent."
+    },
+    "pageNotFound": {
+        "title": "Oeps! Deze pagina ontbreekt",
+        "description": "Het lijkt erop dat deze pagina niet bestaat of verplaatst is. Probeer de URL te controleren of ga terug naar de homepage."
+    },
+    "tooManyRequest": {
+        "title": "Hou je vast! We hebben het een beetje druk",
+        "description": "Het lijkt erop dat onze servers op dit moment veel verwerken. Geef het even de tijd en probeer het opnieuw."
+    },
+    "underMaintenance": {
+        "title": "We zijn zo terug!",
+        "description": "We zijn bezig met een aantal updates om alles soepel te laten verlopen. Kom snel terug!"
+    },
+    "userRestriction": {
+        "title": "Oeps! Je hebt hier geen toegang toe",
+        "description": "Het lijkt erop dat je geen toestemming hebt om dit te bekijken. Controleer je toegang of vraag om hulp."
+    }
+}

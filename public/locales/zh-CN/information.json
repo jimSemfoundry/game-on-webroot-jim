@@ -1,0 +1,38 @@
+{
+  "goBack": "返回",
+  "tryAgain": "重试",
+  "retry": "重试",
+  "retryConnection": "重试连接",
+  "emptyStateNoContent": {
+    "title": "这里还什么都没有！",
+    "description": "看起来这里现在没有内容。请稍后再查看或尝试其他内容。"
+  },
+  "failedToLoadPage": {
+    "title": "出了问题",
+    "description": "加载页面时发生系统错误。请重新加载页面，或者如果问题仍然存在，请联系支持人员。"
+  },
+  "otherActiveSession": {
+    "title": "会话错误！",
+    "description": "由于安全原因，目前无法从该设备访问。这可能是由于其他登录或系统问题。请重试或使用其他设备。"
+  },
+  "noInternetConnection": {
+    "title": "哎呀！您已离线",
+    "description": "您好像没有连接到互联网。请检查您的 Wi-Fi 或移动数据，恢复上网后再试一次。"
+  },
+  "pageNotFound": {
+    "title": "哎呀！本页丢失",
+    "description": "看起来该页面不存在或被移动了。请尝试检查 URL 或返回主页。"
+  },
+  "tooManyRequest": {
+    "title": "稍等一下！我们有点忙",
+    "description": "服务器繁忙，请稍等片刻再试。"
+  },
+  "underMaintenance": {
+    "title": "我们马上回来！",
+    "description": "我们正在进行一些更新，以确保一切顺利运行。请尽快回来查看！"
+  },
+  "userRestriction": {
+    "title": "哎呀！您无法访问",
+    "description": "看起来您没有查看此内容的权限。请仔细检查您的访问权限或联系在线客服。"
+  }
+}

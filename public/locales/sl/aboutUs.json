@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "O nas",
+"content": "<p class=\"leading-7\">\n      V {{gameLink}} Zvezi smo oblikovali ekipo, da vam prinesemo najnovejše v spletni zabavi, zabavne izkušnje in takojšen dostop do vaših sredstev. Naše poslanstvo je postati vrhunska destinacija za kripto igre za našo globalno publiko.\n    </p>\n    <p class=\"leading-7\">\n      Smo del OKVIP zveze: uradni sponzorji Villareal CF, AC Milan in Argentinske nogometne zveze.\n    </p>\n    <p class=\"leading-7\">\n      Oglejte si sponzorstva naše OKVIP zveze tukaj. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Zveza je v lasti <span class=\"font-bold text-base\">Omnispect B.V.</span>, družbe z omejeno odgovornostjo, registrirane v Curaçau z registrsko številko <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, s sedežem na naslovu <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} Zveza je izpolnila vse regulatorne zahteve in je zakonito pooblaščena za izvajanje igralnih operacij za vse spletne igre na srečo in stave.\n    </p>"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Kas yra lygio pakėlimo premijos?",
+    "content": "<p class=\"leading-7\">Lygio pakėlimo premija – tai mūsų būdas parodyti dėkingumą ištikimiems žaidėjams, kurie yra su mumis nuo pradžių. Kildami VIP lygiais, žaidėjai atrakina didesnes premijas.</p>"
+  },
+  "faqTwo": {
+    "title": "Kas yra dienos pinigų grąžinimas?",
+    "content": "<p class=\"leading-7\">Kasdienis pinigų grąžinimas skiriamas žaidėjams, patyrusiems nuostolių dėl savo indėlių sumos. Ši premija mokama kasdien kaip žaidėjo nuostolių procentinė dalis. Dienos pinigų grąžinimo procentas didėja priklausomai nuo jūsų VIP lygių, iki maksimalios 40% pinigų grąžinimo sumos – didžiausios bet kur kitur. Atkreipkite dėmesį, kad ši premija skirta tik žaidėjams, patiriantiems grynąjį nuostolį.</p>"
+  },
+  "faqThree": {
+    "title": "Kas yra užkariavimai?",
+    "content": "<p class=\"leading-7\">Užkariavimai – tai kasdien atsitiktinai žaidėjams skiriamos užduotys, už kurias jie gali gauti papildomų apdovanojimų žaisdami mūsų svetainėje. Užkariavimų apdovanojimus reikia atsiimti per 24 valandas iki kito ciklo, o jų neatsiėmus jie nustoja galioti. Užkariavimų apdovanojimai mokami BUCK/USDT ir gali būti konvertuoti į pasirinktą kriptovaliutą per mūsų keitimo funkciją.</p>"
+  },
+  "faqFour": {
+    "title": "Kas yra turnyro apdovanojimai?",
+    "content": "<p class=\"leading-7\">Turnyro apdovanojimai – tai prizai, skiriami už puikius rezultatus varžybose. Turnyro apdovanojimai kaupiasi, kol jų atsiimama, ir jų galiojimo laikas nesibaigia. Turnyro apdovanojimai mokami BUCK/USDT ir gali būti konvertuoti į pasirinktą kriptovaliutą naudojant mūsų keitimo funkciją.</p>"
+  },
+  "faqFive": {
+    "title": "Kas yra super grąžinamasis procentas?",
+    "content": "<p class=\"leading-7\">Super grąžinamasis procentas – tai mūsų mechanizmas, leidžiantis atrakinti jūsų indėlių premijas. Kiekvieną kartą, kai atliekate statymą, jums grąžinamas tam tikras procentas (iki 3%) nuo statymo sumos. Kuo aukštesnis jūsų VIP lygis, tuo didesnė atrakinimo norma. Atrakintas BUCK/USDT = statymas x 2,5% x atrakinimo koeficientas%.</p><p class=\"leading-7\">Atrakinimo koeficientas:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Kas yra stiprintuvas?",
+    "content": "<p class=\"leading-7\">Stiprintuvai dvigubina jūsų grąžinamąjį procentą vienai valandai kiekvieną kartą, kai rekomenduotas žaidėjas įneša indėlį.</p><p class=\"leading-7\">Padidintas atrakinimo koeficientas:</p><p class=\"leading-7\">Atrakinimo koeficientas:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Kas yra premijų kalendorius?",
+    "content": "<p class=\"leading-7\">Dauguma premijų mokamos 50% į jūsų realųjį likutį ir 50% į jūsų premijų kalendorių. Premijas, mokamas į premijų kalendorių, galima atsiimti kas 8 valandas, o jų neatsiėmus jos nustoja galioti po 24 valandų. Nepamirškite bent kartą per dieną atsiimti premijų, esančių jūsų premijų kalendoriuje, kad užtikrintumėte, jog visos premijos bus atsiimtos.</p>"
+  },
+  "faqEight": {
+    "title": "Kas yra savaitinė premija?",
+    "content": "<p class=\"leading-7\">Savaitinė premija – tai išskirtinis mūsų svetainės privalumas, skirtas žaidėjams, turintiems VIP 12 ir aukštesnį statusą. Ši premija mokama kas savaitę ir automatiškai išmokama kiekvieną penktadienį VIP 12 ir aukštesnio lygio žaidėjams. Premijos dydis priklauso nuo per pastarąją savaitę statytos sumos, o minimalus statymo reikalavimas yra {{minWager}} per pastarąją savaitę.</p>"
+  },
+  "faqNine": {
+    "title": "Kas yra pasiekimai?",
+    "content": "<p class=\"leading-7\">Pasiekimai – tai mūsų būdas įvertinti jūsų veiklą mūsų platformoje. Atsiėmus pasiekimų premiją, ji pervedama į jūsų premijų kalendorių ir gali būti atsiimta kas 8 valandas, o neatsiėmus ji nustoja galioti po 24 valandų.</p>"
+  }
+}

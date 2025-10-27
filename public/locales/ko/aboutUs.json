@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "회사 소개",
+"content": "<p class=\"leading-7\">\n      {{gameLink}} 얼라이언스에서는 최신 온라인 엔터테인먼트, 즐거운 경험, 그리고 자금에 즉시 접근할 수 있는 서비스를 제공하기 위해 팀을 구성했습니다. 저희의 사명은 전 세계 이용자들에게 최고의 암호화폐 게임 플랫폼이 되는 것입니다.\n    </p>\n    <p class=\"leading-7\">\n      저희는 OKVIP 얼라이언스의 일원으로, 비야레알 CF, AC 밀란, 아르헨티나 축구 협회의 공식 스폰서입니다.\n    </p>\n    <p class=\"leading-7\">\n      OKVIP 얼라이언스의 후원 내용을 여기에서 확인하세요. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} 얼라이언스는 <span class=\"font-bold text-base\">Omnispect B.V.</span> 소유로, 기업 등록번호 <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>를 가진 쿠라사오에 등록된 유한책임회사이며, 등록 주소는 <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>입니다.\n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} 얼라이언스는 모든 규제 요건을 충족했으며, 모든 온라인 확률 게임 및 베팅 운영을 합법적으로 수행할 권한을 보유하고 있습니다.\n    </p>"
+  }
+}

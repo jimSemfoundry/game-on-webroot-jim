@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "ÉLETMŰ",
+      "reward": "TELJESÍTMÉNYEK \n DÍJAK",
+      "achievements": "Eredmények",
+      "achievementDescription": "A teljesítménydíjak olyan jutalmak, amelyeket új mérföldkövek elérése és kihívások legyőzése után adnak. Ünneplik a haladásodat és sikereidet, miközben újabb és újabb meglepetéseket nyitsz meg az úton!",
+      "claimDistribution": "Igénylés elosztása",
+"claimDistributionDescription": "A jutalmak 3 napig hozzáadódnak a bónusz naptáradhoz a sikeres igénylés után.",
+      "expiration": "Lejárat",
+      "expirationDescription": "Nincs – a jutalmak automatikusan a naptárba kerülnek.",
+      "generalTerms": "Általános feltételek",
+      "generalTermsDescription": "A jutalmak BUCK/USDT-ben kerülnek kiszámításra és jóváírásra, majd kényelmi okokból a preferált fiat valutádban jelennek meg. Kérjük, vedd figyelembe, hogy a valutaváltások hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot az jogosultság bármikor történő módosítására vagy visszavonására, indokolási kötelezettség nélkül. Bármilyen visszaélés vagy csalárd tevékenység kizáráshoz vezet a promócióból."
+    },
+    "luckyNumberSeven": {
+      "title": "Szerencsés szám \n hét",
+      "luckyNumberSeven": "Szerencsés szám hét",
+      "luckyNumberSevenDescription": "Találd el a szerencsés {{numberOne}}-eket és szerezz egy édes bónuszt! Ha a tétazonosítód {{numberTwo}}, {{numberThree}} vagy {{numberFour}}-re végződik az érvényes nyerőgépek alatt, meglepetés bónuszt kapsz – akár {{money}}-t! Csak pörgesd, találd el a szerencsés számokat, és hagyd, hogy a jó idők (és bónuszok) folytatódjanak!",
+      "automaticDistribution": "Igénylés elosztása",
+  "automaticDistributionDescription": "A jutalmak hozzáadódnak a bónusz naptáradhoz, amikor igényled őket.",
+      "winningConditions": "Nyerési feltételek",
+      "winningConditionsDescription": "Ha a tétazonosítód {{number}}-re végződik, a téted {{percentage}}%-át automatikusan jóváírjuk a bónusz naptáradban.",
+      "winningConditionsDescription2": "Ha a tétazonosítód {{number}}-re végződik, a téted {{percentage}}%-át automatikusan jóváírjuk a bónusz naptáradban.",
+      "winningConditionsDescription3": "Ha a tétazonosítód {{number}}-re végződik, a téted {{percentage}}%-át automatikusan jóváírjuk a bónusz naptáradban.",
+      "expiration": "Lejárat",
+      "expirationDescription": "Nincs – a jutalmak automatikusan a naptárba kerülnek.",
+      "eligibility": "Jogosultság",
+      "eligibilityDescription": "Csak a {{providerOne}} Soft, Pragmatic Play és {{providerTwo}} nyerőgépek játékán tett tétek jogosultak erre a promócióra.",
+      "generalTerms": "Általános feltételek",
+      "generalTermsDescription": "Minden szerencsés {{number}} kombinációt naponta egyszer nyerhetsz meg.\n\nA bónusz összege maximum {{money}} minden jogosult tétazonosítónál.\n\nA jutalmak BUCK/USDT-ben kerülnek kiszámításra és jóváírásra, majd kényelmi okokból a preferált fiat valutádban jelennek meg. Kérjük, vedd figyelembe, hogy a valutaváltások hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot ennek a promóciónak a módosítására vagy megszüntetésére bármikor. Bármilyen visszaélés vagy csalás kizáráshoz vezet."
+    },
+    "mysteryBox": {
+"title": "HAVI",
+      "reward": "Titokzatos \n Doboz",
+      "mysteryBox": "Titokzatos Doboz",
+  "mysteryBoxDescription": "Minél többet játszol, annál nagyobb esélyed van nagy nyereményekre. Nyisd ki a Rejtélydobozodat minden hónap 7-én, hogy felfedd a tevékenységedhez igazított meglepetés bónuszokat. Pörgesd meg, játssz, és vedd át, ami benned vár!",
+      "claimDistribution": "Igénylés elosztása",
+      "claimDistributionDescription": "100% a számládra",
+      "goldMembersAndAbove": "Arany tagok és fölött",
+      "yourBalance": "{{percentage}} a számládra",
+      "yourCalendar": "{{percentage}} a naptáradhoz {{days}} napra",
+      "minimumClaimAmount": "A minimális igényelhető összeg {{money}}",
+      "expiration": "Lejárat",
+  "expirationDescription": "A Rejtélydobozodat 7 napon belül kell igénybe venned az átadás után. A meg nem igényelt jutalmak a periódus lejárta után érvényüket vesztik.",
+      "generalTerms": "Általános feltételek",
+  "generalTermsDescription": "A jutalmak a felhasználó első befizetése alapján vagy USDT-ben kerülnek kiszámításra és jóváírásra, ha nem történt befizetés, egy 1x-es megforgatási követelmény mellett. Az összegek a preferált fiat valutában jelennek meg; az átváltások hozzávetőlegesek.\n\nA kaszinó jogosult bármikor, előzetes értesítés nélkül módosítani vagy visszavonni a jogosultságot. Bármilyen visszaélés vagy csalás kizáráshoz vezet."
+    },
+    "TheCannon": {
+      "title": "Az",
+      "reward": "Ágyú",
+      "theCannon": "Az Ágyú",
+      "theCannonDescription": "Készülj fel, hogy elsüsd az Ágyút — havi legnagyobb jutalmi eseményünket! Minden hónap {{day}}-én az arra jogosult játékosoknak lehetőségük nyílik elsütni ágyújukat és robbanékony nyereményeket szerezni.",
+      "claimDistribution": "Igénylés elosztása",
+      "claimDistributionDescription": "{{percentageOne}} a számládra \n {{percentageTwo}} a naptáradhoz {{days}} napra",
+      "goldMembersAndAbove": "Arany tagok és fölött",
+      "yourBalance": "{{percentage}} a számládra",
+      "yourCalendar": "{{percentage}} a naptáradhoz {{days}} napra",
+      "minimumClaimAmount": "A minimális igényelhető összeg {{money}}",
+      "expiration": "Lejárat",
+      "expirationDescription": "Az ágyút el kell sütni a következő újratöltés előtt. Az igényetlen jutalmak a következő ciklus kezdetén lejárnak.",
+      "generalTerms": "Általános feltételek",
+      "generalTermsDescription": "A jutalmak BUCK/USDT-ben kerülnek kiszámításra és jóváírásra, majd kényelmi okokból a preferált fiat valutádban jelennek meg. Kérjük, vedd figyelembe, hogy a valutaváltások hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot az jogosultság bármikor történő módosítására vagy visszavonására, indokolási kötelezettség nélkül. Bármilyen visszaélés vagy csalárd tevékenység kizáráshoz vezet a promócióból."
+    }
+  }
+  

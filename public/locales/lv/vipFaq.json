@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Kas ir līmeņa paaugstināšanas bonusi?",
+    "content": "<p class=\"leading-7\">Līmeņa paaugstināšanas bonuss ir mūsu veids, kā pateikties lojāliem spēlētājiem, kuri bijuši ar mums kopš platformas izmantošanas sākuma. Paaugstinot VIP līmeni, spēlētāji saņem lielākas balvas.</p>"
+  },
+  "faqTwo": {
+    "title": "Kas ir dienas naudas atmaksa?",
+    "content": "<p class=\"leading-7\">Dienas naudas atmaksa tiek piešķirta spēlētājiem, kuri guvuši neto zaudējumus no iemaksām. Šis bonuss tiek izsniegts katru dienu kā procentuāla daļa no zaudējumiem. Naudas atmaksas procenti palielinās līdz ar jūsu VIP līmeni, sasniedzot līdz 40% – augstāko naudas atmaksas likmi starp visiem. Bonuss paredzēts tikai spēlētājiem ar neto zaudējumiem.</p>"
+  },
+  "faqThree": {
+    "title": "Kas ir uzdevumi?",
+    "content": "<p class=\"leading-7\">Uzdevumi ir ikdienas misijas, kas nejauši tiek piešķirtas spēlētājiem, lai nopelnītu papildu balvas, spēlējot mūsu platformā. Uzdevumu balvas jāpieprasa 24 stundu laikā pirms nākamā cikla, pretējā gadījumā tās zaudē derīgumu. Balvas tiek izmaksātas BUCK/USDT un var tikt konvertētas izvēlētajā kriptovalūtā, izmantojot apmaiņas funkciju.</p>"
+  },
+  "faqFour": {
+    "title": "Kas ir turnīru balvas?",
+    "content": "<p class=\"leading-7\">Turnīru balvas tiek piešķirtas par izcilu sniegumu sacensībās. Tās uzkrājas līdz pieprasīšanai un tām nav derīguma termiņa. Balvas tiek izmaksātas BUCK/USDT un var tikt konvertētas izvēlētajā kriptovalūtā, izmantojot apmaiņas funkciju.</p>"
+  },
+  "faqFive": {
+    "title": "Kas ir Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback ir mehānisms iemaksu bonusu atbloķēšanai. Katru reizi, izliekot likmi, jūs saņemat daļu no likmes summas (līdz 3%). Jo augstāks VIP līmenis, jo augstāki atbloķēšanas procenti. Atbloķētais BUCK/USDT = likme x 2,5% x atbloķēšanas procenti</p><p class=\"leading-7\">Atbloķēšanas procenti:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Kas ir pastiprinātājs?",
+    "content": "<p class=\"leading-7\">Pastiprinātāji uz vienu stundu dubulto jūsu Rakeback, kad ieteiktais spēlētājs veic iemaksu.</p><p class=\"leading-7\">Paaugstināti atbloķēšanas procenti:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Kas ir bonusa kalendārs?",
+    "content": "<p class=\"leading-7\">Lielākā daļa bonusu tiek sadalīti: 50% uz jūsu reālo bilanci un 50% uz bonusa kalendāru. Bonusa kalendāra bonusus var pieprasīt ik pēc 8 stundām, un tie zaudē derīgumu pēc 24 stundām, ja netiek pieprasīti. Atcerieties pieprasīt bonusus vismaz reizi dienā, lai saņemtu visas balvas!</p>"
+  },
+  "faqEight": {
+    "title": "Kas ir iknedēļas bonuss?",
+    "content": "<p class=\"leading-7\">Iknedēļas bonuss ir ekskluzīva platformas priekšrocība VIP12 un augstākiem spēlētājiem. Tas tiek izsniegts katru nedēļu un automātiski izmaksāts piektdienās. Bonusa apmērs atkarīgs no pēdējās nedēļas izliktās summas, ar minimālo prasību {{minWager}} nedēļā.</p>"
+  },
+  "faqNine": {
+    "title": "Kas ir sasniegumi?",
+    "content": "<p class=\"leading-7\">Sasniegumi ir mūsu veids, kā atzīmēt jūsu aktivitāti platformā. Pieprasot sasniegumu bonusu, tas tiek ieskaitīts bonusa kalendārā, un to var pieprasīt ik pēc 8 stundām. Ja bonuss netiek pieprasīts, tas zaudē derīgumu pēc 24 stundām.</p>"
+  }
+}

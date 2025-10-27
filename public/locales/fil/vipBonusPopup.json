@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "LIFETIME",
+      "reward": "MGA PARANGAL SA \n PAGKAKAMIT",
+      "achievements": "Mga Pagkamit",
+      "achievementDescription": "Ang Mga Parangal sa Pagkamit ay mga gantimpalang ibinibigay para sa pag-abot ng mga bagong milestone at pagtagumpayan ang mga hamon. Ipinagdiriwang nila ang iyong progreso at tagumpay, nagbubukas ng mga kapanapanabik na sorpresa habang nakakamit mo ang mga bagong tagumpay sa daan!",
+      "claimDistribution": "Pamamahagi ng Pag-claim",
+"claimDistributionDescription": "Idinadagdag ang mga gantimpala sa iyong bonus kalendaryo sa loob ng 3 araw pagkatapos ng matagumpay na pag-claim.",
+      "expiration": "Pag-expire",
+      "expirationDescription": "Wala - Ang mga gantimpala ay awtomatikong ipinapadala sa calendar.",
+      "generalTerms": "Pangunahing Mga Tuntunin",
+      "generalTermsDescription": "Ang mga gantimpala ay kinakalkula at kinikredito sa BUCK/USDT, pagkatapos ay ipinapakita sa iyong preferred na fiat currency para sa kaginhawahan. Pakiusap tandaan, ang mga conversion ng pera ay tinatayang halaga.\n\nInilalaan ng casino ang karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyong magbigay ng paliwanag. Anumang pang-aabuso o pandaraya ay magreresulta sa diskwalipikasyon mula sa promosyon."
+    },
+    "luckyNumberSeven": {
+      "title": "Maswerteng Numero \n Pito",
+      "luckyNumberSeven": "Maswerteng Numero Pito",
+      "luckyNumberSevenDescription": "Tamaan ang Maswerteng {{numberOne}}s at makakuha ng matamis na bonus! Kung ang iyong Bet ID ay nagtatapos sa {{numberTwo}}, {{numberThree}} o {{numberFour}} habang naglalaro ng kwalipikadong slots, makakakuha ka ng sorpresa na bonus - hanggang sa {{money}}! Paikutin lang, tamaan ang mga maswerteng numero, at hayaan ang saya (at mga bonus) na dumaloy!",
+      "automaticDistribution": "Pamamahagi ng Pag-claim",
+  "automaticDistributionDescription": "Idinadagdag ang mga gantimpala sa iyong bonus kalendaryo kapag nag-claim.",
+      "winningConditions": "Mga Kundisyon sa Panalo",
+      "winningConditionsDescription": "Kung ang iyong Bet ID ay nagtatapos sa {{number}}, makakatanggap ka ng {{percentage}} ng halaga ng iyong taya nang awtomatiko sa iyong Bonus calendar.",
+      "winningConditionsDescription2": "Kung ang iyong Bet ID ay nagtatapos sa {{number}}, makakatanggap ka ng {{percentage}} ng halaga ng iyong taya nang awtomatiko sa iyong Bonus calendar.",
+      "winningConditionsDescription3": "Kung ang iyong Bet ID ay nagtatapos sa {{number}}, makakatanggap ka ng {{percentage}} ng halaga ng iyong taya nang awtomatiko sa iyong Bonus calendar.",
+      "expiration": "Pag-expire",
+      "expirationDescription": "Wala - Ang mga gantimpala ay awtomatikong ipinapadala sa calendar.",
+      "eligibility": "Pagiging Karapat-dapat",
+      "eligibilityDescription": "Tanging ang mga taya sa {{providerOne}} Soft, Pragmatic Play at {{providerTwo}} Slots lamang ang kwalipikado para sa promosyong ito.",
+      "generalTerms": "Pangunahing Mga Tuntunin",
+      "generalTermsDescription": "Maaari kang manalo ng bawat maswerteng {{number}} combo isang beses bawat araw.\n\nAng halaga ng bonus ay limitado sa {{money}} bawat kwalipikadong Bet ID.\n\nAng mga gantimpala ay kinakalkula at kinikredito sa BUCK/USDT, pagkatapos ay ipinapakita sa iyong preferred na fiat currency para sa kaginhawahan. Pakiusap tandaan, ang mga conversion ng pera ay tinatayang halaga.\n\nInilalaan ng casino ang karapatang baguhin o tapusin ang promosyon anumang oras. Anumang pang-aabuso o pandaraya ay magreresulta sa diskwalipikasyon mula sa promosyon."
+    },
+    "mysteryBox": {
+"title": "BULANAN",
+      "reward": "MYSTERY \n BOX",
+      "mysteryBox": "Mystery Box",
+  "mysteryBoxDescription": "Kapag mas madalas kang naglalaro, mas malaki ang tsansa mong manalo ng malaki. Buksan ang iyong Kahon ng Misteryo tuwing ika-7 ng buwan upang makita ang mga sorpresa at bonus na akma sa iyong aktibidad. Paikutin, maglaro, at kunin ang naghihintay sa loob!",
+      "claimDistribution": "Pamamahagi ng Pag-claim",
+      "claimDistributionDescription": "100% sa iyong balanse",
+      "goldMembersAndAbove": "Mga Miyembro ng Gold pataas",
+      "yourBalance": "{{percentage}} sa iyong balanse",
+      "yourCalendar": "{{percentage}} sa iyong calendar para sa {{days}} araw",
+      "minimumClaimAmount": "Ang minimum na halaga ng pag-claim ay {{money}}",
+      "expiration": "Pag-expire",
+  "expirationDescription": "Dapat kunin ang iyong Kahon ng Misteryo sa loob ng 7 araw mula nang ito ay ibigay. Ang mga hindi kinuhang gantimpala ay mawawala pagkatapos ng panahong ito.",
+      "generalTerms": "Pangunahing Mga Tuntunin",
+  "generalTermsDescription": "Ang mga gantimpala ay kinakalkula at kinikilala base sa unang deposito ng user o sa USDT kung walang deposito, na may kinakailangang 1x rollover. Ang mga halaga ay ipinapakita sa iyong paboritong fiat currency; ang mga conversion ay tantiyado.\n\nNirereseba ng casino ang karapatang baguhin o bawiin ang pagiging kwalipikado anumang oras nang walang paunawa. Anumang pang-aabuso o pandaraya ay magreresulta sa diskwalipikasyon."
+    },
+    "TheCannon": {
+      "title": "THE",
+      "reward": "CANNON",
+      "theCannon": "The Cannon",
+      "theCannonDescription": "Maghanda na upang ilunsad ang The Cannon — ang aming pinakamalaking buwanang gantimpala! Sa ika-{{day}} ng bawat buwan, ang mga kwalipikadong manlalaro ay magkakaroon ng pagkakataong pasabugin ang kanilang kanyon at wasakin ang daan patungo sa mga nakabibinging premyo.",
+      "claimDistribution": "Pamamahagi ng Pag-claim",
+      "claimDistributionDescription": "{{percentageOne}} sa iyong balanse \n {{percentageTwo}} sa iyong calendar para sa {{days}} araw",
+      "goldMembersAndAbove": "Mga Miyembro ng Gold pataas",
+      "yourBalance": "{{percentage}} sa iyong balanse",
+      "yourCalendar": "{{percentage}} sa iyong calendar para sa {{days}} araw",
+      "minimumClaimAmount": "Ang minimum na halaga ng pag-claim ay {{money}}",
+      "expiration": "Pag-expire",
+      "expirationDescription": "Dapat ilunsad ang iyong kanyon bago ang susunod na reload. Ang mga hindi na-claim na gantimpala ay mag-e-expire sa pagsisimula ng susunod na cycle.",
+      "generalTerms": "Pangunahing Mga Tuntunin",
+      "generalTermsDescription": "Ang mga gantimpala ay kinakalkula at kinikredito sa BUCK/USDT, pagkatapos ay ipinapakita sa iyong preferred na fiat currency para sa kaginhawahan. Pakiusap tandaan, ang mga conversion ng pera ay tinatayang halaga.\n\nInilalaan ng casino ang karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyong magbigay ng paliwanag. Anumang pang-aabuso o pandaraya ay magreresulta sa diskwalipikasyon mula sa promosyon."
+    }
+  }
+  

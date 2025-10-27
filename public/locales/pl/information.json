@@ -1,0 +1,38 @@
+{
+    "goBack": "Powrót",
+    "tryAgain": "Spróbuj ponownie",
+    "retry": "Spróbuj ponownie",
+    "retryConnection": "Ponów połączenie",
+    "emptyStateNoContent": {
+        "title": "Nic tu jeszcze nie ma!",
+        "description": "Wygląda na to, że w tej chwili nie ma tu żadnej zawartości. Sprawdź później lub spróbuj czegoś innego."
+    },
+    "failedToLoadPage": {
+        "title": "Coś poszło nie tak",
+        "description": "Wystąpił błąd systemu podczas ładowania strony. Proszę przeładować stronę lub skontaktować się z pomocą techniczną, jeśli problem będzie się powtarzał."
+    },
+    "otherActiveSession": {
+        "title": "Błąd sesji!",
+        "description": "Dostęp z tego urządzenia jest obecnie niedostępny ze względów bezpieczeństwa. Może to być spowodowane innym logowaniem lub awarią systemu. Spróbuj ponownie lub użyj innego urządzenia."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Jesteś offline",
+        "description": "Wygląda na to, że nie masz połączenia z Internetem. Sprawdź swoje Wi-Fi lub dane  dane mobilne i spróbuj ponownie, gdy będziesz ponownie online."
+    },
+    "pageNotFound": {
+        "title": "Ups! Brakuje tej strony",
+        "description": "Wygląda na to, że ta strona nie istnieje lub została przeniesiona. Spróbuj sprawdzić adres URL lub wróć do domu."
+    },
+    "tooManyRequest": {
+        "title": "Cierpliwości! Jesteśmy trochę zajęci",
+        "description": "Wygląda na to, że nasze serwery mają teraz dużo pracy. Poczekaj chwilę i spróbuj ponownie."
+    },
+    "underMaintenance": {
+        "title": "Zaraz wracamy!",
+        "description": "Wprowadzamy pewne aktualizacje, aby wszystko działało sprawnie. Sprawdź wkrótce!"
+    },
+    "userRestriction": {
+        "title": "Ups! Nie możesz uzyskać dostępu",
+        "description": "Wygląda na to, że nie masz uprawnień do wyświetlenia tego. Sprawdź swoje uprawnienia lub skontaktuj się z nami po pomoc."
+    }
+}

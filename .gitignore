@@ -1,0 +1,21 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+dev-dist
+*.local
+count.txt
+.env
+.nitro
+.tanstack
+
+# YoYo AI version control directory
+.yoyo/
+AGENTS.md
+
+# AI generated documentation files (根目录)
+/*.md
+!README.md
+
+# version.json
+public/version.json

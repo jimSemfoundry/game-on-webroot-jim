@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Ile muszę mieć lat, aby zarejestrować się na waszej stronie?",
+    "content": "<p class=\"leading-7\">Aby się zarejestrować, musisz mieć co najmniej {{faqAge}} lat lub być peł,Noletni w swojej jurysdykcji. Musisz także być uprawniony do grania w gry online zgodnie z obowiązującym Cię prawem. Aby uzyskać więcej informacji, zapoznaj się z naszymi warunkami świadczenia usług.</p><p class=\"leading-7\">Gry mogą uzależniać, dlatego graczom zaleca się zachować samokontrolę.</p>"
+  },
+  "faqTwo": {
+    "title": "Jaką walutę obsługuje portfel?",
+    "content": "<p class=\"leading-7\">Obsługujemy główne kryptowaluty, takie jak {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Jak mogę dokonać wpłaty?",
+    "content": "<p class=\"leading-7\">Przejdź do strony swojego profilu i kliknij \"Wpłata\", wybierz wybraną kryptowalutę, skopiuj adres portfela lub zeskanuj kod QR w celu dokonania płatności.</p>"
+  },
+  "faqFour": {
+    "title": "Czy mogę wymienić moje kryptowaluty na waszej stronie?",
+    "content": "<p class=\"leading-7\">{{siteName}} oferuje funkcję wymiany, dzięki której możesz bezpiecznie i łatwo wymienić swoje kryptowaluty na inne kryptowaluty. Jednak ze względu na obawy związane z praniem monet, wszystkie kryptowaluty zdeponowane w {{siteName}} mają wymóg 1x rollover, co oznacza, że musisz zagrać zdeponowanymi środkami co najmniej raz, zanim będziesz mógł je wymienić.</p>"
+  },
+  "faqFive": {
+    "title": "Jak mogę się wycofać?",
+    "content": "<p class=\"leading-7\">Przejdź do strony swojego profilu i kliknij \"Wypłać\", wprowadź adres portfela, na który chcesz dokonać wypłaty oraz kwotę, którą chcesz wypłacić. (Pamiętaj, że mogą obowiązywać różne opłaty w zależności od różnych blockchainów)</p>"
+  },
+  "faqSix": {
+    "title": "Jaka jest minimalna kwota wypłaty dla każdej kryptowaluty?",
+    "content": "<p class=\"leading-7\">Ze względu na różną wartość kryptowalut, a także różne opłaty za wydobycie, sprawdź na stronie wypłat minimalne kwoty wypłat dla każdej kryptowaluty.</p>"
+  },
+  "faqSeven": {
+    "title": "Jak długo trwa wpłata i wypłata środków?",
+    "content": "<p class=\"leading-7\">Każda transakcja w blockchainie wymaga kilku cykli do potwierdzenia.</p><p class=\"leading-7\">Ogólnie rzecz biorąc, każda transakcja wymaga 5-10 minut, zanim zostanie potwierdzona przez sieć blockchaina dla blockchainów BTC i ETH; i około 1-2 minut dla blockchainów TRON, TON, SOLANA.</p><p class=\"leading-7\">Jeśli napotkasz jakikolwiek problem podczas wpłaty lub wypłaty, możesz sprawdzić swoją transakcję za pomocą odpowiedniego eksploratora blockchaina dla sieci lub skontaktować się z naszym wsparciem na żywo.</p>"
+  },
+  "faqEight": {
+    "title": "Skąd pochodzą potwierdzenia transakcji?",
+    "content": "<p class=\"leading-7\">Wszystkie informacje potwierdzające pochodzą z blockchaina i górników blockchaina</p>"
+  },
+  "faqNine": {
+    "title": "Czy wasze gry są uczciwe?",
+  "content": "<p class=\"leading-7\">Przejrzystość, zaufanie i uczciwość są częścią podstawowych wartości {{gameLink}} i fundamentem naszej działalności. Dlatego współpracujemy tylko z zaufanymi partnerami z najwyższej półki, aby zapewnić naszym klientom doświadczenie na najwyższym poziomie, na które zasługują.</p><p class=\"leading-7\">Wszystkie gry naszych partnerów są rygorystycznie testowane pod kątem losowości przez niezależnych audytorów i posiadają licencje regulatorów gier, którzy regularnie przeprowadzają audyty ich generatorów liczb losowych.</p>"
+  },
+  "faqTen": {
+    "title": "Co powinienem zrobić, jeśli gra się zawiesi lub zostanę rozłączony?",
+    "content": "<p class=\"leading-7\">Jeśli napotkasz jakiekolwiek problemy techniczne, spróbuj odświeżyć stronę. Stany gry są zapisywane przez naszych dostawców i powinieneś zobaczyć swój poprzedni stan gry po ponownym połączeniu.</p>"
+  }
+}

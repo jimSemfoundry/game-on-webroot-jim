@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "معلومات عنا",
+"content": "<p class=\"leading-7\">\n      في {{gameLink}} التحالف، جمعنا فريقًا ليقدم لك أحدث وسائل الترفيه عبر الإنترنت، تجارب مليئة بالمرح، والوصول الفوري إلى أموالك. مهمتنا هي أن نصبح الوجهة النهائية للألعاب المشفرة لجمهورنا حول العالم.\n    </p>\n    <p class=\"leading-7\">\n      نحن جزء من تحالف OKVIP: الرعاة الرسميون لنادي فياريال CF، إيه سي ميلان، والرابطة الأرجنتينية لكرة القدم.\n    </p>\n    <p class=\"leading-7\">\n      اطلع على الرعايات التي يقدمها تحالف OKVIP هنا. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} التحالف مملوك من قبل <span class=\"font-bold text-base\">Omnispect B.V.</span>، وهي شركة ذات مسؤولية محدودة مسجلة في كوراساو برقم تسجيل الشركة <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>، وعنوانها المسجل في <span class=\"font-bold text-base\"> شارع إبراهيم دي فير {{registeredAddress}}، ويلمستاد.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} التحالف اجتاز جميع متطلبات الامتثال التنظيمي ومخول قانونيًا للقيام بعمليات الألعاب لأي وجميع ألعاب الحظ والمراهنات عبر الإنترنت.\n    </p>"
+  }
+}

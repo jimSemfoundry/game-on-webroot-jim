@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Mengenai Kami",
+"content": "<p class=\"leading-7\">\n      Di {{gameLink}} Aliansi, kami telah membentuk tim profesional yang siap menghadirkan hiburan daring terbaru, pengalaman seru penuh keseruan, serta akses cepat dan mudah ke dana Anda. Misi kami adalah menjadi tujuan utama dalam dunia permainan kripto bagi para pemain di seluruh dunia.         \n    </p>\n    <p class=\"leading-7\">\n      Kami merupakan bagian dari Aliansi OKVIP: Sponsor resmi Villareal CF, AC Milan, dan Asosiasi Sepak Bola Argentina.\n    </p>\n    <p class=\"leading-7\">\n      Jelajahi sponsor resmi dari Aliansi OKVIP kami di sini. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Aliansi dimiliki oleh <span class=\"font-bold text-base\">Omnispect B.V.</span>, sebuah perusahaan terbatas yang terdaftar di Curacao dengan nomor registrasi <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, beralamat resmi di <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} Aliansi telah memenuhi semua persyaratan regulasi yang berlaku dan secara hukum berwenang untuk menyelenggarakan operasi permainan untuk seluruh jenis permainan judi dan taruhan daring.         \n    </p>"
+  }
+}

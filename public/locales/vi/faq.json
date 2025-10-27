@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Tôi phải bao nhiêu tuổi để đăng ký trên trang web của bạn?",
+    "content": "<p class=\"leading-7\">Bạn phải ít nhất {{faqAge}} tuổi hoặc đủ tuổi thành niên theo quy định pháp luật tại khu vực của bạn để đăng ký. Bạn cũng phải được phép hợp pháp tham gia các trò chơi trực tuyến theo luật áp dụng. Để biết thêm thông tin, vui lòng đọc điều khoản dịch vụ của chúng tôi.</p><p class=\"leading-7\">Chơi game có thể gây nghiện, và người chơi được khuyến nghị kiểm soát bản thân.</p>"
+  },
+  "faqTwo": {
+    "title": "Ví hỗ trợ những loại tiền tệ nào?",
+    "content": "<p class=\"leading-7\">Chúng tôi hỗ trợ các loại tiền mã hóa chính như {{currency}}.</p>"
+  },
+  "faqThree": {
+    "title": "Làm thế nào để nạp tiền?",
+    "content": "<p class=\"leading-7\">Truy cập trang hồ sơ của bạn và nhấp vào \"Nạp tiền\", chọn loại tiền mã hóa bạn muốn, sao chép địa chỉ ví hoặc quét mã QR để thực hiện thanh toán.</p>"
+  },
+  "faqFour": {
+    "title": "Tôi có thể hoán đổi tiền mã hóa trên trang web của bạn không?",
+    "content": "<p class=\"leading-7\">{{siteName}} cung cấp tính năng hoán đổi, cho phép bạn an toàn và dễ dàng chuyển đổi tiền mã hóa của mình sang các loại tiền mã hóa khác. Tuy nhiên, để tránh vấn đề trộn tiền, tất cả tiền mã hóa nạp vào {{siteName}} đều có yêu cầu doanh thu cược 1x, nghĩa là bạn phải đặt cược số tiền đã nạp ít nhất một lần trước khi có thể hoán đổi.</p>"
+  },
+  "faqFive": {
+    "title": "Làm thế nào để rút tiền?",
+    "content": "<p class=\"leading-7\">Truy cập trang hồ sơ của bạn và nhấp vào \"Rút tiền\", nhập địa chỉ ví bạn muốn rút tiền đến và số tiền bạn muốn rút. (Lưu ý rằng có thể áp dụng các mức phí khác nhau tùy thuộc vào các blockchain).</p>"
+  },
+  "faqSix": {
+    "title": "Số tiền rút tối thiểu cho mỗi loại tiền mã hóa là bao nhiêu?",
+    "content": "<p class=\"leading-7\">Do giá trị và phí khai thác của các loại tiền mã hóa khác nhau, vui lòng kiểm tra trang rút tiền của bạn để biết số tiền rút tối thiểu cho từng loại tiền mã hóa.</p>"
+  },
+  "faqSeven": {
+    "title": "Mất bao lâu để nạp và rút tiền?",
+    "content": "<p class=\"leading-7\">Mỗi giao dịch trên blockchain cần một số chu kỳ để xác nhận.</p><p class=\"leading-7\">Thông thường, mỗi giao dịch mất khoảng 5-10 phút để được mạng blockchain xác nhận đối với chuỗi BTC và ETH; và khoảng 1-2 phút đối với chuỗi TRON, TON, SOLANA.</p><p class=\"leading-7\">Nếu gặp bất kỳ vấn đề nào trong quá trình nạp hoặc rút tiền, bạn có thể kiểm tra giao dịch của mình bằng trình khám phá blockchain tương ứng hoặc liên hệ với bộ phận hỗ trợ trực tuyến của chúng tôi.</p>"
+  },
+  "faqEight": {
+    "title": "Xác nhận giao dịch đến từ đâu?",
+    "content": "<p class=\"leading-7\">Tất cả thông tin xác nhận đều đến từ blockchain và các thợ đào blockchain.</p>"
+  },
+  "faqNine": {
+    "title": "Trò chơi của bạn có công bằng không?",
+  "content": "<p class=\"leading-7\">Minh bạch, Tin cậy và Công bằng là một phần trong các giá trị cốt lõi của {{gameLink}} và là nền tảng của doanh nghiệp chúng tôi. Đây là lý do tại sao chúng tôi chỉ làm việc với các đối tác trò chơi hàng đầu đáng tin cậy để mang đến cho khách hàng trải nghiệm chất lượng mà họ xứng đáng nhận được.</p><p class=\"leading-7\">Tất cả các trò chơi từ đối tác của chúng tôi đều được kiểm tra nghiêm ngặt về tính ngẫu nhiên bởi các kiểm toán viên độc lập và được cấp phép bởi các cơ quan quản lý trò chơi, những cơ quan này thường xuyên kiểm tra bộ tạo số ngẫu nhiên của họ.</p>"
+  },
+  "faqTen": {
+    "title": "Tôi phải làm gì nếu trò chơi bị treo hoặc mất kết nối?",
+    "content": "<p class=\"leading-7\">Nếu gặp bất kỳ sự cố kỹ thuật nào, vui lòng thử làm mới trang. Trạng thái trò chơi được lưu bởi nhà cung cấp của chúng tôi, và bạn sẽ thấy trạng thái trò chơi trước đó khi kết nối lại.</p>"
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "goBack": "Naspäť",
+    "tryAgain": "Skúsiť znova",
+    "retry": "Skúsiť znova",
+    "retryConnection": "Skúsiť pripojenie znova",
+    "emptyStateNoContent": {
+        "title": "Zatiaľ tu nič nie je!",
+        "description": "Zdá sa, že tu momentálne nič nie je. Vráťte sa neskôr alebo vyskúšajte niečo iné."
+    },
+    "failedToLoadPage": {
+        "title": "Niečo sa pokazilo",
+        "description": "Pri načítaní stránky došlo k systémovej chybe. Prosím, stránku znovu načítajte alebo kontaktujte podporu, ak problém pretrváva."
+    },
+    "otherActiveSession": {
+        "title": "Chyba relácie!",
+        "description": "Prístup z tohto zariadenia je momentálne z bezpečnostných dôvodov zablokovaný. Môže to byť kvôli inému prihláseniu alebo systémovej chybe. Skúste to znova alebo použite iné zariadenie."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Ste offline",
+        "description": "Zdá sa, že nemáte pripojenie na internet. Skontrolujte Wi-Fi alebo mobilné dáta a skúste to znova, keď budete online."
+    },
+    "pageNotFound": {
+        "title": "Ups! Táto stránka chýba",
+        "description": "Zdá sa, že táto stránka neexistuje alebo bola presunutá. Skontrolujte adresu URL alebo sa vráťte na domovskú stránku."
+    },
+    "tooManyRequest": {
+        "title": "Držte sa pevne! Sme trochu zaneprázdnení",
+        "description": "Naše servery sú teraz poriadne vyťažené. Počkajte chvíľu a skúste to znova."
+    },
+    "underMaintenance": {
+        "title": "Hneď sa vrátime!",
+        "description": "Pracujeme na aktualizáciách, aby všetko šliapalo ako hodinky. Vráťte sa čoskoro!"
+    },
+    "userRestriction": {
+        "title": "Ups! Nemáte k tomu prístup",
+        "description": "Zdá sa, že nemáte oprávnenie na zobrazenie tejto stránky. Skontrolujte svoj prístup alebo kontaktujte podporu."
+    }
+}

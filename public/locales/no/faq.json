@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Hvor gammel må jeg være for å registrere meg på nettstedet deres?",
+    "content": "<p class=\"leading-7\">Du må være minst {{faqAge}} år gammel eller myndig i din jurisdiksjon for å registrere deg. Du må også ha lovlig tillatelse til å spille nettspill i henhold til de lovene som gjelder for deg. For mer informasjon, vennligst les våre tjenestevilkår.</p><p class=\"leading-7\">Spill kan være avhengighetsskapende, og spillere anbefales å utøve selvkontroll.</p>"
+  },
+  "faqTwo": {
+    "title": "Hvilke valutaer støtter lommeboken?",
+    "content": "<p class=\"leading-7\">Vi støtter viktige kryptovalutaer som {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Hvordan gjør Jeg innskudd?",
+    "content": "<p class=\"leading-7\">Gå til profilsiden din og klikk på \"Innskudd\", velg kryptovalutaen du ønsker, kopier lommebokadressen eller skann QR-koden for betaling.</p>"
+  },
+  "faqFour": {
+    "title": "Kan jeg veksle kryptovalutaene mine på nettstedet deres?",
+    "content": "<p class=\"leading-7\">{{siteName}} tilbyr en vekslefunksjon der du trygt og enkelt kan veksle kryptovalutaene dine til andre kryptovalutaer. På grunn av bekymringer for myntblanding har imidlertid all krypto som settes inn på {{siteName}} et omsetningskrav på 1x, noe som betyr at du må satse med de innbetalte midlene minst én gang før du kan veksle dem.</p>"
+  },
+  "faqFive": {
+    "title": "Hvordan tar jeg ut?",
+    "content": "<p class=\"leading-7\">Gå til profilsiden din og klikk på \"Ta ut\", skriv inn adressen til lommeboken du ønsker å ta ut til og beløpet du ønsker å ta ut. (Vær oppmerksom på at det kan påløpe ulike gebyrer for de ulike blokkjedene)</p>"
+  },
+  "faqSix": {
+    "title": "Hva er minstebeløpet for uttak for hver kryptovaluta?",
+    "content": "<p class=\"leading-7\">På grunn av kryptovalutaenes ulike verdi og de ulike transaksjonsgebyrene som er involvert, må du sjekke Ta ut-siden din for minimumsbeløp for uttak for hver kryptovaluta.</p>"
+  },
+  "faqSeven": {
+    "title": "Hvor lang tid tar det å gjøre innskudd og ta ut?",
+    "content": "<p class=\"leading-7\">Hver transaksjon i blokkjeden krever flere sykluser for å bli bekreftet.</p><p class=\"leading-7\">Generelt sett krever hver transaksjon 5-10 minutter før den kan bekreftes av blokkjedenettverket for BTC- og ETH-kjeden; og omtrent 1-2 minutter for TRON-, TON- og SOLANA-kjeden.</p><p class=\"leading-7\">Hvis du støter på problemer under innskudd eller ta ut, kan du sjekke transaksjonen din ved hjelp av den respektive blockchain-utforskeren for nettverket eller kontakte vår Live støtte.</p>"
+  },
+  "faqEight": {
+    "title": "Hvor kommer transaksjonsbekreftelsene fra?",
+    "content": "<p class=\"leading-7\">All bekreftelsesinformasjon kommer fra blokkjeden og blokkjedeutvinnere</p>"
+  },
+  "faqNine": {
+    "title": "Er spillene dine rettferdige?",
+  "content": "<p class=\"leading-7\">Åpenhet, Tillit og Rettferdighet er en del av {{gameLink}} sine kjerneverdier og grunnlaget for vår virksomhet. Derfor samarbeider vi kun med pålitelige toppspillpartnere for å gi kundene våre den kvalitetsopplevelsen de fortjener.</p><p class=\"leading-7\">Alle spill fra våre partnere blir grundig testet for tilfeldig utvalg av uavhengige revisorer, og er lisensiert av spillmyndigheter som gjennomfører hyppige revisjoner av deres tilfeldige tallgenerator.</p>"
+  },
+  "faqTen": {
+    "title": "Hva skal jeg gjøre hvis spillet henger seg opp eller hvis jeg blir koblet fra?",
+    "content": "<p class=\"leading-7\">Hvis du støter på tekniske problemer, kan du prøve å oppdatere siden. Spillstatusene lagres av leverandørene våre, og du bør se din forrige spillstatus når du kobler deg til igjen.</p>"
+  }
+}

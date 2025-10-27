@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "DOŻYWOCIE",
+        "reward": "OSIĄGNIĘCIA \n NAGRODY",
+        "achievements": "Osiągnięcia",
+        "achievementDescription": "Nagrody za osiągnięcia są przyznawane za osiąganie nowych kamieni milowych i pokonywanie wyzwań. Świętują Twój postęp i sukces, odblokowując zabawne niespodzianki podczas zdobywania kolejnych wyczynów!",
+        "claimDistribution": "Dystrybucja zgłoszeń",
+"claimDistributionDescription": "Nagrody są dodawane do Twojego kalendarza bonusowego na 3 dni po pomyślnym zgłoszeniu roszczenia.",
+        "expiration": "Wygasa",
+        "expirationDescription": "Brak – nagrody są automatycznie wysyłane do kalendarza.",
+        "generalTerms": "Warunki ogólne",
+        "generalTermsDescription": "Nagrody są obliczane i przypisywane w BUCK/USDT, a następnie wyświetlane w preferowanej walucie fiducjarnej dla wygody. Należy zauważyć, że konwersje walut są przybliżone.\n\nKasyno zastrzega sobie prawo do zmiany lub cofnięcia kwalifikowalności w dowolnym momencie bez obowiązku uzasadniania. Wszelkie nadużycia lub działania oszukańcze skutkują dyskwalifikacją z promocji."
+    },
+    "luckyNumberSeven": {
+        "title": "Szczęśliwa liczba \n siedem",
+        "luckyNumberSeven": "Szczęśliwa liczba siedem",
+        "luckyNumberSevenDescription": "Traf szczęśliwe {{numberOne}} i zdobądź słodki bonus! Jeśli Twój identyfikator zakładu kończy się na {{numberTwo}}, {{numberThree}} lub {{numberFour}} podczas gry na kwalifikujących się automatach, otrzymasz niespodziankę – bonus do {{money}}! Po prostu zakręć, traf te szczęśliwe cyfry i pozwól, by dobra zabawa (i bonusy) trwały dalej!",
+        "automaticDistribution": "Dystrybucja zgłoszeń",
+  "automaticDistributionDescription": "Nagrody są dodawane do twojego kalendarza bonusowego po zgłoszeniu roszczenia.",
+        "winningConditions": "Warunki wygranej",
+        "winningConditionsDescription": "Jeśli Twój identyfikator zakładu kończy się na {{number}}, automatycznie otrzymasz {{percentage}} wartości swojego zakładu na kalendarz bonusowy.",
+        "winningConditionsDescription2": "Jeśli Twój identyfikator zakładu kończy się na {{number}}, automatycznie otrzymasz {{percentage}} wartości swojego zakładu na kalendarz bonusowy.",
+        "winningConditionsDescription3": "Jeśli Twój identyfikator zakładu kończy się na {{number}}, automatycznie otrzymasz {{percentage}} wartości swojego zakładu na kalendarz bonusowy.",
+        "expiration": "Wygasa",
+        "expirationDescription": "Brak – nagrody są automatycznie wysyłane do kalendarza.",
+        "eligibility": "Uprawnienia",
+        "eligibilityDescription": "Tylko zakłady postawione na {{providerOne}} Soft, Pragmatic Play i {{providerTwo}} Slots kwalifikują się do tej promocji.",
+        "generalTerms": "Warunki ogólne",
+        "generalTermsDescription": "Możesz wygrać każdą kombinację szczęśliwej liczby {{number}} raz dziennie.\n\nKwota bonusu jest ograniczona do {{money}} na kwalifikujący się identyfikator zakładu.\n\nNagrody są obliczane i przypisywane w BUCK/USDT, a następnie wyświetlane w preferowanej walucie fiducjarnej dla wygody. Należy zauważyć, że konwersje walut są przybliżone.\n\nKasyno zastrzega sobie prawo do zmiany lub zakończenia tej promocji w dowolnym momencie. Nadużycia lub oszustwa skutkują dyskwalifikacją z promocji."
+    },
+    "mysteryBox": {
+"title": "MIESIĘCZNIE",
+        "reward": "TAJEMNICZA \n SKRZYNIA",
+        "mysteryBox": "Tajemnicza skrzynia",
+  "mysteryBoxDescription": "Im więcej grasz, tym większe masz szanse na wielką wygraną. Otwórz swoją Tajemniczą Skrzynkę każdego 7. dnia miesiąca, aby odkryć niespodzianki dostosowane do Twojej aktywności. Kręć, graj i odbierz to, co czeka w środku!",
+        "claimDistribution": "Dystrybucja zgłoszeń",
+        "claimDistributionDescription": "100% na Twoje saldo",
+        "goldMembersAndAbove": "Gold Members i wyżej",
+        "yourBalance": "{{percentage}} na Twoje saldo",
+        "yourCalendar": "{{percentage}} na kalendarz na {{days}} dni",
+        "minimumClaimAmount": "Minimalna kwota zgłoszenia to {{money}}",
+        "expiration": "Wygasa",
+  "expirationDescription": "Twoją Tajemniczą Skrzynkę należy odebrać w ciągu 7 dni od jej przyznania. Niewykorzystane nagrody wygasną po tym okresie.",
+        "generalTerms": "Warunki ogólne",
+  "generalTermsDescription": "Nagrody są obliczane i przyznawane na podstawie pierwszej wpłaty użytkownika lub w USDT, jeśli nie dokonano wpłaty, pod warunkiem wymaganego obrotu 1x. Kwoty wyświetlane są w preferowanej przez Ciebie walucie fiat; konwersje są przybliżone.\n\nKasyno zastrzega sobie prawo do zmiany lub odebrania uprawnień w dowolnym momencie bez powiadomienia. Każde nadużycie lub oszustwo skutkować będzie dyskwalifikacją."
+    },
+    "TheCannon": {
+        "title": "KONIECZNY",
+        "reward": "DZIAŁO",
+        "theCannon": "Działo",
+        "theCannonDescription": "Przygotuj się do odpalania Działa — naszego największego comiesięcznego wydarzenia nagród! W {{day}} dzień każdego miesiąca uprawnieni gracze mają szansę odpalić swoje działo i zdobyć wybuchowe nagrody.",
+        "claimDistribution": "Dystrybucja zgłoszeń",
+        "claimDistributionDescription": "{{percentageOne}} na Twoje saldo \n {{percentageTwo}} na kalendarz na {{days}} dni",
+        "goldMembersAndAbove": "Gold Members i wyżej",
+        "yourBalance": "{{percentage}} na Twoje saldo",
+        "yourCalendar": "{{percentage}} na kalendarz na {{days}} dni",
+        "minimumClaimAmount": "Minimalna kwota zgłoszenia to {{money}}",
+        "expiration": "Wygasa",
+        "expirationDescription": "Twoje działo musi zostać odpalone przed kolejnym doładowaniem. Niezgłoszone nagrody wygasają na początku następnego cyklu.",
+        "generalTerms": "Warunki ogólne",
+        "generalTermsDescription": "Nagrody są obliczane i przypisywane w BUCK/USDT, a następnie wyświetlane w preferowanej walucie fiducjarnej dla wygody. Należy zauważyć, że konwersje walut są przybliżone.\n\nKasyno zastrzega sobie prawo do zmiany lub cofnięcia kwalifikowalności w dowolnym momencie, bez obowiązku uzasadniania. Wszelkie nadużycia lub działania oszukańcze skutkują dyskwalifikacją z promocji."
+    }
+}

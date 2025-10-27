@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Meist",
+"content": "<p class=\"leading-7\">\n      {{gameLink}} Liidus oleme kokku pannud meeskonna, et tuua teile uusimad online-meelelahutuse, lõbusate kogemuste ja kohese juurdepääsu rahale. Meie missioon on saada meie ülemaailmse publiku jaoks parimaks krüptomängude sihtkohaks.\n    </p>\n    <p class=\"leading-7\">\n      Oleme osa OKVIP liidust: Villareal CF, AC Milani ja Argentina Jalgpalliliidu ametlikud sponsorid.\n    </p>\n    <p class=\"leading-7\">\n      Vaadake meie OKVIP liidu sponsorlusi siin. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Liidu omanik on <span class=\"font-bold text-base\">Omnispect B.V.</span>, piiratud vastutusega ettevõte, mis on registreeritud Curaçaos, ettevõtte registrikoodiga <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, registreeritud aadressiga <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} Liit on läbinud kõik regulatiivsed nõuded ja omab seaduslikku volitust läbi viia hasartmängude tegevust kõigi online-hasartmängude ja panustega.\n    </p>"
+  }
+}

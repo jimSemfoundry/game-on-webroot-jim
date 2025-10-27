@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Koliko let moram biti star, da se lahko registriram na vašem spletnem mestu?",
+    "content": "<p class=\"leading-7\">Za registracijo morate biti stari vsaj {{faqAge}} let ali polnoletni v svoji jurisdikciji. Prav tako morate imeti zakonsko dovoljenje za igranje spletnih iger v skladu z veljavnimi zakoni. Za več informacij preberite naše pogoje uporabe.</p><p class=\"leading-7\">Igre na srečo lahko povzročajo zasvojenost, zato igralcem priporočamo, da igrajo odgovorno.</p>"
+  },
+  "faqTwo": {
+    "title": "Katere valute podpira denarnica?",
+    "content": "<p class=\"leading-7\">Podpiramo glavne kriptovalute, kot so {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Kako opravim vplačilo?",
+    "content": "<p class=\"leading-7\">Pojdite na stran svojega profila, kliknite »Vplačilo«, izberite želeno kriptovaluto, kopirajte naslov denarnice ali skenirajte kodo QR za plačilo.</p>"
+  },
+  "faqFour": {
+    "title": "Ali lahko zamenjam svoje kriptovalute na vašem spletnem mestu?",
+    "content": "<p class=\"leading-7\">{{siteName}} ponuja funkcijo zamenjave, s katero lahko varno in enostavno zamenjate svoje kriptovalute v druge kriptovalute. Vendar pa je zaradi preprečevanja mešanja kovancev za vse kriptovalute, vplačane na {{siteName}}, zahtevana 1-kratna stava, kar pomeni, da morate z vplačanimi sredstvi staviti vsaj enkrat, preden jih lahko zamenjate.</p>"
+  },
+  "faqFive": {
+    "title": "Kako opravim izplačilo?",
+    "content": "<p class=\"leading-7\">Pojdite na stran svojega profila, kliknite »Izplačilo«, vnesite naslov denarnice, v katero želite izplačati sredstva, in znesek, ki ga želite izplačati. (Upoštevajte, da se lahko glede na različne blokovne verige zaračunajo različne pristojbine.)</p>"
+  },
+  "faqSix": {
+    "title": "Kakšen je najnižji znesek izplačila za posamezno kriptovaluto?",
+    "content": "<p class=\"leading-7\">Zaradi različnih vrednosti kriptovalut in različnih rudarskih pristojbin preverite stran za izplačila, kjer so navedeni najnižji zneski izplačil za posamezno kriptovaluto.</p>"
+  },
+  "faqSeven": {
+    "title": "Koliko časa traja vplačilo ali izplačilo?",
+    "content": "<p class=\"leading-7\">Vsaka transakcija v blokovni verigi zahteva več ciklov za potrditev.</p><p class=\"leading-7\">Na splošno transakcije v verigah BTC in ETH potrebujejo 5–10 minut, preden jih omrežje blokovne verige potrdi, medtem ko transakcije v verigah TRON, TON in SOLANA trajajo približno 1–2 minuti.</p><p class=\"leading-7\">Če med vplačilom ali izplačilom naletite na težave, lahko transakcijo preverite z ustreznim raziskovalcem blokovne verige ali se obrnete na našo podporo v živo.</p>"
+  },
+  "faqEight": {
+    "title": "Od kod prihajajo potrditve transakcij?",
+    "content": "<p class=\"leading-7\">Vse informacije o potrditvah prihajajo iz blokovne verige in rudarjev v blokovni verigi.</p>"
+  },
+  "faqNine": {
+    "title": "Ali so vaše igre poštene?",
+  "content": "<p class=\"leading-7\">Preglednost, Zaupanje in Poštenost so del osnovnih vrednot {{gameLink}} in temelj našega poslovanja. Zato sodelujemo le z zaupanja vrednimi vrhunskimi igralnimi partnerji, da našim strankam zagotovimo kakovostno izkušnjo, ki si jo zaslužijo.</p><p class=\"leading-7\">Vse igre naših partnerjev so strogo testirane na naključnost s strani neodvisnih revizorjev in so licencirane pri regulatorjih iger na srečo, ki jih pogosto revidirajo glede njihovega generatorja naključnih števil.</p>"
+  },
+  "faqTen": {
+    "title": "Kaj storim, če se igra zatakne ali se povezava prekine?",
+    "content": "<p class=\"leading-7\">Če naletite na tehnične težave, poskusite osvežiti stran. Naši ponudniki shranjujejo stanje iger, zato bi ob ponovni povezavi morali videti prejšnje stanje igre.</p>"
+  }
+}

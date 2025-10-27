@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Sobre Nosotros",
+"content": "<p class=\"leading-7\">\n      En {{gameLink}} alianza, hemos reunido un equipo para ofrecerte lo último en entretenimiento en línea, experiencias llenas de diversión y acceso instantáneo a tus fondos. Nuestra misión es convertirnos en el destino definitivo de juegos cripto para nuestra audiencia en todo el mundo.         \n    </p>\n    <p class=\"leading-7\">\n      Somos parte de la alianza OKVIP: Patrocinadores oficiales del Villareal CF, AC Milan y la Asociación de Fútbol de Argentina.\n    </p>\n    <p class=\"leading-7\">\n      Consulta los patrocinios de nuestra alianza OKVIP aquí. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} alianza es propiedad de <span class=\"font-bold text-base\">Omnispect B.V.</span>, una sociedad de responsabilidad limitada registrada en Curazao con número de registro de empresa <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, con domicilio registrado en <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} alianza ha cumplido con todas las normativas regulatorias y está legalmente autorizada para operar juegos de azar y apuestas en línea de todo tipo.         \n    </p>"
+  }
+}

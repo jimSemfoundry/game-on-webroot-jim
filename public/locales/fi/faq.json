@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Kuinka vanha minun täytyy olla rekisteröityäkseni sivustollenne?",
+    "content": "<p class=\"leading-7\">Sinun täytyy olla vähintään {{faqAge}} vuotta vanha tai täysi-ikäinen omalla lainkäyttöalueellasi rekisteröityäksesi. Sinun on myös oltava laillisesti oikeutettu pelaamaan verkkopelejä sinuun sovellettavien lakien mukaisesti. Lisätietoja saat käyttöehdoistamme.</p><p class=\"leading-7\">Pelaaminen voi aiheuttaa riippuvuutta, ja pelaajia kehotetaan harjoittamaan itsehillintää.</p>"
+  },
+  "faqTwo": {
+    "title": "Mitä valuuttoja lompakko tukee?",
+    "content": "<p class=\"leading-7\">Tuemme tärkeimpiä kryptovaluuttoja, kuten {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Kuinka teen talletuksen?",
+    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Talletus\", valitse haluamasi kryptovaluutta, kopioi lompakon osoite tai skannaa QR-koodi maksua varten.</p>"
+  },
+  "faqFour": {
+    "title": "Voinko vaihtaa kryptovaluuttojani sivustollanne?",
+    "content": "<p class=\"leading-7\">{{siteName}} tarjoaa vaihto-ominaisuuden, jolla voit turvallisesti ja helposti vaihtaa kryptovaluuttasi muihin kryptovaluuttoihin. Rahanpesuun liittyvien huolien vuoksi kaikilla {{siteName}}-sivustolle talletetuilla kryptovaluutoilla on kuitenkin 1x kierrätysvaatimus, eli sinun täytyy panostaa talletetut varat vähintään kerran ennen kuin voit vaihtaa ne.</p>"
+  },
+  "faqFive": {
+    "title": "Kuinka teen noston?",
+    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Nosto\", syötä lompakon osoite, johon haluat nostaa varat, ja summa, jonka haluat nostaa. (Huomaa, että eri lohkoketjujen mukaan voi olla erilaisia maksuja.)</p>"
+  },
+  "faqSix": {
+    "title": "Mikä on kunkin kryptovaluutan vähimmäisnostosumma?",
+    "content": "<p class=\"leading-7\">Kryptovaluuttojen erilaisen arvon ja kaivosmaksujen vuoksi tarkista nostosivultasi kunkin kryptovaluutan vähimmäisnostosummat.</p>"
+  },
+  "faqSeven": {
+    "title": "Kuinka kauan talletus ja nosto kestävät?",
+    "content": "<p class=\"leading-7\">Jokainen lohkoketjun tapahtuma vaatii useita syklejä vahvistukseen.</p><p class=\"leading-7\">Yleisesti ottaen tapahtuma kestää 5–10 minuuttia ennen kuin lohkoketjuverkko vahvistaa sen BTC- ja ETH-ketjuissa ja noin 1–2 minuuttia TRON-, TON- ja SOLANA-ketjuissa.</p><p class=\"leading-7\">Jos kohtaat ongelmia talletuksen tai noston aikana, voit tarkistaa tapahtumasi käyttämällä kyseisen verkon lohkoketjuselainta tai ottaa yhteyttä Live-Tukeen.</p>"
+  },
+  "faqEight": {
+    "title": "Mistä tapahtumavahvistukset tulevat?",
+    "content": "<p class=\"leading-7\">Kaikki vahvistustiedot tulevat lohkoketjusta ja sen louhijoista.</p>"
+  },
+  "faqNine": {
+    "title": "Ovatko pelinne reiluja?",
+  "content": "<p class=\"leading-7\">Läpinäkyvyys, luottamus ja reiluus ovat osa {{gameLink}}:n ydinarvoja ja liiketoimintamme perusta. Siksi teemme yhteistyötä vain luotettavien huipputason pelikumppaneiden kanssa tarjotaksemme asiakkaillemme ansaitsemansa laadukkaan kokemuksen.</p><p class=\"leading-7\">Kaikki kumppaneidemme pelit testataan perusteellisesti satunnaisuuden varmistamiseksi riippumattomien tarkastajien toimesta, ja ne on lisensoitu peliviranomaisten toimesta, jotka suorittavat säännöllisiä tarkastuksia satunnaislukugeneraattoreille.</p>"
+  },
+  "faqTen": {
+    "title": "Mitä teen, jos peli jumittuu tai yhteys katkeaa?",
+    "content": "<p class=\"leading-7\">Jos kohtaat teknisiä ongelmia, yritä päivittää sivu. Pelintarjoajamme tallentavat pelitilat, ja sinun pitäisi nähdä edellinen pelitilasi, kun muodostat yhteyden uudelleen.</p>"
+  }
+}

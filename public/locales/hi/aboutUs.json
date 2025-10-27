@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "हमारे बारे में",
+    "content": "<p class=\"leading-7\">\n      {{gameLink}} गठबंधन में, हमने एक टीम इकट्ठी की है जो आपको ऑनलाइन मनोरंजन में नवीनतम, मजेदार अनुभव और आपके धन तक तत्काल पहुंच प्रदान करती है। हमारा मिशन दुनिया भर में हमारे दर्शकों के लिए अंतिम क्रिप्टो गेमिंग गंतव्य बनना है।         \n    </p>\n    <p class=\"leading-7\">\n      हम OKVIP गठबंधन का हिस्सा हैं: विलारियल सीएफ, एसी मिलान और अर्जेंटीना फुटबॉल एसोसिएशन के आधिकारिक प्रायोजक।\n    </p>\n    <p class=\"leading-7\">\n      हमारे OKVIP गठबंधन द्वारा प्रायोजन यहां देखें। {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} गठबंधन <span class=\"font-bold text-base\">Omnispect B.V.</span> द्वारा स्वामित्व में है, जो कुराकाओ में पंजीकृत एक सीमित दायित्व कंपनी है जिसमें कंपनी पंजीकरण संख्या <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span> है, पंजीकृत पता <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span> पर है।           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} गठबंधन ने सभी नियामक अनुपालन पास कर लिया है और किसी भी और सभी ऑनलाइन मौका और दांव के खेलों के लिए गेमिंग संचालन करने के लिए कानूनी रूप से अधिकृत है।         \n    </p>"
+  }
+}

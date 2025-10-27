@@ -1,0 +1,38 @@
+{
+    "goBack": "Vrni se",
+    "tryAgain": "Poskusi znova",
+    "retry": "Ponovi",
+    "retryConnection": "Ponovitev povezave",
+    "emptyStateNoContent": {
+        "title": "Tu še ni ničesar!",
+        "description": "Izgleda, da trenutno ni vsebine. Poskusite znova kasneje ali preverite kaj drugega."
+    },
+    "failedToLoadPage": {
+        "title": "Nekaj je šlo narobe",
+        "description": "Pri nalaganju strani je prišlo do sistemske napake. Ponovno naložite stran ali se obrnite na podporo, če težava ne izgine."
+    },
+    "otherActiveSession": {
+        "title": "Napaka seje!",
+        "description": "Dostop iz te naprave trenutno ni na voljo zaradi varnostnih razlogov. To je lahko posledica druge prijave ali sistemske težave. Poskusite znova ali uporabite drugo napravo."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Ste brez povezave",
+        "description": "Izgleda, da nimate internetne povezave. Preverite Wi-Fi ali mobilne podatke in poskusite znova, ko ste povezani."
+    },
+    "pageNotFound": {
+        "title": "Ups! Ta stran manjka",
+        "description": "Videti je, da stran ne obstaja ali je bila premaknjena. Preverite URL ali se vrnite na domačo stran."
+    },
+    "tooManyRequest": {
+        "title": "Počakajte malo! Smo zasedeni",
+        "description": "Naši strežniki so trenutno zelo obremenjeni. Počakajte nekaj trenutkov in poskusite znova."
+    },
+    "underMaintenance": {
+        "title": "Takoj se bomo vrnili!",
+        "description": "Izvajamo nekaj posodobitev za nemoteno delovanje. Kmalu se vrnite!"
+    },
+    "userRestriction": {
+        "title": "Ups! Do tega ne morete dostopati",
+        "description": "Videti je, da nimate dovoljenja za dostop. Preverite svoje pravice ali poiščite pomoč."
+    }
+}

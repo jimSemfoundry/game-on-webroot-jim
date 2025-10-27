@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Cik vecam jābūt, lai reģistrētos jūsu vietnē?",
+    "content": "<p class=\"leading-7\">Lai reģistrētos, jums jābūt vismaz {{faqAge}} gadus vecam vai pilngadīgam savā jurisdikcijā. Jums arī jābūt likumīgi tiesīgam spēlēt tiešsaistes azartspēles saskaņā ar jums piemērojamiem likumiem. Plašākai informācijai lūdzu izlasiet mūsu pakalpojumu sniegšanas noteikumus.</p><p class=\"leading-7\">Azartspēles var izraisīt atkarību, tāpēc spēlētājiem ieteicams praktizēt atbildīgu spēlēšanu.</p>"
+  },
+  "faqTwo": {
+    "title": "Kādas valūtas atbalsta maks?",
+    "content": "<p class=\"leading-7\">Mēs atbalstām galvenās kriptovalūtas, piemēram, {{currency}}.</p>"
+  },
+  "faqThree": {
+    "title": "Kā iemaksāt?",
+    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu, noklikšķiniet uz \"Iemaksa\", izvēlieties vēlamo kriptovalūtu, nokopējiet maka adresi vai skenējiet QR kodu, lai veiktu maksājumu.</p>"
+  },
+  "faqFour": {
+    "title": "Vai es varu mainīt savas kriptovalūtas jūsu vietnē?",
+    "content": "<p class=\"leading-7\">{{siteName}} piedāvā apmaiņas funkciju, kas ļauj droši un vienkārši mainīt jūsu kriptovalūtas pret citām kriptovalūtām. Tomēr, ņemot vērā līdzekļu sajaukšanas riskus, visām {{siteName}} iemaksātajām kriptovalūtām ir 1x apgrozījuma prasība, kas nozīmē, ka jums jāizliek likmes ar iemaksātajiem līdzekļiem vismaz vienu reizi, pirms varat tos apmainīt.</p>"
+  },
+  "faqFive": {
+    "title": "Kā veikt izņemšanu?",
+    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu, noklikšķiniet uz \"Izņemt\", ievadiet maka adresi, uz kuru vēlaties izņemt līdzekļus, un summu, ko vēlaties izņemt. (Lūdzu, ņemiet vērā, ka atkarībā no blokķēdēm var būt dažādas tīkla maksas.)</p>"
+  },
+  "faqSix": {
+    "title": "Kāda ir minimālā izņemšanas summa katrai kriptovalūtai?",
+    "content": "<p class=\"leading-7\">Tā kā kriptovalūtu vērtība un ar tām saistītās tīkla maksas atšķiras, lūdzu, pārbaudiet izņemšanas lapu, lai uzzinātu minimālās izņemšanas summas katrai kriptovalūtai.</p>"
+  },
+  "faqSeven": {
+    "title": "Cik ilgi aizņem iemaksas un izņemšanas?",
+    "content": "<p class=\"leading-7\">Katram darījumam blokķēdē nepieciešami vairāki apstiprinājumi.</p><p class=\"leading-7\">Parasti darījumi BTC un ETH ķēdēs tiek apstiprināti 5–10 minūšu laikā; TRON, TON un SOLANA ķēdēs aptuveni 1–2 minūšu laikā.</p><p class=\"leading-7\">Ja iemaksas vai izņemšanas laikā rodas problēmas, varat pārbaudīt darījumu, izmantojot attiecīgās blokķēdes izpētes rīku, vai sazināties ar mūsu tiešsaistes atbalstu.</p>"
+  },
+  "faqEight": {
+    "title": "No kurienes nāk darījumu apstiprinājumi?",
+    "content": "<p class=\"leading-7\">Visa apstiprinājumu informācija nāk no blokķēdes un blokķēdes kalnračiem.</p>"
+  },
+  "faqNine": {
+    "title": "Vai jūsu spēles ir godīgas?",
+  "content": "<p class=\"leading-7\">Caurspīdīgums, Uzticība un Godīgums ir {{gameLink}} pamatvērtību daļa un mūsu uzņēmuma stūrakmens. Tāpēc mēs sadarbojamies tikai ar uzticamiem vadošajiem spēļu partneriem, lai nodrošinātu mūsu klientiem pelnītu kvalitatīvu pieredzi.</p><p class=\"leading-7\">Visas mūsu partneru spēles tiek rūpīgi pārbaudītas attiecībā uz nejaušību neatkarīgu auditoru veiktā testēšanā un ir licencētas azartspēļu regulatoru, kuri regulāri veic revīzijas viņu nejaušo skaitļu ģeneratoriem.</p>"
+  },
+  "faqTen": {
+    "title": "Ko darīt, ja spēle uzkaras vai tiek pārtraukts savienojums?",
+    "content": "<p class=\"leading-7\">Ja rodas tehniskas problēmas, mēģiniet atjaunot lapu. Mūsu pakalpojumu sniedzēji saglabā spēles stāvokļus, un, atjaunojot savienojumu, jums vajadzētu redzēt iepriekšējo spēles stāvokli.</p>"
+  }
+}

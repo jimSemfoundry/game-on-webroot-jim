@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "À VIE",
+        "reward": "RÉCOMPENSES \n D’ACCOMPLISSEMENTS",
+        "achievements": "Accomplissements",
+        "achievementDescription": "Les récompenses d’accomplissement sont des prix attribués pour avoir atteint de nouvelles étapes et surmonté des défis. Elles célèbrent vos progrès et succès, débloquant des surprises amusantes au fur et à mesure de vos exploits !",
+        "claimDistribution": "Distribution des Récompenses",
+"claimDistributionDescription": "Les récompenses sont ajoutées à votre calendrier de bonus pendant 3 jours après une réclamation réussie.",
+        "expiration": "Expiration",
+        "expirationDescription": "Aucune - Les récompenses sont automatiquement envoyées au calendrier.",
+        "generalTerms": "Conditions Générales",
+        "generalTermsDescription": "Les récompenses sont calculées et créditées en BUCK/USDT, puis affichées dans votre devise fiat préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives.\n\nLe casino se réserve le droit de modifier ou révoquer l’éligibilité à tout moment, sans obligation de justification. Toute fraude ou abus entraînera la disqualification de la promotion."
+    },
+    "luckyNumberSeven": {
+        "title": "Numéro \n Chanceux Sept",
+        "luckyNumberSeven": "Numéro Chanceux Sept",
+        "luckyNumberSevenDescription": "Trouvez les {{numberOne}} chanceux et gagnez un bonus doux ! Si votre ID de pari se termine par {{numberTwo}}, {{numberThree}} ou {{numberFour}} en jouant aux machines à sous éligibles, vous recevrez un bonus surprise - jusqu’à {{money}} ! Il suffit de tourner, toucher ces chiffres chanceux, et laissez les bons moments (et bonus) rouler !",
+        "automaticDistribution": "Distribution des Récompenses",
+  "automaticDistributionDescription": "Les récompenses sont ajoutées à votre calendrier de bonus lors de la réclamation.",
+        "winningConditions": "Conditions de Gain",
+        "winningConditionsDescription": "Si votre ID de pari se termine par {{number}}, vous recevrez automatiquement {{percentage}} de votre mise dans votre calendrier de bonus.",
+        "winningConditionsDescription2": "Si votre ID de pari se termine par {{number}}, vous recevrez automatiquement {{percentage}} de votre mise dans votre calendrier de bonus.",
+        "winningConditionsDescription3": "Si votre ID de pari se termine par {{number}}, vous recevrez automatiquement {{percentage}} de votre mise dans votre calendrier de bonus.",
+        "expiration": "Expiration",
+        "expirationDescription": "Aucune - Les récompenses sont automatiquement envoyées au calendrier.",
+        "eligibility": "Éligibilité",
+        "eligibilityDescription": "Seuls les paris placés sur {{providerOne}} Soft, Pragmatic Play et {{providerTwo}} Slots sont éligibles pour cette promotion.",
+        "generalTerms": "Conditions Générales",
+        "generalTermsDescription": "Vous pouvez gagner chaque combinaison chanceuse {{number}} une fois par jour.\n\nLe montant du bonus est plafonné à {{money}} par ID de pari qualifiant.\n\nLes récompenses sont calculées et créditées en BUCK/USDT, puis affichées dans votre devise fiat préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives.\n\nLe casino se réserve le droit de modifier ou de mettre fin à cette promotion à tout moment. Tout abus ou fraude entraînera une disqualification de la promotion."
+    },
+    "mysteryBox": {
+"title": "MENSUEL",
+        "reward": "BOÎTE \n MYSTÈRE",
+        "mysteryBox": "Boîte Mystère",
+  "mysteryBoxDescription": "Plus vous jouez, meilleures sont vos chances de gagner gros. Ouvrez votre Boîte Mystère chaque 7 du mois pour révéler des bonus surprises adaptés à votre activité. Faites tourner, jouez et réclamez ce qui vous attend à l’intérieur !",
+        "claimDistribution": "Distribution des Récompenses",
+        "claimDistributionDescription": "100% sur votre solde",
+        "goldMembersAndAbove": "Membres Gold et plus",
+        "yourBalance": "{{percentage}} sur votre solde",
+        "yourCalendar": "{{percentage}} sur votre calendrier pendant {{days}} jours",
+        "minimumClaimAmount": "Le montant minimum de réclamation est de {{money}}",
+        "expiration": "Expiration",
+  "expirationDescription": "Votre Boîte Mystère doit être réclamée dans les 7 jours suivant son attribution. Les récompenses non réclamées expireront après cette période.",
+        "generalTerms": "Conditions Générales",
+  "generalTermsDescription": "Les récompenses sont calculées et créditées en fonction du premier dépôt de l’utilisateur ou en USDT si aucun dépôt n’est effectué, sous réserve d’un rollover obligatoire de 1x. Les montants sont affichés dans votre devise fiduciaire préférée ; les conversions sont approximatives.\n\nLe casino se réserve le droit de modifier ou de révoquer l’éligibilité à tout moment sans préavis. Tout abus ou fraude entraînera une disqualification."
+    },
+    "TheCannon": {
+        "title": "LE",
+        "reward": "CANON",
+        "theCannon": "Le Canon",
+        "theCannonDescription": "Préparez-vous à déclencher Le Canon — notre plus grand événement mensuel de récompenses ! Le {{day}} de chaque mois, les joueurs éligibles ont la chance de tirer leur canon et de remporter des prix explosifs.",
+        "claimDistribution": "Distribution des Récompenses",
+        "claimDistributionDescription": "{{percentageOne}} sur votre solde \n {{percentageTwo}} sur votre calendrier pendant {{days}} jours",
+        "goldMembersAndAbove": "Membres Gold et plus",
+        "yourBalance": "{{percentage}} sur votre solde",
+        "yourCalendar": "{{percentage}} sur votre calendrier pendant {{days}} jours",
+        "minimumClaimAmount": "Le montant minimum de réclamation est de {{money}}",
+        "expiration": "Expiration",
+        "expirationDescription": "Votre canon doit être tiré avant le prochain rechargement. Les récompenses non réclamées expireront au début du cycle suivant.",
+        "generalTerms": "Conditions Générales",
+        "generalTermsDescription": "Les récompenses sont calculées et créditées en BUCK/USDT, puis affichées dans votre devise fiat préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives.\n\nLe casino se réserve le droit de modifier ou révoquer l’éligibilité à tout moment, sans obligation de justification. Toute fraude ou abus entraînera la disqualification de la promotion."
+    }
+}

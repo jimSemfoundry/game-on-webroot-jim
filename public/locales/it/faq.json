@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Quanti anni devo avere per registrarmi sul tuo sito?",
+    "content": "<p class=\"leading-7\">Per registrarti devi avere almeno {{faqAge}} anni o essere maggiorenne nella tua giurisdizione. Devi inoltre essere legalmente autorizzato a giocare online secondo le leggi vigenti. Per maggiori informazioni, consulta i nostri termini di servizio.</p><p class=\"leading-7\">Il gioco può causare dipendenza e si consiglia ai giocatori di esercitare autocontrollo.</p>"
+  },
+  "faqTwo": {
+    "title": "Quale valuta supporta il portafoglio?",
+    "content": "<p class=\"leading-7\">Supportiamo le principali criptovalute come {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Come faccio a depositare?",
+    "content": "<p class=\"leading-7\">Vai alla pagina del tuo profilo e clicca su \"Deposito\", seleziona la criptovaluta di tua scelta, copia l'indirizzo del portafoglio o scansiona il codice QR per il pagamento.</p>"
+  },
+  "faqFour": {
+    "title": "Posso scambiare le mie criptovalute sul tuo sito?",
+    "content": "<p class=\"leading-7\">{{siteName}} offre una funzione di scambio che ti permette di scambiare in modo sicuro e semplice le tue criptovalute con altre criptovalute. Tuttavia, a causa delle preoccupazioni legate al mixing delle monete, tutte le criptovalute depositate su {{siteName}} hanno un requisito di rollover di 1x, il che significa che devi scommettere con i fondi depositati almeno una volta prima di poterli scambiare.</p>"
+  },
+  "faqFive": {
+    "title": "Come faccio a prelevare?",
+    "content": "<p class=\"leading-7\">Vai alla pagina del tuo profilo e clicca su \"Prelievo\", inserisci l'indirizzo del portafoglio di destinazione e l'importo che desideri prelevare. (Nota che potrebbero essere applicate commissioni variabili in base alle blockchain)</p>"
+  },
+  "faqSix": {
+    "title": "Qual è l'importo minimo di prelievo per ogni criptovaluta?",
+    "content": "<p class=\"leading-7\">A causa del diverso valore delle criptovalute e delle diverse commissioni di mining, controlla la pagina dei prelievi per conoscere gli importi minimi di prelievo per ciascuna criptovaluta.</p>"
+  },
+  "faqSeven": {
+    "title": "Quanto tempo ci vuole per depositare e prelevare?",
+    "content": "<p class=\"leading-7\">Ogni transazione sulla blockchain richiede più cicli per essere confermata.</p><p class=\"leading-7\">In generale, ogni transazione richiede 5-10 minuti prima di essere confermata dalla rete blockchain per le blockchain BTC ed ETH; e circa 1-2 minuti per le blockchain TRON, TON e SOLANA.</p><p class=\"leading-7\">Se riscontri problemi durante il deposito o il prelievo, puoi controllare la tua transazione utilizzando il rispettivo blockchain explorer per la rete o contattare il nostro supporto live.</p>"
+  },
+  "faqEight": {
+    "title": "Da dove provengono le conferme delle transazioni?",
+    "content": "<p class=\"leading-7\">Tutte le informazioni di conferma provengono dalla blockchain e dai miner della blockchain</p>"
+  },
+  "faqNine": {
+    "title": "I tuoi giochi sono equi?",
+  "content": "<p class=\"leading-7\">Trasparenza, Fiducia e Giustizia fanno parte dei valori fondamentali di {{gameLink}} e sono la base del nostro business. Per questo lavoriamo solo con partner di gioco di prima categoria e fidati, per offrire ai nostri clienti l’esperienza di qualità che meritano.</p><p class=\"leading-7\">Tutti i giochi dei nostri partner sono rigorosamente testati per la casualità da revisori indipendenti e sono autorizzati dagli enti regolatori del gioco, che sottopongono i generatori di numeri casuali a frequenti controlli.</p>"
+  },
+  "faqTen": {
+    "title": "Cosa devo fare se il gioco si blocca o se vengo disconnesso?",
+    "content": "<p class=\"leading-7\">In caso di problemi tecnici, prova ad aggiornare la pagina. Gli stati di gioco vengono salvati dai nostri fornitori e dovresti vedere il tuo stato di gioco precedente quando ti riconnetti.</p>"
+  }
+}

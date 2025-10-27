@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Câți ani trebuie să am pentru a mă înregistra pe site-ul dumneavoastră?",
+    "content": "<p class=\"leading-7\">Pentru a vă înregistra, trebuie să aveți cel puțin {{faqAge}} ani sau vârsta majoratului în jurisdicția dumneavoastră. De asemenea, trebuie să aveți permisiunea legală de a juca jocuri online în conformitate cu legile care vă sunt aplicabile. Pentru mai multe informații, vă rugăm să citiți termenii noștri de serviciu.</p><p class=\"leading-7\">Jocurile pot crea dependență, iar jucătorii sunt sfătuiți să practice autocontrol.</p>"
+  },
+  "faqTwo": {
+    "title": "Ce valută acceptă portofelul?",
+    "content": "<p class=\"leading-7\">Acceptăm criptomonede majore precum {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Cum depun?",
+    "content": "<p class=\"leading-7\">Accesați pagina dvs. de profil și faceți clic pe \"Depozit\", selectați criptomoneda dorită, copiați adresa portofelului sau scanați codul QR pentru plată.</p>"
+  },
+  "faqFour": {
+    "title": "Pot să-mi schimb criptomonedele pe site-ul dvs.?",
+    "content": "<p class=\"leading-7\">{{siteName}} oferă o funcție de swap prin care vă puteți schimba în siguranță și cu ușurință criptomonedele în alte criptomonede. Cu toate acestea, din cauza preocupărilor legate de amestecarea monedelor, toate criptomonedele depuse în {{siteName}} au o cerință de rulaj de 1x, ceea ce înseamnă că trebuie să pariați cu fondurile depuse cel puțin o dată înainte de a le putea schimba.</p>"
+  },
+  "faqFive": {
+    "title": "Cum pot să mă retrag?",
+    "content": "<p class=\"leading-7\">Mergeți la pagina dvs. de profil și faceți clic pe \"Retragere\", introduceți adresa portofelului în care doriți să retrageți și suma pe care doriți să o retrageți. (Vă rugăm să rețineți că pot exista comisioane diferite impuse în funcție de diferitele blockchains)</p>"
+  },
+  "faqSix": {
+    "title": "Care este suma minimă de retragere pentru fiecare criptomonedă?",
+    "content": "<p class=\"leading-7\">Din cauza valorii diferite a criptomonedelor, precum și a diferitelor taxe de minerit implicate, vă rugăm să verificați pagina de retragere pentru sumele minime de retragere aferente fiecărei criptomonede.</p>"
+  },
+  "faqSeven": {
+    "title": "Cât durează depunerea și retragerea?",
+    "content": "<p class=\"leading-7\">Fiecare tranzacție pe blockchain necesită mai multe cicluri pentru a fi confirmată.</p><p class=\"leading-7\">În general, fiecare tranzacție necesită 5-10 minute înainte de a putea fi confirmată de rețeaua blockchain pentru lanțul BTC și ETH; și aproximativ 1-2 minute pentru lanțul TRON, TON, SOLANA.</p><p class=\"leading-7\">Dacă întâmpinați vreo problemă în timpul depunerii sau retragerii, puteți verifica tranzacția utilizând exploratorul blockchain respectiv pentru rețea sau puteți contacta suportul nostru live.</p>"
+  },
+  "faqEight": {
+    "title": "De unde provin confirmările tranzacțiilor?",
+    "content": "<p class=\"leading-7\">Toate informațiile de confirmare provin de la blockchain și de la minerii pentru blockchain</p>"
+  },
+  "faqNine": {
+    "title": "Jocurile dvs. sunt corecte?",
+  "content": "<p class=\"leading-7\">Transparența, încrederea și corectitudinea fac parte din valorile de bază ale {{gameLink}} și stau la temelia afacerii noastre. De aceea lucrăm doar cu parteneri de joc de top și de încredere pentru a oferi clienților noștri experiența de calitate pe care o merită.</p><p class=\"leading-7\">Toate jocurile partenerilor noștri sunt riguros testate pentru aleatorietate de către auditori independenți și sunt licențiate de autoritățile de reglementare a jocurilor, care le supun unor audituri frecvente asupra generatorului lor de numere aleatoare.</p>"
+  },
+  "faqTen": {
+    "title": "Ce trebuie să fac dacă jocul meu se blochează sau dacă sunt deconectat?",
+    "content": "<p class=\"leading-7\">Dacă întâmpinați probleme tehnice, vă rugăm să încercați să reîmprospătați pagina. Stările de joc sunt salvate de furnizorii noștri și ar trebui să vedeți starea de joc anterioară atunci când vă reconectați.</p>"
+  }
+}

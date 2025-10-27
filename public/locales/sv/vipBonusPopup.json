@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "LIVSTID",
+        "reward": "PRESTATIONER \n UTMÄRKELSER",
+        "achievements": "Prestationsutmärkelser",
+        "achievementDescription": "Prestationsutmärkelser är belöningar som ges för att nå nya milstolpar och övervinna utmaningar. De firar dina framsteg och framgångar, och låser upp roliga överraskningar när du uppnår nya bedrifter längs vägen!",
+        "claimDistribution": "Utdelning av krav",
+"claimDistributionDescription": "Belöningar läggs till i din bonuskalender i 3 dagar efter en lyckad utbetalning.",
+        "expiration": "Utgång",
+        "expirationDescription": "Ingen - Belöningar skickas automatiskt till kalendern.",
+        "generalTerms": "Allmänna villkor",
+        "generalTermsDescription": "Belöningar beräknas och krediteras i BUCK/USDT, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.\n\nKasinot förbehåller sig rätten att när som helst ändra eller återkalla behörighet utan skyldighet att motivera. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
+    },
+    "luckyNumberSeven": {
+        "title": "Lyckonummer \n SJU",
+        "luckyNumberSeven": "Lyckonummer Sju",
+        "luckyNumberSevenDescription": "Träffa de lyckliga {{numberOne}}:orna och få en söt bonus! Om ditt Insats-ID slutar med {{numberTwo}}, {{numberThree}} eller {{numberFour}} när du spelar berättigade slots, får du en överraskningsbonus - upp till {{money}}! Snurra bara, träffa de lyckliga siffrorna och låt det roliga (och bonusarna) rulla!",
+        "automaticDistribution": "Utdelning av krav",
+  "automaticDistributionDescription": "Belöningar läggs till i din bonuskalender vid krav.",
+        "winningConditions": "Vinstvillkor",
+        "winningConditionsDescription": "Om ditt Insats-ID slutar med {{number}}, får du automatiskt {{percentage}} av din insats till din bonuskalender.",
+        "winningConditionsDescription2": "Om ditt Insats-ID slutar med {{number}}, får du automatiskt {{percentage}} av din insats till din bonuskalender.",
+        "winningConditionsDescription3": "Om ditt Insats-ID slutar med {{number}}, får du automatiskt {{percentage}} av din insats till din bonuskalender.",
+        "expiration": "Utgång",
+        "expirationDescription": "Ingen - Belöningar skickas automatiskt till kalendern.",
+        "eligibility": "Behörighet",
+        "eligibilityDescription": "Endast insatser placerade på {{providerOne}} Soft, Pragmatic Play och {{providerTwo}} Slots kvalificerar för denna kampanj.",
+        "generalTerms": "Allmänna villkor",
+        "generalTermsDescription": "Du kan vinna varje lyckligt {{number}}-kombination en gång per dag. \n\n Bonusbeloppet är begränsat till {{money}} per kvalificerande Insats-ID. \n\n Belöningar beräknas och krediteras i BUCK/USDT, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga. \n\n Kasinot förbehåller sig rätten att ändra eller avsluta denna kampanj när som helst. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
+    },
+    "mysteryBox": {
+"title": "MÅNADSVIS",
+        "reward": "MYSTERIE \n LÅDA",
+        "mysteryBox": "Mysterie-låda",
+  "mysteryBoxDescription": "Ju mer du spelar, desto bättre är dina chanser att vinna stort. Öppna din Mysteriebox den 7:e varje månad för att avslöja överraskningsbonusar anpassade efter din aktivitet. Snurra, spela och hämta det som väntar där inne!",
+        "claimDistribution": "Utdelning av krav",
+        "claimDistributionDescription": "100% till ditt saldo",
+        "goldMembersAndAbove": "Guldmedlemmar och uppåt",
+        "yourBalance": "{{percentage}} till ditt saldo", 
+        "yourCalendar": "{{percentage}} till din kalender i {{days}} dagar",
+        "minimumClaimAmount": "Minsta uttagsbelopp är {{money}}",
+        "expiration": "Utgång",
+  "expirationDescription": "Din Mysteriebox måste hämtas inom 7 dagar efter att den tilldelats. Oupphämtade belöningar förfaller efter denna period.",
+        "generalTerms": "Allmänna villkor",
+  "generalTermsDescription": "Belöningar beräknas och krediteras baserat på användarens första insättning eller i USDT om ingen insättning görs, med ett krav på 1x omsättning. Beloppen visas i din föredragna fiatvaluta; konverteringar är ungefärliga.\n\nKasino reserverar sig rätten att ändra eller återkalla behörighet när som helst utan förvarning. Missbruk eller bedrägeri kommer att leda till diskvalificering."
+    },
+    "TheCannon": {
+        "title": "KANONEN",
+        "reward": "KANON",
+        "theCannon": "Kanonen",
+        "theCannonDescription": "Gör dig redo att avfyra Kanonen — vår största månatliga belöningshändelse! Den {{day}}:e varje månad får berättigade spelare chansen att skjuta sin kanon och spränga sig till explosiva priser.",
+        "claimDistribution": "Utdelning av krav",
+        "claimDistributionDescription": "{{percentageOne}} till ditt saldo \n {{percentageTwo}} till din kalender i {{days}} dagar",
+        "goldMembersAndAbove": "Guldmedlemmar och uppåt",
+        "yourBalance": "{{percentage}} till ditt saldo", 
+        "yourCalendar": "{{percentage}} till din kalender i {{days}} dagar",
+        "minimumClaimAmount": "Minsta uttagsbelopp är {{money}}",
+        "expiration": "Utgång",
+        "expirationDescription": "Din kanon måste avfyras innan nästa omladdning. Oanvända belöningar går ut i början av nästa cykel.",
+        "generalTerms": "Allmänna villkor",
+        "generalTermsDescription": "Belöningar beräknas och krediteras i BUCK/USDT, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.\n\nKasinot förbehåller sig rätten att när som helst ändra eller återkalla behörighet utan skyldighet att motivera. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
+    }
+}

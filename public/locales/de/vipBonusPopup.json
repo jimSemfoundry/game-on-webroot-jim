@@ -1,0 +1,63 @@
+{
+    "achievements": {
+      "title": "LEBENSZEIT",
+      "reward": "ERFOLGE \n AUSZEICHNUNGEN",
+      "achievements": "Erfolge",
+      "achievementDescription": "Erfolgs-Auszeichnungen sind Belohnungen für das Erreichen neuer Meilensteine und das Bezwingen von Herausforderungen. Sie feiern Ihren Fortschritt und Erfolg und schalten unterwegs unterhaltsame Überraschungen frei!",
+      "claimDistribution": "Auszahlungsverteilung",
+"claimDistributionDescription": "Belohnungen werden nach erfolgreicher Einlösung für 3 Tage zu Ihrem Bonuskalender hinzugefügt.",
+      "expiration": "Ablauf",
+      "expirationDescription": "Keiner – Belohnungen werden automatisch im Kalender gutgeschrieben.",
+      "generalTerms": "Allgemeine Bedingungen",
+      "generalTermsDescription": "Belohnungen werden in BUCK/USDT berechnet und gutgeschrieben und anschließend zur besseren Übersicht in Ihrer bevorzugten Fiat-Währung angezeigt. Bitte beachten Sie, dass Währungsumrechnungen ungefähr sind.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Angabe von Gründen zu ändern oder zu widerrufen. Jeglicher Missbrauch oder betrügerische Aktivitäten führen zum Ausschluss von der Aktion."
+    },
+    "luckyNumberSeven": {
+      "title": "Glückszahl \n Sieben",
+      "luckyNumberSeven": "Glückszahl Sieben",
+      "luckyNumberSevenDescription": "Triff die Glückszahlen {{numberOne}} und sichere dir einen süßen Bonus! Wenn deine Einsatz-ID auf {{numberTwo}}, {{numberThree}} oder {{numberFour}} endet, während du an qualifizierten Slots spielst, erhältst du einen Überraschungsbonus – bis zu {{money}}! Einfach drehen, die Glücksziffern treffen und die gute Zeit (und Boni) rollen lassen!",
+      "automaticDistribution": "Auszahlungsverteilung",
+      "automaticDistributionDescription": "Kein Anspruch oder Klick nötig – Ihre Belohnung wird sofort für 1 Tag in Ihrem Bonuskalender eingetragen, sobald Sie gewinnen.",
+      "winningConditions": "Gewinnbedingungen",
+      "winningConditionsDescription": "Wenn deine Einsatz-ID auf {{number}} endet, erhältst du automatisch {{percentage}} deines Einsatzbetrags in deinem Bonuskalender.",
+      "winningConditionsDescription2": "Wenn deine Einsatz-ID auf {{number}} endet, erhältst du automatisch {{percentage}} deines Einsatzbetrags in deinem Bonuskalender.",
+      "winningConditionsDescription3": "Wenn deine Einsatz-ID auf {{number}} endet, erhältst du automatisch {{percentage}} deines Einsatzbetrags in deinem Bonuskalender.",
+      "expiration": "Ablauf",
+      "expirationDescription": "Keiner – Belohnungen werden automatisch im Kalender gutgeschrieben.",
+      "eligibility": "Berechtigung",
+      "eligibilityDescription": "Nur Einsätze bei {{providerOne}} Soft, Pragmatic Play und {{providerTwo}} Slots qualifizieren sich für diese Aktion.",
+      "generalTerms": "Allgemeine Bedingungen",
+      "generalTermsDescription": "Jede Glückszahlen-{{number}}-Kombination kann einmal täglich gewonnen werden. \n\nDer Bonusbetrag ist auf {{money}} pro qualifizierender Einsatz-ID begrenzt. \n\nBelohnungen werden in BUCK/USDT berechnet und gutgeschrieben und anschließend in Ihrer bevorzugten Fiat-Währung angezeigt. Bitte beachten Sie, dass Währungsumrechnungen ungefähr sind. \n\nDas Casino behält sich das Recht vor, diese Aktion jederzeit zu ändern oder zu beenden. Missbrauch oder betrügerische Aktivitäten führen zum Ausschluss von der Aktion."
+    },
+    "mysteryBox": {
+"title": "MONATLICH",
+      "reward": "MYSTERY \n BOX",
+      "mysteryBox": "Mystery Box",
+  "mysteryBoxDescription": "Je mehr du spielst, desto besser sind deine Chancen auf einen großen Gewinn. Öffne deine Geheimnisbox jeden 7. des Monats, um Überraschungsboni zu entdecken, die auf deine Aktivität zugeschnitten sind. Drehe, spiele und beanspruche, was auf dich wartet!",
+      "claimDistribution": "Auszahlungsverteilung",
+      "claimDistributionDescription": "100% auf dein Guthaben",
+      "goldMembersAndAbove": "Gold-Mitglieder und höher",
+      "yourBalance": "{{percentage}} auf dein Guthaben",
+      "yourCalendar": "{{percentage}} in deinen Kalender für {{days}} Tage",
+      "minimumClaimAmount": "Der Mindestbetrag zum Einlösen beträgt {{money}}",
+      "expiration": "Ablauf",
+  "expirationDescription": "Deine Geheimnisbox muss innerhalb von 7 Tagen nach Erhalt eingelöst werden. Nicht eingelöste Belohnungen verfallen nach diesem Zeitraum.",
+      "generalTerms": "Allgemeine Bedingungen",
+  "generalTermsDescription": "Belohnungen werden basierend auf der ersten Einzahlung des Nutzers oder in USDT, falls keine Einzahlung erfolgt, berechnet und gutgeschrieben, vorbehaltlich einer erforderlichen 1x Umsatzbedingung. Beträge werden in deiner bevorzugten Fiat-Währung angezeigt; Umrechnungen sind ungefähr.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Vorankündigung zu ändern oder zu widerrufen. Jeglicher Missbrauch oder Betrug führt zur Disqualifikation."
+    },
+    "TheCannon": {
+      "title": "DIE",
+      "reward": "KANONE",
+      "theCannon": "Die Kanone",
+      "theCannonDescription": "Bereite dich vor, Die Kanone zu entfesseln – unser größtes monatliches Belohnungs-Event! Am {{day}} jeden Monats erhalten qualifizierte Spieler die Chance, ihre Kanone abzufeuern und sich explosive Preise zu sichern.",
+      "claimDistribution": "Auszahlungsverteilung",
+      "claimDistributionDescription": "{{percentageOne}} auf dein Guthaben \n {{percentageTwo}} in deinen Kalender für {{days}} Tage",
+      "goldMembersAndAbove": "Gold-Mitglieder und höher",
+      "yourBalance": "{{percentage}} auf dein Guthaben",
+      "yourCalendar": "{{percentage}} in deinen Kalender für {{days}} Tage",
+      "minimumClaimAmount": "Der Mindestbetrag zum Einlösen beträgt {{money}}",
+      "expiration": "Ablauf",
+      "expirationDescription": "Deine Kanone muss abgefeuert werden, bevor sie erneut geladen wird. Nicht eingelöste Belohnungen verfallen zu Beginn des nächsten Zyklus.",
+      "generalTerms": "Allgemeine Bedingungen",
+      "generalTermsDescription": "Belohnungen werden in BUCK/USDT berechnet und gutgeschrieben und anschließend zur besseren Übersicht in Ihrer bevorzugten Fiat-Währung angezeigt. Bitte beachten Sie, dass Währungsumrechnungen ungefähr sind.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Angabe von Gründen zu ändern oder zu widerrufen. Jeglicher Missbrauch oder betrügerische Aktivitäten führen zum Ausschluss von der Aktion."
+    }
+  }  

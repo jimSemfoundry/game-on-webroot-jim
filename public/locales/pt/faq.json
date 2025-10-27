@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Que idade preciso ter para me registrar no site de vocês?",
+    "content": "<p class=\"leading-7\">Você deve ter pelo menos {{faqAge}} anos de idade ou ser maior de idade em sua jurisdição para se registrar. Você também deve ter permissão legal para jogar jogos online de acordo com as leis aplicáveis a você. Para obter mais informações, leia nossos termos de serviço.</p><p class=\"leading-7\">Os jogos podem ser viciantes e os jogadores são aconselhados a exercer autocontrole.</p>"
+  },
+  "faqTwo": {
+    "title": "Que moeda vocês aceitam na carteira?",
+    "content": "<p class=\"leading-7\">Oferecemos suporte às principais criptomoedas, como {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Como faço para depositar?",
+    "content": "<p class=\"leading-7\">Acesse sua página de perfil e clique em \"Depositar\", selecione a criptomoeda de sua preferência, copie o endereço da carteira ou escaneie o código QR para realizar o pagamento.</p>"
+  },
+  "faqFour": {
+    "title": "Posso trocar minhas criptomoedas no site de vocês?",
+    "content": "<p class=\"leading-7\">{{siteName}} oferece um recurso de troca no qual você pode trocar com segurança e facilidade suas criptomoedas por outras criptomoedas. No entanto, devido a preocupações com a mistura de moedas, todas as criptomoedas depositadas na {{siteName}} têm um requisito de rollover de 1x, o que significa que você precisa apostar com seus fundos depositados pelo menos uma vez antes de poder trocá-los.</p>"
+  },
+  "faqFive": {
+    "title": "Como faço para sacar?",
+    "content": "<p class=\"leading-7\">Vá para a página do seu perfil e clique em \"Sacar\", digite o endereço da carteira para a qual deseja enviar o saque e o valor que deseja retirar. (Observe que pode haver diferentes taxas impostas de acordo com os diferentes blockchains)</p>"
+  },
+  "faqSix": {
+    "title": "Qual é o valor mínimo de saque para cada criptomoeda?",
+    "content": "<p class=\"leading-7\">Devido ao valor diferente das criptomoedas, bem como às diferentes taxas de mineração envolvidas, verifique a página de saque para saber os valores mínimos de saque relativos a cada criptomoeda.</p>"
+  },
+  "faqSeven": {
+    "title": "Quanto tempo leva para depositar e sacar?",
+    "content": "<p class=\"leading-7\">Cada transação no blockchain requer vários ciclos para ser confirmada.</p><p class=\"leading-7\">De modo geral, cada transação requer de 5 a 10 minutos antes de ser confirmada pela rede blockchain para as cadeias BTC e ETH; e cerca de 1 a 2 minutos para as cadeias TRON, TON e SOLANA.</p><p class=\"leading-7\">Se encontrar algum problema durante o depósito ou o saque, você pode verificar sua transação usando o respectivo explorador de blockchain da rede ou entrar em contato com nosso suporte ao vivo.</p>"
+  },
+  "faqEight": {
+    "title": "De onde vêm as confirmações de transações?",
+    "content": "<p class=\"leading-7\">Todas as informações de confirmação vêm do blockchain e dos mineradores do blockchain.</p>"
+  },
+  "faqNine": {
+    "title": "Seus jogos são justos?",
+    "content": "<p class=\"leading-7\">Transparência, Confiança e Justiça fazem parte dos valores centrais da {{gameLink}} e são a base do nosso negócio. Por isso, trabalhamos apenas com parceiros de jogos confiáveis e de alto nível para oferecer aos nossos clientes a experiência de qualidade que eles merecem.</p><p class=\"leading-7\">Todos os jogos dos nossos parceiros são rigorosamente testados quanto à aleatoriedade por auditores independentes e são licenciados por reguladores de jogos que realizam auditorias frequentes no Gerador de Números Aleatórios.</p>"
+  },
+  "faqTen": {
+    "title": "O que devo fazer se o jogo travar ou se eu for desconectado?",
+    "content": "<p class=\"leading-7\">Se você encontrar algum problema técnico, tente atualizar a página. Os estados do jogo são salvos por nossos provedores e você deverá ver o estado anterior do jogo quando se reconectar.</p>"
+  }
+}

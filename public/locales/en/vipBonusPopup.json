@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "LIFETIME",
+        "reward": "ACHIEVEMENTS \n AWARDS",
+        "achievements": "Achievements",
+        "achievementDescription": "Achievement Awards are rewards given for reaching new milestones and conquering challenges. They celebrate your progress and success, unlocking fun surprises as you achieve new feats along the way!",
+        "claimDistribution": "Claim Distribution",
+        "claimDistributionDescription": "Rewards are added to your bonus calendar for 3 days upon claiming.",
+        "expiration": "Expiration",
+        "expirationDescription": "None - Rewards are automatically sent to calendar.",
+        "generalTerms": "General Terms",
+        "generalTermsDescription": "Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.\n\nThe casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    },
+    "luckyNumberSeven": {
+        "title": "Lucky Number \n Seven",
+        "luckyNumberSeven": "Lucky Number Seven",
+        "luckyNumberSevenDescription": "Hit the Lucky {{numberOne}}s and score a sweet bonus! If your Bet ID ends in {{numberTwo}}, {{numberThree}} or {{numberFour}} while playing eligible slots, you’ll get a surprise bonus - up to {{money}}! Just spin, hit those lucky digits, and let the good times (and bonuses) roll!",
+        "automaticDistribution": "Claim Distribution",
+        "automaticDistributionDescription": "Rewards are added to your bonus calendar upon claiming.",
+        "winningConditions": "Winning Conditions",
+        "winningConditionsDescription": "If your Bet ID ends in {{number}}, you’ll receive {{percentage}} of your bet amount automatically to your Bonus calendar.",
+        "winningConditionsDescription2": "If your Bet ID ends in {{number}}, you’ll receive {{percentage}} of your bet amount automatically to your Bonus calendar.",
+        "winningConditionsDescription3": " If your Bet ID ends in {{number}}, you’ll receive {{percentage}} of your bet amount automatically to your Bonus calendar.",
+        "expiration": "Expiration",
+        "expirationDescription": "None - Rewards are automatically sent to calendar.",
+        "eligibility": "Eligibility",
+        "eligibilityDescription": "Only bets placed on {{providerOne}} Soft, Pragmatic Play and {{providerTwo}} Slots qualify for this promotion.",
+        "generalTerms": "General Terms",
+        "generalTermsDescription": "You can win each lucky {{number}} combo once per day. \n\n The bonus amount is capped at {{money}} per qualifying Bet ID. \n\n Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n\n The casino reserves the right to modify or terminate this promotion at any time. Abuse or fraudulent activity will result in disqualification from the promotion."
+    },
+    "mysteryBox": {
+        "title": "MONTHLY",
+        "reward": "MYSTERY \n BOX",
+        "mysteryBox": "Mystery Box",
+        "mysteryBoxDescription": "The more you play, the better your chances of scoring big. Open your Mystery Box every 7th of the month to reveal surprise bonuses tailored to your activity. Spin, play, and claim what’s waiting inside!",
+        "claimDistribution": "Claim Distribution",
+        "claimDistributionDescription": "100% to your balance",
+        "goldMembersAndAbove": "Gold Members and above",
+        "yourBalance": "100% to your balance", 
+        "yourCalendar": "",
+        "minimumClaimAmount": "The minimum claim amount is {{money}}",
+        "expiration": "Expiration",
+        "expirationDescription": "Your Mystery Box must be claimed within 7 days of being awarded. Unclaimed rewards will expire after this period.",
+        "generalTerms": "General Terms",
+        "generalTermsDescription": "Rewards are calculated and credited based on the user’s first deposit or in USDT if no deposit is made, subject to a 1x rollover required. Amounts are displayed in your preferred fiat currency; conversions are approximate.\n\nThe casino reserves the right to modify or revoke eligibility at any time without notice. Any abuse or fraud will result in disqualification."
+    },
+    "TheCannon": {
+        "title": "THE",
+        "reward": "CANNON",
+        "theCannon": "The Cannon",
+        "theCannonDescription": "Get ready to unleash The Cannon — our biggest monthly reward event! On the {{day}}th of every month, eligible players get the chance to fire their cannon and blast their way to explosive prizes.",
+        "claimDistribution": "Claim Distribution",
+        "claimDistributionDescription": "{{percentageOne}} to your balance \n {{percentageTwo}} to your calendar for {{days}} days",
+        "goldMembersAndAbove": "Gold Members and above",
+        "yourBalance": "{{percentage}} to your balance", 
+        "yourCalendar": "{{percentage}} to your calendar for {{days}} days",
+        "minimumClaimAmount": "The minimum claim amount is {{money}}",
+        "expiration": "Expiration",
+        "expirationDescription": "Your cannon has to be fired before the next reload. Unclaimed rewards will expire at the start of the next cycle.",
+        "generalTerms": "General Terms",
+        "generalTermsDescription": "Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.\n\nThe casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+}

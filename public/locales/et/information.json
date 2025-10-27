@@ -1,0 +1,38 @@
+{
+    "goBack": "mine tagasi",
+    "tryAgain": "proovi uuesti",
+    "retry": "Proovi uuesti",
+    "retryConnection": "Proovi ühendust uuesti",
+    "emptyStateNoContent": {
+        "title": "Siin pole veel midagi!",
+        "description": "Tundub, et siin pole praegu sisu. Vaata hiljem uuesti või proovi midagi muud."
+    },
+    "failedToLoadPage": {
+        "title": "Midagi läks valesti",
+        "description": "Lehe laadimisel tekkis süsteemitõrge. Palun laadige leht uuesti või võtke ühendust tugiteenusega, kui probleem püsib."
+    },
+    "otherActiveSession": {
+        "title": "Seansi viga!",
+        "description": "Juurdepääs sellest seadmest pole turvakaalutlustel praegu saadaval. Põhjuseks võib olla teine sisselogimine või süsteemiprobleem. Proovi uuesti või kasuta teist seadet."
+    },
+    "noInternetConnection": {
+        "title": "Ups! Sa oled võrguühenduseta",
+        "description": "Tundub, et sa ei ole internetiga ühendatud. Kontrolli oma Wi-Fi või mobiilset andmesidet ja proovi uuesti, kui oled võrgus."
+    },
+    "pageNotFound": {
+        "title": "Ups! See lehekülg on kadunud",
+        "description": "Tundub, et seda lehekülge ei eksisteeri või see on teisaldatud. Kontrolli URL-i või mine avalehele."
+    },
+    "tooManyRequest": {
+        "title": "Oota veidi!",
+        "description": "Tundub, et meie serverid on praegu hõivatud. Anna hetk ja proovi uuesti."
+    },
+    "underMaintenance": {
+        "title": "Me tuleme kohe tagasi!",
+        "description": "Teeme uuendusi, et kõik sujuks. Vaata varsti uuesti!"
+    },
+    "userRestriction": {
+        "title": "Ups! Sa ei saa sellele ligipääsu",
+        "description": "Tundub, et sul pole selle vaatamiseks luba. Kontrolli oma juurdepääsu või võta ühendust toega."
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "GYVENIMO",
+      "reward": "PASIEKIMAI \n APDOVANOJIMAI",
+      "achievements": "Pasiekimai",
+      "achievementDescription": "Pasiekimų apdovanojimai yra atlygiai už naujų ribų pasiekimą ir iššūkių įveikimą. Jie švenčia jūsų pažangą ir sėkmę, atrakindami smagius siurprizus, kai pasiekiate naujus laimėjimus!",
+      "claimDistribution": "Atlygio paskirstymas",
+"claimDistributionDescription": "Atlygis pridedamas prie jūsų premijų kalendoriaus 3 dienoms po sėkmingo reikalavimo.",
+      "expiration": "Galiojimo laikas",
+      "expirationDescription": "Nėra - Atlygis automatiškai siunčiamas į kalendorių.",
+      "generalTerms": "Bendrosios sąlygos",
+      "generalTermsDescription": "Atlygis skaičiuojamas ir priskiriamas BUCK/USDT, tada rodomas jūsų pageidaujama fiat valiuta patogumui. Atkreipkite dėmesį, valiutos konvertavimas yra apytikslis.\n\nKazino pasilieka teisę bet kada keisti arba atšaukti teisę dalyvauti be įsipareigojimo pateisinti. Bet koks piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją iš akcijos."
+    },
+    "luckyNumberSeven": {
+      "title": "Laimingas \n Skaičius Septyni",
+      "luckyNumberSeven": "Laimingas Skaičius Septyni",
+      "luckyNumberSevenDescription": "Atspėkite Laimingus {{numberOne}} ir gaukite saldų bonusą! Jei jūsų Statymo ID baigiasi {{numberTwo}}, {{numberThree}} arba {{numberFour}} žaidžiant tinkamuose lošimo automatuose, gausite siurprizinį bonusą - iki {{money}}! Tiesiog sukite, atspėkite tuos laimingus skaičius ir tegul geros akimirkos (ir bonusai) tęsiasi!",
+      "automaticDistribution": "Atlygio paskirstymas",
+  "automaticDistributionDescription": "Apdovanojimai pridedami prie jūsų premijų kalendoriaus, kai pateikiate reikalavimą.",
+      "winningConditions": "Laimėjimo sąlygos",
+      "winningConditionsDescription": "Jei jūsų Statymo ID baigiasi {{number}}, automatiškai gausite {{percentage}} savo statymo sumos į bonusų kalendorių.",
+      "winningConditionsDescription2": "Jei jūsų Statymo ID baigiasi {{number}}, automatiškai gausite {{percentage}} savo statymo sumos į bonusų kalendorių.",
+      "winningConditionsDescription3": "Jei jūsų Statymo ID baigiasi {{number}}, automatiškai gausite {{percentage}} savo statymo sumos į bonusų kalendorių.",
+      "expiration": "Galiojimo laikas",
+      "expirationDescription": "Nėra - Atlygis automatiškai siunčiamas į kalendorių.",
+      "eligibility": "Tinkamumas",
+      "eligibilityDescription": "Tik statymai ant {{providerOne}} Soft, Pragmatic Play ir {{providerTwo}} lošimo automatų dalyvauja šioje akcijoje.",
+      "generalTerms": "Bendrosios sąlygos",
+      "generalTermsDescription": "Kiekvieną laimingą {{number}} kombinaciją galite laimėti kartą per dieną.\n\n Bonusas ribojamas iki {{money}} už tinkamą Statymo ID.\n\n Atlygis skaičiuojamas ir priskiriamas BUCK/USDT, tada rodomas jūsų pageidaujama fiat valiuta patogumui. Atkreipkite dėmesį, valiutos konvertavimas yra apytikslis.\n\n Kazino pasilieka teisę bet kada keisti arba nutraukti šią akciją. Piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją."
+    },
+    "mysteryBox": {
+"title": "MĖNESINIS",
+      "reward": "MĮSLINGAS \n DĖŽUTĖ",
+      "mysteryBox": "Mįslinga Dėžutė",
+  "mysteryBoxDescription": "Kuo daugiau žaidi, tuo didesnė tavo galimybė laimėti didelius prizus. Atidaryk savo Mįslingą Dėžutę kiekvieną mėnesio 7-ą dieną, kad atskleistum staigmenų premijas, pritaikytas tavo veiklai. Suk, žaisk ir pasiimk, kas tavęs laukia viduje!",
+      "claimDistribution": "Atlygio paskirstymas",
+      "claimDistributionDescription": "100% į jūsų balansą",
+      "goldMembersAndAbove": "Auksiniai nariai ir aukščiau",
+      "yourBalance": "{{percentage}} į jūsų balansą",
+      "yourCalendar": "{{percentage}} į jūsų kalendorių {{days}} dienoms",
+      "minimumClaimAmount": "Minimali atlygio suma yra {{money}}",
+      "expiration": "Galiojimo laikas",
+  "expirationDescription": "Savo Mįslingą Dėžutę turi atsiimti per 7 dienas nuo jos gavimo. Neišsiimtos dovanos pasibaigs po šio laikotarpio.",
+      "generalTerms": "Bendrosios sąlygos",
+  "generalTermsDescription": "Apdovanojimai skaičiuojami ir priskiriami pagal vartotojo pirmąjį indėlį arba USDT, jei indėlis nepadarytas, taikant 1x peržaidimo reikalavimą. Suma rodoma jūsų pageidaujama fiat valiuta; konvertavimai yra apytiksliai.\n\nKazino pasilieka teisę bet kada be įspėjimo keisti ar atšaukti teisę dalyvauti. Bet koks piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją."
+    },
+    "TheCannon": {
+      "title": "KARABINAS",
+      "reward": "ŠAULYS",
+      "theCannon": "Karabinas",
+      "theCannonDescription": "Pasiruoškite paleisti Karabiną — mūsų didžiausią mėnesinį apdovanojimų renginį! Kiekvieno mėnesio {{day}} dieną, tinkami žaidėjai turi galimybę paleisti karabiną ir laimėti sprogstamus prizus.",
+      "claimDistribution": "Atlygio paskirstymas",
+      "claimDistributionDescription": "{{percentageOne}} į jūsų balansą \n {{percentageTwo}} į jūsų kalendorių {{days}} dienoms",
+      "goldMembersAndAbove": "Auksiniai nariai ir aukščiau",
+      "yourBalance": "{{percentage}} į jūsų balansą",
+      "yourCalendar": "{{percentage}} į jūsų kalendorių {{days}} dienoms",
+      "minimumClaimAmount": "Minimali atlygio suma yra {{money}}",
+      "expiration": "Galiojimo laikas",
+      "expirationDescription": "Jūsų karabinas turi būti paleistas prieš kitą įkrovimą. Nepasiimti atlygio pasibaigs kito ciklo pradžioje.",
+      "generalTerms": "Bendrosios sąlygos",
+      "generalTermsDescription": "Atlygis skaičiuojamas ir priskiriamas BUCK/USDT, tada rodomas jūsų pageidaujama fiat valiuta patogumui. Atkreipkite dėmesį, valiutos konvertavimas yra apytikslis.\n\nKazino pasilieka teisę bet kada keisti arba atšaukti teisę dalyvauti be įsipareigojimo pateisinti. Bet koks piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją iš akcijos."
+    }
+  }
+  

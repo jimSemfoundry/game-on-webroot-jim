@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Mis on Taseme Tõusu Boonused?",
+    "content": "<p class=\"leading-7\">Taseme tõusu boonus on meie viis näidata tunnustust lojaalsetele mängijatele, kes on meiega algusest peale. Kui tõusete VIP-tasemetel, avate suuremad taseme tõusu auhinnad.</p>"
+  },
+  "faqTwo": {
+    "title": "Mis on Igapäevane Tagasimakse?",
+    "content": "<p class=\"leading-7\">Igapäevane Tagasimakse premeerib mängijaid, kes on kandnud kahjumit oma sissemakse summaga võrreldes. See boonus väljastatakse iga päev protsendina mängija kaotatud summast. Tagasimakse protsent suureneb koos teie VIP-tasemega, ulatudes kuni 40%-ni – kõrgeim tagasimakse kusagil. Pange tähele, et see boonus on saadaval ainult netokahjumis olevatele mängijatele.</p>"
+  },
+  "faqThree": {
+    "title": "Mis on Ülesanded?",
+    "content": "<p class=\"leading-7\">Ülesanded on igapäevased missioonid, mis antakse mängijatele juhuslikult, et teenida meie veebisaidil mängides lisapreemiaid. Ülesannete auhinnad tuleb nõuda 24 tunni jooksul enne järgmist tsüklit, vastasel juhul need aeguvad. Auhinnad makstakse BUCK/USDT-s ja neid saab meie vahetusfunktsiooni kaudu konverteerida teie valitud krüptovaluutaks.</p>"
+  },
+  "faqFour": {
+    "title": "Mis on Turniiri Auhinnad?",
+    "content": "<p class=\"leading-7\">Turniiri auhinnad on preemiad, mis antakse silmapaistva esituse eest võistlustel. Need auhinnad kogunevad kuni nende nõudmiseni ega aegu. Auhinnad makstakse BUCK/USDT-s ja neid saab meie vahetusfunktsiooni kaudu konverteerida teie valitud krüptovaluutaks.</p>"
+  },
+  "faqFive": {
+    "title": "Mis on Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback on meie süsteem sissemakseboonuste avamiseks. Iga panuse puhul tagastatakse teile kuni 3% panusest. Mida kõrgem on teie VIP-tase, seda suurem on avamismäär. Avatud BUCK/USDT = Panus x 2,5% x Avamismäär%</p><p class=\"leading-7\">Avamismäär:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Mis on Võimendi?",
+    "content": "<p class=\"leading-7\">Võimendid kahekordistavad teie Rakebacki ühe tunni jooksul, kui soovitatud mängija teeb sissemakse.</p><p class=\"leading-7\">Võimendatud Avamismäär:</p><p class=\"leading-7\">Avamismäär:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Mis on Boonuskalender?",
+    "content": "<p class=\"leading-7\">Enamik boonuseid makstakse 50% teie reaalsele saldole ja 50% teie Boonuskalendrile. Boonuskalendris olevaid boonuseid saab nõuda iga 8 tunni järel ja need aeguvad 24 tunni jooksul, kui neid ei nõuta. Nõudke oma Boonuskalendri boonuseid vähemalt kord päevas, et tagada kõigi auhindade kättesaamine!</p>"
+  },
+  "faqEight": {
+    "title": "Mis on Nädalane Boonus?",
+    "content": "<p class=\"leading-7\">Nädalane Boonus on eksklusiivne eelis meie veebisaidil, mõeldud VIP12 ja kõrgema taseme mängijatele. See boonus makstakse automaatselt igal reedel VIP12 ja kõrgematele mängijatele. Boonuse suurus sõltub viimase nädala panuste summast, minimaalse panustamisnõudega {{minWager}} viimase nädala jooksul.</p>"
+  },
+  "faqNine": {
+    "title": "Mis on Saavutused?",
+    "content": "<p class=\"leading-7\">Saavutused on meie viis tunnustada teie aktiivsust meie platvormil. Saavutusboonuse nõudmisel makstakse see teie Boonuskalendrile, kust seda saab nõuda iga 8 tunni järel, ja see aegub 24 tunni jooksul, kui seda ei nõuta.</p>"
+  }
+}

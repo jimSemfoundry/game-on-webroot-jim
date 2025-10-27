@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Koľko rokov musím mať, aby som sa mohol zaregistrovať na vašej stránke?",
+    "content": "<p class=\"leading-7\">Na registráciu musíte mať aspoň {{faqAge}} rokov alebo byť plnoletý podľa zákonov vašej krajiny. Musíte byť tiež právne oprávnení hrať online hry podľa platných zákonov. Viac informácií nájdete v našich podmienkach používania.</p><p class=\"leading-7\">Hranie hier môže byť návykové, preto odporúčame hráčom zachovať sebaovládanie.</p>"
+  },
+  "faqTwo": {
+    "title": "Aké meny peňaženka podporuje?",
+    "content": "<p class=\"leading-7\">Podporujeme hlavné kryptomeny, ako napríklad {{currency}}.</p>"
+  },
+  "faqThree": {
+    "title": "Ako môžem vložiť peniaze?",
+    "content": "<p class=\"leading-7\">Prejdite na stránku svojho profilu, kliknite na „Vklad“, vyberte si kryptomenu, skopírujte adresu peňaženky alebo naskenujte QR kód na uskutočnenie platby.</p>"
+  },
+  "faqFour": {
+    "title": "Môžem si na vašej stránke vymeniť kryptomeny?",
+    "content": "<p class=\"leading-7\">{{siteName}} ponúka funkciu výmeny, ktorá vám umožňuje bezpečne a jednoducho vymeniť kryptomeny za iné kryptomeny. Z dôvodu ochrany pred zmiešavaním mincí však majú všetky kryptomeny vložené na {{siteName}} požiadavku na 1-násobné pretočenie, čo znamená, že musíte s vloženými prostriedkami aspoň raz staviť, než ich budete môcť vymeniť.</p>"
+  },
+  "faqFive": {
+    "title": "Ako môžem vybrať peniaze?",
+    "content": "<p class=\"leading-7\">Prejdite na stránku svojho profilu, kliknite na „Výber“, zadajte adresu peňaženky, na ktorú chcete peniaze vybrať, a sumu, ktorú chcete vybrať. (Upozorňujeme, že v závislosti od rôznych blockchainov môžu byť účtované rôzne poplatky.)</p>"
+  },
+  "faqSix": {
+    "title": "Aká je minimálna suma na výber pre každú kryptomenu?",
+    "content": "<p class=\"leading-7\">Vzhľadom na rôznu hodnotu kryptomien a odlišné poplatky za spracovanie si, prosím, na stránke výberov skontrolujte minimálne sumy na výber pre jednotlivé kryptomeny.</p>"
+  },
+  "faqSeven": {
+    "title": "Ako dlho trvá vklad a výber?",
+    "content": "<p class=\"leading-7\">Každá transakcia v blockchaine vyžaduje niekoľko cyklov na potvrdenie.</p><p class=\"leading-7\">Vo všeobecnosti trvá potvrdenie transakcie 5–10 minút pre siete BTC a ETH a približne 1–2 minúty pre siete TRON, TON a SOLANA.</p><p class=\"leading-7\">Ak sa pri vklade alebo výbere vyskytne problém, môžete svoju transakciu skontrolovať v príslušnom prieskumníkovi blockchainu danej siete alebo kontaktovať našu živú podporu.</p>"
+  },
+  "faqEight": {
+    "title": "Odkiaľ pochádzajú potvrdenia transakcií?",
+    "content": "<p class=\"leading-7\">Všetky informácie o potvrdeniach pochádzajú z blockchainu a jeho baníkov.</p>"
+  },
+  "faqNine": {
+    "title": "Sú vaše hry férové?",
+  "content": "<p class=\"leading-7\">Transparentnosť, dôvera a spravodlivosť sú súčasťou základných hodnôt {{gameLink}} a základom nášho podnikania. Preto spolupracujeme iba s dôveryhodnými špičkovými hernými partnermi, aby sme našim zákazníkom poskytli kvalitný zážitok, ktorý si zaslúžia.</p><p class=\"leading-7\">Všetky hry našich partnerov sú dôkladne testované nezávislými audítormi na náhodnosť a sú licencované hernými regulátormi, ktorí ich pravidelne podrobujú auditu generátora náhodných čísel.</p>"
+  },
+  "faqTen": {
+    "title": "Čo mám robiť, ak sa hra zasekne alebo sa odpojím?",
+    "content": "<p class=\"leading-7\">Ak narazíte na technické problémy, skúste stránku obnoviť. Stav hry ukladajú naši poskytovatelia, takže po opätovnom pripojení by ste mali vidieť svoj predchádzajúci stav hry.</p>"
+  }
+}

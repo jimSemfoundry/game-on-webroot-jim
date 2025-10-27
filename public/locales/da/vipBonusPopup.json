@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "LIVSTID",
+        "reward": "PRÆSTATIONER \n PRISER",
+        "achievements": "Præstationer",
+        "achievementDescription": "Præstationspriser er belønninger givet for at nå nye milepæle og overvinde udfordringer. De fejrer dine fremskridt og succes, og låser op for sjove overraskelser, mens du opnår nye bedrifter undervejs!",
+        "claimDistribution": "Krav om Udbetaling",
+"claimDistributionDescription": "Belønninger tilføjes til din bonuskalender i 3 dage efter en vellykket indløsning.",
+        "expiration": "Udløb",
+        "expirationDescription": "Ingen - Belønninger sendes automatisk til kalenderen.",
+        "generalTerms": "Generelle Betingelser",
+        "generalTermsDescription": "Belønninger beregnes og krediteres i BUCK/USDT, og vises derefter i din foretrukne fiat-valuta for nemheds skyld. Bemærk venligst, at valutakonverteringer er omtrentlige.\n\nCasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse når som helst uden forpligtelse til at begrunde. Misbrug eller svigagtig aktivitet vil føre til diskvalifikation fra kampagnen."
+    },
+    "luckyNumberSeven": {
+        "title": "Heldigt Nummer \n Syv",
+        "luckyNumberSeven": "Heldigt Nummer Syv",
+        "luckyNumberSevenDescription": "Ram de heldige {{numberOne}}ere og score en sød bonus! Hvis dit Bet ID ender med {{numberTwo}}, {{numberThree}} eller {{numberFour}} mens du spiller kvalificerede slots, får du en overraskelsesbonus - op til {{money}}! Bare spin, ram de heldige cifre, og lad de gode tider (og bonusser) rulle!",
+  "automaticDistribution": "Krav om Udbetaling",
+  "automaticDistributionDescription": "Belønninger tilføjes til din bonuskalender ved krav.",
+        "winningConditions": "Vinderbetingelser",
+        "winningConditionsDescription": "Hvis dit Bet ID ender på {{number}}, modtager du {{percentage}} af dit indsatsbeløb automatisk til din Bonuskalender.",
+        "winningConditionsDescription2": "Hvis dit Bet ID ender på {{number}}, modtager du {{percentage}} af dit indsatsbeløb automatisk til din Bonuskalender.",
+        "winningConditionsDescription3": "Hvis dit Bet ID ender på {{number}}, modtager du {{percentage}} af dit indsatsbeløb automatisk til din Bonuskalender.",
+        "expiration": "Udløb",
+        "expirationDescription": "Ingen - Belønninger sendes automatisk til kalenderen.",
+        "eligibility": "Berettigelse",
+        "eligibilityDescription": "Kun væddemål placeret på {{providerOne}} Soft, Pragmatic Play og {{providerTwo}} Slots kvalificerer til denne kampagne.",
+        "generalTerms": "Generelle Betingelser",
+        "generalTermsDescription": "Du kan vinde hver heldige {{number}} kombination én gang per dag. \n\n Bonusbeløbet er begrænset til {{money}} per kvalificerende Bet ID. \n\n Belønninger beregnes og krediteres i BUCK/USDT, og vises derefter i din foretrukne fiat-valuta for nemheds skyld. Bemærk venligst, at valutakonverteringer er omtrentlige. \n\n Casinoet forbeholder sig retten til at ændre eller afslutte denne kampagne når som helst. Misbrug eller svigagtig aktivitet vil føre til diskvalifikation fra kampagnen."
+    },
+    "mysteryBox": {
+"title": "MÅNEDLIG",
+        "reward": "MYSTERIE \n BOX",
+        "mysteryBox": "Mysterie Box",
+  "mysteryBoxDescription": "Jo mere du spiller, desto bedre er dine chancer for at vinde stort. Åbn din Mysterieboks den 7. i hver måned for at afsløre overraskelsesbonusser skræddersyet til din aktivitet. Spin, spil og gør krav på det, der venter inde i boksen!",
+        "claimDistribution": "Krav om Udbetaling",
+        "claimDistributionDescription": "100% til din saldo",
+        "goldMembersAndAbove": "Guldmedlemmer og derover",
+        "yourBalance": "100% til din saldo", 
+        "yourCalendar": "",
+        "minimumClaimAmount": "Minimumsbeløbet for krav er {{money}}",
+        "expiration": "Udløb",
+  "expirationDescription": "Din Mysterieboks skal kræves inden for 7 dage efter tildeling. Uafhentede belønninger udløber efter denne periode.",
+        "generalTerms": "Generelle Betingelser",
+  "generalTermsDescription": "Belønninger beregnes og krediteres baseret på brugerens første indbetaling eller i USDT, hvis der ikke foretages nogen indbetaling, underlagt et krav om 1x omsætning. Beløb vises i din foretrukne fiat-valuta; konverteringer er omtrentlige.\n\nCasinoet forbeholder sig ret til at ændre eller tilbagekalde berettigelse til enhver tid uden varsel. Enhver misbrug eller svindel vil resultere i diskvalifikation."
+    },
+    "TheCannon": {
+        "title": "DEN",
+        "reward": "KANON",
+        "theCannon": "Kanonen",
+        "theCannonDescription": "Gør dig klar til at affyre Kanonen — vores største månedlige belønningsbegivenhed! Den {{day}}. i hver måned får kvalificerede spillere chancen for at affyre deres kanon og skyde sig vej til eksplosive præmier.",
+        "claimDistribution": "Krav om Udbetaling",
+        "claimDistributionDescription": "{{percentageOne}} til din saldo \n {{percentageTwo}} til din kalender i {{days}} dage",
+        "goldMembersAndAbove": "Guldmedlemmer og derover",
+        "yourBalance": "{{percentage}} til din saldo", 
+        "yourCalendar": "{{percentage}} til din kalender i {{days}} dage",
+        "minimumClaimAmount": "Minimumsbeløbet for krav er {{money}}",
+        "expiration": "Udløb",
+        "expirationDescription": "Din kanon skal affyres inden næste genladning. Ikke krævede belønninger udløber ved starten af den næste cyklus.",
+        "generalTerms": "Generelle Betingelser",
+        "generalTermsDescription": "Belønninger beregnes og krediteres i BUCK/USDT, og vises derefter i din foretrukne fiat-valuta for nemheds skyld. Bemærk venligst, at valutakonverteringer er omtrentlige.\n\nCasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse når som helst uden forpligtelse til at begrunde. Misbrug eller svigagtig aktivitet vil føre til diskvalifikation fra kampagnen."
+    }
+}

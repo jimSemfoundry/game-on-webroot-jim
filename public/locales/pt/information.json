@@ -1,0 +1,38 @@
+{
+    "goBack": "Voltar",
+    "tryAgain": "Tente Novamente",
+    "retry": "Tentar Novamente",
+    "retryConnection": "Repetir Conexão",
+    "emptyStateNoContent": {
+        "title": "Ainda não há nada aqui!",
+        "description": "Parece que não há conteúdo aqui no momento. Confira mais tarde ou tente outra opção."
+    },
+    "failedToLoadPage": {
+        "title": "Algo deu errado",
+        "description": "Ocorreu um erro no sistema ao carregar a página. Por favor, recarregue a página ou contate o suporte se o problema persistir."
+    },
+    "otherActiveSession": {
+        "title": "Erro de Sessão!",
+        "description": "O acesso a partir deste dispositivo não está disponível no momento por motivos de segurança. Isso pode ser devido a outro login ou a um problema no sistema. Tente novamente ou use um dispositivo diferente."
+    },
+    "noInternetConnection": {
+        "title": "Ops! Você está off-line",
+        "description": "Parece que você não está conectado à Internet. Verifique seu Wi-Fi ou dados móveis e tente novamente quando estiver on-line."
+    },
+    "pageNotFound": {
+        "title": "Ops! Esta página está faltando",
+        "description": "Parece que essa página não existe ou foi movida. Tente verificar o URL ou volte para a página inicial."
+    },
+    "tooManyRequest": {
+        "title": "Aguente firme! Estamos um pouco ocupados",
+        "description": "Parece que nossos servidores estão processando muitas requisições no momento. Aguarde um pouco e tente novamente."
+    },
+    "underMaintenance": {
+        "title": "Nós já voltamos!",
+        "description": "Estamos fazendo algumas atualizações para manter as coisas funcionando sem problemas. Volte em breve!"
+    },
+    "userRestriction": {
+        "title": "Ops! Você não pode acessar isto",
+        "description": "Parece que você não tem permissão para ver isso. Verifique novamente seu acesso ou entre em contato para obter ajuda."
+    }
+}

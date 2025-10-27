@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "ELUAEGNE",
+      "reward": "SAAVUTUSED \n AUHINNAD",
+      "achievements": "Saavutused",
+      "achievementDescription": "Saavutuste auhinnad on preemiad, mis antakse uute verstapostide saavutamise ja väljakutsete vallutamise eest. Need tähistavad teie edusamme ja edu, avades lõbusaid üllatusi, kui saavutate uusi saavutusi!",
+      "claimDistribution": "Nõudejaotus",
+"claimDistributionDescription": "Preemiad lisatakse teie boonuste kalendrisse 3 päevaks pärast edukat nõudmist.",
+      "expiration": "Aegumistähtaeg",
+      "expirationDescription": "Puudub – auhinnad saadetakse automaatselt kalendrisse.",
+      "generalTerms": "Üldtingimused",
+      "generalTermsDescription": "Auhinnad arvutatakse ja kantakse BUCK/USDT-sse ning seejärel kuvatakse teie eelistatud fiat-valuutas mugavuse huvides. Palun pange tähele, et valuutakursid on ligikaudsed.\n\nKasiinol on õigus igal ajal õigusi muuta või tühistada ilma kohustuseta põhjendada. Kõik kuritarvitused või pettused viivad kampaaniast diskvalifitseerimiseni."
+    },
+    "luckyNumberSeven": {
+      "title": "ÕNNELIK \n NUMBER SEITSE",
+      "luckyNumberSeven": "Õnnelik Number Seitse",
+      "luckyNumberSevenDescription": "Tabage Õnnelik {{numberOne}} ja teenige magus boonus! Kui teie Panuse ID lõpeb numbritega {{numberTwo}}, {{numberThree}} või {{numberFour}} mängides kvalifitseeruvaid slotte, saate üllatusboonuse – kuni {{money}}! Lihtsalt keerutage, tabage need õnnelikud numbrid ja las head ajad (ja boonused) voolavad!",
+      "automaticDistribution": "Nõudejaotus",
+  "automaticDistributionDescription": "Preemiad lisatakse teie boonuskalendrisse nõudmisel.",
+      "winningConditions": "Võidutingimused",
+      "winningConditionsDescription": "Kui teie Panuse ID lõpeb numbriga {{number}}, saate automaatselt {{percentage}} oma panuse summast boonusekalendrisse.",
+      "winningConditionsDescription2": "Kui teie Panuse ID lõpeb numbriga {{number}}, saate automaatselt {{percentage}} oma panuse summast boonusekalendrisse.",
+      "winningConditionsDescription3": "Kui teie Panuse ID lõpeb numbriga {{number}}, saate automaatselt {{percentage}} oma panuse summast boonusekalendrisse.",
+      "expiration": "Aegumistähtaeg",
+      "expirationDescription": "Puudub – auhinnad saadetakse automaatselt kalendrisse.",
+      "eligibility": "Õigus osaleda",
+      "eligibilityDescription": "Kampaanias osalevad ainult panused {{providerOne}} Softi, Pragmatic Play ja {{providerTwo}} slottidel.",
+      "generalTerms": "Üldtingimused",
+      "generalTermsDescription": "Iga õnnelikku {{number}} kombinatsiooni saab võita üks kord päevas. \n\n Boonuse summa on piiratud {{money}}-ga kvalifitseeruva Panuse ID kohta. \n\n Auhinnad arvutatakse ja kantakse BUCK/USDT-sse ning seejärel kuvatakse teie eelistatud fiat-valuutas mugavuse huvides. Palun pange tähele, et valuutakursid on ligikaudsed. \n\n Kasiinol on õigus seda kampaaniat igal ajal muuta või lõpetada. Kuritarvitamine või pettus viib kampaaniast diskvalifitseerimiseni."
+    },
+    "mysteryBox": {
+"title": "KUUDELINE",
+      "reward": "SALAPÄRANE \n KAST",
+      "mysteryBox": "Salapärane kast",
+  "mysteryBoxDescription": "Mida rohkem mängid, seda suuremad on sinu võimalused võita suuri auhindu. Ava oma Müsteeriumkast iga kuu 7. kuupäeval, et avastada sinu tegevusele kohandatud üllatusboonuseid. Pööra, mängi ja nõua, mis sind sees ootab!",
+      "claimDistribution": "Nõudejaotus",
+      "claimDistributionDescription": "100% teie saldole",
+      "goldMembersAndAbove": "Kuldliikmed ja kõrgemad",
+      "yourBalance": "{{percentage}} teie saldole",
+      "yourCalendar": "{{percentage}} teie kalendrisse {{days}} päevaks",
+      "minimumClaimAmount": "Minimaalne nõutav summa on {{money}}",
+      "expiration": "Aegumistähtaeg",
+  "expirationDescription": "Sinu Müsteeriumkast tuleb nõuda 7 päeva jooksul pärast saamist. Nõudmata auhinnad aeguvad pärast seda perioodi.",
+      "generalTerms": "Üldtingimused",
+  "generalTermsDescription": "Preemiad arvutatakse ja krediteeritakse kasutaja esialgse sissemakse põhjal või USDT-s, kui sissemakset ei ole tehtud, nõudes 1x läbimängimistingimust. Summad kuvatakse teie eelistatud fiat-valuutas; konversioonid on ligikaudsed.\n\nKasiinol on õigus igal ajal ilma ette teatamata muuta või tühistada õigust kasutada pakkumist. Igasugune väärkasutus või pettus toob kaasa diskvalifitseerimise."
+    },
+    "TheCannon": {
+      "title": "TÜÜP",
+      "reward": "KAHUR",
+      "theCannon": "Kahur",
+      "theCannonDescription": "Valmistuge Kahuri vallandamiseks — meie suurimaks igakuise auhindade ürituseks! Iga kuu {{day}} kuupäeval saavad kvalifitseeruvad mängijad võimaluse oma kahurist lasta ja purustada end teele plahvatuslike auhindadega.",
+      "claimDistribution": "Nõudejaotus",
+      "claimDistributionDescription": "{{percentageOne}} teie saldole \n {{percentageTwo}} teie kalendrisse {{days}} päevaks",
+      "goldMembersAndAbove": "Kuldliikmed ja kõrgemad",
+      "yourBalance": "{{percentage}} teie saldole",
+      "yourCalendar": "{{percentage}} teie kalendrisse {{days}} päevaks",
+      "minimumClaimAmount": "Minimaalne nõutav summa on {{money}}",
+      "expiration": "Aegumistähtaeg",
+      "expirationDescription": "Teie kahur tuleb lasta enne järgmist laadimist. Nõudmata auhinnad aeguvad järgmise tsükli alguses.",
+      "generalTerms": "Üldtingimused",
+      "generalTermsDescription": "Auhinnad arvutatakse ja kantakse BUCK/USDT-sse ning seejärel kuvatakse teie eelistatud fiat-valuutas mugavuse huvides. Palun pange tähele, et valuutakursid on ligikaudsed.\n\nKasiinol on õigus igal ajal õigusi muuta või tühistada ilma kohustuseta põhjendada. Kõik kuritarvitused või pettused viivad kampaaniast diskvalifitseerimiseni."
+    }
+  }
+  

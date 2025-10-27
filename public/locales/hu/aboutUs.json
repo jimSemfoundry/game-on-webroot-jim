@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Rólunk",
+"content": "<p class=\"leading-7\">\n      A {{gameLink}} Szövetségnél összeállítottunk egy csapatot, hogy elhozzuk Önnek az online szórakozás legfrissebb újdonságait, szórakoztató élményeket és azonnali hozzáférést a pénzeszközeihez. Küldetésünk, hogy a világ minden táján a legjobb kriptojáték célponttá váljunk.\n    </p>\n    <p class=\"leading-7\">\n      Az OKVIP szövetség részei vagyunk: a Villareal CF, az AC Milan és az Argentín Labdarúgó Szövetség hivatalos szponzorai.\n    </p>\n    <p class=\"leading-7\">\n      Tekintse meg az OKVIP szövetség szponzorációit itt. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      A {{gameLink}} Szövetség tulajdonosa a <span class=\"font-bold text-base\">Omnispect B.V.</span>, egy Curacaón bejegyzett korlátolt felelősségű társaság, cégjegyzékszáma <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, bejegyzett címe <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n      A {{gameLink}} Szövetség minden szabályozási megfelelőséget teljesített, és jogilag felhatalmazott online szerencsejátékok és fogadások lebonyolítására.\n    </p>"
+  }
+}

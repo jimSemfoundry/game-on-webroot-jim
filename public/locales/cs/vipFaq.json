@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Co jsou Level Up bonusy?",
+    "content": "<p class=\"leading-7\">Level Up bonusy jsou náš způsob, jak ocenit věrné hráče. S postupem na vyšší VIP úrovně odemknete vyšší Level Up odměny.</p>"
+  },
+  "faqTwo": {
+    "title": "Co je Daily Cashback?",
+    "content": "<p class=\"leading-7\">Hráči, kteří utrpí čistou ztrátu, obdrží denní cashback jako procento z této ztráty. Procento Daily Cashbacku se zvyšuje s vaší VIP úrovní, a to až do maximální výše 40 %, což je nejvyšší cashback, který můžete získat. Tento bonus je určen pouze pro hráče, kteří jsou v čisté ztrátě.</p>"
+  },
+  "faqThree": {
+    "title": "Co je to Dobývání/zájezdy?",
+    "content": "<p class=\"leading-7\">Dobývání jsou denní úkoly, které se hráčům náhodně zadávají, aby získali další odměny při hraní na naší stránce. Odměny za Dobývání musí být nárokovány do 24 hodin před dalším cyklem, jinak vyprší. Odměny za Dobývání jsou vypláceny v BUCK/USDT a lze je směnit za vámi zvolenou kryptoměnu pomocí naší funkce Směna.</p>"
+  },
+  "faqFour": {
+    "title": "Co jsou turnajové odměny?",
+    "content": "<p class=\"leading-7\">Turnajové odměny jsou ceny udělované za vynikající výkony v soutěžích. Turnajové odměny se kumulují, dokud si je nenárokujete, a nemají datum vypršení platnosti. Turnajové odměny jsou vypláceny v BUCK/USDT a lze je směnit za kryptoměnu dle vlastního výběru pomocí naší funkce Směna.</p>"
+  },
+  "faqFive": {
+    "title": "Co je Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback je náš mechanismus pro odemykání bonusů za sázky. S každou sázkou se vám vrátí určité procento (až 3 %). Čím vyšší je vaše VIP úroveň, tím vyšší je míra odemknutí.</p><p class=\"leading-7\">Odblokované BUCK/USDT = sázka x 2,5 % x Míra odemknutí %</p><p class=\"leading-7\">Míra odemknutí:</p><p class=\"leading-7\">VIP 0-40: 20 %</p><p class=\"leading-7\">VIP 41-60: 32 %</p><p class=\"leading-7\">VIP 61-80: 40 %</p><p class=\"leading-7\">VIP 81-100: 52 %</p><p class=\"leading-7\">VIP 101-125: 60 %</p>"
+  },
+  "faqSix": {
+    "title": "Co je to posilovač?",
+    "content": "<p class=\"leading-7\">Boostery zdvojnásobí váš Rakeback na jednu hodinu pokaždé, když doporučený hráč provede vklad.</p><p class=\"leading-7\">Posílená míra odemknutí:</p><p class=\"leading-7\">VIP 0-40: 40 %</p><p class=\"leading-7\">VIP 41-60: 72 %</p><p class=\"leading-7\">VIP 61-80: 80 %</p><p class=\"leading-7\">VIP 81-100: 102 %</p><p class=\"leading-7\">VIP 101-125: 120 %</p>"
+  },
+  "faqSeven": {
+    "title": "Co je to bonusový kalendář?",
+    "content": "<p class=\"leading-7\">Většina bonusů je vyplacena z 50 % na váš reálný zůstatek a z 50 % do vašeho Bonusového kalendáře. Bonusy vyplácené do Bonusového kalendáře si můžete nárokovat každých 8 hodin a jejich platnost vyprší za 24 hodin, pokud si je nenárokujete. Nezapomeňte si bonusy z Bonusového kalendáře nárokovat alespoň jednou denně, abyste se ujistili, že získáte všechny své odměny!</p>"
+  },
+  "faqEight": {
+    "title": "Jaký je týdenní bonus?",
+    "content": "<p class=\"leading-7\">Týdenní bonus je exkluzivní bonus na naší stránce určený pro hráče s VIP 12 a vyšším. Tento bonus je vydáván každý týden a automaticky vyplácen každý pátek hráčům s VIP 12 a vyšším. Výše bonusu závisí na výši sázek za uplynulý týden, přičemž minimální požadavek na sázku za uplynulý týden je {{minWager}}.</p>"
+  },
+  "faqNine": {
+    "title": "Co jsou to úspěchy?",
+    "content": "<p class=\"leading-7\">Úspěchy jsou naším způsobem, jak ocenit vaši aktivitu na naší platformě. Když si nárokujete bonus za Úspěch, je vyplacen do vašeho Bonusového kalendáře a můžete si jej nárokovat každých 8 hodin. Jeho platnost vyprší za 24 hodin, pokud si jej nenárokujete.</p>"
+  }
+}

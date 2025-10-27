@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Om oss",
+"content": "<p class=\"leading-7\">\n      Hos {{gameLink}} Allianse har vi samlet et team for å gi deg det nyeste innen nettunderholdning, morsomme opplevelser og umiddelbar tilgang til dine midler. Vår misjon er å bli det ultimate krypteringsspillstedet for vårt publikum over hele verden.\n    </p>\n    <p class=\"leading-7\">\n      Vi er en del av OKVIP-alliansen: Offisielle sponsorer av Villareal CF, AC Milan og Argentinas Fotballforbund.\n    </p>\n    <p class=\"leading-7\">\n      Se sponsingene til vår OKVIP-allianse her. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Allianse eies av <span class=\"font-bold text-base\">Omnispect B.V.</span>, et aksjeselskap registrert i Curaçao med organisasjonsnummer <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, med registrert adresse <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>\n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} Allianse har oppfylt alle regulatoriske krav og er lovlig autorisert til å drive spilloperasjoner for alle online sjansespill og veddemål.\n    </p>"
+  }
+}

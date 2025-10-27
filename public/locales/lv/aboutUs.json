@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Par mums",
+"content": "<p class=\"leading-7\">\n      {{gameLink}} Aliansē esam apvienojuši komandu, lai piedāvātu jums jaunāko tiešsaistes izklaidē, aizraujošas pieredzes un tūlītēju piekļuvi jūsu līdzekļiem. Mūsu misija ir kļūt par galamērķi kriptovalūtu spēlēm mūsu auditorijai visā pasaulē.\n    </p>\n    <p class=\"leading-7\">\n      Mēs esam daļa no OKVIP alianses: oficiālie Villareal CF, AC Milan un Argentīnas Futbola asociācijas sponsori.\n    </p>\n    <p class=\"leading-7\">\n      Apskatiet OKVIP alianses sponsorēšanu šeit. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Alianses īpašnieks ir <span class=\"font-bold text-base\">Omnispect B.V.</span>, ierobežotas atbildības sabiedrība, reģistrēta Kirasao ar uzņēmuma reģistrācijas numuru <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, ar reģistrēto adresi <span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Vilms­tada.</span>\n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}} Alianses ir izpildījusi visas reglamentējošās prasības un ir likumīgi pilnvarota veikt tiešsaistes azartspēļu un likmju operācijas.\n    </p>"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "About Us",
+    "content": "<p class=\"leading-7\">\n      At {{gameLink}} Alliance, we have assembled a team to bring you the latest in online entertainment, fun-filled experiences and instantaneous access to your funds. Our mission is to become the ultimate crypto gaming destination for our audience worldwide.         \n    </p>\n    <p class=\"leading-7\">\n      We are a part of the OKVIP alliance: Official Sponsors of Villareal CF, AC Milan and Argentina Football Association.\n    </p>\n    <p class=\"leading-7\">\n      Check out sponsorships by our OKVIP alliance here. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} Alliance is owned by <span class=\"font-bold text-base\">Omnispect B.V.</span>, a limited liability company registered in Curacao with company registration number <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, with a registered address at <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} Alliance has passed all regulatory compliance and is legally authorized to conduct gaming operations for any and all online games of chance and wagering.         \n    </p>"
+  }
+}

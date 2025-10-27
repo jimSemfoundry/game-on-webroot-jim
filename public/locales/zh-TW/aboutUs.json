@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "關於我們",
+"content": "<p class=\"leading-7\">\n      在{{gameLink}}聯盟，我們組建了一支團隊，為您帶來最新的線上娛樂、豐富有趣的體驗以及即時存取您的資金。我們的使命是成為全球受眾首選的加密遊戲目的地。\n    </p>\n    <p class=\"leading-7\">\n      我們是OKVIP聯盟的一部分：維拉利爾CF、AC米蘭及阿根廷足球協會的官方贊助商。\n    </p>\n    <p class=\"leading-7\">\n      請查看我們OKVIP聯盟的贊助情況。{{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}}聯盟由<span class=\"font-bold text-base\">Omnispect B.V.</span>擁有，該公司為註冊於庫拉索的有限責任公司，註冊號為<span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>，註冊地址為<span class=\"font-bold text-base\">Abraham de Veerstraat {{registeredAddress}}, Willemstad。</span>\n    </p>\n    <p class=\"leading-7\">\n      {{gameLink}}聯盟已通過所有監管合規審核，依法獲得許可，開展所有線上博彩及下注業務。\n    </p>"
+  }
+}

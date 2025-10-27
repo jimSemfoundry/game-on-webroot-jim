@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "DOŽIVLJENJSKO",
+      "reward": "DOSEŽKI \n NAGRADE",
+      "achievements": "Dosežki",
+      "achievementDescription": "Nagrade za dosežke so nagrade, ki jih prejmete za doseganje novih mejnikov in premagovanje izzivov. Praznujejo vaš napredek in uspeh ter odklepajo zabavna presenečenja, ko dosežete nove dosežke na poti!",
+      "claimDistribution": "Distribucija nagrad",
+"claimDistributionDescription": "Nagrade so dodane v vaš bonus koledar za 3 dni po uspešnem zahtevku.",
+      "expiration": "Veljavnost",
+      "expirationDescription": "Ni – nagrade so samodejno poslane v koledar.",
+      "generalTerms": "Splošni pogoji",
+      "generalTermsDescription": "Nagrade so izračunane in pripisane v BUCK/USDT, nato pa so za vašo udobnost prikazane v vaši izbrani fiat valuti. Upoštevajte, da so valutne konverzije približne.\n\nKazino si pridržuje pravico kadarkoli spremeniti ali preklicati upravičenost brez obveznosti pojasnila. Vsaka zloraba ali goljufiva dejavnost bo privedla do diskvalifikacije iz promocije."
+    },
+    "luckyNumberSeven": {
+      "title": "SREČNO ŠTEVILO \n SEDMICA",
+      "luckyNumberSeven": "Srečno število sedem",
+      "luckyNumberSevenDescription": "Zadenite srečna {{numberOne}} in osvojite sladek bonus! Če se ID vaše stave konča na {{numberTwo}}, {{numberThree}} ali {{numberFour}} med igranjem kvalificiranih igralnih avtomatov, boste prejeli presenetljiv bonus - do {{money}}! Samo zavrtite, zadenejte te srečne številke in naj se zabava (in bonusi) začne!",
+      "automaticDistribution": "Distribucija nagrad",
+  "automaticDistributionDescription": "Nagrade se dodajo vašemu bonus koledarju ob zahtevku.",
+      "winningConditions": "Pogoji za zmago",
+      "winningConditionsDescription": "Če se ID vaše stave konča na {{number}}, boste samodejno prejeli {{percentage}} vašega zneska stave v bonus koledar.",
+      "winningConditionsDescription2": "Če se ID vaše stave konča na {{number}}, boste samodejno prejeli {{percentage}} vašega zneska stave v bonus koledar.",
+      "winningConditionsDescription3": "Če se ID vaše stave konča na {{number}}, boste samodejno prejeli {{percentage}} vašega zneska stave v bonus koledar.",
+      "expiration": "Veljavnost",
+      "expirationDescription": "Ni – nagrade so samodejno poslane v koledar.",
+      "eligibility": "Upravičenost",
+      "eligibilityDescription": "Za to promocijo veljajo samo stave na igralne avtomate {{providerOne}} Soft, Pragmatic Play in {{providerTwo}}.",
+      "generalTerms": "Splošni pogoji",
+      "generalTermsDescription": "Vsako srečno kombinacijo {{number}} lahko osvojite enkrat na dan. \n\nZnesek bonusa je omejen na {{money}} na kvalificirani ID stave. \n\nNagrade so izračunane in pripisane v BUCK/USDT, nato pa so za vašo udobnost prikazane v vaši izbrani fiat valuti. Upoštevajte, da so valutne konverzije približne.\n\nKazino si pridržuje pravico kadarkoli spremeniti ali preklicati to promocijo. Zloraba ali goljufiva dejavnost bo privedla do diskvalifikacije iz promocije."
+    },
+    "mysteryBox": {
+"title": "MESEČNO",
+      "reward": "MISTERIJO \n ŠKATLA",
+      "mysteryBox": "Misteriozna škatla",
+  "mysteryBoxDescription": "Več ko igrate, večje so vaše možnosti za velike zmage. Odprite svojo Skrivnostno Škatlo vsak 7. dan v mesecu, da odkrijete presenečenjske bonuse, prilagojene vaši aktivnosti. Zavrtite, igrajte in zahtevajte, kar vas čaka noter!",
+      "claimDistribution": "Distribucija nagrad",
+      "claimDistributionDescription": "100% na vaš račun",
+      "goldMembersAndAbove": "Zlati člani in višje",
+      "yourBalance": "{{percentage}} na vaš račun",
+      "yourCalendar": "{{percentage}} v koledar za {{days}} dni",
+      "minimumClaimAmount": "Minimalni znesek za zahtevek je {{money}}",
+      "expiration": "Veljavnost",
+  "expirationDescription": "Svojo Skrivnostno Škatlo morate prevzeti v 7 dneh od podelitve. Neprevzete nagrade potečejo po tem obdobju.",
+      "generalTerms": "Splošni pogoji",
+  "generalTermsDescription": "Nagrade se izračunajo in pripišejo na podlagi prvega uporabnikovega pologa ali v USDT, če ni bil opravljen noben polog, ob upoštevanju zahteve po 1-kratnem prevratu. Zneski so prikazani v vaši izbrani fiat valuti; pretvorbe so približne.\n\nKazino si pridržuje pravico, da kadar koli brez predhodnega obvestila spremeni ali razveljavi upravičenost. Vsaka zloraba ali prevara bo vodila do diskvalifikacije."
+    },
+    "TheCannon": {
+      "title": "KANON",
+      "reward": "KANON",
+      "theCannon": "Kanon",
+      "theCannonDescription": "Pripravite se na sprostitev Kanona — naše največje mesečne nagrade! Vsak {{day}}. dan v mesecu imajo upravičeni igralci priložnost sprožiti svoj kanon in zmagati eksplozivne nagrade.",
+      "claimDistribution": "Distribucija nagrad",
+      "claimDistributionDescription": "{{percentageOne}} na vaš račun \n {{percentageTwo}} v koledar za {{days}} dni",
+      "goldMembersAndAbove": "Zlati člani in višje",
+      "yourBalance": "{{percentage}} na vaš račun",
+      "yourCalendar": "{{percentage}} v koledar za {{days}} dni",
+      "minimumClaimAmount": "Minimalni znesek za zahtevek je {{money}}",
+      "expiration": "Veljavnost",
+      "expirationDescription": "Vaš kanon mora biti sprožen pred naslednjim polnjenjem. Nezahtevane nagrade potečejo na začetku naslednjega cikla.",
+      "generalTerms": "Splošni pogoji",
+      "generalTermsDescription": "Nagrade so izračunane in pripisane v BUCK/USDT, nato pa so za vašo udobnost prikazane v vaši izbrani fiat valuti. Upoštevajte, da so valutne konverzije približne.\n\nKazino si pridržuje pravico kadarkoli spremeniti ali preklicati upravičenost brez obveznosti pojasnila. Vsaka zloraba ali goljufiva dejavnost bo privedla do diskvalifikacije iz promocije."
+    }
+  }
+  

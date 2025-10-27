@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Hoe oud moet ik zijn om me op jullie site te registreren?",
+    "content": "<p class=\"leading-7\">Je moet minstens {{faqAge}} jaar oud zijn of meerderjarig in jouw rechtsgebied om je te kunnen registreren. Je moet ook wettelijk bevoegd zijn om online games te spelen volgens de wetten die op jou van toepassing zijn. Lees voor meer informatie onze servicevoorwaarden.</p><p class=\"leading-7\">Gamen kan verslavend zijn en spelers wordt aangeraden zichzelf onder controle te houden.</p>"
+  },
+  "faqTwo": {
+    "title": "Welke valuta ondersteunt de portemonnee?",
+    "content": "<p class=\"leading-7\">We ondersteunen belangrijke cryptocurrencies zoals {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Hoe stort ik?",
+    "content": "<p class=\"leading-7\">Ga naar je profielpagina en klik op \"Storten\", selecteer de cryptocurrency van je keuze, kopieer het portemonneeadres of scan de QR-code voor de betaling.</p>"
+  },
+  "faqFour": {
+    "title": "Kan ik mijn cryptocurrencies omwisselen op jullie site?",
+    "content": "<p class=\"leading-7\">{{siteName}} biedt een swapfunctie waarmee je veilig en gemakkelijk je cryptocurrencies kunt omwisselen naar andere cryptocurrencies. Vanwege het mengen van munten hebben alle cryptocurrencies die worden gestort op {{siteName}} echter een 1x rollover vereiste, wat betekent dat je minstens 1 keer moet inzetten met je gestorte geld voordat je het kunt omwisselen.</p>"
+  },
+  "faqFive": {
+    "title": "Hoe neem ik op?",
+    "content": "<p class=\"leading-7\">Ga naar je profielpagina en klik op \"Opnemen\", voer het adres in van de portemonnee waarnaar je wilt opnemen en het bedrag dat je wilt opnemen. (Houd er rekening mee dat er verschillende kosten kunnen zijn afhankelijk van de verschillende blockchains)</p>"
+  },
+  "faqSix": {
+    "title": "Wat is het minimale opnamebedrag voor elke cryptocurrency?",
+    "content": "<p class=\"leading-7\">Vanwege de verschillende waarde van cryptocurrency's en de verschillende ontginningskosten die ermee gemoeid zijn, kun je op je opnamepagina kijken voor de minimale opnamebedragen voor elke cryptocurrency.</p>"
+  },
+  "faqSeven": {
+    "title": "Hoe lang duurt het om te storten en op te nemen?",
+    "content": "<p class=\"leading-7\">Elke transactie op de blockchain vereist meerdere cycli om te bevestigen.</p><p class=\"leading-7\">Over het algemeen vereist elke transactie 5-10 minuten voordat deze kan worden bevestigd door het blockchainnetwerk voor BTC- en ETH-keten; en ongeveer 1-2 minuten voor TRON-, TON- en SOLANA-keten.</p><p class=\"leading-7\">Als je een probleem tegenkomt tijdens het storten of opnemen, kun je je transactie controleren met de respectievelijke blockchain explorer voor het netwerk of contact opnemen met onze live ondersteuning.</p>"
+  },
+  "faqEight": {
+    "title": "Waar komen transactiebevestigingen vandaan?",
+    "content": "<p class=\"leading-7\">Alle bevestigingsinformatie komt van de blockchain en miners voor de blockchain</p>"
+  },
+  "faqNine": {
+    "title": "Zijn je spellen eerlijk?",
+  "content": "<p class=\"leading-7\">Transparantie, Vertrouwen en Eerlijkheid maken deel uit van de kernwaarden van {{gameLink}} en vormen de basis van ons bedrijf. Daarom werken we alleen samen met vertrouwde top game partners om onze klanten de kwalitatieve ervaring te bieden die ze verdienen.</p><p class=\"leading-7\">Alle spellen van onze partners worden streng getest op willekeur door onafhankelijke auditors en zijn gelicenseerd door gokregulatoren die hen regelmatig onderwerpen aan audits van hun Random Number Generator.</p>"
+  },
+  "faqTen": {
+    "title": "Wat moet ik doen als mijn spel hangt of als de verbinding wordt verbroken?",
+    "content": "<p class=\"leading-7\">Als je technische problemen ondervindt, probeer dan de pagina te vernieuwen. Spelstatussen worden opgeslagen door onze providers en je zou je vorige spelstatus moeten zien als je opnieuw verbinding maakt.</p>"
+  }
+}

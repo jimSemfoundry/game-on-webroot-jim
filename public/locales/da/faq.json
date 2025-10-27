@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Hvor gammel skal jeg være for at registrere mig på jeres side?",
+    "content": "<p class=\"leading-7\">Du skal være mindst {{faqAge}} år gammel eller have nået myndighedsalderen i din jurisdiktion for at kunne registrere dig. Du skal også have lovlig tilladelse til at spille onlinespil i henhold til de love, der gælder for dig. For mere information, læs venligst vores servicevilkår.</p><p class=\"leading-7\">Spil kan være vanedannende, og spillere rådes til at udøve selvkontrol.</p>"
+  },
+  "faqTwo": {
+    "title": "Hvilken valuta understøtter tegnebogen?",
+    "content": "<p class=\"leading-7\">Vi understøtter store kryptovalutaer som {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Hvordan indbetaler jeg?",
+    "content": "<p class=\"leading-7\">Gå til din profilside og klik på \"Indbetaling\", vælg den ønskede kryptovaluta, kopier wallet-adressen eller scan QR-koden til betaling.</p>"
+  },
+  "faqFour": {
+    "title": "Kan jeg veksle mine kryptovalutaer på jeres side?",
+    "content": "<p class=\"leading-7\">{{siteName}} tilbyder en swap-funktion, hvor du sikkert og nemt kan bytte dine kryptovalutaer til andre kryptovalutaer. Men på grund af problemer med møntblanding har al krypto, der er indsat på {{siteName}}, et 1x rollover-krav, hvilket betyder, at du skal satse med dine indsatte midler mindst 1 gang, før du kan bytte dem.</p>"
+  },
+  "faqFive": {
+    "title": "Hvordan hæver jeg?",
+    "content": "<p class=\"leading-7\">Gå til din profilside og klik på \"Udbetaling\", indtast adressen på den wallet, du ønsker at udbetale til, og det beløb, du ønsker at udbetale. (Bemærk, at der kan være forskellige gebyrer for de forskellige blockchains)</p>"
+  },
+  "faqSix": {
+    "title": "Hvad er det mindste udbetalingsbeløb for hver kryptovaluta?",
+    "content": "<p class=\"leading-7\">På grund af kryptovalutaernes forskellige værdi og de forskellige minedriftsgebyrer, der er involveret, bedes du tjekke din udbetalingsside for minimumsudbetalingsbeløb for hver kryptovaluta.</p>"
+  },
+  "faqSeven": {
+    "title": "Hvor lang tid tager det at ind- og udbetale?",
+    "content": "<p class=\"leading-7\">Hver transaktion på blockchainen kræver flere cyklusser for at blive bekræftet.</p><p class=\"leading-7\">Generelt kræver hver transaktion 5-10 minutter, før den kan bekræftes af blockchain-netværket for BTC- og ETH-kæden; og ca. 1-2 minutter for TRON-, TON- og SOLANA-kæden.</p><p class=\"leading-7\">Hvis du støder på problemer under indbetaling eller udbetaling, kan du tjekke din transaktion ved hjælp af den respektive blockchain explorer for netværket eller kontakte vores live support.</p>"
+  },
+  "faqEight": {
+    "title": "Hvor kommer transaktionsbekræftelserne fra?",
+    "content": "<p class=\"leading-7\">Alle bekræftelsesoplysninger kommer fra blockchainen og minere til blockchainen</p>"
+  },
+  "faqNine": {
+    "title": "Er dine spil fair?",
+  "content": "<p class=\"leading-7\">Gennemsigtighed, Tillid og Retfærdighed er en del af {{gameLink}}’s kerneværdier og grundlaget for vores forretning. Derfor arbejder vi kun med betroede førende spilpartnere for at give vores kunder den kvalitetsoplevelse, de fortjener.</p><p class=\"leading-7\">Alle spil fra vores partnere testes grundigt for tilfældighed af uafhængige revisorer og er licenseret af spilmyndigheder, som gennemfører hyppige revisioner af deres tilfældighedsgenerator.</p>"
+  },
+  "faqTen": {
+    "title": "Hvad skal jeg gøre, hvis mit spil hænger, eller hvis jeg bliver afbrudt?",
+    "content": "<p class=\"leading-7\">Hvis du støder på tekniske problemer, kan du prøve at opdatere siden. Spiltilstande gemmes af vores udbydere, og du bør se din tidligere spiltilstand, når du opretter forbindelse igen.</p>"
+  }
+}

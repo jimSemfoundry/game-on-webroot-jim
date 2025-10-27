@@ -1,0 +1,38 @@
+{
+    "goBack": "Bumalik",
+    "tryAgain": "Subukan Muli",
+    "retry": "Ulitin",
+    "retryConnection": "Ulitin ang Koneksyon",
+    "emptyStateNoContent": {
+        "title": "Wala Pa Dito!",
+        "description": "Mukhang walang laman dito ngayon. Bumalik mamaya o subukan ang iba."
+    },
+    "failedToLoadPage": {
+        "title": "May Mali!",
+        "description": "Nagkaroon ng error sa sistema habang naglo-load ang pahina. Pakireload ang pahina, o kontakin ang suporta kung magpapatuloy ang isyu."
+    },
+    "otherActiveSession": {
+        "title": "Error sa Sesyon!",
+        "description": "Hindi available ang access mula sa device na ito dahil sa mga kadahilanang pangseguridad. Maaaring dahil ito sa ibang login o isyu sa sistema. Subukang muli o gumamit ng ibang device."
+    },
+    "noInternetConnection": {
+        "title": "Oops! Wala Kang Koneksyon",
+        "description": "Mukhang hindi ka nakakonekta sa internet. Suriin ang iyong Wi-Fi o mobile data at subukang muli kapag online ka na."
+    },
+    "pageNotFound": {
+        "title": "Oops! Nawawala ang Pahinang Ito",
+        "description": "Mukhang hindi umiiral o inilipat ang pahinang ito. Suriin ang URL o bumalik sa home."
+    },
+    "tooManyRequest": {
+        "title": "Sandali Lang! Medyo Abala Kami",
+        "description": "Mukhang maraming hinintay ang aming mga server ngayon. Maghintay sandali at subukang muli."
+    },
+    "underMaintenance": {
+        "title": "Babalik Kami Agad!",
+        "description": "Kami ay gumagawa ng mga update para sa mas maayos na karanasan. Bumalik kaagad!"
+    },
+    "userRestriction": {
+        "title": "Oops! Hindi Mo Maa-access Ito",
+        "description": "Mukhang wala kang pahintulot na tingnan ito. I-double check ang iyong access o makipag-ugnayan para sa tulong."
+    }
+}

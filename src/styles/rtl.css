@@ -1,0 +1,79 @@
+/* RTL Support - Tailwind CSS v4 Native RTL */
+
+/* Base RTL styles using logical properties */
+[dir="rtl"] {
+  /* Ensure proper text direction and alignment */
+  text-align: start;
+}
+
+/* Logical properties for RTL support */
+/* These use CSS logical properties which automatically handle RTL/LTR */
+.ms-auto {
+  margin-inline-start: auto;
+}
+
+.me-auto {
+  margin-inline-end: auto;
+}
+
+.ps-4 {
+  padding-inline-start: 1rem;
+}
+
+.pe-4 {
+  padding-inline-end: 1rem;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+/* Transform adjustments for RTL - handled by Tailwind's rtl: prefix */
+/* Example usage: rtl:scale-x-[-1] */
+
+/* Animation adjustments using logical properties */
+@media (prefers-reduced-motion: no-preference) {
+  [dir="rtl"] .slide-in-start {
+    animation: slide-in-end 0.3s ease-out;
+  }
+  
+  [dir="rtl"] .slide-in-end {
+    animation: slide-in-start 0.3s ease-out;
+  }
+}
+
+@keyframes slide-in-start {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-end {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Icon flip prevention - use Tailwind's rtl:scale-x-[-1] when needed */
+.icon-directional {
+  transform: none;
+}
+
+/* Legacy support - can be removed once all components use logical properties */
+.legacy-rtl-fix {
+  /* Placeholder for any specific legacy fixes needed */
+}

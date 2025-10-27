@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "How old do I need to be to register on your site?",
+    "content": "<p class=\"leading-7\">You must be at least {{faqAge}} years old or of the age of majority in your jurisdiction to register. You must also be legally permitted to play online games according to the laws that are applicable to you. For more information, please read our terms of service.</p><p class=\"leading-7\">Gaming can be addictive, and players are advised to exercise self control.</p>"
+  },
+  "faqTwo": {
+    "title": "What currency does the wallet support?",
+    "content": "<p class=\"leading-7\">We support major cryptocurrencies like {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "How do i deposit?",
+    "content": "<p class=\"leading-7\">Go to your profile page and click on \"Deposit\", select the cryptocurrency of your choice, copy the wallet address or scan the QR code for payment.</p>"
+  },
+  "faqFour": {
+    "title": "Can I swap my cryptocurrencies on your site?",
+    "content": "<p class=\"leading-7\">{{siteName}} offers a swap feature where you can safely and easily swap your cryptocurrencies into other cryptocurrencies. However, due to coin mixing concerns, all crypto deposited into {{siteName}} has a 1x rollover requirement, meaning you have to wager with your deposited funds at least 1 time before you can swap it.</p>"
+  },
+  "faqFive": {
+    "title": "How do I withdraw?",
+    "content": "<p class=\"leading-7\">Go to your profile page and click on \"Withdraw\", enter the address of the wallet you wish to withdraw to and the amount that you wish to withdraw. (Please note that there might be different fees imposed according to the different blockchains)</p>"
+  },
+  "faqSix": {
+    "title": "What is the minimum withdrawal amount for each cryptocurrency?",
+    "content": "<p class=\"leading-7\">Due to the different value of cryptocurrency as well as the different mining fees involved, please check your withdrawal page for minimum withdrawal amounts pertaining to each cryptocurrency.</p>"
+  },
+  "faqSeven": {
+    "title": "How long does it take to deposit and withdraw?",
+    "content": "<p class=\"leading-7\">Each transaction on the blockchain requires several cycles to confirm.</p><p class=\"leading-7\">Generally speaking, each transaction requires 5-10 minutes before it can be confirmed by the blockchain network for BTC and ETH chain; and about 1-2 minutes for TRON, TON, SOLANA chain.</p><p class=\"leading-7\">If you encounter any problem during deposit or withdrawal, you can check your transaction using the respective blockchain explorer for the network or contact our live support.</p>"
+  },
+  "faqEight": {
+    "title": "Where do transaction confirmations come from?",
+    "content": "<p class=\"leading-7\">All confirmation information comes from the blockchain and miners for the blockchain</p>"
+  },
+  "faqNine": {
+    "title": "Are your games fair?",
+    "content": "<p class=\"leading-7\">Transparency, Trust, and Fairness are part of {{gameLink}}'s core values and the bedrock of our business. This is the reason why we only work with trusted top tier game partners to give our customers the quality experience they deserve.</p><p class=\"leading-7\">All games from our partners are rigorously tested for randomness by independent auditors, and are licensed by gaming regulators which subject them to frequent audits on their Random Number Generator.</p>"
+  },
+  "faqTen": {
+    "title": "What should I do if my game hangs or if I get disconnected?",
+    "content": "<p class=\"leading-7\">If you encounter any technical problems, please try to refresh the page. Game states are saved by our providers and you should see your previous game state when you reconnect.</p>"
+  }
+}

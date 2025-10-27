@@ -1,0 +1,63 @@
+{
+  "achievements": {
+    "title": "VITALÍCIA",
+    "reward": "CONQUISTAS \n PRÊMIOS",
+    "achievements": "Conquistas",
+    "achievementDescription": "Prêmios de Conquista são recompensas dadas por alcançar novos marcos e conquistar desafios. Celebram seu progresso e sucesso, desbloqueando surpresas divertidas conforme você alcança novas façanhas pelo caminho!",
+    "claimDistribution": "Distribuição de Resgate",
+    "claimDistributionDescription": "As recompensas são adicionadas ao seu calendário de bônus por 3 dias após uma reivindicação bem-sucedida.",
+    "expiration": "Expiração",
+    "expirationDescription": "Nenhuma – as recompensas são enviadas automaticamente para o calendário.",
+    "generalTerms": "Termos Gerais",
+    "generalTermsDescription": "As recompensas são calculadas e creditadas em BUCK/USDT, depois exibidas na sua moeda fiduciária preferida para conveniência. Observe que as conversões de moeda são aproximadas.\n\nO cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção."
+  },
+  "luckyNumberSeven": {
+    "title": "Número da \n Sorte Sete",
+    "luckyNumberSeven": "Número da Sorte Sete",
+    "luckyNumberSevenDescription": "Acerte os Números da Sorte {{numberOne}} e ganhe um bônus incrível! Se o seu ID de Aposta terminar em {{numberTwo}}, {{numberThree}} ou {{numberFour}} enquanto joga slots elegíveis, você receberá um bônus surpresa – até {{money}}! Basta girar, acertar esses dígitos da sorte e deixar os bons momentos (e bônus) rolarem!",
+    "automaticDistribution": "Distribuição de Resgate",
+    "automaticDistributionDescription": "As recompensas são adicionadas ao seu calendário de bônus ao reivindicá-las.",
+    "winningConditions": "Condições para Ganhar",
+    "winningConditionsDescription": "Se o seu ID de Aposta terminar em {{number}}, você receberá {{percentage}} do valor apostado automaticamente no seu calendário de bônus.",
+    "winningConditionsDescription2": "Se o seu ID de Aposta terminar em {{number}}, você receberá {{percentage}} do valor apostado automaticamente no seu calendário de bônus.",
+    "winningConditionsDescription3": "Se o seu ID de Aposta terminar em {{number}}, você receberá {{percentage}} do valor apostado automaticamente no seu calendário de bônus.",
+    "expiration": "Expiração",
+    "expirationDescription": "Nenhuma – as recompensas são enviadas automaticamente para o calendário.",
+    "eligibility": "Elegibilidade",
+    "eligibilityDescription": "Somente apostas feitas em {{providerOne}} Soft, Pragmatic Play e {{providerTwo}} Slots qualificam para esta promoção.",
+    "generalTerms": "Termos Gerais",
+    "generalTermsDescription": "Você pode ganhar cada combinação de número da sorte {{number}} uma vez por dia.\n\nO valor do bônus é limitado a {{money}} por ID de aposta qualificado.\n\nAs recompensas são calculadas e creditadas em BUCK/USDT, depois exibidas na sua moeda fiduciária preferida para conveniência. Observe que as conversões de moeda são aproximadas.\n\nO cassino reserva-se o direito de modificar ou encerrar esta promoção a qualquer momento. Abuso ou atividade fraudulenta resultará em desqualificação da promoção."
+  },
+  "mysteryBox": {
+    "title": "MENSAL",
+    "reward": "CAIXA \n MISTERIOSA",
+    "mysteryBox": "Caixa Misteriosa",
+    "mysteryBoxDescription": "Quanto mais você joga, maiores são suas chances de ganhar prêmios incríveis. Abra sua Caixa Misteriosa todo dia 7 do mês para revelar bônus surpresa personalizados para sua atividade. Gire, jogue e reivindique o que está esperando por você dentro!",
+    "claimDistribution": "Distribuição de Resgate",
+    "claimDistributionDescription": "100% para seu saldo",
+    "goldMembersAndAbove": "Membros Gold e acima",
+    "yourBalance": "{{percentage}} para seu saldo",
+    "yourCalendar": "{{percentage}} para seu calendário por {{days}} dias",
+    "minimumClaimAmount": "O valor mínimo para resgate é {{money}}",
+    "expiration": "Expiração",
+    "expirationDescription": "Sua Caixa Misteriosa deve ser reivindicada dentro de 7 dias após ser concedida. Recompensas não reivindicadas expirarão após esse período.",
+    "generalTerms": "Termos Gerais",
+    "generalTermsDescription": "As recompensas são calculadas e creditadas com base no primeiro depósito do usuário ou em USDT, caso nenhum depósito seja feito, sujeito a um rollover obrigatório de 1x. Os valores são exibidos na sua moeda fiduciária preferida; as conversões são aproximadas.\n\nO cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem aviso prévio. Qualquer abuso ou fraude resultará em desqualificação."
+  },
+  "TheCannon": {
+    "title": "O",
+    "reward": "CANHÃO",
+    "theCannon": "O Canhão",
+    "theCannonDescription": "Prepare-se para liberar o Canhão — nosso maior evento mensal de recompensas! No dia {{day}} de cada mês, jogadores elegíveis têm a chance de disparar seu canhão e ganhar prêmios explosivos.",
+    "claimDistribution": "Distribuição de Resgate",
+    "claimDistributionDescription": "{{percentageOne}} para seu saldo \n {{percentageTwo}} para seu calendário por {{days}} dias",
+    "goldMembersAndAbove": "Membros Gold e acima",
+    "yourBalance": "{{percentage}} para seu saldo",
+    "yourCalendar": "{{percentage}} para seu calendário por {{days}} dias",
+    "minimumClaimAmount": "O valor mínimo para resgate é {{money}}",
+    "expiration": "Expiração",
+    "expirationDescription": "Seu canhão deve ser disparado antes da próxima recarga. Recompensas não resgatadas expirarão no início do próximo ciclo.",
+    "generalTerms": "Termos Gerais",
+    "generalTermsDescription": "As recompensas são calculadas e creditadas em BUCK/USDT, depois exibidas na sua moeda fiduciária preferida para conveniência. Observe que as conversões de moeda são aproximadas.\n\nO cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção."
+  }
+}

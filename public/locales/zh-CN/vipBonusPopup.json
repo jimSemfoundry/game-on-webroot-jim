@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "终身",
+      "reward": "成就\n奖励",
+      "achievements": "成就",
+      "achievementDescription": "成就奖励是为达到新的里程碑和征服挑战而颁发的奖励。它们庆祝您的进步和成功，在您达成新成就的过程中解锁有趣的惊喜！",
+      "claimDistribution": "领取分配",
+"claimDistributionDescription": "奖励将在成功领取后添加到您的奖励日历中，持续3天。",
+      "expiration": "有效期",
+      "expirationDescription": "无 - 奖励会自动发送到日历。",
+      "generalTerms": "通用条款",
+      "generalTermsDescription": "奖励以BUCK/USDT计算和发放，然后为方便起见以您偏好的法币显示。请注意，货币兑换仅为近似值。\n\n赌场保留随时修改或撤销资格的权利，无需提供理由。任何滥用或欺诈行为将导致取消参与资格。"
+    },
+    "luckyNumberSeven": {
+      "title": "幸运\n数字七",
+      "luckyNumberSeven": "幸运数字七",
+      "luckyNumberSevenDescription": "击中幸运的{{numberOne}}，赢取丰厚奖金！如果您的投注ID以{{numberTwo}}、{{numberThree}}或{{numberFour}}结尾，并且玩符合条件的老虎机，您将获得高达{{money}}的惊喜奖金！只需旋转，命中幸运数字，让好运（和奖金）滚滚而来！",
+      "automaticDistribution": "领取分配",
+  "automaticDistributionDescription": "领取时，奖励会添加到您的奖金日历中。",
+      "winningConditions": "获胜条件",
+      "winningConditionsDescription": "如果您的投注ID以{{number}}结尾，您将自动收到{{percentage}}的投注金额，计入奖金日历。",
+      "winningConditionsDescription2": "如果您的投注ID以{{number}}结尾，您将自动收到{{percentage}}的投注金额，计入奖金日历。",
+      "winningConditionsDescription3": "如果您的投注ID以{{number}}结尾，您将自动收到{{percentage}}的投注金额，计入奖金日历。",
+      "expiration": "有效期",
+      "expirationDescription": "无 - 奖励会自动发送到日历。",
+      "eligibility": "资格",
+      "eligibilityDescription": "仅{{providerOne}} Soft、Pragmatic Play和{{providerTwo}}老虎机上的投注符合此促销资格。",
+      "generalTerms": "通用条款",
+      "generalTermsDescription": "每种幸运{{number}}组合每天仅可赢得一次。\n\n奖金金额上限为每个符合条件的投注ID {{money}}。\n\n奖励以BUCK/USDT计算和发放，然后为方便起见以您偏好的法币显示。请注意，货币兑换仅为近似值。\n\n赌场保留随时修改或终止此促销活动的权利。滥用或欺诈行为将导致取消参与资格。"
+    },
+    "mysteryBox": {
+"title": "每月",
+      "reward": "神秘\n箱子",
+      "mysteryBox": "神秘箱",
+  "mysteryBoxDescription": "你玩得越多，赢取大奖的机会越大。每个月的7号打开你的神秘箱，领取根据你的活动量身定制的惊喜奖励。旋转、游戏，领取箱内等待你的奖励！",
+      "claimDistribution": "领取分配",
+      "claimDistributionDescription": "100% 到账户余额",
+      "goldMembersAndAbove": "黄金会员及以上",
+      "yourBalance": "{{percentage}}到账户余额",
+      "yourCalendar": "{{percentage}}计入奖金日历，持续{{days}}天",
+      "minimumClaimAmount": "最低领取金额为{{money}}",
+      "expiration": "有效期",
+  "expirationDescription": "你的神秘箱必须在获赠后7天内领取。未领取的奖励将在此期限后失效。",
+      "generalTerms": "通用条款",
+  "generalTermsDescription": "奖励根据用户的首次存款或如果未存款则以USDT计算和发放，需满足1倍流水要求。金额以您偏好的法定货币显示；转换金额为近似值。\n\n赌场保留随时修改或撤销资格的权利，恕不另行通知。任何滥用或欺诈行为将导致取消资格。"
+    },
+    "TheCannon": {
+      "title": "大炮",
+      "reward": "大炮",
+      "theCannon": "大炮",
+      "theCannonDescription": "准备好释放大炮——我们最大的每月奖励活动！每月{{day}}日，符合资格的玩家有机会发射大炮，赢取爆炸性大奖。",
+      "claimDistribution": "领取分配",
+      "claimDistributionDescription": "{{percentageOne}}到账户余额\n{{percentageTwo}}计入奖金日历，持续{{days}}天",
+      "goldMembersAndAbove": "黄金会员及以上",
+      "yourBalance": "{{percentage}}到账户余额",
+      "yourCalendar": "{{percentage}}计入奖金日历，持续{{days}}天",
+      "minimumClaimAmount": "最低领取金额为{{money}}",
+      "expiration": "有效期",
+      "expirationDescription": "您的大炮必须在下次重新装填前发射。未领取的奖励将在下一周期开始时过期。",
+      "generalTerms": "通用条款",
+      "generalTermsDescription": "奖励以BUCK/USDT计算和发放，然后为方便起见以您偏好的法币显示。请注意，货币兑换仅为近似值。\n\n赌场保留随时修改或撤销资格的权利，无需提供理由。任何滥用或欺诈行为将导致取消参与资格。"
+    }
+  }
+  

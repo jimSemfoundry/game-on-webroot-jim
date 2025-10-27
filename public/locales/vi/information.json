@@ -1,0 +1,38 @@
+{
+    "goBack": "Quay lại",
+    "tryAgain": "Thử lại",
+    "retry": "Thử lại",
+    "retryConnection": "Thử kết nối lại",
+    "emptyStateNoContent": {
+        "title": "Chưa có gì ở đây cả!",
+        "description": "Hiện tại chưa có nội dung gì đâu. Quay lại sau hoặc thử khám phá thứ khác nhé!"
+    },
+    "failedToLoadPage": {
+        "title": "Ôi! Có lỗi xảy ra",
+        "description": "Đã xảy ra lỗi hệ thống trong khi tải trang. Vui lòng tải lại trang hoặc liên hệ bộ phận hỗ trợ nếu sự cố vẫn tiếp diễn."
+    },
+    "otherActiveSession": {
+        "title": "Lỗi phiên đăng nhập!",
+        "description": "Không thể truy cập từ thiết bị này vì lý do bảo mật. Có thể do đăng nhập khác hoặc lỗi hệ thống. Thử lại hoặc đổi thiết bị nhé."
+    },
+    "noInternetConnection": {
+        "title": "Ôi! Bạn đang mất kết nối",
+        "description": "Có vẻ bạn chưa kết nối Internet. Kiểm tra Wi-Fi hoặc dữ liệu di động và thử lại khi đã trực tuyến nhé!"
+    },
+    "pageNotFound": {
+        "title": "Ôi! Không tìm thấy trang",
+        "description": "Trang này không tồn tại hoặc đã bị di chuyển. Kiểm tra lại URL hoặc quay về trang chủ nhé!"
+    },
+    "tooManyRequest": {
+        "title": "Chờ chút! Chúng tôi đang bận",
+        "description": "Máy chủ của chúng tôi đang hơi quá tải. Đợi một lát rồi thử lại nhé!"
+    },
+    "underMaintenance": {
+        "title": "Chúng tôi sẽ sớm quay lại!",
+        "description": "Chúng tôi đang nâng cấp để mọi thứ mượt mà hơn. Quay lại ngay nhé!"
+    },
+    "userRestriction": {
+        "title": "Ôi! Bạn không vào được đây",
+        "description": "Có vẻ bạn không có quyền xem nội dung này. Kiểm tra quyền truy cập hoặc liên hệ hỗ trợ nhé!"
+    }
+}

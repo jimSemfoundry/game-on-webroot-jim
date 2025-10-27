@@ -1,0 +1,38 @@
+{
+    "goBack": "Zurück",
+    "tryAgain": "Noch einmal versuchen",
+    "retry": "Wiederholen",
+    "retryConnection": "Verbindung erneut versuchen",
+    "emptyStateNoContent": {
+        "title": "Hier ist noch nichts!",
+        "description": "Sieht so aus, als gäbe es hier im Moment keinen Inhalt. Schau später wieder vorbei oder versuche etwas anderes."
+    },
+    "failedToLoadPage": {
+        "title": "Etwas ist schiefgelaufen",
+        "description": "Beim Laden der Seite ist ein Systemfehler aufgetreten. Bitte laden Sie die Seite neu oder wenden Sie sich an den Support, wenn das Problem weiterhin besteht."
+    },
+    "otherActiveSession": {
+        "title": "Sitzungsfehler!",
+        "description": "Der Zugriff von diesem Gerät ist aus Sicherheitsgründen derzeit nicht möglich. Das kann an einer anderen Anmeldung oder einem Systemproblem liegen. Bitte versuche es erneut oder verwende ein anderes Gerät."
+    },
+    "noInternetConnection": {
+        "title": "Hoppla! Du bist offline",
+        "description": "Es sieht so aus, als wärst du nicht mit dem Internet verbunden. Überprüfe dein WLAN oder deine mobilen Daten und versuche es erneut, wenn du wieder online bist."
+    },
+    "pageNotFound": {
+        "title": "Hoppla! Diese Seite ist verschwunden",
+        "description": "Es sieht so aus, als ob diese Seite nicht mehr existiert oder verschoben wurde. Versuche, die URL zu überprüfen oder gehe zurück nach Hause."
+    },
+    "tooManyRequest": {
+        "title": "Halt dich fest! Wir sind ein bisschen beschäftigt",
+        "description": "Es sieht so aus, als ob unsere Server im Moment viel zu tun haben. Warte einen Moment und versuche es erneut."
+    },
+    "underMaintenance": {
+        "title": "Wir sind gleich wieder da!",
+        "description": "Wir machen ein paar Updates, damit alles reibungslos läuft. Schau bald wieder vorbei!"
+    },
+    "userRestriction": {
+        "title": "Hoppla! Du kannst nicht auf diese Seite zugreifen",
+        "description": "Es sieht so aus, als hättest du keine Berechtigung, dies zu sehen. Überprüfe deine Zugangsberechtigung oder wende dich an den Support."
+    }
+}

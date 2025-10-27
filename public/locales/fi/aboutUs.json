@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "Tietoa Meistä",
+"content": "<p class=\"leading-7\">\n      {{gameLink}} allianssissa olemme koonneet tiimin tuomaan sinulle uusimmat verkkoviihteen, hauskat kokemukset ja välittömän pääsyn varoihisi. Tehtävämme on tulla lopulliseksi kryptopelaamisen kohteeksi yleisöllemme ympäri maailmaa.         \n    </p>\n    <p class=\"leading-7\">\n      Olemme osa OKVIP-allianssia: Villareal CF:n, AC Milanin ja Argentiinan jalkapalloliiton viralliset sponsorit.\n    </p>\n    <p class=\"leading-7\">\n      Tutustu OKVIP-allianssin sponsoreihin täällä. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} allianssi on Omnispect B.V.:n omistama, rajavastuuyhtiö, joka on rekisteröity Curacaossa yhtiön rekisteröintinumerolla <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>, rekisteröidyllä osoitteella <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} allianssi on läpäissyt kaikki sääntelyvaatimukset ja sillä on laillinen oikeus harjoittaa rahapelejä kaikissa verkkopelien lajeissa ja vedonlyönneissä.         \n    </p>"
+  }
+}

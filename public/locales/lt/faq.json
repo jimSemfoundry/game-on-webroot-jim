@@ -1,0 +1,42 @@
+{
+  "faqOne": {
+    "title": "Kokio amžiaus turiu būti, kad galėčiau užsiregistruoti jūsų svetainėje?",
+    "content": "<p class=\"leading-7\">norėdami užsiregistruoti, turite būti ne jaunesni nei {{faqAge}} metų arba sulaukę pilnametystės pagal savo jurisdikciją. taip pat turite turėti teisę žaisti internetinius žaidimus pagal jums taikomus įstatymus. daugiau informacijos rasite mūsų paslaugų teikimo sąlygose.</p><p class=\"leading-7\">žaidimai gali sukelti priklausomybę, todėl žaidėjams patariama save kontroliuoti.</p>"
+  },
+  "faqTwo": {
+    "title": "Kokią valiutą palaiko piniginė?",
+    "content": "<p class=\"leading-7\">palaikome pagrindines kriptovaliutas, pvz., {{currency}}</p>"
+  },
+  "faqThree": {
+    "title": "Kaip įnešti indėlį?",
+    "content": "<p class=\"leading-7\">eikite į savo profilio puslapį ir spustelėkite „indėlis“, pasirinkite savo pasirinktą kriptovaliutą, nukopijuokite piniginės adresą arba nuskaitykite QR kodą, kad atliktumėte mokėjimą.</p>"
+  },
+  "faqFour": {
+    "title": "Ar galiu keisti savo kriptovaliutas jūsų svetainėje?",
+    "content": "<p class=\"leading-7\">{{siteName}} siūlo keitimo funkciją, kur galite saugiai ir lengvai keisti savo kriptovaliutas į kitas kriptovaliutas. tačiau dėl monetų maišymo problemų visoms į {{siteName}} įneštoms kriptovaliutoms taikomas 1x perkėlimo reikalavimas, t. y. prieš keisdami turite bent kartą statyti su įneštomis lėšomis.</p>"
+  },
+  "faqFive": {
+    "title": "Kaip išimti lėšas?",
+    "content": "<p class=\"leading-7\">eikite į savo profilio puslapį ir spustelėkite „išėmimas“, įveskite piniginės, į kurią norite išsiimti lėšas, adresą ir sumą, kurią norite išsiimti. (atkreipkite dėmesį, kad priklausomai nuo skirtingų blokų grandinių gali būti taikomi skirtingi mokesčiai)</p>"
+  },
+  "faqSix": {
+    "title": "Kokia yra minimali kiekvienos kriptovaliutos išėmimo suma?",
+    "content": "<p class=\"leading-7\">dėl skirtingos kriptovaliutų vertės ir kasybos mokesčių, patikrinkite savo išėmimo puslapį, kad sužinotumėte minimalias išėmimo sumas, susijusias su kiekviena kriptovaliuta.</p>"
+  },
+  "faqSeven": {
+    "title": "Kiek laiko užtrunka įnešti ir išimti lėšas?",
+    "content": "<p class=\"leading-7\">kiekvienam sandoriui blokų grandinėje patvirtinti reikia kelių ciklų.</p><p class=\"leading-7\">paprastai kiekvienam sandoriui patvirtinti blokų grandinės tinkle prireikia 5-10 minučių BTC ir ETH grandinėse, o TRON, TON, SOLANA grandinėse – apie 1-2 minutes.</p><p class=\"leading-7\">jei įnešimo ar išėmimo metu susidursite su problema, galite patikrinti savo sandorį naudodamiesi atitinkamu tinklo blokų grandinės tyrėju arba susisiekti su mūsų pagalba gyvai.</p>"
+  },
+  "faqEight": {
+    "title": "Iš kur gaunami sandorių patvirtinimai?",
+    "content": "<p class=\"leading-7\">visa patvirtinimo informacija gaunama iš blokų grandinės ir kalnakasių</p>"
+  },
+  "faqNine": {
+    "title": "Ar jūsų žaidimai sąžiningi?",
+  "content": "<p class=\"leading-7\">Skaidrumas, pasitikėjimas ir teisingumas yra {{gameLink}} pagrindinių vertybių dalis ir mūsų verslo pagrindas. Dėl to mes dirbame tik su patikimais aukščiausios klasės žaidimų partneriais, kad suteiktume savo klientams kokybišką patirtį, kurios jie nusipelno.</p><p class=\"leading-7\">Visi mūsų partnerių žaidimai yra kruopščiai tikrinami nepriklausomų auditoriams dėl atsitiktinumo ir turi žaidimų reguliavimo institucijų licencijas, kurios reguliariai tikrina jų atsitiktinių skaičių generatorius.</p>"
+  },
+  "faqTen": {
+    "title": "Ką daryti, jei žaidimas užstrigo arba nutrūko ryšys?",
+    "content": "<p class=\"leading-7\">jei kyla techninių problemų, pabandykite atnaujinti puslapį. žaidimo būsenas išsaugo mūsų tiekėjai, todėl prisijungę iš naujo turėtumėte matyti ankstesnę žaidimo būseną.</p>"
+  }
+}

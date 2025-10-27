@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "درباره ما",
+    "content": "<p class=\"leading-7\">\n      در اتحاد {{gameLink}}، ما تیمی را گرد هم آورده‌ایم تا جدیدترین سرگرمی‌های آنلاین، تجربیات پر از هیجان و دسترسی فوری به وجوه شما را ارائه دهیم. مأموریت ما این است که به مقصد نهایی بازی‌های کریپتو برای مخاطبان جهانی خود تبدیل شویم.         \n    </p>\n    <p class=\"leading-7\">\n      ما بخشی از اتحاد OKVIP هستیم: حامیان رسمی ویارئال CF، AC میلان و انجمن فوتبال آرژانتین.\n    </p>\n    <p class=\"leading-7\">\n      حمایت‌های اتحاد OKVIP ما را اینجا بررسی کنید. {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      اتحاد {{gameLink}} متعلق به <span class=\"font-bold text-base\">Omnispect B.V.</span> است، یک شرکت با مسئولیت محدود ثبت‌شده در کوراسائو با شماره ثبت شرکت <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span>، با آدرس ثبت‌شده در <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}، ویلمستاد.</span>           \n    </p>\n    <p class=\"leading-7\">\n     اتحاد {{gameLink}} تمام الزامات نظارتی را پشت سر گذاشته و از نظر قانونی مجاز به انجام عملیات بازی برای هرگونه بازی‌های آنلاین شانس و شرط‌بندی است.         \n    </p>"
+  }
+}

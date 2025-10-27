@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Ano ang Level-Up Bonus?",
+    "content": "<p class=\"leading-7\">Ang Level-Up Bonus ay espesyal na inihanda para sa mga tapat na manlalaro tulad mo na kasama natin mula pa noong simula. Habang umaakyat ka sa mga antas ng VIP, mas malalaking premyo ang iyong ina-unlock!</p>"
+  },
+  "faqTwo": {
+    "title": "Ano ang Pang-araw-araw na Cashback?",
+    "content": "<p class=\"leading-7\">Ang Pang-araw-araw na Cashback ay para sa iyo kung nakapagtala ka ng netong pagkalugi mula sa iyong deposito. Ang bonus na ito ay ibinibigay araw-araw bilang porsyento ng iyong pagkalugi, at tataas ang porsyento habang umuunlad ang iyong VIP antas, hanggang sa pinakamataas na 40% cashback – ang pinakamalaki saanman! Tandaan, ang bonus na ito ay eksklusibo para sa mga manlalaro na nasa netong pagkalugi.</p>"
+  },
+  "faqThree": {
+    "title": "Ano ang Mga Pagsakop/Quest?",
+    "content": "<p class=\"leading-7\">Ang Mga Pagsakop ay mga araw-araw na quest na random na ibinibigay para sa iyo upang makakuha ng karagdagang premyo habang naglalaro sa aming website. Ang mga premyo mula sa Pagsakop ay dapat i-claim sa loob ng 24 na oras bago ang susunod na cycle, at mag-e-expire kung hindi ma-claim. Ang mga ito ay binabayaran sa BUCK/USDT at maaaring i-convert sa iyong gustong cryptocurrency gamit ang aming swap function.</p>"
+  },
+  "faqFour": {
+    "title": "Ano ang Tournament Rewards?",
+    "content": "<p class=\"leading-7\">Ang Tournament Rewards ay mga premyo para sa natatanging pagganap sa mga kompetisyon. Ang mga ito ay maiipon hanggang i-claim mo at walang petsa ng pag-expire. Binabayaran ang mga ito sa BUCK/USDT at maaaring i-convert sa iyong gustong cryptocurrency gamit ang aming swap function.</p>"
+  },
+  "faqFive": {
+    "title": "Ano ang Super Rakeback?",
+    "content": "<p class=\"leading-7\">Ang Super Rakeback ay ang aming paraan para i-unlock ang iyong deposit bonus. Isang porsyento ng iyong taya (hanggang 3%) ang ibabalik sa iyo sa bawat pustahan. Kung mas mataas ang iyong VIP antas, mas malaki ang rate ng pag-unlock. Naka-unlock na BUCK/USDT = Taya x 2.5% x Porsyento ng Rate ng Pag-unlock</p><p class=\"leading-7\">Rate ng Pag-unlock:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+  },
+  "faqSix": {
+    "title": "Ano ang Booster?",
+    "content": "<p class=\"leading-7\">Ang Booster ay magdodoble ng iyong Rakeback sa loob ng isang oras tuwing magdeposito ang iyong referral. </p><p class=\"leading-7\">Pinahusay na Rate ng Pag-unlock:</p><p class=\"leading-7\">Rate ng Pag-unlock:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+  },
+  "faqSeven": {
+    "title": "Ano ang Bonus Calendar?",
+    "content": "<p class=\"leading-7\">Karamihan sa iyong bonus ay hinati: 50% sa iyong Tunay na Balanse at 50% sa iyong Bonus Calendar. Ang mga bonus sa Bonus Calendar ay maaaring i-claim tuwing 8 oras at mag-e-expire sa loob ng 24 na oras kung hindi mo ma-claim. Tandaang i-claim ang iyong mga bonus kahit isang beses sa isang araw para masigurong makokolekta mo ang lahat ng iyong premyo!</p>"
+  },
+  "faqEight": {
+    "title": "Ano ang Lingguhang Bonus?",
+    "content": "<p class=\"leading-7\">Ang Lingguhang Bonus ay isang eksklusibong benepisyo sa aming website, espesyal na inihanda para sa mga manlalaro na VIP 12 pataas. Ang bonus na ito ay ibinibigay lingguhan at awtomatikong inilalabas tuwing Biyernes para sa mga VIP 12 at mas mataas. Ang laki ng bonus ay nakasalalay sa halaga ng iyong taya sa nakaraang linggo, na may minimum na kinakailangang taya na {{minWager}} sa nakaraang linggo.</p>"
+  },
+  "faqNine": {
+    "title": "Ano ang Achievement?",
+    "content": "<p class=\"leading-7\">Ang Achievement ay ang aming paraan ng pagkilala sa iyong aktibidad sa aming platform. Kapag na-claim mo ang iyong achievement bonus, ito ay idadagdag sa iyong Bonus Calendar at maaaring i-claim tuwing 8 oras, ngunit mag-e-expire sa loob ng 24 na oras kung hindi ma-claim.</p>"
+  }
+}

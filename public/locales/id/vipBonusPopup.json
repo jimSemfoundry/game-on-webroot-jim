@@ -1,0 +1,63 @@
+{
+    "achievements": {
+        "title": "SEUMUR HIDUP",
+        "reward": "PENGHARGAAN \n PRESTASI",
+        "achievements": "Prestasi",
+        "achievementDescription": "Penghargaan Prestasi adalah hadiah yang diberikan untuk mencapai tonggak baru dan menaklukkan tantangan. Mereka merayakan kemajuan dan kesuksesan Anda, membuka kejutan menyenangkan saat Anda mencapai prestasi baru sepanjang perjalanan!",
+        "claimDistribution": "Klaim Distribusi",
+"claimDistributionDescription": "Hadiah ditambahkan ke kalender bonus Anda selama 3 hari setelah klaim berhasil.",
+        "expiration": "Kedaluwarsa",
+        "expirationDescription": "Tidak ada - Hadiah otomatis dikirim ke kalender.",
+        "generalTerms": "Ketentuan Umum",
+        "generalTermsDescription": "Hadiah dihitung dan dikreditkan dalam BUCK/USDT, kemudian ditampilkan dalam mata uang fiat pilihan Anda untuk kenyamanan. Harap dicatat, konversi mata uang bersifat perkiraan.\n\nKasino berhak untuk mengubah atau mencabut kelayakan kapan saja, tanpa kewajiban untuk memberi alasan. Penyalahgunaan atau aktivitas penipuan akan menyebabkan diskualifikasi dari promosi."
+    },
+    "luckyNumberSeven": {
+        "title": "Angka Keberuntungan \n Tujuh",
+        "luckyNumberSeven": "Angka Keberuntungan Tujuh",
+        "luckyNumberSevenDescription": "Dapatkan Angka Keberuntungan {{numberOne}} dan raih bonus manis! Jika ID Taruhan Anda berakhir dengan {{numberTwo}}, {{numberThree}} atau {{numberFour}} saat bermain slot yang memenuhi syarat, Anda akan mendapatkan bonus kejutan - hingga {{money}}! Cukup putar, dapatkan angka keberuntungan itu, dan nikmati waktu menyenangkan (dan bonus)!",
+        "automaticDistribution": "Klaim Distribusi",
+  "automaticDistributionDescription": "Hadiah ditambahkan ke kalender bonus Anda saat diklaim.",
+        "winningConditions": "Syarat Kemenangan",
+        "winningConditionsDescription": "Jika ID Taruhan Anda berakhir dengan {{number}}, Anda akan menerima {{percentage}} dari jumlah taruhan secara otomatis ke kalender Bonus Anda.",
+        "winningConditionsDescription2": "Jika ID Taruhan Anda berakhir dengan {{number}}, Anda akan menerima {{percentage}} dari jumlah taruhan secara otomatis ke kalender Bonus Anda.",
+        "winningConditionsDescription3": "Jika ID Taruhan Anda berakhir dengan {{number}}, Anda akan menerima {{percentage}} dari jumlah taruhan secara otomatis ke kalender Bonus Anda.",
+        "expiration": "Kedaluwarsa",
+        "expirationDescription": "Tidak ada - Hadiah otomatis dikirim ke kalender.",
+        "eligibility": "Kelayakan",
+        "eligibilityDescription": "Hanya taruhan pada {{providerOne}} Soft, Pragmatic Play dan Slot {{providerTwo}} yang memenuhi syarat untuk promosi ini.",
+        "generalTerms": "Ketentuan Umum",
+        "generalTermsDescription": "Anda dapat memenangkan setiap kombinasi angka keberuntungan {{number}} sekali per hari. \n\nJumlah bonus dibatasi hingga {{money}} per ID Taruhan yang memenuhi syarat. \n\nHadiah dihitung dan dikreditkan dalam BUCK/USDT, kemudian ditampilkan dalam mata uang fiat pilihan Anda untuk kenyamanan. Harap dicatat, konversi mata uang bersifat perkiraan. \n\nKasino berhak mengubah atau menghentikan promosi ini kapan saja. Penyalahgunaan atau aktivitas penipuan akan menyebabkan diskualifikasi dari promosi."
+    },
+    "mysteryBox": {
+        "title": "KOTAK",
+        "reward": "MISTERI \n BULANAN",
+        "mysteryBox": "Kotak Misteri",
+  "mysteryBoxDescription": "Semakin sering Anda bermain, semakin besar peluang Anda untuk mendapatkan hadiah besar. Buka Kotak Misteri Anda setiap tanggal 7 bulan ini untuk mengungkap bonus kejutan yang disesuaikan dengan aktivitas Anda. Putar, mainkan, dan klaim apa yang menunggu di dalamnya!",
+        "claimDistribution": "Klaim Distribusi",
+        "claimDistributionDescription": "100% ke saldo Anda",
+        "goldMembersAndAbove": "Anggota Emas dan di atasnya",
+        "yourBalance": "{{percentage}} ke saldo Anda",
+        "yourCalendar": "{{percentage}} ke kalender Anda selama {{days}} hari",
+        "minimumClaimAmount": "Jumlah klaim minimum adalah {{money}}",
+        "expiration": "Kedaluwarsa",
+  "expirationDescription": "Kotak Misteri Anda harus diklaim dalam waktu 7 hari setelah diberikan. Hadiah yang tidak diklaim akan kedaluwarsa setelah periode ini.",
+        "generalTerms": "Ketentuan Umum",
+  "generalTermsDescription": "Hadiah dihitung dan dikreditkan berdasarkan setoran pertama pengguna atau dalam USDT jika tidak ada setoran yang dilakukan, dengan syarat rollover 1x. Jumlah ditampilkan dalam mata uang fiat pilihan Anda; konversi bersifat perkiraan.\n\nKasino berhak untuk mengubah atau mencabut kelayakan kapan saja tanpa pemberitahuan. Setiap penyalahgunaan atau penipuan akan mengakibatkan diskualifikasi."
+    },
+    "TheCannon": {
+        "title": "THE",
+        "reward": "CANNON",
+        "theCannon": "The Cannon",
+        "theCannonDescription": "Bersiaplah untuk melepaskan The Cannon — acara hadiah bulanan terbesar kami! Pada tanggal {{day}} setiap bulan, pemain yang memenuhi syarat mendapatkan kesempatan untuk menembakkan meriam mereka dan meraih hadiah eksplosif.",
+        "claimDistribution": "Klaim Distribusi",
+        "claimDistributionDescription": "{{percentageOne}} ke saldo Anda \n {{percentageTwo}} ke kalender Anda selama {{days}} hari",
+        "goldMembersAndAbove": "Anggota Emas dan di atasnya",
+        "yourBalance": "{{percentage}} ke saldo Anda",
+        "yourCalendar": "{{percentage}} ke kalender Anda selama {{days}} hari",
+        "minimumClaimAmount": "Jumlah klaim minimum adalah {{money}}",
+        "expiration": "Kedaluwarsa",
+        "expirationDescription": "Meriam Anda harus ditembakkan sebelum pengisian berikutnya. Hadiah yang tidak diklaim akan kedaluwarsa pada awal siklus berikutnya.",
+        "generalTerms": "Ketentuan Umum",
+        "generalTermsDescription": "Hadiah dihitung dan dikreditkan dalam BUCK/USDT, kemudian ditampilkan dalam mata uang fiat pilihan Anda untuk kenyamanan. Harap dicatat, konversi mata uang bersifat perkiraan.\n\nKasino berhak untuk mengubah atau mencabut kelayakan kapan saja, tanpa kewajiban untuk memberi alasan. Penyalahgunaan atau aktivitas penipuan akan menyebabkan diskualifikasi dari promosi."
+    }
+}

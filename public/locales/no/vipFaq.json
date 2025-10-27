@@ -1,0 +1,38 @@
+{
+  "faqOne": {
+    "title": "Hva er nivåoppgraderingsbonuser?",
+    "content": "<p class=\"leading-7\">Nivåbonus er vår måte å vise takknemlighet for lojale spillere som har vært med oss fra starten. Når spillerne stiger i VIP-nivå, låser de opp større belønninger.</p>"
+  },
+  "faqTwo": {
+    "title": "Hva er Daily Cashback?",
+    "content": "<p class=\"leading-7\">Daglig cashback tildeles spillere som har tapt på innskudd. Bonusen utbetales daglig som en prosentandel av tapet. Cashback-prosenten øker med VIP-nivået ditt, opptil 40% cashback, den høyeste noe sted. Vær oppmerksom på at bonusen kun er for spillere i nettotap.</p>"
+  },
+  "faqThree": {
+    "title": "Hva er erobringer/oppdrag?",
+    "content": "<p class=\"leading-7\">Erobringer er daglige oppdrag som gis tilfeldig til spillere for å tjene ekstra belønninger når de spiller på nettstedet vårt. Erobringsbelønninger må hentes innen 24 timer før neste syklus og forfaller hvis ikke hentet. Belønningene utbetales i BUCK/USDT og kan konverteres til ønsket kryptovaluta via bytte-funksjonen vår.</p>"
+  },
+  "faqFour": {
+    "title": "Hva er turneringsbelønninger?",
+    "content": "<p class=\"leading-7\">Turneringsbelønninger er premier som gis for fremragende prestasjoner i konkurranser. Turneringsbelønninger akkumuleres til de kreves og har ingen utløpsdato. Turneringsbelønninger utbetales i BUCK/USDT og kan konverteres til den kryptovalutaen du ønsker via byttefunksjonen vår.</p>"
+  },
+  "faqFive": {
+    "title": "Hva er Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback er vår mekanisme for å låse opp innskuddsbonusene dine. En prosentandel av innsatsen din (opptil 3 %) blir returnert til deg hver gang du plasserer en innsats. Jo høyere VIP-nivå du har, desto høyere er opplåsingsraten. Ulåst BUCK/USDT= Innsats x 2,5% x Opplåsingsgrad %</p><p class=\"leading-7\">Opplåsingshastighet:</p><p class=\"leading-7\">VIP 0-40: 20</p><p class=\"leading-7\">VIP 41-60: 32</p><p class=\"leading-7\">VIP 61-80: 40</p><p class=\"leading-7\">VIP 81-100: 52</p><p class=\"leading-7\">VIP 101-125: 60</p>"
+  },
+  "faqSix": {
+    "title": "Hva er en Booster?",
+    "content": "<p class=\"leading-7\">Boostere dobler din Rakeback i én time hver gang en vervet person gjør et innskudd.</p><p class=\"leading-7\">Forsterket opplåsingsfrekvens:</p><p class=\"leading-7\">Opplåsingshastighet:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72</p><p class=\"leading-7\">VIP 61-80: 80</p><p class=\"leading-7\">VIP 81-100: 102</p><p class=\"leading-7\">VIP 101-125: 120</p>"
+  },
+  "faqSeven": {
+    "title": "Hva er Bonuskalenderen?",
+    "content": "<p class=\"leading-7\">De fleste bonuser utbetales 50% til din reelle saldo og 50% til bonuskalenderen din. Bonuser i bonuskalenderen kan hentes hver åttende time og forfaller etter 24 timer hvis de ikke hentes. Husk å hente bonusene i bonuskalenderen minst én gang daglig for å sikre at alle belønningene dine samles inn!</p>"
+  },
+  "faqEight": {
+    "title": "Hva er den ukentlige bonusen?",
+    "content": "<p class=\"leading-7\">Ukentlig bonus er en eksklusiv fordel på nettstedet vårt for spillere på VIP12 og oppover. Bonusen utbetales ukentlig, automatisk hver fredag, til spillere på VIP12 og høyere. Størrelsen avhenger av innsatsen den siste uken, med et minimumskrav på {{minWager}} den siste uken.</p>"
+  },
+  "faqNine": {
+    "title": "Hva er prestasjoner?",
+    "content": "<p class=\"leading-7\">Prestasjoner er vår måte å anerkjenne aktiviteten din på plattformen vår. Når du henter prestasjonsbonusen din, utbetales den til bonuskalenderen din og kan hentes hver åttende time, og forfaller etter 24 timer hvis den ikke hentes.</p>"
+  }
+}

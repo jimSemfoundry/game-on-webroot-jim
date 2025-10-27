@@ -1,0 +1,64 @@
+{
+    "achievements": {
+      "title": "PE VIAȚĂ",
+      "reward": "REALIZĂRI \n PREMII",
+      "achievements": "Realizări",
+      "achievementDescription": "Premiile pentru realizări sunt recompense oferite pentru atingerea de noi repere și cucerirea provocărilor. Ele sărbătoresc progresul și succesul tău, deblocând surprize distractive pe măsură ce atingi noi performanțe!",
+      "claimDistribution": "Distribuția revendicărilor",
+"claimDistributionDescription": "Recompensele sunt adăugate în calendarul tău de bonusuri pentru 3 zile după o revendicare reușită.",
+      "expiration": "Expirare",
+      "expirationDescription": "Niciuna – recompensele sunt trimise automat în calendar.",
+      "generalTerms": "Termeni generali",
+      "generalTermsDescription": "Recompensele sunt calculate și creditate în BUCK/USDT, apoi afișate în moneda fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative.\n\nCazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție."
+    },
+    "luckyNumberSeven": {
+      "title": "Numărul \n Norocos Șapte",
+      "luckyNumberSeven": "Numărul Norocos Șapte",
+      "luckyNumberSevenDescription": "Nimeriți Numerele Norocoase {{numberOne}} și câștigați un bonus dulce! Dacă ID-ul tău de pariu se termină în {{numberTwo}}, {{numberThree}} sau {{numberFour}} în timp ce joci sloturi eligibile, vei primi un bonus surpriză – până la {{money}}! Pur și simplu rotește, nimeriți acele cifre norocoase și lasă distracția (și bonusurile) să înceapă!",
+      "automaticDistribution": "Distribuția revendicărilor",
+  "automaticDistributionDescription": "Recompensele sunt adăugate în calendarul tău de bonusuri la revendicare.",
+      "winningConditions": "Condiții de câștig",
+      "winningConditionsDescription": "Dacă ID-ul tău de pariu se termină în {{number}}, vei primi automat {{percentage}} din suma pariului tău în calendarul de bonusuri.",
+      "winningConditionsDescription2": "Dacă ID-ul tău de pariu se termină în {{number}}, vei primi automat {{percentage}} din suma pariului tău în calendarul de bonusuri.",
+      "winningConditionsDescription3": "Dacă ID-ul tău de pariu se termină în {{number}}, vei primi automat {{percentage}} din suma pariului tău în calendarul de bonusuri.",
+      "expiration": "Expirare",
+      "expirationDescription": "Niciuna – recompensele sunt trimise automat în calendar.",
+      "eligibility": "Eligibilitate",
+      "eligibilityDescription": "Doar pariurile plasate pe {{providerOne}} Soft, Pragmatic Play și {{providerTwo}} Slots se califică pentru această promoție.",
+      "generalTerms": "Termeni generali",
+      "generalTermsDescription": "Poți câștiga fiecare combinație norocoasă de {{number}} o dată pe zi.\n\n Suma bonusului este limitată la {{money}} per ID de pariu calificat.\n\n Recompensele sunt calculate și creditate în BUCK/USDT, apoi afișate în moneda fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative.\n\n Cazinoul își rezervă dreptul de a modifica sau întrerupe această promoție în orice moment. Abuzul sau activitatea frauduloasă va duce la descalificarea din promoție."
+    },
+    "mysteryBox": {
+"title": "LUNAR",
+      "reward": "CUTIE \n MISTERIOASĂ",
+      "mysteryBox": "Cutie Misterioasă",
+  "mysteryBoxDescription": "Cu cât joci mai mult, cu atât ai șanse mai mari să câștigi premii mari. Deschide-ți Cutia Misterioasă în fiecare zi 7 a lunii pentru a descoperi bonusuri surpriză adaptate activității tale. Învârte, joacă și revendică ce te așteaptă înăuntru!",
+      "claimDistribution": "Distribuția revendicărilor",
+      "claimDistributionDescription": "100% către soldul tău",
+      "goldMembersAndAbove": "Membri Gold și peste",
+      "yourBalance": "{{percentage}} către soldul tău",
+      "yourCalendar": "{{percentage}} către calendarul tău pentru {{days}} zile",
+      "minimumClaimAmount": "Suma minimă de revendicat este {{money}}",
+      "expiration": "Expirare",
+  "expirationDescription": "Cutia ta Misterioasă trebuie revendicată în termen de 7 zile de la acordare. Recompensele nerevendicate vor expira după această perioadă.",
+      "generalTerms": "Termeni generali",
+  "generalTermsDescription": "Recompensele sunt calculate și creditate în funcție de prima depunere a utilizatorului sau în USDT dacă nu se face nicio depunere, cu condiția respectării unei cerințe de rulaj de 1x. Sumele sunt afișate în moneda fiat preferată; conversiile sunt aproximative.\n\nCazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără notificare prealabilă. Orice abuz sau fraudă va duce la descalificare."
+    },
+    "TheCannon": {
+      "title": "CANONUL",
+      "reward": "CANON",
+      "theCannon": "Canonul",
+      "theCannonDescription": "Pregătește-te să dezlănțui Canonul — cel mai mare eveniment lunar de recompense! În a {{day}}-a zi a fiecărei luni, jucătorii eligibili au șansa să își tragă canonul și să câștige premii explozive.",
+      "claimDistribution": "Distribuția revendicărilor",
+      "claimDistributionDescription": "{{percentageOne}} către soldul tău \n {{percentageTwo}} către calendarul tău pentru {{days}} zile",
+      "goldMembersAndAbove": "Membri Gold și peste",
+      "yourBalance": "{{percentage}} către soldul tău",
+      "yourCalendar": "{{percentage}} către calendarul tău pentru {{days}} zile",
+      "minimumClaimAmount": "Suma minimă de revendicat este {{money}}",
+      "expiration": "Expirare",
+      "expirationDescription": "Canonul tău trebuie tras înainte de următoarea reîncărcare. Recompensele nerevendicate vor expira la începutul următorului ciclu.",
+      "generalTerms": "Termeni generali",
+      "generalTermsDescription": "Recompensele sunt calculate și creditate în BUCK/USDT, apoi afișate în moneda fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative.\n\nCazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție."
+    }
+  }
+  
