@@ -23,7 +23,7 @@ export default ({ version, facebookPixelId, nameBlock, nickname, websiteUrl, the
             // 存储最终解析的配置
             config = resolvedConfig;
         },
-        transformIndexHtml(html: string) {
+        transformIndexHtml(html: string, ctx?: { path?: string; filename?: string }) {
             // 处理环境变量的默认值
             let processedHtml = html
                 .replace(/%_WEBSITE_NAME_BLOCK_%/g, nameBlock ) 
@@ -31,6 +31,30 @@ export default ({ version, facebookPixelId, nameBlock, nickname, websiteUrl, the
                 .replace(/%_WEBSITE_URL_%/g, websiteUrl)
                 .replace(/%_THEME_%/g, theme)
                 .replace(/%_VERSION_%/g, version.toString());
+
+            const manifestTag = '<link rel="manifest" href="/manifest.webmanifest" />';
+            const swRegisterScript = `  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(console.error);
+      });
+    }
+  </script>`;
+
+            const hasManifest = /<link\s+[^>]*rel=["']manifest["'][^>]*>/i.test(processedHtml);
+            const hasSWRegister = /navigator\.serviceWorker\.register\(\s*["']\/sw\.js["']\s*\)/i.test(processedHtml);
+
+            const isLandingPageHtml =
+                (ctx?.path && ctx.path.includes('landingPage')) ||
+                (ctx?.filename && ctx.filename.includes(`${path.sep}landingPage${path.sep}`));
+
+            if (isLandingPageHtml && (!hasManifest || !hasSWRegister)) {
+                const headInjection =
+                    `${!hasManifest ? `\n  ${manifestTag}` : ''}` +
+                    `${!hasSWRegister ? `\n${swRegisterScript}` : ''}`;
+
+                processedHtml = processedHtml.replace('</head>', `${headInjection}\n</head>`);
+            }
             
             return processedHtml.replace(
                 '</body>',

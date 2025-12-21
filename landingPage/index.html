@@ -1,239 +1,31 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <title>随便写的一个页面</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow Pro - Download & Install</title>
+  <meta name="description"
+    content="Download TaskFlow Pro - The ultimate productivity app for managing tasks, projects, and goals. Join millions of users. Available now!" />
+  <meta name="author" content="Productive Apps Studio" />
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="TaskFlow Pro - Your Ultimate Productivity Companion" />
+  <meta property="og:description"
+    content="Organize tasks, manage projects, and achieve your goals efficiently with TaskFlow Pro. Download now!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-  <!-- Tailwind + Flowbite CDN（可选，如果你不想用可以移除） -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/flowbite@2.5.1/dist/flowbite.turbo.js"></script>
-
-  <style>
-    :root {
-      --bg: oklch(0.14 0 0);
-      --card: oklch(0.23 0 0);
-      --accent: oklch(0.78 0.19 110);
-      /* 柔和黄绿 */
-      --accent-soft: oklch(0.9 0.06 110);
-      --text: oklch(0.97 0 0);
-      --muted: oklch(0.7 0 0);
-    }
-
-    body {
-      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-      background: radial-gradient(circle at top, #262626 0, #050505 45%, #000000 100%) !important;
-      color: var(--text) !important;
-    }
-
-    h1,
-    h2,
-    h3 {
-      letter-spacing: 0.03em !important;
-    }
-
-    .glass-card {
-      background: color-mix(in oklab, var(--card) 80%, #000 20%);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
-    }
-
-    .accent-pill {
-      background: var(--accent-soft);
-      color: #111;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .accent-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 80%, #fff 20%);
-    }
-
-    .primary-btn {
-      background: var(--accent);
-      color: #111;
-      border-radius: 999px;
-      padding: 0.7rem 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(0, 0, 0, 0.7);
-      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, translate 0.18s ease-out;
-    }
-
-    .primary-btn:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
-    }
-
-    .secondary-btn {
-      border-radius: 999px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      backdrop-filter: blur(12px);
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(60px);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .orb-1 {
-      width: 260px;
-      height: 260px;
-      background: oklch(0.82 0.18 145);
-      top: -40px;
-      right: 5%;
-    }
-
-    .orb-2 {
-      width: 200px;
-      height: 200px;
-      background: oklch(0.74 0.22 50);
-      bottom: -40px;
-      left: 5%;
-    }
-
-    @media (max-width: 768px) {
-      .glass-card {
-        margin-inline: 1rem;
-      }
-    }
-  </style>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@lovable_dev" />
+  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <script type="module" crossorigin src="/landingPage/assets/index-C1bp_zrh.js"></script>
+  <link rel="stylesheet" crossorigin href="/landingPage/assets/index-ConKEoit.css">
+ 
 </head>
 
-<body class="min-h-screen flex items-center justify-center px-4 py-10">
-  <div class="relative max-w-5xl w-full">
-    <!-- 背景光晕 -->
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+<body>
+  <div id="root"></div>
 
-    <!-- 主卡片 -->
-    <div class="glass-card relative rounded-3xl p-6 sm:p-10 lg:p-12 overflow-hidden">
-      <!-- 顶部小标签 -->
-      <div class="flex items-center justify-between gap-4 text-xs text-slate-400">
-        <div class="accent-pill">
-          <span class="accent-dot"></span>
-          <span>Just a random page</span>
-        </div>
-        <span class="hidden sm:inline-flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          在线预览中
-        </span>
-      </div>
-
-      <!-- 主内容 -->
-      <div class="mt-8 grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center">
-        <!-- 文案区 -->
-        <div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
-            一个<strong class="text-lime-300">随便</strong>写的页面，
-            <br class="hidden sm:block" />
-            但依然有点<strong class="text-lime-200">认真</strong>。
-          </h1>
-          <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-            这里没有复杂逻辑，也没有严肃 KPI。
-            只是一个用来试色、试玩、试排版的小页面。
-            你可以把它当作起点，随意改造，变成自己想要的 Landing、Dashboard 或任何东西。
-          </p>
-
-          <!-- 按钮组 -->
-          <div class="mt-7 flex flex-wrap items-center gap-3">
-            <button class="primary-btn">
-              开始乱改这页
-            </button>
-            <button class="secondary-btn">
-              <span class="w-5 h-5 rounded-full border border-slate-500/70 flex items-center justify-center">
-                →
-              </span>
-              <span>看看有啥元素</span>
-            </button>
-          </div>
-
-          <!-- 小提示 -->
-          <div class="mt-5 flex flex-wrap items-center gap-3 text-xs text-slate-400">
-            <span class="inline-flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-lime-300"></span>
-              响应式布局
-            </span>
-            <span class="inline-flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
-              深色背景，适合放亮色组件
-            </span>
-            <span class="inline-flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-rose-300"></span>
-              基于 Tailwind / Flowbite
-            </span>
-          </div>
-        </div>
-
-        <!-- 右侧小预览模块 -->
-        <div class="relative">
-          <div
-            class="rounded-2xl border border-slate-700/70 bg-slate-900/70 backdrop-blur-xl p-4 sm:p-5 flex flex-col gap-4">
-            <div class="flex items-center justify-between text-xs text-slate-400">
-              <span class="inline-flex items-center gap-1">
-                <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
-                <span class="w-2 h-2 rounded-full bg-amber-400/80"></span>
-                <span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
-              </span>
-              <span>preview.html</span>
-            </div>
-            <div
-              class="mt-1 rounded-xl bg-slate-900/70 border border-slate-700/70 px-4 py-3 text-xs font-mono text-slate-300">
-              <pre class="whitespace-pre-wrap leading-relaxed">
-&lt;div class="hero"&gt;
-  &lt;h1&gt;Hello, world&lt;/h1&gt;
-  &lt;p&gt;随便写写，也可以挺好看。&lt;/p&gt;
-&lt;/div&gt;
-</pre>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1">
-              <span>已自动保存 · 适配移动端</span>
-              <span class="inline-flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-lime-300"></span>
-                OK
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 底部小脚注 -->
-      <div
-        class="mt-8 border-t border-slate-800/80 pt-4 text-[11px] text-slate-500 flex flex-wrap items-center justify-between gap-2">
-        <span>你现在看到的一切，都可以随便删掉重来。</span>
-        <span>Made for quick experiments · 没有对错，只有好玩。</span>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
