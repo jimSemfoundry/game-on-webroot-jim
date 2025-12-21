@@ -7,6 +7,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import path, { resolve } from 'node:path'
 import { writeFileSync, readFileSync, existsSync, copyFileSync } from 'node:fs'
+import { cp, mkdir } from 'node:fs/promises'
 import versionPlugin from './vite-version-plugin';
 
 
@@ -392,6 +393,26 @@ export default defineConfig(({ mode }) => {
     };
   }
 
+  function landingPageCopyPlugin() {
+    let outDir = 'dist'
+    return {
+      name: 'landing-page-copy-plugin',
+      apply: 'build' as const,
+      configResolved(config: any) {
+        outDir = config.build?.outDir || 'dist'
+      },
+      async closeBundle() {
+        const sourceDir = resolve(__dirname, 'landingPage')
+        const targetDir = resolve(__dirname, outDir, 'landingPage')
+
+        if (!existsSync(sourceDir)) return
+
+        await mkdir(targetDir, { recursive: true })
+        await cp(sourceDir, targetDir, { recursive: true })
+      },
+    }
+  }
+
   const plugins = [
     nodePolyfills({
       include: ['buffer', 'process', 'crypto', 'stream'],
@@ -409,6 +430,7 @@ export default defineConfig(({ mode }) => {
     tailwindcss(),
     ...(isRoibest ? [staticPathPlugin()!] : []),
     faviconCopyPlugin(),
+    landingPageCopyPlugin(),
     versionPlugin({
       version: timeVersion,
       facebookPixelId: env.VITE_FACEBOOK_PIXEL_ID,
