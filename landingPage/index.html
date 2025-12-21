@@ -15,7 +15,13 @@
   <!-- Tailwind + Flowbite CDN（可选，如果你不想用可以移除） -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/flowbite@2.5.1/dist/flowbite.turbo.js"></script>
-
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(console.error);
+      });
+    }
+  </script>
   <style>
     :root {
       --bg: oklch(0.14 0 0);
