@@ -22,12 +22,12 @@ export const ErrorMessageBox = (
           initial={{ height: 0 }}
           animate={{ height: "auto" }}
           exit={{ height: 0 }}
-          transition={{ duration: 0.1, ease: "easeInOut" }}
+          transition={{ duration: 0.1 }}
           className="overflow-hidden"
         >
           <div
             className={classNames(
-              "text-error text-[10px] font-semibold mt-1",
+              "text-error text-[12px] font-semibold font-sans",
               className
             )}
           >

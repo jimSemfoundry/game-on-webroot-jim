@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Hány Évesnek Kell Lennem a Regisztrációhoz az Oldalukon?",
-    "content": "<p class=\"leading-7\">Legalább {{faqAge}} évesnek kell lennie, vagy az Ön joghatósága szerinti nagykorúsági korhatárt kell elérnie a regisztrációhoz. Továbbá az Önre vonatkozó törvények szerint jogszerűen engedélyezettnek kell lennie online játékok játszására. További információért kérjük, olvassa el szolgáltatási feltételeinket.</p><p class=\"leading-7\">A szerencsejáték függőséget okozhat, ezért javasoljuk az önkontroll gyakorlását.</p>"
+    "title": "Hány évesnek kell lennem ahhoz, hogy regisztráljak az oldaladon?",
+    "content": "<p class=\"leading-7\">Legalább {{faqAge}} évesnek kell lenned, vagy a joghatóságodban a nagykorúság korhatárának megfelelően kell lenned ahhoz, hogy regisztrálj. Továbbá, jogilag is engedélyezettnek kell lenned az online játékok játszására a rád vonatkozó törvények szerint. További információkért kérjük, olvasd el a szolgáltatási feltételeinket.</p><p class=\"leading-7\">A játék függőséget okozhat, és a játékosoknak ajánlott önkontrollt gyakorolniuk.</p>"
   },
   "faqTwo": {
-    "title": "Milyen Pénznemeket Támogat a Pénztárca?",
-    "content": "<p class=\"leading-7\">Főbb kriptovalutákat támogatunk, például {{currency}}.</p>"
+    "title": "Milyen valutát támogat a pénztárca?",
+    "content": "<p class=\"leading-7\">Támogatjuk a főbb kriptovalutákat, mint például {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Hogyan Tudok Befizetni?",
-    "content": "<p class=\"leading-7\">Látogasson el az Ön profiloldalára, kattintson a \"Befizetés\" gombra, válassza ki a kívánt kriptovalutát, másolja ki a pénztárca címét, vagy szkennelje be a QR-kódot a fizetéshez.</p>"
+    "title": "Hogyan tudok befizetni?",
+    "content": "<p class=\"leading-7\">Lépj a profiloldaladra, és kattints a \"Befizetés\" gombra, válaszd ki a választott kriptovalutát, másold ki a pénztárca címet, vagy olvasd be a QR kódot a fizetéshez.</p>"
   },
   "faqFour": {
-    "title": "Cserélhetem a Kriptovalutáimat az Oldalukon?",
-    "content": "<p class=\"leading-7\">Az {{siteName}} csere funkciót kínál, amely lehetővé teszi az Ön kriptovalutáinak biztonságos és egyszerű átváltását más kriptovalutákra. Az érmekeverési aggályok miatt azonban az {{siteName}}-ra befizetett kriptovalutákra 1x fogadási követelmény vonatkozik, ami azt jelenti, hogy legalább egyszer meg kell tennie a befizetett összeget, mielőtt átválthatja.</p>"
+    "title": "Kicserélhetem a kriptovalutáimat az oldaladon?",
+    "content": "<p class=\"leading-7\">A {{siteName}} egy csere funkciót kínál, ahol biztonságosan és könnyen átválthatod a kriptovalutáidat más kriptovalutákra. Azonban a coin mixing aggályai miatt minden kripto, amit a {{siteName}}-ra befizetsz, 1x rollover követelményt támaszt, ami azt jelenti, hogy a befizetett pénzeszközeiddel legalább 1 alkalommal kell fogadnod, mielőtt átválthatod azt.</p>"
   },
   "faqFive": {
-    "title": "Hogyan Tudok Kifizetést Kezdeményezni?",
-    "content": "<p class=\"leading-7\">Látogasson el az Ön profiloldalára, kattintson a \"Kifizetés\" gombra, adja meg a pénztárca címét, ahová ki szeretné utalni a pénzt, valamint a kifizetni kívánt összeget. (Kérjük, vegye figyelembe, hogy a különböző blokkláncok eltérő díjakat számíthatnak fel.)</p>"
+    "title": "Hogyan tudok kivenni?",
+    "content": "<p class=\"leading-7\">Lépj a profiloldaladra, és kattints a \"Kivét\" gombra, add meg annak a pénztárcának a címét, ahová ki szeretnél venni, és a kivonni kívánt összeget. (Kérjük, vedd figyelembe, hogy a különböző blokkláncok miatt eltérő díjak merülhetnek fel)</p>"
   },
   "faqSix": {
-    "title": "Mennyi az Egyes Kriptovaluták Minimális Kifizetési Összege?",
-    "content": "<p class=\"leading-7\">A kriptovaluták eltérő értéke és a kapcsolódó bányászati díjak miatt kérjük, ellenőrizze a kifizetési oldalon az egyes kriptovaluták minimális kifizetési összegeit.</p>"
+    "title": "Mi a minimális kivonási összeg minden kriptovalutához?",
+    "content": "<p class=\"leading-7\">A kriptovaluták eltérő értéke és a különböző bányászati díjak miatt kérjük, ellenőrizd a kivonási oldaladat a minimális kivonási összegekkel kapcsolatban, amelyek minden kriptovalutához tartoznak.</p>"
   },
   "faqSeven": {
-    "title": "Mennyi Ideig Tart a Befizetés és a Kifizetés?",
-    "content": "<p class=\"leading-7\">Minden blokklánc-tranzakció több ciklust igényel a megerősítéshez.</p><p class=\"leading-7\">Általában a BTC és ETH láncokon egy tranzakció megerősítése 5-10 percet vesz igénybe a blokklánc hálózaton; a TRON, TON és SOLANA láncokon pedig körülbelül 1-2 percet.</p><p class=\"leading-7\">Ha problémát tapasztal a befizetés vagy kifizetés során, ellenőrizheti tranzakcióját a megfelelő blokklánc-kutatóval, vagy kapcsolatba léphet élő ügyfélszolgálatunkkal.</p>"
+    "title": "Mennyi időbe telik a befizetés és a kivét?",
+    "content": "<p class=\"leading-7\">Minden tranzakciónak a blokkláncon több ciklusra van szüksége a megerősítéshez.</p><p class=\"leading-7\">Általánosságban elmondható, hogy minden tranzakciónak 5-10 percre van szüksége, mielőtt azt a blokklánc hálózat megerősíti a BTC és ETH lánc esetében; és körülbelül 1-2 percre a TRON, TON, SOLANA lánc esetében.</p><p class=\"leading-7\">Ha bármilyen problémát tapasztalsz a befizetés vagy a kivét során, ellenőrizheted a tranzakciódat a megfelelő blokklánc felfedezőn, vagy lépj kapcsolatba élő támogatásunkkal.</p>"
   },
   "faqEight": {
-    "title": "Honnan Származnak a Tranzakciós Megerősítések?",
-    "content": "<p class=\"leading-7\">Minden megerősítési információ a blokkláncból és a blokklánc bányászaiból származik.</p>"
+    "title": "Honnan származnak a tranzakciós megerősítések?",
+    "content": "<p class=\"leading-7\">Minden megerősítési információ a blokklánctól és a blokklánc bányászaitól származik.</p>"
   },
   "faqNine": {
-    "title": "Tisztességesek a Játékaik?",
-  "content": "<p class=\"leading-7\">Az Átláthatóság, a Bizalom és az Igazságosság a {{gameLink}} alapvető értékei és vállalkozásunk alapjai. Ezért csak megbízható, vezető játékpartnerekkel dolgozunk, hogy ügyfeleink megkaphassák a megérdemelt minőségi élményt.</p><p class=\"leading-7\">Partnereink minden játéka független auditorok által szigorúan tesztelt a véletlenszerűség szempontjából, és engedélyezett a szerencsejáték-szabályozók által, akik gyakori ellenőrzéseket végeznek a véletlenszám-generátorukon.</p>"
+    "title": "Fairak a játékaid?",
+    "content": "<p class=\"leading-7\">A transzparencia, a bizalom és a tisztesség a {{gameLink}} alapértékei és üzletünk alapja. Ez az oka annak, hogy csak megbízható, csúcsminőségű játékpartnerekkel dolgozunk, hogy ügyfeleink a megérdemelt minőségi élményt kapják.</p><p class=\"leading-7\">Minden partnerünk játékát független auditorok alaposan tesztelik a véletlenszerűség szempontjából, és a játékfelügyeletek által engedélyezettek, amelyek gyakori auditoknak vetik alá őket a Véletlenszám-generátorukra vonatkozóan.</p>"
   },
   "faqTen": {
-    "title": "Mit Tegyek, Ha a Játékom Lefagy vagy Megszakad a Kapcsolat?",
-    "content": "<p class=\"leading-7\">Ha technikai problémába ütközik, kérjük, próbálja meg frissíteni az oldalt. A játékállapotokat szolgáltatóink mentik, így újracsatlakozáskor Önnek látnia kell a korábbi játékállapotot.</p>"
+    "title": "Mit tegyek, ha a játékom megakad vagy ha megszakad a kapcsolat?",
+    "content": "<p class=\"leading-7\">Ha bármilyen technikai problémát tapasztalsz, kérlek, próbáld meg frissíteni az oldalt. A játékállapotokat a szolgáltatóink mentik, és újracsatlakozáskor látnod kell az előző játékállapotodat.</p>"
   }
 }

@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Čo sú bonusy za zvýšenie úrovne?",
-    "content": "<p class=\"leading-7\">Bonus za zvýšenie úrovne je naším spôsobom, ako oceniť verných hráčov, ktorí sú s nami od začiatku. S postupom na vyššie VIP úrovne odomykajú hráči väčšie odmeny za zvýšenie úrovne.</p>"
+    "title": "Čo sú bonusy za postup na vyššiu úroveň?",
+    "content": "<p class=\"leading-7\">Bonus za postup na vyššiu úroveň je naším spôsobom, ako vyjadriť vďaku verným hráčom, ktorí sú s nami od začiatku. Keď hráči postupujú na VIP úrovniach, odomykajú si vyššie odmeny za postup na vyššiu úroveň.</p>"
   },
   "faqTwo": {
     "title": "Čo je denný cashback?",
-    "content": "<p class=\"leading-7\">Hráčom, ktorí utrpeli čistú stratu, poskytujeme denný cashback ako percento z ich strát oproti vkladu. Tento bonus sa vypláca denne, pričom percento cashbacku rastie s vašou VIP úrovňou až na maximum 40 %, čo je najvyšší cashback na trhu. Upozorňujeme, že tento bonus je určený iba pre hráčov v čistej strate.</p>"
+    "content": "<p class=\"leading-7\">Denný cashback bude udelený hráčom, ktorí utrpeli straty voči svojej vkladovej sume. Tento bonus sa vydáva denne ako percento z hráčovej straty. Percento denného cashbacku sa zvýši s vašimi VIP úrovňami, až do maximálneho cashbacku 40%, čo je najvyšší cashback kdekoľvek. Upozorňujeme, že tento bonus je určený iba pre hráčov, ktorí sú v pozícii čistých strát.</p>"
   },
   "faqThree": {
-    "title": "Čo sú výzvy?",
-    "content": "<p class=\"leading-7\">Výzvy sú denné úlohy, ktoré hráči náhodne dostávajú, aby získali extra odmeny pri hraní na našej stránke. Odmeny za výzvy musíte získať do 24 hodín pred začiatkom ďalšieho cyklu, inak stratia platnosť. Odmeny sú vyplácané v BUCK/USDT a môžete ich previesť na kryptomenu podľa vášho výberu cez našu funkciu výmeny.</p>"
+    "title": "Čo sú dobytie/úlohy?",
+    "content": "<p class=\"leading-7\">Dobytiami sú denné úlohy, ktoré sú náhodne pridelené hráčom, aby si mohli zarobiť extra odmeny pri hraní na našej stránke. Odmeny za dobytie musia byť uplatnené do 24 hodín pred ďalším cyklom a vypršia, ak nebudú uplatnené. Odmeny za dobytie sú vyplácané v BUCK/USDT a môžu byť prevedené na vašu preferovanú kryptomenu prostredníctvom našej funkcie výmeny.</p>"
   },
   "faqFour": {
-    "title": "Čo sú turnajové odmeny?",
-    "content": "<p class=\"leading-7\">Turnajové odmeny sú ceny za vynikajúce výkony v súťažiach. Tieto odmeny sa hromadia, kým si ich nevyzdvihnete, a nemajú dátum vypršania. Vyplácajú sa v BUCK/USDT a môžete ich previesť na kryptomenu podľa vášho výberu cez našu funkciu výmeny.</p>"
+    "title": "Čo sú odmeny za turnaje?",
+    "content": "<p class=\"leading-7\">Odmeny za turnaje sú ceny udelené za vynikajúci výkon v súťažiach. Odmeny za turnaje sa hromadia, kým nie sú uplatnené a nemajú dátum vypršania. Odmeny za turnaje sú vyplácané v BUCK/USDT a môžu byť prevedené na vašu preferovanú kryptomenu prostredníctvom našej funkcie výmeny.</p>"
   },
   "faqFive": {
-    "title": "Čo je super rakeback?",
-    "content": "<p class=\"leading-7\">Super rakeback je náš mechanizmus na odomykanie bonusov za vklady. Pri každej stávke sa vám vráti percento z vašej stávky (až do 3 %). Čím vyššia je vaša VIP úroveň, tým vyššia je miera odomykania. Odomknuté BUCK/USDT = stávka × 2,5 % × miera odomykania.</p><p class=\"leading-7\">Miera odomykania:</p><p class=\"leading-7\">VIP 0–40: 20 %</p><p class=\"leading-7\">VIP 41–60: 32 %</p><p class=\"leading-7\">VIP 61–80: 40 %</p><p class=\"leading-7\">VIP 81–100: 52 %</p><p class=\"leading-7\">VIP 101–125: 60 %</p>"
+    "title": "Čo je Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback je náš mechanizmus na odomykanie vašich vkladových bonusov. Percento z vašej stávky (až 3%) sa vám vráti zakaždým, keď uzavriete stávku. Čím vyššia je vaša VIP úroveň, tým vyššia je miera odomknutia. Odomknuté BUCK/USDT= Stávka x 2.5% x Miera odomknutia%</p><p class=\"leading-7\">Miera odomknutia:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Čo je posilňovač?",
-    "content": "<p class=\"leading-7\">Posilňovače zdvojnásobia váš rakeback na jednu hodinu vždy, keď odporučený hráč uskutoční vklad.</p><p class=\"leading-7\">Zvýšená miera odomykania:</p><p class=\"leading-7\">VIP 0–40: 40 %</p><p class=\"leading-7\">VIP 41–60: 72 %</p><p class=\"leading-7\">VIP 61–80: 80 %</p><p class=\"leading-7\">VIP 81–100: 102 %</p><p class=\"leading-7\">VIP 101–125: 120 %</p>"
+    "title": "Čo je Booster?",
+    "content": "<p class=\"leading-7\">Boostery zdvojnásobujú váš Rakeback na jednu hodinu zakaždým, keď referral uskutoční vklad.</p><p class=\"leading-7\">Zvýšená miera odomknutia:</p><p class=\"leading-7\">Miera odomknutia:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Čo je bonusový kalendár?",
-    "content": "<p class=\"leading-7\">Väčšina bonusov sa vypláca 50 % na váš reálny zostatok a 50 % do vášho bonusového kalendára. Bonusy v bonusovom kalendári môžete získať každých 8 hodín, ale stratia platnosť po 24 hodinách, ak si ich nevyzdvihnete. Nezabudnite si vyzdvihnúť bonusy z kalendára aspoň raz denne, aby vám žiadne odmeny neunikli!</p>"
+    "content": "<p class=\"leading-7\">Väčšina bonusov je vyplácaná 50% na váš skutočný zostatok a 50% na váš bonusový kalendár. Bonusy vyplatené na váš bonusový kalendár môžu byť uplatnené každých 8 hodín a vypršia za 24 hodín, ak nebudú uplatnené. Nezabudnite uplatniť bonusy vo vašom bonusovom kalendári aspoň raz denne, aby ste zabezpečili, že všetky vaše odmeny budú vyzbierané!</p>"
   },
   "faqEight": {
     "title": "Čo je týždenný bonus?",
-    "content": "<p class=\"leading-7\">Týždenný bonus je exkluzívna výhoda pre hráčov s VIP úrovňou 12 a vyššou. Vypláca sa automaticky každý piatok hráčom na úrovni VIP 12 a vyššie. Výška bonusu závisí od súčtu stávok za predchádzajúci týždeň, s minimálnou požiadavkou na stávky vo výške {{minWager}} za týždeň.</p>"
+    "content": "<p class=\"leading-7\">Týždenný bonus je exkluzívna výhoda na našej stránke určená pre hráčov, ktorí sú VIP12 a vyššie. Tento bonus sa vydáva týždenne a automaticky sa vypláca každý piatok hráčom na VIP12 a vyššie. Veľkosť bonusu závisí od sumy stávok za posledný týždeň, s minimálnym požiadavkom na stávku {{minWager}} za posledný týždeň.</p>"
   },
   "faqNine": {
     "title": "Čo sú úspechy?",
-    "content": "<p class=\"leading-7\">Úspechy sú naším spôsobom, ako oceniť vašu aktivitu na platforme. Keď si vyzdvihnete bonus za úspech, pripíše sa do vášho bonusového kalendára, kde ho môžete získať každých 8 hodín. Nevyzdvihnuté bonusy stratia platnosť po 24 hodinách.</p>"
+    "content": "<p class=\"leading-7\">Úspechy sú naším spôsobom, ako uznať vašu aktivitu na našej platforme. Keď si uplatníte svoj bonus za úspech, bude vyplatený na váš bonusový kalendár a môže byť uplatnený každých 8 hodín a vyprší za 24 hodín, ak nebude uplatnený.</p>"
   }
 }

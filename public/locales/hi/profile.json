@@ -21,6 +21,8 @@
   "addressVerificationDescription": "अपने खाते की सुरक्षा के लिए अपना आवासीय पता दर्ज करें।",
   "idVerification": "आईडी सत्यापन",
   "idVerificationDescription": "पूर्ण सत्यापन और उन्नत सुविधाओं तक पहुँच के लिए वैध पहचान दस्तावेज़ अपलोड करें।",
+  "idVerificationDescription1": "अपनी पहचान सत्यापित करें ताकि अतिरिक्त भुगतान विकल्प अनलॉक हो सकें।",
+  "idVerificationDescription2": "आप एक त्वरित और सुरक्षित KYC प्रक्रिया पूरी करने के लिए हमारे विश्वसनीय सत्यापन भागीदार की ओर पुनर्निर्देशित किए जाएंगे।",
   "verifyNow": "अब सत्यापित करें",
   "verificationNotice": "बेहतर सेवा के लिए, हमें आपके असली पहचान दस्तावेज़ों की आवश्यकता है। यह आपके खाते की सुरक्षा, पुनर्प्राप्ति और उपहार/इनाम सही स्थान पर भेजने में मदद करता है।",
   "activeSessions": "सक्रिय सत्र",
@@ -69,5 +71,17 @@
   "PasswordDescription": "कम से कम 6 अक्षर, एक बड़ा अक्षर और एक संख्या शामिल हो।",
   "changeEmail": "ईमेल बदलें",
   "changePhone": "फोन नंबर बदलें",
-  "updateAccountAndPassword": "खाता और पासवर्ड अपडेट करें"
+  "updateAccountAndPassword": "खाता और पासवर्ड अपडेट करें",
+  "confirm_new_password": "नया पासवर्ड पुष्टि करें",
+  "dashboard": "डैशबोर्ड",
+  "transactions": "लेनदेन",
+  "rollover": "रोलओवर",
+  "betHistory": "बेट इतिहास",
+  "settings": "सेटिंग्स",
+  "legal": "कानूनी",
+  "nickname": "उपनाम",
+  "zoomAndAdjust": "जूम और समायोजित करें",
+  "systemLanguage": "सिस्टम भाषा",
+  "editProfile": "प्रोफ़ाइल संपादित करें",
+  "inviteAndGetRewarded": "निमंत्रण दें और पुरस्कार प्राप्त करें"
 }

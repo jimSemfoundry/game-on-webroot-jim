@@ -57,7 +57,7 @@ export const presetThemes: Record<string, ThemeConfig> = {
     // DaisyUI radius settings
     radiusSelector: "0.5rem", // 8px - for buttons, inputs
     radiusField: "0.5rem", // 8px - for form fields
-    radiusBox: "1.25rem", // 12px - for cards, modals
+    radiusBox: "1.25rem", // 20px - for cards, modals
 
     // DaisyUI size settings
     sizeSelector: "0.25rem", // 4px - for selector component sizing
@@ -70,6 +70,55 @@ export const presetThemes: Record<string, ThemeConfig> = {
     noise: 0,
     depth: 0,
   },
+  // Gray theme 
+  gray: {
+    name: "gray",
+    colorSchema: "dark",
+    colors: {
+      primary: "oklch(83.34% 0.177 144.41)",
+      primaryContent: "oklch(0% 0 0)",
+
+      secondary: "oklch(85.72% 0.195 113.51)",
+      secondaryContent: "oklch(29.26% 0.082 152.92)",
+
+      accent: "oklch(83.3% 0.196472 89)",
+      accentContent: "oklch(29.9% 0.070545 86.7)",
+
+      neutral: "oklch(14.7% 0.014752 247.4)",
+      neutralContent: "oklch(94% 0 0 / 0.5)",
+
+      base100: "oklch(56.54% 0.025 210.21)",
+      base200: "oklch(41.54% 0.014 233.09)",
+      base300: "oklch(32.7% 0.011 230.35)",
+      base400: "oklch(36.26% 0.013 228.3)",
+      baseContent: "oklch(100% 0 0)",
+
+      info: "oklch(61.6% 0.187735 245)",
+      infoContent: "oklch(95.2% 0.025708 234.4)",
+      success: "oklch(80.8% 0.244937 128.5)",
+      successContent: "oklch(29.8% 0.098855 133.2)",
+      warning: "oklch(82.3% 0.198561 76.2)",
+      warningContent: "oklch(97.9% 0.033616 91)",
+      error: "oklch(62.5% 0.245723 26.5)",
+      errorContent: "oklch(95.9% 0.027532 7.3)",
+    },
+    // DaisyUI radius settings
+    radiusSelector: "0.5rem", // 8px - for buttons, inputs
+    radiusField: "0.5rem", // 8px - for form fields
+    radiusBox: "1.25rem", // 20px - for cards, modals
+
+    // DaisyUI size settings
+    sizeSelector: "0.25rem", // 4px - for selector component sizing
+    sizeField: "0.25rem", // 4px - for field component sizing
+
+    // Border width
+    border: "1px", // global border width
+
+    fontFamily: "Montserrat, sans-serif",
+    noise: 0,
+    depth: 0,
+  },
+
   // Light theme - suitable for daytime use (DaisyUI official colors)
   light: {
     name: "light",

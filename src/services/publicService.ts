@@ -24,8 +24,8 @@ export const publicService = {
   async getGreatestGameOrder(lang?: string): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameOrderBigWin/binWinList", {
       params: {
-        lang: lang || "en",
-      },
+        lang: lang || "en"
+      }
     });
 
     if (response.data.code !== 0) {
@@ -66,7 +66,7 @@ export const publicService = {
    */
   async getCurrencyExchangeRate(): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.post<ApiResponse<any>>("/Config/getByGroupTimer", {
-      group: "exchange_rate",
+      group: "exchange_rate"
     });
 
     if (response.data.code !== 0) {
@@ -116,13 +116,31 @@ export const publicService = {
   },
 
   /**
-   * 获取Latest bets
+   * 获取Latest Wins (只返回赢钱的记录)
+   */
+  async getLatestWins(lang?: string): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameOrder/newestV3", {
+      params: {
+        lang: lang || "en",
+        _t: Date.now() // 添加时间戳参数强制获取新数据
+      }
+    });
+
+    if (response.data.code !== 0) {
+      throw new Error(response.data.msg || "Failed to get latest wins");
+    }
+
+    return response.data;
+  },
+
+  /**
+   * 获取Latest bets (所有投注记录)
    */
   async getLatestBets(): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameOrder/newestV2Timer", {
       params: {
-        _t: Date.now(), // 添加时间戳参数强制获取新数据
-      },
+        _t: Date.now() // 添加时间戳参数强制获取新数据
+      }
     });
 
     if (response.data.code !== 0) {
@@ -139,8 +157,8 @@ export const publicService = {
     const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameOrderBigWin/binWinList", {
       params: {
         _t: Date.now(), // 添加时间戳参数强制获取新数据
-        lang: lang || "en",
-      },
+        lang: lang || "en"
+      }
     });
 
     if (response.data.code !== 0) {
@@ -214,7 +232,7 @@ export const publicService = {
   async loginByGoogle(data: Record<string, any>, signal?: AbortSignal, headers?: Record<string, any>): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.post("/Authentication/loginByGoogle", data, {
       signal,
-      headers,
+      headers
     });
     return response.data;
   },
@@ -222,7 +240,7 @@ export const publicService = {
   async loginByFacebook(data: Record<string, any>, signal?: AbortSignal, headers?: Record<string, any>): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.post("/Authentication/loginByFacebook", data, {
       signal,
-      headers,
+      headers
     });
     return response.data;
   },
@@ -231,4 +249,47 @@ export const publicService = {
     const response = await publicAxiosInstance.get("/Authentication/getSocialList");
     return response.data;
   },
+
+  async refreshFcmToken(fcm_token: string): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.post("/user/refreshFcmToken", { fcm_token });
+    return response.data;
+  },
+
+  async getFirebaseClientConfig(): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.get("/FcmConfig/getConfigClient");
+    return response.data;
+  },
+
+  async getMainBannerContent(lang: string): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.get(`/Authentication/getBannerContent?lang=${lang}`);
+    return response.data;
+  },
+
+  /**
+   * 获取全球实时奖励数据
+   */
+  async getGlobalCommissions(): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.get<ApiResponse<any>>("/RewardGroupLog/indexTimer", {
+      params: {
+        _t: Date.now() // 添加时间戳参数强制获取新数据
+      }
+    });
+
+    if (response.data.code !== 0) {
+      throw new Error(response.data.msg || "Failed to get global commissions");
+    }
+
+    return response.data;
+  },
+
+  async resetPasswordByToken(data: any): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.post("/authentication/resetPasswordByToken", data);
+    return response.data;
+  },
+
+  async getBannerContentList (user_id?: number): Promise<ApiResponse<any>> {
+    const path = user_id ? `/Banner/list?user_id=${user_id}` : `/Banner/list`
+    const response = await publicAxiosInstance.get(path)
+    return response.data;
+  }
 };

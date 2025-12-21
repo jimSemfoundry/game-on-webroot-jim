@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Globaali",
+    "ratesAndRules": "Hinnat ja säännöt",
+    "campaigns": "Kampanjat",
+    "myReferrals": "Omat suositteluni",
+    "commissions": "Komissiot",
+    "rewards": "Palkinnot"
+  },
+  "commissionCalculator": "Komissiolaskuri",
   "telegramReferralLink": "Telegramin Viittauslinkki",
-   "network": "Verkko",
+  "network": "Verkko",
   "lifetimeReferralRewards": "Elinikäiset Suosittelupalkkiot",
   "referrals": "Suosittelut",
   "availableCommissionRewards": "Saatavilla Olevat Provisiopalkkiot",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Saatavilla Olevat Suosittelupalkkiot",
   "lockedRewards": "Lukitut Palkkiot",
   "assembleYourCrewCashIn": "Kokoa Miehistösi ja Kääri Voitot!",
+  "assembleYourCrewCashInDescription1": "Rekrytoi tiimisi ja ansaitse {{amount}} per ystävä - kuin ryöstö, mutta ilman FBI:n jahtia. Lisäksi ansaitse jopa {{percentage}} komissio heidän vedoistaan. Parasta on, että komissiosi kasvaa kanssasi, kun nouset tasoilla, ja ansaitset jopa tiimisi rekrytoista!",
+  "assembleYourCrewCashInDescription2": "Mitä suurempi verkostosi, sitä suurempi osuus sinulle. Olipa heillä voittoja, tappioita tai heittäytyvät uhkapelaajiksi, sinä keräät rahaa. Aika rakentaa imperiumiasi - Aloita rekrytointi nyt!",
+  "quickShare": "Nopea Jako",
   "referralRewards": "Suosittelupalkkiot",
   "commissionRewards": "Provisiopalkkiot",
   "aboutDescription": "Rekrytoi tiimisi ja ansaitse {{amount}} per ystävä – kuin ryöstö, mutta ilman virkavallan jahtia. Lisäksi voit tienata jopa 50 % provisiota heidän panoksistaan. Parasta? Provisioprosenttisi kasvaa tasojesi noustessa, ja ansaitset myös tiimisi rekrytoinneista!\n\nMitä laajempi verkostosi, sitä muhkeampi osuus. Voittavatpa he, häviävätkö tai panostavat kuin hurjat, sinä keräät jatkuvasti rahaa. On aika rakentaa imperiumisi – aloita rekrytointi nyt!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Jaa Sosiaalisessa Mediassa",
   "referralTermsConditions": "Suosittelun Ehdot",
   "liveGlobalRewards": "Live-Maailmanlaajuiset Palkkiot",
+  "liveGlobalCommissions": "Live Globaali Komissiot",
   "username": "Käyttäjätunnus",
   "friendLevel": "Ystävän Taso",
   "totalExp": "Kokonais-EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Omat Suositteluni",
   "more": "Lisää",
   "faqOne": {
-    "title": "Miten Suosittelujärjestelmä Toimii?",
-    "content": "<p class=\"leading-7\">Kun jaat suosittelulinkkisi ystäviesi kanssa ja he rekisteröityvät sivustollemme, heistä tulee suosittelujasi, ja saat komissioita ja suosittelupalkintoja heidän pelatessaan {{gameLink}}-allianssissa.</p>"
+    "title": "Miten suosittelujärjestelmä toimii?",
+    "content": "<p class=\"leading-7\">Kun jaat suosittelulinkkisi ystävillesi ja he rekisteröityvät sivustollemme; heistä tulee sinun suosittelusi ja he ansaitsevat sinulle komissioita ja suosittelupalkintoja pelatessaan {{gameLink}} Allianssissa.</p>"
   },
   "faqTwo": {
-    "title": "Kuinka Paljon Voin Ansaita Suositteluistani?",
-    "content": "<p class=\"leading-7\">Voit ansaita {{percentage}} heidän panostustoiminnastaan provisioina + {{amount}} per suosittelija.</p>"
+    "title": "Kuinka paljon voin ansaita suosittelustani?",
+    "content": "<p class=\"leading-7\">Voit ansaita {{percentage}} heidän panostustoiminnastaan komissioina + {{amount}} per suosittelu.</p>"
   },
   "faqThree": {
-    "title": "Mikä On {{amount}} USD-Palkkio ja Miten Se Toimii?",
-    "content": "<p class=\"leading-7\">Jokaisesta suosittelemastasi henkilöstä {{gameLink}}:iin saat {{amount}} USD:n palkinnon. Tämä USD-palkinto jaetaan {{parts}} osaan suosittelutasosi noustessa {{level}}:stä.</p>"
+    "title": "Mikä on {{amount}} USD palkinto ja miten se toimii?",
+    "content": "<p class=\"leading-7\">Jokaisesta suosittelusta, jonka tuot {{gameLink}}:lle, on {{amount}} USD palkinto. Tämä USD-palkinto annetaan {{parts}} osassa, kun suosittelutasoni nousee {{level}}:stä.</p>"
   },
   "faqFour": {
-    "title": "Minulla On Suuri Yleisö. Miten Saan Erityissopimuksen?",
-    "content": "<p class=\"leading-7\">Jos sinulla on verkkosivusto, jolla on hyvä liikenne tai sosiaalisen median tili, jolla on suuri yleisö, voit lähettää meille sähköpostia osoitteeseen {{emailLink}}</p>"
+    "title": "Minulla on suuri yleisö. Miten voin saada erityisen tarjouksen?",
+    "content": "<p class=\"leading-7\">Jos sinulla on verkkosivusto, jolla on hyvä liikenne, tai sosiaalisen median tili, jolla on suuri yleisö, voit lähettää meille sähköpostia osoitteeseen {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Kuinka Monta Kumppanuuslinkkiä Voin Luoda Eri Sivustoille tai Some-Tileille?",
-    "content": "<p class=\"leading-7\">Voit luoda jopa {{codes}} ainutlaatuista koodia eri liikennelähteille.</p>"
+    "title": "Kuinka monta kumppanuuslinkkiä voin luoda, jos minulla on eri verkkosivustoja/sosiaalisen median tilejä?",
+    "content": "<p class=\"leading-7\">Voit luoda jopa {{codes}} ainutlaatuista koodia eri liikenteen lähteille</p>"
   },
   "faqSix": {
-    "title": "Voinko Nähdä Suosittelijoideni Tiedot?",
-    "content": "<p class=\"leading-7\">Kyllä, läpinäkyvyys, luottamus ja reiluus ovat osa {{gameLink}}:n ydinarvoja. Tiedot kuten käyttäjätunnus, kokonaispanokset ja ansaitut komissiot löytyvät \"Omat komissiot\" ja \"Suosittelupalkkiot\" -välilehdiltä.</p>"
+    "title": "Voinko nähdä suositteluni tiedot?",
+    "content": "<p class=\"leading-7\">Kyllä, läpinäkyvyys, luottamus ja reiluus ovat osa {{gameLink}}:n ydinarvoja. Tiedot, kuten käyttäjänimi, kokonaispanos ja ansaitut komissiot, ovat kaikki saatavilla \"Omat komissiot\" ja \"Suosittelupalkinnot\" -välilehdellä.</p>"
   },
   "faqSeven": {
-    "title": "Voinko Jakaa Provisiopalkkiot Suosittelijoideni Kanssa?",
-    "content": "<p class=\"leading-7\">Kyllä, voit jakaa provisiopalkkiot suosittelijoidesi kanssa klikkaamalla Luo Uusi Kampanja ja asettamalla provisiojaon Kampanjat-välilehdellä.</p>"
+    "title": "Voinko jakaa komissiopalkinnot suosittelujeni kanssa?",
+    "content": "<p class=\"leading-7\">Kyllä, voit jakaa komissiopalkinnot suosittelujesi kanssa napsauttamalla \"luo uusi kampanja\" ja asettamalla komission jakamisen \"Kampanjat\"-välilehdellä.</p>"
   },
   "faqEight": {
-    "title": "Mikä On Epäsuora Suosittelu ja Mitä Voin Ansaita Siitä?",
-    "content": "<p class=\"leading-7\">Epäsuora suosittelija on aktiivinen pelaaja, joka tulee suoran suosittelijasi kutsulinkistä. Jos VIP-tasosi on korkeampi kuin suoran suosittelijasi, voit ansaita provisioita myös epäsuorista suosittelijoistasi.</p>"
+    "title": "Mikä on epäsuora suosittelu ja mitä voin ansaita niistä?",
+    "content": "<p class=\"leading-7\">Epäsuora suosittelu on aktiivinen pelaaja, joka tulee suoraan yhdeltä suoralta suosittelultasi. Jos VIP-tasosi on korkeampi kuin suoran suosittelusi VIP-taso, voit myös ansaita komissioita epäsuorasta suosittelustasi.</p>"
   },
   "levelReward": "Tasonousupalkkio",
   "groupReward": "Provisiopalkkio",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Yksinkertaistetaan esimerkkiä: oletetaan, että keltaisella merkityt ystävät ovat aktiivisesti panostamassa, ja vihreät prosentit katkoviivojen varrella edustavat komissiota, jonka saat heiltä.",
   "referralCommissionsIndirectDescription": "Yksinkertaistetaan esimerkkiä: oletetaan, että violetilla merkityt ystävät ovat aktiivisesti panostamassa. Katkoviivojen varrella olevat prosentit näyttävät komission, jonka jokainen suositteluketjun jäsen ansaitsee. \n\n Oikealla näemme esimerkin irtautumisesta suositteluketjussa.",
   "referralCodeMinLength": "Suosituskoodin on oltava vähintään 6 merkkiä pitkä",
-    "vipLevel": "VIP-taso",
+  "vipLevel": "VIP-taso",
   "earned": "Ansaittu",
   "directfriend": "Direktang Kaibigan",
   "fast": "Mabilis",
   "slots": "Mga Slot",
   "live-casino": "Live na Casino",
   "fishing": "Pangingisda",
-  "rewardsUnlocked": "Mga Gantimpalang Na-unlock"
+  "rewardsUnlocked": "Mga Gantimpalang Na-unlock",
+  "selectGame": "Valitse peli",
+  "selectVipLevel": "Valitse VIP-taso",
+  "myReferralCommissions": "Omat suosittelupalkkiot",
+  "myReferralRewards": "Omat suosittelupalkinnot",
+  "exp": "KOKEMUS",
+  "userLevel": "Käyttäjätaso"
 }

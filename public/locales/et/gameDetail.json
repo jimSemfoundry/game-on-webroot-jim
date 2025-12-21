@@ -24,5 +24,7 @@
   "gameInformation": "Pelin Tiedot",
   "totalTips": "Vinkit",
   "result": "Tulemus",
-    "myBets": "Minu Panused"
+  "myBets": "Minu Panused",
+  "**********": "",
+  "demoPlay": "Demo mäng"
 }

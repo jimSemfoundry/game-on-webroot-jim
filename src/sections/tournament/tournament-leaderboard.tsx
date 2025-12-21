@@ -82,6 +82,13 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
     return null;
   };
 
+  const getRankLabelByRank = (rank?: number) => {
+    if (rank === 1) return "1st";
+    if (rank === 2) return "2nd";
+    if (rank === 3) return "3rd";
+    return null;
+  };
+
   // medal mapping from API: 'bronze' | 'silver' | 'gold'
   // fallback: numeric ranges if backend returns level numbers
   const getMedalIconByLevel = (medal?: number | string) => {
@@ -119,32 +126,33 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
   return (
     <div className="bg-base-200 rounded-field overflow-hidden">
       {/* Header */}
-      <div className="p-3">
-        <div className="flex items-center gap-3">
-          <Iconify 
-            icon="custom:leaderboard" 
-            className="w-4 h-4 text-primary" 
+      <div className="p-3 sm:p-4">
+        <div className="flex items-center gap-2">
+          <Iconify
+            icon="custom:leaderboard"
+            className="w-4 h-4 text-primary"
           />
-          <h3 className="text-sm font-bold text-base-content">
-            {levelLabel} League Leaderboard
+          <h3 className="text-base sm:text-lg font-bold text-base-content">
+            {t(`vip:${levelLabel?.toLowerCase()}`)} {t("tournament:leagueLeaderboard")}
           </h3>
         </div>
       </div>
 
       {/* Header row */}
       <div className="relative min-h-[500px]">
-        <div className="grid grid-cols-[1fr_auto_auto] gap-2 px-4 py-3 text-base-content/50 text-xs font-bold uppercase">
+        <div className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
           <div>{t("tournament:player", "Player")}</div>
-          <div className="text-center">{t("tournament:wagered", "Wagered")}</div>
-          <div className="text-center">{t("tournament:prize", "Prize")}</div>
+          <div className="text-center ">{t("tournament:wagered", "Wagered")}</div>
+          <div className="text-center sm:w-[207px] sm:text-center text-right">{t("tournament:prize", "Prize")}</div>
         </div>
 
-        <div className="px-2 pb-4 space-y-3">
+        <div className="px-2 sm:px-4 pb-4 space-y-1 sm:space-y-3">
           {tableData.map((item, index) => {
             // 前端自行管理排名顺序：按分页计算全局名次
             const baseRank = (currentPage - 1) * pageSize;
             const rank = baseRank + (index + 1);
             const rankIcon = getRankIconByRank(Number.isNaN(rank) ? undefined : rank);
+            const rankLabel = getRankLabelByRank(Number.isNaN(rank) ? undefined : rank);
             const formattedWagered = formatWithConversion(
               Number(item.wagered || 0),
               "USD",
@@ -160,18 +168,26 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
             return (
               <div
                 key={index}
-                className={cn("rounded-field bg-base-200 px-2 py-3", index % 2 === 0 ? "bg-base-300" : "bg-base-200")}
+                className={cn("rounded-field bg-base-200 px-2 py-3 mb-0 hover:bg-base-100", index % 2 === 0 && "bg-base-300 sm:bg-base-200")}
               >
-                <div className="grid grid-cols-[1fr_auto_auto] items-center gap-2">
+                <div className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] items-center gap-2">
                   {/* Player */}
                   <div className="flex items-center gap-2 min-w-0">
-                    {rankIcon ? (
-                      <img src={rankIcon} alt={`Rank ${rank}`} className="w-6 h-6" />
-                    ) : (
-                      <span className="badge w-6 h-6 font-semibold text-xs text-base-content/50">
-                        {rank}
-                      </span>
-                    )}
+                    <div className="sm:w-[109px]">
+                      {rankIcon ? (
+                        <span className="flex items-center gap-2">
+                          <img src={rankIcon} alt={`Rank ${rank}`} className="w-6 h-6" />
+                          <span className="text-xs sm:text-lg font-semibold hidden sm:block text-base-content/50">
+                            {rankLabel}
+                          </span>
+                        </span>
+                      ) : (
+                        <span className="badge w-6 h-6 font-semibold text-xs text-base-content/50">
+                          {rank}
+                        </span>
+                      )}
+                    </div>
+
                     {(() => {
                       const icon = getMedalIconByLevel(item.medal);
                       return icon ? (
@@ -180,7 +196,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
                         <Iconify icon="solar:medal-star-bold" className="w-5 h-5 text-warning flex-shrink-0" />
                       );
                     })()}
-                    <span className="font-semibold text-base-content/50 truncate text-xs -ml-1">
+                    <span className="font-semibold text-base-content/50 truncate text-xs sm:text-lg -ml-1">
                       {item.first_name && item.last_name
                         ? `${item.first_name} ${item.last_name}`
                         : item.username || `User ${item.user_id}`}
@@ -188,15 +204,14 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
                   </div>
 
                   {/* Wagered */}
-                  <div className="text-center font-semibold text-base-content/50 text-xs">
+                  <div className="text-center font-semibold text-base-content/50 text-xs sm:text-lg  ">
                     {formattedWagered.formatted}
                   </div>
 
                   {/* Prize */}
-                  <div className="text-center font-semibold text-xs">
-                    <span className="text-primary">{formattedPrize.formatted}</span>
-                    <span className="text-base-content/50 text-xs"> ({prizeRate.toFixed(0)}%)</span>
-                  </div>
+                  <div className="font-semibold text-xs sm:text-lg sm:w-[207px] sm:text-center text-right">
+                    <span className="text-primary">{formattedPrize.formatted} ({prizeRate.toFixed(0)}%)</span>
+                   </div>
                 </div>
               </div>
             );
@@ -212,7 +227,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
         {!loading && tableData.length === 0 && (
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <div className="text-6xl mb-4">🏆</div>
-            <p className="text-base-content/70">No leaderboard data available</p>
+            <p className="text-base-content/70">{t("no_leaderboard_data_available")}</p>
           </div>
         )}
       </div>

@@ -1,5 +1,5 @@
 import { forwardRef, useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { VirtuosoGrid } from "react-virtuoso";
 import { GameImage } from "@/components/ui/GameImage";
@@ -59,10 +59,10 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
             {t("tournament:participatingGames", "Participating Games")}
           </div>
         </div>
-        <button className="btn btn-sm btn-primary rounded-xl px-4">{t("common:all", "All")}</button>
+        <button className="btn btn-sm btn-primary rounded-field px-4">{t("casino:all", "All")}</button>
       </div>
 
-      <div className={`${allItems.length > 0 ? "h-110" : "h-1"} mt-3`}>
+      <div className={`${allItems.length > 0 ? "h-110" : "h-1"} mt-3 bg-base-300 rounded-field`}>
         <div className="h-full flex-1 pb-3 relative">
           <VirtuosoGrid
             style={{ height: "100%" }}
@@ -74,15 +74,17 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
                 <div
                   key={item.id}
                   className="relative h-full w-full"
-                  onClick={() => navigate({ to: "/games/$gameId", params: { gameId: item.game_provider ? `${item.game_provider}:${item.inner_game_id}` : item.inner_game_id } })}
+                  onClick={() => navigate({ to: "/games/$gameId", params: { gameId: item.game_provider ? `${item.game_provider}:${item.inner_game_id}` : item.inner_game_id }, search: {} })}
                 >
                   <GameImage
+                    data={item}
                     game={{
                       image: item.image || "",
                       inner_game_id: item.inner_game_id,
                       game_provider: item.game_provider,
                       title: item.game_name,
                     }}
+                    showHoverEffects
                   />
 
                 </div>
@@ -99,7 +101,7 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
       </div>
 
       <div className="text-center text-base-content/60 text-sm mt-2">
-        {loadedCount} of {totalCount} Games
+        <Trans i18nKey="common:of_games" values={{ totalCount, loadedCount }} />
       </div>
     </div>
   );
@@ -116,7 +118,7 @@ const gridComponents = {
       style={{
         ...style,
       }}
-      className="grid grid-cols-3 gap-2"
+      className="grid grid-cols-3 sm:grid-cols-7 gap-2"
     >
       {children}
     </div>

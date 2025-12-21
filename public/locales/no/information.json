@@ -1,38 +1,38 @@
 {
-    "goBack": "Gå tilbake",
-    "tryAgain": "Prøv igjen",
-    "retry": "Prøv igjen",
-    "retryConnection": "Prøv tilkoblingen på nytt",
-    "emptyStateNoContent": {
-        "title": "Ingenting her ennå!",
-        "description": "Det ser ut til at det ikke er noe innhold her akkurat nå. Kom tilbake senere eller prøv noe annet."
-    },
-    "failedToLoadPage": {
-        "title": "Noe gikk galt",
-        "description": "Det oppstod en systemfeil under lasting av siden. Vennligst last siden på nytt, eller kontakt support hvis problemet vedvarer."
-    },
-    "otherActiveSession": {
-        "title": "Sesjonsfeil!",
-        "description": "Tilgang fra denne enheten er for øyeblikket utilgjengelig av sikkerhetsgrunner. Dette kan skyldes en annen pålogging eller et systemproblem. Prøv på nytt eller bruk en annen enhet."
-    },
-    "noInternetConnection": {
-        "title": "Oops! Du er frakoblet",
-        "description": "Det ser ut som om du ikke er koblet til internett. Sjekk Wi-Fi eller mobildata, og prøv igjen når du er online igjen."
-    },
-    "pageNotFound": {
-        "title": "Oops! Denne siden mangler",
-        "description": "Det ser ut til at denne siden ikke finnes eller er flyttet. Prøv å sjekke URL-en eller gå tilbake til startsiden."
-    },
-    "tooManyRequest": {
-        "title": "Hold deg fast! Vi har det litt travelt",
-        "description": "Ser ut til at serverne våre har mye å gjøre akkurat nå. Gi det et øyeblikk og prøv igjen."
-    },
-    "underMaintenance": {
-        "title": "Vi kommer straks tilbake!",
-        "description": "Vi gjør noen oppdateringer for å holde alt i gang problemfritt. Kom tilbake snart!"
-    },
-    "userRestriction": {
-        "title": "Oops! Du har ikke tilgang til dette",
-        "description": "Det ser ut til at du ikke har tillatelse til å se dette. Dobbeltsjekk tilgangen din eller kontakt Live støtte for hjelp."
-    }
+  "goBack": "Gå tilbake",
+  "tryAgain": "Prøv igjen",
+  "retry": "Prøv igjen",
+  "retryConnection": "Prøv tilkoblingen på nytt",
+  "emptyStateNoContent": {
+    "title": "Ingenting Her Ennå!",
+    "description": "Det ser ut som det ikke er noe innhold her akkurat nå. Sjekk tilbake senere eller prøv noe annet."
+  },
+  "failedToLoadPage": {
+    "title": "Noe Gikk Galt",
+    "description": "Det oppstod en systemfeil under lasting av siden. Vennligst last siden på nytt, eller kontakt support hvis problemet vedvarer."
+  },
+  "otherActiveSession": {
+    "title": "Sesjonsfeil!",
+    "description": "Tilgang fra denne enheten er for øyeblikket utilgjengelig av sikkerhetsgrunner. Dette kan skyldes en annen pålogging eller et systemproblem. Vennligst prøv igjen eller bruk en annen enhet."
+  },
+  "noInternetConnection": {
+    "title": "Oops! Du Er Offline",
+    "description": "Det ser ut som du ikke er koblet til internett. Sjekk Wi-Fi eller mobildataene dine og prøv igjen når du er tilbake på nett."
+  },
+  "pageNotFound": {
+    "title": "Oops! Denne Siden Mangler",
+    "description": "Det ser ut som denne siden ikke eksisterer eller har blitt flyttet. Prøv å sjekke URL-en eller gå tilbake til forsiden."
+  },
+  "tooManyRequest": {
+    "title": "Vent Litt! Vi Er Litt Travle",
+    "description": "Det ser ut som serverne våre håndterer mye akkurat nå. Gi det et øyeblikk og prøv igjen."
+  },
+  "underMaintenance": {
+    "title": "Vi Er Tilbake Snart!",
+    "description": "Vi gjør noen oppdateringer for å holde ting i gang. Sjekk tilbake snart!"
+  },
+  "userRestriction": {
+    "title": "Oops! Du Kan Ikke Få Tilgang Til Dette",
+    "description": "Det ser ut som du ikke har tillatelse til å se dette. Sjekk tilgangen din på nytt eller ta kontakt for hjelp."
+  }
 }

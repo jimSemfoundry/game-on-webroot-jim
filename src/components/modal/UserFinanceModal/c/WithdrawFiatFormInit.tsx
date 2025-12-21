@@ -2,6 +2,7 @@ import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useFiatGatewayWithdrawParams, useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
 import { PropsWithChildren, useCallback, useEffect, useMemo } from "react";
+import { handleBindOrHideFormItemDefaultValue } from "@/components/modal/UserFinanceModal/c/DepositFiatFormInit.tsx";
 
 export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
   // from data store, share common data
@@ -32,11 +33,18 @@ export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
       const transform = fields.data;
       for (const key in transform) {
         const field = transform[key];
-        if (field.hide || !field.required) continue;
+
+        if (field.bind || field.hide) {
+          const value = handleBindOrHideFormItemDefaultValue(field, withdrawFiat.method);
+          setWithdrawFiat({ formItem: { [key]: value || "" } });
+          continue;
+        }
+
         if (field.select && field.select.length > 0) {
           setWithdrawFiat({ formItem: { [key]: field.default || field.select[0].value } });
           continue;
         }
+
         setWithdrawFiat({ formItem: { [key]: field.default || "" } });
       }
     }
@@ -46,9 +54,9 @@ export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
     initFormFields();
   }, [initFormFields]);
 
-  // 事件通知
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    if (syncAction.type === "OPEN_WITHDRAW_ORDER_OK_MODAL") initFormFields();
+    if (syncAction.type && ["CLOSE_FINANCE_MODAL", "OPEN_WITHDRAW_ORDER_OK_MODAL"].includes(syncAction.type)) initFormFields();
   }, [syncAction]);
 
   return <>{l1 || l2 ? <Loading className="h-52" /> : memoGateways}</>;

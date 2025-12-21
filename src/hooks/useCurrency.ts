@@ -262,7 +262,13 @@ export function useCurrencyData() {
 
       if (minimizeDecimals) {
         // 最小化小数位：只显示必要的小数位，最多不超过配置的小数位
-        const significantDecimals = getSignificantDecimals(numAmount, decimals);
+        // 自适应精度：对于 < 1 的小额数字，允许突破配置的小数位限制，最多显示 8 位
+        let maxDecimals = decimals;
+        if (Math.abs(numAmount) > 0 && Math.abs(numAmount) < 1) {
+          maxDecimals = Math.max(decimals, 8);
+        }
+
+        const significantDecimals = getSignificantDecimals(numAmount, maxDecimals);
         formatOptions.minimumFractionDigits = 0;
         formatOptions.maximumFractionDigits = significantDecimals;
       } else {

@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Cik vecam jābūt, lai reģistrētos jūsu vietnē?",
-    "content": "<p class=\"leading-7\">Lai reģistrētos, jums jābūt vismaz {{faqAge}} gadus vecam vai pilngadīgam savā jurisdikcijā. Jums arī jābūt likumīgi tiesīgam spēlēt tiešsaistes azartspēles saskaņā ar jums piemērojamiem likumiem. Plašākai informācijai lūdzu izlasiet mūsu pakalpojumu sniegšanas noteikumus.</p><p class=\"leading-7\">Azartspēles var izraisīt atkarību, tāpēc spēlētājiem ieteicams praktizēt atbildīgu spēlēšanu.</p>"
+    "title": "Cik man gadiem jābūt, lai reģistrētos jūsu vietnē?",
+    "content": "<p class=\"leading-7\">Jums jābūt vismaz {{faqAge}} gadus vecam vai jābūt pilngadīgam jūsu jurisdikcijā, lai reģistrētos. Jums arī jābūt likumīgi atļautam spēlēt tiešsaistes spēles saskaņā ar jums piemērojamajiem likumiem. Lai iegūtu vairāk informācijas, lūdzu, izlasiet mūsu pakalpojumu noteikumus.</p><p class=\"leading-7\">Spēlēšana var būt atkarību izraisoša, un spēlētājiem ieteicams ievērot pašpārvaldi.</p>"
   },
   "faqTwo": {
-    "title": "Kādas valūtas atbalsta maks?",
-    "content": "<p class=\"leading-7\">Mēs atbalstām galvenās kriptovalūtas, piemēram, {{currency}}.</p>"
+    "title": "Kādu valūtu atbalsta maku?",
+    "content": "<p class=\"leading-7\">Mēs atbalstām galvenās kriptovalūtas, piemēram, {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Kā iemaksāt?",
-    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu, noklikšķiniet uz \"Iemaksa\", izvēlieties vēlamo kriptovalūtu, nokopējiet maka adresi vai skenējiet QR kodu, lai veiktu maksājumu.</p>"
+    "title": "Kā es varu veikt iemaksu?",
+    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu un noklikšķiniet uz \"Iemaksa\", izvēlieties vēlamo kriptovalūtu, nokopējiet maka adresi vai skenējiet QR kodu maksāšanai.</p>"
   },
   "faqFour": {
-    "title": "Vai es varu mainīt savas kriptovalūtas jūsu vietnē?",
-    "content": "<p class=\"leading-7\">{{siteName}} piedāvā apmaiņas funkciju, kas ļauj droši un vienkārši mainīt jūsu kriptovalūtas pret citām kriptovalūtām. Tomēr, ņemot vērā līdzekļu sajaukšanas riskus, visām {{siteName}} iemaksātajām kriptovalūtām ir 1x apgrozījuma prasība, kas nozīmē, ka jums jāizliek likmes ar iemaksātajiem līdzekļiem vismaz vienu reizi, pirms varat tos apmainīt.</p>"
+    "title": "Vai es varu apmainīt savas kriptovalūtas jūsu vietnē?",
+    "content": "<p class=\"leading-7\">{{siteName}} piedāvā apmaiņas funkciju, kurā jūs varat droši un viegli apmainīt savas kriptovalūtas pret citām kriptovalūtām. Tomēr, ņemot vērā monētu sajaukšanas bažas, visām kriptovalūtām, kas iemaksātas {{siteName}}, ir 1x apgrozījuma prasība, kas nozīmē, ka jums jāveic likmes ar saviem iemaksātajiem līdzekļiem vismaz 1 reizi, pirms varat tās apmainīt.</p>"
   },
   "faqFive": {
-    "title": "Kā veikt izņemšanu?",
-    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu, noklikšķiniet uz \"Izņemt\", ievadiet maka adresi, uz kuru vēlaties izņemt līdzekļus, un summu, ko vēlaties izņemt. (Lūdzu, ņemiet vērā, ka atkarībā no blokķēdēm var būt dažādas tīkla maksas.)</p>"
+    "title": "Kā es varu veikt izmaksu?",
+    "content": "<p class=\"leading-7\">Dodieties uz savu profila lapu un noklikšķiniet uz \"Izmaksa\", ievadiet maka adresi, uz kuru vēlaties veikt izmaksu, un summu, ko vēlaties izņemt. (Lūdzu, ņemiet vērā, ka var tikt piemērotas dažādas maksas atkarībā no dažādām blokķēdēm)</p>"
   },
   "faqSix": {
-    "title": "Kāda ir minimālā izņemšanas summa katrai kriptovalūtai?",
-    "content": "<p class=\"leading-7\">Tā kā kriptovalūtu vērtība un ar tām saistītās tīkla maksas atšķiras, lūdzu, pārbaudiet izņemšanas lapu, lai uzzinātu minimālās izņemšanas summas katrai kriptovalūtai.</p>"
+    "title": "Kāda ir minimālā izmaksas summa katrai kriptovalūtai?",
+    "content": "<p class=\"leading-7\">Ņemot vērā dažādo kriptovalūtu vērtību, kā arī dažādās ieguves maksas, lūdzu, pārbaudiet savu izmaksas lapu, lai uzzinātu minimālās izmaksas summas, kas attiecas uz katru kriptovalūtu.</p>"
   },
   "faqSeven": {
-    "title": "Cik ilgi aizņem iemaksas un izņemšanas?",
-    "content": "<p class=\"leading-7\">Katram darījumam blokķēdē nepieciešami vairāki apstiprinājumi.</p><p class=\"leading-7\">Parasti darījumi BTC un ETH ķēdēs tiek apstiprināti 5–10 minūšu laikā; TRON, TON un SOLANA ķēdēs aptuveni 1–2 minūšu laikā.</p><p class=\"leading-7\">Ja iemaksas vai izņemšanas laikā rodas problēmas, varat pārbaudīt darījumu, izmantojot attiecīgās blokķēdes izpētes rīku, vai sazināties ar mūsu tiešsaistes atbalstu.</p>"
+    "title": "Cik ilgi aizņem iemaksas un izmaksas?",
+    "content": "<p class=\"leading-7\">Katram darījumam blokķēdē ir nepieciešami vairāki cikli, lai to apstiprinātu.</p><p class=\"leading-7\">Vispārīgi runājot, katram darījumam nepieciešamas 5-10 minūtes, lai to apstiprinātu blokķēdes tīklā BTC un ETH ķēdē; un apmēram 1-2 minūtes TRON, TON, SOLANA ķēdē.</p><p class=\"leading-7\">Ja jums rodas kādas problēmas iemaksas vai izmaksas laikā, jūs varat pārbaudīt savu darījumu, izmantojot attiecīgo blokķēdes izpētītāju tīklam, vai sazināties ar mūsu tiešsaistes atbalstu.</p>"
   },
   "faqEight": {
     "title": "No kurienes nāk darījumu apstiprinājumi?",
-    "content": "<p class=\"leading-7\">Visa apstiprinājumu informācija nāk no blokķēdes un blokķēdes kalnračiem.</p>"
+    "content": "<p class=\"leading-7\">Visa apstiprinājumu informācija nāk no blokķēdes un blokķēdes ieguvējiem</p>"
   },
   "faqNine": {
     "title": "Vai jūsu spēles ir godīgas?",
-  "content": "<p class=\"leading-7\">Caurspīdīgums, Uzticība un Godīgums ir {{gameLink}} pamatvērtību daļa un mūsu uzņēmuma stūrakmens. Tāpēc mēs sadarbojamies tikai ar uzticamiem vadošajiem spēļu partneriem, lai nodrošinātu mūsu klientiem pelnītu kvalitatīvu pieredzi.</p><p class=\"leading-7\">Visas mūsu partneru spēles tiek rūpīgi pārbaudītas attiecībā uz nejaušību neatkarīgu auditoru veiktā testēšanā un ir licencētas azartspēļu regulatoru, kuri regulāri veic revīzijas viņu nejaušo skaitļu ģeneratoriem.</p>"
+    "content": "<p class=\"leading-7\">Caurskatāmība, uzticība un godīgums ir daļa no {{gameLink}} pamatvērtībām un mūsu uzņēmējdarbības pamats. Tāpēc mēs strādājam tikai ar uzticamiem augstākās klases spēļu partneriem, lai nodrošinātu mūsu klientiem kvalitātes pieredzi, ko viņi pelnījuši.</p><p class=\"leading-7\">Visas mūsu partneru spēles tiek rūpīgi pārbaudītas neatkarīgiem auditoriem par nejaušību, un tās ir licencētas spēļu regulētājiem, kas pakļauj tās biežām auditu pārbaudēm par viņu nejaušo skaitļu ģeneratoru.</p>"
   },
   "faqTen": {
-    "title": "Ko darīt, ja spēle uzkaras vai tiek pārtraukts savienojums?",
-    "content": "<p class=\"leading-7\">Ja rodas tehniskas problēmas, mēģiniet atjaunot lapu. Mūsu pakalpojumu sniedzēji saglabā spēles stāvokļus, un, atjaunojot savienojumu, jums vajadzētu redzēt iepriekšējo spēles stāvokli.</p>"
+    "title": "Ko man darīt, ja mana spēle apstājas vai ja es zaudēju savienojumu?",
+    "content": "<p class=\"leading-7\">Ja jums rodas kādas tehniskas problēmas, lūdzu, mēģiniet atsvaidzināt lapu. Spēļu stāvokļi tiek saglabāti mūsu pakalpojumu sniedzēju, un jums vajadzētu redzēt savu iepriekšējo spēles stāvokli, kad jūs atkārtoti savienojaties.</p>"
   }
 }

@@ -13,6 +13,7 @@ interface BetHistoryFiltersProps {
   filterGroup?: BetHistoryFilterGroup;
   availableAssets?: string[];
   isDisabled?: boolean;
+  showGameFilter?: boolean;
 }
 
 const PERIOD_OPTIONS: Array<{ value: BetHistoryFiltersState["period"]; labelKey: string; fallback: string }> = [
@@ -32,17 +33,26 @@ const normalizeGameOptions = (options?: BetHistoryFilterOption[]): SelectOption[
   }));
 };
 
-export function BetHistoryFilters({ filters, onChange, filterGroup, availableAssets, isDisabled }: BetHistoryFiltersProps) {
+export function BetHistoryFilters({
+  filters,
+  onChange,
+  filterGroup,
+  availableAssets,
+  isDisabled,
+  showGameFilter = true,
+}: BetHistoryFiltersProps) {
   const { t } = useTranslation();
 
   const gameOptions = useMemo<SelectOption[]>(() => {
     const normalized = normalizeGameOptions(filterGroup?.games);
-    const baseOption: SelectOption = {
-      value: "all",
-      label: t("transaction:filters.all", "All"),
-    };
+    const baseOption: SelectOption[] = [
+      { value: "all", label: t("transaction:filters.all", "All")},
+      { value: 'slots', label: t('transaction:gameTypes.slots') },
+      { value: 'live-casino', label: t('transaction:gameTypes.liveCasino') },
+      { value: 'fishing', label: t('transaction:gameTypes.fishing') },
+      { value: 'fast', label: t('transaction:gameTypes.fast') }];
 
-    const options = [baseOption];
+    const options = [...baseOption];
     normalized.forEach((option) => {
       if (!options.some((existing) => existing.value === option.value)) {
         options.push(option);
@@ -70,112 +80,121 @@ export function BetHistoryFilters({ filters, onChange, filterGroup, availableAss
   }, [availableAssets, filterGroup?.assets, t]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-      <div className="flex flex-col gap-2">
-        <label className="text-xs sm:text-sm font-medium text-base-content/50">
-          {t("transaction:filters.games", "Games")}
-        </label>
-        <Select
-          options={gameOptions}
-          value={filters.game}
-          onChange={(value) =>
-            onChange({
-              ...filters,
-              game: String(value),
-            })
-          }
-          size="md"
-          variant="base"
-          disabled={isDisabled}
-          className="w-full h-10 sm:h-10 bg-base-300 rounded-field"
-          dropdownClassName="bg-base-300"
-          placeholder={t("transaction:filters.games", "Games")}
-          renderValue={(option) => <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>}
-          renderOption={(option) => (
-            <div className="flex items-center justify-between w-full">
-              <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>
-              {filters.game === option.value && <Check className="w-4 h-4" />}
-            </div>
-          )}
-        />
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label className="text-xs sm:text-sm font-medium text-base-content/50">
-          {t("transaction:filters.asset", "Asset")}
-        </label>
-        <Select
-          options={assetOptions}
-          value={filters.asset}
-          onChange={(value) =>
-            onChange({
-              ...filters,
-              asset: String(value),
-            })
-          }
-          size="md"
-          variant="base"
-          disabled={isDisabled}
-          className="w-full h-10 sm:h-10 bg-base-300 rounded-field"
-          dropdownClassName="bg-base-300"
-          placeholder={t("transaction:filters.asset", "Asset")}
-          renderOption={(option) =>
-            option && option.value !== "all" ? (
+    <div className="flex flex-col gap-2 sm:gap-3">
+      {/* Games filter - 移动端独占一行 */}
+      {showGameFilter && (
+        <div className="flex flex-col gap-2">
+          <label className="text-xs sm:text-sm font-medium text-base-content/50">
+            {t("transaction:filters.game", "Games")}
+          </label>
+          <Select
+            options={gameOptions}
+            value={filters.game}
+            onChange={(value) =>
+              onChange({
+                ...filters,
+                game: String(value),
+              })
+            }
+            size="md"
+            variant="base"
+            disabled={isDisabled}
+            className="w-full h-10 sm:h-10 bg-base-300 rounded-field"
+            dropdownClassName="bg-base-300"
+            placeholder={t("transaction:filters.game", "Games")}
+            renderValue={(option) => <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>}
+            renderOption={(option) => (
               <div className="flex items-center justify-between w-full">
+                <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>
+                {filters.game === option.value && <Check className="w-4 h-4" />}
+              </div>
+            )}
+          />
+        </div>
+      )}
+
+      {/* Assets 和 Period - 移动端在同一行，桌面端根据 showGameFilter 决定布局 */}
+      <div className={cn(
+        "grid gap-2 sm:gap-3",
+        showGameFilter ? "grid-cols-2 sm:grid-cols-2" : "grid-cols-2 sm:grid-cols-2"
+      )}>
+        <div className="flex flex-col gap-2">
+          <label className="text-xs sm:text-sm font-medium text-base-content/50">
+            {t("transaction:filters.asset", "Asset")}
+          </label>
+          <Select
+            options={assetOptions}
+            value={filters.asset}
+            onChange={(value) =>
+              onChange({
+                ...filters,
+                asset: String(value),
+              })
+            }
+            size="md"
+            variant="base"
+            disabled={isDisabled}
+            className="w-full h-10 sm:h-10 bg-base-300 rounded-field"
+            dropdownClassName="bg-base-300"
+            placeholder={t("transaction:filters.asset", "Asset")}
+            renderOption={(option) =>
+              option && option.value !== "all" ? (
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-2">
+                    {option.icon}
+                    <span className="font-semibold text-sm">{option.label}</span>
+                  </div>
+                  {filters.asset === option.value && <Check className="w-4 h-4" />}
+                </div>
+              ) : (
+                <div className="flex items-center justify-between w-full">
+                  <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>
+                  {filters.asset === option?.value && <Check className="w-4 h-4" />}
+                </div>
+              )
+            }
+            renderValue={(option) =>
+              option && option.value !== "all" ? (
                 <div className="flex items-center gap-2">
                   {option.icon}
                   <span className="font-semibold text-sm">{option.label}</span>
                 </div>
-                {filters.asset === option.value && <Check className="w-4 h-4" />}
-              </div>
-            ) : (
-              <div className="flex items-center justify-between w-full">
+              ) : (
                 <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>
-                {filters.asset === option?.value && <Check className="w-4 h-4" />}
-              </div>
-            )
-          }
-          renderValue={(option) =>
-            option && option.value !== "all" ? (
-              <div className="flex items-center gap-2">
-                {option.icon}
-                <span className="font-semibold text-sm">{option.label}</span>
-              </div>
-            ) : (
-              <span className="font-semibold text-sm">{option?.label ?? option?.value}</span>
-            )
-          }
-        />
-      </div>
+              )
+            }
+          />
+        </div>
 
-      <div className="flex flex-col gap-2">
-        <label className="text-xs sm:text-sm font-medium text-base-content/50">
-          {t("transaction:filters.period", "Period")}
-        </label>
-        <div className="flex h-10 sm:h-10 items-center gap-1 rounded-lg bg-base-300 p-[2px] sm:p-1">
-          {PERIOD_OPTIONS.map((option) => {
-            const isActive = filters.period === option.value;
-            return (
-              <button
-                key={option.value}
-                type="button"
-                disabled={isDisabled}
-                onClick={() =>
-                  onChange({
-                    ...filters,
-                    period: option.value,
-                  })
-                }
-                className={cn(
-                  "flex-1 h-full rounded-lg border border-transparent text-xs sm:text-sm font-semibold transition-colors focus:outline-none focus-visible:ring focus-visible:ring-primary/40",
-                  isActive ? "bg-primary text-black shadow-sm" : "bg-transparent text-base-content/70 hover:bg-base-300/60",
-                  isDisabled && "opacity-50 cursor-not-allowed",
-                )}
-              >
-                {t(option.labelKey, option.fallback)}
-              </button>
-            );
-          })}
+        <div className="flex flex-col gap-2">
+          <label className="text-xs sm:text-sm font-medium text-base-content/50">
+            {t("transaction:filters.period", "Period")}
+          </label>
+          <div className="flex h-10 sm:h-10 items-center gap-1 rounded-lg bg-base-300 p-[2px] sm:p-1">
+            {PERIOD_OPTIONS.map((option) => {
+              const isActive = filters.period === option.value;
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  disabled={isDisabled}
+                  onClick={() =>
+                    onChange({
+                      ...filters,
+                      period: option.value,
+                    })
+                  }
+                  className={cn(
+                    "flex-1 h-full rounded-lg border border-transparent text-xs sm:text-sm font-semibold transition-colors focus:outline-none focus-visible:ring focus-visible:ring-primary/40",
+                    isActive ? "bg-primary text-black shadow-sm" : "bg-transparent text-base-content/70 hover:bg-base-300/60",
+                    isDisabled && "opacity-50 cursor-not-allowed",
+                  )}
+                >
+                  {t(option.labelKey, option.fallback)}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import { useBoundStore } from "@/store";
 import { useToggle } from "ahooks";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
+import { FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const DepositFiatViewModal = () => {
   const { t } = useTranslation();
@@ -88,3 +88,5 @@ export const DepositFiatViewModal = () => {
     </Modal>
   );
 };
+
+export default DepositFiatViewModal;

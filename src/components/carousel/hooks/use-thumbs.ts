@@ -8,7 +8,8 @@ import { useState, useEffect, useCallback } from 'react';
 
 export function useThumbs(
   mainApi?: EmblaCarouselType,
-  options?: Partial<CarouselOptions>
+  options?: Partial<CarouselOptions>,
+  enabled = true
 ): UseCarouselThumbsReturn {
   const [thumbsRef, thumbsApi] = useEmblaCarousel({
     containScroll: 'keepSnaps',
@@ -20,24 +21,28 @@ export function useThumbs(
 
   const onClickThumb = useCallback(
     (index: number) => {
-      if (!mainApi || !thumbsApi) return;
+      if (!enabled || !mainApi || !thumbsApi) return;
       mainApi.scrollTo(index);
     },
-    [mainApi, thumbsApi]
+    [enabled, mainApi, thumbsApi]
   );
 
   const onSelect = useCallback(() => {
-    if (!mainApi || !thumbsApi) return;
+    if (!enabled || !mainApi || !thumbsApi) return;
     setSelectedIndex(mainApi.selectedScrollSnap());
     thumbsApi.scrollTo(mainApi.selectedScrollSnap());
-  }, [mainApi, thumbsApi, setSelectedIndex]);
+  }, [enabled, mainApi, thumbsApi, setSelectedIndex]);
 
   useEffect(() => {
-    if (!mainApi) return;
+    if (!mainApi || !enabled) return;
     onSelect();
     mainApi.on('select', onSelect);
     mainApi.on('reInit', onSelect);
-  }, [mainApi, onSelect]);
+    return () => {
+      mainApi.off('select', onSelect);
+      mainApi.off('reInit', onSelect);
+    };
+  }, [mainApi, enabled, onSelect]);
 
   return {
     onClickThumb,

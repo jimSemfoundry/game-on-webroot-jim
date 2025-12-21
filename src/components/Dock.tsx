@@ -3,6 +3,10 @@ import { useSidebar } from "@/contexts/SidebarContext";
 import { cn } from "@/utils/themeMerger";
 import { useLocation, useNavigate } from "@tanstack/react-router";
 import Iconify from "../components/iconify";
+import { useBonusClaimCount } from "@/hooks/api/useAuth.ts";
+import { m } from 'motion/react'
+import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 
 // 为了向后兼容，导出 DockItem 类型别名
 export type DockItem = NavItem;
@@ -16,6 +20,7 @@ export const Dock = ({ items = MAIN_NAV_ITEMS }: DockProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { toggleDrawer, isMobile } = useSidebar();
+  const { t } = useTranslation();
   // const { scrollDirection, isScrolled } = useScrollDirection({
   //   threshold: 50,
   //   debounceDelay: 150,
@@ -30,7 +35,7 @@ export const Dock = ({ items = MAIN_NAV_ITEMS }: DockProps) => {
         toggleDrawer();
       }
     } else if (item.href === "back") {
-      navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+      navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
     } else {
       navigate({ to: item.href });
     }
@@ -66,13 +71,14 @@ export const Dock = ({ items = MAIN_NAV_ITEMS }: DockProps) => {
             <button
               key={item.label}
               className={cn(
-                "inline-flex flex-col gap-1 items-center justify-center rounded-xl hover:bg-base-300 transition-colors",
+                "relative inline-flex flex-col gap-1 items-center justify-center rounded-xl hover:bg-base-300 transition-colors",
                 isActive ? "text-primary" : "",
               )}
               onClick={(e) => handleItemClick(e, item)}
             >
               <Iconify icon={item.icon} width={18} height={18} />
-              <span className="text-xs font-bold text-base-content">{item.label}</span>
+              <span className="text-xs font-bold text-base-content">{t(item.label)}</span>
+              <InnerBonusLabel label={item.href} />
             </button>
           );
         })}
@@ -80,3 +86,18 @@ export const Dock = ({ items = MAIN_NAV_ITEMS }: DockProps) => {
     </div>
   );
 };
+
+export const InnerBonusLabel = ({ label, className }: { label: string, className?: string }) => {
+  const { data } = useBonusClaimCount()
+  return (label.includes('bonus') && <span>{
+    data?.data?.total_count > 0 && (
+      <m.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className={classNames("absolute text-black indicator-item badge bg-primary p-1 h-3.5 min-w-3.5 text-xs font-bold top-0 border-1 border-base-content rounded-sm", className)}>
+        {data?.data?.total_count >= 10 ? '9+' : data?.data?.total_count}
+      </m.div>
+    )
+  }</span>)
+}

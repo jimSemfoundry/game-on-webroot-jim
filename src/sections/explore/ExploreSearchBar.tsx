@@ -50,10 +50,10 @@ export function ExploreSearchBar({
 
   const sortOptions = useMemo(
     () => [
-      { label: "Popular", value: "popular" },
+      { label: t("explore:popular"), value: "popular" },
       { label: "A - Z", value: "az" },
       { label: "Z - A", value: "za" },
-      { label: "Newest", value: "newest" },
+      { label: t("explore:newest"), value: "newest" },
     ],
     []
   );
@@ -62,7 +62,7 @@ export function ExploreSearchBar({
     () =>
       (gameProvidersData?.data || []).map((provider: any) => ({
         label: provider.name,
-        value: provider.name,
+        value: provider.name_key,
         logo: provider.logo,
         id: provider.id,
       })),
@@ -83,9 +83,12 @@ export function ExploreSearchBar({
 
   const getButtonLabel = useCallback(() => {
     if (selectedProviders.length === 0) return `${t("casino:provider")}: ${t("explore:all")}`;
-    if (selectedProviders.length === 1) return selectedProviders[0];
+    if (selectedProviders.length === 1) {
+      const provider = providerOptions.find((opt) => opt.value === selectedProviders[0]);
+      return provider?.label || selectedProviders[0];
+    }
     return `${selectedProviders.length} ${t("explore:selected")}`;
-  }, [selectedProviders, t]);
+  }, [selectedProviders, providerOptions, t]);
 
   useEffect(() => {
     if (!debouncedAction) return;
@@ -144,7 +147,7 @@ export function ExploreSearchBar({
           variant="primary"
           options={sortOptions}
           value={sortValue}
-          renderValue={(option) => `${t("explore:sort")}: ${option.label}`}
+          renderValue={(option) => <p className="text-xs sm:text-sm">{`${t("explore:sort")}: ${option.label}`}</p>}
           onChange={(value) => setSortValue(value as string)}
         />
 
@@ -152,7 +155,7 @@ export function ExploreSearchBar({
           <>
             <button className="flex-1/2 md:w-auto btn btn-md justify-between" onClick={() => setIsProviderOpen(true)}>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold truncate">{getButtonLabel()}</span>
+                <span className="text-xs sm:text-sm font-semibold truncate">{getButtonLabel()}</span>
               </div>
               <ChevronDown className="w-4 h-4" />
             </button>
@@ -171,13 +174,13 @@ export function ExploreSearchBar({
           <div ref={providerDropdownRef} className="dropdown dropdown-end cursor-pointer z-10 w-1/2 md:w-auto">
             <div tabIndex={0} role="button" className="btn btn-md justify-between w-full">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold truncate">{getButtonLabel()}</span>
+                <span className="text-xs sm:text-sm font-semibold truncate">{getButtonLabel()}</span>
               </div>
               <ChevronDown className="w-4 h-4" />
             </div>
             <div tabIndex={0} className="dropdown-content card bg-base-300 card-xs md:card-sm z-1 w-[375px] h-[742px] shadow-sm">
               <div className="card-body h-full flex flex-col">
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-2 shrink-0">
                   <Iconify icon="custom:game" width={16} height={16} className="text-primary" />
                   <p className="text-base md:text-xl font-bold">{t("explore:providers")}</p>
                   <button className="btn btn-sm btn-square ms-auto" onClick={closeDropdown}>
@@ -186,7 +189,7 @@ export function ExploreSearchBar({
                 </div>
 
                 {selectedProviders.length > 0 && (
-                  <div className="mb-2 pb-2 border-b border-base-content/10 flex-shrink-0">
+                  <div className="mb-2 pb-2 border-b border-base-content/10 shrink-0">
                     <div className="flex flex-wrap gap-1 items-center">
                       {selectedProviders.map((provider) => {
                         const option = providerOptions.find((opt) => opt.value === provider);
@@ -293,46 +296,46 @@ function ExploreProviderModal({
         </div>
       }
     >
-      <div className="flex flex-col max-h-[75vh]">
-        {selectedProviders.length > 0 && (
-          <div className="flex-shrink-0 pb-4">
-            <div className="flex flex-wrap gap-1 items-center">
-              {selectedProviders.map((provider) => {
-                const option = providerOptions.find((opt) => opt.value === provider);
-                return option ? (
-                  <div key={provider} className="badge badge-xl gap-1">
-                    <span className="text-xs font-semibold">{option.label}</span>
-                    <button
-                      onMouseDown={(event) => {
-                        event.stopPropagation();
-                        event.preventDefault();
-                        removeProvider(provider);
-                      }}
-                      className="hover:bg-primary-content/20 rounded-full p-0.5"
-                    >
-                      <X size={12} />
-                    </button>
-                  </div>
-                ) : null;
-              })}
-              <button
-                onMouseDown={(event) => {
-                  event.stopPropagation();
-                  event.preventDefault();
-                  clearAllProviders();
-                }}
-                className="btn bg-base-100 btn-square btn-sm flex items-center justify-center"
-                title={t("common:common.clear")}
-              >
-                <Trash2 size={14} />
-              </button>
+      <div className="flex flex-col max-h-[75vh] overflow-hidden">
+        <div className="flex-1 min-h-0 flex flex-col gap-4 overflow-y-auto">
+          {selectedProviders.length > 0 && (
+            <div className="sticky top-0 z-10 bg-base-400 pt-1 pb-4">
+              <div className="flex flex-wrap gap-1 items-center">
+                {selectedProviders.map((provider) => {
+                  const option = providerOptions.find((opt) => opt.value === provider);
+                  return option ? (
+                    <div key={provider} className="badge badge-xl gap-1">
+                      <span className="text-xs font-semibold">{t(option.label)}</span>
+                      <button
+                        onMouseDown={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault();
+                          removeProvider(provider);
+                        }}
+                        className="hover:bg-primary-content/20 rounded-full p-0.5"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  ) : null;
+                })}
+                <button
+                  onMouseDown={(event) => {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    clearAllProviders();
+                  }}
+                  className="btn bg-base-100 btn-square btn-sm flex items-center justify-center"
+                  title={t("common:common.clear")}
+                >
+                  <Trash2 size={14} />
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div className="flex-1 min-h-0 overflow-hidden">
-          <div className="bg-base-300 h-full w-full rounded-field overflow-y-auto max-h-[600px]">
-            <div className="grid grid-cols-2 gap-2 p-2">
+          <div className="bg-base-300 rounded-field p-2">
+            <div className="grid grid-cols-2 gap-2">
               {providerOptions.map((option: ProviderOption) => {
                 const isSelected = selectedProviders.includes(option.value);
 

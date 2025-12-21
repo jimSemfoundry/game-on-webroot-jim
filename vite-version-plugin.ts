@@ -41,7 +41,7 @@ export default ({ version, facebookPixelId, nameBlock, nickname, websiteUrl, the
                 <script>
     !(function(c,b,d,a){c[a]||(c[a]={});c[a]=
     {
-        pid: '1i6y71lx74v@28deacb3f794983',
+        pid: '1i6y71lx74v@06e3adcf022df54',
         endpoint: 'https://1i6y71lx74v-default-us.rum.aliyuncs.com',
         // Set environment information, reference values: 'prod' | 'gray' | 'pre' | 'daily' | 'local'
         env: "${version}" + '-' + window.location.hostname, 
@@ -66,7 +66,7 @@ export default ({ version, facebookPixelId, nameBlock, nickname, websiteUrl, the
         // Link tracing configuration switch - Default disabled
         tracing: false,
     };
-    with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+    var s=b.createElement("script");s.crossOrigin="";s.src=d;s.defer=true;b.body.appendChild(s)
 })(window, document, "https://sdk.rum.aliyuncs.com/v2/browser-sdk.js", "__rum");
 </script>
 

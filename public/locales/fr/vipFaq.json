@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Que sont les Bonus de Montée de Niveau ?",
-    "content": "<p class=\"leading-7\">Les bonus de montée de niveau sont notre manière de témoigner notre gratitude envers les joueurs fidèles qui nous accompagnent depuis le début. À mesure que vous progressez dans les niveaux VIP, vous débloquez des récompenses de niveau supérieur.</p>"
+    "title": "Quels sont les Bonus de Montée de Niveau ?",
+    "content": "<p class=\"leading-7\">Le bonus de montée de niveau est notre façon de montrer notre appréciation aux joueurs fidèles qui sont avec nous depuis le début. À mesure que les joueurs montent les niveaux VIP, ils débloquent des récompenses de montée de niveau plus élevées.</p>"
   },
   "faqTwo": {
-    "title": "Qu’est-ce que le Cashback Quotidien ?",
-    "content": "<p class=\"leading-7\">Le Cashback Quotidien est attribué aux joueurs ayant subi des pertes par rapport au montant de leur dépôt. Ce bonus est émis quotidiennement sous forme d’un pourcentage de vos pertes. Le pourcentage de cashback quotidien augmente avec votre niveau VIP, jusqu’à un maximum de 40 %, le cashback le plus élevé du marché. Veuillez noter que ce bonus est réservé aux joueurs en position de perte nette.</p>"
+    "title": "Qu'est-ce que le Cashback Quotidien ?",
+    "content": "<p class=\"leading-7\">Le Cashback Quotidien sera attribué aux joueurs ayant subi des pertes par rapport à leur montant de dépôt. Ce bonus est attribué quotidiennement en pourcentage du montant de la perte du joueur. Le pourcentage de cashback quotidien augmentera avec vos niveaux VIP, jusqu'à un maximum de 40 % de cashback, le plus élevé partout. Veuillez noter que ce bonus est uniquement pour les joueurs qui sont en position de perte nette.</p>"
   },
   "faqThree": {
-    "title": "Que sont les Conquêtes ?",
-    "content": "<p class=\"leading-7\">Les conquêtes sont des quêtes quotidiennes attribuées aléatoirement aux joueurs pour leur permettre de gagner des récompenses supplémentaires en jouant sur notre site. Les récompenses de conquête doivent être réclamées dans les 24 heures avant le début du prochain cycle, sinon elles expireront. Ces récompenses sont payées en BUCK/USDT et peuvent être converties en la cryptomonnaie de votre choix via notre fonction d’échange.</p>"
+    "title": "Qu'est-ce que les Conquêtes/Quêtes ?",
+    "content": "<p class=\"leading-7\">Les conquêtes sont des quêtes quotidiennes attribuées aléatoirement aux joueurs pour qu'ils gagnent des récompenses supplémentaires en jouant sur notre site. Les récompenses de conquête doivent être réclamées dans les 24 heures avant le prochain cycle et expireraient si non réclamées. Les récompenses de conquête sont payées en BUCK/USDT et peuvent être converties en votre cryptomonnaie de choix via notre fonction d'échange.</p>"
   },
   "faqFour": {
-    "title": "Que sont les Récompenses de Tournoi ?",
-    "content": "<p class=\"leading-7\">Les récompenses de tournoi sont des prix décernés pour des performances exceptionnelles lors de compétitions. Elles s’accumulent jusqu’à ce que vous les réclamiez et n’ont pas de date d’expiration. Ces récompenses sont payées en BUCK/USDT et peuvent être converties en la cryptomonnaie de votre choix via notre fonction d’échange.</p>"
+    "title": "Quelles sont les Récompenses de Tournoi ?",
+    "content": "<p class=\"leading-7\">Les Récompenses de Tournoi sont des prix attribués pour une performance exceptionnelle lors des compétitions. Les Récompenses de Tournoi s'accumulent jusqu'à ce qu'elles soient réclamées et n'ont pas de date d'expiration. Les récompenses de tournoi sont payées en BUCK/USDT et peuvent être converties en votre cryptomonnaie de choix via notre fonction d'échange.</p>"
   },
   "faqFive": {
-    "title": "Qu’est-ce que le Super Rakeback ?",
-    "content": "<p class=\"leading-7\">Le Super Rakeback est notre mécanisme pour débloquer vos bonus de dépôt. Un pourcentage de votre mise (jusqu’à 3 %) vous est reversé à chaque pari placé. Plus votre niveau VIP est élevé, plus le taux de déblocage est important. BUCK/USDT débloqués = Mise x 2,5 % x Taux de déblocage %</p><p class=\"leading-7\">Taux de déblocage :</p><p class=\"leading-7\">VIP 0-40 : 20 %</p><p class=\"leading-7\">VIP 41-60 : 32 %</p><p class=\"leading-7\">VIP 61-80 : 40 %</p><p class=\"leading-7\">VIP 81-100 : 52 %</p><p class=\"leading-7\">VIP 101-125 : 60 %</p>"
+    "title": "Qu'est-ce que le Super Rakeback ?",
+    "content": "<p class=\"leading-7\">Le Super Rakeback est notre mécanisme pour débloquer vos bonus de dépôt. Un pourcentage de votre mise (jusqu'à 3 %) vous est retourné chaque fois que vous placez un pari. Plus votre niveau VIP est élevé, plus le taux de déblocage est élevé. BUCK/USDT débloqué = Mise x 2,5 % x Taux de déblocage%</p><p class=\"leading-7\">Taux de déblocage :</p><p class=\"leading-7\">VIP 0-40 : 20%</p><p class=\"leading-7\">VIP 41-60 : 32%</p><p class=\"leading-7\">VIP 61-80 : 40%</p><p class=\"leading-7\">VIP 81-100 : 52%</p><p class=\"leading-7\">VIP 101-125 : 60%</p>"
   },
   "faqSix": {
-    "title": "Qu’est-ce qu’un Booster ?",
-    "content": "<p class=\"leading-7\">Les boosters doublent votre Rakeback pendant une heure chaque fois qu’un parrain effectue un dépôt.</p><p class=\"leading-7\">Taux de déblocage amplifié :</p><p class=\"leading-7\">VIP 0-40 : 40 %</p><p class=\"leading-7\">VIP 41-60 : 72 %</p><p class=\"leading-7\">VIP 61-80 : 80 %</p><p class=\"leading-7\">VIP 81-100 : 102 %</p><p class=\"leading-7\">VIP 101-125 : 120 %</p>"
+    "title": "Qu'est-ce qu'un Booster ?",
+    "content": "<p class=\"leading-7\">Les Boosters doublent votre Rakeback pendant une heure chaque fois qu'un parrainage effectue un dépôt.</p><p class=\"leading-7\">Taux de déblocage boosté :</p><p class=\"leading-7\">Taux de déblocage :</p><p class=\"leading-7\">VIP 0-40 : 40%</p><p class=\"leading-7\">VIP 41-60 : 72%</p><p class=\"leading-7\">VIP 61-80 : 80%</p><p class=\"leading-7\">VIP 81-100 : 102%</p><p class=\"leading-7\">VIP 101-125 : 120%</p>"
   },
   "faqSeven": {
-    "title": "Qu’est-ce que le Calendrier de Bonus ?",
-    "content": "<p class=\"leading-7\">La plupart des bonus sont payés à 50 % sur votre solde réel et à 50 % sur votre calendrier de bonus. Les bonus versés sur votre calendrier de bonus peuvent être réclamés toutes les 8 heures et expirent dans les 24 heures s’ils ne sont pas réclamés. Pensez à réclamer vos bonus dans votre calendrier de bonus au moins une fois par jour pour ne manquer aucune récompense !</p>"
+    "title": "Qu'est-ce que le Calendrier des Bonus ?",
+    "content": "<p class=\"leading-7\">La plupart des bonus sont payés à 50 % sur votre Solde Réel et 50 % sur votre Calendrier des Bonus. Les bonus payés sur votre Calendrier des Bonus peuvent être réclamés toutes les 8 heures et expirent dans les 24 heures s'ils ne sont pas réclamés. N'oubliez pas de réclamer les bonus de votre Calendrier des Bonus au moins une fois par jour pour vous assurer que toutes vos récompenses sont collectées !</p>"
   },
   "faqEight": {
-    "title": "Qu’est-ce que le Bonus Hebdomadaire ?",
-    "content": "<p class=\"leading-7\">Le Bonus Hebdomadaire est un avantage exclusif de notre site, conçu pour les joueurs de niveau VIP 12 et plus. Ce bonus est émis chaque semaine et versé automatiquement chaque vendredi aux joueurs VIP 12 et plus. Le montant du bonus dépend de la somme misée au cours de la semaine écoulée, avec une exigence de mise minimale de {{minWager}} sur la semaine passée.</p>"
+    "title": "Qu'est-ce que le Bonus Hebdomadaire ?",
+    "content": "<p class=\"leading-7\">Le Bonus Hebdomadaire est un avantage exclusif sur notre site conçu pour les joueurs qui sont VIP12 et plus. Ce bonus est attribué chaque semaine et payé automatiquement chaque vendredi aux joueurs VIP12 et plus. La taille du bonus dépend du montant misé au cours de la semaine précédente, avec un montant de mise minimum de {{minWager}} au cours de la semaine précédente.</p>"
   },
   "faqNine": {
-    "title": "Que sont les Réalisations ?",
-    "content": "<p class=\"leading-7\">Les réalisations sont notre manière de reconnaître votre activité sur notre plateforme. Lorsque vous réclamez votre bonus de réalisation, il est versé sur votre calendrier de bonus et peut être réclamé toutes les 8 heures, mais expire dans les 24 heures s’il n’est pas réclamé.</p>"
+    "title": "Quelles sont les Réalisations ?",
+    "content": "<p class=\"leading-7\">Les Réalisations sont notre façon de reconnaître votre activité sur notre plateforme. Lorsque vous réclamez votre bonus de réalisation, il sera payé sur votre Calendrier des Bonus et peut être réclamé toutes les 8 heures et expirera dans les 24 heures s'il n'est pas réclamé.</p>"
   }
 }

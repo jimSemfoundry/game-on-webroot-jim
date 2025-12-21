@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Tarifas y Reglas",
+    "campaigns": "Campañas",
+    "myReferrals": "Mis Referidos",
+    "commissions": "Comisiones",
+    "rewards": "Recompensas"
+  },
+  "commissionCalculator": "Calculadora de Comisiones",
   "telegramReferralLink": "Enlace de Referencia de Telegram",
   "network": "Red",
   "lifetimeReferralRewards": "Recompensas por Referidos de por Vida",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Recompensas por Referidos Disponibles",
   "lockedRewards": "Recompensas Bloqueadas",
   "assembleYourCrewCashIn": "¡Reúne a tu Pandilla y Cobra!",
+  "assembleYourCrewCashInDescription1": "Recluta a tu equipo y gana {{amount}} por amigo - como un atraco, pero sin la persecución del FBI. Además, gana hasta {{percentage}} de comisión sobre sus apuestas. ¿La mejor parte? Tu tasa de comisión crece contigo a medida que subes de nivel, ¡y también ganarás de los reclutas de tu equipo!",
+  "assembleYourCrewCashInDescription2": "Cuanto más grande sea tu red, más grande será tu parte. Ya sea que ganen, pierdan o apuesten como locos, sigues acumulando dinero. ¡Es hora de construir tu imperio - comienza a reclutar ahora!",
+  "quickShare": "Compartir Rápido",
   "referralRewards": "Recompensas por Referidos",
   "commissionRewards": "Recompensas de Comisión",
   "aboutDescription": "Recluta a tu pandilla y gana {{amount}} por amigo: como un atraco, pero sin la persecución del FBI. Además, obtén hasta un 50% de comisión en sus apuestas. ¿Lo mejor? Tu tasa de comisión crece contigo a medida que subes de nivel, ¡y también ganarás con los reclutas de tu pandilla!\n\nCuanto más grande sea tu red, mayor será tu ganancia. Ganen, pierdan o apuesten como locos, tú sigues acumulando dinero. ¡Es hora de construir tu imperio, empieza a reclutar ya!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Compartir en Redes Sociales",
   "referralTermsConditions": "Términos y Condiciones de Referidos",
   "liveGlobalRewards": "Recompensas Globales en Vivo",
+  "liveGlobalCommissions": "Comisiones Globales en Vivo",
   "username": "Nombre de Usuario",
   "friendLevel": "Nivel del Amigo",
   "totalExp": "EXP Total",
@@ -40,7 +53,7 @@
   "theLevelOfReferrersBetweenYouAndThePlayer": "El nivel de referidos entre tú y el jugador.",
   "wager": "Apuesta",
   "commissionRate": "Tasa de Comisión",
-"calculatorDescription": "El referido con el nivel VIP más alto entre tú y el jugador recibe su comisión primero según su nivel VIP. Si queda algo, te lo llevas tú. \n\nSi uno de tus referidos alcanza un nivel VIP superior al tuyo, ya no recibirás comisiones ni puntos de experiencia por la actividad de ese referido. En ese momento, se desvincula efectivamente de ti hasta que recuperes el nivel VIP superior.",
+  "calculatorDescription": "El referido con el nivel VIP más alto entre tú y el jugador recibe su comisión primero según su nivel VIP. Si queda algo, te lo llevas tú. \n\nSi uno de tus referidos alcanza un nivel VIP superior al tuyo, ya no recibirás comisiones ni puntos de experiencia por la actividad de ese referido. En ese momento, se desvincula efectivamente de ti hasta que recuperes el nivel VIP superior.",
   "hideRates": "Ocultar Tasas",
   "rewardRates": "Tasas de Recompensa",
   "cryptoGames": "Juegos de Criptomonedas",
@@ -105,35 +118,35 @@
   "more": "Más",
   "faqOne": {
     "title": "¿Cómo funciona el sistema de referidos?",
-    "content": "<p class=\"leading-7\">Cuando compartes tu enlace de referido con tus amigos y ellos se registran en nuestro sitio, se convierten en tus referidos y te harán ganar comisiones y recompensas por referidos jugando en la alianza {{gameLink}}.</p>"
+    "content": "<p class=\"leading-7\">Cuando compartes tu enlace de referido con tus amigos y ellos se registran en nuestro sitio; se convierten en tus referidos y te generarán comisiones y recompensas por jugar en {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "¿Cuánto puedo ganar con mis referidos?",
+    "title": "¿Cuánto puedo ganar de mi referido?",
     "content": "<p class=\"leading-7\">Puedes ganar {{percentage}} de su actividad de apuestas como comisiones + {{amount}} por referido.</p>"
   },
   "faqThree": {
     "title": "¿Qué es la recompensa de {{amount}} USD y cómo funciona?",
-    "content": "<p class=\"leading-7\">Hay una recompensa de {{amount}} USD por cada referido que traigas a {{gameLink}}. Esta recompensa en USD se entrega en {{parts}} partes a medida que tu nivel de referido sube desde {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Hay una recompensa de {{amount}} USD por cada referido que traigas a {{gameLink}}. Esta recompensa en USD se otorga en {{parts}} partes a medida que tu nivel de referido aumenta de {{level}}.</p>"
   },
   "faqFour": {
     "title": "Tengo una gran audiencia. ¿Cómo puedo obtener un trato especial?",
-    "content": "<p class=\"leading-7\">Si tienes un sitio web con buen tráfico o una cuenta de redes sociales con una gran audiencia, puedes enviarnos un correo electrónico a {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Si tienes un sitio web con buen tráfico o una cuenta de redes sociales con una gran audiencia, puedes enviarnos un correo a {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "¿Cuántos enlaces de afiliado puedo crear si tengo diferentes sitios web o cuentas en redes sociales?",
-    "content": "<p class=\"leading-7\">Puedes crear hasta {{codes}} códigos únicos para diferentes fuentes de tráfico.</p>"
+    "title": "¿Cuántos enlaces de afiliado puedo crear si tengo diferentes sitios web/cuentas de redes sociales?",
+    "content": "<p class=\"leading-7\">Puedes crear hasta {{codes}} códigos únicos para diferentes fuentes de tráfico</p>"
   },
   "faqSix": {
-    "title": "¿Puedo ver los datos de mis referidos?",
-    "content": "<p class=\"leading-7\">Sí, la transparencia, la confianza y la equidad son parte de los valores fundamentales de {{gameLink}}. Datos como el nombre de usuario, la apuesta total y las comisiones ganadas están disponibles en las pestañas \"Mis comisiones\" y \"Recompensas por referidos\".</p>"
+    "title": "¿Puedo ver los datos de mi referido?",
+    "content": "<p class=\"leading-7\">Sí, la Transparencia, la Confianza y la Equidad son parte de los valores fundamentales de {{gameLink}}. Datos como nombre de usuario, total apostado y comisiones ganadas están disponibles en la pestaña \"Mis Comisiones\" y \"Recompensas por Referidos\".</p>"
   },
   "faqSeven": {
     "title": "¿Puedo compartir las recompensas de comisiones con mis referidos?",
-    "content": "<p class=\"leading-7\">Sí, puedes compartir las recompensas de comisiones con tus referidos al hacer clic en \"Crear Nueva Campaña\" y configurar la división de comisiones en la pestaña \"Campañas\".</p>"
+    "content": "<p class=\"leading-7\">Sí, puedes compartir las recompensas de comisiones con tus referidos haciendo clic en \"crear nueva campaña\" y estableciendo la división de comisiones en la pestaña \"Campañas\".</p>"
   },
   "faqEight": {
-    "title": "¿Qué es un referido indirecto y qué puedo ganar con ellos?",
-    "content": "<p class=\"leading-7\">Un referido indirecto es un jugador activo que llega a través del enlace de invitación de uno de tus referidos directos. Si tu nivel VIP es superior al de tu referido directo, también puedes ganar comisiones de tus referidos indirectos.</p>"
+    "title": "¿Qué es un referido indirecto y qué puedo ganar de ellos?",
+    "content": "<p class=\"leading-7\">Un referido indirecto es un jugador activo que llega a través del enlace de invitación de uno de tus referidos directos. Si tu nivel VIP es más alto que el nivel VIP de tu referido directo, también puedes ganar comisiones derivadas de tu referido indirecto.</p>"
   },
   "levelReward": "Recompensa por Subir de Nivel",
   "groupReward": "Recompensa por Comisión",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Para simplificar el ejemplo, asumiremos que los amigos marcados en amarillo están apostando activamente, y los porcentajes verdes a lo largo de las líneas punteadas representan la comisión que recibes de cada uno de ellos.",
   "referralCommissionsIndirectDescription": "Para simplificar el ejemplo, asumamos que los amigos marcados en morado están apostando activamente. Los porcentajes a lo largo de las líneas punteadas indican la comisión que gana cada miembro en la cadena de referidos. \n\nA la derecha, podemos ver un ejemplo de una separación que ocurre en la cadena de referidos.",
   "referralCodeMinLength": "El código de referencia debe tener al menos 6 caracteres",
-    "vipLevel": "Nivel VIP",
+  "vipLevel": "Nivel VIP",
   "earned": "Ganado",
   "directfriend": "Amigo Directo",
   "fast": "Rápido",
   "slots": "Tragamonedas",
   "live-casino": "Casino en Vivo",
   "fishing": "Pesca",
-  "rewardsUnlocked": "Recompensas Desbloqueadas"
+  "rewardsUnlocked": "Recompensas Desbloqueadas",
+  "selectGame": "Selecciona un juego",
+  "selectVipLevel": "Selecciona nivel VIP",
+  "myReferralCommissions": "Mis Comisiones de Referencia",
+  "myReferralRewards": "Mis Recompensas de Referencia",
+  "exp": "EXP",
+  "userLevel": "Nivel de Usuario"
 }

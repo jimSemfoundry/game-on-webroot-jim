@@ -1,5 +1,5 @@
 {
-"aboutUs": "درباره ما",
+  "aboutUs": "درباره ما",
   "responsibleGaming": "بازی مسئولانه",
   "termsOfService": "شرایط خدمات",
   "accountInfo": "اطلاعات حساب",
@@ -21,6 +21,8 @@
   "addressVerificationDescription": "حساب خود را با وارد کردن آدرس مسکونی امن کنید.",
   "idVerification": "تأیید شناسنامه",
   "idVerificationDescription": "یک سند هویتی معتبر برای تأیید کامل و دسترسی به ویژگی‌های پیشرفته آپلود کنید.",
+  "idVerificationDescription1": "برای تأیید هویت خود و باز کردن گزینه‌های پرداخت اضافی، اقدام کنید.",
+  "idVerificationDescription2": "شما به شریک معتبر تأیید هویت ما هدایت خواهید شد تا یک فرآیند KYC سریع و امن را تکمیل کنید.",
   "verifyNow": "اکنون تأیید کنید",
   "verificationNotice": "برای خدمت‌رسانی بهتر، ما نیاز به اسناد شناسایی اصلی داریم. این کمک می‌کند حساب شما را برای بازیابی امن کنیم و مطمئن شویم که هر هدیه یا پاداشی به مکان درست ارسال شود.",
   "activeSessions": "جلسات فعال",
@@ -69,5 +71,17 @@
   "PasswordDescription": "حداقل ۶ کاراکتر شامل یک حرف بزرگ و یک عدد.",
   "changeEmail": "تغییر ایمیل",
   "changePhone": "تغییر شماره تلفن",
-  "updateAccountAndPassword": "به‌روزرسانی حساب و رمز عبور"
+  "updateAccountAndPassword": "به‌روزرسانی حساب و رمز عبور",
+  "confirm_new_password": "تأیید رمز عبور جدید",
+  "dashboard": "داشبورد",
+  "transactions": "تراکنش‌ها",
+  "rollover": "چرخش",
+  "betHistory": "تاریخچه شرط‌بندی",
+  "settings": "تنظیمات",
+  "legal": "قانونی",
+  "nickname": "نام مستعار",
+  "zoomAndAdjust": "زوم و تنظیم",
+  "systemLanguage": "زبان سیستم",
+  "editProfile": "ویرایش پروفایل",
+  "inviteAndGetRewarded": "دعوت کنید و پاداش بگیرید"
 }

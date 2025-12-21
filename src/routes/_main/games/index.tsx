@@ -95,7 +95,7 @@ const GamesList = () => {
   })
 
   const handleGameClick = (gameId: string) => {
-    navigate({ to: '/games/$gameId', params: { gameId } })
+    navigate({ to: '/games/$gameId', params: { gameId }, search: {} })
   }
 
   return (

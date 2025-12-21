@@ -10,30 +10,31 @@ export const TournamentHeroSection = () => {
     <div className="flex flex-col gap-0 sm:gap-4">
       {/* Hero Banner */}
       <div
-        className="flex flex-col gap-4 px-5 pt-8 pb-4 sm:px-12 relative h-[210px] sm:min-h-[340px] sm:rounded-box sm:justify-center select-none"
+        className="flex flex-col gap-4 px-5 pt-8 pb-4 sm:px-12 relative h-[210px] sm:min-h-[340px] sm:rounded-box sm:justify-center select-none overflow-hidden touch-none"
         style={{
           backgroundImage: isMobile
             ? undefined
             : `repeating-linear-gradient(
                 -45deg,
-                oklch(from var(--color-base-200) l c h / 0.1) 0px,
-                oklch(from var(--color-base-200) l c h / 0.1) 6px,
-                oklch(from var(--color-base-300) l c h / 0.3) 6px,
-                oklch(from var(--color-base-300) l c h / 0.3) 12px,
-                oklch(from var(--color-base-200) l c h / 0.1) 12px,
-                oklch(from var(--color-base-200) l c h / 0.1) 18px
+                oklch(from var(--color-base-200) l c h / 0.3) 0px,
+                oklch(from var(--color-base-200) l c h / 0.3) 6px,
+                oklch(from var(--color-base-200) l c h / 0.5) 6px,
+                oklch(from var(--color-base-200) l c h / 0.5) 18px,
+                oklch(from var(--color-base-200) l c h / 0.3) 18px,
+                oklch(from var(--color-base-200) l c h / 0.3) 24px
               )`,
         }}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full h-full">
           <div className="flex flex-col gap-2 sm:gap-3 z-10 sm:max-w-[48%] h-full pl-4">
             <div className="flex flex-col h-full justify-center">
-              <h2 className="text-lg sm:text-3xl font-extrabold text-primary uppercase tracking-wide">
-                {t("tournament:explore", "EXPLORE")}
-              </h2>
-              <h1 className="text-lg sm:text-[40px] font-black uppercase leading-[1.05]">
-                <span className="text-base-content">
-                  {t("tournament:tournaments", "TOURNAMENTS")}
+
+              <h1 className="text-lg sm:text-[40px] font-black  uppercase leading-[1.05]">
+                <h2 className="text-base-content">
+                  {t("tournament:explore", "EXPLORE")}
+                </h2>
+                <span className="text-primary">
+                  {t("tournament:tournaments", "TOURNAMENTS")},
                 </span>
                 <br />
                 <span className="text-base-content">
@@ -47,14 +48,16 @@ export const TournamentHeroSection = () => {
           <img
             src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
             alt="Tournament Character"
-            className="hidden sm:block absolute left-[391px] rtl:right-auto rtl:left-[391px] top-0 w-[340px] h-[340px] object-cover object-center drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] z-20"
+            className="hidden sm:block absolute left-[391px] rtl:right-auto rtl:left-[391px] top-0 w-[340px] h-[340px] object-cover object-center drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] z-20 pointer-events-none select-none"
+            draggable="false"
           />
 
           {/* 角色插画 - 移动端 */}
           <img
             src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
             alt="Tournament Character"
-            className="sm:hidden absolute -right-1 rtl:-right-auto rtl:-left-4 -bottom-1 w-[207px] h-[207px] object-cover object-top opacity-80 drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)]"
+            className="sm:hidden absolute -right-1 rtl:-right-auto rtl:-left-4 -bottom-1 w-[207px] h-[207px] object-cover object-top opacity-80 drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] pointer-events-none select-none"
+            draggable="false"
           />
 
           {/* Enter the Arena - 桌面端右侧覆盖卡片 */}
@@ -66,7 +69,7 @@ export const TournamentHeroSection = () => {
               <h2 className="text-3xl font-bold text-base-content mb-4">
                 {t("tournament:enterTheArena", "Enter the Arena")}
               </h2>
-              <div className="flex flex-col gap-4 text-base text-base-content/70 leading-relaxed">
+              <div className="flex flex-col gap-4 text-base text-base-content/50 leading-relaxed">
                 <p>
                   {t(
                     "tournament:arenaDescription1",

@@ -5,47 +5,86 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useFinanceModal, useTipsModal } from "@/contexts/ModalsProvider";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useDepositBonusConfig } from "@/hooks/api/usePublic";
 import { m } from "motion/react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useClaimBonus } from "@/hooks/api/useAuth.ts";
 
 interface BonusStage {
+  id: number
   percentage: string;
   unlocked: boolean;
   current: boolean;
 }
 
-interface BonusDepositCardProps {
-  maxBonusAmount: number;
-}
-
-export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
+export function BonusDepositCard() {
   const { t } = useTranslation();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { status, isAuthenticated, isLoading: isAuthLoading } = useAuth();
   const { openUserFinanceModalWithTab } = useFinanceModal();
   const { openTipsModal } = useTipsModal();
+  const { data: depositBonusConfig } = useDepositBonusConfig();
+  const { data: claimBonus } = useClaimBonus('rakeback')
+
+  const normalizedConfig = useMemo(() => {
+    const configList = Array.isArray(depositBonusConfig?.data)
+      ? depositBonusConfig?.data
+      : Array.isArray(depositBonusConfig?.data?.data)
+        ? depositBonusConfig?.data?.data
+        : [];
+
+    if (configList.length === 0) {
+      return Array.from({ length: 4 }, (_, index) => ({
+        level: index + 1,
+        bonus_percent: 0,
+        max_bonus_amount: 0,
+        currency: "USDT"
+      }));
+    }
+
+    return [...configList].sort((a: any, b: any) => (a?.level ?? 0) - (b?.level ?? 0));
+  }, [depositBonusConfig]);
+
+  // const totalMaxBonusAmount = useMemo(() => {
+  //   const amount = normalizedConfig.reduce((acc: number, item: any) => acc + Number(item?.max_bonus_amount ?? 0), 0);
+  //   return amount > 0 ? amount : maxBonusAmount;
+  // }, [normalizedConfig, maxBonusAmount]);
+
+  const totalCurrency = useMemo(() => {
+    const currencyItem = normalizedConfig.find((item: any) => item?.currency);
+    return currencyItem?.currency ?? "USDT";
+  }, [normalizedConfig]);
 
   // 基于用户充值次数计算充值奖励数据
-  const bonusStages: BonusStage[] = [
-    { percentage: "+120%", unlocked: false, current: false },
-    { percentage: "+120%", unlocked: false, current: false },
-    { percentage: "+120%", unlocked: false, current: false },
-    { percentage: "+120%", unlocked: false, current: false },
-  ].map((stage, index) => {
+  const bonusStages: BonusStage[] = useMemo(() => {
     const depositTimes = status?.deposit_bonus_times ?? 0;
-    const stageNumber = index + 1; // 1-based indexing
 
-    return {
-      ...stage,
-      unlocked: depositTimes >= stageNumber,
-      current: depositTimes + 1 === stageNumber, // Next stage to unlock
-    };
-  });
+    return normalizedConfig.map((config: any, index: number) => {
+      const stageNumber = index + 1; // 1-based indexing
+      const percentValue = Number(config?.bonus_percent ?? 0) * 100;
+      const formattedPercent = Number.isFinite(percentValue)
+        ? `+${percentValue.toLocaleString(undefined, {
+            minimumFractionDigits: percentValue % 1 === 0 ? 0 : 2,
+            maximumFractionDigits: 2
+          })}%`
+        : "+0%";
+
+      return {
+        id: config.id,
+        percentage: formattedPercent,
+        unlocked: depositTimes >= stageNumber,
+        current: depositTimes + 1 === stageNumber,
+      };
+    });
+  }, [normalizedConfig, status?.deposit_bonus_times]);
 
   // 计算进度条宽度的精确公式
   const calculateProgress = () => {
     const totalStages = bonusStages.length;
+    if (totalStages === 0) return 0;
     const unlockedCount = bonusStages.filter((stage) => stage.unlocked).length;
     const currentIndex = bonusStages.findIndex((stage) => stage.current);
 
@@ -72,7 +111,7 @@ export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
           <div className="w-full h-full"></div>
         </LiquidGlassEffect>
 
-        <div className="absolute top-0 left-0 right-0 p-3 px-5 sm:p-6 flex flex-col gap-4 pointer-events-auto">
+        <div className="sm:absolute sm:top-0 sm:left-0 sm:right-0 p-3 px-5 sm:p-6 flex flex-col gap-4 pointer-events-auto">
           {/* Header skeleton */}
           <div className="skeleton h-11 sm:h-20 w-full rounded-box"></div>
           
@@ -95,13 +134,17 @@ export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
         <div className="w-full h-full"></div>
       </LiquidGlassEffect>
 
-      <div className="absolute top-0 left-0 right-0 p-3 px-5 sm:p-6 flex flex-col gap-3 pointer-events-auto">
+      <div className="sm:absolute sm:top-0 sm:left-0 sm:right-0 p-3 px-5 sm:p-6 flex flex-col gap-3 pointer-events-auto">
         <div className="flex items-center sm:items-start gap-2 sm:gap-4">
           <img src="/icons/ui/gift-box.svg" alt="Bonus" className="w-9 h-9 sm:w-12 sm:h-12" />
-          <div className="flex flex-col text-start">
+          <div className="flex flex-col text-start gap-2">
             <p className="text-sm font-semibold sm:font-bold text-base-content sm:text-2xl leading-5">{t("bonus:deposit_bonus")}</p>
             <p className="text-xs font-semibold text-primary sm:text-lg">
-              {t("bonus:get_up_to")} {formatWithConversion(maxBonusAmount, "USDT", { showSymbol: true }).formatted}
+              <span className={'text-base-content/50'}>{t('bonus:poolBalance')}{': '}</span>
+              {formatWithConversion(claimBonus?.data?.data?.locked || 0, totalCurrency, {
+                showSymbol: true,
+                showCode: false,
+              }).formatted}
             </p>
           </div>
 
@@ -175,38 +218,46 @@ export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
 
             {/* 上层badges组 */}
             <div className="flex items-center justify-between relative z-10 sm:px-8 px-1">
-              {bonusStages.map((stage, index) => (
-                <div key={index} className="relative">
-                  {stage.unlocked && (
-                    <input
-                      type="checkbox"
-                      className="sm:absolute checkbox checkbox-primary checkbox-sm -left-8 top-1/2 -translate-y-1/2 hidden"
-                      checked
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-base-400 rounded-selector -z-10"></div>
-                  <div
-                    className={`
+              {bonusStages.map((stage, index) => {
+                // TODO: 等老UI这一块上线后同步代码
+                if (stage.id === 5) return
+
+                return (
+                  <div key={index} className="relative">
+                    {stage.unlocked && (
+                      <input
+                        type="checkbox"
+                        className="sm:absolute checkbox checkbox-primary checkbox-sm -left-8 top-1/2 -translate-y-1/2 hidden"
+                        checked
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-base-400 rounded-selector -z-10"></div>
+                    <div
+                      className={`
                     font-semibold text-xs h-7 sm:font-bold sm:badge-lg sm:h-8
                     ${
-                      stage.unlocked
-                        ? "badge badge-soft"
-                        : stage.current
-                          ? "badge badge-primary"
-                          : "badge text-base-content/50 bg-base-400 border-none"
-                    }
+                        stage.unlocked
+                          ? "badge badge-soft"
+                          : stage.current
+                            ? "badge badge-primary"
+                            : "badge text-base-content/50 bg-base-400 border-none"
+                      }
                   `}
-                  >
-                    {stage.percentage}
+                    >
+                      {stage.percentage}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
 
         <div className="flex items-center justify-around">
           {bonusStages.map((stage, index) => {
+            // TODO: 等老UI这一块上线后同步代码
+            if (stage.id === 5) return
+
             // 简化底座颜色逻辑：当前解锁的用primary/10，其他用base-300
             const isActive = stage.current;
             const shadowColor = isActive ? "oklch(from var(--color-primary) l c h / 0.1)" : "oklch(from var(--color-base-200) l c h)";
@@ -264,9 +315,10 @@ export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
           })}
         </div>
 
+        {/* `deposit_${randomString()}` 防止切换失效 */}
         <button
           className="btn btn-primary btn-lg text-sm font-bold sm:btn-xl sm:text-base sm:mt-2 z-10 relative pointer-events-auto"
-          onClick={() => openUserFinanceModalWithTab("deposit")}
+          onClick={() => openUserFinanceModalWithTab(`deposit_${randomString()}`)}
         >
           {t('bonus:deposit_now')}
         </button>
@@ -281,3 +333,4 @@ export function BonusDepositCard({ maxBonusAmount }: BonusDepositCardProps) {
     </div>
   );
 }
+

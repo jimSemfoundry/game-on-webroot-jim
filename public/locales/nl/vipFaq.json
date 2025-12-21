@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Wat zijn Level-Up bonussen?",
-    "content": "<p class=\"leading-7\">De level-up bonus is onze manier om waardering te tonen voor loyale spelers die al vanaf het begin bij ons zijn. Naarmate spelers hoger op de VIP-niveaus komen, ontgrendelen ze hogere level-up beloningen.</p>"
+    "title": "Wat zijn Level-Up Bonussen?",
+    "content": "<p class=\"leading-7\">Level-up bonus is onze manier om waardering te tonen voor loyale spelers die vanaf het begin bij ons zijn. Naarmate spelers de VIP-niveaus omhoog gaan, ontgrendelen ze hogere level-up beloningen.</p>"
   },
   "faqTwo": {
-    "title": "Wat is dagelijkse cashback?",
-    "content": "<p class=\"leading-7\">Dagelijkse Cashback wordt toegekend aan spelers die verliezen hebben geleden ten opzichte van hun stortingsbedrag. Deze bonus wordt dagelijks uitgegeven als een percentage van het verliesbedrag van de speler. Het dagelijkse cashbackpercentage zal toenemen met je VIP-niveaus, tot een maximum van 40% cashback, de hoogste cashback waar dan ook. Let op: deze bonus is alleen voor spelers met een nettoverlies.</p>"
+    "title": "Wat is Dagelijkse Cashback?",
+    "content": "<p class=\"leading-7\">Dagelijkse Cashback wordt toegekend aan spelers die verliezen hebben geleden ten opzichte van hun stortingsbedrag. Deze bonus wordt dagelijks uitgegeven als een percentage van het verliesbedrag van de speler. Het percentage dagelijkse cashback zal toenemen met je VIP-niveaus, tot een maximum van 40% cashback, de hoogste cashback overal. Houd er rekening mee dat deze bonus alleen voor spelers is die in een netto verliespositie verkeren.</p>"
   },
   "faqThree": {
-    "title": "Wat zijn Quests?",
-    "content": "<p class=\"leading-7\">Quests zijn dagelijkse missies die willekeurig aan spelers worden gegeven om extra beloningen te verdienen tijdens het spelen op onze website. Questbeloningen moeten binnen 24 uur voor de volgende cyclus worden opgeëist en vervallen als ze niet worden opgeëist. Questbeloningen worden uitbetaald in BUCK/USDT en kunnen worden omgezet naar een cryptocurrency naar keuze via onze swapfunctie.</p>"
+    "title": "Wat zijn Overwinningen/Quests?",
+    "content": "<p class=\"leading-7\">Overwinningen zijn dagelijkse quests die willekeurig aan spelers worden gegeven zodat ze extra beloningen kunnen verdienen tijdens het spelen op onze website. Overwinningsbeloningen moeten binnen 24 uur worden geclaimd voordat de volgende cyclus begint en vervallen als ze niet worden geclaimd. Overwinningsbeloningen worden uitbetaald in BUCK/USDT en kunnen worden omgezet naar de cryptocurrency van jouw keuze via onze swapfunctie.</p>"
   },
   "faqFour": {
     "title": "Wat zijn Toernooibeloningen?",
-    "content": "<p class=\"leading-7\">Toernooibeloningen zijn prijzen die gegeven worden voor uitstekende prestaties in competities. Toernooibeloningen zullen accumuleren tot ze opgeëist worden en hebben geen vervaldatum. Toernooibeloningen worden uitbetaald in BUCK/USDT en kunnen worden omgezet naar een cryptocurrency naar keuze via onze swapfunctie.</p>"
+    "content": "<p class=\"leading-7\">Toernooibeloningen zijn prijzen die worden gegeven voor uitstekende prestaties in competities. Toernooibeloningen accumuleren totdat ze worden geclaimd en hebben geen vervaldatum. Toernooibeloningen worden uitbetaald in BUCK/USDT en kunnen worden omgezet naar de cryptocurrency van jouw keuze via onze swapfunctie.</p>"
   },
   "faqFive": {
     "title": "Wat is Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback is ons mechanisme om je stortingsbonussen vrij te spelen. Een percentage van je inzet (tot 3%) krijg je terug elke keer dat je een weddenschap plaatst. Hoe hoger je VIP-niveau, hoe hoger het vrijspeelpercentage. Vrijgespeelde BUCK/USDT= Inzet x 2.5% x Vrijspeelpercentage%</p><p class=\"leading-7\">Vrijspeelpercentage:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">Super Rakeback is onze mechanismen voor het ontgrendelen van jouw stortingsbonussen. Een percentage van jouw inzet (tot 3%) wordt elke keer dat je een weddenschap plaatst aan jou teruggegeven. Hoe hoger jouw VIP-niveau, hoe hoger het ontgrendelpercentage. Ontgrendelde BUCK/USDT = Inzet x 2.5% x Ontgrendelpercentage%</p><p class=\"leading-7\">Ontgrendelpercentage:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "Wat is een Booster?",
-    "content": "<p class=\"leading-7\">Boosters verdubbelen je Rakeback een uur lang elke keer dat een verwijzing een storting doet.</p><p class=\"leading-7\">Verhoogd Vrijspeelpercentage:</p><p class=\"leading-7\">Vrijspeelpercentage:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters verdubbelen jouw Rakeback voor één uur elke keer dat een verwijzing een storting doet.</p><p class=\"leading-7\">Verhoogd Ontgrendelpercentage:</p><p class=\"leading-7\">Ontgrendelpercentage:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Wat is de Bonuskalender?",
-    "content": "<p class=\"leading-7\">De meeste bonussen worden uitbetaald 50% aan je Echt Saldo en 50% aan je Bonuskalender. Bonussen op je Bonuskalender kunnen elke 8 uur worden geclaimd en vervallen na 24 uur als ze niet worden geclaimd. Vergeet niet om de bonussen in je Bonuskalender minstens één keer per dag te claimen om er zeker van te zijn dat al je beloningen worden geïnd!</p>"
+    "content": "<p class=\"leading-7\">De meeste bonussen worden 50% aan jouw Werkelijke Balans en 50% aan jouw Bonuskalender uitbetaald. Bonussen die aan jouw Bonuskalender worden uitbetaald, kunnen elke 8 uur worden geclaimd en vervallen binnen 24 uur als ze niet worden geclaimd. Vergeet niet om de bonussen in jouw Bonuskalender minstens één keer per dag te claimen om ervoor te zorgen dat al jouw beloningen worden verzameld!</p>"
   },
   "faqEight": {
-    "title": "Wat is de wekelijkse bonus?",
-    "content": "<p class=\"leading-7\">De wekelijkse bonus is een exclusief extraatje op onze website voor spelers die VIP12 of hoger zijn. Deze bonus wordt wekelijks uitgegeven en automatisch elke vrijdag uitbetaald aan spelers met VIP12 en hoger. De grootte van de bonus hangt af van het bedrag dat je de afgelopen week hebt ingezet, met een minimum inzetvereiste van {{minWager}} over de afgelopen week.</p>"
+    "title": "Wat is de Wekelijkse Bonus?",
+    "content": "<p class=\"leading-7\">Wekelijkse Bonus is een exclusieve perk op onze website ontworpen voor spelers die VIP12 en hoger zijn. Deze bonus wordt wekelijks uitgegeven en automatisch elke vrijdag uitbetaald aan spelers van VIP12 en hoger. De grootte van de bonus hangt af van het bedrag dat in de afgelopen week is ingezet, met een minimum inzetvereiste van {{minWager}} in de afgelopen week.</p>"
   },
   "faqNine": {
-    "title": "Wat zijn prestaties?",
-    "content": "<p class=\"leading-7\">Prestaties zijn onze manier om je activiteit op ons platform te erkennen. Wanneer je je prestatiebonus claimt, wordt deze op je Bonuskalender gestort en kan elke 8 uur worden geclaimd. De bonus vervalt na 24 uur als deze niet wordt geclaimd.</p>"
+    "title": "Wat zijn Prestaties?",
+    "content": "<p class=\"leading-7\">Prestaties zijn onze manier om jouw activiteit op ons platform te erkennen. Wanneer je jouw prestatiebonus claimt, wordt deze uitbetaald aan jouw Bonuskalender en kan deze elke 8 uur worden geclaimd en vervalt binnen 24 uur als deze niet wordt geclaimd.</p>"
   }
 }

@@ -1,20 +1,16 @@
 import {
-  useSupportedCryptoWithdrawGatewaysFilter,
-  useSupportedSettlementCurrenciesFilter,
-  useUserLatestWithdraw,
+  useSupportedCryptoWithdrawGatewaysFilter, useSupportedCurrencyV2Filter,
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useBoundStore } from "@/store";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
+import { FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const WithdrawCryptoSelect = () => {
   const { t } = useTranslation();
 
-  const [l1, originCurrencies, currencies] = useSupportedSettlementCurrenciesFilter("CRYPTO", "WITHDRAW");
-
-  const { data: latestWithdraw, isLoading: l2 } = useUserLatestWithdraw();
+  const [l1, originCurrencies, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "WITHDRAW");
 
   // from data store, share common data
   const { withdrawCrypto, setWithdrawCrypto } = useBoundStore();
@@ -23,14 +19,12 @@ export const WithdrawCryptoSelect = () => {
 
   // initial default selected option
   useEffect(() => {
-    if (l1 || l2) return;
-    const v = latestWithdraw?.data?.[0];
+    if (l1) return;
     if (originCurrencies.length > 0) {
-      let find = undefined;
-      if (v && v?.network === "CRYPTO") find = originCurrencies.find((o: { currency: string }) => o?.currency === v?.currency);
+      const find = originCurrencies.find((o: { is_default: number }) => o?.is_default)
       setWithdrawCrypto({ currency: find || originCurrencies[0] });
     }
-  }, [l1, l2, originCurrencies, latestWithdraw]);
+  }, [l1, originCurrencies]);
 
   useEffect(() => {
     if (Array.isArray(networks)) setWithdrawCrypto({ network: originNetworks[0] });

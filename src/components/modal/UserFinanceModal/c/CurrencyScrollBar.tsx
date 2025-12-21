@@ -1,20 +1,20 @@
 import { CurrencyIconPlaceholder } from "@/components/modal/UserFinanceModal/c/CurrencyIconPlaceholder.tsx";
-import { useSupportedSettlementCurrenciesFilter, useUserLatestDeposit } from "@/components/modal/UserFinanceModal/helper.ts";
+import {
+  useSupportedCurrencyV2Filter
+} from "@/components/modal/UserFinanceModal/helper.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { forwardRef, useEffect, useLayoutEffect, useRef } from "react";
+import { forwardRef, useEffect, useLayoutEffect, useRef, WheelEvent } from "react";
 import Measure, { ContentRect, Rect } from "react-measure";
 
 export const CurrencyScrollBar = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const [l1, currencies] = useSupportedSettlementCurrenciesFilter("CRYPTO", "DEPOSIT");
-
-  const { data: latestDeposit, isLoading: l2 } = useUserLatestDeposit();
+  const [l1, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "DEPOSIT");
 
   // from data store, share common data
-  const { setDepositCrypto, syncAction } = useBoundStore();
+  const { syncAction } = useBoundStore();
 
   // 代币选择滚动
   const onScroll = (offset?: Rect) => {
@@ -28,31 +28,16 @@ export const CurrencyScrollBar = () => {
 
       container.scrollTo({
         left: scrollLeft,
-        behavior: "smooth",
+        behavior: "smooth"
       });
-    }
-
-    // 处理该区域的鼠标滚动支持
-    if (container) container.addEventListener("wheel", handleWheel);
-
-    function handleWheel(this: HTMLDivElement, event: WheelEvent) {
-      event.preventDefault();
-      event.deltaY < 0 ? (this.scrollLeft -= 10) : (this.scrollLeft += 10);
     }
   };
 
-  // initial default selected option
-  useEffect(() => {
-    if (l1 || l2) return;
-    const v = latestDeposit?.data?.[0];
-    if (currencies.length > 0) {
-      let find = undefined;
-      if (v && v?.network === "CRYPTO") find = currencies.find((o: { currency: string }) => o?.currency === v?.currency);
-      setDepositCrypto({ currency: find || currencies[0] });
-    }
-  }, [l1, l2, currencies, latestDeposit]);
-
-  // 事件通知
+  /**
+   * 事件通知
+   * 当设置好用户默认的加密货币时候，需要自动滚动到指定代币位置
+   * 该操作是一次性的，后续不能生效
+   */
   useEffect(() => {
     if (syncAction.type === "SYNC_USER_LATEST_DEPOSIT") {
       const target = document.getElementById("target");
@@ -60,15 +45,33 @@ export const CurrencyScrollBar = () => {
     }
   }, [syncAction]);
 
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault(); // Prevent the default vertical scrolling
+      element.scrollLeft += e.deltaY as any; // Scroll horizontally
+    };
+
+    element.addEventListener("wheel", handleWheel as any, { passive: false });
+
+    return () => {
+      element.removeEventListener("wheel", handleWheel as any);
+    };
+  }, []);
+
   return (
-    <div ref={ref} className="relative overflow-x-auto hide-scrollbar gap-2 flex overflow-hidden">
+    <div ref={ref} className="relative overflow-x-auto gap-4 flex overflow-y-hidden md:mx-0 hide-scrollbar">
       <SmallLoading
         className="h-8 !rounded-lg w-full"
         loading={l1}
         content={currencies.map((item: Record<string, any>) => (
           <Measure offset key={item?.id}>
             {({ measureRef, contentRect }) => (
-              <InnerOption ref={measureRef} item={item} data={currencies} onScroll={onScroll} contentRect={contentRect} />
+              <InnerOption ref={measureRef} item={item} data={currencies} onScroll={onScroll}
+                           contentRect={contentRect} />
             )}
           </Measure>
         ))}
@@ -86,18 +89,29 @@ const InnerOption = forwardRef<
     contentRect: ContentRect;
   }
 >(({ data, item, onScroll, contentRect }, ref) => {
+  // 只需要初始化的时候执行一次币种选中操作
+  const hasRunOnce = useRef(false);
+
   const { depositCrypto, setDepositCrypto, setSyncAction } = useBoundStore();
 
+  /**
+   * 当设置好用户默认的加密货币时候，需要自动滚动到指定代币位置
+   * 该操作是一次性的，后续不能生效
+   */
   useLayoutEffect(() => {
-    if (item?.currency === depositCrypto.currency?.currency) setSyncAction("SYNC_USER_LATEST_DEPOSIT", item);
-  }, [depositCrypto.currency]);
+    if (!hasRunOnce.current && item?.currency === depositCrypto.currency?.currency) {
+      setSyncAction("SYNC_USER_LATEST_DEPOSIT", item);
+
+      hasRunOnce.current = true;
+    }
+  }, [depositCrypto.currency?.currency]);
 
   return (
     <button
       ref={ref}
       className={cn(
-        "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-lg border-0 font-bold text-base-content/50 px-2",
-        item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : "",
+        "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-3 font-sans",
+        item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
       )}
       id={item?.currency === depositCrypto.currency?.currency ? "target" : ""}
       onClick={() => {

@@ -12,7 +12,7 @@ export function LevelUpgrade() {
 
   return (
     <div className="flex flex-col bg-base-400 p-3 relative rounded-lg border-1 border-base-100">
-      <img src={`/icons/vip-level/${status?.vip}.png`} className="absolute right-3 top-0 -translate-y-1/3 w-10"
+      <img src={`/images/vip/levels/${status?.vip}.png`} className="absolute right-3 top-0 -translate-y-1/3 w-10"
            alt="" />
       <div>
         <p className="font-extrabold text-xl">VIP {status?.vip}</p>

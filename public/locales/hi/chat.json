@@ -1,7 +1,7 @@
 {
-    "global": "वैश्विक",
-    "notifications": "सूचनाएं",
-    "support": "समर्थन",
-    "retry": "पुनः प्रयास करें",
-    "customerServiceChatFailedToLoad": "ग्राहक सेवा चैट लोड करने में विफल"
+  "global": "वैश्विक",
+  "notifications": "सूचनाएं",
+  "support": "समर्थन",
+  "retry": "पुनः प्रयास करें",
+  "customerServiceChatFailedToLoad": "ग्राहक सेवा चैट लोड करने में विफल"
 }

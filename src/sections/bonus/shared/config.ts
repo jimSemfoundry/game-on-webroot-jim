@@ -6,7 +6,7 @@ export const VIP_REQUIREMENTS = {
     translationKey: 'bonus:achievements'
   },
   mysteryBox: {
-    requiredLevel: 4,
+    requiredLevel: 5,
     name: 'Mystery Box',
     translationKey: 'bonus:mystery_box'
   },
@@ -24,6 +24,11 @@ export const VIP_REQUIREMENTS = {
     requiredLevel: 7,
     name: 'Lucky Number Seven',
     translationKey: 'bonus:lucky_number_seven'
+  },
+  vipMonday: {
+    requiredLevel: 2,
+    name: 'VIP Monday',
+    translationKey: 'bonus:vip_monday'
   }
 } as const;
 
@@ -35,7 +40,7 @@ export const checkVipAccess = (userVipLevel: number, requiredLevel: number): boo
 // 获取 VIP 状态文本
 export const getVipStatusText = (userVipLevel: number, requiredLevel: number): string => {
   if (userVipLevel >= requiredLevel) {
-    return 'Go';
+    return 'bonus:go';
   }
   return `VIP ${requiredLevel}`;
 };

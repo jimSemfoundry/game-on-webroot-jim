@@ -103,6 +103,7 @@ export interface UserStatus {
   favorites_game: string | null;
   bet_in: string;
   bet_out: string;
+  bet_in_ori: string;
   created_at: number;
   updated_at: number;
   promotion_rule_used: number | null;

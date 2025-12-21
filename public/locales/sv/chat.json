@@ -1,7 +1,7 @@
 {
-    "global": "Global",
-    "notifications": "Meddelanden",
-    "support": "Support",
-    "retry": "Försök igen",
-    "customerServiceChatFailedToLoad": "Kundtjänstchatten kunde inte laddas"
+  "global": "Global",
+  "notifications": "Meddelanden",
+  "support": "Support",
+  "retry": "Försök igen",
+  "customerServiceChatFailedToLoad": "Kundtjänstchatten kunde inte laddas"
 }

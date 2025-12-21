@@ -72,7 +72,7 @@ export function Profile() {
         {/* 昵称编辑 */}
         <div className="flex w-full flex-col gap-2 font-semibold text-base-content/50">
           <fieldset className="fieldset">
-            <h4 className="text-sm">Nickname</h4>
+            <h4 className="text-sm">{t("profile:nickname")}</h4>
             <div className="relative">
               <input
                 type="text"

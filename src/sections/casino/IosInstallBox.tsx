@@ -16,16 +16,16 @@ export const IoSInstallBox = ({ open, onClose }: { open: boolean, onClose: () =>
         <div className="max-w-[294px] w-[78.4%] relative ">
           <img src="/images/pwa/iosBoxImg.png" alt="" />
           <div className="absolute top-[137.2px] left-[50%] w-[120px] h-[120px] translate-x-[-50%] rounded-2xl overflow-hidden">
-            <img src='/logo-192x192.png' alt="" className="w-full h-full object-contain" />
+            <img src={`/favicon/${import.meta.env.VITE_THEME}/apple-touch-icon.png`} alt="" className="w-full h-full object-contain" />
           </div>
         </div>
 
-        <p>
-          <div className="text-lg font-bold text-base-content/50" dangerouslySetInnerHTML={{ __html: t('casino:addTo', { appName: `<span class="text-primary">${import.meta.env.VITE_WEBSITE_NICKNAME_LEFT || '1ST.'}</span><span class="text-white">${import.meta.env.VITE_WEBSITE_NICKNAME_RIGHT || 'GAME'}</span>` }) }} />
-          <div className="text-lg font-bold text-base-content/50">
+        <div>
+          <div className="text-lg font-bold text-base-content/50" dangerouslySetInnerHTML={{ __html: t('casino:addTo', { appName: `<span class="text-primary"> ${import.meta.env.VITE_WEBSITE_NICKNAME_LEFT || '1ST.'}</span><span class="text-white">${import.meta.env.VITE_WEBSITE_NICKNAME_RIGHT || 'GAME'} </span>` }) }} />
+          <div className="text-lg font-bold text-base-content/50 text-center">
             {t('casino:yourHomeScreen')}
           </div>
-        </p>
+        </div>
 
         <div className="flex flex-col gap-4">
           <p className="text-base text-base-content/50 leading-4.5 flex items-center">
@@ -55,14 +55,14 @@ export const IoSInstallBox = ({ open, onClose }: { open: boolean, onClose: () =>
           <div className="flex items-center w-18 h-[30px] rounded-lg rounded-xl justify-center" style={{ background: 'color(display-p3 0.000 0.478 1.000)' }}>
             <span className="text-white pr-1">{t('casino:tap')}</span>
             <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.10225 1.28975C9.32192 1.07008 9.67808 1.07008 9.89775 1.28975L12.1477 3.53975C12.3674 3.75942 12.3674 4.11558 12.1477 4.33525C11.9281 4.55492 11.5719 4.55492 11.3523 4.33525L10.0625 3.0455L10.0625 11.25C10.0625 11.5607 9.81066 11.8125 9.5 11.8125C9.18934 11.8125 8.9375 11.5607 8.9375 11.25L8.9375 3.0455L7.64775 4.33525C7.42808 4.55492 7.07192 4.55492 6.85225 4.33525C6.63258 4.11558 6.63258 3.75942 6.85225 3.53975L9.10225 1.28975ZM6.125 6.75C5.50368 6.75 5 7.25368 5 7.875V14.625C5 15.2463 5.50368 15.75 6.125 15.75H12.875C13.4963 15.75 14 15.2463 14 14.625V7.875C14 7.25368 13.4963 6.75 12.875 6.75H11.75C11.4393 6.75 11.1875 6.49816 11.1875 6.1875C11.1875 5.87684 11.4393 5.625 11.75 5.625H12.875C14.1176 5.625 15.125 6.63236 15.125 7.875V14.625C15.125 15.8676 14.1176 16.875 12.875 16.875H6.125C4.88236 16.875 3.875 15.8676 3.875 14.625V7.875C3.875 6.63236 4.88236 5.625 6.125 5.625H7.25C7.56066 5.625 7.8125 5.87684 7.8125 6.1875C7.8125 6.49816 7.56066 6.75 7.25 6.75H6.125Z" fill="#EBEBEB" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M9.10225 1.28975C9.32192 1.07008 9.67808 1.07008 9.89775 1.28975L12.1477 3.53975C12.3674 3.75942 12.3674 4.11558 12.1477 4.33525C11.9281 4.55492 11.5719 4.55492 11.3523 4.33525L10.0625 3.0455L10.0625 11.25C10.0625 11.5607 9.81066 11.8125 9.5 11.8125C9.18934 11.8125 8.9375 11.5607 8.9375 11.25L8.9375 3.0455L7.64775 4.33525C7.42808 4.55492 7.07192 4.55492 6.85225 4.33525C6.63258 4.11558 6.63258 3.75942 6.85225 3.53975L9.10225 1.28975ZM6.125 6.75C5.50368 6.75 5 7.25368 5 7.875V14.625C5 15.2463 5.50368 15.75 6.125 15.75H12.875C13.4963 15.75 14 15.2463 14 14.625V7.875C14 7.25368 13.4963 6.75 12.875 6.75H11.75C11.4393 6.75 11.1875 6.49816 11.1875 6.1875C11.1875 5.87684 11.4393 5.625 11.75 5.625H12.875C14.1176 5.625 15.125 6.63236 15.125 7.875V14.625C15.125 15.8676 14.1176 16.875 12.875 16.875H6.125C4.88236 16.875 3.875 15.8676 3.875 14.625V7.875C3.875 6.63236 4.88236 5.625 6.125 5.625H7.25C7.56066 5.625 7.8125 5.87684 7.8125 6.1875C7.8125 6.49816 7.56066 6.75 7.25 6.75H6.125Z" fill="#EBEBEB" />
             </svg>
           </div>
           <svg width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.69434 1.5L3.5 1.72168L3.30566 1.5H3.69434Z" stroke="#007AFF" style={{ stroke: '#007AFF', strokeWidth: '3' }} />
           </svg>
         </div>
-
+      
       </div>
     </Modal>
   )

@@ -17,15 +17,19 @@ export const Route = createFileRoute("/")({
       to: "/casino",
       search: search.openLogin
         ? {
-            openLogin: search.openLogin,
-            redirect: search.redirect,
-            ...ad,
-          }
+          openLogin: search.openLogin,
+          openSignUp: undefined,
+          redirect: search.redirect,
+          openFinance: undefined,
+          ...ad,
+        }
         : {
-            openLogin: undefined,
-            redirect: undefined,
-            ...ad,
-          },
+          openLogin: undefined,
+          openSignUp: undefined,
+          redirect: undefined,
+          openFinance: undefined,
+          ...ad,
+        },
     });
   },
   component: App,

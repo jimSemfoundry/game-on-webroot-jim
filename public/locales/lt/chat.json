@@ -1,7 +1,7 @@
 {
-    "global": "Globalus",
-    "notifications": "Pranešimai",
-    "support": "Palaikymas",
-    "retry": "Bandyti dar kartą",
-    "customerServiceChatFailedToLoad": "Klientų aptarnavimo pokalbis nepavyko įkelti"
+  "global": "Globalus",
+  "notifications": "Pranešimai",
+  "support": "Palaikymas",
+  "retry": "Bandyti dar kartą",
+  "customerServiceChatFailedToLoad": "Klientų aptarnavimo pokalbis nepavyko įkelti"
 }

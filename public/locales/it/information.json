@@ -1,38 +1,38 @@
 {
-    "goBack": "Torna indietro",
-    "tryAgain": "Prova di nuovo",
-    "retry": "Riprova",
-    "retryConnection": "Riprova la connessione",
-    "emptyStateNoContent": {
-        "title": "Non c'è ancora niente qui!",
-        "description": "Sembra che al momento non ci siano contenuti. Torna più tardi o prova con qualcos'altro."
-    },
-    "failedToLoadPage": {
-        "title": "Qualcosa è andato storto",
-        "description": "Si è verificato un errore di sistema durante il caricamento della pagina. Ricarica la pagina o contatta l'assistenza se il problema persiste."
-    },
-    "otherActiveSession": {
-        "title": "Errore di sessione!",
-        "description": "L'accesso da questo dispositivo non è attualmente disponibile per motivi di sicurezza. Questo potrebbe essere dovuto a un altro accesso o a un problema del sistema. Prova di nuovo o utilizza un altro dispositivo."
-    },
-    "noInternetConnection": {
-        "title": "Oops! Sei offline",
-        "description": "Sembra che tu non sia connesso a Internet. Controlla il tuo Wi-Fi o i dati del cellulare e prova di nuovo quando sarai di nuovo online."
-    },
-    "pageNotFound": {
-        "title": "Oops! Questa pagina non esiste",
-        "description": "Sembra che questa pagina non esista o sia stata spostata. Controlla l'URL o torna alla homepage."
-    },
-    "tooManyRequest": {
-        "title": "Tieni duro! Siamo un po' occupati",
-        "description": "Sembra che i nostri server stiano gestendo molte cose al momento. Dagli un po' di tempo e prova di nuovo."
-    },
-    "underMaintenance": {
-        "title": "Torniamo subito!",
-        "description": "Stiamo apportando alcuni aggiornamenti per garantire un funzionamento fluido. Torna presto!"
-    },
-    "userRestriction": {
-        "title": "Oops! Non puoi accedere a questo contenuto",
-        "description": "Sembra che tu non abbia i permessi per visualizzare questo contenuto. Ricontrolla il tuo accesso o contatta il supporto."
-    }
+  "goBack": "Torna indietro",
+  "tryAgain": "Prova di nuovo",
+  "retry": "Riprova",
+  "retryConnection": "Riprova la connessione",
+  "emptyStateNoContent": {
+    "title": "Niente qui ancora!",
+    "description": "Sembra che non ci sia contenuto qui in questo momento. Torna più tardi o prova qualcos'altro."
+  },
+  "failedToLoadPage": {
+    "title": "Qualcosa è andato storto",
+    "description": "Si è verificato un errore di sistema durante il caricamento della pagina. Ricarica la pagina o contatta il supporto se il problema persiste."
+  },
+  "otherActiveSession": {
+    "title": "Errore di sessione!",
+    "description": "L'accesso da questo dispositivo non è attualmente disponibile per motivi di sicurezza. Questo potrebbe essere dovuto a un altro accesso o a un problema di sistema. Riprova o utilizza un dispositivo diverso."
+  },
+  "noInternetConnection": {
+    "title": "Ops! Sei Offline",
+    "description": "Sembra che tu non sia connesso a Internet. Controlla il tuo Wi-Fi o i dati mobili e riprova una volta tornato online."
+  },
+  "pageNotFound": {
+    "title": "Ops! Questa pagina è mancante",
+    "description": "Sembra che questa pagina non esista o sia stata spostata. Prova a controllare l'URL o torna alla home."
+  },
+  "tooManyRequest": {
+    "title": "Aspetta un attimo! Siamo un po' occupati",
+    "description": "Sembra che i nostri server stiano gestendo molto in questo momento. Aspetta un momento e riprova."
+  },
+  "underMaintenance": {
+    "title": "Torneremo subito!",
+    "description": "Stiamo facendo alcuni aggiornamenti per mantenere tutto in funzione senza intoppi. Torna presto!"
+  },
+  "userRestriction": {
+    "title": "Ops! Non puoi accedere a questo",
+    "description": "Sembra che tu non abbia il permesso di visualizzare questo. Controlla di nuovo il tuo accesso o chiedi aiuto."
+  }
 }

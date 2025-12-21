@@ -1,7 +1,7 @@
 {
-    "global": "全球",
-    "notifications": "通知",
-    "support": "支持",
-    "retry": "重试",
-    "customerServiceChatFailedToLoad": "客户服务聊天未能加载"
+  "global": "全球",
+  "notifications": "通知",
+  "support": "支持",
+  "retry": "重试",
+  "customerServiceChatFailedToLoad": "客户服务聊天未能加载"
 }

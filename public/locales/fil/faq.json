@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Ilang Taon ang Kailangan Ko para Makapagrehistro sa Inyong Site?",
-    "content": "<p class=\"leading-7\">Kailangan mong maging hindi bababa sa {{faqAge}} taong gulang o nasa edad ng mayorya sa iyong hurisdiksyon upang makapagrehistro. Dapat ka ring legal na pinahintulutang maglaro ng mga online na laro ayon sa mga batas na naaangkop sa iyo. Para sa karagdagang impormasyon, pakibasa ang aming mga tuntunin ng serbisyo.</p><p class=\"leading-7\">Maaaring nakakaadik ang paglalaro, at pinapayuhan ang mga manlalaro na magsagawa ng kontrol sa sarili.</p>"
+    "title": "Ilang taon ang kailangan kong maging upang magrehistro sa iyong site?",
+    "content": "<p class=\"leading-7\">Kailangan mong maging hindi bababa sa {{faqAge}} taong gulang o nasa edad ng mayorya sa iyong hurisdiksyon upang magrehistro. Kailangan mo ring legal na pinahihintulutan na maglaro ng mga online na laro ayon sa mga batas na naaangkop sa iyo. Para sa karagdagang impormasyon, mangyaring basahin ang aming mga tuntunin ng serbisyo.</p><p class=\"leading-7\">Ang paglalaro ay maaaring maging nakaka-adik, at pinapayuhan ang mga manlalaro na magpakatino.</p>"
   },
   "faqTwo": {
-    "title": "Anong mga Currency ang Sinusuportahan ng Wallet?",
-    "content": "<p class=\"leading-7\">Sinusuportahan namin ang mga pangunahing cryptocurrencies tulad ng {{currency}}.</p>"
+    "title": "Anong pera ang sinusuportahan ng wallet?",
+    "content": "<p class=\"leading-7\">Sinusuportahan namin ang mga pangunahing cryptocurrency tulad ng {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Paano Ako Magdedeposito?",
-    "content": "<p class=\"leading-7\">Pumunta sa iyong profile page at i-click ang \"Deposito\", piliin ang cryptocurrency na iyong gusto, kopyahin ang wallet address o i-scan ang QR code para sa pagbabayad.</p>"
+    "title": "Paano ako magdedeposito?",
+    "content": "<p class=\"leading-7\">Pumunta sa iyong profile page at i-click ang \"Deposit\", piliin ang cryptocurrency na nais mo, kopyahin ang wallet address o i-scan ang QR code para sa pagbabayad.</p>"
   },
   "faqFour": {
-    "title": "Maaari Ko Bang Palitan ang Aking Mga Cryptocurrency sa Inyong Site?",
-    "content": "<p class=\"leading-7\">Nag-aalok ang {{siteName}} ng swap feature kung saan maaari kang ligtas at madaling magpalit ng iyong cryptocurrencies sa iba pang cryptocurrencies. Gayunpaman, dahil sa mga alalahanin sa coin mixing, ang lahat ng crypto na idineposito sa {{siteName}} ay may 1x rollover requirement, ibig sabihin kailangan mong tumaya ng iyong idinepositong pondo nang hindi bababa sa isang beses bago mo ito mapalitan.</p>"
+    "title": "Maaari ko bang ipagpalit ang aking mga cryptocurrency sa iyong site?",
+    "content": "<p class=\"leading-7\">Nag-aalok ang {{siteName}} ng isang swap feature kung saan maaari mong ligtas at madaling ipagpalit ang iyong mga cryptocurrency sa iba pang cryptocurrency. Gayunpaman, dahil sa mga alalahanin sa coin mixing, ang lahat ng crypto na idineposito sa {{siteName}} ay may 1x rollover requirement, na nangangahulugang kailangan mong magpusta gamit ang iyong idinepositong pondo ng hindi bababa sa 1 beses bago mo ito maipagpalit.</p>"
   },
   "faqFive": {
-    "title": "Paano Ako Mag-wiwithdraw?",
-    "content": "<p class=\"leading-7\">Pumunta sa iyong profile page at i-click ang \"Mag-withdraw\", ilagay ang address ng wallet kung saan mo gustong mag-withdraw at ang halagang nais mong bawiin. (Pakitandaan na maaaring may iba’t ibang bayarin depende sa iba’t ibang blockchain.)</p>"
+    "title": "Paano ako magwi-withdraw?",
+    "content": "<p class=\"leading-7\">Pumunta sa iyong profile page at i-click ang \"Withdraw\", ilagay ang address ng wallet na nais mong pag-withdrawan at ang halaga na nais mong i-withdraw. (Mangyaring tandaan na maaaring may iba't ibang bayarin na ipinapataw ayon sa iba't ibang blockchain)</p>"
   },
   "faqSix": {
-    "title": "Ano ang Minimum na Halaga ng Withdrawal para sa Bawat Cryptocurrency?",
-    "content": "<p class=\"leading-7\">Dahil sa iba’t ibang halaga ng cryptocurrency at mga bayarin sa mining, mangyaring suriin ang iyong withdrawal page para sa minimum na halaga ng withdrawal na nauukol sa bawat cryptocurrency.</p>"
+    "title": "Ano ang minimum na halaga ng pag-withdraw para sa bawat cryptocurrency?",
+    "content": "<p class=\"leading-7\">Dahil sa iba't ibang halaga ng cryptocurrency pati na rin ang iba't ibang bayarin sa pagmimina, mangyaring tingnan ang iyong withdrawal page para sa minimum na halaga ng pag-withdraw na nauugnay sa bawat cryptocurrency.</p>"
   },
   "faqSeven": {
-    "title": "Gaano Katagal ang Deposito at Withdrawal?",
-    "content": "<p class=\"leading-7\">Ang bawat transaksyon sa blockchain ay nangangailangan ng ilang cycle upang makumpirma.</p><p class=\"leading-7\">Sa pangkalahatan, ang bawat transaksyon ay tumatagal ng 5-10 minuto bago makumpirma ng blockchain network para sa BTC at ETH chain; at mga 1-2 minuto para sa TRON, TON, at SOLANA chain.</p><p class=\"leading-7\">Kung makatagpo ka ng problema sa deposito o withdrawal, maaari mong suriin ang iyong transaksyon gamit ang kaukulang blockchain explorer para sa network o makipag-ugnayan sa aming live na suporta.</p>"
+    "title": "Gaano katagal ang pagdedeposito at pag-withdraw?",
+    "content": "<p class=\"leading-7\">Bawat transaksyon sa blockchain ay nangangailangan ng ilang cycle upang makumpirma.</p><p class=\"leading-7\">Sa pangkalahatan, bawat transaksyon ay nangangailangan ng 5-10 minuto bago ito makumpirma ng blockchain network para sa BTC at ETH chain; at mga 1-2 minuto para sa TRON, TON, SOLANA chain.</p><p class=\"leading-7\">Kung makatagpo ka ng anumang problema sa panahon ng pagdedeposito o pag-withdraw, maaari mong suriin ang iyong transaksyon gamit ang kani-kanilang blockchain explorer para sa network o makipag-ugnayan sa aming live support.</p>"
   },
   "faqEight": {
-    "title": "Saan Nanggagaling ang Mga Kumpirmasyon ng Transaksyon?",
-    "content": "<p class=\"leading-7\">Ang lahat ng impormasyon sa kumpirmasyon ay nagmumula sa blockchain at mga minero para sa blockchain.</p>"
+    "title": "Saan nagmumula ang mga kumpirmasyon ng transaksyon?",
+    "content": "<p class=\"leading-7\">Lahat ng impormasyon ng kumpirmasyon ay nagmumula sa blockchain at mga minero para sa blockchain</p>"
   },
   "faqNine": {
-    "title": "Makatarungan ba ang Inyong Mga Laro?",
-  "content": "<p class=\"leading-7\">Ang Transparency, Tiwala, at Katarungan ay bahagi ng mga pangunahing halaga ng {{gameLink}} at ang pundasyon ng aming negosyo. Ito ang dahilan kung bakit nakikipagtulungan kami lamang sa mga pinagkakatiwalaang nangungunang kasosyo sa laro upang maibigay sa aming mga customer ang karanasang kalidad na kanilang nararapat.</p><p class=\"leading-7\">Lahat ng mga laro mula sa aming mga kasosyo ay mahigpit na sinusuri para sa randomness ng mga independiyenteng auditor, at may lisensya mula sa mga tagapamahala ng laro na nagsasagawa ng madalas na pag-audit sa kanilang Random Number Generator.</p>"
+    "title": "Makatotohanan ba ang iyong mga laro?",
+    "content": "<p class=\"leading-7\">Ang Transparency, Trust, at Fairness ay bahagi ng mga pangunahing halaga ng {{gameLink}} at ang pundasyon ng aming negosyo. Ito ang dahilan kung bakit nakikipagtulungan lamang kami sa mga pinagkakatiwalaang nangungunang kasosyo sa laro upang bigyan ang aming mga customer ng kalidad na karanasan na nararapat sa kanila.</p><p class=\"leading-7\">Lahat ng mga laro mula sa aming mga kasosyo ay masusing sinuri para sa randomness ng mga independiyenteng auditor, at lisensyado ng mga regulator ng gaming na sumasailalim sa madalas na pagsusuri sa kanilang Random Number Generator.</p>"
   },
   "faqTen": {
-    "title": "Ano ang Dapat Kong Gawin Kung Mag-hang ang Aking Laro o Madiskonekta Ako?",
-    "content": "<p class=\"leading-7\">Kung makatagpo ka ng anumang teknikal na problema, pakisubukang i-refresh ang pahina. Ang mga estado ng laro ay ini-save ng aming mga provider, at dapat mong makita ang iyong nakaraang estado ng laro kapag muling kumonekta.</p>"
+    "title": "Ano ang dapat kong gawin kung ang aking laro ay nag-hang o kung ako ay na-disconnect?",
+    "content": "<p class=\"leading-7\">Kung makatagpo ka ng anumang teknikal na problema, mangyaring subukang i-refresh ang pahina. Ang mga estado ng laro ay nai-save ng aming mga provider at dapat mong makita ang iyong nakaraang estado ng laro kapag nag-reconnect ka.</p>"
   }
 }

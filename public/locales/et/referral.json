@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Globaalne",
+    "ratesAndRules": "Hinnad ja reeglid",
+    "campaigns": "Kampaaniad",
+    "myReferrals": "Minu soovitused",
+    "commissions": "Komisjonid",
+    "rewards": "Preemiad"
+  },
+  "commissionCalculator": "Komisjonikalkulaator",
   "telegramReferralLink": "Telegrami Soovituslink",
-    "network": "Võrk",
+  "network": "Võrk",
   "lifetimeReferralRewards": "Eluaegsed soovituspreemiad",
   "referrals": "Soovitused",
   "availableCommissionRewards": "Saadaval komisjonipreemiad",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Saadaval soovituspreemiad",
   "lockedRewards": "Lukustatud preemiad",
   "assembleYourCrewCashIn": "Kogu oma meeskond ja võta raha sisse!",
+  "assembleYourCrewCashInDescription1": "Rekriuti oma meeskond ja teenige {{amount}} iga sõbra eest - nagu röövimine, aga ilma FBI jälitamiseta. Lisaks teenige kuni {{percentage}} komisjoni nende panustelt. Parim osa? Teie komisjonimäär kasvab koos teiega, kui te taset tõstate, ja teenite isegi oma meeskonna värbamistelt!",
+  "assembleYourCrewCashInDescription2": "Mida suurem on teie võrgustik, seda suurem on teie osa. Ükskõik, kas nad võidavad, kaotavad või panustavad nagu maniakid, te jätkate raha kogumist. Aeg ehitada oma impeerium - Alustage värbamist nüüd!",
+  "quickShare": "Kiire jagamine",
   "referralRewards": "Soovituspreemiad",
   "commissionRewards": "Komisjonipreemiad",
   "aboutDescription": "Värba oma meeskond ja teeni {{amount}} sõbra kohta – nagu meisterlik plaan, kuid ilma tagaajamiseta. Lisaks saad kuni 50% komisjoni nende panustelt. Parim osa? Sinu komisjonimäär kasvab koos sinu tasemega ja teenid ka oma meeskonna värvatute pealt!\n\nMida suurem on sinu võrgustik, seda suurem on sinu tulu. Olenemata sellest, kas nad võidavad, kaotavad või panustavad meeletult, kogud sina raha. Aeg ehitada oma impeerium – alusta värbamist kohe!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Jaga sotsiaalmeedias",
   "referralTermsConditions": "Soovituse tingimused",
   "liveGlobalRewards": "Reaalajas globaalsed preemiad",
+  "liveGlobalCommissions": "Reaalajas globaalne komisjon",
   "username": "Kasutajanimi",
   "friendLevel": "Sõbra tase",
   "totalExp": "Kokku EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Minu soovitused",
   "more": "Rohkem",
   "faqOne": {
-    "title": "Kuidas soovitussüsteem toimib?",
-    "content": "<p class=\"leading-7\">Kui jagate oma soovituslinki sõpradega ja nad registreeruvad meie saidil, saavad nad teie soovitusteks ning teenivad teile komisjonitasu ja soovituspreemiaid, mängides {{gameLink}} Liidus.</p>"
+    "title": "Kuidas toimib soovitussüsteem?",
+    "content": "<p class=\"leading-7\">Kui jagad oma soovituslinki sõpradega ja nad registreeruvad meie saidil; saavad nad sinu soovituseks ning teenivad sulle komisjoni ja soovituspreemiaid mängides {{gameLink}} liidus.</p>"
   },
   "faqTwo": {
-    "title": "Kui palju saan oma soovituse pealt teenida?",
-    "content": "<p class=\"leading-7\">Saad teenida {{percentage}} nende panustamisest komisjonina + {{amount}} iga soovituse kohta.</p>"
+    "title": "Kui palju ma saan oma soovitusest teenida?",
+    "content": "<p class=\"leading-7\">Sa saad teenida {{percentage}} nende panustamisest komisjonina + {{amount}} iga soovituse eest.</p>"
   },
   "faqThree": {
-    "title": "Mis on {{amount}} USD preemia ja kuidas see toimib?",
-    "content": "<p class=\"leading-7\">Iga teie poolt {{gameLink}}-le toodud soovituse eest on {{amount}} USD suurune preemia. See USD preemia makstakse välja {{parts}} osas, kui teie soovitustase tõuseb alates {{level}} tasemest.</p>"
+    "title": "Mis on {{amount}} USD preemia ja kuidas see töötab?",
+    "content": "<p class=\"leading-7\">Iga soovituse eest, mille sa {{gameLink}} toid, on {{amount}} USD preemia. See USD preemia antakse {{parts}} osas, kui sinu soovitustase tõuseb {{level}}.</p>"
   },
   "faqFour": {
-    "title": "Mul on suur publik. Kuidas saada eripakkumist?",
-    "content": "<p class=\"leading-7\">Kui teil on veebisait hea liiklusega või sotsiaalmeedia konto suure auditooriumiga, võite meile kirjutada aadressil {{emailLink}}</p>"
+    "title": "Mul on suur publik. Kuidas ma saan eripakkumise?",
+    "content": "<p class=\"leading-7\">Kui sul on veebisait, millel on hea liiklus või sotsiaalmeedia konto suure publikuga, võid meile kirjutada aadressil {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Mitu soovituslinki saan luua erinevate veebisaitide või sotsiaalmeediakontode jaoks?",
-    "content": "<p class=\"leading-7\">Saad luua kuni {{codes}} unikaalset koodi erinevate liiklusallikate jaoks.</p>"
+    "title": "Kui palju affiliate linke ma saan luua, kui mul on erinevad veebisaidid/sotsiaalmeedia kontod?",
+    "content": "<p class=\"leading-7\">Sa saad luua kuni {{codes}} ainulaadset koodi erinevate liiklusallikate jaoks</p>"
   },
   "faqSix": {
-    "title": "Kas saan näha oma soovituse andmeid?",
-    "content": "<p class=\"leading-7\">Jah, läbipaistvus, usaldus ja õiglus on osa {{gameLink}} põhiväärtustest. Andmed nagu kasutajanimi, kogupanus ja teenitud komisjonid on kõik saadaval vahekaartidel \"Minu komisjonid\" ja \"Soovituspreemiad\".</p>"
+    "title": "Kas ma saan näha oma soovituse andmeid?",
+    "content": "<p class=\"leading-7\">Jah, läbipaistvus, usaldus ja õiglus on osa {{gameLink}} põhiväärtustest. Andmed nagu kasutajanimi, kogupanus ja teenitud komisjon on kõik saadaval \"Minu komisjonid\" ja \"Soovituse preemiad\" vahekaartidel.</p>"
   },
   "faqSeven": {
-    "title": "Kas saan jagada komisjonipreemiaid oma soovitustega?",
-    "content": "<p class=\"leading-7\">Jah, saad jagada komisjonipreemiaid oma soovitustega, klõpsates „Loo uus kampaania“ ja määrates komisjoni jaotuse vahekaardil „Kampaaniad“.</p>"
+    "title": "Kas ma saan jagada komisjonipreemiaid oma soovitustega?",
+    "content": "<p class=\"leading-7\">Jah, sa saad jagada komisjonipreemiaid oma soovitustega, klikkides \"loo uus kampaania\" ja seadistades komisjoni jagamise \"Kampaaniad\" vahekaardil.</p>"
   },
   "faqEight": {
-    "title": "Mis on kaudne soovitus ja mida selle pealt teenin?",
-    "content": "<p class=\"leading-7\">Kaudne soovitus on aktiivne mängija, kes tuleb sinu otsese soovituse kutselingi kaudu. Kui sinu VIP-tase on kõrgem kui sinu otsese soovituse oma, saad teenida komisjoni ka kaudse soovituse pealt.</p>"
+    "title": "Mis on kaudne soovitus ja mida ma saan neist teenida?",
+    "content": "<p class=\"leading-7\">Kaudne soovitus on aktiivne mängija, kes tuleb sinu otsese soovituse kutsel. Kui sinu VIP tase on kõrgem kui sinu otsese soovituse VIP tase, saad samuti teenida komisjoni, mis tuleneb sinu kaudsetest soovitustest.</p>"
   },
   "levelReward": "Taseme tõusu preemia",
   "groupReward": "Komisjoni preemia",
@@ -150,5 +163,11 @@
   "slots": "Mänguautomaadid",
   "live-casino": "Live-Kasiino",
   "fishing": "Kalapüüd",
-  "rewardsUnlocked": "Auhinnad Avatud"
+  "rewardsUnlocked": "Auhinnad Avatud",
+  "selectGame": "Valige mäng",
+  "selectVipLevel": "Valige VIP tase",
+  "myReferralCommissions": "Minu soovitustasud",
+  "myReferralRewards": "Minu soovituspreemiad",
+  "exp": "KOGEMUS",
+  "userLevel": "Kasutaja tase"
 }

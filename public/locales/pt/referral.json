@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Taxas e Regras",
+    "campaigns": "Campanhas",
+    "myReferrals": "Minhas Referências",
+    "commissions": "Comissões",
+    "rewards": "Recompensas"
+  },
+  "commissionCalculator": "Calculadora de Comissões",
   "telegramReferralLink": "Link de Referência do Telegram",
   "network": "Rede",
   "lifetimeReferralRewards": "Recompensas de Indicação Vitalícias",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Recompensas de Indicação Disponíveis",
   "lockedRewards": "Recompensas Bloqueadas",
   "assembleYourCrewCashIn": "Reúna sua equipe e ganhe dinheiro!",
+  "assembleYourCrewCashInDescription1": "Recrute sua equipe e ganhe {{amount}} por amigo - como um assalto, mas sem a perseguição do FBI. Além disso, ganhe até {{percentage}} de comissão sobre as apostas deles. A melhor parte? Sua taxa de comissão cresce com você à medida que você sobe de nível, e você ainda ganhará com os recrutamentos da sua equipe!",
+  "assembleYourCrewCashInDescription2": "Quanto maior sua rede, maior sua fatia. Seja ganhando, perdendo ou apostando como maníacos, você continua acumulando dinheiro. Hora de construir seu império - Comece a recrutar agora!",
+  "quickShare": "Compartilhamento Rápido",
   "referralRewards": "Recompensas de Indicação",
   "commissionRewards": "Recompensas de Comissão",
   "aboutDescription": "Recrute seu esquadrão e ganhe {{amount}} por amigo - como um assalto, mas sem a perseguição do FBI. Além disso, ganhe até 50% de comissão em suas apostas. A melhor parte? Sua taxa de comissão cresce com você à medida que sobe de nível, e você ganhará até mesmo dos recrutas de sua equipe!\n\nQuanto maior for sua rede, maior será sua comissão. Quer eles ganhem, percam ou apostem como maníacos, você continua acumulando dinheiro. É hora de construir seu império - comece a recrutar agora!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Compartilhar nas Redes Sociais",
   "referralTermsConditions": "Termos e Condições de Indicação",
   "liveGlobalRewards": "Recompensas Globais ao Vivo",
+  "liveGlobalCommissions": "Comissões Globais ao Vivo",
   "username": "Nome de Usuário",
   "friendLevel": "Nível do Amigo",
   "totalExp": "Total de EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Meus Indicados",
   "more": "Mais",
   "faqOne": {
-    "title": "Como funciona o sistema de indicação?",
-    "content": "<p class=\"leading-7\">Quando você compartilha seu link de indicação com seus amigos e eles se cadastram em nosso site, eles se tornam suas indicações e você ganha comissão e recompensas de indicação jogando no {{gameLink}} Aliança.</p>"
+    "title": "Como funciona o sistema de referências?",
+    "content": "<p class=\"leading-7\">Quando você compartilha seu link de referência com seus amigos e eles se inscrevem em nosso site; eles se tornam suas referências e você ganhará comissões e recompensas de referência ao jogar no {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Quanto posso ganhar com minha indicação?",
-    "content": "<p class=\"leading-7\">Você pode ganhar {{percentage}} da atividade de apostas deles como comissões + {{amount}} por indicação.</p>"
+    "title": "Quanto posso ganhar com minha referência?",
+    "content": "<p class=\"leading-7\">Você pode ganhar {{percentage}} da atividade de aposta deles como comissões + {{amount}} por referência.</p>"
   },
   "faqThree": {
-    "title": "O que é a recompensa de {{amount}} USD e como ela funciona?",
-    "content": "<p class=\"leading-7\">Há uma recompensa de {{amount}} USD para cada indicação que você traz para o {{gameLink}}. Essa recompensa é paga em {{parts}} partes conforme seu nível de indicação aumenta a partir do {{level}}.</p>"
+    "title": "Qual é a recompensa de {{amount}} USD e como funciona?",
+    "content": "<p class=\"leading-7\">Há uma recompensa de {{amount}} USD por cada referência que você traz para {{gameLink}}. Esta recompensa em USD é dada em {{parts}} partes à medida que seu nível de referência aumenta de {{level}}.</p>"
   },
-   "faqFour": {
-    "title": "Tenho um grande público. Como posso conseguir uma oferta especial?",
-    "content": "<p class=\"leading-7\">Se você tem um site com bom tráfego ou uma conta em redes sociais com um grande público, pode nos enviar um e-mail para {{emailLink}}</p>"
+  "faqFour": {
+    "title": "Eu tenho um grande público. Como posso conseguir um acordo especial?",
+    "content": "<p class=\"leading-7\">Se você tem um site com bom tráfego ou uma conta de mídia social com um grande público, pode nos enviar um e-mail para {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Quantos links de indicação posso criar se tiver diferentes sites/contas de mídia social?",
-    "content": "<p class=\"leading-7\">Você pode criar até {{codes}} códigos únicos para diferentes fontes de tráfego.</p>"
+    "title": "Quantos links de afiliado posso criar se eu tiver diferentes sites/contas de mídia social?",
+    "content": "<p class=\"leading-7\">Você pode criar até {{codes}} códigos únicos para diferentes fontes de tráfego</p>"
   },
   "faqSix": {
-    "title": "Posso ver os dados da minha indicação?",
-    "content": "<p class=\"leading-7\">Sim, Transparência, Confiança e Justiça são parte dos valores centrais do {{gameLink}}. Dados como nome de usuário, total apostado e comissão ganha estão disponíveis nas abas \"Minhas Comissões\" e \"Recompensas de Indicação\".</p>"
+    "title": "Posso ver os dados da minha referência?",
+    "content": "<p class=\"leading-7\">Sim, Transparência, Confiança e Justiça são parte dos valores fundamentais do {{gameLink}}. Dados como nome de usuário, total apostado e comissões ganhas estão todos disponíveis na aba \"Minhas Comissões\" e \"Recompensas de Referência\".</p>"
   },
   "faqSeven": {
-    "title": "Posso compartilhar as recompensas de comissão com meus indicados?",
-    "content": "<p class=\"leading-7\">Sim, você pode compartilhar as recompensas de comissão com seus indicados clicando em \"Criar Nova Campanha\" e definindo a divisão de comissão na guia \"Campanhas\".</p>"
+    "title": "Posso compartilhar as recompensas de comissão com minhas referências?",
+    "content": "<p class=\"leading-7\">Sim, você pode compartilhar as recompensas de comissão com suas referências clicando em \"criar nova campanha\" e definindo a divisão da comissão na aba \"Campanhas\".</p>"
   },
   "faqEight": {
-    "title": "O que é uma indicação indireta e o que posso ganhar com ela?",
-    "content": "<p class=\"leading-7\">Uma indicação indireta é um jogador ativo que vem do link de convite de uma de suas indicações diretas. Se o seu nível VIP for maior do que o nível VIP de sua indicação direta, você também poderá ganhar comissão decorrente de sua indicação indireta.</p>"
+    "title": "O que é uma referência indireta e o que posso ganhar com elas?",
+    "content": "<p class=\"leading-7\">Uma referência indireta é um jogador ativo que vem do link de convite de uma de suas referências diretas. Se seu nível VIP for maior do que o nível VIP de sua referência direta, você também pode ganhar comissões provenientes de sua referência indireta.</p>"
   },
   "levelReward": "Recompensa por subir de nível",
   "groupReward": "Recompensa de comissão",
@@ -150,5 +163,11 @@
   "slots": "Caça-níqueis",
   "live-casino": "Cassino ao Vivo",
   "fishing": "Pesca",
-  "rewardsUnlocked": "Recompensas Desbloqueadas"
+  "rewardsUnlocked": "Recompensas Desbloqueadas",
+  "selectGame": "Selecionar um jogo",
+  "selectVipLevel": "Selecionar nível VIP",
+  "myReferralCommissions": "Minhas Comissões de Referência",
+  "myReferralRewards": "Minhas Recompensas de Referência",
+  "exp": "EXP",
+  "userLevel": "Nível do Usuário"
 }

@@ -2,11 +2,12 @@ import Iconify from "@/components/iconify";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { authService } from "@/services/authService";
-import type { CommissionListResponse } from "@/types/referral";
+import type { CommissionListResponse, CommissionRecord  } from "@/types/referral";
 import { cn } from "@/utils/cn";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import ReferralMyCommissionsDetails from "./referral-my-commissions-details";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -16,6 +17,8 @@ export const ReferralMyCommissions = () => {
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<CommissionRecord | null>(null);
 
   const { data, isLoading, isFetching } = useQuery<CommissionListResponse>({
     queryKey: ["commissionList", currentPage, user?.id],
@@ -94,12 +97,12 @@ export const ReferralMyCommissions = () => {
         ) : commissionList.length === 0 ? (
           <div className="flex-1 flex items-center justify-center py-20">
             <div className="flex flex-col items-center gap-4">
-              <img 
-                src="/images/illustrations/no-data.svg" 
-                alt="No data" 
+              <img
+                src="/images/illustrations/no-data.svg"
+                alt="No data"
                 className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
               />
-              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.nothingYet")}</div>
+              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.noData")}</div>
             </div>
           </div>
         ) : (
@@ -122,6 +125,10 @@ export const ReferralMyCommissions = () => {
                         "rounded-lg transition-colors cursor-pointer",
                         index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-200 hover:bg-base-300/50"
                       )}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        setIsOpen(true);
+                      }}
                     >
                       <td className="px-4 py-2.5 rounded-l-lg" colSpan={4}>
                         <div className="text-sm font-semibold text-base-content/50 truncate">
@@ -153,6 +160,7 @@ export const ReferralMyCommissions = () => {
                             showSymbol: false,
                             showCode: true,
                             minimizeDecimals: true,
+                            displayDecimal: 4,
                           }).formatted}
                         </div>
                       </td>
@@ -170,6 +178,10 @@ export const ReferralMyCommissions = () => {
                     "rounded-2xl px-4 py-2.5 flex flex-col gap-2",
                     index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50"
                   )}
+                  onClick={() => {
+                    setSelectedItem(item);
+                    setIsOpen(true);
+                  }}
                 >
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2 min-w-0">
@@ -200,6 +212,7 @@ export const ReferralMyCommissions = () => {
                           showSymbol: false,
                           showCode: true,
                           minimizeDecimals: true,
+                          displayDecimal: 4,
                         }).formatted}
                       </div>
                     </div>
@@ -248,6 +261,7 @@ export const ReferralMyCommissions = () => {
             )}
           </>
         )}
+        <ReferralMyCommissionsDetails item={selectedItem} isOpen={isOpen} onClose={() => setIsOpen(false)} /> 
       </div>
     </div>
   );

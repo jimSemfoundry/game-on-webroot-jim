@@ -6,3 +6,4 @@ export { Index as Settings } from "./settings";
 export { Index as Rollover } from "./rollover";
 export { Index as Transactions } from "./transactions";
 export { Index as ProfileMsg } from "./profile-msg";
+export { Index as FreeSpins } from "./spin-history";

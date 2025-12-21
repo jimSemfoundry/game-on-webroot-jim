@@ -10,7 +10,7 @@ export const Route = createFileRoute("/_main/vip-club/")({
 
 function RouteComponent() {
   return (
-    <div className="flex flex-col gap-6 pb-26">
+    <div className="flex flex-col gap-6 pb-26 overflow-x-hidden">
       <VipHero />
       <div className="px-5 sm:px-0">
         <VipRewardsTable />

@@ -1,7 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ProgressWithLabel } from "@/components/ui/ProgressBar";
-import { ImageColorCard } from "@/components/ui/ImageColorCard";
-import { gradientStyles, type GradientColor } from "@/sections/bonus/styles";
+import { gradientStyles, createBonusGradient, type GradientColor } from "@/sections/bonus/styles";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
 
 export interface BonusConquestsTaskCardProps {
   id: string;
@@ -29,35 +29,38 @@ export const BonusConquestsTaskCard = ({
   onGoClick,
   onColorExtracted
 }: BonusConquestsTaskCardProps) => {
-  const handleColorExtracted = useCallback((color: string) => {
-    onColorExtracted(id, color);
-  }, [id, onColorExtracted]);
+  const [background, setBackground] = useState<string>(gradientStyles[gradientColor]);
+  const { hex } = useVibrantColor(icon);
+
+  useEffect(() => {
+    if (hex) {
+      const newGradient = createBonusGradient(hex);
+      setBackground(newGradient);
+      onColorExtracted(id, newGradient);
+    }
+  }, [hex, id, onColorExtracted]);
 
   const handleGoClick = useCallback(() => {
     onGoClick(id);
   }, [id, onGoClick]);
 
   return (
-    <ImageColorCard
-      imageUrl={icon}
-      defaultBackground={gradientStyles[gradientColor]}
+    <div
       className="rounded-field p-4 relative overflow-hidden border border-base-200"
       style={{
-        background: backgroundStyle || undefined,
+        background: backgroundStyle || background,
       }}
-      onColorExtracted={handleColorExtracted}
-      gradientMode="radial"
-      colorOpacity={0.4}
     >
       <div className="flex flex-col gap-3">
         {/* Top Section: Icon + Name + Description */}
         <div className="flex items-start gap-3">
           {/* Icon */}
           <div className="rounded-lg flex items-center justify-center flex-shrink-0">
-            <img 
-              src={icon} 
-              alt={title} 
+            <img
+              src={icon}
+              alt={title}
               className="w-15 h-15 object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -71,21 +74,21 @@ export const BonusConquestsTaskCard = ({
         {/* Bottom Section: Progress + Go Button */}
         <div className="flex items-center gap-3">
           {/* Progress Section */}
-          <ProgressWithLabel 
+          <ProgressWithLabel
             progress={progress}
             label="Progress"
             className="opacity-50"
           />
 
           {/* Go Button */}
-          <button 
-            onClick={handleGoClick} 
+          <button
+            onClick={handleGoClick}
             className="btn w-20 btn-primary btn-soft btn-md px-4 flex-shrink-0"
           >
             Go
           </button>
         </div>
       </div>
-    </ImageColorCard>
+    </div>
   );
 };

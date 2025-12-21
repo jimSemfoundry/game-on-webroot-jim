@@ -1,4 +1,15 @@
 {
+  "double_or_nothing_description": "Claim your bonus as usual...\nOr take a bold leap to",
+  "double_it": "Double It!",
+  "no_thanks": "No Thanks",
+  "double_or_nothing": "Double or Nothing",
+  "come_back_tomorrow": "Come Back Tomorrow",
+  "promo_code": "Promo Code",
+  "got_a_code": "Got a code? You know what to do!",
+  "lifetime_bonus": "Lifetime Bonus",
+  "claimed": "Claimed",
+  "starter": "Starter",
+  "pack": "Pack",
   "achievements_card_description": "Collect special achievement rewards designed to celebrate every step of your progress!",
   "achievement_short_descriptions": {
     "achievement_verify_email": "Master the art of luck",
@@ -19,7 +30,7 @@
     "achievement_single_payout": "Dominate the crypto market",
     "achievement_crypto_bro": "Master cryptocurrency trading",
     "achievement_crypto_baron": "Dominate the crypto market",
-    "achievement_chain_shifter": "Navigate blockchain networks", 
+    "achievement_chain_shifter": "Navigate blockchain networks",
     "achievement_money_master": "Master financial strategies",
     "achievement_sniper": "Master precision gaming",
     "achievement_champion": "Achieve ultimate victory",
@@ -44,11 +55,6 @@
   "achievements": "Achievements",
   "referral_bonus": "Referral Bonus",
   "bonus_details": "Bonus Details",
-  "type": "Type",
-  "amount": "Amount",
-  "no_bonus_details": "No bonus details available",
-  "team_commission": "Team Commission",
-  "level_up_bonus": "Level Up Bonus",
   "complete_four_conquests_to_release": "Complete four conquests to release ",
   "from_your_bonus_pool_today": "from your bonus pool today!",
   "bonus_pool_today": "Bonus Pool Today",
@@ -70,6 +76,7 @@
   "total_vip_bonus_claimed": "Total VIP Bonus Claimed",
   "your_vip_progress": "Your VIP Progress",
   "available_at_vip": "Available at VIP {{vip}}",
+  "vip_progress_description": "Push forward! The next level unlocks {{amount}} from your bonus pool.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Hit VIP 4 and gain access to  Lucky Spin - your chance to win extra rewards every single day!",
   "weekly_cashback": "Weekly Cashback",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Reach VIP 12 and unlock weekly cashback, your personal safety net for high roller action!",
@@ -85,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Lucky Number Seven",
   "expires_in": "Expires In",
+  "expires": "Expires",
   "go": "Go",
   "conquest_just_wager_title": "Just Wager on {{amount}}",
   "conquest_just_wager_description": "Wager {{amount}} in any games in a single day to release {{reward}} from your bonus pool today!",
@@ -200,6 +208,62 @@
   "achievement_slots_multiplier": {
     "name": "Slots Multiplier",
     "description": "This achievement is awarded to players who have secured a <0>win with a {{count}}x multiplier</0> or more in a single slot spin. It honors those who chase greatness, embrace the thrill of high risk, and land extraordinary rewards. These are not ordinary players — they command the reels and rise above the rest."
+  },
+  "achievement_champion": {
+    "name": "Champion",
+    "description": "This achievement is awarded to players who have secured <0>10 wins</0>. A Champion stands tall in the arena of chance, proving their resilience round after round. With every victory, they cement their place among the contenders who rise above luck to claim glory."
+  },
+  "achievement_slot_master": {
+    "name": "Slot Master",
+    "description": "This achievement is awarded to players who have wagered at least <0>{{amount}}</0> on slot games. A Slot Master spins with confidence and persistence, turning every reel into a chance for fortune. With steady hands and fearless play, they prove that true mastery is built one spin at a time."
+  },
+  "achievement_the_challenger": {
+    "name": "The Challenger",
+    "description": "This achievement is awarded to players who have placed at least <0>10 valid bets</0> across their play history. The Challenger rises to every opportunity, driven by determination and the thrill of competition. Bold and relentless, they prove that true contenders don’t shy away from the game — they step forward, ready to test their limits and claim their place among the fearless."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "This achievement is awarded to players who have completed <0>1 deposit</0> of at least <0>{{amount}}</0> in a single transaction. A Dynamo grows stronger with every recharge, proving their consistency and determination on the path to mastery."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Face of Fortune",
+    "description": "This achievement is awarded to players who have customized their avatar for the first time. A Face of Fortune knows that identity is power — every choice of style, symbol, or expression is a mark of individuality. By shaping their look, they show that true players don’t just play the game — they leave their mark on it."
+  },
+  "achievement_name_of_fame": {
+    "name": "Name of Fame",
+    "description": "This achievement is awarded to players who have set their username for the first time. A Name of Fame marks the beginning of true identity, transforming a newcomer into a recognized presence. Bold and unique, they prove that every legend starts with a name remembered."
+  },
+  "achievement_guiding_star": {
+    "name": "Guiding Star",
+    "description": "This achievement is awarded to players who have added the game to their Home Screen or downloaded the app. A Guiding Star keeps the path to fortune clear, lighting the way back to play with a single tap."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "This achievement is awarded to players who have wagered a total of at least <0>{{amount}}</0> across their entire play history.  Highrollers wear the mark of commitment and prestige, proving their dedication to the game with every spin, bet, and round. Their crown isn’t just a symbol — it’s a testament to persistence, passion, and the pursuit of fortune."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "This achievement is awarded to players who have hit a <0>20x</0> multiplier on any slot. With flames roaring, an Inferno transforms a single wager into a firestorm of fortune."
+  },
+  "achievement_money_maverick": {
+    "name": "Money Maverick",
+    "description": "This achievement is awarded to players who have made a deposit of at least <0>{{amount}}</0> in a single transaction, using fiat or local payment gateways. A Money Maverick blazes their own trail with bold confidence, turning everyday cash into extraordinary opportunities. Fearless and adventurous, they prove that true mavericks don’t just follow the rules — they redefine them."
+  },
+  "achievement_money_master": {
+    "name": "Money Master",
+    "description": "This achievement is awarded to players who have completed a fiat withdrawal of at least <0>{{amount}}</0> in a single transaction. A Money Master stands tall at the crossroads of play and reward, converting their winnings into real-world value. With steady hands and sharp timing, they show that true mastery isn’t just in the game — it’s in bringing the rewards home."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "This achievement is awarded to players who have made a deposit of at least <0>{{amount}}</0> in a single transaction, with any cryptocurrency. A Crypto Maestro conducts their funds like a true artist, orchestrating digital assets with precision and flair. Confident on the blockchain stage, they are pioneers of play who prove that fortune favors the bold."
+  },
+  "achievement_crypto_baron": {
+    "name": "Crypto Baron",
+    "description": "This achievement is awarded to players who have completed a crypto withdrawal of at least <0>{{amount}}</0> in a single transaction, with any cryptocurrency. A Blockchain Baron rules the realm of digital assets, moving funds across the chain with confidence and command. With every successful withdrawal, they prove that fortune can be earned, secured, and carried home on the blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Chain Shifter",
+    "description": "This achievement is awarded to players who have successfully completed a <0>crypto swap transaction</0>. A Chain Shifter is someone who knows how to move between tokens with confidence, adapting to market tides with ease. Masters of momentum, they thrive on flexibility and transformation, always ready to shift gears and seize opportunity."
   },
   "item": {
     "conquest_just_wager_on_100": "Conquest Just Wager on 100",
@@ -325,9 +389,29 @@
     "comingSoon": "Double or Nothing feature coming soon!",
     "approximateBuck": "Approximately {{amount}} BUCK"
   },
-  "double_or_nothing": "Double Or Nothing",
-  "double_or_nothing_description": "Claim your bonus as usual... \n Or take a bold leap to",
-  "double_it": "DOUBLE IT!",
+  "vip_monday": "VIP Monday",
+  "vip_monday_description": "A special weekly drop to reward loyal players each Monday",
+  "vip_monday_wager": "Wager at least {{amount}} in the previous 7 days for a Mystery drop every Monday.",
+  "claim_on_monday": "Claim on Monday",
+  "vip_monday_title": "VIP \n <0>MONDAY</0>",
+  "bonus_already_claimed": "Bonus already claimed",
+  "wager_requirement_not_met": "Wager requirement not met",
+  "not_in_claim_time_range": "Not in claim time range",
+  "monday": "Monday",
+  "poolBalance": "Pool Balance",
+  "program": "Program",
+  "races": "Races",
+  "loading_achievements": "Loading achievements...",
+  "no_achievements_available":"No achievements available",
+  "check_back_later_for_new_achievements":"Check back later for new achievements",
+  "i_will_wait": "Okay, I’ll Wait",
+  "bonus_reset_daily": "This bonus reset daily.",
+  "another_go": "Give it another go.",
+  "quick_reset": "Looks like the bonus machine needs a quick reset.",
+  "next_claim": "Recharge now to power up your next claim!",
+  "refill_claim": "Refill & Claim",
+  "out_of_charge": "Your bonus pool has run out of charge",
+  "out_of_fuel": "Out of \n Bonus Fuel",
   "congratulations": "Congratulations!",
   "you_doubled_up": "You Doubled Up!",
   "cheers_to_your_courage": "Cheers to your courage",
@@ -338,5 +422,15 @@
   "recovery_bonus_title": "RECOVERY \n BONUS",
   "deposit_get": "Deposit {{amount}} \n Get {{cash_bonus}}",
   "you_got_nothing": "You Got Nothing",
-  "better_luck_next_time": "Better Luck Next Time"        
+  "better_luck_next_time": "Better Luck Next Time",
+  "tell_a_friend": "Tell a Friend",
+  "play_now": "Play Now",
+  "change_avatar_now": "Change Avatar Now",
+  "set_username_now": "Set Username Now",
+  "withdraw_now": "Withdraw Now",
+  "swap_now": "Swap Now",
+  "ongoing":"Ongoing",
+  "no_tournaments_available":"No Tournaments Available",
+  "tournaments_available_desc":"There are currently no active tournaments. Check back later for exciting competitions!",
+  "no_leaderboard_data_available":"No leaderboard data available"
 }

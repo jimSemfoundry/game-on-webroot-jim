@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Prevzemite svoj bonus kot običajno...\nAli naredite drzen skok v",
+  "double_it": "Podvojite ga!",
+  "no_thanks": "Ne hvala",
+  "double_or_nothing": "Podvoji ali nič",
+  "come_back_tomorrow": "Vrni se jutri",
+  "promo_code": "Promo koda",
+  "got_a_code": "Imate kodo? Veste, kaj storiti!",
+  "lifetime_bonus": "Bonus za vse življenje",
+  "claimed": "Prevzeto",
+  "starter": "Začetnik",
+  "pack": "Paket",
+  "achievements_card_description": "Zberite posebne nagrade za dosežke, zasnovane za praznovanje vsakega koraka vašega napredka!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Obvladajte umetnost sreče",
+    "achievement_verify_phone": "Nepremagljiva energija in moč",
+    "achievement_add_desktop_app": "Vedno na dosegu",
+    "achievement_super_spreader": "Delite igralno izkušnjo",
+    "achievement_conquistador": "Soočite se z vsakim oviranjem",
+    "achievement_game_explorer": "Odkrijte nove igralne svetove",
+    "achievement_card_shark": "Obvladajte kartične igre",
+    "achievement_slotmaster": "Obvladajte igralne avtomate",
+    "achievement_talkative": "Pokažite pot drugim",
+    "achievement_bet_count": "Obvladajte natančno igranje",
+    "achievement_deposit_count": "Dosezite končno zmago",
+    "achievement_wager_count": "Prežgite izzive",
+    "achievement_single_bet": "Postanite legendarni",
+    "achievement_single_deposit": "Navigirajte po blockchain omrežjih",
+    "achievement_single_wager": "Obvladajte finančne strategije",
+    "achievement_single_payout": "Obvladajte kripto trg",
+    "achievement_crypto_bro": "Obvladajte trgovanje s kriptovalutami",
+    "achievement_crypto_baron": "Obvladajte kripto trg",
+    "achievement_chain_shifter": "Navigirajte po blockchain omrežjih",
+    "achievement_money_master": "Obvladajte finančne strategije",
+    "achievement_sniper": "Obvladajte natančno igranje",
+    "achievement_champion": "Dosezite končno zmago",
+    "achievement_name_of_fame": "Postanite legendarni",
+    "achievement_guiding_star": "Pokažite pot drugim",
+    "achievement_face_of_fortune": "Obvladajte umetnost sreče",
+    "achievement_dynamo": "Nepremagljiva energija in moč",
+    "achievement_inferno": "Prežgite izzive",
+    "achievement_the_challenger": "Soočite se z vsakim oviranjem"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Skupaj zahtevani bonusi",
   "details": "Podrobnosti",
   "redeem": "Unovči",
-"deposit_bonus": "Zbirka bonusov za polog",
+  "deposit_bonus": "Zbirka bonusov za polog",
   "get_up_to": "Pridobi do",
   "deposit_now": "Vplačaj zdaj",
   "bonus_ends_in": "Bonus poteče v",
@@ -26,7 +68,7 @@
   "daily_cashback": "Dnevno vračilo denarja",
   "bonus_calendar": "Bonusni koledar",
   "claim_every_8_hours": "Zahtevaj vsakih 8 ur",
-"locked": "Zbirka bonusov za polog",
+  "locked": "Zbirka bonusov za polog",
   "next_claim_in": "Naslednji zahtevek čez",
   "bonus_pool": "Zbirka prihodnjih nagrad",
   "bonus_calendar_details": "Zahtevajte vsakih 8 ur, da pridobite bonus!",
@@ -34,6 +76,7 @@
   "total_vip_bonus_claimed": "Skupaj zahtevani VIP bonusi",
   "your_vip_progress": "Vaš VIP napredek",
   "available_at_vip": "Na voljo pri VIP {{vip}}",
+  "vip_progress_description": "Naprej! Naslednja raven odkrije {{amount}} iz vašega bonusnega sklada.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Dosezite VIP 4 in pridobite dostop do Srečnega vrtenja - vaša priložnost za dodatne nagrade vsak dan!",
   "weekly_cashback": "Tedensko vračilo denarja",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Dosezite VIP 12 in odklenite tedensko vračilo denarja - vašo osebno varnostno mrežo za igro z visokimi vložki!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Srečno vrtenje",
   "lucky_number_seven": "Srečna številka sedem",
   "expires_in": "Poteče v",
+  "expires": "Poteka",
   "go": "Pojdi",
   "conquest_just_wager_title": "Samo stavite {{amount}}",
   "conquest_just_wager_description": "Stavite {{amount}} v katerikoli igri v enem dnevu, da sprostite {{reward}} iz vašega bonusnega sklada še danes!",
@@ -98,133 +142,190 @@
   "sort_by": "Razvrsti po:",
   "claimable": "Na voljo",
   "achievement_verify_email": {
-    "name": "Preverjanje e-pošte",
-    "description": "Ta dosežek prejmejo igralci, ki so preverili svojo e-pošto, s čimer so zavarovali svojo identiteto in odklenili varen dostop. To je znak pripravljenosti in zanesljivosti - prvi korak vsakega resnega igralca."
+    "name": "Potrdite e-pošto",
+    "description": "Ta dosežek je dodeljen igralcem, ki so potrdili svojo e-pošto, s čimer so zaklenili svojo identiteto in odprli varen dostop. To je znak pripravljenosti in zanesljivosti — prvi korak vsakega resnega igralca."
   },
   "achievement_verify_phone": {
-    "name": "Preverjanje telefona",
-    "description": "Ta dosežek prejmejo igralci, ki so preverili svojo telefonsko številko, da ostanejo obveščeni in povezani. To pomeni zaupanje, sodelovanje in zavezanost utripu igre."
+    "name": "Potrdite telefon",
+    "description": "Ta dosežek je dodeljen igralcem, ki so potrdili svojo telefonsko številko, da ostanejo obveščeni in povezani. To pomeni zaupanje, angažiranost in zavezanost pulzu igre."
   },
   "achievement_add_desktop_app": {
-    "name": "Dodaj na začetni zaslon",
-    "description": "To dosežek je podeljen igralcem, ki so našo mini aplikacijo Telegram dodali na svoj začetni zaslon. Vedno pri roki, ta dejanje kaže pravo predanost – saj pravi igralci igro ohranjajo blizu."
+    "name": "Dodaj na domači zaslon",
+    "description": "Ta dosežek je dodeljen igralcem, ki so dodali našo mini aplikacijo Telegram na svoj domači zaslon. Vedno na dosegu, ta dejanje kaže pravo predanost - ker pravi igralci držijo igro blizu."
   },
   "achievement_super_spreader": {
-    "name": "Super razširjevalec",
-    "description": "Ta dosežek prejmejo igralci, ki so uspešno napotili <0>{{count}} novih uporabnikov</0>. Ti uporabniki so pravi graditelji skupnosti, saj širijo krog uporabnikov in v igro prinašajo novo energijo. Njihov vpliv raste z vsako vzpostavljeno povezavo."
+    "name": "Super širilec",
+    "description": "Ta dosežek je dodeljen igralcem, ki so uspešno napotili <0>{{count}} novih uporabnikov</0>. Pravi graditelj skupnosti, širijo krog in prinašajo novo energijo v igro. Njihov vpliv raste z vsakim povezovanjem, ki ga naredijo."
   },
   "achievement_conquistador": {
-    "name": "Konkvistador",
-    "description": "Ta dosežek prejmejo igralci, ki so opravili skupno <0>{{count}} nalog</0>. Poganja jih odločnost in želja po zmagi, zato premagajo vse izzive, ki se jim postavijo na pot - pravi prvaki potovanja."
+    "name": "Osvojitelj",
+    "description": "Ta dosežek je dodeljen igralcem, ki so dosegli skupno <0>{{count}} nalog</0>. Motivirani z odločnostjo in željo po zmagi, premagujejo vsak izziv, ki se jim postavi na pot — pravi prvak poti."
   },
   "achievement_game_explorer": {
     "name": "Raziskovalec iger",
-    "description": "Ta dosežek prejmejo igralci, ki so preizkusili <0>{{count}} različnih iger</0>. Radovedni in avanturistični igralci se podajo na potovanje po platformi in vedno želijo odkriti nove načine igranja in zmagovanja."
+    "description": "Ta dosežek je dodeljen igralcem, ki so preizkusili <0>{{count}} različnih iger</0>. Radovedni in pustolovski, se podajajo po platformi, vedno pripravljeni odkrivati nove načine igranja in zmage."
   },
   "achievement_card_shark": {
-    "name": "Kartarski mojster",
-    "description": "Ta dosežek prejmejo igralci, ki so stavili vsaj <0>{{amount}}</0> na igre s kartami, s čimer so dokazali svojo odpornost, strategijo in pripravljenost tvegati. Ti igralci z visokimi vložki so si zaslužili svoje mesto med elito. Karte so v njihovih rokah in igra je njihova."
+    "name": "Kartični morski pes",
+    "description": "Ta dosežek je dodeljen igralcem, ki so stavili vsaj <0>{{amount}}</0> na kartične igre, kar dokazuje njihovo odpornost, strategijo in pripravljenost na tveganje. Ti igralci z visokimi vložki so si prislužili svoje mesto med elito. Karte so v njihovih rokah, igra pa je njihova za ukazovanje."
   },
   "achievement_slotmaster": {
     "name": "Mojster igralnih avtomatov",
-    "description": "Ta dosežek prejmejo igralci, ki so stavili vsaj <0>{{amount}}</0> na igralnih avtomatih, s čimer so dokazali svojo vztrajnost, duh iskanja vznemirjenja in ljubezen do vrtenja. Ti predani igralci samozavestno objemajo kolute - morda jih vodi sreča, vendar jih mojstrstvo ohranja v igri."
+    "description": "Ta dosežek je dodeljen igralcem, ki so stavili vsaj <0>{{amount}}</0> na igralne avtomate, kar dokazuje njihovo vztrajnost, duh iskanja vznemirjenja in ljubezen do vrtenja. Ti predani igralci z zaupanjem objemajo kolute — sreča lahko vodi, toda obvladovanje jih drži v igri."
   },
   "achievement_talkative": {
-    "name": "Klepetav",
-    "description": "Ta dosežek prejmejo igralci, ki so se v klepetalnici oglasili <0>{{count}} -krat</0>. Vsako sporočilo šteje - s tem naredite prvi korak, da postanete pravi del pogovora."
+    "name": "Pogovoren",
+    "description": "Ta dosežek je dodeljen igralcem, ki so se oglasili <0>{{count}}-krat</0> v klepetalnici. Vsaka sporočila štejejo — vi ste prvi korak k temu, da postanete pravi del pogovora."
   },
   "achievement_bet_count": {
     "name": "Število stav",
-    "description": "Ta dosežek prejmejo igralci, ki so skupaj sklenili <0>{{count}} stav</0>. Ker resnično verjamejo v naključje, s svojim neomajnim duhom z vsako stavo ohranjajo igro pri življenju."
+    "description": "Ta dosežek je dodeljen igralcem, ki so oddali skupno <0>{{count}} stav</0>. Pravi vernik v naključje, njihova neomajna duša ohranja igro živo z vsako stavo."
   },
   "achievement_deposit_count": {
-    "name": "Število vplačil",
-    "description": "Ta dosežek prejmejo igralci, ki so skupno opravili <0>{{count}} vplačil</0>. S stalnim tokom kreditov in neomajno predanostjo so dokazali, da niso le igralci, temveč tudi ugledni tajkuni."
+    "name": "Število depozitov",
+    "description": "Ta dosežek je dodeljen igralcem, ki so opravili skupno <0>{{count}} depozitov</0>. S stalnim tokom kreditov in neomajno zavezanostjo so pokazali, da niso le igralci — so tajkuni v nastajanju."
   },
   "achievement_change_avatar": {
     "name": "Spremeni avatar",
-    "description": "Ta dosežek prejmejo igralci, ki prilagodijo svoj profil tako, da spremenijo svoj avatar. To je pogumen korak k temu, da se v igri izstopa in si zagotovi svojo identiteto."
+    "description": "Ta dosežek je dodeljen igralcem, ki so personalizirali svoj profil z menjavo avatarja. Drzen korak k izstopanju in lastništvu vaše identitete v igri."
   },
   "achievement_set_username": {
     "name": "Nastavi uporabniško ime",
-    "description": "Prijavili ste svoje ime - zdaj se začenja legenda. Ta dosežek je priznanje tistim, ki so si izborili svoj prostor in ga naredili uradnega."
+    "description": "Prevzeli ste svoje ime — zdaj se legenda začne. Ta dosežek časti tiste, ki si izklesajo svoj prostor in ga uradno potrdijo."
   },
   "achievement_download_mobile_app": {
-    "name": "Prenos mobilne aplikacije",
-    "description": "Ta znak prejmejo igralci, ki so igro vzeli s seboj. S prenosom aplikacije pokažete, da niste tu za pavzo - igrate kadar koli in kjer koli."
+    "name": "Prenesi mobilno aplikacijo",
+    "description": "Ta značko prejmejo igralci, ki so vzeli igro s seboj. Prenos aplikacije kaže, da niste tukaj, da bi se ustavili — tukaj ste, da igrate kadarkoli in kjerkoli."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Največja stava v eni igri v dnevu",
-    "description": "Ta dosežek prejmejo igralci, ki so stavili vsaj <0>{{amount}}</0> v eni igri v enem dnevu. Priznanje je namenjeno tistim, ki so neomajno osredotočeni, imajo premišljeno strategijo in pogum za drzno tveganje. Ti elitni igralci obvladajo izbrano igro - in igrajo, da bi zmagali."
+    "name": "Maksimalna stava v enem dnevu na eno igro",
+    "description": "Ta dosežek je dodeljen igralcem, ki so stavili vsaj <0>{{amount}}</0> na eno igro v enem dnevu. Prepoznava tiste z neomajno osredotočenostjo, izračunano strategijo in pogumom za drzna tveganja. Ti elitni igralci so obvladali svojo izbrano igro — in igrajo, da zmagajo."
   },
   "achievement_slots_win_count": {
     "name": "Število zmag na igralnih avtomatih",
-    "description": "Ta dosežek prejmejo igralci, ki so v igrah z igralnimi avtomati <0>osvojili {{count}} dobitkov</0>. Z vsakim vrtljajem se upirajo verjetnostim in slavijo zmago za zmago. Sreča lahko začne igro, vendar jih doslednost naredi prvake."
+    "description": "Ta dosežek je dodeljen igralcem, ki so dosegli <0>{{count}} zmag</0> na igralnih avtomatih. Z vsakim vrtenjem izzivajo možnosti in praznujejo zmago za zmago. Sreča lahko začne igro — toda doslednost jih naredi za prvake."
   },
   "achievement_slots_multiplier": {
     "name": "Multiplikator igralnih avtomatov",
-    "description": "Ta dosežek se podeli igralcem, ki so v enem samem vrtljaju igralnega avtomata dosegli <0>dobitek z množiteljem {{count}}x</0> ali več. Je priznanje tistim, ki lovijo veličino, sprejemajo vznemirjenje visokega tveganja in dosegajo izjemne nagrade. To niso običajni igralci - ti so poveljniki kolutov in se dvignejo nad ostale."
+    "description": "Ta dosežek je dodeljen igralcem, ki so dosegli <0>zmago z {{count}}x multiplikatorjem</0> ali več v enem samem vrtenju igralnega avtomata. Časti tiste, ki zasledujejo velikost, objemajo vznemirjenje visokega tveganja in dosegajo izjemne nagrade. To niso običajni igralci — obvladajo kolute in se dvigujejo nad ostale."
+  },
+  "achievement_champion": {
+    "name": "Prvak",
+    "description": "To priznanje prejmejo igralci, ki so dosegli <0>10 zmag</0>. Prvak stoji visoko v areni priložnosti, dokazujoč svojo odpornost krog za krogom. Z vsako zmago utrjujejo svoje mesto med tekmovalci, ki se dvignejo nad srečo, da bi osvojili slavo."
+  },
+  "achievement_slot_master": {
+    "name": "Mojster Slotov",
+    "description": "To priznanje prejmejo igralci, ki so stavili vsaj <0>{{amount}}</0> na igralnih avtomatih. Mojster Slotov vrti z zaupanjem in vztrajnostjo, spreminjajoč vsak kolut v priložnost za srečo. Z stabilnimi rokami in neustrašno igro dokazujejo, da je prava mojstrovina zgrajena z vsakim vrtenjem."
+  },
+  "achievement_the_challenger": {
+    "name": "Izzivalec",
+    "description": "To priznanje prejmejo igralci, ki so oddali vsaj <0>10 veljavnih stav</0> v svoji zgodovini igranja. Izzivalec se dvigne ob vsaki priložnosti, motiviran z odločnostjo in navdušenjem tekmovanja. Drzen in neustavljiv, dokazujejo, da se pravi tekmovalci ne umikajo pred igro — stopijo naprej, pripravljeni preizkusiti svoje meje in si prisvojiti mesto med neustrašnimi."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "To priznanje prejmejo igralci, ki so opravili <0>1 depozit</0> v višini vsaj <0>{{amount}}</0> v eni transakciji. Dynamo postaja močnejši z vsakim polnjenjem, dokazujejoč svojo doslednost in odločnost na poti do mojstrstva."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Obraz Sreče",
+    "description": "To priznanje prejmejo igralci, ki so prvič prilagodili svoj avatar. Obraz Sreče ve, da je identiteta moč — vsaka izbira sloga, simbola ali izraza je znak individualnosti. S tem, ko oblikujejo svoj videz, pokažejo, da pravi igralci ne igrajo le igre — pustijo svoj pečat na njej."
+  },
+  "achievement_name_of_fame": {
+    "name": "Ime Slave",
+    "description": "To priznanje prejmejo igralci, ki so prvič nastavili svoje uporabniško ime. Ime Slave označuje začetek prave identitete, preoblikujejoč novinca v prepoznano prisotnost. Drzni in edinstveni, dokazujejo, da vsaka legenda začne z imenom, ki ga zapomnimo."
+  },
+  "achievement_guiding_star": {
+    "name": "Vodilna Zvezda",
+    "description": "To priznanje prejmejo igralci, ki so dodali igro na svoj domači zaslon ali prenesli aplikacijo. Vodilna Zvezda ohranja pot do sreče jasno, osvetljujoč pot nazaj k igri z enim samim dotikom."
+  },
+  "achievement_highroller": {
+    "name": "Visoki Igralec",
+    "description": "To priznanje prejmejo igralci, ki so stavili skupno vsaj <0>{{amount}}</0> v svoji celotni zgodovini igranja. Visoki igralci nosijo znak zavezanosti in prestiža, dokazujejoč svojo predanost igri z vsakim vrtenjem, stavo in krogom. Njihova krona ni le simbol — je dokaz vztrajnosti, strasti in iskanja sreče."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "To priznanje prejmejo igralci, ki so dosegli <0>20x</0> množitelj na katerem koli slotu. Z ognjem, ki gori, Inferno spremeni eno samo stavo v ognjeni vihar sreče."
+  },
+  "achievement_money_maverick": {
+    "name": "Denarni Maverik",
+    "description": "To priznanje prejmejo igralci, ki so opravili depozit v višini vsaj <0>{{amount}}</0> v eni transakciji, z uporabo fiat ali lokalnih plačilnih prehodov. Denarni Maverik s pogumom utira svojo pot, spreminjajoč vsakodnevni denar v izjemne priložnosti. Neustrašen in pustolovski, dokazujejo, da pravi maveriki ne sledijo le pravilom — jih redefinirajo."
+  },
+  "achievement_money_master": {
+    "name": "Denarni Mojster",
+    "description": "To priznanje prejmejo igralci, ki so opravili fiat dvig v višini vsaj <0>{{amount}}</0> v eni transakciji. Denarni Mojster stoji visoko na razpotju igre in nagrade, pretvarjajoč svoje dobitke v vrednost v resničnem svetu. Z stabilnimi rokami in natančnim časom pokažejo, da pravo mojstrstvo ni le v igri — je v prinašanju nagrad domov."
+  },
+  "achievement_crypto_bro": {
+    "name": "Krypto Brat",
+    "description": "To priznanje prejmejo igralci, ki so opravili depozit v višini vsaj <0>{{amount}}</0> v eni transakciji, z uporabo katere koli kriptovalute. Krypto Mojster vodi svoje sredstva kot pravi umetnik, orkestrirajoč digitalne sredstva s preciznostjo in slogom. Zaupanja vreden na blockchain odru, so pionirji igre, ki dokazujejo, da sreča naklonjena pogumnim."
+  },
+  "achievement_crypto_baron": {
+    "name": "Krypto Baron",
+    "description": "To priznanje prejmejo igralci, ki so opravili krypto dvig v višini vsaj <0>{{amount}}</0> v eni transakciji, z uporabo katere koli kriptovalute. Blockchain Baron vlada področju digitalnih sredstev, premikajoč sredstva po verigi z zaupanjem in nadzorom. Z vsakim uspešnim dvigom dokazujejo, da se sreča lahko zasluži, zagotovi in prinese domov na blockchainu."
+  },
+  "achievement_chain_shifter": {
+    "name": "Premikovalec Verige",
+    "description": "To priznanje prejmejo igralci, ki so uspešno zaključili <0>krypto zamenjavo</0>. Premikovalec Verige je nekdo, ki ve, kako samozavestno premikati med tokeni, prilagajajoč se tržnim plimovanjem z lahkoto. Mojstri gibanja, uspevajo na prilagodljivosti in preobrazbi, vedno pripravljeni prestaviti prestavo in izkoristiti priložnost."
   },
   "item": {
-    "conquest_just_wager_on_100": "Osvojitev: Samo stavite na 100",
-    "conquest_just_wager_on_200": "Osvojitev: Samo stavite na 200",
-    "conquest_roulette_master": "Osvojitev: Mojster rulete",
-    "conquest_blackjack_master": "Osvojitev: Mojster blackjacka",
-    "conquest_baccarat_master": "Osvojitev: Mojster baccarata",
-    "conquest_gameshow_master": "Osvojitev: Mojster iger",
-    "conquest_slots_master_10": "Osvojitev: Mojster igralnih avtomatov 10",
-    "conquest_gameshow_master_20": "Osvojitev: Mojster iger 20",
-    "conquest_roulette_master_30": "Osvojitev: Mojster rulete 30",
-    "conquest_blackjack_master_40": "Osvojitev: Mojster blackjacka 40",
-    "conquest_baccarat_master_50": "Osvojitev: Mojster baccarata 50",
-    "conquest_big_win": "Osvojitev: Velika zmaga",
-    "conquest_huge_win": "Osvojitev: Ogromna zmaga",
-    "conquest_massive_win": "Osvojitev: Množična zmaga",
-    "achievement_verify_email": "Dosežek Potrditev e-pošte",
-    "achievement_verify_phone": "Dosežek Potrditev telefona",
-    "achievement_add_desktop_app": "Dosežek Dodaj namizno aplikacijo",
-    "achievement_super_spreader": "Dosežek Super prenašalec",
-    "achievement_conquistador": "Dosežek Osvajalec",
+    "conquest_just_wager_on_100": "Osvojitev samo stavite na 100",
+    "conquest_just_wager_on_200": "Osvojitev samo stavite na 200",
+    "conquest_roulette_master": "Osvojitev mojster rulete",
+    "conquest_blackjack_master": "Osvojitev mojster blackjacka",
+    "conquest_baccarat_master": "Osvojitev mojster bakarata",
+    "conquest_gameshow_master": "Osvojitev mojster iger",
+    "conquest_slots_master_10": "Osvojitev mojster igralnih avtomatov 10",
+    "conquest_gameshow_master_20": "Osvojitev mojster iger 20",
+    "conquest_roulette_master_30": "Osvojitev mojster rulete 30",
+    "conquest_blackjack_master_40": "Osvojitev mojster blackjacka 40",
+    "conquest_baccarat_master_50": "Osvojitev mojster bakarata 50",
+    "conquest_big_win": "Osvojitev velika zmaga",
+    "conquest_huge_win": "Osvojitev ogromna zmaga",
+    "conquest_massive_win": "Osvojitev masivna zmaga",
+    "achievement_verify_email": "Dosežek Potrdite e-pošto",
+    "achievement_verify_phone": "Dosežek Potrdite telefon",
+    "achievement_add_desktop_app": "Dosežek Dodaj na domači zaslon",
+    "achievement_super_spreader": "Dosežek Super širilec",
+    "achievement_conquistador": "Dosežek Osvojitelj",
     "achievement_game_explorer": "Dosežek Raziskovalec iger",
-    "achievement_card_shark": "Dosežek Mojster kart",
+    "achievement_card_shark": "Dosežek Kartični morski pes",
     "achievement_slotmaster": "Dosežek Mojster igralnih avtomatov",
-    "achievement_talkative": "Dosežek Zgovoren",
+    "achievement_talkative": "Dosežek Pogovoren",
     "achievement_bet_count": "Dosežek Število stav",
-    "achievement_deposit_count": "Dosežek Število pologov",
+    "achievement_deposit_count": "Dosežek Število depozitov",
     "achievement_change_avatar": "Dosežek Spremeni avatar",
     "achievement_set_username": "Dosežek Nastavi uporabniško ime",
     "achievement_download_mobile_app": "Dosežek Prenesi mobilno aplikacijo",
-    "achievement_wager_in_a_day_single_game": "Dosežek Stava v enem dnevu na eno igro",
-    "achievement_slots_win_count": "Dosežek Število zmag na avtomatih",
-    "achievement_slots_multiplier": "Dosežek Množitelj igralnih avtomatov",
-    "level_up": "Dvig ravni",
-    "rakeback": "Vračilo dobička",
-    "cashback": "Vračilo denarja",
+    "achievement_wager_in_a_day_single_game": "Dosežek Maksimalna stava v enem dnevu na eno igro",
+    "achievement_slots_win_count": "Dosežek Število zmag na igralnih avtomatih",
+    "achievement_slots_multiplier": "Dosežek Multiplikator igralnih avtomatov",
+    "level_up": "Nadgradnja",
+    "rakeback": "Rakeback",
+    "cashback": "Cashback",
     "group": "Provizija",
     "referral": "Napotitev",
     "tournament": "Turnir",
-    "conquest_extra_reward": "Dodatna nagrada Conquest",
+    "conquest_extra_reward": "Osvojitev dodatna nagrada",
     "bonus": "Bonus",
     "bonus_manual": "Ročni bonus",
-    "vip_bonus_lucky_number_seven": "VIP Bonus Srečna Številka Sedem",
-    "rakeback_bonus": "Bonus Rakeback",
-    "group_bonus": "Skupinski Bonus",
-    "level_up_bonus": "Bonus za Napredovanje na Višji Nivo",
-    "refer_bonus": "Bonus za Pripovedovanje",
-    "tournament_bonus": "Turnirski Bonus",
-    "vip_bonus_mystery_box": "VIP Bonus Skrivnostna Škatla"
+    "vip_bonus_lucky_number_seven": "VIP bonus srečna številka sedem",
+    "rakeback_bonus": "Rakeback bonus",
+    "group_bonus": "Skupinski bonus",
+    "level_up_bonus": "Bonus za nadgradnjo",
+    "refer_bonus": "Bonus za napotitev",
+    "tournament_bonus": "Bonus za turnir",
+    "vip_bonus_mystery_box": "VIP bonus skrivnostna škatla"
   },
   "achievements_description": "Odklenjeno na VIP {{vip}}, te nagrade praznujejo vaše mejnike z vznemirljivimi presenečenji na poti!",
   "lucky_number_seven_description": "Zadenite srečne {{number}} in vsak dan osvojite sladek bonus!",
-"mystery_box_description": "Odpri svojo skrivnostno škatlo enkrat na mesec za presenetljive nagrade!",
+  "mystery_box_description": "Odpri svojo skrivnostno škatlo enkrat na mesec za presenetljive nagrade!",
+  "mystery_box_description2": "Pritisnite VIP {{vip}} za prejemanje skrivne škatle 7. v mesecu!",
   "mystery_box": "Skrivnostna škatla",
   "the_cannon_description": "Mesečna nagrada tako močna, da je njena prava narava skrbno varovana skrivnost.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Potrdi e-pošto",
-    "achievement_verify_phone": "Potrdi telefon",
-    "achievement_add_desktop_app": "Dodaj namizno aplikacijo",
+    "achievement_verify_email": "Potrdite e-pošto",
+    "achievement_verify_phone": "Potrdite telefon",
+    "achievement_add_desktop_app": "Dodaj na domači zaslon",
     "achievement_super_spreader": "Super širilec",
-    "achievement_conquistador": "Konkvistador",
+    "achievement_conquistador": "Osvojitelj",
     "achievement_game_explorer": "Raziskovalec iger"
   },
   "you_win": "Zmagal si",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Nagrade se izračunajo in knjižijo v BUCK/USDT ter se nato prikažejo v vaši izbrani fiat valuti glede na menjalne tečaje v realnem času za vašo priročnost. Upoštevajte, da so vsi pretvori približni, dokler ni transakcija zamenjave zaključena.",
   "general_terms_answer_2": "Kazino si pridržuje pravico, da kadar koli spremeni ali prekliče upravičenost brez obveznosti utemeljitve. Vsaka zloraba ali prevarantska dejavnost bo privedla do diskvalifikacije iz promocije.",
   "available": "Na voljo",
-"refresh_in": "Osveži čez",
-"deposit_bonus_pool": "Zbirka bonusov za polog"
+  "refresh_in": "Osveži čez",
+  "deposit_bonus_pool": "Zbirka bonusov za polog",
+  "dashboard": "Nadzorna plošča",
+  "bonuses": "Bonusi",
+  "vip_program": "VIP Program",
+  "bonusHub": {
+    "root": "Bonus Hub",
+    "resetOn": "Ponastavi ob {{time}}",
+    "ongoing": "{{count}} Poteka",
+    "accrualIn": "Nabiranje v {{time}}",
+    "nextReleaseIn": "Naslednja izdaja v {{time}}"
+  },
+  "freeSpins": "Brezplačni vrtljaji",
+  "freeSpinsBonusDetails": "Bonusi za brezplačne vrtljaje vam nagradijo z dodatnim igranjem na izbranih igralnih naslovih. Igranje zahtevane količine odklene vaše dobitke iz brezplačnih vrtljajev, ki se nato takoj pripišejo na vaše stanje računa.",
+  "freeSpinsClaimDistributionDescription1": "Dobitki iz brezplačnih vrtljajev bodo pripisani vašemu stanju računa, ko bo izpolnjen zahtevan vložek in kliknete 'Zahtevaj.'",
+  "freeSpinsClaimDistributionDescription2": "Sledite svojemu napredku kadarkoli v svoji Bonusni plošči ali zgodovini brezplačnih vrtljajev.",
+  "freeSpinsExpirationDescription1": "Brezplačni vrtljaji morajo biti uporabljeni v veljavnem obdobju, prikazanem v plošči brezplačnih vrtljajev. Neuporabljeni vrtljaji bodo potekli po tem obdobju.",
+  "freeSpinsExpirationDescription2": "Dobitki iz brezplačnih vrtljajev ne bodo potekli, dokler ne bodo odklenjeni in zahtevani.",
+  "freeSpinsGeneralTermsDescription1": "Nagrade za brezplačne vrtljaje se izračunajo in pripišejo v BUCK, nato pa se prikažejo v vaši izbrani fiat valuti za udobje. Upoštevajte, da so pretvorbe valut približne.",
+  "freeSpinsGeneralTermsDescription2": "Kazino si pridržuje pravico, da kadar koli spremeni ali prekliče upravičenost, brez obveznosti pojasnila. Vsaka zloraba ali goljufivo ravnanje bo privedlo do diskvalifikacije iz promocije.",
+  "the_collector": "Zbiratelj",
+  "collector_description": "Upravičene nagrade, en klik",
+  "claim_all": "Zahtevaj vse",
+  "claimConfirmation": "Potrditev zahtevka",
+  "readyToClaim": "Pripravljen za zahtevo",
+  "selectClaimType": "Izberite vrsto zahtevka spodaj",
+  "claimableAmount": "Zahtevani znesek",
+  "normalClaim": "Običajen zahtevek",
+  "normalClaimDesc": "Pridobite svoj standardni znesek nagrade",
+  "doubleClaim": "Dvojni zahtevek",
+  "doubleClaimDesc": "Tvegajte za 2x nagrado!",
+  "doubleClaimInfo": "Možnost dvojnega zahtevka",
+  "doubleClaimRisk": "Višje tveganje, višja nagrada - morda boste dobili dvojno ali vse izgubili!",
+  "claimModal": {
+    "title": "Podvoji ali nič",
+    "primaryDescription": "Prevzemite svoj bonus kot običajno...",
+    "secondaryDescription": "Ali naredite drzen skok v <highlight>PODVOJITE GA!</highlight>",
+    "doubleAction": "Podvoji ali nič",
+    "comingSoon": "Funkcija Podvoji ali nič kmalu na voljo!",
+    "approximateBuck": "Približno {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Ponedeljek",
+  "vip_monday_description": "Posebna tedenska nagrada za nagrajevanje zvestih igralcev vsak ponedeljek",
+  "vip_monday_wager": "Stavite vsaj {{amount}} v preteklih 7 dneh za skrivnostno nagrado vsak ponedeljek.",
+  "claim_on_monday": "Prevzemite v ponedeljek",
+  "vip_monday_title": "VIP \n <0>PONEDELJEK</0>",
+  "bonus_already_claimed": "Bonus je že prevzet",
+  "wager_requirement_not_met": "Zahteva po stavah ni izpolnjena",
+  "not_in_claim_time_range": "Ni v časovnem okviru za prevzem",
+  "monday": "Ponedeljek",
+  "poolBalance": "Stanje Sklada",
+  "program": "Program",
+  "races": "Dirke",
+  "loading_achievements": "Nalagam dosežke...",
+  "no_achievements_available": "Ni dosežkov na voljo",
+  "check_back_later_for_new_achievements": "Vrni se kasneje po nove dosežke"
 }

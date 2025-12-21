@@ -21,6 +21,8 @@
   "addressVerificationDescription": "Secure your account by entering your residential address.",
   "idVerification": "ID Verification",
   "idVerificationDescription": "Upload a valid identity document for full verification and access to advanced features.",
+  "idVerificationDescription1": "Verify your identity to unlock additional payment options.",
+  "idVerificationDescription2": "You'll be redirected to our trusted verification partner to complete a quick and secure KYC process.",
   "verifyNow": "Verify Now",
   "verificationNotice": "To serve you better, we require original identification documents. This helps secure your account for recovery and ensures that any gifts or rewards are sent to the correct location.",
   "activeSessions": "Active Sessions",
@@ -70,7 +72,6 @@
   "changeEmail": "Change Email",
   "changePhone": "Change Phone",
   "updateAccountAndPassword": "Update account & password",
-  "**********": "********************此处开始新增翻译start********************",
   "confirm_new_password": "Confirm new password",
   "dashboard": "Dashboard",
   "transactions": "Transactions",
@@ -78,6 +79,9 @@
   "betHistory": "Bet History",
   "settings": "Settings",
   "legal": "Legal",
-  "rolloverDetails": "Rollover Details",
-  "**********": "********************此处开始新增翻译end********************"
+  "nickname": "Nickname",
+  "zoomAndAdjust": "Zoom and Adjust",
+  "systemLanguage": "System Language",
+  "editProfile": "Edit Profile",
+  "inviteAndGetRewarded": "Invite and Get Rewarded"
 }

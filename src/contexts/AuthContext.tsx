@@ -34,14 +34,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // 设置用户数据和状态
   useEffect(() => {
     if (currentUser) {
-      console.debug("currentUser", currentUser);
 
       // 处理用户数据，包括头像
       const userData = { ...currentUser.user };
       if (!userData.avatar || userData.avatar.trim() === "") {
         // 如果用户没有头像，分配一个随机头像
         userData.avatar = getOrAssignUserAvatar(userData.id || userData.username);
-        console.debug("Assigned random avatar for user:", userData.avatar);
       }
 
       setUser(userData);
@@ -61,9 +59,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // 监听认证过期事件
   useEffect(() => {
-    const handleAuthExpired = (event: Event) => {
-      const customEvent = event as CustomEvent;
-      console.warn("Authentication expired:", customEvent.detail);
+    const handleAuthExpired = () => {
 
       // 清除用户状态
       setUser(null);
@@ -84,7 +80,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const userLanguage = currentUser?.user?.language_code;
     if (userLanguage && userLanguage !== i18n.language) {
-      console.debug("Setting user language to:", userLanguage);
       i18n.changeLanguage(userLanguage);
     }
   }, [currentUser?.user?.language_code, i18n.language]);
@@ -102,7 +97,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (!userData.avatar || userData.avatar.trim() === "") {
           // 如果用户没有头像，分配一个随机头像
           userData.avatar = getOrAssignUserAvatar(userData.id || userData.username);
-          console.debug("Assigned random avatar for user:", userData.avatar);
         }
 
         setUser(userData);
@@ -110,7 +104,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         // 登录成功后立即设置用户语言
         if (userData.language_code && userData.language_code !== i18n.language) {
-          console.debug("Setting user language after login to:", userData.language_code);
           i18n.changeLanguage(userData.language_code);
         }
       } catch (error) {

@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Iegūstiet savu bonusu kā parasti...\nVai veiciet drosmīgu lēcienu uz",
+  "double_it": "Dubultojiet to!",
+  "no_thanks": "Nē, paldies",
+  "double_or_nothing": "Dubultot vai neko",
+  "come_back_tomorrow": "Atgriezieties rīt",
+  "promo_code": "Akcijas kods",
+  "got_a_code": "Vai jums ir kods? Jūs zināt, ko darīt!",
+  "lifetime_bonus": "Mūža bonuss",
+  "claimed": "Iegūts",
+  "starter": "Sākuma",
+  "pack": "Paka",
+  "achievements_card_description": "Savāciet īpašas sasniegumu balvas, kas paredzētas, lai svinētu katru jūsu progresu!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Meistars veiksmes mākslā",
+    "achievement_verify_phone": "Neapturama enerģija un spēks",
+    "achievement_add_desktop_app": "Vienmēr sasniedzams",
+    "achievement_super_spreader": "Dalieties spēļu pieredzē",
+    "achievement_conquistador": "Saskaras ar katru šķērsli",
+    "achievement_game_explorer": "Atklājiet jaunas spēļu pasaules",
+    "achievement_card_shark": "Dominējiet kāršu spēlēs",
+    "achievement_slotmaster": "Meistars spēļu automātos",
+    "achievement_talkative": "Rādiet ceļu citiem",
+    "achievement_bet_count": "Meistars precīzā spēlē",
+    "achievement_deposit_count": "Sasniedziet galīgo uzvaru",
+    "achievement_wager_count": "Izdegiet cauri izaicinājumiem",
+    "achievement_single_bet": "Kļūstiet leģendāri",
+    "achievement_single_deposit": "Navigējiet blokķēdes tīklos",
+    "achievement_single_wager": "Meistars finanšu stratēģijās",
+    "achievement_single_payout": "Dominējiet kriptovalūtas tirgū",
+    "achievement_crypto_bro": "Meistars kriptovalūtu tirdzniecībā",
+    "achievement_crypto_baron": "Dominējiet kriptovalūtas tirgū",
+    "achievement_chain_shifter": "Navigējiet blokķēdes tīklos",
+    "achievement_money_master": "Meistars finanšu stratēģijās",
+    "achievement_sniper": "Meistars precīzā spēlē",
+    "achievement_champion": "Sasniedziet galīgo uzvaru",
+    "achievement_name_of_fame": "Kļūstiet leģendāri",
+    "achievement_guiding_star": "Rādiet ceļu citiem",
+    "achievement_face_of_fortune": "Meistars veiksmes mākslā",
+    "achievement_dynamo": "Neapturama enerģija un spēks",
+    "achievement_inferno": "Izdegiet cauri izaicinājumiem",
+    "achievement_the_challenger": "Saskaras ar katru šķērsli"
+  },
   "bonus": "Bonuss",
   "total_bonus_claimed": "Kopējais pieprasītais bonuss",
   "details": "Sīkāka informācija",
   "redeem": "Izmantot",
-"deposit_bonus": "Depozīta bonusa kolekcija",
+  "deposit_bonus": "Depozīta bonusa kolekcija",
   "get_up_to": "Iegūsti līdz",
   "deposit_now": "Veic depozītu tagad",
   "bonus_ends_in": "Bonuss beidzas pēc",
@@ -26,7 +68,7 @@
   "daily_cashback": "Dienas naudas atmaksa",
   "bonus_calendar": "Bonusu kalendārs",
   "claim_every_8_hours": "Pieprasi ik pēc 8 stundām",
-"locked": "Depozīta bonusa kolekcija",
+  "locked": "Depozīta bonusa kolekcija",
   "next_claim_in": "Nākamā pieprasīšana pēc",
   "bonus_pool": "Gaidāmo atlīdzību kolekcija",
   "bonus_calendar_details": "Pieprasi ik pēc 8 stundām, lai saņemtu bonusu!",
@@ -34,6 +76,7 @@
   "total_vip_bonus_claimed": "Kopējais pieprasītais VIP bonuss",
   "your_vip_progress": "Tavs VIP progress",
   "available_at_vip": "Pieejams pie VIP {{vip}}",
+  "vip_progress_description": "Turpiniet! Nākamais līmenis atbloķē {{amount}} no jūsu bonusa baseina.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Sasniedz VIP 4 un atbloķē Lucky Spin – tava iespēja katru dienu uzvarēt ekstra balvas!",
   "weekly_cashback": "Iknedēļas naudas atmaksa",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Sasniedz VIP 12 un atbloķē iknedēļas naudas atmaksu – tavu personīgo drošības tīklu augstas likmes spēlēm!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Laimīgais septiņnieks",
   "expires_in": "Beidzas pēc",
+  "expires": "Beidzas",
   "go": "Aiziet!",
   "conquest_just_wager_title": "Tikai likmes uz {{amount}}",
   "conquest_just_wager_description": "Lieciet {{amount}} likmes jebkurā spēlē vienā dienā, lai izņemtu {{reward}} no sava bonusa fonda jau šodien!",
@@ -98,134 +142,191 @@
   "sort_by": "Kārtot pēc:",
   "claimable": "Iespējams pieprasīt",
   "achievement_verify_email": {
-    "name": "E-pasta verifikācija",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri apstiprinājuši savu e-pastu, nodrošinot identitāti un atbloķējot drošu piekļuvi. Tas ir gatavības un uzticamības simbols – pirmais solis katram īstam spēlētājam!"
+    "name": "Verificēt e-pastu",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir verificējuši savu e-pastu, nostiprinot savu identitāti un atverot drošu piekļuvi. Tas ir gatavības un uzticamības simbols — katra nopietna spēlētāja pirmais solis."
   },
   "achievement_verify_phone": {
-    "name": "Tālruņa verifikācija",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri apstiprinājuši savu tālruņa numuru, lai būtu informēti un saistīti. Tas liecina par uzticēšanos, iesaisti un apņemšanos sekot spēles ritmam."
+    "name": "Verificēt tālruni",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir verificējuši savu tālruņa numuru, lai paliktu informēti un saistīti. Tas signalizē par uzticību, iesaisti un apņemšanos spēles pulsā."
   },
   "achievement_add_desktop_app": {
-    "name": "Pievienot sākuma ekrānam",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir pievienojuši mūsu Telegram mini lietotni savam sākuma ekrānam. Vienmēr pa rokai, šī darbība liecina par patiesu uzticību – jo īsti spēlētāji tur spēli tuvu."
+    "name": "Pievienot sākumekrānam",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir pievienojuši mūsu Telegram mini lietotni savam sākumekrānam. Vienmēr sasniedzams, šis solis parāda patiesu apņemšanos - jo īsti spēlētāji tur spēli tuvu."
   },
   "achievement_super_spreader": {
     "name": "Super izplatītājs",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri veiksmīgi ieteikuši <0>{{count}} jaunus lietotājus</0>. Īsti kopienas veidotāji, kas paplašina loku un ienes spēlē jaunu enerģiju. Viņu ietekme aug ar katru izveidoto saiti!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veiksmīgi atsaukuši <0>{{count}} jaunus lietotājus</0>. Patiesi kopienas veidotāji, viņi paplašina loku un pievieno jaunu enerģiju spēlei. Viņu ietekme aug ar katru savienojumu, ko viņi veido."
   },
   "achievement_conquistador": {
-    "name": "Iekarotājs",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri izpildījuši <0>{{count}} uzdevumus</0>. Apņēmības un uzvaras alkas vadīti, viņi pārvar katru izaicinājumu – īsti ceļa čempioni!"
+    "name": "Konkvistadors",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir paveikuši kopumā <0>{{count}} uzdevumus</0>. Motivēti ar apņēmību un uzvaras izsalkumu, viņi iekaro katru izaicinājumu, kas viņiem nāk ceļā — patiesi ceļojuma čempioni."
   },
   "achievement_game_explorer": {
     "name": "Spēļu pētnieks",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri izmēģinājuši <0>{{count}} dažādas spēles</0>. Zinātkāri un piedzīvojumu alkstoši, viņi pēta platformu, vienmēr gatavi atklāt jaunus spēles un uzvaras veidus."
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir izmēģinājuši <0>{{count}} dažādas spēles</0>. Ziņkārīgi un piedzīvojumu meklētāji, viņi ceļo pa platformu, vienmēr alkstot atklāt jaunus veidus, kā spēlēt un uzvarēt."
   },
   "achievement_card_shark": {
-    "name": "Karšu haizivs",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri izlikuši vismaz <0>{{amount}}</0> kāršu spēlēs, pierādot izturību, stratēģiju un drosmi riskēt. Šie augstas likmes spēlētāji nopelnījuši vietu elitē – kārtis ir viņu rokās, un spēle ir viņu kontrolē!"
+    "name": "Kāršu haizivs",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir likuši vismaz <0>{{amount}}</0> uz kāršu spēlēm, pierādot savu izturību, stratēģiju un gatavību uzņemties riskus. Šie augsta riska spēlētāji ir nopelnījuši savu vietu starp eliti. Kārtis ir viņu rokās, un spēle ir viņu rīcībā."
   },
   "achievement_slotmaster": {
-    "name": "Slotmaster",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri izlikuši vismaz <0>{{amount}}</0> spēļu automātos, pierādot neatlaidību, azarta garu un mīlestību pret griezienu. Šie apņēmīgie spēlētāji pārliecinoši griež ruļļus – veiksme vada, bet meistarība notur spēlē!"
+    "name": "Spēļu automātu meistars",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir likuši vismaz <0>{{amount}}</0> uz spēļu automātiem, pierādot savu neatlaidību, adrenalīna meklēšanas garu un mīlestību pret griešanos. Šie apņēmīgie spēlētāji ar pārliecību pieņem ruļļus — veiksme var vadīt, bet meistarība viņus notur spēlē."
   },
   "achievement_talkative": {
     "name": "Runīgs",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri tērzētavā izteikušies <0>{{count}} reizes</0>. Katra ziņa ir svarīga – tu sper pirmo soli, lai kļūtu par īstu sarunas dalībnieku!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir runājuši <0>{{count}} reizes</0> čata telpā. Katrs ziņojums ir svarīgs — jūs sperat pirmo soli, lai kļūtu par patiesu sarunas daļu."
   },
   "achievement_bet_count": {
     "name": "Likmju skaits",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri veikuši <0>{{count}} likmes</0>. Īsti nejaušības ticētāji, viņi ar katru likmi uztur spēli dzīvu!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši kopumā <0>{{count}} likmes</0>. Patiesi ticot nejaušībai, viņu neapstājamā garīgā spēka dēļ spēle paliek dzīvotspējīga ar katru likmi."
   },
   "achievement_deposit_count": {
-    "name": "Depozītu skaits",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri veikuši <0>{{count}} depozītus</0>. Ar stabilu kredītu plūsmu un nelokāmu apņēmību viņi pierādījuši, ka nav tikai spēlētāji – viņi ir topošie magnāti!"
+    "name": "Iemaksu skaits",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši kopumā <0>{{count}} iemaksas</0>. Ar stabilu kredītu plūsmu un neapstājamām apņemšanām, viņi ir parādījuši, ka nav tikai spēlētāji — viņi ir topošās miljonāri."
   },
   "achievement_change_avatar": {
     "name": "Mainīt avatāru",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri personalizējuši profilu, mainot avatāru. Drosmīgs solis, lai izceltos un apstiprinātu savu identitāti spēlē!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri personalizē savu profilu, mainot savu avatāru. Drosmīgs solis, lai izceltos un piederētu savai identitātei spēlē."
   },
   "achievement_set_username": {
     "name": "Iestatīt lietotājvārdu",
-    "description": "Tu esi izvēlējies savu vārdu – leģenda sākas! Šis sasniegums godina tos, kuri iezīmē savu vietu un padara to oficiālu."
+    "description": "Jūs esat ieguvis savu vārdu — tagad leģenda sākas. Šis sasniegums godā tos, kuri izveido savu vietu un padara to oficiālu."
   },
   "achievement_download_mobile_app": {
-    "name": "Lejupielādēt mobilo lietotni",
-    "description": "Šo nozīmīti saņem spēlētāji, kuri paņēmuši spēli līdzi. Lejupielādējot lietotni, tu apliecini, ka esi šeit, lai spēlētu jebkurā laikā un vietā!"
+    "name": "Lejupielādēt mobilā lietotni",
+    "description": "Šis apbalvojums tiek piešķirts spēlētājiem, kuri ir paņēmuši spēli līdzi. Lietotnes lejupielāde parāda, ka jūs neesat šeit, lai apstātos — jūs esat šeit, lai spēlētu jebkurā laikā, jebkur."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Maksimālās likmes vienā spēlē dienā",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri izlikuši vismaz <0>{{amount}}</0> vienā spēlē dienā. Tas godina mērķtiecīgus spēlētājus ar aprēķinātu stratēģiju un drosmi uzņemties riskus. Šie elites spēlētāji apguvuši izvēlēto spēli – un viņi spēlē, lai uzvarētu!"
+    "name": "Maksimālā likme vienā spēlē dienā",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir likuši vismaz <0>{{amount}}</0> uz vienu spēli dienā. Tas atzīst tos, kuriem ir neapstājamā koncentrācija, aprēķināta stratēģija un drosme uzņemties drosmīgus riskus. Šie izcilie spēlētāji ir apguvuši savu izvēlēto spēli — un viņi spēlē, lai uzvarētu."
   },
   "achievement_slots_win_count": {
     "name": "Spēļu automātu uzvaru skaits",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri guvuši <0>{{count}} uzvaras</0> spēļu automātos. Ar katru griezienu viņi izaicina izredzes un svin uzvaru pēc uzvaras. Veiksme var sākt spēli, bet neatlaidība padara viņus par čempioniem!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir nodrošinājuši <0>{{count}} uzvaras</0> spēļu automātos. Ar katru griezienu viņi izaicina izredzes un svin uzvaru pēc uzvaras. Veiksme var uzsākt spēli — bet konsekvence padara viņus par čempioniem."
   },
   "achievement_slots_multiplier": {
     "name": "Spēļu automātu reizinātājs",
-    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri vienā spēļu automāta griezienā guvuši <0>uzvaru ar {{count}}x reizinātāju</0> vai vairāk. Tas godina tos, kuri tiecas pēc izcilības, pieņem augsta riska azartu un gūst neparastas balvas. Viņi nav parastie spēlētāji – viņi valda pār ruļļiem un paceļas pāri citiem!"
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir nodrošinājuši <0>uzvaru ar {{count}}x reizinātāju</0> vai vairāk vienā spēļu automāta griezienā. Tas godā tos, kuri dzenas pēc lieliskuma, pieņem augsta riska adrenalīnu un iegūst izcilas balvas. Šie nav parasti spēlētāji — viņi kontrolē ruļļus un izceļas pārējiem."
+  },
+  "achievement_champion": {
+    "name": "Čempions",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir nodrošinājuši <0>10 uzvaras</0>. Čempions stāv augstu nejaušības arēnā, pierādot savu izturību kārtu pēc kārtas. Ar katru uzvaru viņi nostiprina savu vietu starp pretendentiem, kuri izvirzās virs veiksmes, lai iegūtu slavu."
+  },
+  "achievement_slot_master": {
+    "name": "Spēļu automātu meistars",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši likmes vismaz <0>{{amount}}</0> uz spēļu automātiem. Spēļu automātu meistars griežas ar pārliecību un neatlaidību, pārvēršot katru ruleti par iespēju laimēt. Ar stabilām rokām un bailēm nezinot, viņi pierāda, ka patiesā meistarība tiek veidota ar katru griezienu."
+  },
+  "achievement_the_challenger": {
+    "name": "Izaicinātājs",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši vismaz <0>10 derīgas likmes</0> savā spēļu vēsturē. Izaicinātājs iznāk katrā izdevībā, motivēts ar apņēmību un sacensību azartu. Uzņēmīgs un neapturams, viņi pierāda, ka patiesi pretendenti nebaidās no spēles — viņi iznāk uz priekšu, gatavi pārbaudīt savus ierobežojumus un iegūt savu vietu starp bezbailīgajiem."
+  },
+  "achievement_dynamo": {
+    "name": "Dinamika",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši <0>1 iemaksu</0> vismaz <0>{{amount}}</0> vienā darījumā. Dinamika kļūst spēcīgāka ar katru uzlādēšanu, pierādot savu konsekvenci un apņēmību ceļā uz meistarību."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Veiksmes seja",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri pirmo reizi ir pielāgojuši savu avatāru. Veiksmes seja zina, ka identitāte ir vara — katra stila, simbola vai izteiksmes izvēle ir individuālitātes zīme. Pārveidojot savu izskatu, viņi parāda, ka patiesi spēlētāji ne tikai spēlē spēli — viņi atstāj tajā savu zīmi."
+  },
+  "achievement_name_of_fame": {
+    "name": "Slavas vārds",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri pirmo reizi ir iestatījuši savu lietotājvārdu. Slavas vārds iezīmē patiesas identitātes sākumu, pārvēršot jaunpienācēju par atpazīstamu klātbūtni. Uzņēmīgs un unikāls, viņi pierāda, ka katra leģenda sākas ar vārdu, kas tiek atcerēts."
+  },
+  "achievement_guiding_star": {
+    "name": "Vadības zvaigzne",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir pievienojuši spēli savam sākumekrānam vai lejupielādējuši lietotni. Vadības zvaigzne uztur ceļu uz veiksmi skaidru, apgaismojot ceļu atpakaļ uz spēli ar vienu pieskārienu."
+  },
+  "achievement_highroller": {
+    "name": "Augstais spēlētājs",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši likmes kopumā vismaz <0>{{amount}}</0> visā savā spēļu vēsturē. Augstie spēlētāji nēsā apņemšanās un prestiža zīmi, pierādot savu veltījumu spēlei ar katru griezienu, likmi un kārtu. Viņu kronis nav tikai simbols — tas ir pierādījums neatlaidībai, kaislībai un veiksmes meklēšanai."
+  },
+  "achievement_inferno": {
+    "name": "Ieleja",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir sasnieguši <0>20x</0> reizinātāju jebkurā spēļu automātā. Ar liesmām, kas plosās, Ieleja pārvērš vienu likmi par veiksmes ugunskuru."
+  },
+  "achievement_money_maverick": {
+    "name": "Naudas novators",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši iemaksu vismaz <0>{{amount}}</0> vienā darījumā, izmantojot fiat vai vietējos maksājumu vārtus. Naudas novators izveido savu ceļu ar drosmīgu pārliecību, pārvēršot ikdienas naudu par izcilām iespējām. Neierobežots un piedzīvojumu pilns, viņi pierāda, ka patiesi novatori ne tikai seko noteikumiem — viņi tos pārdefinē."
+  },
+  "achievement_money_master": {
+    "name": "Naudas meistars",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši fiat izņemšanu vismaz <0>{{amount}}</0> vienā darījumā. Naudas meistars stāv augstu pie spēles un atlīdzības krustojuma, pārvēršot savus laimestus reālās vērtībās. Ar stabilām rokām un precīzu laiku viņi parāda, ka patiesā meistarība nav tikai spēlē — tā ir atlīdzību atnesšana mājās."
+  },
+  "achievement_crypto_bro": {
+    "name": "Kripto brālis",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši iemaksu vismaz <0>{{amount}}</0> vienā darījumā, izmantojot jebkuru kriptovalūtu. Kripto meistars vada savus līdzekļus kā īsts mākslinieks, orķestrējot digitālos aktīvus ar precizitāti un stilu. Pārliecināts blokķēdes skatuvē, viņi ir spēles pionieri, kuri pierāda, ka veiksme atbalsta drosmīgos."
+  },
+  "achievement_crypto_baron": {
+    "name": "Kripto barons",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veikuši kripto izņemšanu vismaz <0>{{amount}}</0> vienā darījumā, izmantojot jebkuru kriptovalūtu. Blokķēdes barons valda digitālo aktīvu jomā, pārvietojot līdzekļus pa ķēdi ar pārliecību un kontroli. Ar katru veiksmīgu izņemšanu viņi pierāda, ka veiksmi var nopelnīt, nodrošināt un aiznest mājās blokķēdē."
+  },
+  "achievement_chain_shifter": {
+    "name": "Ķēdes mainītājs",
+    "description": "Šis sasniegums tiek piešķirts spēlētājiem, kuri ir veiksmīgi pabeiguši <0>kripto maiņas darījumu</0>. Ķēdes mainītājs ir kāds, kurš zina, kā pārvietoties starp tokeniem ar pārliecību, viegli pielāgojoties tirgus viļņiem. Viņi ir kustības meistari, kuri plaukst uz elastību un transformāciju, vienmēr gatavi mainīt virzienu un izmantot iespējas."
   },
   "item": {
-    "conquest_just_wager_on_100": "Iekarošana: Likmes uz 100",
-    "conquest_just_wager_on_200": "Iekarošana: Likmes uz 200",
-    "conquest_roulette_master": "Iekarošana: Ruletes meistars",
-    "conquest_blackjack_master": "Iekarošana: Blekdžeka meistars",
-    "conquest_baccarat_master": "Iekarošana: Bakara meistars",
-    "conquest_gameshow_master": "Iekarošana: Spēļu šova meistars",
-    "conquest_slots_master_10": "Iekarošana: Spēļu automātu meistars 10",
-    "conquest_gameshow_master_20": "Iekarošana: Spēļu šova meistars 20",
-    "conquest_roulette_master_30": "Iekarošana: Ruletes meistars 30",
-    "conquest_blackjack_master_40": "Iekarošana: Blekdžeka meistars 40",
-    "conquest_baccarat_master_50": "Iekarošana: Bakara meistars 50",
-    "conquest_big_win": "Iekarošana: Lielā uzvara",
-    "conquest_huge_win": "Iekarošana: Milzīga uzvara",
-    "conquest_massive_win": "Iekarošana: Vērienīga uzvara",
-    "achievement_verify_email": "Sasniegums Apstiprināt e-pastu",
-    "achievement_verify_phone": "Sasniegums Apstiprināt tālruni",
-    "achievement_add_desktop_app": "Sasniegums Pievienot darbvirsmas lietotni",
+    "conquest_just_wager_on_100": "Iegūstiet tikai likmi uz 100",
+    "conquest_just_wager_on_200": "Iegūstiet tikai likmi uz 200",
+    "conquest_roulette_master": "Iegūstiet ruletes meistaru",
+    "conquest_blackjack_master": "Iegūstiet blekdžeka meistaru",
+    "conquest_baccarat_master": "Iegūstiet bakara meistaru",
+    "conquest_gameshow_master": "Iegūstiet spēļu šovu meistaru",
+    "conquest_slots_master_10": "Iegūstiet spēļu automātu meistaru 10",
+    "conquest_gameshow_master_20": "Iegūstiet spēļu šovu meistaru 20",
+    "conquest_roulette_master_30": "Iegūstiet ruletes meistaru 30",
+    "conquest_blackjack_master_40": "Iegūstiet blekdžeka meistaru 40",
+    "conquest_baccarat_master_50": "Iegūstiet bakara meistaru 50",
+    "conquest_big_win": "Iegūstiet lielu uzvaru",
+    "conquest_huge_win": "Iegūstiet milzīgu uzvaru",
+    "conquest_massive_win": "Iegūstiet masveida uzvaru",
+    "achievement_verify_email": "Sasniegums Verificēt e-pastu",
+    "achievement_verify_phone": "Sasniegums Verificēt tālruni",
+    "achievement_add_desktop_app": "Sasniegums Pievienot sākumekrānam",
     "achievement_super_spreader": "Sasniegums Super izplatītājs",
-    "achievement_conquistador": "Sasniegums Iekarotājs",
+    "achievement_conquistador": "Sasniegums Konkvistadors",
     "achievement_game_explorer": "Sasniegums Spēļu pētnieks",
     "achievement_card_shark": "Sasniegums Kāršu haizivs",
     "achievement_slotmaster": "Sasniegums Spēļu automātu meistars",
-    "achievement_talkative": "Sasniegums Runātīgs",
+    "achievement_talkative": "Sasniegums Runīgs",
     "achievement_bet_count": "Sasniegums Likmju skaits",
-    "achievement_deposit_count": "Sasniegums Depozītu skaits",
+    "achievement_deposit_count": "Sasniegums Iemaksu skaits",
     "achievement_change_avatar": "Sasniegums Mainīt avatāru",
     "achievement_set_username": "Sasniegums Iestatīt lietotājvārdu",
-    "achievement_download_mobile_app": "Sasniegums Lejupielādēt mobilo lietotni",
-    "achievement_wager_in_a_day_single_game": "Sasniegums Likme vienā dienā vienā spēlē",
-    "achievement_slots_win_count": "Sasniegums Uzvaru skaits spēļu automātos",
+    "achievement_download_mobile_app": "Sasniegums Lejupielādēt mobilā lietotni",
+    "achievement_wager_in_a_day_single_game": "Sasniegums Maksimālā likme vienā spēlē dienā",
+    "achievement_slots_win_count": "Sasniegums Spēļu automātu uzvaru skaits",
     "achievement_slots_multiplier": "Sasniegums Spēļu automātu reizinātājs",
     "level_up": "Līmeņa paaugstināšana",
     "rakeback": "Rakeback",
-    "cashback": "Naudas atmaksa",
+    "cashback": "Naudas atgriešana",
     "group": "Komisija",
     "referral": "Ieteikums",
     "tournament": "Turnīrs",
-    "conquest_extra_reward": "Papildu Conquest Atlīdzība",
+    "conquest_extra_reward": "Iegūstiet papildu balvu",
     "bonus": "Bonuss",
-    "bonus_manual": "Rokas Bonuss",
-    "vip_bonus_lucky_number_seven": "VIP bonuss laimīgais skaitlis septiņi",
-    "rakeback_bonus": "Reika bonuss",
+    "bonus_manual": "Rokasgrāmatas bonuss",
+    "vip_bonus_lucky_number_seven": "VIP bonuss Laimīgais skaitlis septiņi",
+    "rakeback_bonus": "Rakeback bonuss",
     "group_bonus": "Grupas bonuss",
     "level_up_bonus": "Līmeņa paaugstināšanas bonuss",
     "refer_bonus": "Ieteikuma bonuss",
     "tournament_bonus": "Turnīra bonuss",
-    "vip_bonus_mystery_box": "VIP Bonusa Mistērijas Kaste"
+    "vip_bonus_mystery_box": "VIP bonuss Noslēpumu kaste"
   },
   "achievements_description": "Atbloķēts VIP {{vip}} līmenī, šīs atlīdzības svin jūsu sasniegumus ar aizraujošiem pārsteigumiem ceļā!",
   "lucky_number_seven_description": "Trāpiet Laimīgajiem {{number}} un saņemiet saldo bonusu katru dienu!",
-"mystery_box_description": "Atveriet savu mistērijas kasti reizi mēnesī, lai saņemtu pārsteiguma balvas!",
+  "mystery_box_description": "Atveriet savu mistērijas kasti reizi mēnesī, lai saņemtu pārsteiguma balvas!",
+  "mystery_box_description2": "Trāpiet VIP {{vip}}, lai saņemtu noslēpumainu kasti katra mēneša 7. datumā!",
   "mystery_box": "Noslēpumainā Kastīte",
   "the_cannon_description": "Mēneša atlīdzība, tik spēcīga, ka tās īstā būtība paliek stingri aizsargāta noslēpums.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Verificēt Epastu",
-    "achievement_verify_phone": "Verificēt Telefonu",
-    "achievement_add_desktop_app": "Pievienot Datora Lietotni",
-    "achievement_super_spreader": "Super Izplatītājs",
-    "achievement_conquistador": "Konkistadors",
-    "achievement_game_explorer": "Spēļu Izpētotājs"
+    "achievement_verify_email": "Verificēt e-pastu",
+    "achievement_verify_phone": "Verificēt tālruni",
+    "achievement_add_desktop_app": "Pievienot sākumekrānam",
+    "achievement_super_spreader": "Super izplatītājs",
+    "achievement_conquistador": "Konkvistadors",
+    "achievement_game_explorer": "Spēļu pētnieks"
   },
   "you_win": "Tu uzvari",
   "mystery": "Noslēpums",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Atlīdzības tiek aprēķinātas un piešķirtas BUCK/USDT, pēc tam parādītas jūsu izvēlētajā fiat valūtā, balstoties uz reāllaika valūtas kursiem ērtībai. Lūdzu, ņemiet vērā, ka visas konvertācijas ir aptuvenas līdz apmaiņas darījuma pabeigšanai.",
   "general_terms_answer_2": "Kazino patur tiesības jebkurā laikā mainīt vai atsaukt dalības tiesības bez pienākuma to pamatošanai. Jebkura ļaunprātīga vai krāpnieciska darbība novedīs pie diskvalifikācijas no akcijas.",
   "available": "Pieejams",
-"refresh_in": "Atjauninās pēc",
-"deposit_bonus_pool": "Depozīta bonusa kolekcija"
+  "refresh_in": "Atjauninās pēc",
+  "deposit_bonus_pool": "Depozīta bonusa kolekcija",
+  "dashboard": "Vadības panelis",
+  "bonuses": "Bonusi",
+  "vip_program": "VIP programma",
+  "bonusHub": {
+    "root": "Bonusu centrs",
+    "resetOn": "Atjaunot {{time}}",
+    "ongoing": "{{count}} Notiekoši",
+    "accrualIn": "Uzkrāšana {{time}}",
+    "nextReleaseIn": "Nākamā izlaide {{time}}"
+  },
+  "freeSpins": "Bezmaksas griezieni",
+  "freeSpinsBonusDetails": "Bezmaksas griezienu bonusi atlīdzina jums ar papildu spēlēšanu izvēlētajos spēļu automātos. Veicot nepieciešamo likmju summu, jūs atbloķējat savus bezmaksas griezienu laimestus, kas pēc tam var tikt nekavējoties ieskaitīti jūsu konta bilancē.",
+  "freeSpinsClaimDistributionDescription1": "Bezmaksas griezienu laimesti tiks ieskaitīti jūsu konta bilancē, kad likmju prasība būs izpildīta un jūs noklikšķināsiet uz 'Pieprasīt'.",
+  "freeSpinsClaimDistributionDescription2": "Sekojiet savai progresam jebkurā laikā savā bonusu panelī vai bezmaksas griezienu vēsturē.",
+  "freeSpinsExpirationDescription1": "Bezmaksas griezieni jāizmanto iekšā derīguma periodā, kas norādīts bezmaksas griezienu panelī. Neizmantotie griezieni beigsies pēc šī perioda.",
+  "freeSpinsExpirationDescription2": "Laimesti no bezmaksas griezieniem nebeigsies, līdz tie tiks atbloķēti un pieprasīti.",
+  "freeSpinsGeneralTermsDescription1": "Bezmaksas griezienu atlīdzības tiek aprēķinātas un ieskaitītas BUCK, pēc tam parādītas jūsu izvēlētajā fiat valūtā ērtībai. Lūdzu, ņemiet vērā, ka valūtas konversijas ir aptuvenas.",
+  "freeSpinsGeneralTermsDescription2": "Kazino patur tiesības mainīt vai atsaukt tiesības uz bonusu jebkurā laikā, bez pienākuma pamatojumam. Jebkura ļaunprātīga izmantošana vai krāpnieciska darbība novedīs pie diskvalifikācijas no akcijas.",
+  "the_collector": "Kolekcionārs",
+  "collector_description": "Piemērotas atlīdzības, viena klikšķa attālumā",
+  "claim_all": "Pieprasīt visu",
+  "claimConfirmation": "Pieprasījuma apstiprinājums",
+  "readyToClaim": "Gatavs pieprasīšanai",
+  "selectClaimType": "Izvēlieties savu pieprasījuma veidu zemāk",
+  "claimableAmount": "Pieprasāmā summa",
+  "normalClaim": "Parastais pieprasījums",
+  "normalClaimDesc": "Saņemiet savu standarta atlīdzības summu",
+  "doubleClaim": "Divkāršais pieprasījums",
+  "doubleClaimDesc": "Riska dēļ 2x atlīdzību!",
+  "doubleClaimInfo": "Divkāršā pieprasījuma opcija",
+  "doubleClaimRisk": "Augstāks risks, augstāka atlīdzība - jūs varat laimēt divkārši vai zaudēt visu!",
+  "claimModal": {
+    "title": "Dubultot vai neko",
+    "primaryDescription": "Iegūstiet savu bonusu kā parasti...",
+    "secondaryDescription": "Vai veiciet drosmīgu lēcienu uz <highlight>DUBULTOT TO!</highlight>",
+    "doubleAction": "Dubultot vai neko",
+    "comingSoon": "Dubultot vai neko funkcija drīzumā!",
+    "approximateBuck": "Aptuveni {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Pirmdiena",
+  "vip_monday_description": "Īpašs iknedēļas piedāvājums, lai apbalvotu uzticīgos spēlētājus katru pirmdienu",
+  "vip_monday_wager": "Veiciet likmes vismaz {{amount}} iepriekšējās 7 dienās, lai katru pirmdienu saņemtu noslēpumainu piedāvājumu.",
+  "claim_on_monday": "Iegūstiet pirmdienā",
+  "vip_monday_title": "VIP \n <0>PIRMDIENA</0>",
+  "bonus_already_claimed": "Bonuss jau ir pieprasīts",
+  "wager_requirement_not_met": "Likmju prasība nav izpildīta",
+  "not_in_claim_time_range": "Nav pieprasījuma laika diapazonā",
+  "monday": "Pirmdiena",
+  "poolBalance": "Baseina bilance",
+  "program": "Programma",
+  "races": "Sacensības",
+  "loading_achievements": "Ielādē sasniegumus...",
+  "no_achievements_available": "Nav pieejamu sasniegumu",
+  "check_back_later_for_new_achievements": "Pārbaudiet vēlāk jaunus sasniegumus"
 }

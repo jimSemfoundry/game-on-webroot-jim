@@ -36,3 +36,5 @@ export const DepositMinAmountModal = () => {
     </Modal>
   );
 };
+
+export default DepositMinAmountModal;

@@ -1,7 +1,6 @@
 import { ReferralGlobal } from "@/sections/referral/referral-global.tsx";
 import { ReferralHeroSection } from "@/sections/referral/referral-hero-section.tsx";
 import { ReferralRatesAndRules } from "@/sections/referral/referral-rates-and-rules.tsx";
-import { ReferralSummaryCard } from "@/sections/referral/referral-summary-card.tsx";
 import { ReferralTabs } from "@/sections/referral/referral-tabs.tsx";
 import { ReferralFAQ } from "@/sections/referral/referral-faq.tsx";
 import { ReferralMyReferrals } from "@/sections/referral/referral-my-referrals.tsx";
@@ -10,6 +9,7 @@ import { ReferralMyCommissions } from "@/sections/referral/referral-my-commissio
 import { ReferralRewards } from "@/sections/referral/referral-rewards.tsx";
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
+import { ReferralSummaryCard } from "@/sections/referral/referral-summary-card";
 
 export const Route = createFileRoute("/_main/referral/")({
   component: RouteComponent,

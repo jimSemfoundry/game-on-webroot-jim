@@ -1,5 +1,9 @@
 {
+  "enterTheArena": "進入競技場",
   "endingIn": "結束於",
+  "enterTheArenaDescription1": "從刺激的錦標賽到獨家促銷和獎金掉落 — 提升您遊戲的所有需求都在這裡。",
+  "enterTheArenaDescription2": "經常回來查看，堆疊優惠，永遠不要錯過現金獲利的機會。",
+  "enterTheArenaDescription3": "您下一個大獎可能只需一鍵之遙。",
   "day": "天",
   "hours": "小時",
   "minutes": "分鐘",
@@ -18,7 +22,7 @@
   "jiliTitle": "吉利老虎機巨型獎金",
   "jiliDescription": "規則與條款",
   "jiliContent": "<div class=\"text-sm\">\n        <p class=\"leading-5\">\n          準備好參加 JILI Slots Mega Bonanza 每週錦標賽，每個聯賽的前 10 名玩家每週都能贏得巨額獎金。\n          獎金！\n        </p>\n\n        <p class=\"mt-5 leading-5\">\n          錦標賽從週日（00:00 GMT）開始至下週日（23:59 GMT）結束，讓您有七天時間\n          爬上排行榜，並確保您在優勝者中佔一席位。\n        </p>\n\n        <h4 class=\"mt-5 leading-5\">如何進行</h4>\n        <ol class=\"list-decimal pl-4 leading-5\">\n          <li>\n           <span class=\"font-medium\"></span>玩 JILI 角子機 - 只有在錦標賽期間投注在 JILI 角子機上才會計算在內。\n            才計算在內。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>在您的 VIP 聯賽中競賽 - 玩家在每場比賽開始時會自動進入\n            他們的 VIP 級別聯賽。如果玩家在錦標賽中升級，他們將在下一輪比賽中\n            升級至下一輪的聯賽。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>排行榜排名 - 玩家以總投注額排名（非勝負）。\n            (而非勝負）。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>賽事時間 - 每週從週日（00:00 GMT）至下一週日（23:59 GMT）。\n            下一個星期日 (23:59 GMT)。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>每個聯賽的前 10 名贏家 - 每個聯賽的前 10 名玩家將\n            獲得現金獎勵、免費旋轉遊戲或紅利點數。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>即時排行榜 - 透過即時更新追蹤您一週內的排名。\n            即時更新。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>獎品與報酬 - 獎金會在競賽結束後自動存入。\n            比賽結束後，獎金會自動存入。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>公平遊戲政策 - 任何欺詐行為或濫用將導致\n            取消資格。\n          </li>\n          <li>\n           <span class=\"font-medium\"></span>一般條款 - 賭場保留隨時修改或取消本活動的權利。\n            此促銷活動。\n          </li>\n        </ol>\n\n        <p class=\"mt-5 leading-5\">\n          賺大錢、升等級、天天贏！貴賓等級越高，獎賞越豐厚！\n        </p>\n    </div>",
-    "pgTitle": "PG Soft競賽",
+  "pgTitle": "PG Soft競賽",
   "pgDescription": "規則與條款",
   "pgContent": "<div class=\"text-sm\">\n      <p class=\"leading-5\">\n        加入PG Soft每日競賽，與您貴賓等級的玩家一較高下，贏取豐厚獎勵！根據貴賓等級分為銅級、銀級、金級和白金級四個聯賽，每位玩家都有公平的獲勝機會。\n      </p>\n\n      <p class=\"mt-5 leading-5\">\n        競賽每日於00:00 GMT重置，總有新機會爭奪最高獎勵。\n      </p>\n\n      <h4 class=\"mt-5 leading-5\">比賽方式</h4>\n      <ol class=\"list-decimal pl-4 leading-5\">\n        <li>\n          <span class=\"font-medium\"></span>玩PG Soft老虎機 - 僅在PG Soft老虎機上的投注計入競賽。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>參加貴賓聯賽 - 競賽開始時，玩家自動進入對應貴賓等級的聯賽。若在競賽期間升級，將在下一輪進入更高聯賽。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>攀登排行榜 - 排行榜排名由總投注額決定，而非輸贏。投注越多，排名越高。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>每日重置 - 競賽每日於00:00 GMT重新開始，持續24小時至23:59 GMT。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>贏取每日獎勵 - 每個聯賽的前10名玩家可獲得現金獎勵、免費旋轉或獎勵點數。獎勵在競賽結束後自動存入。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>即時排行榜 - 排行榜即時刷新，隨時更新您的排名。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>公平競賽政策 - 任何欺詐或濫用行為將導致取消資格。\n        </li>\n        <li>\n          <span class=\"font-medium\"></span>一般條款 - 賭場保留隨時修改或取消本促銷的權利。\n        </li>\n      </ol>\n\n      <p class=\"mt-5 leading-5\">\n        大手筆旋轉，升級貴賓，贏取每日大獎！貴賓等級越高，獎勵越豐厚！\n      </p>\n  </div>",
   "luckyNumberSeven": "幸運數字七",

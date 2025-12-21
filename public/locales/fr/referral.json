@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Tarifs & Règles",
+    "campaigns": "Campagnes",
+    "myReferrals": "Mes Références",
+    "commissions": "Commissions",
+    "rewards": "Récompenses"
+  },
+  "commissionCalculator": "Calculateur de Commission",
   "telegramReferralLink": "Lien de Parrainage Telegram",
   "network": "Réseau",
   "lifetimeReferralRewards": "Récompenses de Parrainage à Vie",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Récompenses de Parrainage Disponibles",
   "lockedRewards": "Récompenses Verrouillées",
   "assembleYourCrewCashIn": "Rassemblez Votre Équipe et Encaissez !",
+  "assembleYourCrewCashInDescription1": "Recrutez votre équipe et gagnez {{amount}} par ami - comme un braquage, mais sans la chasse du FBI. De plus, gagnez jusqu'à {{percentage}} de commission sur leurs mises. Le meilleur dans tout ça ? Votre taux de commission augmente avec vous à mesure que vous montez en niveau, et vous gagnerez même sur les recrues de votre équipe !",
+  "assembleYourCrewCashInDescription2": "Plus votre réseau est grand, plus votre part est importante. Qu'ils gagnent, perdent ou parient comme des fous, vous continuez à empiler de l'argent. Il est temps de construire votre empire - Commencez à recruter maintenant !",
+  "quickShare": "Partage Rapide",
   "referralRewards": "Récompenses de Parrainage",
   "commissionRewards": "Récompenses de Commission",
   "aboutDescription": "Recrutez vos amis et gagnez {{amount}} par ami - comme un casse, mais sans la poursuite du FBI. De plus, gagnez jusqu'à 50% de commission sur leurs mises. Et le meilleur ? Votre taux de commission augmente au fur et à mesure que vous progressez, et vous gagnerez même sur les recrues de votre équipe !\n\nPlus votre réseau est grand, plus vos gains sont importants. Qu'ils gagnent, perdent ou parient comme des fous, vous continuez à accumuler de l'argent. Il est temps de construire votre empire - Commencez à recruter dès maintenant !",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Partager sur les Réseaux Sociaux",
   "referralTermsConditions": "Conditions Générales de Parrainage",
   "liveGlobalRewards": "Récompenses Globales en Direct",
+  "liveGlobalCommissions": "Commissions Globales en Direct",
   "username": "Nom d'Utilisateur",
   "friendLevel": "Niveau de Votre Ami",
   "totalExp": "EXP Totale",
@@ -105,35 +118,35 @@
   "more": "Plus",
   "faqOne": {
     "title": "Comment fonctionne le système de parrainage ?",
-    "content": "<p class=\"leading-7\">Lorsque vous partagez votre lien de parrainage avec vos amis et qu’ils s’inscrivent sur notre site, ils deviennent vos filleuls et vous gagnez des commissions et des récompenses de parrainage en jouant à l’alliance {{gameLink}}.</p>"
+    "content": "<p class=\"leading-7\">Lorsque vous partagez votre lien de parrainage avec vos amis et qu'ils s'inscrivent sur notre site ; ils deviennent votre parrainage et vous rapporteront des commissions et des récompenses de parrainage en jouant sur {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
     "title": "Combien puis-je gagner grâce à mon parrainage ?",
-    "content": "<p class=\"leading-7\">Vous pouvez gagner {{percentage}} de leurs mises sous forme de commissions + {{amount}} par parrain.</p>"
+    "content": "<p class=\"leading-7\">Vous pouvez gagner {{percentage}} de leur activité de mise en tant que commissions + {{amount}} par parrainage.</p>"
   },
   "faqThree": {
-    "title": "Qu'est-ce que la récompense de {{amount}} USD et comment fonctionne-t-elle ?",
-    "content": "<p class=\"leading-7\">Il y a une récompense de {{amount}} USD pour chaque filleul que vous amenez à {{gameLink}}. Cette récompense en USD est versée en {{parts}} parties au fur et à mesure que votre niveau de parrainage augmente à partir de {{level}}.</p>"
+    "title": "Quelle est la récompense de {{amount}} USD et comment cela fonctionne-t-il ?",
+    "content": "<p class=\"leading-7\">Il y a une récompense de {{amount}} USD pour chaque parrainage que vous apportez à {{gameLink}}. Cette récompense en USD est donnée en {{parts}} parties à mesure que votre niveau de parrainage augmente à partir de {{level}}.</p>"
   },
   "faqFour": {
-    "title": "J'ai une grande audience. Comment puis-je obtenir une offre spéciale ?",
-    "content": "<p class=\"leading-7\">Si vous avez un site web avec un bon trafic ou un compte de médias sociaux avec un large public, vous pouvez nous envoyer un email à {{emailLink}}</p>"
+    "title": "J'ai un grand public. Comment puis-je obtenir une offre spéciale ?",
+    "content": "<p class=\"leading-7\">Si vous avez un site web avec un bon trafic ou un compte de médias sociaux avec un grand public, vous pouvez nous envoyer un e-mail à {{emailLink}}</p>"
   },
   "faqFive": {
     "title": "Combien de liens d'affiliation puis-je créer si j'ai différents sites web/comptes de médias sociaux ?",
     "content": "<p class=\"leading-7\">Vous pouvez créer jusqu'à {{codes}} codes uniques pour différentes sources de trafic</p>"
   },
   "faqSix": {
-    "title": "Puis-je voir les données de mon parrainé ?",
-    "content": "<p class=\"leading-7\">Oui, la transparence, la confiance et l’équité font partie des valeurs fondamentales de {{gameLink}}. Les données telles que le nom d’utilisateur, la mise totale et les commissions gagnées sont toutes disponibles dans les onglets \"Mes commissions\" et \"Récompenses de parrainage\".</p>"
+    "title": "Puis-je voir les données de mon parrainage ?",
+    "content": "<p class=\"leading-7\">Oui, la transparence, la confiance et l'équité font partie des valeurs fondamentales de {{gameLink}}. Des données telles que le nom d'utilisateur, le total des mises et les commissions gagnées sont toutes disponibles dans l'onglet \"Mes Commissions\" et \"Récompenses de Parrainage\".</p>"
   },
   "faqSeven": {
-    "title": "Puis-je partager les commissions avec mes parrainés ?",
-    "content": "<p class=\"leading-7\">Oui, vous pouvez partager les commissions avec vos parrainés en cliquant sur \"créer une nouvelle campagne\" et en définissant la répartition des commissions sous l'onglet \"Campagnes\".</p>"
+    "title": "Puis-je partager les récompenses de commission avec mes parrainages ?",
+    "content": "<p class=\"leading-7\">Oui, vous pouvez partager les récompenses de commission avec vos parrainages en cliquant sur \"créer une nouvelle campagne\" et en définissant la répartition des commissions dans l'onglet \"Campagnes\".</p>"
   },
   "faqEight": {
-    "title": "Qu'est-ce qu'un parrainage indirect et que puis-je gagner grâce à lui ?",
-    "content": "<p class=\"leading-7\">Un parrainage indirect est un joueur actif qui arrive via le lien d'invitation de l'un de vos parrainés directs. Si votre niveau VIP est supérieur à celui de votre parrainé direct, vous pouvez également gagner une commission sur votre parrainage indirect.</p>"
+    "title": "Qu'est-ce qu'un parrainage indirect et que puis-je en gagner ?",
+    "content": "<p class=\"leading-7\">Un parrainage indirect est un joueur actif qui vient via le lien d'invitation de l'un de vos parrainages directs. Si votre niveau VIP est supérieur au niveau VIP de votre parrainage direct, vous pouvez également gagner des commissions provenant de votre parrainage indirect.</p>"
   },
   "levelReward": "Récompense de Montée de Niveau",
   "groupReward": "Récompense de Commission",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Pour simplifier l’exemple, nous supposons que les amis marqués en jaune misent activement, et que les pourcentages verts le long des lignes pointillées représentent la commission que vous recevez de chacun d’eux.",
   "referralCommissionsIndirectDescription": "Pour simplifier l’exemple, supposons que les amis marqués en violet misent activement. Les pourcentages le long des lignes pointillées indiquent la commission que chaque membre de la chaîne de parrainage gagne.\n\nÀ droite, nous pouvons voir un exemple de rupture survenant dans la chaîne de parrainage.",
   "referralCodeMinLength": "Le code de parrainage doit comporter au moins 6 caractères",
-    "vipLevel": "Niveau VIP",
+  "vipLevel": "Niveau VIP",
   "earned": "Gagné",
   "directfriend": "Ami Direct",
   "fast": "Rapide",
   "slots": "Machines à Sous",
   "live-casino": "Casino en Direct",
   "fishing": "Pêche",
-  "rewardsUnlocked": "Récompenses Débloquées"
+  "rewardsUnlocked": "Récompenses Débloquées",
+  "selectGame": "Sélectionnez un jeu",
+  "selectVipLevel": "Sélectionnez le niveau VIP",
+  "myReferralCommissions": "Mes Commissions de Parrainage",
+  "myReferralRewards": "Mes Récompenses de Parrainage",
+  "exp": "EXP",
+  "userLevel": "Niveau d'Utilisateur"
 }

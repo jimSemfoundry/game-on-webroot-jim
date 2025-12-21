@@ -1,7 +1,7 @@
 {
-    "global": "Globaalne",
-    "notifications": "Teavitused",
-    "support": "Tugi",
-    "retry": "Proovi uuesti",
-    "customerServiceChatFailedToLoad": "Klienditeeninduse vestlus ei laadinud"
+  "global": "Globaalne",
+  "notifications": "Teavitused",
+  "support": "Tugi",
+  "retry": "Proovi uuesti",
+  "customerServiceChatFailedToLoad": "Klienditeeninduse vestlus ei laadinud"
 }

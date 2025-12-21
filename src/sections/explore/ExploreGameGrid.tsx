@@ -54,7 +54,8 @@ export function ExploreGameGrid({
         <div className="grid grid-cols-3 md:grid-cols-9 gap-2">
           {casinoGameList?.data?.map((game: any) => (
             <GameImage 
-              key={game.id} 
+              key={game.id ?? `${game.game_provider}:${game.inner_game_id}`}
+              data={game}
               game={{
                 inner_game_id: game.inner_game_id,
                 game_provider: game.game_provider,

@@ -1,76 +1,103 @@
-import { CSSProperties, useEffect, useMemo, useState } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { useAuth } from "@/contexts/AuthContext.tsx";
 import { Card } from "@/sections/profile/c/Card.tsx";
 import Iconify from "@/components/iconify";
-import { useCurrentUser } from "@/hooks/api/useAuth.ts";
+import { QueryKycDetail } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { email_reg_exp } from "@/utils/regexp.ts";
 import { PhoneAreaCodeSelect } from "@/sections/profile/security/PhoneAreaCodeSelect.tsx";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
-import { isValidPhoneNumber } from "libphonenumber-js";
-import { Country } from "react-phone-number-input/min";
 import { CountryCodeSelect } from "@/sections/profile/settings/CountryCodeSelect.tsx";
 import { DayPicker } from "react-day-picker";
 import classNames from "classnames";
 
-export function Personal({ className }:{ className?: string }) {
+interface IStatus {
+  loading: boolean
+  city: string
+  email: string
+  address: string
+  birthday: Date | undefined
+  nickname: string
+  last_name: string
+  first_name: string
+  middle_name: string
+  phone: string,
+  country: string,
+  country_code: string,
+}
+
+const initStatus = {
+  loading: false,
+  city: "",
+  email: "",
+  phone: "",
+  country: "",
+  address: "",
+  birthday: undefined,
+  nickname: "",
+  last_name: "",
+  first_name: "",
+  middle_name: "",
+  country_code: ""
+};
+
+export function Personal({ className }: { className?: string }) {
   const { t } = useTranslation();
 
-  const { user } = useAuth();
+  const { data, refetch } = QueryKycDetail();
 
-  const { refetch } = useCurrentUser();
-
-  /**
-   * 当前用户IP对应的地区
-   */
+  // 当前用户IP对应的地区
   const { data: defaultCode, isLoading: ipLoading } = useCountryCodeByIp();
 
-  const [status, setStatus] = useState<{
-    loading: boolean
-    date: Date | undefined
-    city: string
-    email: string
-    address: string
-    nickname: string
-    last_name: string
-    first_name: string
-    phone: string,
-    country: string,
-    country_code: string,
-    opt_code: string,
-  }>({
-    loading: false,
-    date: undefined,
-    city: "",
-    email: "",
-    address: "",
-    nickname: "",
-    last_name: "",
-    first_name: "",
-    phone: "",
-    opt_code: "",
-    country: "",
-    country_code: ""
-  });
+  const [status, setStatus] = useState<IStatus>(initStatus);
 
   const nickname_error = useMemo(() => status.nickname !== "" && !/^[A-Za-z_][A-Za-z0-9_]{5,15}$/.test(status.nickname), [status.nickname]);
-  const email_format_error = useMemo(() => status.email !== "" && !email_reg_exp.test(status.email), [status.email]);
-  const first_name_error = useMemo(() => status.first_name !== "" && !/^[A-Za-z0-9]$/.test(status.first_name), [status.first_name]);
   const last_name_error = useMemo(() => status.last_name !== "" && !/^[A-Za-z0-9]$/.test(status.last_name), [status.last_name]);
-  const phone_format_error = useMemo(() => {
-    return status.phone !== "" && status.country !== "" && !isValidPhoneNumber(status.phone, status.country as Country);
-  }, [status.phone, status.country]);
+  const first_name_error = useMemo(() => status.first_name !== "" && !/^[A-Za-z0-9]$/.test(status.first_name), [status.first_name]);
+  const email_format_error = useMemo(() => status.email !== "" && !email_reg_exp.test(status.email), [status.email]);
+  const phone_format_error = useMemo(() => status.phone !== "" && !/^[1-9]\d{6,14}$/.test(status.phone), [status.phone]);
+
+  const disabled = useMemo(() => {
+    return (status.nickname === "" ||
+      status.city === "" ||
+      status.email === "" ||
+      status.phone === "" ||
+      status.country === "" ||
+      status.address === "" ||
+      status.birthday === undefined ||
+      status.last_name === "" ||
+      status.first_name === "" ||
+
+      data.nickname === status.nickname ||
+      data.city === status.city ||
+      data.email === status.email ||
+      data.phone === status.phone ||
+      data.country === status.country ||
+      data.address === status.address ||
+      // data.birthday === status.birthday ||
+      data.last_name === status.last_name ||
+      data.first_name === status.first_name ||
+
+      nickname_error ||
+      last_name_error ||
+      first_name_error ||
+      email_format_error ||
+      phone_format_error);
+  }, [
+    nickname_error,
+    last_name_error,
+    first_name_error,
+    email_format_error,
+    phone_format_error
+  ]);
 
   const handle = () => {
     setStatus((v) => ({ ...v, loading: true }));
 
-    authService.updateUser({
-      nickname: status.nickname
-    })
+    authService.updateKyc(status)
       .then((res) => {
         if (res.code === 0) {
           void refetch();
@@ -84,11 +111,6 @@ export function Personal({ className }:{ className?: string }) {
       });
   };
 
-  // 设置默认数据
-  useEffect(() => {
-    if (user?.nickname) setStatus((v) => ({ ...v, nickname: user?.nickname }));
-  }, [user?.nickname]);
-
   return (
     <Card
       className={classNames("md:p-6 md:gap-4 mx-5 md:mx-0", className)} title={"Personal Details"}
@@ -101,15 +123,15 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Email */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Email</h4>
+            <h4>Email</h4>
             <input
               type="text"
-              value={status.email}
+              value={status.email || data.email}
               placeholder="Enter"
               onChange={(e) => {
                 setStatus((v) => ({ ...v, email: e.target.value }));
               }}
-              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none text-white"}
             />
             <ErrorMessageBox
               show={email_format_error}
@@ -119,7 +141,7 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Nickname */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Nickname</h4>
+            <h4>Nickname</h4>
             <input
               type="text"
               value={status.nickname}
@@ -127,7 +149,7 @@ export function Personal({ className }:{ className?: string }) {
               onChange={(e) => {
                 setStatus((v) => ({ ...v, nickname: e.target.value }));
               }}
-              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none text-white"}
               maxLength={16}
               minLength={6}
             />
@@ -141,15 +163,15 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - First Name */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">First Name</h4>
+            <h4>First Name</h4>
             <input
               type="text"
-              value={status.first_name}
+              value={status.first_name || data?.first_name}
               placeholder="Enter"
               onChange={(e) => {
                 setStatus((v) => ({ ...v, first_name: e.target.value }));
               }}
-              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none text-white"}
             />
             <ErrorMessageBox
               show={first_name_error}
@@ -158,15 +180,15 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Last Name */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Last Name</h4>
+            <h4>Last Name</h4>
             <input
               type="text"
-              value={status.last_name}
+              value={status.last_name || data?.last_name}
               placeholder="Enter"
               onChange={(e) => {
                 setStatus((v) => ({ ...v, last_name: e.target.value }));
               }}
-              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none text-white"}
             />
             <ErrorMessageBox
               show={last_name_error}
@@ -175,18 +197,18 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Birth Date */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Date of Birth</h4>
+            <h4>Date of Birth</h4>
             <button popoverTarget="rdp-popover" className="btn bg-base-300 btn-md justify-start"
                     style={{ anchorName: "--rdp" } as CSSProperties}>
-              {status.date ? status.date.toLocaleDateString() :
+              {status.birthday ? status.birthday.toLocaleDateString() :
                 <span className={"text-base-content/50"}>Pick a date</span>}
             </button>
             <div popover="auto" id="rdp-popover" className="dropdown rounded-lg top-1"
                  style={{ positionAnchor: "--rdp" } as CSSProperties}>
               <DayPicker
-                className="react-day-picker rounded-lg"
+                className="react-day-picker rounded-lg text-white"
                 mode="single"
-                selected={status.date}
+                selected={status.birthday || new Date(data?.birthday)}
                 onSelect={(d) => {
                   setStatus((v) => ({ ...v, date: d }));
                 }} />
@@ -195,9 +217,10 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Phone Number */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Phone Number</h4>
+            <h4>Phone Number</h4>
             <PhoneAreaCodeSelect
               loading={ipLoading}
+              defaultValue={data?.phone}
               defaultCode={defaultCode?.data?.country_code}
               onPhoneChange={(v) => {
                 setStatus((old) => ({
@@ -219,10 +242,10 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - Country */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Country</h4>
+            <h4>Country</h4>
             <CountryCodeSelect
               loading={ipLoading}
-              defaultCode={defaultCode?.data?.country_code}
+              defaultCode={data?.country || defaultCode?.data?.country_code}
               onCodeChange={(v) => {
                 setStatus((old) => ({
                   ...old,
@@ -234,38 +257,38 @@ export function Personal({ className }:{ className?: string }) {
 
           {/* Personal Details - City */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">City</h4>
+            <h4>City</h4>
             <input
               type="text"
-              value={status.city}
+              value={status.city || data?.city}
               placeholder="Enter"
               onChange={(e) => {
                 setStatus((v) => ({ ...v, city: e.target.value }));
               }}
-              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+              className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none text-white"}
             />
           </fieldset>
 
           {/* Personal Details - Address */}
           <fieldset className="fieldset">
-            <h4 className="text-xs text-base-content">Address</h4>
+            <h4>Address</h4>
             <div className="relative">
               <input
                 type="text"
-                value={status.address}
+                value={status.address || data?.address}
                 placeholder="Enter"
                 onChange={(e) => {
                   setStatus((v) => ({ ...v, address: e.target.value }));
                 }}
-                className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none"}
+                className={"input w-full rounded-md px-4 text-sm bg-base-300 border-none !outline-none  text-white"}
               />
             </div>
           </fieldset>
         </div>
 
         <ConfirmBox
-          className={'md:w-auto md:ml-auto md:px-10'}
-          disabled={true}
+          disabled={disabled}
+          className={"md:w-auto md:ml-auto md:px-10"}
           loading={status.loading} onClick={handle}>
           {t("common.save")}
         </ConfirmBox>

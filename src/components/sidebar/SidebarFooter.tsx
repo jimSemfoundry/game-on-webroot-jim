@@ -23,6 +23,7 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
   const { openModal: openThemeSwitcherModal } = useThemeSwitcherModal()
   const { t, i18n } = useTranslation()
   const {state} = useTheme()
+  const isThemeSwitcherEnabled = import.meta.env.VITE_ENABLE_THEME_SWITCHER === 'true'
   
   // 获取当前显示的货币（优先用户设置，其次CurrencyContext选择）
   const displayCurrency = user?.currency_fiat || selectedCurrency
@@ -127,25 +128,24 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                     </div>
                   </button>
 
-                  <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
-                          onClick={openThemeSwitcherModal }>
-                    <div className="flex items-center gap-x-3">
-                      {/*<div tabIndex={0} role="button" className={`btn btn-square ${isMobile ? "btn-sm" : ""}`}>*/}
-                      {/*  <SwatchBook className="w-4 h-4" />*/}
-                      {/*</div>*/}
-                      <SwatchBook size={20} className="w-5 h-5 shrink-0 opacity-50" />
-                      <div className="flex flex-col items-start">
-                        <span className="text-xs text-base-content/50">主题切换</span>
-                        <span className="text-xs font-semibold">
-                          {state.currentTheme}
-                        </span>
+                  {isThemeSwitcherEnabled && (
+                    <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
+                            onClick={openThemeSwitcherModal }>
+                      <div className="flex items-center gap-x-3">
+                        <SwatchBook size={20} className="w-5 h-5 shrink-0 opacity-50" />
+                        <div className="flex flex-col items-start">
+                          <span className="text-xs text-base-content/50">主题切换</span>
+                          <span className="text-xs font-semibold">
+                            {state.currentTheme}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      className="flex items-center justify-center btn-square btn-xs rounded-lg bg-primary text-primary-content">
-                      <ChevronDown size={16} />
-                    </div>
-                  </button>
+                      <div
+                        className="flex items-center justify-center btn-square btn-xs rounded-lg bg-primary text-primary-content">
+                        <ChevronDown size={16} />
+                      </div>
+                    </button>
+                  )}
                 </m.div>
               )}
             </AnimatePresence>

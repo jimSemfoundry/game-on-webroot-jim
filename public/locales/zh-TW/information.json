@@ -4,35 +4,35 @@
   "retry": "重試",
   "retryConnection": "重新連線",
   "emptyStateNoContent": {
-    "title": "這裡暫時沒有內容！",
-    "description": "目前這裡沒有任何內容。請稍後再試，或嘗試其他功能。"
+    "title": "這裡還沒有任何內容！",
+    "description": "看起來這裡目前沒有內容。稍後再回來查看或嘗試其他內容。"
   },
   "failedToLoadPage": {
-    "title": "載入失敗",
-    "description": "載入頁面時發生系統錯誤。請重新載入頁面，或者如果問題仍然存在，請聯繫支援人員。"
+    "title": "出錯了",
+    "description": "加載頁面時發生系統錯誤。請重新加載頁面，或如果問題持續，請聯繫支持。"
   },
   "otherActiveSession": {
     "title": "會話錯誤！",
-    "description": "出於安全原因，當前無法從此設備存取。可能是因為另一個登錄或系統問題。請再次嘗試或使用其他設備。"
+    "description": "由於安全原因，當前無法從此設備訪問。這可能是由於另一個登錄或系統問題。請重試或使用其他設備。"
   },
   "noInternetConnection": {
     "title": "哎呀！您已離線",
-    "description": "您似乎未連接到網路。請檢查您的 Wi-Fi 或行動數據，恢復連線後再次嘗試。"
+    "description": "看起來您沒有連接到互聯網。檢查您的 Wi-Fi 或移動數據，並在重新上線後再試一次。"
   },
   "pageNotFound": {
-    "title": "哎呀！頁面不存在",
-    "description": "此頁面似乎不存在或已被移動。請檢查網址或返回首頁。"
+    "title": "哎呀！此頁面丟失",
+    "description": "看起來這個頁面不存在或已被移動。請檢查 URL 或返回首頁。"
   },
   "tooManyRequest": {
-    "title": "稍等片刻！伺服器繁忙",
-    "description": "我們的伺服器目前處理過多請求。請稍候再次嘗試。"
+    "title": "稍等一下！我們有點忙",
+    "description": "看起來我們的伺服器目前正在處理很多請求。請稍等片刻再試。"
   },
   "underMaintenance": {
-    "title": "我們即將回歸！",
-    "description": "我們正在進行系統更新，以確保順暢運行。請稍後回來查看！"
+    "title": "我們馬上回來！",
+    "description": "我們正在進行一些更新，以保持系統平穩運行。請稍後再回來！"
   },
   "userRestriction": {
-    "title": "哎呀！無法存取",
-    "description": "您似乎沒有權限查看此內容。請確認您的存取權限或聯繫即時客服尋求協助。"
+    "title": "哎呀！您無法訪問此內容",
+    "description": "看起來您沒有權限查看此內容。請再次檢查您的訪問權限或尋求幫助。"
   }
 }

@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Globaal",
+    "ratesAndRules": "Tarieven & Regels",
+    "campaigns": "Campagnes",
+    "myReferrals": "Mijn Verwijzingen",
+    "commissions": "Commissies",
+    "rewards": "Beloningen"
+  },
+  "commissionCalculator": "Commissiecalculator",
   "telegramReferralLink": "Telegram Verwijzingslink",
   "network": "Netwerk",
   "lifetimeReferralRewards": "Levenslange aanbevelingsbeloningen",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Beschikbare aanbevelingsbeloningen",
   "lockedRewards": "Geblokkeerde beloningen",
   "assembleYourCrewCashIn": "Stel je team samen en verdien!",
+  "assembleYourCrewCashInDescription1": "Rekruteer je squad en verdien {{amount}} per vriend - als een overval, maar zonder de FBI achter je aan. Bovendien verdien je tot {{percentage}} commissie op hun inzetten. Het beste deel? Je commissiepercentage groeit met je mee naarmate je levelt, en je verdient zelfs van de rekruten van je crew!",
+  "assembleYourCrewCashInDescription2": "Hoe groter je netwerk, hoe dikker je aandeel. Of ze nu winnen, verliezen of als maniakken inzetten, jij blijft cash stapelen. Tijd om je imperium op te bouwen - Begin nu met rekruteren!",
+  "quickShare": "Snelle Delen",
   "referralRewards": "Aanbevelingsbeloningen",
   "commissionRewards": "Commissie beloningen",
   "aboutDescription": "Rekruteer je team en scoor {{amount}} per vriend - net als bij een overval, maar dan zonder de FBI-achtervolging. Plus, verdien tot 50% commissie op hun inzetten. Het beste deel? Je commissiepercentage groeit met je mee naarmate je een hoger level bereikt, en je verdient zelfs aan de rekruten van je team!\n\nHoe groter je netwerk, hoe groter je deel. Of ze nu winnen, verliezen of als gekken wedden, jij blijft geld opstapelen. Tijd om je imperium op te bouwen - Begin nu met rekruteren!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Delen via sociale media",
   "referralTermsConditions": "Voorwaarden voor doorverwijzing",
   "liveGlobalRewards": "Live Wereldwijde beloningen",
+  "liveGlobalCommissions": "Live Wereldwijde Commissies",
   "username": "Gebruikersnaam",
   "friendLevel": "Niveau vriend",
   "totalExp": "Totaal EXP",
@@ -105,7 +118,7 @@
   "more": "Meer",
   "faqOne": {
     "title": "Hoe werkt het verwijzingssysteem?",
-    "content": "<p class=\"leading-7\">Wanneer je je referral-link deelt met je vrienden en zij zich aanmelden op onze site, worden zij jouw referrals en verdien je commissie en referralbeloningen door te spelen bij de {{gameLink}} Alliantie.</p>"
+    "content": "<p class=\"leading-7\">Wanneer je je verwijzingslink met je vrienden deelt en zij zich aanmelden op onze site; worden zij jouw verwijzing en verdien je commissie en verwijzingsbeloningen door te spelen bij de {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
     "title": "Hoeveel kan ik verdienen met mijn verwijzing?",
@@ -113,27 +126,27 @@
   },
   "faqThree": {
     "title": "Wat is de {{amount}} USD beloning en hoe werkt het?",
-    "content": "<p class=\"leading-7\">Er is een beloning van {{amount}} USD voor elke referral die je naar {{gameLink}} brengt. Deze USD-beloning wordt in {{parts}} delen uitbetaald naarmate je referral-niveau stijgt vanaf {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Er is een {{amount}} USD beloning voor elke verwijzing die je naar {{gameLink}} brengt. Deze USD beloning wordt in {{parts}} delen gegeven naarmate je verwijzingsniveau stijgt van {{level}}.</p>"
   },
   "faqFour": {
     "title": "Ik heb een groot publiek. Hoe kan ik een speciale deal krijgen?",
-    "content": "<p class=\"leading-7\">Als je een website hebt met veel verkeer of een social media-account met een groot publiek, kun je ons mailen via {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Als je een website hebt met goed verkeer of een social media-account met een groot publiek, kun je ons een e-mail sturen op {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Hoeveel affiliate links kan ik maken als ik verschillende websites/ social media accounts heb?",
-    "content": "<p class=\"leading-7\">Je kunt tot {{codes}} unieke codes maken voor verschillende verkeersbronnen</p>"
+    "title": "Hoeveel affiliate links kan ik aanmaken als ik verschillende websites/social media-accounts heb?",
+    "content": "<p class=\"leading-7\">Je kunt tot {{codes}} unieke codes aanmaken voor verschillende verkeersbronnen.</p>"
   },
   "faqSix": {
     "title": "Kan ik de gegevens van mijn verwijzing zien?",
-    "content": "<p class=\"leading-7\">Ja, transparantie, vertrouwen en eerlijkheid zijn onderdeel van de kernwaarden van {{gameLink}}. Gegevens zoals gebruikersnaam, totale inzet en verdiende commissies zijn allemaal beschikbaar in het tabblad \"Mijn commissies\" en \"Referralbeloningen\".</p>"
+    "content": "<p class=\"leading-7\">Ja, Transparantie, Vertrouwen en Eerlijkheid zijn onderdeel van de kernwaarden van {{gameLink}}. Gegevens zoals gebruikersnaam, totale inzet en verdiende commissie zijn allemaal beschikbaar in het tabblad \"Mijn Commissies\" en \"Verwijzingsbeloningen\".</p>"
   },
   "faqSeven": {
     "title": "Kan ik de commissiebeloningen delen met mijn verwijzingen?",
-    "content": "<p class=\"leading-7\">Ja, je kunt de commissiebeloningen delen met je verwijzingen door te klikken op \"nieuwe campagne maken\" en de commissieverdeling in te stellen onder het tabblad \"Campagnes\".</p>"
+    "content": "<p class=\"leading-7\">Ja, je kunt de commissiebeloningen delen met je verwijzingen door op \"nieuwe campagne aanmaken\" te klikken en de commissie-verdeling in te stellen onder het tabblad \"Campagnes\".</p>"
   },
   "faqEight": {
-    "title": "Wat is een indirecte verwijzing en wat kan ik ermee verdienen?",
-    "content": "<p class=\"leading-7\">Een indirecte verwijzing is een actieve speler die binnenkomt via de uitnodigingslink van een van je directe verwijzingen. Als je VIP-niveau hoger is dan het VIP-niveau van je directe verwijzing, kun je ook commissie verdienen voor je indirecte verwijzing.</p>"
+    "title": "Wat is een indirecte verwijzing en wat kan ik van hen verdienen?",
+    "content": "<p class=\"leading-7\">Een indirecte verwijzing is een actieve speler die binnenkomt via de uitnodigingslink van een van je directe verwijzingen. Als je VIP-niveau hoger is dan het VIP-niveau van je directe verwijzing, kun je ook commissie verdienen die voortkomt uit je indirecte verwijzing.</p>"
   },
   "levelReward": "Level-up beloning",
   "groupReward": "commissiebeloning",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Om het voorbeeld te vereenvoudigen, gaan we ervan uit dat de geel gemarkeerde vrienden actief inzetten, en de groene percentages langs de stippellijnen de commissie vertegenwoordigen die je van elk van hen ontvangt.",
   "referralCommissionsIndirectDescription": "Om het voorbeeld te vereenvoudigen, gaan we ervan uit dat de paars gemarkeerde vrienden actief inzetten. De percentages langs de stippellijnen geven de commissie aan die elk lid in de verwijzingsketen verdient. \n\n Aan de rechterkant zien we een voorbeeld van een afsplitsing die plaatsvindt in de verwijzingsketen.",
   "referralCodeMinLength": "De verwijzingscode moet minstens 6 tekens lang zijn",
-    "vipLevel": "VIP-niveau",
+  "vipLevel": "VIP-niveau",
   "earned": "Verdiend",
   "directfriend": "Directe Vriend",
   "fast": "Snel",
   "slots": "Gokkasten",
   "live-casino": "Live Casino",
   "fishing": "Vissen",
-  "rewardsUnlocked": "Beloningen Vrijgespeeld"
+  "rewardsUnlocked": "Beloningen Vrijgespeeld",
+  "selectGame": "Selecteer een spel",
+  "selectVipLevel": "Selecteer VIP-niveau",
+  "myReferralCommissions": "Mijn Verwijzingscommissies",
+  "myReferralRewards": "Mijn Verwijzingsbeloningen",
+  "exp": "EXP",
+  "userLevel": "Gebruikersniveau"
 }

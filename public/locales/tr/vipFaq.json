@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Seviye Atlama Bonusları Nelerdir?",
-    "content": "<p class=\"leading-7\">Seviye Atlama Bonusları, başlangıçtan beri bizimle olan sadık oyuncularımıza teşekkür etme yolumuzdur. VIP seviyelerinde yükseldikçe, daha yüksek ödüllerin kilidini açarsınız.</p>"
+    "title": "Seviye Atlama Bonusları Nedir?",
+    "content": "<p class=\"leading-7\">Seviye atlama bonusu, başlangıçtan beri bizimle olan sadık oyunculara olan takdirimizi gösterme şeklimizdir. Oyuncular VIP seviyelerinde yükseldikçe, daha yüksek seviye atlama ödüllerinin kilidini açarlar.</p>"
   },
   "faqTwo": {
-    "title": "Günlük Cashback Nedir?",
-    "content": "<p class=\"leading-7\">Günlük Cashback, yatırımlarına karşı kayıp yaşayan oyunculara verilir. Bu bonus, oyuncunun kayıp miktarının bir yüzdesi olarak her gün ödenir. Cashback oranı, VIP seviyenize bağlı olarak artar ve maksimum %40’a ulaşır - bu, sektördeki en yüksek orandır. Lütfen, bu bonusun yalnızca net kayıp durumunda geçerli olduğunu unutmayın.</p>"
+    "title": "Günlük Nakit İadesi Nedir?",
+    "content": "<p class=\"leading-7\">Günlük nakit iadesi, yatırdıkları miktara karşı kayıp yaşayan oyunculara verilecektir. Bu bonus, oyuncunun kayıp miktarının yüzdesi olarak günlük olarak verilmektedir. Günlük nakit iade yüzdesi, VIP seviyenizle birlikte artacak ve maksimum %40 nakit iadesine kadar yükselebilir, bu da en yüksek nakit iadesidir. Lütfen bu bonusun yalnızca net kayıp durumundaki oyuncular için geçerli olduğunu unutmayın.</p>"
   },
   "faqThree": {
-    "title": "Fetihler ve Görevler Nedir?",
-    "content": "<p class=\"leading-7\">Fetihler ve Görevler, sitemizde oynarken ekstra ödüller kazanmanız için rastgele verilen günlük görevlerdir. Fetih Ödülleri, bir sonraki döngüden önceki 24 saat içinde alınmalıdır, aksi takdirde geçerliliğini yitirir. Ödüller BUCK/USDT olarak ödenir ve takas özelliğimizle istediğiniz kripto para birimine çevrilebilir.</p>"
+    "title": "Fetihler/Görevler Nedir?",
+    "content": "<p class=\"leading-7\">Fetihler, oyunculara web sitemizde oynarken ekstra ödüller kazanmaları için rastgele verilen günlük görevlerdir. Fetih Ödülleri, bir sonraki döngüden önce 24 saat içinde talep edilmelidir ve talep edilmezse süresi dolacaktır. Fetih ödülleri BUCK/USDT cinsinden ödenir ve değişim işlevimiz aracılığıyla tercih ettiğiniz kripto para birimine dönüştürülebilir.</p>"
   },
   "faqFour": {
-    "title": "Turnuva Ödülleri Nelerdir?",
-    "content": "<p class=\"leading-7\">Turnuva Ödülleri, yarışmalarda üstün performans gösteren oyunculara verilen ödüllerdir. Bu ödüller, alınana kadar birikir ve son kullanma tarihi yoktur. Turnuva ödülleri BUCK/USDT olarak ödenir ve takas özelliğimizle istediğiniz kripto para birimine çevrilebilir.</p>"
+    "title": "Turnuva Ödülleri Nedir?",
+    "content": "<p class=\"leading-7\">Turnuva Ödülleri, yarışmalardaki olağanüstü performans için verilen ödüllerdir. Turnuva Ödülleri, talep edilene kadar birikir ve son kullanma tarihi yoktur. Turnuva ödülleri BUCK/USDT cinsinden ödenir ve değişim işlevimiz aracılığıyla tercih ettiğiniz kripto para birimine dönüştürülebilir.</p>"
   },
   "faqFive": {
     "title": "Süper Rakeback Nedir?",
-    "content": "<p class=\"leading-7\">Süper Rakeback, yatırım bonuslarınızı açma mekanizmamızdır. Her bahiste, bahsinizin %3’üne kadar bir kısmı size geri döner. VIP seviyeniz yükseldikçe kilit açma oranı artar. Açılan BUCK/USDT = Bahis x %2.5 x Kilit Açma Oranı</p><p class=\"leading-7\">Kilit Açma Oranı:</p><p class=\"leading-7\">VIP 0-40: %20</p><p class=\"leading-7\">VIP 41-60: %32</p><p class=\"leading-7\">VIP 61-80: %40</p><p class=\"leading-7\">VIP 81-100: %52</p><p class=\"leading-7\">VIP 101-125: %60</p>"
+    "content": "<p class=\"leading-7\">Süper Rakeback, yatırım bonuslarınızı açmanın mekanizmasıdır. Her bahis koyduğunuzda, bahsinizin %3'e kadar bir yüzdesi size geri döner. VIP seviyeniz ne kadar yüksekse, açılma oranı o kadar yüksek olur. Açılan BUCK/USDT= Bahis x %2.5 x Açılma oranı%</p><p class=\"leading-7\">Açılma Oranı:</p><p class=\"leading-7\">VIP 0-40: %20</p><p class=\"leading-7\">VIP 41-60: %32</p><p class=\"leading-7\">VIP 61-80: %40</p><p class=\"leading-7\">VIP 81-100: %52</p><p class=\"leading-7\">VIP 101-125: %60</p>"
   },
   "faqSix": {
-    "title": "Yükseltici Nedir?",
-    "content": "<p class=\"leading-7\">Yükselticiler, bir yönlendirmeniz her para yatırdığında Rakeback’inizi bir saat boyunca iki katına çıkarır.</p><p class=\"leading-7\">Artırılmış Kilit Açma Oranı:</p><p class=\"leading-7\">Kilit Açma Oranı:</p><p class=\"leading-7\">VIP 0-40: %40</p><p class=\"leading-7\">VIP 41-60: %72</p><p class=\"leading-7\">VIP 61-80: %80</p><p class=\"leading-7\">VIP 81-100: %102</p><p class=\"leading-7\">VIP 101-125: %120</p>"
+    "title": "Booster Nedir?",
+    "content": "<p class=\"leading-7\">Booster'lar, bir referans her para yatırdığında Rakeback'inizi bir saat boyunca iki katına çıkarır.</p><p class=\"leading-7\">Artırılmış Açılma Oranı:</p><p class=\"leading-7\">Açılma Oranı:</p><p class=\"leading-7\">VIP 0-40: %40</p><p class=\"leading-7\">VIP 41-60: %72</p><p class=\"leading-7\">VIP 61-80: %80</p><p class=\"leading-7\">VIP 81-100: %102</p><p class=\"leading-7\">VIP 101-125: %120</p>"
   },
   "faqSeven": {
     "title": "Bonus Takvimi Nedir?",
-    "content": "<p class=\"leading-7\">Bonusların çoğu, Gerçek Bakiyenize %50 ve Bonus Takviminize %50 olarak ödenir. Bonus Takviminizdeki bonuslar her 8 saatte bir alınabilir ve alınmazsa 24 saat içinde geçerliliğini yitirir. Tüm ödüllerinizi toplamak için Bonus Takviminizi günde en az bir kez kontrol etmeyi unutmayın!</p>"
+    "content": "<p class=\"leading-7\">Çoğu bonus, Gerçek Bakiyenize %50 ve Bonus Takviminize %50 olarak ödenir. Bonus Takviminize ödenen bonuslar her 8 saatte bir talep edilebilir ve talep edilmezse 24 saat içinde süresi dolacaktır. Tüm ödüllerinizin toplandığından emin olmak için Bonus Takviminizdeki bonusları günde en az bir kez talep etmeyi unutmayın!</p>"
   },
   "faqEight": {
     "title": "Haftalık Bonus Nedir?",
-    "content": "<p class=\"leading-7\">Haftalık Bonus, VIP 12 ve üzeri oyuncular için tasarlanmış özel bir avantajdır. Bu bonus, her Cuma otomatik olarak ödenir ve geçen hafta boyunca minimum {{minWager}} bahis şartıyla yatırılan miktara bağlıdır.</p>"
+    "content": "<p class=\"leading-7\">Haftalık Bonus, VIP12 ve üzeri oyuncular için tasarlanmış özel bir avantajdır. Bu bonus haftalık olarak verilir ve VIP12 ve üzerindeki oyunculara her Cuma otomatik olarak ödenir. Bonusun büyüklüğü, son hafta içinde yapılan bahis miktarına bağlıdır ve son hafta içinde en az {{minWager}} bahis yapma gerekliliği vardır.</p>"
   },
   "faqNine": {
     "title": "Başarılar Nedir?",
-    "content": "<p class=\"leading-7\">Başarılar, platformumuzdaki etkinliğinizi ödüllendirme yöntemimizdir. Başarı bonusunuzu aldığınızda, Bonus Takviminize yatırılır, her 8 saatte bir alınabilir ve alınmazsa 24 saat içinde geçerliliğini yitirir.</p>"
+    "content": "<p class=\"leading-7\">Başarılar, platformumuzdaki etkinliğinizi tanımanın bir yoludur. Başarı bonusunuzu talep ettiğinizde, Bonus Takviminize ödenecek ve her 8 saatte bir talep edilebilir ve talep edilmezse 24 saat içinde süresi dolacaktır.</p>"
   }
 }

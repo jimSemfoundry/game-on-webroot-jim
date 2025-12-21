@@ -51,6 +51,17 @@ export const GameProviders = () => {
     });
   };
 
+  const handleProviderClick = (provider: GameProvider) => {
+    navigate({
+      to: "/explore",
+      search: {
+        type: "casino",
+        category: "hot",
+        providers: provider.name_key, // 使用 name_key 作为 provider 标识
+      },
+    });
+  };
+
   // 过滤掉加载失败的provider
   const validProviders = gameProviders.filter((provider: GameProvider) => !failedImages.has(provider.id));
 
@@ -65,12 +76,16 @@ export const GameProviders = () => {
           className="btn btn-sm btn-primary"
           onClick={handleAllClick}
         >
-          All
+          {t("transaction:filters.all")}
         </button>
       </div>
       <Carousel carousel={carousel}>
         {validProviders.map((provider: GameProvider) => (
-          <div key={provider.id} className="flex flex-col rounded-field items-center gap-0.5 cursor-pointer bg-base-200">
+          <div
+            key={provider.id}
+            className="flex flex-col rounded-field items-center gap-0.5 cursor-pointer bg-base-200"
+            onClick={() => handleProviderClick(provider)}
+          >
             <div className="relative w-[110px] h-[60px] sm:w-[233px] sm:h-[105px] group px-2 sm:px-7 py-3">
               <img
                 src={provider.logo}

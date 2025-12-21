@@ -11,7 +11,7 @@ import type {
 } from "@/types/bet-history";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-export const BET_HISTORY_PAGE_SIZE = 20;
+export const BET_HISTORY_PAGE_SIZE = 10;
 
 const toNumber = (value: unknown): number | undefined => {
   if (typeof value === "number" && Number.isFinite(value)) return value;
@@ -150,8 +150,9 @@ const extractPagination = (payload?: Record<string, unknown>, fallback?: Record<
 
     const total = toNumber(node.total) ?? toNumber(node.total_count) ?? toNumber(node.totalCount);
     const nextPage = toNumber(node.next_page) ?? toNumber(node.nextPage);
+    const lastId = toNumber(node.last_id) ?? toNumber(node.lastId);
 
-    if (currentPage !== undefined || lastPage !== undefined || hasMore !== undefined || total !== undefined) {
+    if (currentPage !== undefined || lastPage !== undefined || hasMore !== undefined || total !== undefined || lastId !== undefined) {
       return {
         current_page: currentPage,
         last_page: lastPage,
@@ -160,6 +161,7 @@ const extractPagination = (payload?: Record<string, unknown>, fallback?: Record<
         per_page: pageSize,
         total,
         next_page: nextPage,
+        last_id: lastId,
       };
     }
   }
@@ -224,7 +226,66 @@ export const useUserBetHistory = (params: Omit<BetHistoryQueryParams, "page" | "
       return undefined;
     },
     enabled: !!user,
-    staleTime: 5 * 60 * 1000,
+    staleTime: 0,
+    refetchOnMount: true,
+    retry: 1,
+  });
+};
+
+export const useSportsBetHistory = (params: Omit<BetHistoryQueryParams, "page" | "page_size" | "last_id">) => {
+  const { user } = useAuth();
+  const isBetby = params.game_type === "betby";
+
+  return useInfiniteQuery<BetHistoryResponse, Error>({
+    queryKey: ["sportsBetHistory", params, user?.id],
+    queryFn: async ({ pageParam }) => {
+      const queryParams: BetHistoryQueryParams = {
+        ...params,
+        page_size: BET_HISTORY_PAGE_SIZE,
+      };
+
+      // Only add last_id when game_type is 'betby'
+      if (isBetby) {
+        queryParams.last_id = typeof pageParam === "number" ? pageParam : 0;
+      } else {
+        // For non-betby, use page-based pagination
+        queryParams.page = typeof pageParam === "number" ? pageParam : 1;
+      }
+
+      return authService.getUserSportsBetHistory(queryParams);
+    },
+    initialPageParam: isBetby ? 0 : 1,
+    getNextPageParam: (lastPage) => {
+      const payload = normalizeBetHistoryResponse(lastPage);
+      const hasMore = payload.pagination?.has_more;
+      if (hasMore === false) return undefined;
+
+      // For betby, use last_id from pagination
+      if (params.game_type === "betby") {
+        const nextLastId =
+          payload.pagination?.last_id ??
+          toNumber(payload.records[payload.records.length - 1]?.id) ??
+          toNumber(payload.records[payload.records.length - 1]?.order_id);
+
+        if (nextLastId === undefined) {
+          return undefined;
+        }
+
+        return nextLastId;
+      }
+
+      // For other game types, use page-based pagination (fallback)
+      const currentPage = payload.pagination?.current_page;
+      const lastPageNumber = payload.pagination?.last_page;
+      if (typeof currentPage === "number" && typeof lastPageNumber === "number" && currentPage < lastPageNumber) {
+        return currentPage + 1;
+      }
+
+      return undefined;
+    },
+    enabled: !!user,
+    staleTime: 0,
+    refetchOnMount: true,
     retry: 1,
   });
 };

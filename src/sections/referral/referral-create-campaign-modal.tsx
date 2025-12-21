@@ -1,39 +1,51 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
-import { useCreateAdTag } from "@/hooks/api/useAuth";
+import { useCreateAdTag, useSetDefaultAdTag } from "@/hooks/api/useAuth";
 import { cn } from "@/utils/cn";
 import { useTranslation } from "react-i18next";
 import Copy from "@/components/ui/Copy";
 import { toast } from "sonner";
+import { AdTag } from "@/types/referral";
+import { useReferralLink } from "@/hooks/useReferralLink.ts";
 
 type CreateCampaignModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onCreated?: () => void;
+  compaignDetail?: AdTag | null;
 };
 
 const COMMISSION_OPTIONS = [0, 10, 25, 50];
 
 const generateCode = () => Math.random().toString(36).slice(2, 8).toUpperCase();
 
-export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen, onClose, onCreated }) => {
+export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen, onClose, onCreated, compaignDetail }) => {
   const { t } = useTranslation();
   const createCampaign = useCreateAdTag();
-
+  const setDefaultCampaign = useSetDefaultAdTag();
   const [commissionSplit, setCommissionSplit] = useState<number>(25);
   const [campaignName, setCampaignName] = useState("");
   const [referralCode, setReferralCode] = useState(generateCode());
   const [isDefaultCampaign, setIsDefaultCampaign] = useState(false);
 
+  const { refetchAdTagData } = useReferralLink();
+
   useEffect(() => {
     if (isOpen) {
-      setCommissionSplit(25);
-      setCampaignName("");
-      setReferralCode(generateCode());
-      setIsDefaultCampaign(false);
+      if (compaignDetail) {
+        setCommissionSplit(parseInt(compaignDetail.share_to_referee || "0"));
+        setCampaignName(compaignDetail.campaign);
+        setReferralCode(compaignDetail.code);
+        setIsDefaultCampaign(compaignDetail.is_default || false);
+      } else {
+        setCommissionSplit(25);
+        setCampaignName("");
+        setReferralCode(generateCode());
+        setIsDefaultCampaign(false);
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, compaignDetail]);
 
   const { youReceive, referralReceive } = useMemo(() => {
     const referral = commissionSplit;
@@ -43,9 +55,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
     };
   }, [commissionSplit]);
 
-  const referralLink = useMemo(() => {
-    return referralCode ? `${location.origin}?startapp=${referralCode}` : "";
-  }, [referralCode]);
+  const { referralLink } = useReferralLink(referralCode)
 
   const handleGenerateCode = () => {
     setReferralCode(generateCode());
@@ -57,11 +67,10 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const handleCreateCampaign = async () => {
     if (createCampaign.isPending) return;
     if (!campaignName.trim() || !referralCode.trim()) return;
-    
+
     if (referralCode.trim().length < 6) {
       toast.error(t("referral:referralCodeMinLength", "Referral code must be at least 6 characters long"));
       return;
@@ -77,7 +86,35 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
       onCreated?.();
       onClose();
     } catch (error) {
+      
+    }
+  };
+
+  const handleSetDefaultCampaign = async () => {
+    if(setDefaultCampaign.isPending) return;
+    if(!compaignDetail) return;
+    try {
+      await setDefaultCampaign.mutateAsync({
+        id: compaignDetail?.id || "",
+        campaign: compaignDetail.campaign,
+        code: compaignDetail.code,
+        is_default: isDefaultCampaign,
+        share: compaignDetail.share_to_referee,
+      });
+      onClose();
+    } catch (error) {
       // toast handled by hook
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if(compaignDetail) {
+      await handleSetDefaultCampaign();
+
+      void refetchAdTagData()
+    } else {
+      await handleCreateCampaign();
     }
   };
 
@@ -98,50 +135,54 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex items-center gap-2 text-lg sm:text-xl font-bold text-base-content">
           <Iconify icon="custom:speaker" width={22} height={22} className="text-primary" />
-          <span>{t("referral:createCampaign", "Create Campaign")}</span>
+          <span>{compaignDetail ? t("referral:campaignInformation", "Campaign Information") : t("referral:createNewCampaign", "Create Campaign")}</span>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-field bg-base-300/70 px-4 py-3 flex flex-col gap-1">
-            <span className="text-xs uppercase font-semibold text-base-content/60">
+          <div className="rounded-field bg-base-300 px-4 py-3 flex flex-col gap-1">
+            <span className="text-xs uppercase font-semibold text-base-content/50">
               {t("referral:youReceive", "You Receive")}
             </span>
             <span className="text-2xl font-bold text-base-content">{youReceive}%</span>
           </div>
-          <div className="rounded-field bg-base-300/40 px-4 py-3 flex flex-col gap-1">
-            <span className="text-xs uppercase font-semibold text-base-content/40">
+          <div className="rounded-field bg-base-300 px-4 py-3 flex flex-col gap-1">
+            <span className="text-xs uppercase font-semibold text-base-content/50">
               {t("referral:referralReceives", "Referral")}
             </span>
-            <span className="text-2xl font-bold text-base-content/80">{referralReceive}%</span>
+            <span className="text-2xl font-bold text-base-content">{referralReceive}%</span>
           </div>
         </div>
 
-        <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xs uppercase font-semibold text-base-content/60">
-              {t("referral:commissionSplit", "Commission Split")}
-            </span>
-            <Iconify icon="mdi:information-outline" width={16} height={16} className="text-base-content/40" />
-          </div>
+        {
+          !compaignDetail && (
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs uppercase font-semibold text-base-content/60">
+                  {t("referral:commissionSplit", "Commission Split")}
+                </span>
+                <Iconify icon="mdi:information-outline" width={16} height={16} className="text-base-content/40" />
+              </div>
 
-          <div className="grid grid-cols-4 gap-2">
-            {COMMISSION_OPTIONS.map((option) => (
-              <button
-                key={option}
-                type="button"
-                onClick={() => setCommissionSplit(option)}
-                className={cn(
-                  "rounded-full px-3 py-2 text-xs font-semibold transition-all border border-base-300/40",
-                  commissionSplit === option
-                    ? "bg-primary text-black"
-                    : "bg-base-300/40 text-base-content/80 hover:bg-base-300/60"
-                )}
-              >
-                {option}%
-              </button>
-            ))}
-          </div>
-        </div>
+              <div className="grid grid-cols-4 gap-2">
+                {COMMISSION_OPTIONS.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => setCommissionSplit(option)}
+                    className={cn(
+                      "rounded-full px-3 py-2 text-xs font-semibold transition-all border border-base-300/40",
+                      commissionSplit === option
+                        ? "bg-primary text-black"
+                        : "bg-base-300/40 text-base-content/80 hover:bg-base-300/60"
+                    )}
+                  >
+                    {option}%
+                  </button>
+                ))}
+              </div>
+            </div>
+          )
+        }
 
         <div className="space-y-2">
           <label className="text-xs uppercase font-semibold text-base-content/60 block" htmlFor="campaign-name">
@@ -156,6 +197,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
               value={campaignName}
               onChange={(event) => setCampaignName(event.target.value)}
               maxLength={40}
+              disabled={!!compaignDetail}
             />
           </label>
         </div>
@@ -163,15 +205,19 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label className="text-xs uppercase font-semibold text-base-content/60" htmlFor="referral-code">
-              {t("referral:referralCodeAndLink")}
+              {t("referral:referralCode")}
             </label>
-            <button
+           {
+            !compaignDetail && (
+              <button
               type="button"
               onClick={handleGenerateCode}
               className="text-xs font-semibold text-primary hover:text-primary-focus"
             >
               {t("common:generate", "Generate")}
             </button>
+            )
+           }
           </div>
 
           <div className="bg-base-300/70 rounded-field px-3 py-2 flex items-center gap-2">
@@ -184,17 +230,21 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
               onChange={(event) => setReferralCode(event.target.value.toUpperCase())}
               minLength={6}
               maxLength={12}
+              disabled={!!compaignDetail}
             />
-            <button
-              type="button"
-              onClick={() => {
-                navigator.clipboard?.writeText(referralCode).catch(() => {});
-              }}
-              className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60"
-              aria-label={t("referral:copyCode", "Copy code")}
-            >
-              <Iconify icon="solar:copy-linear" width={14} height={14} />
-            </button>
+            <Copy
+              text={referralCode}
+              trigger={
+                <button
+                  type="button"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60"
+                  aria-label={t("referral:copyCode", "Copy code")}
+                >
+                  <Iconify icon="solar:copy-linear" width={14} height={14} />
+                </button>
+              }
+            />
+
           </div>
         </div>
 
@@ -214,7 +264,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
                 trigger={
                   <button
                     type="button"
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60 flex-shrink-0"
+                    className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60 shrink-0"
                     aria-label={t("referral:copyLink", "Copy link")}
                   >
                     <Iconify icon="solar:copy-linear" width={14} height={14} />
@@ -246,7 +296,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
           {createCampaign.isPending ? (
             <span className="loading loading-spinner loading-sm" />
           ) : (
-            t("referral:createCampaign", "Create Campaign")
+            compaignDetail ? t("referral:save", "Save") : t("referral:createNewCampaign", "Create Campaign")
           )}
         </button>
       </form>

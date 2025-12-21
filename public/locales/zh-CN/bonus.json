@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "像往常一样领取您的奖金...\n或者大胆一跃到",
+  "double_it": "翻倍！",
+  "no_thanks": "不，谢谢",
+  "double_or_nothing": "翻倍或不翻倍",
+  "come_back_tomorrow": "明天再来",
+  "promo_code": "促销代码",
+  "got_a_code": "有代码吗？你知道该怎么做！",
+  "lifetime_bonus": "终身奖金",
+  "claimed": "已领取",
+  "starter": "入门",
+  "pack": "礼包",
+  "achievements_card_description": "收集特别的成就奖励，以庆祝您每一步的进展！",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "掌握运气的艺术",
+    "achievement_verify_phone": "不可阻挡的能量与力量",
+    "achievement_add_desktop_app": "始终触手可及",
+    "achievement_super_spreader": "分享游戏体验",
+    "achievement_conquistador": "面对每一个障碍",
+    "achievement_game_explorer": "发现新的游戏世界",
+    "achievement_card_shark": "主宰纸牌游戏",
+    "achievement_slotmaster": "掌握老虎机",
+    "achievement_talkative": "为他人引路",
+    "achievement_bet_count": "掌握精准游戏",
+    "achievement_deposit_count": "实现终极胜利",
+    "achievement_wager_count": "燃烧挑战",
+    "achievement_single_bet": "成为传奇",
+    "achievement_single_deposit": "导航区块链网络",
+    "achievement_single_wager": "掌握金融策略",
+    "achievement_single_payout": "主宰加密市场",
+    "achievement_crypto_bro": "掌握加密货币交易",
+    "achievement_crypto_baron": "主宰加密市场",
+    "achievement_chain_shifter": "导航区块链网络",
+    "achievement_money_master": "掌握金融策略",
+    "achievement_sniper": "掌握精准游戏",
+    "achievement_champion": "实现终极胜利",
+    "achievement_name_of_fame": "成为传奇",
+    "achievement_guiding_star": "为他人引路",
+    "achievement_face_of_fortune": "掌握运气的艺术",
+    "achievement_dynamo": "不可阻挡的能量与力量",
+    "achievement_inferno": "燃烧挑战",
+    "achievement_the_challenger": "面对每一个障碍"
+  },
   "bonus": "奖金",
   "total_bonus_claimed": "已领取的奖金总额",
   "details": "详情",
   "redeem": "兑换",
-"deposit_bonus": "存款奖金池",
+  "deposit_bonus": "存款奖金池",
   "get_up_to": "最高可得",
   "deposit_now": "立即存款",
   "bonus_ends_in": "奖金截止时间",
@@ -13,11 +55,6 @@
   "achievements": "成就",
   "referral_bonus": "推荐奖金",
   "bonus_details": "奖金详情",
-  "type": "类型",
-  "amount": "金额",
-  "no_bonus_details": "暂无奖金详情",
-  "team_commission": "团队佣金",
-  "level_up_bonus": "升级奖励",
   "complete_four_conquests_to_release": "完成四项征服任务即可释放",
   "from_your_bonus_pool_today": "从您今日的奖金池中！",
   "bonus_pool_today": "今日奖金池",
@@ -31,7 +68,7 @@
   "daily_cashback": "每日返现",
   "bonus_calendar": "奖金日历",
   "claim_every_8_hours": "每8小时领取一次",
-"locked": "存款奖金池",
+  "locked": "存款奖金池",
   "next_claim_in": "下一次领取在",
   "bonus_pool": "即将推出的奖励",
   "bonus_calendar_details": "每8小时领取一次奖金！",
@@ -39,6 +76,7 @@
   "total_vip_bonus_claimed": "已领取的贵宾奖金总额",
   "your_vip_progress": "您的贵宾进度",
   "available_at_vip": "在贵宾{{vip}}级可用",
+  "vip_progress_description": "继续前进！下一个等级将从您的奖金池中解锁 {{amount}}。",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "达到贵宾4级，即可解锁幸运转盘，每天都有机会赢得额外奖励！",
   "weekly_cashback": "每周返现",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "达到贵宾12级，即可解锁每周返现，为您的高额投注提供个人安全保障！",
@@ -54,6 +92,7 @@
   "lucky_spin": "幸运转盘",
   "lucky_number_seven": "幸运七号",
   "expires_in": "过期时间",
+  "expires": "过期",
   "go": "开始",
   "conquest_just_wager_title": "只需投注{{amount}}",
   "conquest_just_wager_description": "在单日内任何游戏中投注{{amount}}，即可从您今日的奖金池中释放{{reward}}！",
@@ -104,75 +143,131 @@
   "claimable": "可领取",
   "achievement_verify_email": {
     "name": "验证电子邮件",
-    "description": "此成就授予验证了电子邮件、确认身份并解锁安全访问的玩家。这是准备就绪和可信赖的标志，也是每位认真玩家的第一步。"
+    "description": "此成就授予已验证其电子邮件的玩家，锁定他们的身份并解锁安全访问。这是每个认真玩家的准备和可靠性的标志。"
   },
   "achievement_verify_phone": {
-    "name": "验证手机号码",
-    "description": "此成就授予验证了手机号码以保持联系和获取最新信息的玩家。这象征着信任、参与和对游戏动态的投入。"
+    "name": "验证电话",
+    "description": "此成就授予已验证其电话号码的玩家，以保持信息通畅和联系。这表明信任、参与和对游戏脉动的承诺。"
   },
   "achievement_add_desktop_app": {
     "name": "添加到主屏幕",
-    "description": "此成就授予将我们的Telegram迷你应用程序添加到主屏幕的玩家。始终触手可及，这一举动展现了真正的奉献精神——因为真正的玩家总是将游戏保持在身边。"
+    "description": "此成就授予已将我们的Telegram迷你应用添加到主屏幕的玩家。始终触手可及，这一举动展示了真正的奉献精神——因为真正的玩家始终将游戏放在身边。"
   },
   "achievement_super_spreader": {
     "name": "超级传播者",
-    "description": "此成就授予成功推荐<0>{{count}}位新用户</0>的玩家。他们是真正的社区建设者，扩大了游戏圈子，为游戏注入了新的活力。他们的影响力随着每一个新联系而增长。"
+    "description": "此成就授予成功推荐<0>{{count}}名新用户</0>的玩家。真正的社区建设者，他们扩大圈子，为游戏带来新能量。随着每一个连接，他们的影响力不断增长。"
   },
   "achievement_conquistador": {
     "name": "征服者",
-    "description": "此成就授予总共完成<0>{{count}}项任务</0>的玩家。在决心和对胜利的渴望驱使下，他们征服了每一个挑战——真正的征途冠军。"
+    "description": "此成就授予完成总计<0>{{count}}个任务</0>的玩家。受到决心和胜利渴望的驱动，他们征服每一个挑战——真正的旅程冠军。"
   },
   "achievement_game_explorer": {
     "name": "游戏探索者",
-    "description": "此成就授予尝试过<0>{{count}}种不同游戏</0>的玩家。他们充满好奇心和探险精神，在平台上冒险，总是渴望发现新的玩法和赢钱方式。"
+    "description": "此成就授予尝试过<0>{{count}}种不同游戏</0>的玩家。好奇和冒险，他们在平台上探索，总是渴望发现新的玩法和获胜方式。"
   },
   "achievement_card_shark": {
     "name": "纸牌高手",
-    "description": "此成就授予在纸牌游戏中下注至少<0>{{amount}}</0>的玩家，证明了他们的应变能力、策略和承担风险的意愿。这些高额玩家已跻身精英行列。牌在他们手中，游戏由他们掌控。"
+    "description": "此成就授予在纸牌游戏中至少下注<0>{{amount}}</0>的玩家，证明了他们的韧性、策略和冒险精神。这些高风险玩家在精英中占有一席之地。牌在他们手中，游戏由他们掌控。"
   },
   "achievement_slotmaster": {
     "name": "老虎机大师",
-    "description": "此成就授予在老虎机游戏中下注至少<0>{{amount}}</0>的玩家，证明了他们的毅力、追求刺激的精神和对旋转的热爱。这些执着玩家满怀信心地拥抱转轮——运气可能引导他们，但精湛的技术让他们在游戏中立于不败。"
+    "description": "此成就授予在老虎机游戏中至少下注<0>{{amount}}</0>的玩家，证明了他们的坚持、追求刺激的精神和对旋转的热爱。这些专注的玩家自信地拥抱转盘——运气可能引领，但掌握让他们留在游戏中。"
   },
   "achievement_talkative": {
-    "name": "健谈者",
-    "description": "此成就授予在聊天室中发言<0>{{count}}次</0>的玩家。每条信息都很重要——您正在迈向成为聊天室真正一员的第一步。"
+    "name": "健谈",
+    "description": "此成就授予在聊天室中发言<0>{{count}}次</0>的玩家。每条消息都很重要——您正在迈出成为真正对话一部分的第一步。"
   },
   "achievement_bet_count": {
-    "name": "投注次数",
-    "description": "此成就授予总共下注<0>{{count}}次</0>的玩家。他们是机会的忠实信徒，他们坚定不移的精神让游戏在每一次下注中都充满活力。"
+    "name": "下注次数",
+    "description": "此成就授予总共下注<0>{{count}}次</0>的玩家。真正相信机会，他们坚定的精神让游戏在每次下注中保持活力。"
   },
   "achievement_deposit_count": {
     "name": "存款次数",
-    "description": "此成就授予总共进行<0>{{count}}次存款</0>的玩家。凭借稳定的存款和坚定的承诺，他们证明了自己不仅是玩家，更是正在崛起的博彩大亨。"
+    "description": "此成就授予总共存款<0>{{count}}次</0>的玩家。凭借稳定的信用流和坚定的承诺，他们展示了自己不仅仅是玩家——他们是正在崛起的巨头。"
   },
   "achievement_change_avatar": {
-    "name": "更换头像",
-    "description": "此成就授予通过更换头像来个性化个人资料的玩家。这是在游戏中脱颖而出并拥有自己身份的大胆一步。"
+    "name": "更改头像",
+    "description": "此成就授予通过更改头像来个性化其个人资料的玩家。这是向脱颖而出和拥有自己在游戏中身份的大胆一步。"
   },
   "achievement_set_username": {
     "name": "设置用户名",
-    "description": "您已经拥有了自己的名字——现在传奇开始了。此成就表彰那些开辟自己的空间并将其正式化的玩家。"
+    "description": "您已声明您的名字——传奇现在开始。此成就表彰那些开辟自己空间并使其正式的人。"
   },
   "achievement_download_mobile_app": {
-    "name": "下载移动应用程序",
-    "description": "此徽章授予下载了移动应用程序、随时随地享受游戏的玩家。下载应用程序表明您不是来短暂体验，而是准备好随时畅玩无阻。"
+    "name": "下载移动应用",
+    "description": "此徽章授予已将游戏带走的玩家。下载应用程序表明您不是来暂停的——您是来随时随地玩游戏的。"
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "单日单场最高投注",
-    "description": "此成就授予在单日内单个游戏中下注至少<0>{{amount}}</0>的玩家。它表彰那些拥有坚定专注、精算策略和敢于冒险的勇气的玩家。这些精英玩家已掌握他们所选择的游戏——他们为赢而玩。"
+    "name": "单场游戏每日最大下注",
+    "description": "此成就授予在一天内在单场游戏中下注至少<0>{{amount}}</0>的玩家。它表彰那些坚定的专注、计算的策略和勇于冒险的勇气。这些精英玩家已经掌握了他们选择的游戏——他们的目标是赢。"
   },
   "achievement_slots_win_count": {
-    "name": "老虎机赢次",
-    "description": "此成就授予在老虎机游戏中赢得<0>{{count}}场胜利</0>的玩家。每一次旋转，他们都挑战赔率并庆祝一次又一次的胜利。运气可能是游戏的开端，但始终如一让他们成为冠军。"
+    "name": "老虎机胜利次数",
+    "description": "此成就授予在老虎机游戏中获得<0>{{count}}次胜利</0>的玩家。每一次旋转，他们都在挑战几率，庆祝一次又一次的胜利。运气可能开始游戏——但一致性使他们成为冠军。"
   },
   "achievement_slots_multiplier": {
-    "name": "老虎机倍数",
-    "description": "此成就授予在单次老虎机旋转中获得<0>{{count}}倍或更高倍率的胜利</0>的玩家。它表彰那些追逐卓越、敢于挑战高风险并赢得丰厚奖励的玩家。他们是非凡的玩家——他们掌控转盘，超越众人。"
+    "name": "老虎机倍增器",
+    "description": "此成就授予在单次老虎机旋转中获得<0>胜利并达到{{count}}倍或更多</0>的玩家。它表彰那些追求伟大、拥抱高风险的刺激并获得非凡奖励的人。这些不是普通玩家——他们掌控转盘，超越其他人。"
+  },
+  "achievement_champion": {
+    "name": "冠军",
+    "description": "该成就授予已获得 <0>10 次胜利</0> 的玩家。冠军在机会的竞技场中高高在上，证明了他们的韧性。每一次胜利，他们都巩固了自己在超越运气、赢得荣耀的竞争者中的地位。"
+  },
+  "achievement_slot_master": {
+    "name": "老虎机大师",
+    "description": "该成就授予在老虎机游戏中至少投注 <0>{{amount}}</0> 的玩家。老虎机大师自信而坚持地旋转每个卷轴，将每一次旋转变成财富的机会。凭借稳定的手和无畏的游戏，他们证明了真正的精通是一次次旋转的积累。"
+  },
+  "achievement_the_challenger": {
+    "name": "挑战者",
+    "description": "该成就授予在游戏历史中至少下过 <0>10 次有效投注</0> 的玩家。挑战者迎接每一个机会，驱动他们的是决心和竞争的刺激。大胆而无畏，他们证明了真正的竞争者不会退缩——他们勇往直前，准备测试自己的极限，争取在无畏者中占有一席之地。"
+  },
+  "achievement_dynamo": {
+    "name": "发电机",
+    "description": "该成就授予在单笔交易中完成至少 <0>{{amount}}</0> 的 <0>1 次存款</0> 的玩家。发电机在每次充值中变得更强，证明了他们在追求精通之路上的一致性和决心。"
+  },
+  "achievement_face_of_fortune": {
+    "name": "财富之面",
+    "description": "该成就授予首次自定义头像的玩家。财富之面知道身份就是力量——每一个风格、符号或表情的选择都是个性的标志。通过塑造自己的外观，他们展示了真正的玩家不仅仅是玩游戏——他们在游戏中留下了自己的印记。"
+  },
+  "achievement_name_of_fame": {
+    "name": "名声之名",
+    "description": "该成就授予首次设置用户名的玩家。名声之名标志着真正身份的开始，将新手转变为被认可的存在。大胆而独特，他们证明了每个传奇都以一个被铭记的名字开始。"
+  },
+  "achievement_guiding_star": {
+    "name": "指引之星",
+    "description": "该成就授予已将游戏添加到主屏幕或下载应用的玩家。指引之星保持通往财富的道路清晰，只需轻触一下即可点亮回归游戏的道路。"
+  },
+  "achievement_highroller": {
+    "name": "高额玩家",
+    "description": "该成就授予在整个游戏历史中总共投注至少 <0>{{amount}}</0> 的玩家。高额玩家身上印有承诺和声望的标志，证明了他们对游戏的奉献精神，每一次旋转、每一笔投注和每一轮游戏都在展现他们的决心。他们的皇冠不仅是一个象征——它是对坚持、热情和追求财富的证明。"
+  },
+  "achievement_inferno": {
+    "name": "地狱火",
+    "description": "该成就授予在任何老虎机上获得 <0>20x</0> 乘数的玩家。火焰咆哮，地狱火将单一的投注转变为财富的风暴。"
+  },
+  "achievement_money_maverick": {
+    "name": "财富独行侠",
+    "description": "该成就授予在单笔交易中存入至少 <0>{{amount}}</0> 的玩家，使用法币或本地支付网关。财富独行侠以大胆的自信开辟自己的道路，将日常现金转变为非凡的机会。无畏而冒险，他们证明了真正的独行侠不仅仅遵循规则——他们重新定义了规则。"
+  },
+  "achievement_money_master": {
+    "name": "财富大师",
+    "description": "该成就授予在单笔交易中完成至少 <0>{{amount}}</0> 的法币提款的玩家。财富大师在游戏与奖励的交汇点上高高在立，将他们的 winnings 转换为现实世界的价值。凭借稳定的手和敏锐的时机，他们展示了真正的精通不仅仅在于游戏——而在于将奖励带回家。"
+  },
+  "achievement_crypto_bro": {
+    "name": "加密兄弟",
+    "description": "该成就授予在单笔交易中存入至少 <0>{{amount}}</0> 的玩家，使用任何加密货币。加密大师像真正的艺术家一样指挥他们的资金，以精准和风格编排数字资产。在区块链舞台上自信，他们是游戏的开拓者，证明了财富青睐勇敢者。"
+  },
+  "achievement_crypto_baron": {
+    "name": "加密男爵",
+    "description": "该成就授予在单笔交易中完成至少 <0>{{amount}}</0> 的加密提款的玩家，使用任何加密货币。区块链男爵统治着数字资产的领域，自信而果断地在链上移动资金。每一次成功的提款，他们证明了财富可以在区块链上获得、保障并带回家。"
+  },
+  "achievement_chain_shifter": {
+    "name": "链条转移者",
+    "description": "该成就授予成功完成 <0>加密交换交易</0> 的玩家。链条转移者是那些知道如何自信地在代币之间移动的人，轻松适应市场潮流。作为动量的高手，他们在灵活性和转变中蓬勃发展，随时准备换挡并抓住机会。"
   },
   "item": {
-    "conquest_just_wager_on_100": "征服：投注100",
-    "conquest_just_wager_on_200": "征服：投注200",
+    "conquest_just_wager_on_100": "征服仅下注100",
+    "conquest_just_wager_on_200": "征服仅下注200",
     "conquest_roulette_master": "征服轮盘大师",
     "conquest_blackjack_master": "征服二十一点大师",
     "conquest_baccarat_master": "征服百家乐大师",
@@ -182,51 +277,52 @@
     "conquest_roulette_master_30": "征服轮盘大师30",
     "conquest_blackjack_master_40": "征服二十一点大师40",
     "conquest_baccarat_master_50": "征服百家乐大师50",
-    "conquest_big_win": "征服大赢",
-    "conquest_huge_win": "征服巨赢",
-    "conquest_massive_win": "征服超级大赢",
-    "achievement_verify_email": "成就 验证电子邮件",
-    "achievement_verify_phone": "成就 验证电话号码",
-    "achievement_add_desktop_app": "成就 添加桌面应用",
-    "achievement_super_spreader": "成就 超级传播者",
-    "achievement_conquistador": "成就 征服者",
-    "achievement_game_explorer": "成就 游戏探索者",
-    "achievement_card_shark": "成就 牌技高手",
-    "achievement_slotmaster": "成就 老虎机大师",
-    "achievement_talkative": "成就 健谈",
-    "achievement_bet_count": "成就 投注次数",
-    "achievement_deposit_count": "成就 存款次数",
-    "achievement_change_avatar": "成就 更换头像",
-    "achievement_set_username": "成就 设置用户名",
-    "achievement_download_mobile_app": "成就 下载移动应用",
-    "achievement_wager_in_a_day_single_game": "成就 单日单游戏投注",
-    "achievement_slots_win_count": "成就 老虎机胜利次数",
-    "achievement_slots_multiplier": "成就 老虎机倍数",
+    "conquest_big_win": "征服大胜",
+    "conquest_huge_win": "征服巨胜",
+    "conquest_massive_win": "征服巨额胜利",
+    "achievement_verify_email": "成就验证电子邮件",
+    "achievement_verify_phone": "成就验证电话",
+    "achievement_add_desktop_app": "成就添加桌面应用",
+    "achievement_super_spreader": "成就超级传播者",
+    "achievement_conquistador": "成就征服者",
+    "achievement_game_explorer": "成就游戏探索者",
+    "achievement_card_shark": "成就纸牌高手",
+    "achievement_slotmaster": "成就老虎机大师",
+    "achievement_talkative": "成就健谈",
+    "achievement_bet_count": "成就下注次数",
+    "achievement_deposit_count": "成就存款次数",
+    "achievement_change_avatar": "成就更改头像",
+    "achievement_set_username": "成就设置用户名",
+    "achievement_download_mobile_app": "成就下载移动应用",
+    "achievement_wager_in_a_day_single_game": "成就单场游戏每日最大下注",
+    "achievement_slots_win_count": "成就老虎机胜利次数",
+    "achievement_slots_multiplier": "成就老虎机倍增器",
     "level_up": "升级",
     "rakeback": "返佣",
-    "cashback": "返现",
+    "cashback": "现金返还",
     "group": "佣金",
     "referral": "推荐",
     "tournament": "锦标赛",
     "conquest_extra_reward": "征服额外奖励",
     "bonus": "奖金",
     "bonus_manual": "手动奖金",
-    "vip_bonus_lucky_number_seven": "VIP幸运七号奖金",
-    "rakeback_bonus": "返水奖金",
+    "vip_bonus_lucky_number_seven": "VIP奖金幸运数字七",
+    "rakeback_bonus": "返佣奖金",
     "group_bonus": "团队奖金",
     "level_up_bonus": "升级奖金",
     "refer_bonus": "推荐奖金",
     "tournament_bonus": "锦标赛奖金",
-    "vip_bonus_mystery_box": "VIP奖金神秘箱"
+    "vip_bonus_mystery_box": "VIP奖金神秘盒子"
   },
   "achievements_description": "在VIP {{vip}}解锁，这些奖励通过一路上的精彩惊喜庆祝您的里程碑！",
   "lucky_number_seven_description": "击中幸运的{{number}}，每天赢取甜美奖金！",
-"mystery_box_description": "每月打开一次神秘盒，赢取惊喜奖励！",
+  "mystery_box_description": "每月打开一次神秘盒，赢取惊喜奖励！",
+  "mystery_box_description2": "每月7日达到VIP {{vip}}即可获得神秘盒子！",
   "mystery_box": "神秘箱",
   "the_cannon_description": "一项每月奖励，其真正性质仍是严密保守的秘密。",
   "achievements_progress_name": {
-    "achievement_verify_email": "验证邮箱",
-    "achievement_verify_phone": "验证手机",
+    "achievement_verify_email": "验证电子邮件",
+    "achievement_verify_phone": "验证电话",
     "achievement_add_desktop_app": "添加桌面应用",
     "achievement_super_spreader": "超级传播者",
     "achievement_conquistador": "征服者",
@@ -252,6 +348,60 @@
   "general_terms_answer_1": "奖励以BUCK/USDT计算和记入，然后根据实时汇率以您首选的法币显示，方便使用。请注意，所有转换均为近似值，直到完成兑换交易。",
   "general_terms_answer_2": "赌场保留随时修改或撤销资格的权利，且无需提供理由。任何滥用或欺诈行为将导致被取消促销资格。",
   "available": "可用",
-"refresh_in": "刷新于",
-"deposit_bonus_pool": "存款奖金池"
+  "refresh_in": "刷新于",
+  "deposit_bonus_pool": "存款奖金池",
+  "dashboard": "仪表盘",
+  "bonuses": "奖金",
+  "vip_program": "VIP计划",
+  "bonusHub": {
+    "root": "奖金中心",
+    "resetOn": "重置于{{time}}",
+    "ongoing": "{{count}}进行中",
+    "accrualIn": "将在{{time}}内累积",
+    "nextReleaseIn": "下次发布将在{{time}}内"
+  },
+  "freeSpins": "免费旋转",
+  "freeSpinsBonusDetails": "免费旋转奖金为您在指定老虎机标题上提供额外游戏时间。满足所需的投注金额后，您的免费旋转奖金将被解锁，并立即记入您的账户余额。",
+  "freeSpinsClaimDistributionDescription1": "完成投注要求并点击“领取”后，免费旋转奖金将记入您的账户余额。",
+  "freeSpinsClaimDistributionDescription2": "随时在您的奖金面板或免费旋转历史中跟踪您的进度。",
+  "freeSpinsExpirationDescription1": "免费旋转必须在免费旋转面板中显示的有效期内使用。未使用的旋转将在此期限后过期。",
+  "freeSpinsExpirationDescription2": "免费旋转的奖金在解锁和领取之前不会过期。",
+  "freeSpinsGeneralTermsDescription1": "免费旋转奖励以BUCK计算并记入，然后以您首选的法定货币显示以方便使用。请注意，货币转换为近似值。",
+  "freeSpinsGeneralTermsDescription2": "赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈行为将导致取消参与该促销的资格。",
+  "the_collector": "收集者",
+  "collector_description": "符合条件的奖励，一键领取",
+  "claim_all": "全部领取",
+  "claimConfirmation": "领取确认",
+  "readyToClaim": "准备领取",
+  "selectClaimType": "选择您的领取类型",
+  "claimableAmount": "可领取金额",
+  "normalClaim": "正常领取",
+  "normalClaimDesc": "获取您的标准奖励金额",
+  "doubleClaim": "双倍领取",
+  "doubleClaimDesc": "冒险获得2倍奖励！",
+  "doubleClaimInfo": "双倍领取选项",
+  "doubleClaimRisk": "风险越高，奖励越高 - 您可能会赢得双倍奖励或失去全部！",
+  "claimModal": {
+    "title": "翻倍或不翻倍",
+    "primaryDescription": "像往常一样领取您的奖金...",
+    "secondaryDescription": "或者大胆一跃到<highlight>翻倍！</highlight>",
+    "doubleAction": "翻倍或不翻倍",
+    "comingSoon": "翻倍或不翻倍功能即将推出！",
+    "approximateBuck": "大约{{amount}}美元"
+  },
+  "vip_monday": "VIP 星期一",
+  "vip_monday_description": "每周一次的特别奖励，回馈忠实玩家，每个星期一",
+  "vip_monday_wager": "在过去 7 天内至少投注 {{amount}}，每个星期一可获得神秘奖励。",
+  "claim_on_monday": "星期一领取",
+  "vip_monday_title": "VIP \n <0>星期一</0>",
+  "bonus_already_claimed": "奖金已被领取",
+  "wager_requirement_not_met": "未满足投注要求",
+  "not_in_claim_time_range": "不在领取时间范围内",
+  "monday": "星期一",
+  "poolBalance": "奖金池余额",
+  "program": "项目",
+  "races": "比赛",
+  "loading_achievements": "加载成就中...",
+  "no_achievements_available": "没有可用的成就",
+  "check_back_later_for_new_achievements": "稍后查看新成就"
 }

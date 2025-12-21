@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "전세계",
+    "ratesAndRules": "요금 및 규칙",
+    "campaigns": "캠페인",
+    "myReferrals": "내 추천",
+    "commissions": "커미션",
+    "rewards": "보상"
+  },
+  "commissionCalculator": "커미션 계산기",
   "telegramReferralLink": "텔레그램 추천 링크",
-    "network": "네트워크",
+  "network": "네트워크",
   "lifetimeReferralRewards": "평생 추천인 상금",
   "referrals": "추천",
   "availableCommissionRewards": "사용 가능한 커미션 상금",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "사용 가능한 추천인 상금",
   "lockedRewards": "잠긴 상금",
   "assembleYourCrewCashIn": "팀을 모아 현금을 쌓아가세요!",
+  "assembleYourCrewCashInDescription1": "당신의 팀을 모집하고 친구당 {{amount}}를 획득하세요 - 강도 사건처럼, FBI 추격 없이. 게다가, 그들의 베팅에서 최대 {{percentage}}의 커미션을 얻을 수 있습니다. 가장 좋은 점은? 당신의 커미션 비율은 레벨업할수록 증가하며, 당신의 팀의 신규 모집자에게서도 수익을 얻을 수 있습니다!",
+  "assembleYourCrewCashInDescription2": "당신의 네트워크가 클수록, 당신의 몫도 커집니다. 그들이 이기든, 지든, 미친 듯이 베팅하든, 당신은 계속해서 현금을 쌓아갑니다. 이제 당신의 제국을 건설할 시간입니다 - 지금 바로 모집을 시작하세요!",
+  "quickShare": "빠른 공유",
   "referralRewards": "추천인 상금",
   "commissionRewards": "커미션 상금",
   "aboutDescription": "팀을 모집하고 친구 한 명당 {{amount}}를 획득하세요 - 강도처럼, 하지만 FBI 추격 없이! 또한, 베팅에서 최대 50% 커미션을 받을 수 있습니다. 최고의 장점은? 레벨이 올라갈수록 커미션 비율이 증가하며, 팀이 모집한 멤버로부터도 수익을 얻을 수 있습니다!\n\n네트워크가 클수록 더 많은 커미션을 받습니다. 승패와 상관없이, 열정적으로 베팅해도 현금이 계속 쌓입니다. 제국을 건설할 시간입니다 - 지금 모집을 시작하세요!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "소셜을 통한 공유",
   "referralTermsConditions": "추천 이용 약관",
   "liveGlobalRewards": "라이브 글로벌 상금",
+  "liveGlobalCommissions": "실시간 글로벌 커미션",
   "username": "아이디",
   "friendLevel": "친구의 레벨",
   "totalExp": "총 경험치",
@@ -105,35 +118,35 @@
   "more": "더 보기",
   "faqOne": {
     "title": "추천 시스템은 어떻게 작동하나요?",
-    "content": "<p class=\"leading-7\">추천 링크를 친구들과 공유하고 그들이 저희 사이트에 가입하면, 그들이 당신의 추천인이 되어 {{gameLink}} 얼라이언스에서 플레이할 때 커미션과 추천 보상을 받게 됩니다.</p>"
+    "content": "<p class=\"leading-7\">당신이 친구와 추천 링크를 공유하고 그들이 우리 사이트에 가입하면, 그들은 당신의 추천이 되어 {{gameLink}} 얼라이언스에서 게임을 하며 커미션과 추천 보상을 얻습니다.</p>"
   },
   "faqTwo": {
-    "title": "추천을 통해 얼마를 벌 수 있나요?",
-    "content": "<p class=\"leading-7\">추천인당 베팅 활동의 {{percentage}}와 {{amount}}를 커미션으로 받을 수 있습니다.</p>"
+    "title": "내 추천으로 얼마나 벌 수 있나요?",
+    "content": "<p class=\"leading-7\">당신은 그들의 베팅 활동에서 {{percentage}}의 커미션 + 추천당 {{amount}}를 벌 수 있습니다.</p>"
   },
   "faqThree": {
-    "title": "{{amount}} USD 상금은 무엇이며 어떻게 지급되나요?",
-    "content": "<p class=\"leading-7\">{{gameLink}}에 추천하는 친구 한 명마다 {{amount}} USD 보상이 있습니다. 이 보상은 추천 등급이 {{level}}부터 올라갈 때 {{parts}} 단계로 나누어 지급됩니다.</p>"
+    "title": "{{amount}} USD 보상은 무엇이며 어떻게 작동하나요?",
+    "content": "<p class=\"leading-7\">당신이 {{gameLink}}에 데려오는 각 추천에 대해 {{amount}} USD 보상이 있습니다. 이 USD 보상은 당신의 추천 레벨이 {{level}}에서 올라갈 때 {{parts}} 부분으로 지급됩니다.</p>"
   },
   "faqFour": {
-    "title": "저는 많은 잠재고객을 보유하고 있습니다. 특별 할인을 받으려면 어떻게 해야 하나요?",
-    "content": "<p class=\"leading-7\">트래픽이 좋은 웹사이트나 많은 팔로워가 있는 소셜 미디어 계정이 있다면, {{emailLink}}로 이메일을 보내주세요.</p>"
+    "title": "저는 많은 청중이 있습니다. 특별 거래를 어떻게 받을 수 있나요?",
+    "content": "<p class=\"leading-7\">트래픽이 좋은 웹사이트나 많은 청중이 있는 소셜 미디어 계정이 있다면, {{emailLink}}로 이메일을 보내주세요.</p>"
   },
   "faqFive": {
-    "title": "다른 웹사이트/소셜 미디어 계정이 있는 경우 몇 개의 제휴 링크를 만들 수 있나요?",
-    "content": "<p class=\"leading-7\">다양한 트래픽 소스에 대해 최대 {{codes}} 고유 코드를 생성할 수 있습니다</p>"
+    "title": "다른 웹사이트/소셜 미디어 계정이 있다면 몇 개의 제휴 링크를 만들 수 있나요?",
+    "content": "<p class=\"leading-7\">다양한 트래픽 출처를 위해 최대 {{codes}}개의 고유 코드를 만들 수 있습니다.</p>"
   },
   "faqSix": {
-    "title": "내 추천 데이터를 볼 수 있나요?",
-    "content": "<p class=\"leading-7\">네, 투명성, 신뢰 및 공정성은 {{gameLink}}의 핵심 가치입니다. 사용자 이름, 총 베팅액 및 획득한 커미션과 같은 데이터는 \"내 커미션\" 및 \"추천 보상\" 탭에서 확인할 수 있습니다.</p>"
+    "title": "내 추천의 데이터를 볼 수 있나요?",
+    "content": "<p class=\"leading-7\">네, 투명성, 신뢰, 공정성은 {{gameLink}}의 핵심 가치입니다. 사용자 이름, 총 베팅 및 획득한 커미션과 같은 데이터는 \"내 커미션\" 및 \"추천 보상\" 탭에서 모두 확인할 수 있습니다.</p>"
   },
   "faqSeven": {
-    "title": "추천인과 커미션 상금을 공유할 수 있나요?",
-    "content": "<p class=\"leading-7\">예, “새 캠페인 만들기”를 클릭하고 “캠페인” 탭에서 커미션 분할을 설정하여 추천인과 커미션 상금을 공유할 수 있습니다.</p>"
+    "title": "추천과 커미션 보상을 공유할 수 있나요?",
+    "content": "<p class=\"leading-7\">네, \"새 캠페인 만들기\"를 클릭하고 \"캠페인\" 탭에서 커미션 분배를 설정하여 추천과 커미션 보상을 공유할 수 있습니다.</p>"
   },
   "faqEight": {
-    "title": "간접 추천이란 무엇이며 간접 추천을 통해 무엇을 얻을 수 있나요?",
-    "content": "<p class=\"leading-7\">간접 추천은 직접 추천인의 초대 링크를 통해 들어오는 활성 플레이어를 말합니다. 당신의 VIP 레벨이 직접 추천인의 VIP 레벨보다 높다면, 간접 추천으로 발생하는 커미션도 받을 수 있습니다.</p>"
+    "title": "간접 추천이란 무엇이며 그로부터 무엇을 얻을 수 있나요?",
+    "content": "<p class=\"leading-7\">간접 추천은 당신의 직접 추천 중 한 명의 초대 링크를 통해 들어온 활성 플레이어입니다. 만약 당신의 VIP 레벨이 당신의 직접 추천의 VIP 레벨보다 높다면, 간접 추천으로부터 발생하는 커미션도 얻을 수 있습니다.</p>"
   },
   "levelReward": "레벨 업 상금",
   "groupReward": "커미션 상금",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "예시를 단순화하기 위해, 노란색으로 표시된 친구들이 활발히 베팅하고 있다고 가정하며, 점선에 따른 녹색 퍼센트는 각 친구로부터 받는 커미션을 나타냅니다.",
   "referralCommissionsIndirectDescription": "예시를 단순화하기 위해, 보라색으로 표시된 친구들이 활발히 베팅하고 있다고 가정합니다. 점선에 따른 퍼센트는 추천 체인 내 각 회원이 획득하는 커미션을 나타냅니다.\n\n오른쪽에는 추천 체인에서 분리(breakaway)가 발생하는 예시가 나와 있습니다.",
   "referralCodeMinLength": "추천 코드는 최소 6자 이상이어야 합니다",
-    "vipLevel": "VIP 등급",
+  "vipLevel": "VIP 등급",
   "earned": "획득",
   "directfriend": "직접 친구",
   "fast": "빠른",
   "slots": "슬롯",
   "live-casino": "라이브 카지노",
   "fishing": "낚시",
-  "rewardsUnlocked": "보상 잠금 해제"
+  "rewardsUnlocked": "보상 잠금 해제",
+  "selectGame": "게임 선택",
+  "selectVipLevel": "VIP 레벨 선택",
+  "myReferralCommissions": "내 추천 수수료",
+  "myReferralRewards": "내 추천 보상",
+  "exp": "경험치",
+  "userLevel": "사용자 레벨"
 }

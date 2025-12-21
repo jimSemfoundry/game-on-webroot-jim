@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Richiedi il tuo bonus come al solito...\nOppure fai un audace salto verso",
+  "double_it": "Raddoppialo!",
+  "no_thanks": "No grazie",
+  "double_or_nothing": "Raddoppia o niente",
+  "come_back_tomorrow": "Torna domani",
+  "promo_code": "Codice promozionale",
+  "got_a_code": "Hai un codice? Sai cosa fare!",
+  "lifetime_bonus": "Bonus a vita",
+  "claimed": "Richiesto",
+  "starter": "Inizio",
+  "pack": "Pacchetto",
+  "achievements_card_description": "Raccogli premi speciali per i traguardi progettati per celebrare ogni passo del tuo progresso!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Padroneggia l'arte della fortuna",
+    "achievement_verify_phone": "Energia e potere inarrestabili",
+    "achievement_add_desktop_app": "Sempre a portata di mano",
+    "achievement_super_spreader": "Condividi l'esperienza di gioco",
+    "achievement_conquistador": "Affronta ogni ostacolo",
+    "achievement_game_explorer": "Scopri nuovi mondi di gioco",
+    "achievement_card_shark": "Domina i giochi di carte",
+    "achievement_slotmaster": "Padroneggia le slot",
+    "achievement_talkative": "Guida gli altri",
+    "achievement_bet_count": "Padroneggia il gioco di precisione",
+    "achievement_deposit_count": "Raggiungi la vittoria definitiva",
+    "achievement_wager_count": "Brucia le sfide",
+    "achievement_single_bet": "Diventa leggendario",
+    "achievement_single_deposit": "Naviga nelle reti blockchain",
+    "achievement_single_wager": "Padroneggia le strategie finanziarie",
+    "achievement_single_payout": "Domina il mercato delle criptovalute",
+    "achievement_crypto_bro": "Padroneggia il trading di criptovalute",
+    "achievement_crypto_baron": "Domina il mercato delle criptovalute",
+    "achievement_chain_shifter": "Naviga nelle reti blockchain",
+    "achievement_money_master": "Padroneggia le strategie finanziarie",
+    "achievement_sniper": "Padroneggia il gioco di precisione",
+    "achievement_champion": "Raggiungi la vittoria definitiva",
+    "achievement_name_of_fame": "Diventa leggendario",
+    "achievement_guiding_star": "Guida gli altri",
+    "achievement_face_of_fortune": "Padroneggia l'arte della fortuna",
+    "achievement_dynamo": "Energia e potere inarrestabili",
+    "achievement_inferno": "Brucia le sfide",
+    "achievement_the_challenger": "Affronta ogni ostacolo"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Bonus totale reclamato",
   "details": "Dettagli",
   "redeem": "Riscatta",
-    "deposit_bonus": "Raccolta di Bonus di Deposito",
+  "deposit_bonus": "Raccolta di Bonus di Deposito",
   "get_up_to": "Ottieni fino a",
   "deposit_now": "Deposito ora",
   "bonus_ends_in": "Il bonus termina in",
@@ -26,14 +68,15 @@
   "daily_cashback": "Cashback giornaliero",
   "bonus_calendar": "Calendario bonus",
   "claim_every_8_hours": "Reclama ogni 8 ore",
-    "locked": "Raccolta di Bonus di Deposito",
-    "next_claim_in": "Prossima Richiesta in",
-    "bonus_pool": "Raccolta di Ricompense Future",
-      "bonus_calendar_details": "Reclama ogni 8 ore per ottenere un bonus!",
+  "locked": "Raccolta di Bonus di Deposito",
+  "next_claim_in": "Prossima Richiesta in",
+  "bonus_pool": "Raccolta di Ricompense Future",
+  "bonus_calendar_details": "Reclama ogni 8 ore per ottenere un bonus!",
   "release_schedule": "Programma di rilascio",
   "total_vip_bonus_claimed": "Bonus VIP totale reclamato",
   "your_vip_progress": "Il tuo progresso VIP",
   "available_at_vip": "Disponibile al livello VIP {{vip}}",
+  "vip_progress_description": "Avanza! Il prossimo livello sblocca {{amount}} dal tuo pool bonus.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Raggiungi il livello VIP 4 e accedi a Lucky Spin: la tua opportunità di vincere premi extra ogni giorno!",
   "weekly_cashback": "Cashback settimanale",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Raggiungi il livello VIP 12 e sblocca il cashback settimanale: la tua rete di sicurezza personale per il gioco da high roller!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Spin fortunato",
   "lucky_number_seven": "Numero fortunato sette",
   "expires_in": "Scade entro",
+  "expires": "Scade",
   "go": "Vai",
   "conquest_just_wager_title": "Scommetti su {{amount}}",
   "conquest_just_wager_description": "Scommetti {{amount}} in qualsiasi gioco in un solo giorno per sbloccare {{reward}} dal tuo fondo bonus oggi!",
@@ -98,125 +142,182 @@
   "sort_by": "Ordina per:",
   "claimable": "Richiedibile",
   "achievement_verify_email": {
-    "name": "Verifica email",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno verificato il proprio indirizzo e-mail, confermando la propria identità e sbloccando l'accesso sicuro. È un segno di preparazione e affidabilità, il primo passo di ogni giocatore serio."
+    "name": "Verifica Email",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno verificato la propria email, bloccando la loro identità e sbloccando l'accesso sicuro. È un segno di prontezza e affidabilità — il primo passo di ogni giocatore serio."
   },
   "achievement_verify_phone": {
-    "name": "Verifica il telefono",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno verificato il proprio numero di telefono per rimanere informati e connessi. Segnala fiducia, coinvolgimento e impegno nel gioco."
+    "name": "Verifica Telefono",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno verificato il proprio numero di telefono per rimanere informati e connessi. Segnala fiducia, coinvolgimento e impegno verso il battito del gioco."
   },
   "achievement_add_desktop_app": {
     "name": "Aggiungi alla schermata principale",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno aggiunto la nostra mini-app Telegram alla schermata principale. Sempre a portata di mano, questa azione dimostra vera dedizione – perché i veri giocatori tengono il gioco vicino."
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno aggiunto la nostra mini app Telegram alla schermata principale. Sempre a portata di mano, questa azione mostra una vera dedizione - perché i veri giocatori tengono il gioco vicino."
   },
   "achievement_super_spreader": {
     "name": "Super Diffusore",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno segnalato con successo <0>{{count}} nuovi utenti</0>. Un vero costruttore di comunità, allarga il cerchio e porta nuova energia al gioco. La loro influenza cresce con ogni connessione stabilita."
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno riferito con successo <0>{{count}} nuovi utenti</0>. Un vero costruttore di comunità, espandono il cerchio e portano nuova energia al gioco. La loro influenza cresce con ogni connessione che fanno."
   },
   "achievement_conquistador": {
     "name": "Conquistatore",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno completato un totale di <0>{{count}} conquiste</0>. Spinti dalla determinazione e dalla sete di vittoria, conquistano ogni sfida che si presenta: veri campioni del viaggio."
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato un totale di <0>{{count}} missioni</0>. Spinti dalla determinazione e dalla sete di vittoria, conquistano ogni sfida che incontrano — un vero campione del viaggio."
   },
   "achievement_game_explorer": {
-    "name": "Esploratore di giochi",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno provato <0>{{count}} giochi diversi</0>. Curiosi e avventurosi, si avventurano sulla piattaforma, sempre desiderosi di scoprire nuovi modi per giocare e vincere."
+    "name": "Esploratore di Giochi",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno provato <0>{{count}} giochi diversi</0>. Curiosi e avventurosi, si avventurano attraverso la piattaforma, sempre desiderosi di scoprire nuovi modi per giocare e vincere."
   },
   "achievement_card_shark": {
     "name": "Squalo delle Carte",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> sui giochi di carte, dimostrando resilienza, strategia e volontà di rischiare. Questi giocatori d’alto rischio si sono guadagnati un posto nell’élite. Le carte sono nelle loro mani e il gioco è loro da comandare. "
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> nei giochi di carte, dimostrando la loro resilienza, strategia e volontà di correre rischi. Questi giocatori ad alto rischio hanno guadagnato il loro posto tra i migliori. Le carte sono nelle loro mani e il gioco è loro da comandare."
   },
   "achievement_slotmaster": {
-    "name": "Maestro di Slot",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> sui giochi di slot, dimostrando perseveranza, spirito di ricerca del brivido e amore per i giri. Questi giocatori appassionati abbracciano i rulli con fiducia: la fortuna li guida, ma la maestria li mantiene in gioco."
+    "name": "Maestro delle Slot",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> nei giochi di slot, dimostrando la loro perseveranza, spirito avventuroso e amore per la rotazione. Questi giocatori dedicati abbracciano i rulli con fiducia — la fortuna può guidare, ma la padronanza li tiene nel gioco."
   },
   "achievement_talkative": {
-    "name": "Loquace",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno parlato <0>{{count}} volte</0> nella chat. Ogni messaggio conta: stai facendo il primo passo per diventare parte integrante della conversazione."
+    "name": "Parlante",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno parlato <0>{{count}} volte</0> nella chat room. Ogni messaggio conta—stai facendo il primo passo per diventare una vera parte della conversazione."
   },
   "achievement_bet_count": {
-    "name": "Conteggio delle scommesse",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno piazzato un totale di <0>{{count}} scommesse</0>. Veri credenti nel caso, il loro spirito incrollabile mantiene vivo il gioco con ogni scommessa."
+    "name": "Conteggio Scommesse",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un totale di <0>{{count}} scommesse</0>. Un vero credente nel caso, il loro spirito incrollabile tiene vivo il gioco con ogni scommessa."
   },
   "achievement_deposit_count": {
-    "name": "Conteggio dei depositi",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno effettuato un totale di <0>{{count}} depositi</0>. Con un flusso costante di crediti e un impegno incrollabile, hanno dimostrato di non essere semplici giocatori, ma magnati in divenire."
+    "name": "Conteggio Depositi",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un totale di <0>{{count}} depositi</0>. Con un flusso costante di crediti e un impegno incrollabile, hanno dimostrato di non essere solo giocatori — sono tycoon in divenire."
   },
   "achievement_change_avatar": {
     "name": "Cambia Avatar",
-    "description": "Questo traguardo viene assegnato ai giocatori che personalizzano il proprio profilo cambiando l'avatar. Un passo coraggioso per distinguersi e affermare la propria identità nel gioco."
+    "description": "Questo riconoscimento viene assegnato ai giocatori che personalizzano il proprio profilo cambiando il proprio avatar. Un passo audace verso il distinguersi e possedere la propria identità nel gioco."
   },
   "achievement_set_username": {
-    "name": "Imposta nome utente",
-    "description": "Hai rivendicato il tuo nome: ora inizia la leggenda. Questo traguardo premia coloro che si ritagliano uno spazio e lo rendono ufficiale."
+    "name": "Imposta Nome Utente",
+    "description": "Hai rivendicato il tuo nome — ora inizia la leggenda. Questo riconoscimento onora coloro che ritagliano il proprio spazio e lo rendono ufficiale."
   },
   "achievement_download_mobile_app": {
-    "name": "Scarica l’app mobile",
-    "description": "Questo traguardo va ai giocatori che hanno portato il gioco con sé. Scaricare l’app dimostra che non sei qui per fare una pausa, ma per giocare sempre e ovunque."
+    "name": "Scarica App Mobile",
+    "description": "Questo badge va ai giocatori che hanno portato il gioco con sé. Scaricare l'app mostra che non sei qui per mettere in pausa — sei qui per giocare in qualsiasi momento e ovunque."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Puntata massima in un giorno di gioco singolo",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> su un singolo gioco in un giorno. Riconosce coloro che hanno concentrazione incrollabile, strategia calcolata e coraggio di correre rischi audaci. Questi giocatori d’élite hanno padronanza del loro gioco preferito e giocano per vincere."
+    "name": "Scommessa Massima in un Giorno su un Gioco Singolo",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> su un singolo gioco in un giorno. Riconosce coloro con un focus incrollabile, strategia calcolata e il coraggio di correre rischi audaci. Questi giocatori d'élite hanno padroneggiato il loro gioco preferito — e giocano per vincere."
   },
   "achievement_slots_win_count": {
-    "name": "Conteggio delle vincite alle slot",
-    "description": "Questo traguardo viene assegnato ai giocatori che hanno ottenuto <0>{{count}} vincite</0> ai giochi di slot. Ad ogni giro, sfidano le probabilità e festeggiano vittoria dopo vittoria. La fortuna può dare il via al gioco, ma la costanza li rende campioni."
+    "name": "Conteggio Vittorie Slot",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno ottenuto <0>{{count}} vittorie</0> nei giochi di slot. Con ogni rotazione, sfidano le probabilità e celebrano vittoria dopo vittoria. La fortuna può iniziare il gioco — ma la coerenza li rende campioni."
   },
   "achievement_slots_multiplier": {
-    "name": "Moltiplicatore di slot",
-    "description": "Questo traguardo viene assegnato ai giocatori che si sono assicurati una <0>vincita con un {{count}}x moltiplicatore</0> o più in un singolo giro di slot. Premia coloro che inseguono la grandezza, abbracciano il brivido dell’alto rischio e ottengono ricompense straordinarie. Questi non sono giocatori ordinari: comandano i rulli e si elevano al di sopra degli altri."
+    "name": "Moltiplicatore Slot",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno ottenuto una <0>vittoria con un moltiplicatore di {{count}}x</0> o più in una singola rotazione di slot. Onora coloro che inseguono la grandezza, abbracciano il brivido dell'alta rischiosità e ottengono ricompense straordinarie. Questi non sono giocatori ordinari — comandano i rulli e si elevano sopra gli altri."
+  },
+  "achievement_champion": {
+    "name": "Campione",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno ottenuto <0>10 vittorie</0>. Un Campione si erge fiero nell'arena del caso, dimostrando la propria resilienza round dopo round. Con ogni vittoria, cementano il loro posto tra i contendenti che si elevano al di sopra della fortuna per rivendicare la gloria."
+  },
+  "achievement_slot_master": {
+    "name": "Maestro delle Slot",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno scommesso almeno <0>{{amount}}</0> nei giochi di slot. Un Maestro delle Slot gira con fiducia e perseveranza, trasformando ogni rullo in un'opportunità di fortuna. Con mani ferme e gioco senza paura, dimostrano che la vera maestria si costruisce un giro alla volta."
+  },
+  "achievement_the_challenger": {
+    "name": "Il Challenger",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato almeno <0>10 scommesse valide</0> nella loro storia di gioco. Il Challenger si alza di fronte a ogni opportunità, spinto dalla determinazione e dal brivido della competizione. Audace e instancabile, dimostrano che i veri contendenti non si tirano indietro dal gioco — avanzano, pronti a mettere alla prova i propri limiti e a rivendicare il loro posto tra i temerari."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato <0>1 deposito</0> di almeno <0>{{amount}}</0> in un'unica transazione. Un Dynamo diventa più forte con ogni ricarica, dimostrando la propria coerenza e determinazione nel percorso verso la maestria."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Volto della Fortuna",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno personalizzato il proprio avatar per la prima volta. Un Volto della Fortuna sa che l'identità è potere — ogni scelta di stile, simbolo o espressione è un segno di individualità. Modellando il proprio aspetto, dimostrano che i veri giocatori non si limitano a giocare — lasciano il loro segno nel gioco."
+  },
+  "achievement_name_of_fame": {
+    "name": "Nome della Fama",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno impostato il proprio nome utente per la prima volta. Un Nome della Fama segna l'inizio di una vera identità, trasformando un novizio in una presenza riconosciuta. Audace e unico, dimostrano che ogni leggenda inizia con un nome ricordato."
+  },
+  "achievement_guiding_star": {
+    "name": "Stella Guida",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno aggiunto il gioco alla loro Home Screen o scaricato l'app. Una Stella Guida mantiene chiaro il percorso verso la fortuna, illuminando la via per tornare a giocare con un semplice tocco."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno scommesso un totale di almeno <0>{{amount}}</0> nella loro intera storia di gioco. Gli Highroller portano il segno dell'impegno e del prestigio, dimostrando la propria dedizione al gioco con ogni giro, scommessa e round. La loro corona non è solo un simbolo — è una testimonianza di perseveranza, passione e ricerca della fortuna."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno ottenuto un moltiplicatore <0>20x</0> su qualsiasi slot. Con le fiamme che ardono, un Inferno trasforma una singola scommessa in una tempesta di fortuna."
+  },
+  "achievement_money_maverick": {
+    "name": "Money Maverick",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un deposito di almeno <0>{{amount}}</0> in un'unica transazione, utilizzando gateway di pagamento fiat o locali. Un Money Maverick traccia il proprio cammino con audace fiducia, trasformando il denaro quotidiano in opportunità straordinarie. Senza paura e avventuroso, dimostrano che i veri maverick non seguono semplicemente le regole — le ridefiniscono."
+  },
+  "achievement_money_master": {
+    "name": "Master del Denaro",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato un prelievo fiat di almeno <0>{{amount}}</0> in un'unica transazione. Un Master del Denaro si erge fiero all'incrocio tra gioco e ricompensa, convertendo le proprie vincite in valore reale. Con mani ferme e tempismo preciso, dimostrano che la vera maestria non è solo nel gioco — è nel portare a casa le ricompense."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un deposito di almeno <0>{{amount}}</0> in un'unica transazione, con qualsiasi criptovaluta. Un Crypto Maestro dirige i propri fondi come un vero artista, orchestrando asset digitali con precisione e stile. Sicuro sul palcoscenico della blockchain, sono pionieri del gioco che dimostrano che la fortuna favorisce i audaci."
+  },
+  "achievement_crypto_baron": {
+    "name": "Crypto Baron",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato un prelievo di criptovaluta di almeno <0>{{amount}}</0> in un'unica transazione, con qualsiasi criptovaluta. Un Blockchain Baron regna nel regno degli asset digitali, muovendo fondi attraverso la catena con fiducia e autorità. Con ogni prelievo riuscito, dimostrano che la fortuna può essere guadagnata, assicurata e portata a casa sulla blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Chain Shifter",
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato con successo una <0>transazione di scambio crypto</0>. Un Chain Shifter è qualcuno che sa come muoversi tra i token con fiducia, adattandosi alle maree del mercato con facilità. Maestri del momentum, prosperano sulla flessibilità e sulla trasformazione, sempre pronti a cambiare marcia e cogliere l'opportunità."
   },
   "item": {
-    "conquest_just_wager_on_100": "Conquista Scommetti solo su 100",
-    "conquest_just_wager_on_200": "Conquista Scommetti solo su 200",
-    "conquest_roulette_master": "Conquista Maestro di Roulette",
-    "conquest_blackjack_master": "Conquista Maestro di Blackjack",
-    "conquest_baccarat_master": "Conquista Maestro di Baccarat",
-    "conquest_gameshow_master": "Conquista Maestro di Gameshow",
-    "conquest_slots_master_10": "Conquista Maestro di Slot 10",
-    "conquest_gameshow_master_20": "Conquista Maestro di Gameshow 20",
-    "conquest_roulette_master_30": "Conquista Maestro di Roulette 30",
-    "conquest_blackjack_master_40": "Conquista Maestro di Blackjack 40",
-    "conquest_baccarat_master_50": "Conquista Maestro di Baccarat 50",
+    "conquest_just_wager_on_100": "Conquista Scommetti Solo su 100",
+    "conquest_just_wager_on_200": "Conquista Scommetti Solo su 200",
+    "conquest_roulette_master": "Conquista Maestro della Roulette",
+    "conquest_blackjack_master": "Conquista Maestro del Blackjack",
+    "conquest_baccarat_master": "Conquista Maestro del Baccarat",
+    "conquest_gameshow_master": "Conquista Maestro dei Giochi",
+    "conquest_slots_master_10": "Conquista Maestro delle Slot 10",
+    "conquest_gameshow_master_20": "Conquista Maestro dei Giochi 20",
+    "conquest_roulette_master_30": "Conquista Maestro della Roulette 30",
+    "conquest_blackjack_master_40": "Conquista Maestro del Blackjack 40",
+    "conquest_baccarat_master_50": "Conquista Maestro del Baccarat 50",
     "conquest_big_win": "Conquista Grande Vittoria",
-    "conquest_huge_win": "Conquista Vittoria Enorme",
+    "conquest_huge_win": "Conquista Enorme Vittoria",
     "conquest_massive_win": "Conquista Vittoria Massiccia",
-    "achievement_verify_email": "Traguardo Verifica email",
-    "achievement_verify_phone": "Traguardo Verifica telefono",
-    "achievement_add_desktop_app": "Traguardo Aggiunta app desktop",
-    "achievement_super_spreader": "Traguardo Super diffusore",
-    "achievement_conquistador": "Traguardo Conquistatore",
-    "achievement_game_explorer": "Traguardo Esploratore di giochi",
-    "achievement_card_shark": "Traguardo Esperto di carte",
-    "achievement_slotmaster": "Traguardo Maestro delle slot",
-    "achievement_talkative": "Traguardo Loquace",
-    "achievement_bet_count": "Traguardo Numero di scommesse",
-    "achievement_deposit_count": "Traguardo Numero di depositi",
-    "achievement_change_avatar": "Traguardo Cambia avatar",
-    "achievement_set_username": "Traguardo Imposta nome utente",
-    "achievement_download_mobile_app": "Traguardo Scarica app mobile",
-    "achievement_wager_in_a_day_single_game": "Traguardo Puntata in un giorno su un singolo gioco",
-    "achievement_slots_win_count": "Traguardo Numero di vincite alle slot",
-    "achievement_slots_multiplier": "Traguardo Moltiplicatore slot",
-    "level_up": "Salita di Livello",
-    "rakeback": "Rimborso",
-    "cashback": "Rimborso",
+    "achievement_verify_email": "Riconoscimento Verifica Email",
+    "achievement_verify_phone": "Riconoscimento Verifica Telefono",
+    "achievement_add_desktop_app": "Riconoscimento Aggiungi App Desktop",
+    "achievement_super_spreader": "Riconoscimento Super Diffusore",
+    "achievement_conquistador": "Riconoscimento Conquistatore",
+    "achievement_game_explorer": "Riconoscimento Esploratore di Giochi",
+    "achievement_card_shark": "Riconoscimento Squalo delle Carte",
+    "achievement_slotmaster": "Riconoscimento Maestro delle Slot",
+    "achievement_talkative": "Riconoscimento Parlante",
+    "achievement_bet_count": "Riconoscimento Conteggio Scommesse",
+    "achievement_deposit_count": "Riconoscimento Conteggio Depositi",
+    "achievement_change_avatar": "Riconoscimento Cambia Avatar",
+    "achievement_set_username": "Riconoscimento Imposta Nome Utente",
+    "achievement_download_mobile_app": "Riconoscimento Scarica App Mobile",
+    "achievement_wager_in_a_day_single_game": "Riconoscimento Scommessa in un Giorno su un Gioco Singolo",
+    "achievement_slots_win_count": "Riconoscimento Conteggio Vittorie Slot",
+    "achievement_slots_multiplier": "Riconoscimento Moltiplicatore Slot",
+    "level_up": "Livello Su",
+    "rakeback": "Rakeback",
+    "cashback": "Cashback",
     "group": "Commissione",
-    "referral": "Segnalazione",
+    "referral": "Riferimento",
     "tournament": "Torneo",
-    "conquest_extra_reward": "Ricompensa Extra Conquista",
+    "conquest_extra_reward": "Conquista Ricompensa Extra",
     "bonus": "Bonus",
     "bonus_manual": "Bonus Manuale",
     "vip_bonus_lucky_number_seven": "Bonus VIP Numero Fortunato Sette",
-    "rakeback_bonus": "Bonus di Rakeback",
+    "rakeback_bonus": "Bonus Rakeback",
     "group_bonus": "Bonus di Gruppo",
-    "level_up_bonus": "Bonus di Livello Superiore",
-    "refer_bonus": "Bonus di Segnalazione",
-    "tournament_bonus": "Bonus di Torneo",
-    "vip_bonus_mystery_box": "Scatola Misteriosa Bonus VIP"
+    "level_up_bonus": "Bonus Livello Su",
+    "refer_bonus": "Bonus Riferimento",
+    "tournament_bonus": "Bonus Torneo",
+    "vip_bonus_mystery_box": "Bonus VIP Scatola Misteriosa"
   },
   "achievements_description": "Sbloccato al VIP {{vip}}, queste ricompense celebrano i tuoi traguardi con entusiasmanti sorprese lungo il percorso!",
   "lucky_number_seven_description": "Colpisci i Fortunati {{number}} e ottieni un dolce bonus ogni giorno!",
-"mystery_box_description": "Apri la tua scatola misteriosa una volta al mese per ricevere premi a sorpresa!",
+  "mystery_box_description": "Apri la tua scatola misteriosa una volta al mese per ricevere premi a sorpresa!",
+  "mystery_box_description2": "Colpisci VIP {{vip}} per ricevere una Mystery Box il 7 di ogni mese!",
   "mystery_box": "Scatola Misteriosa",
   "the_cannon_description": "Una ricompensa mensile così potente che la sua vera natura rimane un segreto gelosamente custodito.",
   "achievements_progress_name": {
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Le ricompense sono calcolate e accreditate in BUCK/USDT, quindi visualizzate nella tua valuta fiat preferita in base ai tassi di cambio in tempo reale per comodità. Nota che tutte le conversioni sono approssimative fino al completamento della transazione di scambio.",
   "general_terms_answer_2": "Il casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento, senza obbligo di motivazione. Qualsiasi abuso o attività fraudolenta comporterà la squalifica dalla promozione.",
   "available": "Disponibile",
-"refresh_in": "Aggiorna tra",
-"deposit_bonus_pool": "Raccolta di Bonus di Deposito"
+  "refresh_in": "Aggiorna tra",
+  "deposit_bonus_pool": "Raccolta di Bonus di Deposito",
+  "dashboard": "Cruscotto",
+  "bonuses": "Bonus",
+  "vip_program": "Programma VIP",
+  "bonusHub": {
+    "root": "Hub Bonus",
+    "resetOn": "Ripristina il {{time}}",
+    "ongoing": "{{count}} In Corso",
+    "accrualIn": "Accrual In {{time}}",
+    "nextReleaseIn": "Prossima Rilascio In {{time}}"
+  },
+  "freeSpins": "Giri Gratuiti",
+  "freeSpinsBonusDetails": "I bonus dei Giri Gratuiti ti premiano con extra gameplay su titoli di slot selezionati. Scommettere l'importo richiesto sblocca le tue vincite da giri gratuiti, che possono poi essere accreditate istantaneamente sul tuo saldo.",
+  "freeSpinsClaimDistributionDescription1": "Le vincite da giri gratuiti verranno accreditate sul tuo saldo una volta completato il requisito di scommessa e cliccando su 'Richiedi.'",
+  "freeSpinsClaimDistributionDescription2": "Monitora i tuoi progressi in qualsiasi momento nel tuo Pannello Bonus o nella Cronologia Giri Gratuiti.",
+  "freeSpinsExpirationDescription1": "I Giri Gratuiti devono essere utilizzati entro il periodo di validità visualizzato nel pannello Giri Gratuiti. I giri non utilizzati scadranno dopo questo periodo.",
+  "freeSpinsExpirationDescription2": "Le vincite dai giri gratuiti non scadranno fino a quando non saranno sbloccate e richieste.",
+  "freeSpinsGeneralTermsDescription1": "Le ricompense dei Giri Gratuiti vengono calcolate e accreditate in BUCK, quindi visualizzate nella tua valuta fiat preferita per comodità. Si prega di notare che le conversioni di valuta sono approssimative.",
+  "freeSpinsGeneralTermsDescription2": "Il casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento, senza l'obbligo di giustificare. Qualsiasi abuso o attività fraudolenta porterà alla squalifica dalla promozione.",
+  "the_collector": "Il Collezionista",
+  "collector_description": "Premi Idonei, Un Clic",
+  "claim_all": "Richiedi Tutto",
+  "claimConfirmation": "Conferma Richiesta",
+  "readyToClaim": "Pronto per Richiedere",
+  "selectClaimType": "Scegli il tuo tipo di richiesta qui sotto",
+  "claimableAmount": "Importo Richiedibile",
+  "normalClaim": "Richiesta Normale",
+  "normalClaimDesc": "Ricevi il tuo importo standard di ricompensa",
+  "doubleClaim": "Richiesta Doppia",
+  "doubleClaimDesc": "Rischia per 2x la ricompensa!",
+  "doubleClaimInfo": "Opzione Richiesta Doppia",
+  "doubleClaimRisk": "Rischio maggiore, ricompensa maggiore - potresti vincere il doppio o perdere tutto!",
+  "claimModal": {
+    "title": "Raddoppia o Niente",
+    "primaryDescription": "Richiedi il tuo bonus come al solito...",
+    "secondaryDescription": "Oppure fai un audace salto verso <highlight>RADDOPPIALO!</highlight>",
+    "doubleAction": "Raddoppia o Niente",
+    "comingSoon": "Funzione Raddoppia o Niente in arrivo!",
+    "approximateBuck": "Circa {{amount}} DOLLARO"
+  },
+  "vip_monday": "Lunedì VIP",
+  "vip_monday_description": "Un'assegnazione settimanale speciale per premiare i giocatori fedeli ogni lunedì",
+  "vip_monday_wager": "Scommetti almeno {{amount}} nei 7 giorni precedenti per un'assegnazione misteriosa ogni lunedì.",
+  "claim_on_monday": "Richiedi lunedì",
+  "vip_monday_title": "VIP \n <0>LUNEDÌ</0>",
+  "bonus_already_claimed": "Bonus già richiesto",
+  "wager_requirement_not_met": "Requisito di scommessa non soddisfatto",
+  "not_in_claim_time_range": "Non nel periodo di richiesta",
+  "monday": "Lunedì",
+  "poolBalance": "Saldo del Pool",
+  "program": "Programma",
+  "races": "Corse",
+  "loading_achievements": "Caricamento dei riconoscimenti...",
+  "no_achievements_available": "Nessun riconoscimento disponibile",
+  "check_back_later_for_new_achievements": "Controlla più tardi per nuovi riconoscimenti"
 }

@@ -1,38 +1,38 @@
 {
-    "goBack": "Înapoi",
-    "tryAgain": "Încercați din nou",
-    "retry": "Reîncercați",
-    "retryConnection": "Reîncercați conexiunea",
-    "emptyStateNoContent": {
-        "title": "Nimic aici încă!",
-        "description": "Se pare că nu există niciun conținut aici în acest moment. Reveniți mai târziu sau încercați altceva."
-    },
-    "failedToLoadPage": {
-        "title": "Ceva a mers prost",
-        "description": "A apărut o eroare de sistem la încărcarea paginii. Vă rugăm să reîncărcați pagina sau să contactați suportul dacă problema persistă."
-    },
-    "otherActiveSession": {
-        "title": "Eroare de sesiune!",
-        "description": "Accesul de pe acest dispozitiv nu este disponibil în prezent din motive de securitate. Acest lucru se poate datora unei alte autentificări sau unei probleme de sistem. Vă rugăm să încercați din nou sau să utilizați un alt dispozitiv."
-    },
-    "noInternetConnection": {
-        "title": "Oops! Sunteți offline",
-        "description": "Se pare că nu sunteți conectat la internet. Verificați Wi-Fi-ul sau datele mobile și încercați din nou când sunteți din nou online."
-    },
-    "pageNotFound": {
-        "title": "Oops! Această pagină lipsește",
-        "description": "Se pare că această pagină nu există sau a fost mutată. Încercați să verificați URL-ul sau reveniți la pagina principală."
-    },
-    "tooManyRequest": {
-        "title": "Țineți-vă bine! Suntem un pic ocupați",
-        "description": "Se pare că serverele noastre sunt foarte ocupate acum. Așteptați un moment și încercați din nou."
-    },
-    "underMaintenance": {
-        "title": "Vom reveni imediat!",
-        "description": "Facem câteva actualizări pentru ca lucrurile să funcționeze fără probleme. Reveniți în curând!"
-    },
-    "userRestriction": {
-        "title": "Oops! Nu puteți accesa acest lucru",
-        "description": "Se pare că nu aveți permisiunea de a vizualiza acest lucru. Verificați din nou accesul sau contactați asistența."
-    }
+  "goBack": "Înapoi",
+  "tryAgain": "Încercați din nou",
+  "retry": "Reîncercați",
+  "retryConnection": "Reîncercați conexiunea",
+  "emptyStateNoContent": {
+    "title": "Încă nu este nimic aici!",
+    "description": "Se pare că nu există conținut aici în acest moment. Verifică mai târziu sau încearcă altceva."
+  },
+  "failedToLoadPage": {
+    "title": "Ceva a mers prost",
+    "description": "A apărut o eroare de sistem în timpul încărcării paginii. Te rugăm să reîncarci pagina sau să contactezi suportul dacă problema persistă."
+  },
+  "otherActiveSession": {
+    "title": "Eroare de sesiune!",
+    "description": "Accesul de pe acest dispozitiv este în prezent indisponibil din motive de securitate. Acest lucru poate fi din cauza unei alte autentificări sau a unei probleme de sistem. Te rugăm să încerci din nou sau să folosești un alt dispozitiv."
+  },
+  "noInternetConnection": {
+    "title": "Ups! Ești offline",
+    "description": "Se pare că nu ești conectat la internet. Verifică-ți Wi-Fi-ul sau datele mobile și încearcă din nou odată ce ești online."
+  },
+  "pageNotFound": {
+    "title": "Ups! Această pagină lipsește",
+    "description": "Se pare că această pagină nu există sau a fost mutată. Încearcă să verifici URL-ul sau să te întorci acasă."
+  },
+  "tooManyRequest": {
+    "title": "Așteaptă puțin! Suntem puțin ocupați",
+    "description": "Se pare că serverele noastre gestionează multe în acest moment. Așteaptă un moment și încearcă din nou."
+  },
+  "underMaintenance": {
+    "title": "Ne întoarcem imediat!",
+    "description": "Facem câteva actualizări pentru a menține lucrurile în funcțiune. Verifică din nou în curând!"
+  },
+  "userRestriction": {
+    "title": "Ups! Nu poți accesa asta",
+    "description": "Se pare că nu ai permisiunea de a vizualiza asta. Verifică-ți accesul sau cere ajutor."
+  }
 }

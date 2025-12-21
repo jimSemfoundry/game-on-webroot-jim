@@ -4,7 +4,7 @@ import {
   Value, 
   getCountries, 
   getCountryCallingCode, 
-  isValidPhoneNumber,
+  // isValidPhoneNumber, // TODO: 生产环境启用 - 暂时关闭手机号有效性验证，允许输入6位
   parsePhoneNumber,
   formatPhoneNumberIntl
 } from 'react-phone-number-input'
@@ -62,17 +62,90 @@ const detectInputMode = (input: string): InputMode => {
   return 'auto'
 }
 
-const getFlag = (countryCode: Country): string => {
-  if (!countryCode) return ''
-  try {
-    const codePoints = countryCode
-      .toUpperCase()
-      .split('')
-      .map(char => 0x1f1e6 - 65 + char.charCodeAt(0))
-    return String.fromCodePoint(...codePoints)
-  } catch {
+const extractDigits = (value: string): string => value.replace(/\D/g, '')
+
+const removeLeadingPlus = (value: string): string => value.replace(/^\++/, '')
+
+const buildInternationalFromRaw = (value: string, country: Country): string => {
+  const digits = extractDigits(value)
+
+  if (!digits) {
     return ''
   }
+
+  return `+${getCountryCallingCode(country)}${digits}`
+}
+
+const formatPhoneForParent = (value: string, country: Country): string => {
+  const international = buildInternationalFromRaw(value, country)
+  if (!international) return ''
+
+  try {
+    const parsed = parsePhoneNumber(international)
+    if (parsed) {
+      const formatted = `+${parsed.countryCallingCode}-${parsed.nationalNumber}`
+      
+      // 验证：确保解析后的号码包含原始输入的所有数字
+      // 如果解析导致数字丢失（被截断），则返回原始国际格式
+      const originalDigits = extractDigits(value)
+      const parsedDigits = extractDigits(formatted)
+      
+      // 只有当解析后的数字位数与原始输入相同或更多时，才使用解析结果
+      if (parsedDigits.length >= originalDigits.length) {
+        return formatted
+      }
+    }
+  } catch {}
+
+  // 解析失败或导致截断，返回原始国际格式（不带横杠）
+  return international
+}
+
+const deriveRawFromExternal = (external: string, fallbackCountry: Country): string => {
+  if (!external) return ''
+
+  const trimmed = external.trim()
+  if (!trimmed) return ''
+
+  const detectedMode = detectInputMode(trimmed)
+  if (detectedMode !== 'phone') {
+    return trimmed
+  }
+
+  const digits = extractDigits(trimmed)
+
+  if (!digits) {
+    return ''
+  }
+
+  // 如果外部值以 + 开头，尝试提取本地号码部分
+  if (trimmed.startsWith('+')) {
+    const fallbackCode = getCountryCallingCode(fallbackCountry)
+    
+    // 简单字符串匹配：如果以 +国家代码 开头，移除它
+    if (digits.startsWith(fallbackCode)) {
+      return digits.slice(fallbackCode.length)
+    }
+    
+    // 如果包含横杠分隔符（如 +86-13800138000），提取横杠后的部分
+    if (trimmed.includes('-')) {
+      const parts = trimmed.split('-')
+      if (parts.length === 2 && parts[0].startsWith('+')) {
+        return parts[1]
+      }
+    }
+    
+    // 其他情况返回所有数字（可能是其他国家的号码）
+    return digits
+  }
+
+  // 如果不以 + 开头，说明是本地号码，直接返回所有数字
+  return digits
+}
+
+const getFlagAsset = (countryCode?: Country): string => {
+  if (!countryCode) return ''
+  return `/icons/flags/country/${countryCode.toLowerCase()}.svg`
 }
 
 const getBrowserCountryCode = (): Country => {
@@ -222,7 +295,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
     }, [currentLanguage])
     
     // State
-    const [inputValue, setInputValue] = useState<string>(value)
+    const [rawValue, setRawValue] = useState<string>(value)
     const [selectedCountry, setSelectedCountry] = useState<Country>(defaultCountry || getBrowserCountryCode())
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
@@ -238,12 +311,14 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
     const combinedRef = (ref as React.RefObject<HTMLInputElement>) || inputRef
 
     // Derived state
-    const currentMode = mode === 'auto' ? detectInputMode(inputValue) : mode
+    const currentMode = mode === 'auto' ? detectInputMode(rawValue) : mode
     const isEmailMode = currentMode === 'email'
     const isPhoneMode = currentMode === 'phone'
     
+    const digitsOnlyValue = useMemo(() => extractDigits(rawValue), [rawValue])
+
     // Show country selector when in phone mode and has significant input
-    const showCountrySelector = isPhoneMode && inputValue.replace(/\D/g, '').length >= 3
+    const showCountrySelector = isPhoneMode && digitsOnlyValue.length >= 3
 
     // Filter countries based on search
     const filteredCountries = useMemo(() => {
@@ -260,47 +335,76 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
 
     // Validation
     const validationState = useMemo((): ValidationState => {
-      if (!inputValue.trim()) return 'none'
+      if (!rawValue.trim()) return 'none'
       
       if (isEmailMode) {
-        return isValidEmail(inputValue) ? 'valid' : 'invalid'
+        return isValidEmail(rawValue) ? 'valid' : 'invalid'
       }
       
       if (isPhoneMode) {
-        try {
-          // First try to validate as-is (international format)
-          if (isValidPhoneNumber(inputValue)) {
-            return 'valid'
-          }
-          
-          // If not valid as-is, try with current selected country code
-          const digitsOnly = inputValue.replace(/\D/g, '')
-          if (digitsOnly.length >= 7) { // Minimum reasonable phone number length
-            const countryCallingCode = getCountryCallingCode(selectedCountry)
-            const withCountryCode = `+${countryCallingCode}${digitsOnly}`
-            
-            if (isValidPhoneNumber(withCountryCode)) {
-              return 'valid'
-            }
-          }
-          
-          return 'invalid'
-        } catch {
+        const digits = digitsOnlyValue
+
+        if (!digits) {
           return 'invalid'
         }
+
+        // TODO: 生产环境启用 - 暂时关闭手机号有效性验证，允许输入6位
+        // const internationalValue = buildInternationalFromRaw(rawValue, selectedCountry)
+        // if (internationalValue && isValidPhoneNumber(internationalValue)) {
+        //   return 'valid'
+        // }
+        // return digits.length >= 7 ? 'invalid' : 'pending'
+
+        // 临时验证逻辑：允许至少6位数字
+        if (digits.length >= 6) {
+          return 'valid'
+        }
+        return 'pending'
       }
       
       return 'pending'
-    }, [inputValue, isEmailMode, isPhoneMode, selectedCountry])
+    }, [rawValue, isEmailMode, isPhoneMode, digitsOnlyValue, selectedCountry])
 
     const isValid = validationState === 'valid' || validationState === 'none'
 
     // Effects
     useEffect(() => {
-      if (value !== inputValue) {
-        setInputValue(value)
+      const nextMode = mode === 'auto' ? detectInputMode(value) : mode
+
+      if (nextMode === 'phone') {
+        const nextRawValue = deriveRawFromExternal(value, selectedCountry)
+
+        if (nextRawValue !== rawValue) {
+          setRawValue(nextRawValue)
+        }
+
+        const trimmed = value.trim()
+        if (trimmed.startsWith('+')) {
+          const digits = extractDigits(trimmed)
+          if (digits) {
+            try {
+              const parsed = parsePhoneNumber(`+${digits}`)
+              if (parsed?.country && parsed.country !== selectedCountry) {
+                setSelectedCountry(parsed.country)
+              }
+            } catch {}
+          }
+        }
+
+        return
       }
-    }, [value])
+
+      if (value !== rawValue) {
+        setRawValue(value)
+      }
+    }, [value, mode, rawValue, selectedCountry])
+
+    useEffect(() => {
+      if (!defaultCountry || rawValue.trim()) return
+      if (defaultCountry !== selectedCountry) {
+        setSelectedCountry(defaultCountry)
+      }
+    }, [defaultCountry, rawValue, selectedCountry])
 
     useEffect(() => {
       if (onValidationChange) {
@@ -384,59 +488,26 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
     // Handlers
     const handleInputChange = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = e.target.value
-        
-        if (isPhoneMode && showCountrySelector) {
-          // When country selector is shown, auto-prepend country code to local input
-          const countryCallingCode = getCountryCallingCode(selectedCountry)
-          const localInput = newValue.replace(/^\+\d+[\s\-]*/, '') // Remove any country code user might type
-          
-          // Only add country code if there's actual local input
-          if (localInput && localInput.replace(/\D/g, '').length > 0) {
-            const localDigits = localInput.replace(/\D/g, '')
-            const fullNumber = `+${countryCallingCode}${localDigits}`
-            const formattedNumber = `+${countryCallingCode}-${localDigits}`
-            setInputValue(fullNumber) // Store without hyphen internally for display processing
-            onChange?.(formattedNumber) // Pass with hyphen for submission
+        const inputWithoutLeadingPlus = removeLeadingPlus(e.target.value)
+        const nextMode = mode === 'auto' ? detectInputMode(inputWithoutLeadingPlus) : mode
+
+        // 只在手机号模式下移除 + 号，邮箱模式保留（支持 user+tag@example.com 格式）
+        const sanitizedValue = nextMode === 'phone'
+          ? inputWithoutLeadingPlus.replace(/\+/g, '')
+          : inputWithoutLeadingPlus
+
+        setRawValue(sanitizedValue)
+        let nextCountry = selectedCountry
+
+        if (onChange) {
+          if (nextMode === 'phone') {
+            onChange(formatPhoneForParent(sanitizedValue, nextCountry))
           } else {
-            // If no local input, store empty value
-            setInputValue('')
-            onChange?.('')
-          }
-        } else {
-          // No country selector, use input as-is
-          setInputValue(newValue)
-          
-          // For phone mode with international format, ensure hyphen format
-          if (isPhoneMode && newValue.startsWith('+')) {
-            try {
-              const parsed = parsePhoneNumber(newValue)
-              if (parsed?.country) {
-                if (parsed.country !== selectedCountry) {
-                  setSelectedCountry(parsed.country)
-                }
-                // Format with hyphen: +countryCode-localNumber
-                const countryCode = getCountryCallingCode(parsed.country)
-                const localNumber = newValue.replace(`+${countryCode}`, '').replace(/^[\s\-]*/, '').replace(/\D/g, '')
-                if (localNumber) {
-                  onChange?.(`+${countryCode}-${localNumber}`)
-                } else {
-                  onChange?.(newValue)
-                }
-              } else {
-                onChange?.(newValue)
-              }
-            } catch {
-              // If parsing fails, pass as-is
-              onChange?.(newValue)
-            }
-          } else {
-            // Email mode or other input
-            onChange?.(newValue)
+            onChange(sanitizedValue)
           }
         }
       },
-      [onChange, isPhoneMode, selectedCountry, showCountrySelector]
+      [mode, onChange, selectedCountry]
     )
 
     const handleCountrySelect = useCallback(
@@ -446,37 +517,14 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
         setSearchTerm('')
         setFocusedIndex(-1)
 
-        // Only update phone number if there's already content in the input
-        if (isPhoneMode && inputValue && inputValue.trim() !== '') {
-          const newCountryCode = getCountryCallingCode(country)
-          const currentCountryCode = getCountryCallingCode(selectedCountry)
-          
-          // Extract local number part (remove current country code)
-          let localNumber = inputValue
-          
-          if (inputValue.startsWith(`+${currentCountryCode}`)) {
-            // Remove current country code
-            localNumber = inputValue.slice(`+${currentCountryCode}`.length).replace(/^[\s\-]*/, '')
-          } else if (inputValue.startsWith('+')) {
-            // Remove any country code
-            localNumber = inputValue.replace(/^\+\d+[\s\-]*/, '')
-          }
-          
-          // Only update if there's actual local number content
-          if (localNumber && localNumber.replace(/\D/g, '').length > 0) {
-            const localDigits = localNumber.replace(/\D/g, '')
-            const fullNumber = `+${newCountryCode}${localDigits}`
-            const formattedNumber = `+${newCountryCode}-${localDigits}`
-            setInputValue(fullNumber) // Store without hyphen internally
-            onChange?.(formattedNumber) // Pass with hyphen for submission
-          }
+        if (isPhoneMode && rawValue.trim() !== '') {
+          onChange?.(formatPhoneForParent(rawValue, country))
         }
-        // If input is empty, just change the selected country without adding anything to input
 
         // Return focus to input
         setTimeout(() => combinedRef.current?.focus(), 0)
       },
-      [inputValue, onChange, isPhoneMode, selectedCountry]
+      [combinedRef, isPhoneMode, onChange, rawValue]
     )
 
     const handleDropdownToggle = useCallback(() => {
@@ -488,49 +536,36 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
     }, [disabled, isDropdownOpen])
 
     const clearInput = useCallback(() => {
-      setInputValue('')
+      setRawValue('')
       onChange?.('')
       combinedRef.current?.focus()
-    }, [onChange])
+    }, [combinedRef, onChange])
 
     // Format display value for phone numbers
     const displayValue = useMemo(() => {
-      // If no input value, return empty string
-      if (!inputValue || inputValue.trim() === '') {
+      if (!rawValue || rawValue.trim() === '') {
         return ''
       }
-      
-      if (isPhoneMode && inputValue) {
-        try {
-          // If country selector is shown, remove country code from display
-          if (showCountrySelector && inputValue.startsWith('+')) {
-            const countryCallingCode = getCountryCallingCode(selectedCountry)
-            const expectedPrefix = `+${countryCallingCode}`
-            
-            if (inputValue.startsWith(expectedPrefix)) {
-              // Remove the country code and any following space/dash
-              const localNumber = inputValue.slice(expectedPrefix.length).replace(/^[\s\-]+/, '')
-              return localNumber || '' // Return empty string if no local number
-            }
+
+        if (isPhoneMode) {
+          if (showCountrySelector) {
+            // 用户输入本地号码，直接显示
+            return rawValue
           }
-          
-          // If no country selector, show full international format
-          if (!showCountrySelector && inputValue.startsWith('+')) {
-            const parsed = parsePhoneNumber(inputValue)
-            if (parsed) {
-              return formatPhoneNumberIntl(inputValue as Value)
-            }
+
+          // 不显示国家选择器时，尝试格式化为国际格式
+        const internationalValue = buildInternationalFromRaw(rawValue, selectedCountry)
+        if (internationalValue) {
+          try {
+            return formatPhoneNumberIntl(internationalValue as Value)
+          } catch {
+            return internationalValue
           }
-          
-          // For local numbers or when country selector is shown, show as typed (without country code)
-          return inputValue
-        } catch {
-          // Fall back to original value
-          return inputValue
         }
       }
-      return inputValue
-    }, [inputValue, isPhoneMode, showCountrySelector, selectedCountry])
+
+      return rawValue
+    }, [rawValue, isPhoneMode, showCountrySelector, selectedCountry])
 
     return (
       <div className={cn('phone-email-input-container relative', className)}>
@@ -552,9 +587,11 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                 aria-expanded={isDropdownOpen}
                 aria-label={`Selected country: ${countryNames[selectedCountry] || selectedCountry}`}
               >
-                <span className="text-lg" aria-hidden="true">
-                  {getFlag(selectedCountry)}
-                </span>
+                <img
+                  src={getFlagAsset(selectedCountry)}
+                  alt={countryNames[selectedCountry] || selectedCountry}
+                  className="w-4 h-4 sm:w-5 sm:h-5 rounded-sm object-cover"
+                />
                 <span className="text-sm font-medium">
                   +{getCountryCallingCode(selectedCountry)}
                 </span>
@@ -606,9 +643,11 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                           aria-selected={country === selectedCountry}
                           tabIndex={-1}
                         >
-                          <span className="text-lg" aria-hidden="true">
-                            {getFlag(country)}
-                          </span>
+                          <img
+                            src={getFlagAsset(country)}
+                            alt={countryNames[country] || country}
+                            className="w-5 h-5 rounded-sm object-cover"
+                          />
                           <span className="flex-1 text-sm">
                             {countryNames[country] || country}
                           </span>
@@ -651,7 +690,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
             />
 
             {/* Clear button */}
-            {inputValue && !disabled && (
+            {rawValue && !disabled && (
               <button
                 type="button"
                 className="btn btn-ghost btn-sm btn-circle"

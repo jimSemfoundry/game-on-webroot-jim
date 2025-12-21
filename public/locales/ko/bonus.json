@@ -1,9 +1,52 @@
 {
+  "double_or_nothing_description": "보너스를 평소처럼 청구하세요...\n아니면 대담하게 도전하세요",
+  "double_it": "두 배로!",
+  "no_thanks": "괜찮습니다",
+  "double_or_nothing": "두 배 또는 아무것도 아님",
+  "come_back_tomorrow": "내일 다시 오세요",
+  "promo_code": "프로모션 코드",
+  "got_a_code": "코드가 있나요? 아시겠죠!",
+  "lifetime_bonus": "평생 보너스",
+  "claimed": "청구됨",
+  "starter": "시작자",
+  "pack": "팩",
+  "achievements_card_description": "진행의 모든 단계를 축하하기 위해 설계된 특별한 업적 보상을 수집하세요!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "행운의 기술을 마스터하세요",
+    "achievement_verify_phone": "멈출 수 없는 에너지와 힘",
+    "achievement_add_desktop_app": "항상 손이 닿는 곳에",
+    "achievement_super_spreader": "게임 경험을 공유하세요",
+    "achievement_conquistador": "모든 장애물에 맞서세요",
+    "achievement_game_explorer": "새로운 게임 세계를 발견하세요",
+    "achievement_card_shark": "카드 게임을 지배하세요",
+    "achievement_slotmaster": "슬롯을 마스터하세요",
+    "achievement_talkative": "다른 사람들을 이끌어주세요",
+    "achievement_bet_count": "정밀 게임을 마스터하세요",
+    "achievement_deposit_count": "궁극의 승리를 달성하세요",
+    "achievement_wager_count": "도전을 불태우세요",
+    "achievement_single_bet": "전설이 되세요",
+    "achievement_single_deposit": "블록체인 네트워크를 탐색하세요",
+    "achievement_single_wager": "재정 전략을 마스터하세요",
+    "achievement_single_payout": "암호화폐 시장을 지배하세요",
+    "achievement_crypto_bro": "암호화폐 거래를 마스터하세요",
+    "achievement_crypto_baron": "암호화폐 시장을 지배하세요",
+    "achievement_chain_shifter": "블록체인 네트워크를 탐색하세요",
+    "achievement_money_master": "재정 전략을 마스터하세요",
+    "achievement_sniper": "정밀 게임을 마스터하세요",
+    "achievement_champion": "궁극의 승리를 달성하세요",
+    "achievement_name_of_fame": "전설이 되세요",
+    "achievement_guiding_star": "다른 사람들을 이끌어주세요",
+    "achievement_face_of_fortune": "행운의 기술을 마스터하세요",
+    "achievement_dynamo": "멈출 수 없는 에너지와 힘",
+    "achievement_inferno": "도전을 불태우세요",
+    "achievement_the_challenger": "모든 장애물에 맞서세요"
+  },
   "bonus": "보너스",
   "total_bonus_claimed": "총 받은 보너스",
   "details": "자세히",
   "redeem": "수령",
-    "deposit_bonus": "입금 보너스 모음",  "get_up_to": "최대 ~까지",
+  "deposit_bonus": "입금 보너스 모음",
+  "get_up_to": "최대 ~까지",
   "deposit_now": "지금 입금하기",
   "bonus_ends_in": "만료까지",
   "general_bonus": "일반 보너스",
@@ -25,14 +68,15 @@
   "daily_cashback": "일일 캐시백",
   "bonus_calendar": "보너스 달력",
   "claim_every_8_hours": "8시간마다 받기",
-    "locked": "입금 보너스 모음",
-    "next_claim_in": "다음 청구까지",
-    "bonus_pool": "다가오는 보상 모음",
-     "bonus_calendar_details": "8시간마다 받아 보너스를 얻으세요!",
+  "locked": "입금 보너스 모음",
+  "next_claim_in": "다음 청구까지",
+  "bonus_pool": "다가오는 보상 모음",
+  "bonus_calendar_details": "8시간마다 받아 보너스를 얻으세요!",
   "release_schedule": "해제 일정",
   "total_vip_bonus_claimed": "총 받은 VIP 보너스",
   "your_vip_progress": "VIP 진행 상황",
   "available_at_vip": "VIP {{vip}}에서 활성화",
+  "vip_progress_description": "앞으로 나아가세요! 다음 레벨에서는 보너스 풀에서 {{amount}}가 잠금 해제됩니다.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "VIP 4를 달성하고 매일 추가 상금을 획득할 수 있는 럭키 스핀에 참여하세요!",
   "weekly_cashback": "주간 캐시백",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "VIP 12에 도달하고 주간 캐시백을 잠금 해제하여 하이 롤러 게임을 위한 개인 안전망을 확보하세요!",
@@ -48,6 +92,7 @@
   "lucky_spin": "럭키 스핀",
   "lucky_number_seven": "행운의 숫자 7",
   "expires_in": "만료까지",
+  "expires": "만료됨",
   "go": "가기",
   "conquest_just_wager_title": "{{amount}} 베팅",
   "conquest_just_wager_description": "하루 동안 어떤 게임에서든 {{amount}}을 베팅하여 오늘 보너스 풀에서 {{reward}}을 해제하세요!",
@@ -97,107 +142,163 @@
   "sort_by": "정렬:",
   "claimable": "청구 가능",
   "achievement_verify_email": {
-    "name": "이메일 확인",
-    "description": "이 업적은 이메일을 인증하여 신원을 확인하고 안전한 접근을 잠금 해제한 플레이어에게 수여됩니다. 진정한 플레이어의 첫걸음, 준비와 신뢰의 상징입니다!"
+    "name": "이메일 인증",
+    "description": "이 업적은 이메일을 인증한 플레이어에게 수여됩니다. 이는 그들의 신원을 잠그고 안전한 접근을 열어줍니다. 진지한 플레이어의 첫 번째 단계인 준비성과 신뢰성을 나타냅니다."
   },
   "achievement_verify_phone": {
     "name": "전화 인증",
-    "description": "이 업적은 휴대폰 번호를 인증하여 소식을 유지하고 연결된 플레이어에게 수여됩니다. 신뢰, 참여, 게임 열정의 증표입니다!"
+    "description": "이 업적은 전화번호를 인증한 플레이어에게 수여됩니다. 이는 신뢰, 참여 및 게임의 맥박에 대한 헌신을 나타냅니다."
   },
   "achievement_add_desktop_app": {
     "name": "홈 화면에 추가",
-    "description": "이 업적은 우리의 텔레그램 미니 앱을 홈 화면에 추가한 플레이어에게 수여됩니다. 항상 손쉽게 접근 가능, 이 행동은 진정한 헌신을 보여줍니다 – 진정한 플레이어는 게임을 가까이 유지하기 때문입니다."
+    "description": "이 업적은 텔레그램 미니 앱을 홈 화면에 추가한 플레이어에게 수여됩니다. 항상 손이 닿는 곳에 있는 이 행동은 진정한 헌신을 보여줍니다 - 진짜 플레이어는 게임을 가까이 두기 때문입니다."
   },
   "achievement_super_spreader": {
     "name": "슈퍼 스프레더",
-    "description": "<0>{{count}}명의 신규 사용자를 추천한 플레이어에게 수여됩니다. 커뮤니티를 키우고 게임에 활력을 불어넣는 진정한 리더입니다!"
+    "description": "이 업적은 <0>{{count}}명의 신규 사용자</0>를 성공적으로 추천한 플레이어에게 수여됩니다. 진정한 커뮤니티 빌더로서 그들은 원을 확장하고 게임에 새로운 에너지를 가져옵니다. 그들의 영향력은 그들이 만드는 모든 연결과 함께 성장합니다."
   },
   "achievement_conquistador": {
     "name": "정복자",
-    "description": "총 <0>{{count}}개의 도전을 완료한 플레이어에게 수여됩니다. 결단력과 승리의 갈망으로 모든 도전을 정복하는 여정의 챔피언입니다!"
+    "description": "이 업적은 총 <0>{{count}}개의 퀘스트</0>를 완료한 플레이어에게 수여됩니다. 결단력과 승리에 대한 갈증으로 이들은 오는 모든 도전을 정복합니다 - 진정한 여정의 챔피언입니다."
   },
   "achievement_game_explorer": {
     "name": "게임 탐험가",
-    "description": "<0>{{count}}개의 다양한 게임을 시도한 플레이어에게 수여됩니다. 호기심과 모험심으로 새 플레이 방법을 찾아 승리를 쟁취합니다!"
+    "description": "이 업적은 <0>{{count}}개의 다양한 게임</0>을 시도한 플레이어에게 수여됩니다. 호기심과 모험심으로 그들은 플랫폼을 가로지르며 새로운 플레이와 승리의 방법을 발견하기를 항상 열망합니다."
   },
   "achievement_card_shark": {
     "name": "카드 상어",
-    "description": "카드 게임에 <0>{{amount}}</0>을 베팅하여 전략과 용기를 증명한 플레이어에게 수여됩니다. 엘리트 플레이어의 자리를 차지한 이들은 카드를 쥐고 게임을 지배합니다!"
+    "description": "이 업적은 카드 게임에서 최소 <0>{{amount}}</0>를 베팅한 플레이어에게 수여됩니다. 이는 그들의 회복력, 전략 및 위험을 감수하려는 의지를 증명합니다. 이 고위험 플레이어들은 엘리트 중 한 자리를 차지했습니다. 카드가 그들의 손에 있으며, 게임은 그들이 지배합니다."
   },
   "achievement_slotmaster": {
-    "name": "슬롯마스터",
-    "description": "슬롯 게임에 <0>{{amount}}</0>을 베팅하여 끈기와 스핀 사랑을 증명한 플레이어에게 수여됩니다. 자신감으로 릴을 잡는 이들은 운과 실력으로 게임을 이어갑니다!"
+    "name": "슬롯 마스터",
+    "description": "이 업적은 슬롯 게임에서 최소 <0>{{amount}}</0>를 베팅한 플레이어에게 수여됩니다. 이는 그들의 끈기, 스릴을 추구하는 정신 및 스핀에 대한 사랑을 증명합니다. 이 헌신적인 플레이어들은 자신감으로 릴을 포용합니다 - 행운이 이끌 수 있지만, 마스터가 그들을 게임에 남게 합니다."
   },
   "achievement_talkative": {
     "name": "수다쟁이",
-    "description": "채팅방에서 <0>{{count}}번</0> 말한 플레이어에게 수여됩니다. 모든 메시지가 대화의 첫걸음입니다!"
+    "description": "이 업적은 채팅방에서 <0>{{count}}회</0> 발언한 플레이어에게 수여됩니다. 모든 메시지가 중요합니다 - 당신은 진정한 대화의 일원이 되기 위한 첫 걸음을 내딛고 있습니다."
   },
   "achievement_bet_count": {
-    "name": "베팅 횟수",
-    "description": "총 <0>{{count}}번 베팅한 플레이어에게 수여됩니다. 기회를 믿는 흔들림 없는 정신으로 게임을 이끌어갑니다!"
+    "name": "베팅 수",
+    "description": "이 업적은 총 <0>{{count}}개의 베팅</0>을 한 플레이어에게 수여됩니다. 기회의 진정한 신자이며, 그들의 변함없는 정신은 매 베팅으로 게임을 살아있게 합니다."
   },
   "achievement_deposit_count": {
-    "name": "입금 횟수",
-    "description": "총 <0>{{count}}번 입금한 플레이어에게 수여됩니다. 꾸준한 투자로 단순한 플레이어가 아닌 거물이 되었습니다!"
+    "name": "입금 수",
+    "description": "이 업적은 총 <0>{{count}}개의 입금</0>을 한 플레이어에게 수여됩니다. 신뢰할 수 있는 크레딧의 흐름과 변함없는 헌신으로, 그들은 단순한 플레이어가 아니라 거물로 성장하고 있습니다."
   },
   "achievement_change_avatar": {
     "name": "아바타 변경",
-    "description": "아바타를 변경하여 프로필을 꾸민 플레이어에게 수여됩니다. 게임에서 자신만의 개성을 뽐내는 대담한 선택입니다!"
+    "description": "이 업적은 아바타를 변경하여 프로필을 개인화한 플레이어에게 수여됩니다. 게임에서 자신의 정체성을 드러내고 돋보이기 위한 대담한 첫 걸음입니다."
   },
   "achievement_set_username": {
     "name": "사용자 이름 설정",
-    "description": "이름을 정하며 전설이 시작됩니다! 자신의 공간을 공식적으로 개척한 플레이어에게 수여됩니다."
+    "description": "당신은 자신의 이름을 청구했습니다 - 이제 전설이 시작됩니다. 이 업적은 자신의 공간을 만들고 이를 공식화한 사람들을 기립니다."
   },
   "achievement_download_mobile_app": {
     "name": "모바일 앱 다운로드",
-    "description": "앱을 다운로드한 플레이어에게 수여됩니다. 언제 어디서나 게임을 즐기는 진정한 플레이어의 선택입니다!"
+    "description": "이 배지는 게임을 함께 가져간 플레이어에게 수여됩니다. 앱을 다운로드하는 것은 당신이 일시 정지할 생각이 없다는 것을 보여줍니다 - 언제 어디서나 플레이하기 위해 여기 있습니다."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "단일 게임 하루 최대 베팅",
-    "description": "하루 동안 한 게임에 <0>{{amount}}</0>을 베팅한 플레이어에게 수여됩니다. 흔들림 없는 집중과 대담한 전략으로 게임을 마스터한 엘리트 플레이어입니다!"
+    "name": "하루에 단일 게임 최대 베팅",
+    "description": "이 업적은 하루에 단일 게임에서 최소 <0>{{amount}}</0>를 베팅한 플레이어에게 수여됩니다. 이는 변함없는 집중력, 계산된 전략 및 대담한 위험을 감수할 용기를 가진 이들을 인정합니다. 이 엘리트 플레이어들은 선택한 게임을 마스터했으며, 승리를 위해 플레이합니다."
   },
   "achievement_slots_win_count": {
-    "name": "슬롯 승리 횟수",
-    "description": "슬롯 게임에서 <0>{{count}}번 승리한 플레이어에게 수여됩니다. 매 스핀마다 확률을 깨고 승리를 쌓아 챔피언이 됩니다!"
+    "name": "슬롯 승리 수",
+    "description": "이 업적은 슬롯 게임에서 <0>{{count}}회의 승리</0>를 확보한 플레이어에게 수여됩니다. 매 스핀마다 그들은 확률에 도전하고 승리를 축하합니다. 행운이 게임을 시작할 수 있지만 - 일관성이 그들을 챔피언으로 만듭니다."
   },
   "achievement_slots_multiplier": {
-    "name": "슬롯 배율",
-    "description": "한 번의 슬롯 스핀에서 <0>{{count}}x 이상의 승리를 거둔 플레이어에게 수여됩니다. 위대함과 높은 위험을 즐기며 특별한 상금을 쟁취한 플레이어, 릴을 지배하는 진정한 승자입니다!"
+    "name": "슬롯 배수기",
+    "description": "이 업적은 단일 슬롯 스핀에서 <0>{{count}}배</0> 이상의 승리를 확보한 플레이어에게 수여됩니다. 이는 위대함을 추구하고 높은 위험의 스릴을 포용하며 비범한 보상을 얻는 이들을 기립니다. 이들은 평범한 플레이어가 아닙니다 - 그들은 릴을 지배하고 나머지보다 우뚝 서 있습니다."
+  },
+  "achievement_champion": {
+    "name": "챔피언",
+    "description": "이 업적은 <0>10회 승리</0>를 달성한 플레이어에게 수여됩니다. 챔피언은 기회의 전장에서 당당하게 서 있으며, 매 라운드마다 그들의 회복력을 증명합니다. 매 승리마다 그들은 운을 초월하여 영광을 차지하는 경쟁자들 사이에서 자신의 자리를 확고히 합니다."
+  },
+  "achievement_slot_master": {
+    "name": "슬롯 마스터",
+    "description": "이 업적은 슬롯 게임에 <0>{{amount}}</0> 이상을 베팅한 플레이어에게 수여됩니다. 슬롯 마스터는 자신감과 끈기로 스핀하며, 매 릴을 행운의 기회로 바꿉니다. 안정된 손과 두려움 없는 플레이로, 그들은 진정한 마스터십이 한 번의 스핀으로 쌓인다는 것을 증명합니다."
+  },
+  "achievement_the_challenger": {
+    "name": "도전자",
+    "description": "이 업적은 플레이 기록에서 <0>10회 유효 베팅</0>을 한 플레이어에게 수여됩니다. 도전자는 매 기회에 맞서며, 결단력과 경쟁의 스릴에 의해 움직입니다. 대담하고 끈질기게, 그들은 진정한 경쟁자가 게임을 피하지 않고 한 발 앞으로 나아가 한계를 시험하고 두려움 없는 자들 사이에서 자신의 자리를 차지한다는 것을 증명합니다."
+  },
+  "achievement_dynamo": {
+    "name": "다이나모",
+    "description": "이 업적은 단일 거래에서 <0>1회 입금</0>을 최소 <0>{{amount}}</0> 이상 완료한 플레이어에게 수여됩니다. 다이나모는 매 충전마다 강해지며, 마스터리의 길에서 그들의 일관성과 결단력을 증명합니다."
+  },
+  "achievement_face_of_fortune": {
+    "name": "행운의 얼굴",
+    "description": "이 업적은 처음으로 아바타를 커스터마이즈한 플레이어에게 수여됩니다. 행운의 얼굴은 정체성이 힘이라는 것을 알고 있습니다 — 스타일, 상징 또는 표현의 모든 선택은 개성의 표시입니다. 그들의 외모를 형성함으로써, 진정한 플레이어는 단순히 게임을 하는 것이 아니라 그 게임에 자신의 흔적을 남긴다는 것을 보여줍니다."
+  },
+  "achievement_name_of_fame": {
+    "name": "명성의 이름",
+    "description": "이 업적은 처음으로 사용자 이름을 설정한 플레이어에게 수여됩니다. 명성의 이름은 진정한 정체성의 시작을 나타내며, 신입을 인식된 존재로 변모시킵니다. 대담하고 독특하게, 그들은 모든 전설이 기억되는 이름으로 시작된다는 것을 증명합니다."
+  },
+  "achievement_guiding_star": {
+    "name": "길잡이 별",
+    "description": "이 업적은 게임을 홈 화면에 추가하거나 앱을 다운로드한 플레이어에게 수여됩니다. 길잡이 별은 행운으로 가는 길을 밝히며, 한 번의 탭으로 다시 플레이할 수 있는 길을 열어줍니다."
+  },
+  "achievement_highroller": {
+    "name": "하이롤러",
+    "description": "이 업적은 전체 플레이 기록에서 최소 <0>{{amount}}</0> 이상을 베팅한 플레이어에게 수여됩니다. 하이롤러는 헌신과 위신의 상징을 지니며, 매 스핀, 베팅 및 라운드마다 게임에 대한 그들의 헌신을 증명합니다. 그들의 왕관은 단순한 상징이 아니라, 끈기, 열정 및 행운을 추구하는 증거입니다."
+  },
+  "achievement_inferno": {
+    "name": "인페르노",
+    "description": "이 업적은 슬롯에서 <0>20배</0>의 배수를 기록한 플레이어에게 수여됩니다. 불길이 타오르며, 인페르노는 단일 베팅을 행운의 화염폭풍으로 변모시킵니다."
+  },
+  "achievement_money_maverick": {
+    "name": "머니 매버릭",
+    "description": "이 업적은 단일 거래에서 최소 <0>{{amount}}</0> 이상을 입금한 플레이어에게 수여됩니다. 머니 매버릭은 대담한 자신감으로 자신의 길을 개척하며, 일상적인 현금을 비범한 기회로 바꿉니다. 두려움 없고 모험적인 그들은 진정한 매버릭이 단순히 규칙을 따르지 않고 그것을 재정의한다는 것을 증명합니다."
+  },
+  "achievement_money_master": {
+    "name": "머니 마스터",
+    "description": "이 업적은 단일 거래에서 최소 <0>{{amount}}</0> 이상을 인출한 플레이어에게 수여됩니다. 머니 마스터는 플레이와 보상의 교차로에서 당당하게 서 있으며, 그들의 승리를 현실 세계의 가치로 변환합니다. 안정된 손과 날카로운 타이밍으로, 그들은 진정한 마스터십이 게임에만 있는 것이 아니라 보상을 집으로 가져오는 데 있다는 것을 보여줍니다."
+  },
+  "achievement_crypto_bro": {
+    "name": "크립토 브로",
+    "description": "이 업적은 단일 거래에서 최소 <0>{{amount}}</0> 이상을 암호화폐로 입금한 플레이어에게 수여됩니다. 크립토 마에스트로는 진정한 예술가처럼 자금을 관리하며, 디지털 자산을 정밀하고 화려하게 조율합니다. 블록체인 무대에서 자신감 있게, 그들은 대담한 플레이의 개척자이며 행운은 대담한 자를 선호한다는 것을 증명합니다."
+  },
+  "achievement_crypto_baron": {
+    "name": "크립토 바론",
+    "description": "이 업적은 단일 거래에서 최소 <0>{{amount}}</0> 이상을 암호화폐로 인출한 플레이어에게 수여됩니다. 블록체인 바론은 디지털 자산의 영역을 지배하며, 자신감과 명령으로 체인 간 자금을 이동합니다. 매 성공적인 인출마다, 그들은 행운이 얻어지고, 확보되며, 블록체인에서 집으로 가져갈 수 있다는 것을 증명합니다."
+  },
+  "achievement_chain_shifter": {
+    "name": "체인 시프터",
+    "description": "이 업적은 성공적으로 <0>암호화폐 스왑 거래</0>를 완료한 플레이어에게 수여됩니다. 체인 시프터는 자신감 있게 토큰 간 이동하는 방법을 아는 사람이며, 시장의 조류에 쉽게 적응합니다. 모멘텀의 마스터로서, 그들은 유연성과 변화를 통해 번창하며, 항상 기회를 잡기 위해 기어를 전환할 준비가 되어 있습니다."
   },
   "item": {
-    "conquest_just_wager_on_100": "100 베팅 도전",
-    "conquest_just_wager_on_200": "200 베팅 도전",
-    "conquest_roulette_master": "룰렛 마스터 도전",
-    "conquest_blackjack_master": "블랙잭 마스터 도전",
-    "conquest_baccarat_master": "바카라 마스터 도전",
-    "conquest_gameshow_master": "게임쇼 마스터 도전",
-    "conquest_slots_master_10": "슬롯 마스터 10 도전",
-    "conquest_gameshow_master_20": "게임쇼 마스터 20 도전",
-    "conquest_roulette_master_30": "룰렛 마스터 30 도전",
-    "conquest_blackjack_master_40": "블랙잭 마스터 40 도전",
-    "conquest_baccarat_master_50": "바카라 마스터 50 도전",
-    "conquest_big_win": "큰 승리 도전",
-    "conquest_huge_win": "대승 도전",
-    "conquest_massive_win": "대규모 승리 도전",
+    "conquest_just_wager_on_100": "정복 단순 베팅 100",
+    "conquest_just_wager_on_200": "정복 단순 베팅 200",
+    "conquest_roulette_master": "정복 룰렛 마스터",
+    "conquest_blackjack_master": "정복 블랙잭 마스터",
+    "conquest_baccarat_master": "정복 바카라 마스터",
+    "conquest_gameshow_master": "정복 게임쇼 마스터",
+    "conquest_slots_master_10": "정복 슬롯 마스터 10",
+    "conquest_gameshow_master_20": "정복 게임쇼 마스터 20",
+    "conquest_roulette_master_30": "정복 룰렛 마스터 30",
+    "conquest_blackjack_master_40": "정복 블랙잭 마스터 40",
+    "conquest_baccarat_master_50": "정복 바카라 마스터 50",
+    "conquest_big_win": "정복 큰 승리",
+    "conquest_huge_win": "정복 거대한 승리",
+    "conquest_massive_win": "정복 막대한 승리",
     "achievement_verify_email": "업적 이메일 인증",
-    "achievement_verify_phone": "업적 전화번호 인증",
-    "achievement_add_desktop_app": "업적 데스크톱 앱 추가",
-    "achievement_super_spreader": "업적 슈퍼 전파자",
+    "achievement_verify_phone": "업적 전화 인증",
+    "achievement_add_desktop_app": "업적 홈 화면에 추가",
+    "achievement_super_spreader": "업적 슈퍼 스프레더",
     "achievement_conquistador": "업적 정복자",
     "achievement_game_explorer": "업적 게임 탐험가",
-    "achievement_card_shark": "업적 카드 고수",
+    "achievement_card_shark": "업적 카드 상어",
     "achievement_slotmaster": "업적 슬롯 마스터",
     "achievement_talkative": "업적 수다쟁이",
-    "achievement_bet_count": "업적 베팅 횟수",
-    "achievement_deposit_count": "업적 입금 횟수",
+    "achievement_bet_count": "업적 베팅 수",
+    "achievement_deposit_count": "업적 입금 수",
     "achievement_change_avatar": "업적 아바타 변경",
     "achievement_set_username": "업적 사용자 이름 설정",
     "achievement_download_mobile_app": "업적 모바일 앱 다운로드",
-    "achievement_wager_in_a_day_single_game": "업적 하루에 하나의 게임에서 베팅",
-    "achievement_slots_win_count": "업적 슬롯 승리 횟수",
-    "achievement_slots_multiplier": "업적 슬롯 승수",
+    "achievement_wager_in_a_day_single_game": "업적 하루에 단일 게임 최대 베팅",
+    "achievement_slots_win_count": "업적 슬롯 승리 수",
+    "achievement_slots_multiplier": "업적 슬롯 배수기",
     "level_up": "레벨 업",
-    "rakeback": "레이크백",
+    "rakeback": "리크백",
     "cashback": "캐시백",
     "group": "커미션",
     "referral": "추천",
@@ -206,7 +307,7 @@
     "bonus": "보너스",
     "bonus_manual": "수동 보너스",
     "vip_bonus_lucky_number_seven": "VIP 보너스 행운의 숫자 7",
-    "rakeback_bonus": "레이크백 보너스",
+    "rakeback_bonus": "리크백 보너스",
     "group_bonus": "그룹 보너스",
     "level_up_bonus": "레벨 업 보너스",
     "refer_bonus": "추천 보너스",
@@ -215,13 +316,14 @@
   },
   "achievements_description": "VIP {{vip}} 달성 시 잠금 해제되며, 이 보상들은 당신의 이정표를 흥미로운 서프라이즈와 함께 축하합니다!",
   "lucky_number_seven_description": "럭키 {{number}}를 맞히고 매일 달콤한 보너스를 획득하세요!",
-"mystery_box_description": "한 달에 한 번 미스터리 박스를 열어 깜짝 보상을 받아보세요!",
+  "mystery_box_description": "한 달에 한 번 미스터리 박스를 열어 깜짝 보상을 받아보세요!",
+  "mystery_box_description2": "매달 7일에 VIP {{vip}}를 누르면 미스터리 박스를 받게 됩니다!",
   "mystery_box": "미스터리 박스",
   "the_cannon_description": "그 진정한 본질이 엄격히 비밀에 부쳐진, 매우 강력한 월간 보상입니다.",
   "achievements_progress_name": {
     "achievement_verify_email": "이메일 인증",
-    "achievement_verify_phone": "전화번호 인증",
-    "achievement_add_desktop_app": "데스크탑 앱 추가",
+    "achievement_verify_phone": "전화 인증",
+    "achievement_add_desktop_app": "홈 화면에 추가",
     "achievement_super_spreader": "슈퍼 스프레더",
     "achievement_conquistador": "정복자",
     "achievement_game_explorer": "게임 탐험가"
@@ -246,6 +348,60 @@
   "general_terms_answer_1": "보상은 BUCK/USDT로 계산 및 적립되며, 실시간 환율을 기반으로 선호하는 법정화폐로 표시됩니다. 모든 환산은 스왑 거래 완료 전까지는 대략적인 값임을 유의하세요.",
   "general_terms_answer_2": "카지노는 사유 없이 언제든지 자격을 변경하거나 취소할 권리를 보유합니다. 부정 행위 또는 사기 행위는 프로모션에서 실격 처리됩니다.",
   "available": "사용 가능",
-"refresh_in": "다음 업데이트까지",
-"deposit_bonus_pool": "입금 보너스 모음"
+  "refresh_in": "다음 업데이트까지",
+  "deposit_bonus_pool": "입금 보너스 모음",
+  "dashboard": "대시보드",
+  "bonuses": "보너스",
+  "vip_program": "VIP 프로그램",
+  "bonusHub": {
+    "root": "보너스 허브",
+    "resetOn": "{{time}}에 재설정",
+    "ongoing": "{{count}} 진행 중",
+    "accrualIn": "{{time}} 후 적립",
+    "nextReleaseIn": "{{time}} 후 다음 출시"
+  },
+  "freeSpins": "무료 스핀",
+  "freeSpinsBonusDetails": "무료 스핀 보너스는 선택된 슬롯 타이틀에서 추가 게임 플레이를 제공합니다. 요구된 금액을 베팅하면 무료 스핀 수익이 잠금 해제되어 즉시 계정 잔액에 적립됩니다.",
+  "freeSpinsClaimDistributionDescription1": "무료 스핀 수익은 베팅 요구 사항이 완료되고 '청구'를 클릭하면 계정 잔액에 적립됩니다.",
+  "freeSpinsClaimDistributionDescription2": "보너스 패널 또는 무료 스핀 기록에서 언제든지 진행 상황을 추적하세요.",
+  "freeSpinsExpirationDescription1": "무료 스핀은 무료 스핀 패널에 표시된 유효 기간 내에 사용해야 합니다. 사용하지 않은 스핀은 이 기간 후에 만료됩니다.",
+  "freeSpinsExpirationDescription2": "무료 스핀에서 발생한 수익은 잠금 해제되고 청구될 때까지 만료되지 않습니다.",
+  "freeSpinsGeneralTermsDescription1": "무료 스핀 보상은 BUCK으로 계산 및 적립되며, 편의를 위해 선호하는 법정 통화로 표시됩니다. 환율 변환은 대략적입니다.",
+  "freeSpinsGeneralTermsDescription2": "카지노는 언제든지 자격을 수정하거나 취소할 권리를 보유하며, 이를 정당화할 의무는 없습니다. 모든 남용 또는 사기 행위는 프로모션에서 실격 처리됩니다.",
+  "the_collector": "수집가",
+  "collector_description": "적격 보상, 한 번의 클릭",
+  "claim_all": "모두 청구",
+  "claimConfirmation": "청구 확인",
+  "readyToClaim": "청구할 준비가 되었습니다",
+  "selectClaimType": "아래에서 청구 유형을 선택하세요",
+  "claimableAmount": "청구 가능한 금액",
+  "normalClaim": "정상 청구",
+  "normalClaimDesc": "표준 보상 금액을 받으세요",
+  "doubleClaim": "더블 청구",
+  "doubleClaimDesc": "2배 보상을 위해 위험을 감수하세요!",
+  "doubleClaimInfo": "더블 청구 옵션",
+  "doubleClaimRisk": "더 높은 위험, 더 높은 보상 - 2배를 이길 수도 있고 모두 잃을 수도 있습니다!",
+  "claimModal": {
+    "title": "두 배 또는 아무것도 아님",
+    "primaryDescription": "보너스를 평소처럼 청구하세요...",
+    "secondaryDescription": "아니면 대담하게 도전하세요 <highlight>두 배로!</highlight>",
+    "doubleAction": "두 배 또는 아무것도 아님",
+    "comingSoon": "두 배 또는 아무것도 아님 기능이 곧 출시됩니다!",
+    "approximateBuck": "약 {{amount}} BUCK"
+  },
+  "vip_monday": "VIP 월요일",
+  "vip_monday_description": "매주 월요일 충성도 높은 플레이어에게 보상을 주기 위한 특별 주간 드롭",
+  "vip_monday_wager": "이전 7일 동안 최소 {{amount}}를 베팅하여 매주 월요일 미스터리 드롭을 받으세요.",
+  "claim_on_monday": "월요일에 청구하기",
+  "vip_monday_title": "VIP \n <0>월요일</0>",
+  "bonus_already_claimed": "보너스가 이미 청구되었습니다.",
+  "wager_requirement_not_met": "베팅 요건이 충족되지 않았습니다.",
+  "not_in_claim_time_range": "청구 시간 범위에 포함되지 않습니다.",
+  "monday": "월요일",
+  "poolBalance": "풀 잔액",
+  "program": "프로그램",
+  "races": "경주",
+  "loading_achievements": "업적 로딩 중...",
+  "no_achievements_available": "사용 가능한 업적이 없습니다.",
+  "check_back_later_for_new_achievements": "새로운 업적을 위해 나중에 다시 확인하세요."
 }

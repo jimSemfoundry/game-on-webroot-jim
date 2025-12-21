@@ -4,35 +4,35 @@
   "retry": "Újrapróbálkozás",
   "retryConnection": "Kapcsolat Újrapróbálása",
   "emptyStateNoContent": {
-    "title": "Még Nincs Tartalom!",
-    "description": "Úgy tűnik, az Ön számára jelenleg nincs tartalom. Térjen vissza később, vagy próbáljon ki valami mást."
+    "title": "Még nincs itt semmi!",
+    "description": "Úgy tűnik, hogy jelenleg nincs itt tartalom. Nézz vissza később, vagy próbálj ki valami mást."
   },
   "failedToLoadPage": {
-    "title": "Valami Rosszul Sült El",
-    "description": "Rendszerhiba történt az oldal betöltése közben. Kérjük, töltse újra az oldalt, vagy lépjen kapcsolatba a támogatással, ha a probléma továbbra is fennáll."
+    "title": "Valami hiba történt",
+    "description": "Rendszerhiba lépett fel az oldal betöltésekor. Kérlek, töltsd újra az oldalt, vagy lépj kapcsolatba a támogatással, ha a probléma továbbra is fennáll."
   },
   "otherActiveSession": {
-    "title": "Munkamenet Hiba!",
-    "description": "Biztonsági okokból az eszközről való hozzáférés jelenleg nem elérhető. Ez egy másik bejelentkezés vagy rendszerprobléma miatt lehet. Kérjük, próbálja újra, vagy használjon másik eszközt."
+    "title": "Munkamenet hiba!",
+    "description": "Jelenleg nem elérhető a hozzáférés erről az eszközről biztonsági okokból. Ez lehet egy másik bejelentkezés vagy egy rendszerhiba következménye. Kérlek, próbáld újra, vagy használj egy másik eszközt."
   },
   "noInternetConnection": {
-    "title": "Nincs Internetkapcsolat",
-    "description": "Úgy tűnik, nincs csatlakozva az internethez. Ellenőrizze az Ön Wi-Fi vagy mobil adatkapcsolatát, és próbálja újra, amint újra online van."
+    "title": "Hoppá! Offline vagy",
+    "description": "Úgy tűnik, hogy nem vagy csatlakozva az internethez. Ellenőrizd a Wi-Fi-t vagy a mobil adatforgalmat, és próbáld újra, amint visszajöttél az online állapotba."
   },
   "pageNotFound": {
-    "title": "Az Oldal Nem Található",
-    "description": "Úgy tűnik, ez az oldal nem létezik vagy áthelyezték. Ellenőrizze az URL-t, vagy térjen vissza a kezdőlapra."
+    "title": "Hoppá! Ez az oldal hiányzik",
+    "description": "Úgy tűnik, hogy ez az oldal nem létezik, vagy áthelyezték. Próbáld meg ellenőrizni az URL-t, vagy térj vissza a főoldalra."
   },
   "tooManyRequest": {
-    "title": "Adjon Egy Pillanatot",
-    "description": "Szervereink jelenleg túlterheltek. Adjon egy pillanatot, és próbálja újra hamarosan."
+    "title": "Tarts ki! Kicsit elfoglaltak vagyunk",
+    "description": "Úgy tűnik, hogy a szervereink jelenleg sok mindent kezelnek. Adj egy kis időt, és próbáld újra."
   },
   "underMaintenance": {
-    "title": "Rövidesen Visszatérünk!",
-    "description": "Frissítéseket végzünk, hogy minden zökkenőmentesen működjön. Térjen vissza hamarosan!"
+    "title": "Hamarosan visszatérünk!",
+    "description": "Frissítéseket végzünk, hogy minden zökkenőmentesen működjön. Nézz vissza hamarosan!"
   },
   "userRestriction": {
-    "title": "Nincs Hozzáférése",
-    "description": "Úgy tűnik, nincs engedélye az oldal megtekintéséhez. Ellenőrizze hozzáférését, vagy kérjen segítséget ügyfélszolgálatunktól."
+    "title": "Hoppá! Nem férhetsz hozzá ehhez",
+    "description": "Úgy tűnik, hogy nincs engedélyed ennek a megtekintésére. Ellenőrizd a hozzáférésed, vagy kérj segítséget."
   }
 }

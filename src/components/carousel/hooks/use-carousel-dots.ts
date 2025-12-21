@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 // ----------------------------------------------------------------------
 
-export function useCarouselDots(mainApi?: EmblaCarouselType): UseCarouselDotsReturn {
+export function useCarouselDots(mainApi?: EmblaCarouselType, enabled = true): UseCarouselDotsReturn {
   const [dotCount, setDotCount] = useState(0);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -30,14 +30,19 @@ export function useCarouselDots(mainApi?: EmblaCarouselType): UseCarouselDotsRet
   }, []);
 
   useEffect(() => {
-    if (!mainApi) return;
+    if (!mainApi || !enabled) return;
 
     onInit(mainApi);
     onSelect(mainApi);
     mainApi.on('reInit', onInit);
     mainApi.on('reInit', onSelect);
     mainApi.on('select', onSelect);
-  }, [mainApi, onInit, onSelect]);
+    return () => {
+      mainApi.off('reInit', onInit);
+      mainApi.off('reInit', onSelect);
+      mainApi.off('select', onSelect);
+    };
+  }, [mainApi, enabled, onInit, onSelect]);
 
   return {
     dotCount,

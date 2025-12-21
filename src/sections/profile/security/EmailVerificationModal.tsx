@@ -1,6 +1,5 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { authService } from "@/services/authService.ts";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
@@ -17,6 +16,7 @@ import Countdown from "@/sections/profile/security/Countdown.tsx";
 import dayjs from "dayjs";
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import { useQueryClient } from "@tanstack/react-query";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -74,7 +74,7 @@ export const EmailVerificationModal = () => {
     authService.sendEmailCode({ email: status.email })
       .then((res) => {
         if (res.code === 0) {
-          toast.success(matchResponseCodeErrorForEmail(0));
+          toast.success(t(matchResponseCodeErrorForEmail(0)));
           setStatus((old) => ({
             ...old,
             step: "STEP2",
@@ -83,7 +83,7 @@ export const EmailVerificationModal = () => {
           }));
           void queryClient.refetchQueries({ queryKey: ["auth", "currentUser"] });
         } else {
-          toast.error(matchResponseCodeErrorForEmail(res.code));
+          toast.error(t(matchResponseCodeErrorForEmail(res.code)));
         }
       })
       .finally(() => {
@@ -157,7 +157,7 @@ export const EmailVerificationModal = () => {
 
           <div className="flex flex-col gap-2 w-full">
             <label className="text-sm text-base-content/50 font-semibold">
-              Email Address
+              {t('profile:emailAddress')}
             </label>
 
             {/* 输入邮箱地址 */}
@@ -189,7 +189,7 @@ export const EmailVerificationModal = () => {
           {/* confirm */}
           <ConfirmBox disabled={!status.email || email_format_error} onClick={sendCode}
                       loading={status.send_code_loading}>
-            Continue
+            {t('common:common.continue')}
           </ConfirmBox>
         </div>
       </DisplayContent>
@@ -200,11 +200,11 @@ export const EmailVerificationModal = () => {
           <InnerImg name="security-email-verification" className='md:w-auto md:h-auto w-25 h-25' />
 
           <h2 className="text-base-content text-md font-semibold">
-            Enter the Code We Sent
+            {t('profile:codeSent')}
           </h2>
 
           <p className="text-base-content/50 text-sm font-semibold">
-            A code has been sent to: {status.email}
+            {t('profile:codeSentTo')}: {status.email}
           </p>
 
           <div className="flex flex-col gap-2 w-full">
@@ -236,12 +236,12 @@ export const EmailVerificationModal = () => {
           {/* confirm */}
           <ConfirmBox disabled={!status.email || !status.opt_code || email_opt_code_error} onClick={bindEmail}
                       loading={status.bind_mail_loading}>
-            Continue
+            {t('common:common.continue')}
           </ConfirmBox>
 
           {/* 验证码发送倒计时 */}
           <div className="text-[10px] text-base-content/50 font-extrabold flex items-center gap-1">
-            Didn’t receive the code?
+            {t('profile:notReceiveCode')}
             {status.finished && <div className="text-primary cursor-pointer flex items-center gap-1"
                                      onClick={sendCode}>Resend {status.send_code_loading && (
               <span className="loading loading-spin w-2.5 h-2.5" />)}.</div>}
@@ -265,7 +265,7 @@ export const EmailVerificationModal = () => {
           content={<div className="flex flex-col gap-6 items-center font-semibold">
             <InnerImg name="security-verification-ok" className='md:w-auto md:h-auto w-25 h-25' />
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-md">Verification Success</p>
+              <p className="text-md">{t('profile:verificationSuccess')}</p>
               <p className="text-base-content/50 text-sm text-center">
                 <Trans i18nKey="Your email address has been verified. You're all set to continue." />
               </p>
@@ -296,10 +296,9 @@ function matchResponseCodeErrorForEmail(code: number): string {
     case 402:
       return "common.emailHasBeenUsed";
     case 409:
+    case 1003:
     case 60001:
       return "common.emailAlreadyBound";
-    case 1003:
-      return "您的操作过于频繁，请稍后再试！";
     default:
       return "common.emailSendError";
   }

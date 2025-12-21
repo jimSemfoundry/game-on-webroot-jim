@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Quel Âge Dois-Je Avoir pour M'Inscrire sur Votre Site ?",
-    "content": "<p class=\"leading-7\">Vous devez avoir au moins {{faqAge}} ans ou l'âge de la majorité dans votre juridiction pour vous inscrire. Vous devez également être légalement autorisé à jouer à des jeux en ligne conformément aux lois applicables. Pour plus d'informations, veuillez consulter nos conditions d'utilisation.</p><p class=\"leading-7\">Les jeux peuvent engendrer une dépendance, et nous encourageons les joueurs à faire preuve d'autodiscipline.</p>"
+    "title": "Quel âge dois-je avoir pour m'inscrire sur votre site ?",
+    "content": "<p class=\"leading-7\">Vous devez avoir au moins {{faqAge}} ans ou l'âge de la majorité dans votre juridiction pour vous inscrire. Vous devez également être légalement autorisé à jouer à des jeux en ligne selon les lois qui vous sont applicables. Pour plus d'informations, veuillez lire nos conditions de service.</p><p class=\"leading-7\">Le jeu peut être addictif, et les joueurs sont conseillés d'exercer leur autodiscipline.</p>"
   },
   "faqTwo": {
-    "title": "Quelles Devises Sont Prises en Charge par le Portefeuille ?",
-    "content": "<p class=\"leading-7\">Nous prenons en charge les principales cryptomonnaies telles que {{currency}}.</p>"
+    "title": "Quelle devise le portefeuille supporte-t-il ?",
+    "content": "<p class=\"leading-7\">Nous supportons les principales cryptomonnaies comme {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Comment Puis-Je Effectuer un Dépôt ?",
-    "content": "<p class=\"leading-7\">Accédez à votre page de profil et cliquez sur « Dépôt », sélectionnez la cryptomonnaie de votre choix, copiez l'adresse du portefeuille ou scannez le code QR pour effectuer le paiement.</p>"
+    "title": "Comment puis-je déposer ?",
+    "content": "<p class=\"leading-7\">Allez sur votre page de profil et cliquez sur \"Déposer\", sélectionnez la cryptomonnaie de votre choix, copiez l'adresse du portefeuille ou scannez le code QR pour le paiement.</p>"
   },
   "faqFour": {
-    "title": "Puis-Je Échanger Mes Cryptomonnaies sur Votre Site ?",
-    "content": "<p class=\"leading-7\">{{siteName}} propose une fonction d'échange qui vous permet de convertir vos cryptomonnaies en d'autres cryptomonnaies de manière simple et sécurisée. Toutefois, en raison des préoccupations liées au mélange de pièces, tout dépôt en cryptomonnaie sur {{siteName}} est soumis à une exigence de mise de 1x, ce qui signifie que vous devez miser vos fonds déposés au moins une fois avant de pouvoir les échanger.</p>"
+    "title": "Puis-je échanger mes cryptomonnaies sur votre site ?",
+    "content": "<p class=\"leading-7\">{{siteName}} propose une fonction d'échange où vous pouvez échanger vos cryptomonnaies en toute sécurité et facilement contre d'autres cryptomonnaies. Cependant, en raison des préoccupations liées au mélange de pièces, toutes les cryptomonnaies déposées sur {{siteName}} ont une exigence de mise de 1x, ce qui signifie que vous devez parier avec vos fonds déposés au moins 1 fois avant de pouvoir les échanger.</p>"
   },
   "faqFive": {
-    "title": "Comment Puis-Je Effectuer un Retrait ?",
-    "content": "<p class=\"leading-7\">Accédez à votre page de profil et cliquez sur « Retrait », saisissez l'adresse du portefeuille vers lequel vous souhaitez effectuer le retrait ainsi que le montant désiré. (Veuillez noter que des frais variables peuvent s'appliquer selon les différentes blockchains.)</p>"
+    "title": "Comment puis-je retirer ?",
+    "content": "<p class=\"leading-7\">Allez sur votre page de profil et cliquez sur \"Retirer\", entrez l'adresse du portefeuille vers lequel vous souhaitez retirer et le montant que vous souhaitez retirer. (Veuillez noter qu'il peut y avoir des frais différents imposés selon les différentes blockchains)</p>"
   },
   "faqSix": {
-    "title": "Quel Est le Montant Minimum de Retrait pour Chaque Cryptomonnaie ?",
-    "content": "<p class=\"leading-7\">En raison des variations de valeur des cryptomonnaies et des frais de minage associés, veuillez consulter votre page de retrait pour connaître les montants minimums de retrait pour chaque cryptomonnaie.</p>"
+    "title": "Quel est le montant minimum de retrait pour chaque cryptomonnaie ?",
+    "content": "<p class=\"leading-7\">En raison de la valeur différente des cryptomonnaies ainsi que des frais de minage différents, veuillez vérifier votre page de retrait pour les montants minimums de retrait relatifs à chaque cryptomonnaie.</p>"
   },
   "faqSeven": {
-    "title": "Combien de Temps Faut-Il pour Effectuer un Dépôt ou un Retrait ?",
-    "content": "<p class=\"leading-7\">Chaque transaction sur la blockchain nécessite plusieurs cycles pour être confirmée.</p><p class=\"leading-7\">En général, une transaction prend entre 5 et 10 minutes pour être confirmée sur les réseaux BTC et ETH, et environ 1 à 2 minutes pour les réseaux TRON, TON et SOLANA.</p><p class=\"leading-7\">Si vous rencontrez un problème lors d'un dépôt ou d'un retrait, vous pouvez vérifier votre transaction via l'explorateur de blockchain correspondant au réseau ou contacter notre support en direct.</p>"
+    "title": "Combien de temps faut-il pour déposer et retirer ?",
+    "content": "<p class=\"leading-7\">Chaque transaction sur la blockchain nécessite plusieurs cycles pour être confirmée.</p><p class=\"leading-7\">En général, chaque transaction nécessite 5 à 10 minutes avant de pouvoir être confirmée par le réseau blockchain pour les chaînes BTC et ETH ; et environ 1 à 2 minutes pour les chaînes TRON, TON, SOLANA.</p><p class=\"leading-7\">Si vous rencontrez un problème lors du dépôt ou du retrait, vous pouvez vérifier votre transaction à l'aide de l'explorateur de blockchain respectif pour le réseau ou contacter notre support en direct.</p>"
   },
   "faqEight": {
-    "title": "D'Où Proviennent les Confirmations de Transaction ?",
-    "content": "<p class=\"leading-7\">Toutes les informations de confirmation proviennent de la blockchain et des mineurs associés à cette blockchain.</p>"
+    "title": "D'où proviennent les confirmations de transaction ?",
+    "content": "<p class=\"leading-7\">Toutes les informations de confirmation proviennent de la blockchain et des mineurs pour la blockchain</p>"
   },
   "faqNine": {
-    "title": "Vos Jeux Sont-Ils Équitables ?",
-  "content": "<p class=\"leading-7\">La transparence, la confiance et l’équité font partie des valeurs fondamentales de {{gameLink}} et sont le socle de notre activité. C’est pourquoi nous travaillons uniquement avec des partenaires de jeux de premier plan et de confiance pour offrir à nos clients l’expérience de qualité qu’ils méritent.</p><p class=\"leading-7\">Tous les jeux de nos partenaires sont rigoureusement testés pour garantir l’aléa par des auditeurs indépendants, et sont licenciés par des régulateurs de jeux qui les soumettent à des audits fréquents sur leur générateur de nombres aléatoires.</p>"
+    "title": "Vos jeux sont-ils équitables ?",
+    "content": "<p class=\"leading-7\">La transparence, la confiance et l'équité font partie des valeurs fondamentales de {{gameLink}} et de la pierre angulaire de notre entreprise. C'est la raison pour laquelle nous ne travaillons qu'avec des partenaires de jeux de confiance de premier plan pour offrir à nos clients l'expérience de qualité qu'ils méritent.</p><p class=\"leading-7\">Tous les jeux de nos partenaires sont rigoureusement testés pour leur caractère aléatoire par des auditeurs indépendants et sont licenciés par des régulateurs de jeux qui les soumettent à des audits fréquents sur leur générateur de nombres aléatoires.</p>"
   },
   "faqTen": {
-    "title": "Que Dois-Je Faire Si Mon Jeu Se Bloque ou Si Je Suis Déconnecté ?",
-    "content": "<p class=\"leading-7\">En cas de problème technique, essayez d'actualiser la page. Les états des jeux sont enregistrés par nos fournisseurs, et vous devriez retrouver votre état de jeu précédent lors de la reconnexion.</p>"
+    "title": "Que dois-je faire si mon jeu se fige ou si je suis déconnecté ?",
+    "content": "<p class=\"leading-7\">Si vous rencontrez des problèmes techniques, veuillez essayer de rafraîchir la page. Les états de jeu sont sauvegardés par nos fournisseurs et vous devriez voir votre état de jeu précédent lorsque vous vous reconnectez.</p>"
   }
 }

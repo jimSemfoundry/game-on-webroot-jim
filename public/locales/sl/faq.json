@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Koliko let moram biti star, da se lahko registriram na vašem spletnem mestu?",
-    "content": "<p class=\"leading-7\">Za registracijo morate biti stari vsaj {{faqAge}} let ali polnoletni v svoji jurisdikciji. Prav tako morate imeti zakonsko dovoljenje za igranje spletnih iger v skladu z veljavnimi zakoni. Za več informacij preberite naše pogoje uporabe.</p><p class=\"leading-7\">Igre na srečo lahko povzročajo zasvojenost, zato igralcem priporočamo, da igrajo odgovorno.</p>"
+    "title": "Koliko star sem mora biti, da se registriram na vaši strani?",
+    "content": "<p class=\"leading-7\">Moraš biti star vsaj {{faqAge}} let ali doseči starostno mejo v svoji jurisdikciji, da se registriraš. Prav tako moraš biti pravno upravičen, da igraš spletne igre v skladu z zakoni, ki veljajo zate. Za več informacij preberi naše pogoje storitve.</p><p class=\"leading-7\">Igranje iger je lahko zasvojljivo, zato se igralcem svetuje, da ravnajo odgovorno.</p>"
   },
   "faqTwo": {
-    "title": "Katere valute podpira denarnica?",
+    "title": "Katero valuto podpira denarnica?",
     "content": "<p class=\"leading-7\">Podpiramo glavne kriptovalute, kot so {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Kako opravim vplačilo?",
-    "content": "<p class=\"leading-7\">Pojdite na stran svojega profila, kliknite »Vplačilo«, izberite želeno kriptovaluto, kopirajte naslov denarnice ali skenirajte kodo QR za plačilo.</p>"
+    "title": "Kako lahko položim denar?",
+    "content": "<p class=\"leading-7\">Pojdi na svojo profilno stran in klikni na \"Položi\", izberi kriptovaluto po svoji izbiri, kopiraj naslov denarnice ali skeniraj QR kodo za plačilo.</p>"
   },
   "faqFour": {
-    "title": "Ali lahko zamenjam svoje kriptovalute na vašem spletnem mestu?",
-    "content": "<p class=\"leading-7\">{{siteName}} ponuja funkcijo zamenjave, s katero lahko varno in enostavno zamenjate svoje kriptovalute v druge kriptovalute. Vendar pa je zaradi preprečevanja mešanja kovancev za vse kriptovalute, vplačane na {{siteName}}, zahtevana 1-kratna stava, kar pomeni, da morate z vplačanimi sredstvi staviti vsaj enkrat, preden jih lahko zamenjate.</p>"
+    "title": "Ali lahko zamenjam svoje kriptovalute na vaši strani?",
+    "content": "<p class=\"leading-7\">{{siteName}} ponuja funkcijo zamenjave, kjer lahko varno in enostavno zamenjaš svoje kriptovalute za druge kriptovalute. Vendar pa ima vsa kripto, ki je deponirana v {{siteName}}, zahtevo po 1x rolloverju, kar pomeni, da moraš staviti s svojimi deponiranimi sredstvi vsaj 1-krat, preden jih lahko zamenjaš.</p>"
   },
   "faqFive": {
-    "title": "Kako opravim izplačilo?",
-    "content": "<p class=\"leading-7\">Pojdite na stran svojega profila, kliknite »Izplačilo«, vnesite naslov denarnice, v katero želite izplačati sredstva, in znesek, ki ga želite izplačati. (Upoštevajte, da se lahko glede na različne blokovne verige zaračunajo različne pristojbine.)</p>"
+    "title": "Kako lahko dvignem denar?",
+    "content": "<p class=\"leading-7\">Pojdi na svojo profilno stran in klikni na \"Dvigni\", vnesi naslov denarnice, na katero želiš dvigniti, in znesek, ki ga želiš dvigniti. (Upoštevaj, da se lahko zaračunajo različne pristojbine glede na različne blockchain-e)</p>"
   },
   "faqSix": {
-    "title": "Kakšen je najnižji znesek izplačila za posamezno kriptovaluto?",
-    "content": "<p class=\"leading-7\">Zaradi različnih vrednosti kriptovalut in različnih rudarskih pristojbin preverite stran za izplačila, kjer so navedeni najnižji zneski izplačil za posamezno kriptovaluto.</p>"
+    "title": "Kakšen je minimalni znesek dviga za vsako kriptovaluto?",
+    "content": "<p class=\"leading-7\">Zaradi razlike v vrednosti kriptovalut in različnih stroškov rudarjenja, preveri svojo stran za dvige za minimalne zneske dviga, ki se nanašajo na vsako kriptovaluto.</p>"
   },
   "faqSeven": {
-    "title": "Koliko časa traja vplačilo ali izplačilo?",
-    "content": "<p class=\"leading-7\">Vsaka transakcija v blokovni verigi zahteva več ciklov za potrditev.</p><p class=\"leading-7\">Na splošno transakcije v verigah BTC in ETH potrebujejo 5–10 minut, preden jih omrežje blokovne verige potrdi, medtem ko transakcije v verigah TRON, TON in SOLANA trajajo približno 1–2 minuti.</p><p class=\"leading-7\">Če med vplačilom ali izplačilom naletite na težave, lahko transakcijo preverite z ustreznim raziskovalcem blokovne verige ali se obrnete na našo podporo v živo.</p>"
+    "title": "Koliko časa traja, da položim in dvignem denar?",
+    "content": "<p class=\"leading-7\">Vsaka transakcija na blockchain-u zahteva več ciklov za potrditev.</p><p class=\"leading-7\">Na splošno vsaka transakcija zahteva 5-10 minut, preden jo lahko potrdi blockchain omrežje za BTC in ETH verigo; ter približno 1-2 minuti za TRON, TON, SOLANA verigo.</p><p class=\"leading-7\">Če naletiš na kakršne koli težave med pologom ali dvigom, lahko preveriš svojo transakcijo z uporabo ustreznega blockchain raziskovalca za omrežje ali kontaktiraš našo podporo v živo.</p>"
   },
   "faqEight": {
     "title": "Od kod prihajajo potrditve transakcij?",
-    "content": "<p class=\"leading-7\">Vse informacije o potrditvah prihajajo iz blokovne verige in rudarjev v blokovni verigi.</p>"
+    "content": "<p class=\"leading-7\">Vse informacije o potrditvah prihajajo iz blockchain-a in rudarjev za blockchain.</p>"
   },
   "faqNine": {
-    "title": "Ali so vaše igre poštene?",
-  "content": "<p class=\"leading-7\">Preglednost, Zaupanje in Poštenost so del osnovnih vrednot {{gameLink}} in temelj našega poslovanja. Zato sodelujemo le z zaupanja vrednimi vrhunskimi igralnimi partnerji, da našim strankam zagotovimo kakovostno izkušnjo, ki si jo zaslužijo.</p><p class=\"leading-7\">Vse igre naših partnerjev so strogo testirane na naključnost s strani neodvisnih revizorjev in so licencirane pri regulatorjih iger na srečo, ki jih pogosto revidirajo glede njihovega generatorja naključnih števil.</p>"
+    "title": "So vaše igre poštene?",
+    "content": "<p class=\"leading-7\">Transparentnost, zaupanje in poštenost so del osnovnih vrednot {{gameLink}} in temelj našega poslovanja. To je razlog, zakaj sodelujemo le s zaupanja vrednimi partnerji za igre, da našim strankam zagotovimo kakovostno izkušnjo, ki si jo zaslužijo.</p><p class=\"leading-7\">Vse igre naših partnerjev so strogo testirane na naključnost s strani neodvisnih revizorjev in so licencirane s strani regulatorjev iger na srečo, ki jih podvržejo pogostim revizijam njihovega generatorja naključnih števil.</p>"
   },
   "faqTen": {
-    "title": "Kaj storim, če se igra zatakne ali se povezava prekine?",
-    "content": "<p class=\"leading-7\">Če naletite na tehnične težave, poskusite osvežiti stran. Naši ponudniki shranjujejo stanje iger, zato bi ob ponovni povezavi morali videti prejšnje stanje igre.</p>"
+    "title": "Kaj naj storim, če se moja igra zatakne ali če se odklopim?",
+    "content": "<p class=\"leading-7\">Če naletiš na kakršne koli tehnične težave, poskusi osvežiti stran. Stanja iger shranjujejo naši ponudniki in ob ponovnem povezovanju bi moral videti svoje prejšnje stanje igre.</p>"
   }
 }

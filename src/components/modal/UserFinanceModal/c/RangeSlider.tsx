@@ -1,43 +1,51 @@
 import { useCallback, useMemo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext.tsx";
 import { useBoundStore } from "@/store";
-import { useCurrentPromo } from "@/query/promo.tsx";
+import { useGetPromoByPage } from "@/query/promo.tsx";
 import { amounts } from "./DepositFiatAmount";
+import { useCurrencyData } from "@/hooks/useCurrency.ts";
+
 
 export const RangeSlider = () => {
-  const [isValidAmountPromo, setIsValidAmountPromo] = useState(false);
+  const { convertCurrency, exchangeRates } = useCurrencyData();
+
+  const [,setIsValidAmountPromo] = useState(false);
 
   const { t } = useTranslation();
 
-  const { formatWithConversion } = useDisplayCurrencyFormatter();
-
   const { depositFiat, setDepositFiat } = useBoundStore();
 
-  const { currentPromo } = useCurrentPromo();
+  const { currentPromo } = useGetPromoByPage();
 
   const minAmountValue = useMemo(() => {
 
-    const value = formatWithConversion(currentPromo?.min_amount, 'USDT', {
-      showSymbol: false,
-      showCode: false,
-      compact: false,
-      minimizeDecimals: true,
-    }).formatted || '0';
+    // const value = formatWithConversion(currentPromo?.min_amount, 'USDT', {
+    //   showSymbol: false,
+    //   showCode: false,
+    //   compact: false,
+    //   minimizeDecimals: true,
+    // }).formatted || '0';
 
-    const valueNum = Math.ceil(parseFloat(value.toString().replace(/,/g, '')));
+    const value = convertCurrency({
+      amount: currentPromo?.min_amount,
+      fromCurrency: 'USDT',
+      toCurrency: depositFiat?.currency?.currency,
+      exchangeRates: exchangeRates,
+    }) || 0;
 
-    const minAmountValue = Math.max(depositFiat.method?.min, valueNum)
+    const valueNum = Math.ceil(value);
 
-    setDepositFiat({ formItem: { amount: minAmountValue.toString() } });
-    return minAmountValue;
+    // const minAmountValue = Math.max(depositFiat.method?.min, valueNum)
+
+    setDepositFiat({ formItem: { amount: valueNum?.toString() || '0' } });
+    return valueNum;
 
   }, [depositFiat.method?.min, depositFiat.currency?.currency, setDepositFiat]);
 
-  useEffect(() => {
-    const numAmount = parseFloat(depositFiat.formItem?.['amount'] || '0');
-    setIsValidAmountPromo(numAmount >= depositFiat.method?.min && numAmount <= depositFiat.method?.max);
-  }, [depositFiat.method?.min, depositFiat.method?.max, depositFiat.formItem?.['amount']]);
+  // useEffect(() => {
+  //   const numAmount = parseFloat(depositFiat.formItem?.['amount'] || '0');
+  //   setIsValidAmountPromo(numAmount >= depositFiat.method?.min && numAmount <= depositFiat.method?.max);
+  // }, [depositFiat.method?.min, depositFiat.method?.max, depositFiat.formItem?.['amount']]);
 
   // 使用 useMemo 优化 rangeLabels 计算
   const rangeLabels = useMemo(() => {
@@ -46,7 +54,7 @@ export const RangeSlider = () => {
 
     const labels: Array<{ value: number, label: string, amount: number }> = [
       { value: 0, label: '0', amount: 0 },
-      { value: 1, label: 'MIN', amount: minAmountValue },
+      { value: 1, label: t('finance:min'), amount: minAmountValue },
       ...filteredRecommendedAmounts.map((presetAmount: string, index: number) => ({
         value: index + 2,
         label: '',
@@ -54,9 +62,9 @@ export const RangeSlider = () => {
       })),
     ];
     if (depositFiat.method?.max > labels[labels.length - 1].amount) {
-      labels.push({ value: labels.length, label: 'MAX', amount: depositFiat.method?.max });
+      labels.push({ value: labels.length, label: t('finance:max'), amount: depositFiat.method?.max });
     } else {
-      labels[labels.length - 1].label = 'MAX';
+      labels[labels.length - 1].label = t('finance:max');
     }
 
     return labels;
@@ -236,10 +244,10 @@ export const RangeSlider = () => {
           ))}
         </div>
       </div>
-      {!isValidAmountPromo && (
+      {minAmountValue > parseFloat(depositFiat.formItem?.['amount']) && (
         <p className="text-sm text-warning font-semibold leading-3 mt-2">
-          {t('finance:minimum_deposit_for_bonus_eligibility', 
-            { value: ` ${formatWithConversion(minAmountValue, depositFiat.currency?.currency, { showSymbol: true, showCode: false }).formatted}` })}
+          {t('finance:minimum_deposit_for_bonus_eligibility',
+            { value: ` ${minAmountValue} ${depositFiat.currency?.currency}` })}
         </p>
       )}
     </div>

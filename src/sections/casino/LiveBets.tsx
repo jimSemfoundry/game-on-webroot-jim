@@ -3,18 +3,29 @@ import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
 import { SegmentedControl } from "@/components/ui/SegmentedControl";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useModals } from "@/contexts/ModalsProvider";
-import { useGreatestBets, useLatestBets } from "@/hooks/api/usePublic";
+import { useGreatestBets, useLatestBets, useLatestWins } from "@/hooks/api/usePublic";
 import { cn } from "@/utils/cn";
 import { ChevronRight } from "lucide-react";
-import { AnimatePresence, m, useInView } from "motion/react";
+import { useInView } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export const LiveBets = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { openBetSlipModal } = useModals();
-  const { data: latestBetsResponse, refetch } = useLatestBets();
-  const { data: greatestBetsResponse } = useGreatestBets();
+  const currentLanguage = i18n.language.toUpperCase();
+  const {
+    data: latestWinsResponse,
+    refetch: refetchLatestWins,
+    isFetching: isFetchingLatestWins,
+  } = useLatestWins(currentLanguage);
+  const {
+    data: latestBetsResponse,
+    refetch: refetchLatestBets,
+    isFetching: isFetchingLatestBets,
+  } = useLatestBets();
+  const { data: greatestBetsResponse, isFetching: isFetchingGreatestBets } = useGreatestBets();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   // 初始化时用空数组，让页面立即显示8行空行
   const [visibleRows, setVisibleRows] = useState<any[]>([]);
@@ -26,11 +37,11 @@ export const LiveBets = () => {
   const rowKeyCounter = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const MAX_ROWS = 8;
-  const minDelay = 300;
-  const maxDelay = 1000;
+  const ANIMATION_INTERVAL = 500; // 固定 500ms 显示一行
 
-  const [selectedCategory, setSelectedCategory] = useState<"latest" | "greatest" | "tournaments">("latest");
-  
+  const [selectedCategory, setSelectedCategory] = useState<"latestWins" | "latestBets" | "greatestBets">("latestWins");
+  const previousCategoryRef = useRef<typeof selectedCategory>("latestWins");
+
   // 使用 Framer Motion 的 useInView hook
   const isInView = useInView(containerRef, {
     amount: 0.1, // 10% 可见即认为在视口内
@@ -39,7 +50,7 @@ export const LiveBets = () => {
 
   const segments = [
     {
-      value: "latest",
+      value: "latestWins",
       label: (
         <span className="flex items-center gap-2 whitespace-nowrap">
           <Iconify icon="custom:latest-win" />
@@ -48,7 +59,7 @@ export const LiveBets = () => {
       ),
     },
     {
-      value: "greatest",
+      value: "latestBets",
       label: (
         <span className="flex items-center gap-2 whitespace-nowrap">
           <Iconify icon="custom:greatest-win" />
@@ -57,7 +68,7 @@ export const LiveBets = () => {
       ),
     },
     {
-      value: "tournaments",
+      value: "greatestBets",
       label: (
         <span className="flex items-center gap-2 whitespace-nowrap">
           <Iconify icon="custom:tournament" />
@@ -74,19 +85,24 @@ export const LiveBets = () => {
     }
   }, []);
 
+  const resetVisibleRows = useCallback(() => {
+    setVisibleRows([]);
+    indexRef.current = 0;
+    rowKeyCounter.current = 0;
+  }, []);
+
   const scheduleNext = useCallback(() => {
-    // 如果组件不在视口内，直接返回，不要调度任何定时器
+    // 如果组件不在视口内，直接返回
     if (!isInView) {
       return;
     }
-    
-    const randomDelay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
     clearTimeoutIfAny();
     timeoutRef.current = window.setTimeout(() => {
       if (!isMountedRef.current) return;
       // 再次检查是否在视口内
       if (!isInView) {
-        return; // 不再重新调度，等待视口状态改变
+        return;
       }
       const data = dataRef.current;
       if (!data || data.length === 0) return;
@@ -94,7 +110,11 @@ export const LiveBets = () => {
         // 数据滚动完毕，重置索引并继续滚动相同数据
         indexRef.current = 0;
         // 同时在后台获取新数据（不阻塞当前滚动）
-        refetch();
+        if (selectedCategory === "latestWins") {
+          refetchLatestWins();
+        } else if (selectedCategory === "latestBets") {
+          refetchLatestBets();
+        }
         // 继续滚动
         scheduleNext();
         return;
@@ -103,15 +123,16 @@ export const LiveBets = () => {
       const nextItem = data[currentIndex];
       indexRef.current = currentIndex + 1;
       setVisibleRows((prev) => {
-        // Assign a stable key to the new item for React reconciliation
+        // 为新项分配稳定的 key
         const itemWithKey = { ...nextItem, _uniqueKey: ++rowKeyCounter.current };
-        // Insert at top with stable keys to avoid flickering
+        // 插入到顶部
         const nextRows = [itemWithKey, ...prev].slice(0, MAX_ROWS);
         return nextRows;
       });
       scheduleNext();
-    }, randomDelay);
-  }, [clearTimeoutIfAny, maxDelay, minDelay, refetch, isInView]);
+    }, ANIMATION_INTERVAL);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clearTimeoutIfAny, refetchLatestWins, refetchLatestBets, isInView, selectedCategory]);
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -122,53 +143,71 @@ export const LiveBets = () => {
   }, [clearTimeoutIfAny]);
 
   useEffect(() => {
-    if (selectedCategory === "latest") {
-      const activeList = latestBetsResponse?.code === 0 ? latestBetsResponse?.data || [] : [];
-      const hasData = activeList && activeList.length > 0;
+    const handleLatestCategory = (list: any[], isFetching: boolean) => {
+      const hasData = Array.isArray(list) && list.length > 0;
 
-      // 始终更新数据引用（即使是相同数据）
-      dataRef.current = activeList || [];
-
-      // 如果没有数据，停止滚动
       if (!hasData) {
-        if (isFirstLoadRef.current) {
-          setVisibleRows([]);
-          clearTimeoutIfAny();
+        // 如果正在拉取新数据且已有缓存，则保持现有展示避免闪烁
+        if (isFetching && dataRef.current.length > 0) {
+          return;
         }
+        dataRef.current = [];
+        resetVisibleRows();
+        clearTimeoutIfAny();
         return;
       }
 
-      // Only clear and restart on first load or category switch
-      if (isFirstLoadRef.current) {
-        setVisibleRows([]);
+      dataRef.current = list;
+
+      // 只有在首次加载或切换类别时才重启动画
+      if (isFirstLoadRef.current || previousCategoryRef.current !== selectedCategory) {
+        resetVisibleRows();
         clearTimeoutIfAny();
-        indexRef.current = 0;
-        // 只有在视口内才开始动画
         if (isInView) {
           scheduleNext();
         }
         isFirstLoadRef.current = false;
       }
-      // If already scrolling, just update the data reference and continue
-      // The scrolling will pick up new data automatically when current data is exhausted
-    } else if (selectedCategory === "greatest") {
-      // Stop scrolling for greatest bets and clear latest data
+    };
+
+    if (selectedCategory === "latestWins") {
+      const activeList = latestWinsResponse?.code === 0 ? latestWinsResponse?.data ?? [] : [];
+      handleLatestCategory(activeList, isFetchingLatestWins);
+    } else if (selectedCategory === "latestBets") {
+      const activeList = latestBetsResponse?.code === 0 ? latestBetsResponse?.data ?? [] : [];
+      handleLatestCategory(activeList, isFetchingLatestBets);
+    } else if (selectedCategory === "greatestBets") {
       clearTimeoutIfAny();
-      setVisibleRows([]);
-      const greatestList = greatestBetsResponse?.code === 0 ? greatestBetsResponse?.data || [] : [];
-      // Assign stable keys to greatest data as well
+      resetVisibleRows();
+      const greatestList = greatestBetsResponse?.code === 0 ? greatestBetsResponse?.data ?? [] : [];
       const greatestWithKeys = greatestList.map((item: any, idx: number) => ({
         ...item,
         _uniqueKey: `greatest-${idx}-${item.id || idx}`,
       }));
       setVisibleRows(greatestWithKeys.slice(0, MAX_ROWS));
-      isFirstLoadRef.current = true; // Reset for next latest switch
+      dataRef.current = greatestList;
+      isFirstLoadRef.current = true;
     }
-  }, [latestBetsResponse, greatestBetsResponse, selectedCategory, scheduleNext, clearTimeoutIfAny, isInView]);
+
+    previousCategoryRef.current = selectedCategory;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    latestWinsResponse,
+    latestBetsResponse,
+    greatestBetsResponse,
+    selectedCategory,
+    clearTimeoutIfAny,
+    isInView,
+    resetVisibleRows,
+    scheduleNext,
+    isFetchingLatestWins,
+    isFetchingLatestBets,
+    isFetchingGreatestBets,
+  ]);
 
   // 当组件进入/离开视口时控制动画
   useEffect(() => {
-    if (selectedCategory === "latest" && dataRef.current.length > 0) {
+    if ((selectedCategory === "latestWins" || selectedCategory === "latestBets") && dataRef.current.length > 0) {
       if (isInView) {
         // 进入视口时，如果没有运行动画，则启动
         if (!timeoutRef.current) {
@@ -179,19 +218,19 @@ export const LiveBets = () => {
         clearTimeoutIfAny();
       }
     }
-  }, [isInView, selectedCategory, scheduleNext, clearTimeoutIfAny]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInView, selectedCategory, clearTimeoutIfAny]);
 
-  // Reset first load flag when switching to latest category
-  useEffect(() => {
-    if (selectedCategory === "latest") {
-      isFirstLoadRef.current = true;
-    }
-  }, [selectedCategory]);
+  // 使用 Auto Animate
+  const [animationParent] = useAutoAnimate({
+    duration: 300,
+    easing: 'ease-out'
+  });
 
   const tableRows = useMemo(() => {
     const rows = [] as any[];
     const visibleData = visibleRows.slice(0, MAX_ROWS);
-    
+
     // 渲染实际数据行
     visibleData.forEach((bet: any, index: number) => {
       // Handle different data structures for latest vs greatest bets
@@ -201,33 +240,12 @@ export const LiveBets = () => {
       const gameCategory = bet.game_category_1 || bet.game_category || "slots";
 
       rows.push(
-        <m.div
+        <div
           key={bet._uniqueKey || `fallback-${bet.id || index}-${bet.nickname}`}
-          initial={{
-            opacity: 0,
-            y: -10,
-            scale: 1,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            scale: 1,
-          }}
-          exit={{
-            opacity: 0,
-            y: 0,
-            scale: 0.95,
-          }}
-          transition={{
-            duration: 0.4,
-            ease: "easeOut",
-            layout: { duration: 0.3 },
-          }}
-          layout
-          className={`px-3 sm:px-6 py-3 sm:py-3 hover:bg-base-200/90 transition-colors cursor-pointer bg-base-200 rounded-field mb-1`}
+          className="px-3 sm:px-6 py-3 sm:py-3 hover:bg-base-200/90 transition-colors cursor-pointer bg-base-200 rounded-field mb-1"
           onClick={() => openBetSlipModal(bet)}
         >
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 items-center">
+          <div className="grid grid-cols-3 sm:grid-cols-5 sm:grid-cols-[1.8fr_1.5fr_1fr_0.5fr_1fr] gap-4 items-center">
             {/* Game */}
             <div className="font-semibold text-base-content text-xs sm:text-base">
               <div className="flex items-center gap-2">
@@ -265,14 +283,14 @@ export const LiveBets = () => {
             <div className="text-end text-xs sm:text-base">
               <div className="flex items-center gap-1 justify-end">
                 <span className={cn("text-xs sm:text-sm font-bold", winAmount > 0 ? "text-primary" : "text-base-content/50")}>
-                    {winAmount > 0 ? "+" : ""}
+                  {winAmount > 0 ? "+" : ""}
                   {formatWithConversion(winAmount, currency, { compact: true, showCode: false }).formatted}
                 </span>
                 <CurrencyIcon currency={currency} />
               </div>
             </div>
           </div>
-        </m.div>,
+        </div>,
       );
     });
 
@@ -280,26 +298,23 @@ export const LiveBets = () => {
     const emptyRowsCount = MAX_ROWS - visibleData.length;
     for (let i = 0; i < emptyRowsCount; i++) {
       rows.push(
-        <m.div
+        <div
           key={`empty-row-${i}`}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
           className="px-3 sm:px-6 py-3 sm:py-3 bg-base-100/50 rounded-field mb-1"
         >
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 items-center h-full">
+          <div className="grid grid-cols-3 sm:grid-cols-5 sm:grid-cols-[1.8fr_1.5fr_1fr_0.5fr_1fr] gap-4 items-center h-full">
             <div className="text-xs sm:text-base text-base-content/20">-</div>
             <div className="text-xs sm:text-base text-base-content/20">-</div>
             <div className="hidden sm:block text-xs sm:text-base text-base-content/20">-</div>
             <div className="hidden sm:block text-xs sm:text-base text-base-content/20">-</div>
             <div className="text-end text-xs sm:text-base text-base-content/20">-</div>
           </div>
-        </m.div>
+        </div>
       );
     }
 
     return rows;
-  }, [visibleRows, formatWithConversion]);
+  }, [visibleRows, formatWithConversion, openBetSlipModal]);
 
   return (
     <div ref={containerRef} className="flex flex-col gap-1 w-full">
@@ -323,7 +338,15 @@ export const LiveBets = () => {
             <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-field z-1 w-38 p-2 shadow-sm">
               {segments.map((segment) => (
                 <li key={segment.value}>
-                  <a className="text-xs font-semibold" onClick={() => setSelectedCategory(segment.value as any)}>
+                  <a
+                    className="text-xs font-semibold"
+                    onClick={() => {
+                      setSelectedCategory(segment.value as any);
+                      if (document.activeElement instanceof HTMLElement) {
+                        document.activeElement.blur();
+                      }
+                    }}
+                  >
                     {segment.label}
                   </a>
                 </li>
@@ -336,7 +359,7 @@ export const LiveBets = () => {
       <div className="overflow-hidden rounded-box">
         {/* 表头 */}
         <div className="px-3 sm:px-6 py-2 sm:py-3 mb-1">
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 font-semibold text-base-content/50 text-xs sm:text-sm">
+          <div className="grid grid-cols-3 sm:grid-cols-5 sm:grid-cols-[1.8fr_1.5fr_1fr_0.5fr_1fr] gap-4 font-semibold text-base-content/50 text-xs sm:text-sm">
             <div className="text-start">{t("casino:game")?.toUpperCase()}</div>
             <div className="text-start">{t("casino:user")?.toUpperCase()}</div>
             <div className="hidden sm:block text-start">{t("casino:bet")?.toUpperCase()}</div>
@@ -345,11 +368,13 @@ export const LiveBets = () => {
           </div>
         </div>
 
-        {/* 内容区域 */}
+        {/* 内容区域 - 使用 Auto Animate */}
         <div className="relative">
-          <AnimatePresence mode="popLayout">{tableRows}</AnimatePresence>
+          <div ref={animationParent}>
+            {tableRows}
+          </div>
           {/* 底部渐变遮罩：从底部到上方的透明渐变，提示可滚动/内容延伸。不阻挡交互 */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-base-300/90 to-transparent"></div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[75%] bg-linear-to-t from-base-300/90 to-transparent"></div>
         </div>
       </div>
     </div>

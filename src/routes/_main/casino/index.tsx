@@ -5,36 +5,117 @@ import { AlliancePartnerships } from "@/sections/casino/AlliancePartnerships.tsx
 import { CategoryGames } from "@/sections/casino/CategoryGames.tsx";
 import { Footer } from "@/sections/casino/Footer.tsx";
 import { GameProviders } from "@/sections/casino/GameProviders.tsx";
-import { HeroBanner } from "@/sections/casino/HeroBanner.tsx";
+import HeroBanner from "@/sections/casino/hero-banner";
 import { LiveBets } from "@/sections/casino/LiveBets.tsx";
 import { PromotionalSection } from "@/sections/casino/PromotionalSection.tsx";
 import { QuickActions } from "@/sections/casino/QuickActions.tsx";
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { memo, useEffect } from "react";
 import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
+import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
+import { WelcomeSignUp } from "@/components/modal/UserFinanceModal/c/WelcomeSignUpModal.tsx";
+import { getBroadcastChannel } from "@/utils/helper.ts";
+import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const RouteComponent = memo(function RouteComponent() {
+  const { t } = useTranslation();
   const { data: casinoHomeGameListResponse } = useCasinoHomeGameList();
-  const { openSignInModal } = useAuthModals();
+  const { openUserFinanceModal } = useFinanceModal();
+  const { openSignInModal, openSignUpModal } = useAuthModals();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const search = useSearch({ from: '/_main/casino/' });
+  const search = useSearch({ from: "/_main/casino/" });
 
   const { data: casinoHomeGameList } = casinoHomeGameListResponse ?? {};
 
-  // 处理登录对话框打开
+  // 处理登录/注册对话框打开
   useEffect(() => {
-    if (search.openLogin === 'true' && !isAuthenticated) {
-      openSignInModal();
-      // 清理 URL 参数，但保留 redirect
-      navigate({
-        to: '/casino',
-        search: search.redirect ? { redirect: search.redirect, openLogin: undefined } : { openLogin: undefined, redirect: undefined },
-        replace: true,
-      });
+    if (!isAuthenticated) {
+      // 转换为字符串进行比较，以兼容 boolean 和 string 类型
+      const shouldOpenLogin = String(search.openLogin) === "true";
+      const shouldOpenSignUp = String(search.openSignUp) === "true";
+
+      if (shouldOpenLogin) {
+        openSignInModal();
+        // 清理 URL 参数，但保留 redirect
+        void navigate({
+          to: "/casino",
+          search: {
+            openLogin: undefined,
+            openSignUp: undefined,
+            redirect: undefined,
+            openFinance: undefined,
+            startapp: undefined
+          },
+          replace: true
+        });
+      } else if (shouldOpenSignUp) {
+        openSignUpModal();
+        // 清理 URL 参数，但保留 redirect
+        void navigate({
+          to: "/casino",
+          search: {
+            openLogin: undefined,
+            openSignUp: undefined,
+            redirect: undefined,
+            openFinance: undefined,
+            startapp: undefined
+          },
+          replace: true
+        });
+      }
     }
-  }, [search.openLogin, isAuthenticated, openSignInModal, navigate, search.redirect]);
+  }, [search.openLogin, search.openSignUp, isAuthenticated, openSignInModal, openSignUpModal, navigate, search.redirect, search.startapp]);
+
+  // 链接跳转后打开 Finance 窗口
+  useEffect(() => {
+    const should_open_finance = String(search.openFinance) === "true";
+
+    if (!should_open_finance) return;
+
+    openUserFinanceModal();
+
+    void navigate({
+      to: "/casino",
+      search: {
+        redirect: undefined,
+        startapp: undefined,
+        openLogin: undefined,
+        openSignUp: undefined,
+        openFinance: undefined
+      },
+      replace: true
+    });
+  }, [navigate, openUserFinanceModal, search.openFinance]);
+
+  // FIXME: PWA 应用更新消息，需要用户确认是否更新
+  useEffect(() => {
+    let toast_id: string | number = "";
+
+    const channel = getBroadcastChannel();
+
+    if (toast_id) toast.dismiss(toast_id);
+
+    if (channel) channel.onmessage = () => {
+      toast_id = toast.info(t("common.newVersionDiscovered", "We have an update!"), {
+        description: t("common.refreshToLatestVersionImmediately", "Reload the page to enjoy a new gaming experience."),
+        duration: Infinity,
+        action: {
+          label: t("common.pressToUpdate", "Refresh"),
+          onClick: () => {
+            toast.dismiss(toast_id);
+            window.location.reload();
+          }
+        },
+        richColors: false
+      });
+    };
+
+    // clear broadcastChannel
+    return () => channel?.close();
+  }, []);
 
   if (!casinoHomeGameList) return null;
 
@@ -43,7 +124,8 @@ const RouteComponent = memo(function RouteComponent() {
       <HeroBanner />
       <RecentBigWins />
       {casinoHomeGameList && (
-        <FeaturedGames games={casinoHomeGameList?.home_data?.hot_game || []} country_code={casinoHomeGameList?.country_code} />
+        <FeaturedGames games={casinoHomeGameList?.home_data?.hot_game || []}
+                       country_code={casinoHomeGameList?.country_code} />
       )}
 
       {casinoHomeGameList &&
@@ -57,6 +139,7 @@ const RouteComponent = memo(function RouteComponent() {
       <AcceptCurrencies />
       <AlliancePartnerships />
       <Footer />
+      <WelcomeSignUp />
     </div>
   );
 });
@@ -64,7 +147,10 @@ const RouteComponent = memo(function RouteComponent() {
 export const Route = createFileRoute("/_main/casino/")({
   validateSearch: (search: Record<string, unknown>) => ({
     openLogin: (search.openLogin as string) || undefined,
+    openSignUp: (search.openSignUp as string) || undefined,
     redirect: (search.redirect as string) || undefined,
+    startapp: (search.startapp as string) || undefined,
+    openFinance: (search.openFinance as string) || undefined
   }),
-  component: RouteComponent,
+  component: RouteComponent
 });

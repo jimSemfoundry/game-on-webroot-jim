@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Vad är nivåupp-bonusar?",
-    "content": "<p class=\"leading-7\">Nivåupp-bonus är vårt sätt att visa uppskattning för lojala spelare som har varit med oss sedan starten. När spelare avancerar till högre VIP-nivåer låser de upp större nivåupp-belöningar.</p>"
+    "title": "Vad är Level-Up Bonusar?",
+    "content": "<p class=\"leading-7\">Level up bonus är vårt sätt att visa uppskattning för lojala spelare som har varit med oss sedan starten. När spelare avancerar i VIP-nivåerna låser de upp högre nivåer av belöningar.</p>"
   },
   "faqTwo": {
-    "title": "Vad är daglig återbetalning?",
-    "content": "<p class=\"leading-7\">Daglig återbetalning tilldelas spelare som förlorat på sina insättningar. Denna bonus utfärdas dagligen som en procentandel av spelarens nettoförluster. Procenten för daglig återbetalning ökar med dina VIP-nivåer, upp till maximalt 40% återbetalning, den högsta återbetalningen i branschen. Observera att denna bonus endast är för spelare i en nettoförlustposition.</p>"
+    "title": "Vad är Daglig Cashback?",
+    "content": "<p class=\"leading-7\">Daglig Cashback kommer att tilldelas spelare som har lidit förluster i förhållande till sitt insättningsbelopp. Denna bonus utfärdas dagligen som en procentandel av spelarens förlustbelopp. Den dagliga cashback-procenten ökar med dina VIP-nivåer, upp till ett maximum av 40% cashback, den högsta cashbacken som finns. Observera att denna bonus endast gäller spelare som är i en nettoförlustposition.</p>"
   },
   "faqThree": {
-    "title": "Vad är erövringar/uppdrag?",
-    "content": "<p class=\"leading-7\">Erövringar är dagliga uppdrag som slumpmässigt ges till spelare för att tjäna extra belöningar när de spelar på vår sida. Erövringsbelöningar måste hämtas inom 24 timmar före nästa cykel och förfaller om de inte hämtas. Erövringsbelöningar betalas i BUCK/USDT och kan konverteras till din valda kryptovaluta via vår swap-funktion.</p>"
+    "title": "Vad är Erovringar/Quests?",
+    "content": "<p class=\"leading-7\">Erovringar är dagliga uppdrag som slumpmässigt ges till spelare för att de ska kunna tjäna extra belöningar när de spelar på vår webbplats. Erovringsbelöningar måste hämtas inom 24 timmar innan nästa cykel och går ut om de inte hämtas. Erovringsbelöningar betalas i BUCK/USDT och kan konverteras till din valda kryptovaluta via vår swap-funktion.</p>"
   },
   "faqFour": {
-    "title": "Vad är turneringsbelöningar?",
-    "content": "<p class=\"leading-7\">Turneringsbelöningar är priser som ges för enastående prestationer i tävlingar. Turneringsbelöningar ackumuleras tills de hämtas och har inget utgångsdatum. Turneringsbelöningar betalas i BUCK/USDT och kan konverteras till din valda kryptovaluta via vår swap-funktion.</p>"
+    "title": "Vad är Turneringbelöningar?",
+    "content": "<p class=\"leading-7\">Turneringbelöningar är priser som ges för enastående prestationer i tävlingar. Turneringbelöningar kommer att ackumuleras tills de hämtas och har inget utgångsdatum. Turneringbelöningar betalas i BUCK/USDT och kan konverteras till din valda kryptovaluta via vår swap-funktion.</p>"
   },
   "faqFive": {
     "title": "Vad är Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback är vår mekanism för att låsa upp dina insättningsbonusar. En procentandel av din insats (upp till 3%) återbetalas till dig varje gång du gör en insats. Ju högre din VIP-nivå, desto högre är upplåsningshastigheten. Upplåst BUCK/USDT = Insats x 2,5% x Upplåsningshastighet%</p><p class=\"leading-7\">Upplåsningshastighet:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">Super Rakeback är vår mekanism för att låsa upp dina insättningsbonusar. En procentandel av din insats (upp till 3%) återbetalas till dig varje gång du placerar ett bet. Ju högre din VIP-nivå, desto högre låsningsgrad. Låsta BUCK/USDT= Insats x 2.5% x Låsningsgrad%</p><p class=\"leading-7\">Låsningsgrad:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Vad är en booster?",
-    "content": "<p class=\"leading-7\">Boosters dubblar din rakeback under en timme varje gång en värvning gör en insättning.</p><p class=\"leading-7\">Boostad upplåsningshastighet:</p><p class=\"leading-7\">Upplåsningshastighet:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "title": "Vad är en Booster?",
+    "content": "<p class=\"leading-7\">Boosters dubblar din Rakeback i en timme varje gång en hänvisning gör en insättning.</p><p class=\"leading-7\">Boostad Låsningsgrad:</p><p class=\"leading-7\">Låsningsgrad:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Vad är bonuskalendern?",
-    "content": "<p class=\"leading-7\">De flesta bonusar betalas 50% till ditt kontosaldo och 50% till din bonuskalender. Bonusar som betalas till din bonuskalender kan hämtas var 8:e timme och förfaller inom 24 timmar om de inte hämtas. Kom ihåg att hämta bonusarna i din bonuskalender minst en gång om dagen för att säkerställa att alla dina belöningar samlas in!</p>"
+    "title": "Vad är Bonuskalendern?",
+    "content": "<p class=\"leading-7\">De flesta bonusar betalas 50% till din verkliga balans och 50% till din bonuskalender. Bonusar som betalas till din bonuskalender kan hämtas var 8:e timme och går ut inom 24 timmar om de inte hämtas. Kom ihåg att hämta bonusarna i din bonuskalender minst en gång om dagen för att säkerställa att alla dina belöningar samlas in!</p>"
   },
   "faqEight": {
-    "title": "Vad är veckobonusen?",
-    "content": "<p class=\"leading-7\">Veckobonusen är en exklusiv förmån på vår sida, utformad för spelare som är VIP12 och högre. Denna bonus utfärdas varje vecka och betalas automatiskt ut varje fredag till spelare på VIP12 och uppåt. Bonusens storlek beror på det belopp som satsats under den senaste veckan, med ett lägsta satsningskrav på {{minWager}} under den senaste veckan.</p>"
+    "title": "Vad är den Veckovisa Bonusen?",
+    "content": "<p class=\"leading-7\">Veckovisa bonusen är en exklusiv förmån på vår webbplats som är utformad för spelare som är VIP12 och uppåt. Denna bonus utfärdas veckovis och betalas automatiskt ut varje fredag till spelare på VIP12 och högre. Storleken på bonusen beror på det belopp som satsats under den senaste veckan, med ett minimikrav på insats på {{minWager}} under den senaste veckan.</p>"
   },
   "faqNine": {
-    "title": "Vad är prestationer?",
-    "content": "<p class=\"leading-7\">Prestationer är vårt sätt att erkänna din aktivitet på vår plattform. När du hämtar din prestationsbonus betalas den till din bonuskalender och kan hämtas var 8:e timme och förfaller inom 24 timmar om den inte hämtas.</p>"
+    "title": "Vad är Prestationer?",
+    "content": "<p class=\"leading-7\">Prestationer är vårt sätt att erkänna din aktivitet på vår plattform. När du hämtar din prestationsbonus kommer den att betalas till din bonuskalender och kan hämtas var 8:e timme och går ut inom 24 timmar om den inte hämtas.</p>"
   }
 }

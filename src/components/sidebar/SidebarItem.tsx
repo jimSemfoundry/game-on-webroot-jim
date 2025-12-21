@@ -3,6 +3,7 @@ import { m } from 'motion/react'
 import { memo, useMemo, useCallback } from 'react'
 import { useSidebar } from '@/contexts/SidebarContext'
 import Iconify from '../iconify'
+import { InnerBonusLabel } from "@/components/Dock.tsx";
 
 type SidebarItemProps = {
   icon?: string
@@ -30,7 +31,7 @@ const SidebarItemComponent = ({ icon, label, path, isActive, isMini }: SidebarIt
   }, [isMobile, closeDrawer])
 
   return (
-    <li>
+    <li className={'relative'}>
       <Link
         to={path ?? ''}
         className={linkClassName}
@@ -41,6 +42,7 @@ const SidebarItemComponent = ({ icon, label, path, isActive, isMini }: SidebarIt
         {!isMini && (
           <m.span layout className="text-sm font-semibold whitespace-nowrap overflow-hidden">
             {label ?? ''}
+            <InnerBonusLabel label={path ?? ''} className={'static ml-1 h-4 w-4 rounded-sm'} />
           </m.span>
         )}
 

@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Jak starý musím být, abych se mohl zaregistrovat na vašich stránkách?",
-    "content": "<p class=\"leading-7\">Abyste se mohli zaregistrovat, musíte mít alespoň {{faqAge}} let nebo být plnoletí ve vaší jurisdikci. Musíte mít také zákonné oprávnění hrát online hry podle platných zákonů ve vaší lokalitě. Další informace naleznete v našich podmínkách služby.</p><p class=\"leading-7\">Hraní her může být návykové, hráčům se proto doporučuje sebekontrola.</p>"
+    "title": "Kolik mi musí být let, abych se mohl zaregistrovat na vašem webu?",
+    "content": "<p class=\"leading-7\">Musíte být alespoň {{faqAge}} let nebo mít věk plnoletosti ve vaší jurisdikci, abyste se mohli zaregistrovat. Také musíte být právně oprávněni hrát online hry podle zákonů, které se na vás vztahují. Pro více informací si prosím přečtěte naše podmínky služby.</p><p class=\"leading-7\">Hraní může být návykové a hráčům se doporučuje cvičit sebekontrolu.</p>"
   },
   "faqTwo": {
     "title": "Jakou měnu peněženka podporuje?",
-    "content": "<p class=\"leading-7\">Podporujeme hlavní kryptoměny, jako např. {{currency}}.</p>"
+    "content": "<p class=\"leading-7\">Podporujeme hlavní kryptoměny jako {{currency}}</p>"
   },
   "faqThree": {
     "title": "Jak mohu provést vklad?",
-    "content": "<p class=\"leading-7\">Přejděte na stránku svého profilu a klikněte na \\\"Vklad\\\". Vyberte si kryptoměnu podle svého výběru, zkopírujte adresu peněženky nebo naskenujte QR kód pro platbu.</p>"
+    "content": "<p class=\"leading-7\">Přejděte na svou profilovou stránku a klikněte na \"Vklad\", vyberte kryptoměnu podle vašeho výběru, zkopírujte adresu peněženky nebo naskenujte QR kód pro platbu.</p>"
   },
   "faqFour": {
-    "title": "Mohu na vašich stránkách směnit své kryptoměny?",
-    "content": "<p class=\"leading-7\">{{siteName}} nabízí funkci směny, kde můžete bezpečně a snadno směnit své kryptoměny za jiné kryptoměny. Kvůli obavám z míchání mincí však mají všechny kryptoměny vložené na {{siteName}} požadavek na 1x protočení, což znamená, že musíte s vloženými prostředky alespoň 1x vsadit, než je můžete vybrat nebo směnit.</p>"
+    "title": "Mohu na vašem webu směnit své kryptoměny?",
+    "content": "<p class=\"leading-7\">{{siteName}} nabízí funkci směny, kde můžete bezpečně a snadno směnit své kryptoměny na jiné kryptoměny. Nicméně, kvůli obavám z míchání mincí, všechny kryptoměny vložené do {{siteName}} mají požadavek na 1x protočení, což znamená, že musíte vsadit své vložené prostředky alespoň 1krát, než je můžete směnit.</p>"
   },
   "faqFive": {
-    "title": "Jak mohu odstoupit od smlouvy?",
-    "content": "<p class=\"leading-7\">Přejděte na stránku svého profilu a klikněte na \\\"Vybrat\\\". Zadejte adresu peněženky, na kterou chcete provést výběr, a částku, kterou chcete vybrat. (Upozorňujeme, že v závislosti na různých blockchainech mohou být účtovány různé poplatky.)</p>"
+    "title": "Jak mohu vybrat peníze?",
+    "content": "<p class=\"leading-7\">Přejděte na svou profilovou stránku a klikněte na \"Výběr\", zadejte adresu peněženky, na kterou chcete vybrat, a částku, kterou chcete vybrat. (Vezměte prosím na vědomí, že mohou být uloženy různé poplatky podle různých blockchainů)</p>"
   },
   "faqSix": {
-    "title": "Jaká je minimální částka výběru pro každou kryptoměnu?",
-    "content": "<p class=\"leading-7\">Vzhledem k rozdílné hodnotě kryptoměn a různým poplatkům za těžbu si na stránce pro výběry zjistěte, jaké jsou minimální částky pro výběr jednotlivých kryptoměn.</p>"
+    "title": "Jaká je minimální částka pro výběr u každé kryptoměny?",
+    "content": "<p class=\"leading-7\">Vzhledem k různým hodnotám kryptoměn a různým těžebním poplatkům, prosím zkontrolujte svou stránku pro výběr pro minimální částky výběru vztahující se k jednotlivým kryptoměnám.</p>"
   },
   "faqSeven": {
     "title": "Jak dlouho trvá vklad a výběr?",
-    "content": "<p class=\"leading-7\">Potvrzení každé transakce v blockchainu vyžaduje určitý čas na potvrzení.</p><p class=\"leading-7\">Obecně lze říci, že každá transakce vyžaduje 5-10 minut, než ji síť blockchainu potvrdí v případě řetězců BTC a ETH, a přibližně 1-2 minuty v případě řetězců TRON, TON a SOLANA.</p><p class=\"leading-7\">Pokud během vkladu nebo výběru narazíte na jakýkoli problém, můžete svou transakci zkontrolovat pomocí příslušného průzkumníka blockchainu pro danou síť nebo se obrátit na naši živou podporu.</p>"
+    "content": "<p class=\"leading-7\">Každá transakce na blockchainu vyžaduje několik cyklů pro potvrzení.</p><p class=\"leading-7\">Obecně platí, že každá transakce vyžaduje 5-10 minut, než ji blockchainová síť potvrdí pro BTC a ETH řetězec; a přibližně 1-2 minuty pro TRON, TON, SOLANA řetězec.</p><p class=\"leading-7\">Pokud narazíte na jakýkoli problém během vkladu nebo výběru, můžete zkontrolovat svou transakci pomocí příslušného blockchainového prohlížeče pro síť nebo kontaktovat naši živou podporu.</p>"
   },
   "faqEight": {
     "title": "Odkud pocházejí potvrzení transakcí?",
-    "content": "<p class=\"leading-7\">Všechny informace o potvrzení pocházejí z blockchainu a od těžařů blockchainu.</p>"
+    "content": "<p class=\"leading-7\">Všechny informace o potvrzení pocházejí z blockchainu a těžařů pro blockchain</p>"
   },
   "faqNine": {
     "title": "Jsou vaše hry spravedlivé?",
-  "content": "<p class=\"leading-7\">Transparentnost, důvěra a férovost jsou součástí základních hodnot {{gameLink}} a základem našeho podnikání. Proto spolupracujeme pouze s důvěryhodnými špičkovými partnery v oblasti her, abychom našim zákazníkům poskytli kvalitní zážitek, který si zaslouží.</p><p class=\"leading-7\">Všechny hry od našich partnerů jsou důkladně testovány nezávislými auditory na náhodnost a jsou licencovány herními regulátory, kteří je pravidelně podrobují auditu jejich generátoru náhodných čísel.</p>"
+    "content": "<p class=\"leading-7\">Transparentnost, důvěra a spravedlnost jsou součástí základních hodnot {{gameLink}} a základem našeho podnikání. To je důvod, proč spolupracujeme pouze s důvěryhodnými partnery v oblasti her, abychom našim zákazníkům poskytli kvalitní zážitek, který si zaslouží.</p><p class=\"leading-7\">Všechny hry od našich partnerů jsou rigorózně testovány na náhodnost nezávislými auditory a jsou licencovány herními regulátory, kteří je podrobují častým auditům jejich generátoru náhodných čísel.</p>"
   },
   "faqTen": {
-    "title": "Co mám dělat, když se hra zasekne nebo když dojde k odpojení?",
-    "content": "<p class=\"leading-7\">Pokud narazíte na technické problémy, zkuste stránku obnovit. Stavy hry jsou ukládány našimi poskytovateli a po opětovném připojení byste měli vidět svůj předchozí stav hry.</p>"
+    "title": "Co mám dělat, pokud se mi hra zasekne nebo se odpojím?",
+    "content": "<p class=\"leading-7\">Pokud narazíte na jakékoli technické problémy, zkuste prosím obnovit stránku. Stavy her jsou ukládány našimi poskytovateli a měli byste vidět svůj předchozí stav hry, když se znovu připojíte.</p>"
   }
 }

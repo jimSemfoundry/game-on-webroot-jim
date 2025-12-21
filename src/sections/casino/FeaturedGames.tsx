@@ -65,7 +65,7 @@ export const FeaturedGames = ({ games, country_code }: FeaturedGamesProps) => {
           className="btn btn-sm btn-primary"
           onClick={handleAllClick}
         >
-          All
+          {t("transaction:filters.all")}
         </button>
       </div>
       <div className="relative">
@@ -76,6 +76,7 @@ export const FeaturedGames = ({ games, country_code }: FeaturedGamesProps) => {
               className="flex flex-col items-center gap-0.5 select-none w-26 sm:w-33"
             >
               <GameImage
+                data={game}
                 game={{
                   inner_game_id: game.inner_game_id,
                   game_provider: game.game_provider,

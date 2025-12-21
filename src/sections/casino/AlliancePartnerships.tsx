@@ -4,11 +4,12 @@ import Iconify from "@/components/iconify";
 import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "@tanstack/react-router";
 
 export const AlliancePartnerships = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
-
+  const navigate = useNavigate();
   const carousel = useCarousel({
     slidesToShow: isMobile ? 1.2 : 3,
     startIndex: 0, // 从第一个开始
@@ -36,6 +37,12 @@ export const AlliancePartnerships = () => {
               className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
             />
           }
+          onClick={() => {
+            navigate({
+              to: "/partnerships/$partnershipId",
+              params: { partnershipId: "luis-suarez" },
+            });
+          }}
         >
           <div className="absolute left-0 rtl:left-auto rtl:right-0 rtl:sm:right-0 top-4 sm:top-8 bottom-0 right-0 z-10 flex items-start">
             <div className="flex items-center sm:gap-4 gap-2 flex-col">
@@ -64,6 +71,12 @@ export const AlliancePartnerships = () => {
               className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
             />
           }
+          onClick={() => {
+            navigate({
+              to: "/partnerships/$partnershipId",
+              params: { partnershipId: "afa" },
+            });
+          }}
         >
           <div className="absolute left-0 rtl:left-auto rtl:right-0 rtl:sm:right-0 top-7 sm:top-11 bottom-0 right-0 z-10 flex items-start gap-4">
             <div className="flex items-center gap-4 flex-col">
@@ -85,6 +98,12 @@ export const AlliancePartnerships = () => {
               className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
             />
           }
+          onClick={() => {
+            navigate({
+              to: "/partnerships/$partnershipId",
+              params: { partnershipId: "vfc" },
+            });
+          }}
         >
           <div className="absolute left-0 rtl:left-auto rtl:right-0 rtl:sm:right-0 top-7 sm:top-11 bottom-0 right-0 z-10 flex items-start gap-4">
             <div className="flex items-center gap-4 flex-col">

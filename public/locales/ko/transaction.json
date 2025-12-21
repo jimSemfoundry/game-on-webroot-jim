@@ -3,20 +3,20 @@
     "close": "닫기",
     "copy": "복사",
     "copied": "복사됨",
-    "noRecords": "기록을 찾을 수 없습니다",
-    "noTransactionRecords": "거래 기록을 찾을 수 없습니다",
+    "noRecords": "찾을 수 있는 기록이 없습니다",
+    "noTransactionRecords": "거래 기록이 없습니다",
     "noRolloverRecords": "롤오버 기록이 없습니다",
     "noBettingRecords": "베팅 기록이 없습니다",
     "tryChangingFilter": "필터 설정을 변경해 보세요",
-    "swapFromTo": "스왑 출발/대상",
+    "swapFromTo": "교환 From/To",
     "swap": "교환",
-    "swapFrom": "스왑 출발",
-    "swapTo": "스왑 대상",
-      "noCommissionRecords": "커미션 기록이 없습니다"
+    "swapFrom": "교환 From",
+    "swapTo": "교환 To",
+    "noCommissionRecords": "커미션 기록이 없습니다"
   },
   "tabs": {
-    "transactionHistory": "거래 내역",
-    "betHistory": "베팅 내역",
+    "transactionHistory": "거래 기록",
+    "betHistory": "베팅 기록",
     "rollover": "롤오버"
   },
   "filters": {
@@ -52,7 +52,7 @@
     "unknown": "알 수 없음",
     "notStarted": "시작되지 않음",
     "ongoing": "진행 중",
-    "done": "완료"
+    "done": "완료됨"
   },
   "transactionTypes": {
     "deposit": "입금",
@@ -62,15 +62,15 @@
     "fiatWithdraw": "법정화폐 출금",
     "cryptoWithdraw": "암호화폐 출금",
     "bonus": "보너스",
-    "win": "당첨",
+    "win": "승리",
     "bet": "베팅",
     "refund": "환불",
     "fiatDepositIssues": "법정화폐 입금 문제 또는 분쟁",
     "transaction": "거래",
-    "rakebackbonus": "레이크백 보너스",
+    "rakebackbonus": "리베이트 보너스",
     "cashbackbonus": "캐시백 보너스",
     "referral": "추천",
-    "commission": "수수료"
+    "commission": "커미션"
   },
   "gameTypes": {
     "slots": "슬롯",
@@ -87,63 +87,65 @@
     "arcade": "아케이드",
     "unknown": "알 수 없는 게임",
     "liveCasino": "라이브 카지노",
-    "fast": "빠른"
+    "fast": "빠름"
   },
   "tableHeaders": {
     "time": "시간",
     "type": "유형",
     "amount": "금액",
     "status": "상태",
-    "details": "상세 정보",
+    "details": "세부정보",
     "game": "게임",
     "bet": "베팅",
     "betId": "베팅 ID",
-    "gameProvider": "게임 제공사",
+    "gameProvider": "제공자",
     "multiplier": "배수",
-    "payout": "당첨금 지급",
-    "actions": "동작",
+    "payout": "지급",
+    "actions": "작업",
     "profit": "수익",
-    "wager": "베팅"
+    "wager": "내기"
   },
   "details": {
-    "title": "거래 내역",
-    "paymentMethod": "결제 방법",
+    "title": "거래 세부정보",
+    "paymentMethod": "지불 방법",
     "orderId": "주문 ID",
-    "transactionHash": "트랜잭션 해시",
+    "transactionHash": "거래 해시",
     "created": "생성됨",
-    "createdAt": "생성일",
-    "transactionProgress": "거래 진행 상황",
+    "createdAt": "생성 일시",
+    "transactionProgress": "거래 진행 중",
     "depositOrderCreated": "입금 주문 생성됨",
     "gatewayConfirmation": "게이트웨이 확인",
-    "transactionCompleted": "거래 완료",
+    "transactionCompleted": "거래 완료됨",
     "lastUpdate": "마지막 업데이트",
-    "expired": "주문이 만료되었습니다. 더 궁금한 점이 있으면 문의해 주세요.",
-    "waiting": "결제 확인을 기다리는 중입니다.",
+    "expired": "이 주문은 만료되었습니다. 추가 질문이 있으시면 문의해 주세요.",
+    "waiting": "지불 확인을 기다리는 중.",
     "withdrawOrderCreated": "출금 주문 생성됨",
     "withdrawOrderFailed": "출금 실패",
     "depositOrderFailed": "입금 실패",
-    "withdrawProcessing": "출금 처리",
-    "depositProcessing": "입금 처리",
-    "blockchainProcessing": "블록체인 처리",
+    "withdrawProcessing": "출금 처리 중",
+    "depositProcessing": "입금 처리 중",
+    "blockchainProcessing": "블록체인 처리 중",
     "withdrawalMethod": "출금 방법",
     "withdrawalNetwork": "출금 네트워크",
-    "blockchainWaiting": "블록체인 확인을 기다리는 중입니다.",
-    "blockchainFailed": "블록체인 트랜잭션이 실패했습니다."
+    "blockchainWaiting": "블록체인 확인을 기다리는 중.",
+    "blockchainFailed": "블록체인 거래 실패.",
+    "**********": "********************此处开始新增翻译end********************",
+    "withdrawOrderStatus": "귀하의 요청을 받았습니다.<br/>상태를 보려면 프로필의 거래를 확인하세요."
   },
   "betHistory": {
     "profit": "수익",
-    "wager": "베팅",
+    "wager": "내기",
     "bet": "베팅"
   },
   "rollover": {
-    "wagerRequirement": "베팅 요건",
-    "remainingWager": "잔여 베팅",
+    "wagerRequirement": "내기 요구 사항",
+    "remainingWager": "남은 내기",
     "expireTime": "만료 시간",
     "rolloverType": "롤오버 유형",
     "rolloverTimes": "롤오버 횟수",
-    "totalWagerRequired": "필요한 총 베팅 금액",
-    "wagerCompleted": "베팅 완료",
-    "pendingWagerRequired": "보류 중인 베팅 필요",
+    "totalWagerRequired": "총 내기 요구 사항",
+    "wagerCompleted": "내기 완료됨",
+    "pendingWagerRequired": "대기 중인 내기 요구 사항",
     "unlockedFunds": "잠금 해제된 자금"
   }
 }

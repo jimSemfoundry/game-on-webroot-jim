@@ -23,14 +23,14 @@ export function SettingsBox() {
   const { isRTL } = useRTLContext();
   const { logout } = useAuth();
   const navigate = useNavigate();
-  
+
   return (
     <Card className="sm:max-w-[335px]" title={t("common.settings")} icon={<Iconify icon='custom:settings' className='text-primary' />}>
       <div className="flex flex-col gap-2">
         <h4 className="text-xs font-semibold sm:text-base">{t('menu:gameCurrency')}</h4>
         <button className="btn btn-md flex h-12 w-full items-center justify-between bg-base-300 " onClick={openWalletModal}>
           <div className='flex items-center gap-2'>
-            <CurrencyIcon currency={displayCurrency || 'USD'} className="w-5 h-5 flex-shrink-0" />
+            <CurrencyIcon currency={displayCurrency || 'USD'} className="w-5 h-5 shrink-0" />
             <span className="text-xs font-semibold sm:text-base text-base-content/50">
               {displayCurrency || 'USD'}
             </span>
@@ -40,10 +40,9 @@ export function SettingsBox() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <h4 className="text-xs font-semibold sm:text-base">System Language</h4>
+        <h4 className="text-xs font-semibold sm:text-base">{t("profile:systemLanguage")}</h4>
         <button className="btn btn-md flex h-12 w-full items-center justify-between bg-base-300" onClick={openLanguageModal}>
           <div className='flex items-center gap-2'>
-            <img src={`/icons/flags/languages/${i18n.language}.svg`} alt={getLanguageDisplayName(i18n.language)} className="w-5 h-5 flex-shrink-0" />
             <span className="text-xs font-semibold sm:text-base text-base-content/50">
               {getLanguageDisplayName(i18n.language)}
             </span>
@@ -52,7 +51,7 @@ export function SettingsBox() {
         </button>
       </div>
 
-      <div className="flex gap-4 h-12 px-4 w-full items-center justify-between bg-base-300 rounded-field">
+      {/* <div className="flex gap-4 h-12 px-4 w-full items-center justify-between bg-base-300 rounded-field">
         <h4 className="text-xs font-semibold sm:text-base text-base-content/50 leading-8">Theme</h4>
         <div className="flex items-center gap-2">
           <input type="checkbox" className="toggle toggle-primary" />
@@ -60,13 +59,13 @@ export function SettingsBox() {
             NIGHT
           </span>
         </div>
-      </div>
+      </div> */}
 
-      <button className="btn btn-md  btn-soft btn-soft h-10 w-full" onClick={() => {
+      <button className="btn btn-md btn-soft h-10 w-full" onClick={() => {
         void logout();
-        void navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+        void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
       }}>
-        Logout
+        {t("common:logout")}
         <Iconify icon="custom:logout" className="w-4 h-4" />
       </button>
     </Card>

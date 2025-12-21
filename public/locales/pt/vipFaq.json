@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "O que são Bônus de Subida de Nível?",
-    "content": "<p class=\"leading-7\">O Bônus de Subida de Nível é a nossa maneira de demonstrar apreço pelos jogadores leais que estão conosco desde o início. Conforme os jogadores sobem nos níveis VIP, eles desbloqueiam prêmios ainda maiores.</p>"
+    "title": "Quais são os Bônus de Nível Superior?",
+    "content": "<p class=\"leading-7\">O bônus de nível superior é a nossa forma de mostrar apreciação pelos jogadores leais que estão conosco desde o início. À medida que os jogadores sobem os níveis VIP, eles desbloqueiam recompensas de nível superior.</p>"
   },
   "faqTwo": {
-    "title": "O que é Cashback Diário?",
-    "content": "<p class=\"leading-7\">O Cashback Diário é concedido aos jogadores que tiveram perdas em relação ao seu depósito. Esse bônus é emitido diariamente como uma porcentagem do prejuízo líquido do jogador. A porcentagem de Cashback Diário aumenta conforme seu nível VIP, podendo chegar até 40%, o maior Cashback disponível. Lembrando que esse bônus é exclusivo para jogadores em prejuízo líquido.</p>"
+    "title": "O que é o Cashback Diário?",
+    "content": "<p class=\"leading-7\">O Cashback Diário será concedido aos jogadores que sofreram perdas em relação ao valor do seu depósito. Este bônus é emitido diariamente como uma porcentagem do valor da perda do jogador. A porcentagem de cashback diário aumentará com seus níveis VIP, até um máximo de 40% de cashback, o maior cashback disponível. Por favor, note que este bônus é apenas para jogadores que estão em uma posição de perda líquida.</p>"
   },
   "faqThree": {
-    "title": "O que são Missões?",
-    "content": "<p class=\"leading-7\">As missões são tarefas diárias atribuídas aleatoriamente aos jogadores para ganhar prêmios extras ao jogar em nosso site. Os prêmios das missões devem ser reivindicados em até 24 horas antes do próximo ciclo, caso contrário, expiram. Esses prêmios são pagos em BUCK/USDT e podem ser convertidos para a criptomoeda de sua escolha através da nossa função de conversão.</p>"
+    "title": "O que são Conquistas/Quests?",
+    "content": "<p class=\"leading-7\">As conquistas são quests diárias aleatórias dadas aos jogadores para que eles ganhem recompensas extras ao jogar em nosso site. As recompensas de conquista devem ser reivindicadas dentro de 24 horas antes do próximo ciclo e expirarão se não forem reivindicadas. As recompensas de conquista são pagas em BUCK/USDT e podem ser convertidas para a criptomoeda de sua escolha através da nossa função de troca.</p>"
   },
   "faqFour": {
-    "title": "O que são Prêmios de Torneio?",
-    "content": "<p class=\"leading-7\">Os Prêmios de Torneio são prêmios concedidos por desempenho excepcional em competições. Esses prêmios acumulam até serem reivindicados e não possuem data de validade. São pagos em BUCK/USDT e podem ser convertidos para a criptomoeda de sua escolha através da nossa função de conversão.</p>"
+    "title": "O que são Recompensas de Torneio?",
+    "content": "<p class=\"leading-7\">As recompensas de torneio são prêmios dados por desempenho excepcional em competições. As recompensas de torneio acumularão até serem reivindicadas e não têm data de expiração. As recompensas de torneio são pagas em BUCK/USDT e podem ser convertidas para a criptomoeda de sua escolha através da nossa função de troca.</p>"
   },
   "faqFive": {
     "title": "O que é o Super Rakeback?",
-    "content": "<p class=\"leading-7\">O Super Rakeback é nosso mecanismo para desbloquear seus bônus de depósito. Uma porcentagem da sua aposta (até 3%) é devolvida a você toda vez que faz uma aposta. Quanto maior seu nível VIP, maior a Taxa de Desbloqueio. BUCK/USDT Liberado = Aposta x 2,5% x Taxa de Desbloqueio</p><p class=\"leading-7\">Taxa de Desbloqueio:</p><p class=\"leading-7\">Nível VIP 0-40: 20%</p><p class=\"leading-7\">Nível VIP 41-60: 32%</p><p class=\"leading-7\">Nível VIP 61-80: 40%</p><p class=\"leading-7\">Nível VIP 81-100: 52%</p><p class=\"leading-7\">Nível VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">O Super Rakeback é o nosso mecanismo para desbloquear seus bônus de depósito. Uma porcentagem da sua aposta (até 3%) é devolvida a você toda vez que você faz uma aposta. Quanto maior o seu nível VIP, maior a taxa de desbloqueio. BUCK/USDT desbloqueado = Aposta x 2,5% x Taxa de Desbloqueio%</p><p class=\"leading-7\">Taxa de Desbloqueio:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "O que é um Booster?",
-    "content": "<p class=\"leading-7\">Os Boosters dobram seu Rakeback por uma hora toda vez que uma indicação faz um depósito.</p><p class=\"leading-7\">Taxa de Desbloqueio Aumentada:</p><p class=\"leading-7\">Nível VIP 0-40: 40%</p><p class=\"leading-7\">Nível VIP 41-60: 72%</p><p class=\"leading-7\">Nível VIP 61-80: 80%</p><p class=\"leading-7\">Nível VIP 81-100: 102%</p><p class=\"leading-7\">Nível VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters dobram seu Rakeback por uma hora toda vez que uma referência faz um depósito.</p><p class=\"leading-7\">Taxa de Desbloqueio Aumentada:</p><p class=\"leading-7\">Taxa de Desbloqueio:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "O que é o Calendário de Bônus?",
-    "content": "<p class=\"leading-7\">A maioria dos bônus é paga 50% para o seu Saldo Real e 50% para o seu Calendário de Bônus. Os bônus no seu Calendário de Bônus podem ser reivindicados a cada 8 horas e expiram em 24 horas se não forem resgatados. Lembre-se de reivindicar seus bônus pelo menos uma vez por dia para garantir que todos os seus prêmios sejam recebidos!</p>"
+    "content": "<p class=\"leading-7\">A maioria dos bônus é paga 50% para seu Saldo Real e 50% para seu Calendário de Bônus. Os bônus pagos ao seu Calendário de Bônus podem ser reivindicados a cada 8 horas e expiram em 24 horas se não forem reivindicados. Lembre-se de reivindicar os bônus no seu Calendário de Bônus pelo menos uma vez por dia para garantir que todas as suas recompensas sejam coletadas!</p>"
   },
   "faqEight": {
     "title": "O que é o Bônus Semanal?",
-    "content": "<p class=\"leading-7\">O Bônus Semanal é um benefício exclusivo do nosso site criado para jogadores com Nível VIP 12 ou superior. Esse bônus é emitido semanalmente e pago automaticamente todas as sextas-feiras para jogadores com Nível VIP 12 ou acima. O valor do bônus depende do valor apostado na última semana, com um requisito mínimo de aposta de {{minWager}} na semana anterior.</p>"
+    "content": "<p class=\"leading-7\">O Bônus Semanal é um benefício exclusivo em nosso site projetado para jogadores que são VIP12 ou mais. Este bônus é emitido semanalmente e pago automaticamente toda sexta-feira para jogadores VIP12 e acima. O tamanho do bônus depende do valor apostado na semana anterior, com um requisito mínimo de aposta de {{minWager}} na semana passada.</p>"
   },
   "faqNine": {
     "title": "O que são Conquistas?",
-    "content": "<p class=\"leading-7\">As Conquistas são nossa forma de reconhecer sua atividade em nossa plataforma. Quando você reivindica seu bônus de conquista, ele é pago no seu Calendário de Bônus, podendo ser resgatado a cada 8 horas e expira em 24 horas se não for resgatado.</p>"
+    "content": "<p class=\"leading-7\">As conquistas são a nossa forma de reconhecer sua atividade em nossa plataforma. Quando você reivindica seu bônus de conquista, ele será pago ao seu Calendário de Bônus e pode ser reivindicado a cada 8 horas e expirar em 24 horas se não for reivindicado.</p>"
   }
 }

@@ -16,7 +16,7 @@ export function Settings() {
     >
       <button className="btn btn-soft btn-primary w-full btn-md" onClick={() => {
         void logout();
-        void navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+        void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
       }}>Logout<LogOut className='w-4 h-4' />
       </button>
     </Card>

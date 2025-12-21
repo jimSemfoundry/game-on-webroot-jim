@@ -5,11 +5,11 @@
         "achievements": "Achievements",
         "achievementDescription": "Achievement Awards are rewards given for reaching new milestones and conquering challenges. They celebrate your progress and success, unlocking fun surprises as you achieve new feats along the way!",
         "claimDistribution": "Claim Distribution",
-        "claimDistributionDescription": "Rewards are added to your bonus calendar for 3 days upon claiming.",
+        "claimDistributionDescription": "Your rewards are instantly vested and made available to claim from your deposit bonus pool whenever you claim a new achievement reward.",
         "expiration": "Expiration",
-        "expirationDescription": "None - Rewards are automatically sent to calendar.",
+        "expirationDescription": "None - Claims are available as long as your Bonus Pool balance has sufficient funds.",
         "generalTerms": "General Terms",
-        "generalTermsDescription": "Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.\n\nThe casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+        "generalTermsDescription": "Calendar rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n \n The casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
     },
     "luckyNumberSeven": {
         "title": "Lucky Number \n Seven",

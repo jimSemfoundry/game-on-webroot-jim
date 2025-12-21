@@ -134,7 +134,6 @@ export function Tabs({
     
     // Prevent vertical scrolling and enable horizontal scrolling
     if (e.deltaY !== 0) {
-      e.preventDefault();
       containerRef.current.scrollLeft += e.deltaY;
     }
   };
@@ -172,7 +171,6 @@ export function Tabs({
     const handleGlobalMouseMove = (e: MouseEvent) => {
       if (!isDragging || isVertical || !containerRef.current) return;
       
-      e.preventDefault();
       const x = e.pageX - containerRef.current.offsetLeft;
       const walk = (x - startX);
       containerRef.current.scrollLeft = scrollLeft - walk;

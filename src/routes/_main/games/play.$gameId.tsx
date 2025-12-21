@@ -2,6 +2,7 @@ import { GameIframe } from "@/components/game/GameIframe.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
 import { useLaunchGameMutation } from "@/hooks/api/useAuth.ts";
+import { cn } from "@/utils/cn";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -11,6 +12,7 @@ import { toast } from "sonner";
 const GamePlay = () => {
   const { gameId } = Route.useParams();
   const navigate = useNavigate();
+  const searchParams = Route.useSearch();
   const { t, i18n } = useTranslation();
   const { isAuthenticated, user } = useAuth();
   const { openSignInModal } = useAuthModals();
@@ -19,7 +21,6 @@ const GamePlay = () => {
     launchData: string;
     launchType: 'url' | 'html';
   } | null>(null);
-  const [isFullScreen, setIsFullScreen] = useState(false);
   const [gameName, setGameName] = useState<string>("");
 
   const { mutate: launchGame, isPending: isLaunching } = useLaunchGameMutation();
@@ -29,7 +30,7 @@ const GamePlay = () => {
     if (!isAuthenticated) {
       toast.error(t("auth:loginRequired"));
       openSignInModal();
-      navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+      navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
       return;
     }
   }, [isAuthenticated, openSignInModal, navigate, t]);
@@ -41,7 +42,8 @@ const GamePlay = () => {
     // 解析 gameId - 支持多种格式
     let inner_game_id = gameId;
     let game_provider = "";
-    let game_currency = user.currency || "USDT"; // 默认货币
+    const searchCurrency = typeof searchParams?.currency === "string" ? searchParams.currency.trim() : "";
+    let game_currency = searchCurrency || user.currency_fiat || "USDT"; // 默认货币
     let parsedGameId = gameId;
 
     // 检查是否是试玩模式（为将来的试玩功能预留）
@@ -60,19 +62,19 @@ const GamePlay = () => {
       if (parts.length >= 2) {
         inner_game_id = parts[0];
         game_provider = parts[1];
-        // 如果URL中包含currency参数，使用它
-        if (parts.length >= 3 && parts[2]) {
+        // 如果URL中包含currency参数，使用它（除非 search currency 已提供）
+        if (!searchCurrency && parts.length >= 3 && parts[2]) {
           game_currency = parts[2];
         }
       } else {
         toast.error("Invalid game ID format");
-        navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+        navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
         return;
       }
     } else {
       // 如果没有提供商信息，尝试从游戏详情获取
       toast.error("Invalid game ID format");
-      navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+      navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
       return;
     }
 
@@ -99,17 +101,17 @@ const GamePlay = () => {
           });
         } else {
           toast.error(response.msg || "Failed to launch game");
-          navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+          navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
         }
       },
       onError: () => {
-        navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+        navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined , startapp: undefined, openFinance: undefined} });
       },
     });
-  }, [isAuthenticated, user, gameId, launchGame, navigate, i18n.language, t]);
+  }, [isAuthenticated, user, gameId, launchGame, navigate, i18n.language, t, searchParams?.currency]);
 
   const handleGameError = () => {
-    navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+    navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
   };
 
   // Loading state
@@ -122,39 +124,28 @@ const GamePlay = () => {
             <div className="absolute inset-0 loading loading-ring loading-lg text-primary/30"></div>
           </div>
           <div className="text-center space-y-2">
-            <p className="text-lg font-medium">Loading Game</p>
-            <p className="text-sm opacity-70">Preparing your gaming experience...</p>
+            <p className="text-lg font-medium">{t("common:common.loading")}</p>
           </div>
         </div>
       </div>
     );
   }
 
+  const playerViewportHeight = "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4.5rem)]";
+  const playerViewportMinHeight = "min-h-[calc(100dvh-3rem)] md:min-h-[calc(100dvh-4.5rem)]";
+
   return (
-    <div className="min-h-screen bg-black">
-      <GameIframe
-        launchData={gameData.launchData}
-        launchType={gameData.launchType}
-        isFullScreen={isFullScreen}
-        onError={handleGameError}
-        gameName={gameName}
-      />
-      
-      {/* 全屏切换按钮 */}
-      <button
-        onClick={() => setIsFullScreen(!isFullScreen)}
-        className="fixed bottom-4 right-4 z-[9999] btn btn-sm btn-circle bg-black/50 text-white border-none hover:bg-black/70"
-      >
-        {isFullScreen ? (
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M3 4a1 1 0 011-1h3a1 1 0 000 2H5.414l1.293 1.293a1 1 0 01-1.414 1.414L4 6.414V8a1 1 0 01-2 0V4zM16 4a1 1 0 00-1-1h-3a1 1 0 100 2h1.586l-1.293 1.293a1 1 0 001.414 1.414L15 6.414V8a1 1 0 102 0V4zM4 16a1 1 0 001 1h3a1 1 0 100-2H6.414l1.293-1.293a1 1 0 00-1.414-1.414L5 13.586V12a1 1 0 10-2 0v4zM16 16a1 1 0 01-1 1h-3a1 1 0 110-2h1.586l-1.293-1.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 112 0v4z" />
-          </svg>
-        ) : (
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M3 4a1 1 0 000 2h1.586l-1.293 1.293a1 1 0 001.414 1.414L6 7.414V9a1 1 0 102 0V4a1 1 0 00-1-1H4zM16 4a1 1 0 100 2h-1.586l1.293 1.293a1 1 0 11-1.414 1.414L14 7.414V9a1 1 0 11-2 0V4a1 1 0 011-1h3zM4 16a1 1 0 100-2H2.414l1.293-1.293a1 1 0 10-1.414-1.414L1 12.586V11a1 1 0 10-2 0v4a1 1 0 001 1h4zM16 16a1 1 0 110-2h1.586l-1.293-1.293a1 1 0 111.414-1.414L19 12.586V11a1 1 0 112 0v4a1 1 0 01-1 1h-4z" />
-          </svg>
-        )}
-      </button>
+    <div className={cn("bg-black", playerViewportMinHeight)}>
+      <div className={cn("w-full", playerViewportHeight)}>
+        <GameIframe
+          launchData={gameData.launchData}
+          launchType={gameData.launchType}
+          isFullScreen={false}
+          onError={handleGameError}
+          gameName={gameName}
+        />
+      </div>
+
     </div>
   );
 };
@@ -162,6 +153,9 @@ const GamePlay = () => {
 // Route Configuration
 export const Route = createFileRoute("/_main/games/play/$gameId")({
   component: GamePlay,
+  validateSearch: (search: Record<string, unknown>): { currency?: string } => ({
+    currency: typeof search.currency === "string" ? search.currency : undefined,
+  }),
   // 在加载前检查认证状态
   beforeLoad: () => {
     // 这里可以添加认证检查逻辑

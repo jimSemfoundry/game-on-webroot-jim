@@ -1,4 +1,3 @@
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { useBoundStore } from "@/store";
@@ -12,10 +11,15 @@ import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { useUserWithdrawFiatInfo } from "@/components/modal/UserFinanceModal/helper.ts";
-import { InnerMaintenance } from "@/components/modal/UserFinanceModal/c/DepositMethodSelect.tsx";
 import { orderBy } from "lodash-es";
 import { authService } from "@/services/authService.ts";
 import { sleep } from "@/components/socialLogin/helper.ts";
+import {
+  DisplayContent,
+  ImageWithPlaceholder,
+  InnerMaintenance
+} from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 
 interface StateProps {
   selected: Record<string, any> | undefined;
@@ -37,13 +41,18 @@ export const WithdrawMethodInfoAdd = () => {
   const [status, setStatus] = useState<StateProps>(initState);
 
   // from data store, share common data
-  const { withdrawFiat,withdrawFiatV2, setSyncAction, setWithdrawFiatV2 } = useBoundStore();
+  const { withdrawFiat, withdrawFiatV2, setSyncAction, setWithdrawFiatV2 } = useBoundStore();
 
   // 法币提现用用户添加的快捷信息列表
   const { data: wallets, isLoading: l1 } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
 
   // 法币提现用用户添加的快捷信息列表
   const currentWallet = useMemo(() => (Array.isArray(wallets?.data) ? wallets?.data : []), [wallets]);
+
+  // 供应商不可用
+  const error = useMemo(() => {
+    if (withdrawFiatV2.method) return !!withdrawFiatV2.formItem?.amount && withdrawFiatV2.method?.status === 0;
+  }, [withdrawFiatV2]);
 
   // 设置默认选中
   useEffect(() => {
@@ -73,7 +82,7 @@ export const WithdrawMethodInfoAdd = () => {
 
   return (
     <div>
-      <p className="pb-2 text-xs text-base-content/50 font-semibold">提款详情</p>
+      <p className="pb-2 text-xs text-base-content/50 font-semibold">{t('finance:withdrawalDetails')}</p>
       <div className="bg-base-300 rounded-lg flex flex-col justify-center">
         {l1 && <Loading className={"h-52"} />}
 
@@ -168,7 +177,7 @@ export const WithdrawMethodInfoAdd = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.2 }}
-                      className="px-4 py-6 bg-base-300 fixed w-full z-999 top-0 bottom-0 flex flex-col"
+                      className="px-4 py-6 bg-base-300 fixed w-full z-1001 top-0 bottom-0 flex flex-col"
                     >
                       <p className="flex items-center justify-center relative text-lg font-semibold h-7">
                         <button
@@ -209,6 +218,11 @@ export const WithdrawMethodInfoAdd = () => {
           </div>
         </DisplayContent>
       </div>
+      <ErrorMessageBox
+        sample
+        content={<span>取款通道 <span className="underline">{withdrawFiatV2.method?.channel_class}</span> 正在维护，请重新选择</span>}
+        show={Boolean(error)}
+        className={"mt-2"} />
     </div>
   );
 };
@@ -265,15 +279,16 @@ const InnerAddress = (
   const source = useMemo(() => data?.params ? orderBy(Object.values(parser(data?.params)), ["weight"], ["desc"]) : [], [data?.params]);
 
   return <div
-    className={classNames("relative bg-base-200 flex items-center gap-2 p-4 rounded-field font-semibold cursor-pointer", className)}
+    className={classNames("relative bg-base-200 flex items-center gap-3 p-4 rounded-field font-semibold cursor-pointer", className)}
     onClick={() => {
       if (withdrawFiatV2.method?.id !== data?.id && (!loading || isFetching)) onClick?.(data);
     }}
   >
-    {edit &&
-      <input type="radio" checked={withdrawFiatV2.method?.id === data?.id} className="radio radio-sm radio-primary" />}
-    <img src={data?.icon} className="max-w-25 bg-base-100 rounded-lg p-2" alt="" />
-    <div className="flex-1 flex flex-col gap-2 text-xs">
+    <InnerDisplayContent show={Boolean(edit)}>
+      <input type="radio" checked={withdrawFiatV2.method?.id === data?.id} className="radio radio-sm radio-primary" />
+    </InnerDisplayContent>
+    <ImageWithPlaceholder src={data?.icon} className="max-w-25 min-h-8 min-w-8 !bg-base-400 rounded-lg p-2" />
+    <div className="flex-1 flex flex-col gap-2 text-xs truncate">
       {
         source.map((v: any) => {
           if (["accountname", "name"].includes(v.name)) {
@@ -290,13 +305,14 @@ const InnerAddress = (
     </div>
     {extra}
     {trash && ((loading) ? <span className="loading loading-spin loading-xs" /> :
-      <Trash2 className="text-base-content/50 w-4 h-4 cursor-pointer" onClick={async (e) => {
-        e.stopPropagation();
-        set(true);
-        await authService.deleteUserWithdrawInfo({ id: data?.id });
-        void refetch();
-        set(false);
-      }} />)}
+      <Trash2 className="text-base-content/50 w-4 h-4 cursor-pointer" onClick={
+        async (e) => {
+          e.stopPropagation();
+          set(true);
+          await authService.deleteUserWithdrawInfo({ id: data?.id });
+          void refetch();
+          set(false);
+        }} />)}
     <InnerMaintenance show={data.status === 0} className="py-0.5 rounded-bl-field rounded-tr-field top-0 right-0" />
   </div>;
 };
@@ -309,7 +325,7 @@ const InnerAddressList = (
     data: Record<string, any>[];
     onSelect: (v: Record<string, any>) => void;
   }) => {
-  const { withdrawFiat, withdrawFiatV2 } = useBoundStore();
+  const { withdrawFiat } = useBoundStore();
 
   // 法币提现用用户添加的快捷信息列表
   const { isFetching } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
@@ -321,7 +337,8 @@ const InnerAddressList = (
         <InnerAddress
           key={item.id}
           data={item} edit
-          trash={withdrawFiatV2?.method?.id !== item?.id}
+          // trash={withdrawFiatV2?.method?.id !== item?.id}
+          trash
           onClick={onSelect} />
       ))}
     </>
@@ -342,3 +359,7 @@ function parser(payload: string) {
   if (!/^{.*}$/.test(payload)) return payload;
   return JSON.parse(payload);
 }
+
+export const InnerDisplayContent = ({ show, children }: { show: boolean, children: ReactNode }) => {
+  return show ? (children) : null;
+};

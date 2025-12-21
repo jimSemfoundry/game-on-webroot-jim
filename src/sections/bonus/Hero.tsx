@@ -5,7 +5,7 @@ import { useUserClaimBonus } from "@/hooks/api/useAuth";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
-import { BonusCollectorCard } from "./collector";
+// import { BonusCollectorCard } from "./collector";
 import { BonusDetailsModal } from "./shared/bonus-details-modal";
 
 interface BonusHeroProps {
@@ -15,28 +15,28 @@ interface BonusHeroProps {
 export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
   const { t } = useTranslation();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { isInitialized } = useAuth();
+  const { isInitialized, isAuthenticated } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
-  
+
   // 获取用户的奖励详情数据
   const { data: claimBonusData, isLoading: isDataLoading } = useUserClaimBonus();
-  
+
   // 优化的loading状态：未初始化或数据加载中时显示骨架屏
-  const isLoading = !isInitialized || isDataLoading;
-  
+  const isLoading = isAuthenticated && (!isInitialized || isDataLoading);
+
   // 计算总的已领取奖励金额（所有 bonus 的 sum 总和，统一转换为用户显示货币）
   const calculatedTotalClaimed = useMemo(() => {
     if (!claimBonusData?.data?.data || !Array.isArray(claimBonusData.data.data)) {
       return totalBonusClaimed;
     }
-    
+
     // 将所有 bonus 的 sum 值累加，转换为 USDT（作为基准货币）
     const totalInUSD = claimBonusData.data.data.reduce((acc: number, item: any) => {
       // 这里假设后端已经统一转换为 USDT，如果不同货币需要转换，可以使用 convertToUSD
       return acc + (parseFloat(item.sum) || 0);
     }, 0);
-    
+
     return totalInUSD;
   }, [claimBonusData?.data?.data, totalBonusClaimed]);
 
@@ -60,30 +60,46 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
       <div className="flex flex-col">
         <div className="flex items-center gap-4 w-full">
           <div className="h-[158px] sm:h-auto flex justify-center flex-col p-3 gap-1 sm:gap-2">
-            <p className="text-sm sm:text-xl font-semibold text-base-content/50">
-              <span className="block sm:inline">Lifetime Bonus </span>
-              <span className="block sm:inline">Claimed</span>
-            </p>
-            <p className="text-2xl sm:text-5xl text-base-content font-bold z-10">
-              {isLoading ? (
-                <span className="skeleton w-32 h-8 sm:h-12 rounded"></span>
-              ) : (
-                formatWithConversion(calculatedTotalClaimed, "USDT", { showSymbol: true, showCode: false }).formatted
-              )}
-            </p>
-            <button 
-              className="font-semibold text-base-content/50 flex items-center gap-2 sm:cursor-pointer hover:text-base-content/70 transition-colors"
-              onClick={() => setIsDetailsModalOpen(true)}
-            >
-              <span className="text-sm sm:text-xl">{t("bonus:details")}</span>
-              <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-            </button>
+            {isAuthenticated ? (
+              <>
+                <p className="text-sm sm:text-xl font-semibold text-base-content/50">
+                  <span className="block sm:inline">{t("bonus:lifetime_bonus")}</span>
+                  <span className="block sm:inline">{t("bonus:claimed")}</span>
+                </p>
+                <p className="text-2xl sm:text-5xl text-base-content font-bold z-10">
+                  {isLoading ? (
+                    <span className="skeleton w-32 h-8 sm:h-12 rounded"></span>
+                  ) : (
+                    formatWithConversion(calculatedTotalClaimed, "USDT", { showSymbol: true, showCode: false }).formatted
+                  )}
+                </p>
+                <button
+                  className="font-semibold text-base-content/50 flex items-center gap-2 sm:cursor-pointer hover:text-base-content/70 transition-colors"
+                  onClick={() => setIsDetailsModalOpen(true)}
+                >
+                  <span className="text-sm sm:text-xl">{t("bonus:details")}</span>
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </>
+            ) : (
+              <p className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
+                <span className="text-base-content block">
+                  ENJOY
+                </span>
+                <span className="text-primary block">
+                  EXCLUSIVE
+                </span>
+                <span className="text-primary">
+                  REWARDS
+                </span>
+              </p>
+            )}
             {/* CollectorCard - 只在PC端显示 */}
-            {!isMobile && (
+            {/* {!isMobile && (
               <div className="absolute bottom-6 left-6">
                 <BonusCollectorCard className="relative z-10" />
               </div>
-            )}
+            )} */}
           </div>
           <img
             src="/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png"
@@ -98,9 +114,9 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
         />
       </div>
 
-      <BonusDetailsModal 
-        isOpen={isDetailsModalOpen} 
-        onClose={() => setIsDetailsModalOpen(false)} 
+      <BonusDetailsModal
+        isOpen={isDetailsModalOpen}
+        onClose={() => setIsDetailsModalOpen(false)}
       />
     </div>
   );

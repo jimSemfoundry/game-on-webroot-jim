@@ -10,12 +10,14 @@ export interface BetHistoryQueryParams {
   time_range?: number;
   start_time?: number;
   end_time?: number;
+  last_id?: number | string;
 }
 
 export interface BetHistoryRecord {
   id?: number | string;
   bet_id?: string;
   game_order_id?: string | number;
+  order_id?: string | number;
   game_name?: string;
   game_provider?: string;
   order_time?: number | string;
@@ -28,7 +30,22 @@ export interface BetHistoryRecord {
   account_currency?: string;
   game_type?: string;
   asset?: string;
+  status?: number | string;
+  handle_status?: number | string;
+  competitor_name?: string;
+  sport_name?: string;
+  tournament_name?: string;
+  settlement_currency?: string;
+  settlement_bet_amount?: number | string;
+  settlement_win_amount?: number | string;
+  game_currency?: string;
+  game_bet_amount?: number | string;
+  game_win_amount?: number | string;
+  turnover_currency?: string;
+  turnover_amount?: number | string;
   [key: string]: unknown;
+  game_category_1?: string;
+  game_category_2?: string;
 }
 
 export interface BetHistoryPagination {
@@ -39,6 +56,7 @@ export interface BetHistoryPagination {
   per_page?: number;
   page_size?: number;
   next_page?: number;
+  last_id?: number | string;
 }
 
 export interface BetHistoryFilterOption {

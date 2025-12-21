@@ -10,6 +10,14 @@ export interface TransactionParams {
   last_id?: string | number;
 }
 
+export interface ClaimLogTransactionParams {
+  end_timestamp?: number;
+  currency?: string;
+  limit?: number;
+  page?: number;
+  item: "referral" | "group";
+}
+
 export interface UseTransactionOptions {
   enabled?: boolean;
 }
@@ -25,6 +33,25 @@ const buildQueryParams = (params: TransactionParams, options: { includeStatus?: 
 
   if (options.includeStatus !== false && params.status) {
     queryParams.status = params.status;
+  }
+  if (params.end_timestamp) {
+    queryParams.end_timestamp = String(params.end_timestamp);
+  }
+  if (params.currency) {
+    queryParams.currency = params.currency;
+  }
+
+  return queryParams;
+};
+
+const buildClaimLogQueryParams = (params: ClaimLogTransactionParams) => {
+  const queryParams: Record<string, string> = {
+    item: params.item,
+    limit: String(params.limit ?? TRANSACTION_PAGE_SIZE),
+  };
+
+  if (params.page) {
+    queryParams.page = String(params.page);
   }
   if (params.end_timestamp) {
     queryParams.end_timestamp = String(params.end_timestamp);
@@ -88,12 +115,12 @@ export const useSwapRecords = (params: TransactionParams, options?: UseTransacti
   });
 };
 
-export const useReferralRecords = (params: Omit<TransactionParams, "status">, options?: UseTransactionOptions) => {
+export const useReferralRecords = (params: Omit<ClaimLogTransactionParams, "item">, options?: UseTransactionOptions) => {
   const { user } = useAuth();
 
   return useQuery({
     queryKey: ["referralRecords", params, user?.id],
-    queryFn: () => authService.getUserReferralRecords(buildQueryParams(params, { includeStatus: false })),
+    queryFn: () => authService.getUserReferralRecords(buildClaimLogQueryParams({ ...params, item: "referral" })),
     enabled: !!user && (options?.enabled ?? true),
     staleTime: 30 * 1000,
     gcTime: 5 * 60 * 1000,
@@ -101,12 +128,12 @@ export const useReferralRecords = (params: Omit<TransactionParams, "status">, op
   });
 };
 
-export const useCommissionRecords = (params: Omit<TransactionParams, "status">, options?: UseTransactionOptions) => {
+export const useCommissionRecords = (params: Omit<ClaimLogTransactionParams, "item">, options?: UseTransactionOptions) => {
   const { user } = useAuth();
 
   return useQuery({
     queryKey: ["commissionRecords", params, user?.id],
-    queryFn: () => authService.getUserCommissionRecords(buildQueryParams(params, { includeStatus: false })),
+    queryFn: () => authService.getUserCommissionRecords(buildClaimLogQueryParams({ ...params, item: "group" })),
     enabled: !!user && (options?.enabled ?? true),
     staleTime: 30 * 1000,
     gcTime: 5 * 60 * 1000,

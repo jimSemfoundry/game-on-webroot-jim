@@ -1,31 +1,19 @@
 import { DepositMethodSelect } from "@/components/modal/UserFinanceModal/c/DepositMethodSelect.tsx";
-import { useSupportedSettlementCurrenciesFilter, useUserLatestDeposit } from "@/components/modal/UserFinanceModal/helper.ts";
+import {
+  useSupportedCurrencyV2Filter
+} from "@/components/modal/UserFinanceModal/helper.ts";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useBoundStore } from "@/store";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
+import { FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const DepositFiatSelect = () => {
   const { t } = useTranslation();
 
-  const [l1, originCurrencies, currencies] = useSupportedSettlementCurrenciesFilter("FIAT", "DEPOSIT");
-
-  const { data: latestDeposit, isLoading: l2 } = useUserLatestDeposit();
-
   // from data store, share common data
   const { depositFiat, setDepositFiat } = useBoundStore();
 
-  // initial default selected option
-  useEffect(() => {
-    if (l1 || l2) return;
-    const v = latestDeposit?.data?.[0];
-    if (originCurrencies.length > 0) {
-      let find = undefined;
-      if (v && v?.network === "FIAT") find = originCurrencies.find((o: { currency: string }) => o?.currency === v?.currency);
-      return setDepositFiat({ currency: find || originCurrencies[0] });
-    }
-  }, [l1, l2, originCurrencies, latestDeposit]);
+  const [l1, originCurrencies, currencies] = useSupportedCurrencyV2Filter("FIAT", "DEPOSIT");
 
   return (
     <div className="">

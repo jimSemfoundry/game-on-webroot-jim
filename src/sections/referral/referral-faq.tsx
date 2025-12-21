@@ -61,7 +61,7 @@ export const ReferralFAQ = () => {
           '<p class="leading-7">There is a {{amount}} USD reward for each referral you bring to {{gameLink}}. This USD reward is given in {{parts}} parts as your referral level goes up from {{level}}.</p>',
         amount: "$1200",
         parts: "16",
-        level: "VIP5 to VIP80",
+        level: "VIP2 to VIP80",
         gameLink: websiteLink,
       }),
     },

@@ -3,14 +3,14 @@ import classNames from "classnames";
 
 export function Card({ icon, title, children, className }: {
   icon?: React.ReactNode,
-  title?: string,
+  title?: string | React.ReactNode,
   children: React.ReactNode,
   className?: string
 }) {
   return (
-    <div className={classNames("rounded-xl bg-base-200 p-3 flex flex-col gap-3 md:p-6 md:gap-4", className)}>
+    <div className={classNames("rounded-field bg-base-200 p-3 flex flex-col gap-3 md:p-6 md:gap-4", className)}>
       {(icon || title) && (
-        <div className="flex gap-2 items-center text-base-content/80 font-semibold text-sm md:text-lg">
+        <div className="flex gap-2 items-center text-base-content/80 font-semibold text-sm md:text-lg md:h-8">
           {icon}
           {title}
         </div>

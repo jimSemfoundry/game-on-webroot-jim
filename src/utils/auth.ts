@@ -17,12 +17,27 @@ export interface Auth {
   key: string;
   timestamp: number;
   token: string;
+  userid?: string | number;
   noMd5?: string;
 }
 
 export function getAuth(): Auth {
-  const username = localStorage.getItem("username");
+  let username = localStorage.getItem("username") || "";
   const storedToken = localStorage.getItem("token");
+  const storedUser = localStorage.getItem("user");
+  let userId: string | number | undefined;
+
+  try {
+    if (storedUser) {
+      const parsed = JSON.parse(storedUser);
+      userId = parsed?.id ?? parsed?.user_id;
+      if (!username && parsed?.username) {
+        username = parsed.username;
+      }
+    }
+  } catch {
+    userId = undefined;
+  }
 
   if (!username || !storedToken) {
     // throw new Error('User not authenticated');
@@ -33,6 +48,7 @@ export function getAuth(): Auth {
     key: randomString(20),
     timestamp: Date.now(),
     token: "",
+    userid: userId,
   };
 
   auth.token = md5(storedToken + auth.key + auth.timestamp);
@@ -50,6 +66,7 @@ export function clearAuth(reason?: string) {
 
   localStorage.removeItem("username");
   localStorage.removeItem("token");
+  localStorage.removeItem("status");
   localStorage.removeItem("user");
 
   // Dispatch event for other parts of the app to react

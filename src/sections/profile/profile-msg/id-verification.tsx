@@ -18,10 +18,10 @@ export function IDVerification() {
 
   return (
     <>
-      <div className="rounded-field p-4 max-w-[335px]"
+      <div className="rounded-field p-3 md:p-6 md:max-w-[335px]"
         style={{
           background:
-            `radial-gradient(61.78% 115.11% at 6.36% -4.57%, 
+            `radial-gradient(61.78% 115.11% at 6.36% -4.57%,
           color-mix(in oklch, var(--color-primary), transparent 53%) 0%,
           color-mix(in oklch, var(--color-base-200), transparent 30%) 56.25%)
           color-mix(in oklch, var(--color-base-200), transparent 30%)`,

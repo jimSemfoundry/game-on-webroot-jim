@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Mik azok a szintlépési bónuszok?",
-    "content": "<p class=\"leading-7\">A szintlépési bónusz a mi módunk arra, hogy kifejezzük elismerésünket a hűséges játékosok iránt, akik a kezdetektől velünk vannak. Ahogy a játékosok feljebb lépnek a VIP-szinteken, magasabb szintű jutalmakat oldanak fel.</p>"
+    "title": "Mik azok a Szintemelő Bónuszok?",
+    "content": "<p class=\"leading-7\">A szintemelő bónusz a hűséges játékosok iránti megbecsülésünk kifejezése, akik a kezdetektől velünk vannak. Ahogy a játékosok feljebb lépnek a VIP szinteken, úgy magasabb szintemelő jutalmakat nyitnak meg.</p>"
   },
   "faqTwo": {
     "title": "Mi az a Napi Cashback?",
-    "content": "<p class=\"leading-7\">A napi készpénzvisszatérítést azok a játékosok kapják, akik a befizetett összegükkel szemben veszteséget szenvedtek el. Ez a bónusz naponta kerül kiadásra a játékos veszteségének százalékában. A napi cashback százalékos aránya a VIP-szintekkel növekszik, maximum 40% caszfalthoz, ami a legmagasabb cashback bárhol. Kérjük, vegye figyelembe, hogy ez a bónusz csak olyan játékosok számára érvényes, akik nettó veszteséges pozícióban vannak.</p>"
+    "content": "<p class=\"leading-7\">A napi cashback azoknak a játékosoknak jár, akik veszteséget szenvedtek el a befizetett összegükhöz képest. Ez a bónusz napi szinten kerül kiadásra a játékos veszteségének egy százalékaként. A napi cashback százalék a VIP szintekkel együtt nő, maximum 40% cashback-ig, ami a legmagasabb cashback bárhol. Kérjük, vegye figyelembe, hogy ez a bónusz csak azoknak a játékosoknak szól, akik nettó veszteség helyzetben vannak.</p>"
   },
   "faqThree": {
-    "title": "Mi az a Conquests/Quests?",
-    "content": "<p class=\"leading-7\">A hódítások olyan napi küldetések, amelyeket véletlenszerűen kapnak a játékosok, hogy extra jutalmakat szerezzenek, amikor a weboldalunkon játszanak. A Hódítás jutalmakat a következő ciklus előtt 24 órával kell igényelni, és ha nem igénylik, akkor lejárnak. A Conquest jutalmak BUCK/USDT-ben kerülnek kifizetésre, és átválthatók az Ön által választott kriptopénzre a swap funkcióval.</p>"
+    "title": "Mik azok a Hódítások/Küldetések?",
+    "content": "<p class=\"leading-7\">A hódítások napi küldetések, amelyeket véletlenszerűen adunk a játékosoknak, hogy extra jutalmakat keressenek a weboldalunkon való játék közben. A hódítási jutalmakat 24 órán belül kell igényelni a következő ciklus előtt, és lejárnak, ha nem igénylik őket. A hódítási jutalmak BUCK/USDT formájában kerülnek kifizetésre, és átválthatók a választott kriptovalutájára a swap funkciónkon keresztül.</p>"
   },
   "faqFour": {
-    "title": "Mik azok a versenyjutalmak?",
-    "content": "<p class=\"leading-7\">A versenyjutalmak a versenyeken nyújtott kiemelkedő teljesítményért járó díjak. A versenyjutalmak addig gyűlnek, amíg be nem váltják őket, és nem járnak le. A versenyjutalmak BUCK/USDT-ben kerülnek kifizetésre, és a swap funkcióval átválthatók az Ön által választott kriptopénzre.</p>"
+    "title": "Mik azok a Tornajutalmak?",
+    "content": "<p class=\"leading-7\">A tornajutalmak a versenyeken nyújtott kiemelkedő teljesítményért járó díjak. A tornajutalmak felhalmozódnak, amíg igénybe nem veszik őket, és nincs lejárati idejük. A tornajutalmak BUCK/USDT formájában kerülnek kifizetésre, és átválthatók a választott kriptovalutájára a swap funkciónkon keresztül.</p>"
   },
   "faqFive": {
-    "title": "Mi az a Super Rakeback?",
-    "content": "<p class=\"leading-7\">A Super Rakeback a mi mechanizmusunk a befizetési bónuszok feloldására. A tétje egy bizonyos százalékát (akár 3%) minden alkalommal visszakapja, amikor fogadást köt. Minél magasabb a VIP-szinted, annál magasabb a feloldási arány. Feloldott BUCK/USDT = tét x 2,5% x Feloldási arány%</p><p class=\"leading-7\">Feloldási arány:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "title": "Mi az a Szuper Rakeback?",
+    "content": "<p class=\"leading-7\">A szuper rakeback a befizetési bónuszok feloldásának mechanizmusa. A téted egy százaléka (maximum 3%) visszatérítésre kerül minden alkalommal, amikor fogadsz. Minél magasabb a VIP szinted, annál magasabb a feloldási arány. Feloldott BUCK/USDT = Tét x 2.5% x Feloldási arány%</p><p class=\"leading-7\">Feloldási Arány:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "Mi az a Booster?",
-    "content": "<p class=\"leading-7\">A Boosterek megduplázzák a Rakebacket egy órán keresztül minden alkalommal, amikor egy ajánló befizetést eszközöl.</p><p class=\"leading-7\">Fokozott feloldási arány:</p><p class=\"leading-7\">Feloldási arány:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">A boosterek megduplázzák a rakebackedet egy órára, minden alkalommal, amikor egy ajánlott játékos befizetést végez.</p><p class=\"leading-7\">Fokozott Feloldási Arány:</p><p class=\"leading-7\">Feloldási Arány:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Mi az a bónusz naptár?",
-    "content": "<p class=\"leading-7\">A legtöbb bónuszt 50% to a valós egyenlegedre és 50% to a bónusznaptáradra fizetik ki. A bónusznaptárba fizetett bónuszok 8 óránként igényelhetők, és 24 órán belül lejárnak, ha nem igényli őket. Ne feledje, hogy naponta legalább egyszer igényelje a bónusznaptárában lévő bónuszokat, hogy biztosítsa az összes jutalom begyűjtését!</p>"
+    "title": "Mi az a Bónusz Naptár?",
+    "content": "<p class=\"leading-7\">A legtöbb bónusz 50%-ban a Valódi Egyenlegedre, 50%-ban pedig a Bónusz Naptáradra kerül kifizetésre. A Bónusz Naptáradra kifizetett bónuszokat 8 óránként lehet igényelni, és 24 órán belül lejárnak, ha nem igénylik őket. Ne felejtsd el legalább naponta egyszer igényelni a Bónusz Naptáradban található bónuszokat, hogy biztosítsd, hogy minden jutalmadat begyűjtöd!</p>"
   },
   "faqEight": {
-    "title": "Mi a heti bónusz?",
-    "content": "<p class=\"leading-7\">A Heti bónusz egy exkluzív juttatás weboldalunkon, amelyet VIP12 vagy magasabb szintű játékosok számára terveztünk. Ezt a bónuszt hetente adjuk ki, és minden pénteken automatikusan kifizetjük a VIP12 vagy magasabb szintű játékosoknak. A bónusz nagysága az elmúlt héten megjátszott összegtől függ, a minimális fogadási követelmény pedig a {{minWager}} az elmúlt héten.</p>"
+    "title": "Mi az a Heti Bónusz?",
+    "content": "<p class=\"leading-7\">A heti bónusz egy exkluzív juttatás a weboldalunkon, amelyet a VIP12 és annál magasabb szintű játékosok számára terveztek. Ez a bónusz hetente kerül kiadásra, és automatikusan kifizetésre kerül minden pénteken a VIP12 és annál magasabb szintű játékosoknak. A bónusz mértéke a múlt héten tett tétek összegétől függ, a minimum tét követelmény {{minWager}} a múlt héten.</p>"
   },
   "faqNine": {
-    "title": "Mik azok az eredmények?",
-    "content": "<p class=\"leading-7\">Az eredményekkel a platformunkon végzett tevékenységét ismerjük el. Amikor igényli a teljesítménybónuszát, az a bónuszkalendáriumába kerül, és 8 óránként igényelhető, és 24 óra múlva lejár, ha nem igényli.</p>"
+    "title": "Mik azok az Eredmények?",
+    "content": "<p class=\"leading-7\">Az eredmények a platformunkon végzett tevékenységed elismerésének módja. Amikor igényled az eredmény bónuszodat, az a Bónusz Naptáradba kerül kifizetésre, és 8 óránként igényelhető, valamint 24 órán belül lejár, ha nem igénylik.</p>"
   }
 }

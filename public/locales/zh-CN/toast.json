@@ -39,10 +39,10 @@
   "addFailed": "添加失败",
   "addDesktopAppSuccessfully": "成功添加桌面应用程序",
   "addDesktopAppFailed": "添加桌面应用程序失败",
-    "onlyTmaApp": "此成就只能在Telegram小程序中完成。",
-    "youArleadyHaveAPendingWithdrawalOrder": "您已经有一个待处理的提款订单",
-    "pinError": "密码错误",
-    "failedToObtainNotificationMessage": "获取通知消息失败",
-    "incorrectAddressDataLength": "地址数据长度不正确",
-    "captchaFailed": "验证码失败"
+  "onlyTmaApp": "此成就只能在Telegram小程序中完成。",
+  "youArleadyHaveAPendingWithdrawalOrder": "您已经有一个待处理的提款订单",
+  "pinError": "密码错误",
+  "failedToObtainNotificationMessage": "获取通知消息失败",
+  "incorrectAddressDataLength": "地址数据长度不正确",
+  "captchaFailed": "验证码失败"
 }

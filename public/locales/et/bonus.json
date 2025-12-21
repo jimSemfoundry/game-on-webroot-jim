@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Nõua oma boonust nagu tavaliselt...\nVõi astu julge samm",
+  "double_it": "Kahekordista see!",
+  "no_thanks": "Ei, aitäh",
+  "double_or_nothing": "Kahekordne või mitte midagi",
+  "come_back_tomorrow": "Tule tagasi homme",
+  "promo_code": "Promokood",
+  "got_a_code": "Kas sul on kood? Sa tead, mida teha!",
+  "lifetime_bonus": "Eluaegne boonus",
+  "claimed": "Nõutud",
+  "starter": "Algaja",
+  "pack": "Pakett",
+  "achievements_card_description": "Kogu erilisi saavutuste auhindu, mis on loodud tähistama iga sammu sinu edus!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Valda õnne kunsti",
+    "achievement_verify_phone": "Lakkamatu energia ja jõud",
+    "achievement_add_desktop_app": "Alati käeulatuses",
+    "achievement_super_spreader": "Jaga mängukogemust",
+    "achievement_conquistador": "Seisa silmitsi iga takistusega",
+    "achievement_game_explorer": "Avasta uusi mängumaailmu",
+    "achievement_card_shark": "Domineeri kaardimänge",
+    "achievement_slotmaster": "Valda slotikaid",
+    "achievement_talkative": "Juhi teed teistele",
+    "achievement_bet_count": "Valda täpset mängimist",
+    "achievement_deposit_count": "Saavuta lõplik võit",
+    "achievement_wager_count": "Ületage väljakutseid",
+    "achievement_single_bet": "Saavuta legendaarne staatus",
+    "achievement_single_deposit": "Navigeeri plokiahelate võrkudes",
+    "achievement_single_wager": "Valda rahastrateegiaid",
+    "achievement_single_payout": "Domineeri krüptoturgu",
+    "achievement_crypto_bro": "Valda krüptovaluutade kauplemist",
+    "achievement_crypto_baron": "Domineeri krüptoturgu",
+    "achievement_chain_shifter": "Navigeeri plokiahelate võrkudes",
+    "achievement_money_master": "Valda rahastrateegiaid",
+    "achievement_sniper": "Valda täpset mängimist",
+    "achievement_champion": "Saavuta lõplik võit",
+    "achievement_name_of_fame": "Saavuta legendaarne staatus",
+    "achievement_guiding_star": "Juhi teed teistele",
+    "achievement_face_of_fortune": "Valda õnne kunsti",
+    "achievement_dynamo": "Lakkamatu energia ja jõud",
+    "achievement_inferno": "Ületage väljakutseid",
+    "achievement_the_challenger": "Seisa silmitsi iga takistusega"
+  },
   "bonus": "Boonus",
   "total_bonus_claimed": "Kokku nõutud boonus",
   "details": "Üksikasjad",
   "redeem": "Lunasta",
-    "deposit_bonus": "Sissemakseboonuste Kogum",
+  "deposit_bonus": "Sissemakseboonuste Kogum",
   "get_up_to": "Saa kuni",
   "deposit_now": "Hoiusta nüüd",
   "bonus_ends_in": "Boonus lõpeb {{time}}",
@@ -26,14 +68,15 @@
   "daily_cashback": "Igapäevane raha tagasi",
   "bonus_calendar": "Boonuskalender",
   "claim_every_8_hours": "Nõua iga 8 tunni järel",
-    "locked": "Sissemakseboonuste Kogum",
+  "locked": "Sissemakseboonuste Kogum",
   "next_claim_in": "Järgmine Nõue",
   "bonus_pool": "Tulevased Tasud",
-   "bonus_calendar_details": "Nõua iga 8 tunni järel, et saada boonus!",
+  "bonus_calendar_details": "Nõua iga 8 tunni järel, et saada boonus!",
   "release_schedule": "Vabastamise ajakava",
   "total_vip_bonus_claimed": "Kokku nõutud VIP-boonus",
   "your_vip_progress": "Sinu VIP-edasiminek",
   "available_at_vip": "Saadaval VIP {{vip}} tasemel",
+  "vip_progress_description": "Liigu edasi! Järgmine tase avab {{amount}} sinu boonuse fondist.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Saavuta VIP 4 ja saa juurdepääs Õnnelikule keerutusele – sinu võimalus võita lisapreemiaid iga päev!",
   "weekly_cashback": "Iganädalane raha tagasi",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Saavuta VIP 12 ja vabasta iganädalane raha tagasi – sinu isiklik turvavõrk suure panusega mängude jaoks!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Õnnelik keerutus",
   "lucky_number_seven": "Õnnenumber seitse",
   "expires_in": "Aegub {{time}}",
+  "expires": "Aegub",
   "go": "Mine",
   "conquest_just_wager_title": "Lihtsalt panusta {{amount}}",
   "conquest_just_wager_description": "Panusta {{amount}} mis tahes mängudes ühe päeva jooksul, et vabastada {{reward}} oma boonusfondist täna!",
@@ -99,133 +143,190 @@
   "claimable": "Nõutav",
   "achievement_verify_email": {
     "name": "Kinnita e-post",
-    "description": "See saavutus antakse mängijatele, kes on kinnitanud oma e-posti, lukustades oma identiteedi ja avades turvalise juurdepääsu. See on valmisoleku ja usaldusväärsuse märk – iga tõsise mängija esimene samm."
+    "description": "See saavutus antakse mängijatele, kes on kinnitanud oma e-posti, lukustades oma identiteedi ja avades turvalise juurdepääsu. See on valmisoleku ja usaldusväärsuse märk - iga tõsise mängija esimene samm."
   },
   "achievement_verify_phone": {
     "name": "Kinnita telefon",
-    "description": "See saavutus antakse mängijatele, kes on kinnitanud oma telefoninumbri, et püsida informeeritud ja ühenduses. See näitab usaldust, pühendumust ja kohalolekut mängu pulsil."
+    "description": "See saavutus antakse mängijatele, kes on kinnitanud oma telefoninumbri, et olla kursis ja ühenduses. See näitab usaldust, kaasatust ja pühendumist mängu pulsil."
   },
   "achievement_add_desktop_app": {
-    "name": "Lisa avakuvale",
-    "description": "See saavutus antakse mängijatele, kes on lisanud meie Telegrami minirakenduse oma avakuvale. Alati käeulatuses, see tegevus näitab tõelist pühendumust – sest tõelised mängijad hoiavad mängu lähedal."
+    "name": "Lisa algusesse",
+    "description": "See saavutus antakse mängijatele, kes on lisanud meie Telegrami miniäpi oma algusesse. Alati käeulatuses, see tegevus näitab tõelist pühendumust - sest tõelised mängijad hoiavad mängu lähedal."
   },
   "achievement_super_spreader": {
-    "name": "Superlevitaja",
-    "description": "See saavutus antakse mängijatele, kes on edukalt soovitanud <0>{{count}} uut kasutajat</0>. Tõelised kogukonna ehitajad, nad laiendavad ringi ja toovad mängu uut energiat. Nende mõju kasvab iga ühendusega."
+    "name": "Super levitaja",
+    "description": "See saavutus antakse mängijatele, kes on edukalt soovitanud <0>{{count}} uut kasutajat</0>. Tõeline kogukonna ehitaja, nad laiendavad ringi ja toovad mängu uut energiat. Nende mõju kasvab iga ühenduse loomisega."
   },
   "achievement_conquistador": {
-    "name": "Vallutaja",
-    "description": "See saavutus antakse mängijatele, kes on täitnud kokku <0>{{count}} vallutust</0>. Sihipärasuse ja võidujanu ajendil vallutavad nad iga väljakutse – tõelised teekonna meistrid."
+    "name": "Conquistador",
+    "description": "See saavutus antakse mängijatele, kes on saavutanud kokku <0>{{count}} missiooni</0>. Määratletud otsusekindluse ja võiduhimu poolt, nad vallutavad iga väljakutse, mis nende teele satub - tõeline reisi meister."
   },
   "achievement_game_explorer": {
-    "name": "Mängude avastaja",
-    "description": "See saavutus antakse mängijatele, kes on proovinud <0>{{count}} erinevat mängu</0>. Uudishimulikud ja seiklushimulised, nad rändavad üle platvormi, alati innukad avastama uusi mängu- ja võiduvõimalusi."
+    "name": "Mängu uurija",
+    "description": "See saavutus antakse mängijatele, kes on proovinud <0>{{count}} erinevat mängu</0>. Uudishimulik ja seiklushimu, nad seiklevad platvormil, olles alati valmis avastama uusi viise mängimiseks ja võitmiseks."
   },
   "achievement_card_shark": {
     "name": "Kaardihai",
-    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> kaardimängudes, tõestades vastupidavust, strateegiat ja riskivalmidust. Need kõrgete panustega mängijad on teeninud koha eliidi seas. Kaardid on nende käes ja mäng nende kontrolli all."
+    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> kaardimängudes, tõestades oma vastupidavust, strateegiat ja valmisolekut riske võtta. Need kõrge panusega mängijad on teeninud oma koha eliidi seas. Kaardid on nende käes ja mäng on nende käes."
   },
   "achievement_slotmaster": {
     "name": "Slotimeister",
-    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> slotimängudes, tõestades visadust, põnevuse otsimist ja armastust keerutuste vastu. Need pühendunud mängijad võtavad rullid enesekindlalt – õnn võib mängu alustada, kuid meisterlikkus hoiab neid mängus."
+    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> slotimängudes, tõestades oma püsivust, adrenaliiniotsimise vaimu ja armastust keerutamise vastu. Need pühendunud mängijad omavad rulle kindlalt - õnn võib juhtida, kuid meisterlikkus hoiab nad mängus."
   },
   "achievement_talkative": {
-    "name": "Jutukas",
-    "description": "See saavutus antakse mängijatele, kes on vestlustoas sõna võtnud <0>{{count}} korda</0>. Iga sõnum loeb – teete esimese sammu, et saada tõeliseks vestluse osaks."
+    "name": "Räägime",
+    "description": "See saavutus antakse mängijatele, kes on rääkinud <0>{{count}} korda</0> vestlustoas. Iga sõnum loeb - sa astud esimese sammu, et saada tõeliseks osaks vestlusest."
   },
   "achievement_bet_count": {
     "name": "Panuste arv",
-    "description": "See saavutus antakse mängijatele, kes on teinud kokku <0>{{count}} panust</0>. Tõelised juhuse usklikud, nende vankumatu vaim hoiab mängu elus iga panusega."
+    "description": "See saavutus antakse mängijatele, kes on teinud kokku <0>{{count}} panust</0>. Tõeline uskuja juhuses, nende järjepidev vaim hoiab mängu elavana iga panusega."
   },
   "achievement_deposit_count": {
     "name": "Sissemaksete arv",
-    "description": "See saavutus antakse mängijatele, kes on teinud kokku <0>{{count}} sissemakset</0>. Pideva krediidivoo ja vankumatu pühendumusega näitavad nad, et nad pole lihtsalt mängijad – nad on tulevased magnaadid."
+    "description": "See saavutus antakse mängijatele, kes on teinud kokku <0>{{count}} sissemakset</0>. Stabiilse krediidi vooga ja järjepideva pühendumusega on nad näidanud, et nad ei ole lihtsalt mängijad - nad on tulevased hiiglased."
   },
   "achievement_change_avatar": {
-    "name": "Muuda avatar",
-    "description": "See saavutus antakse mängijatele, kes isikupärastavad oma profiili, muutes avatari. Julge samm eristumiseks ja oma identiteedi omaksvõtmiseks mängus."
+    "name": "Muuda avatari",
+    "description": "See saavutus antakse mängijatele, kes isikupärastavad oma profiili, muutes oma avatari. Julge samm, et silma paista ja omada oma identiteeti mängus."
   },
   "achievement_set_username": {
-    "name": "Määra kasutajanimi",
-    "description": "Oled võtnud oma nime – nüüd algab legend. See saavutus austab neid, kes loovad oma ruumi ja teevad selle ametlikuks."
+    "name": "Seadista kasutajanimi",
+    "description": "Sa oled nõudnud oma nime - nüüd legend algab. See saavutus austab neid, kes loovad oma ruumi ja teevad selle ametlikuks."
   },
   "achievement_download_mobile_app": {
     "name": "Laadi alla mobiilirakendus",
-    "description": "See märk antakse mängijatele, kes on võtnud mängu kaasa. Rakenduse allalaadimine näitab, et sa ei tee pause – sa mängid igal ajal ja igal pool."
+    "description": "See märk antakse mängijatele, kes on mängu endaga kaasa võtnud. Rakenduse allalaadimine näitab, et sa ei ole siin, et peatuda - sa oled siin, et mängida igal ajal, igal pool."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Maksimaalne panus ühes mängus päevas",
-    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> ühes mängus ühe päeva jooksul. See tunnustab vankumatut keskendumist, läbimõeldud strateegiat ja julgust võtta suuri riske. Need eliitmängijad on oma valitud mängu meisterdanud – ja nad mängivad võidu nimel."
+    "name": "Max panus ühes mängus päevas",
+    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> ühes mängus päevas. See tunnustab neid, kellel on järjepidev fookus, arvutatud strateegia ja julgus võtta julgeid riske. Need eliitmängijad on valdanud oma valitud mängu - ja nad mängivad võidu nimel."
   },
   "achievement_slots_win_count": {
-    "name": "Slotimängude võitude arv",
-    "description": "See saavutus antakse mängijatele, kes on saavutanud <0>{{count}} võitu</0> slotimängudes. Iga keerutusega trotsivad nad tõenäosust ja tähistavad võitu võidu järel. Õnn võib mängu alustada – kuid järjepidevus teeb neist võitjad."
+    "name": "Slotivõitude arv",
+    "description": "See saavutus antakse mängijatele, kes on saavutanud <0>{{count}} võitu</0> slotimängudes. Iga keerutusega nad ületavad tõenäosusi ja tähistavad võitu võidu järel. Õnn võib mängu alustada - kuid järjepidevus teeb neist meistri."
   },
   "achievement_slots_multiplier": {
-    "name": "Slotimängude kordaja",
-    "description": "See saavutus antakse mängijatele, kes on saavutanud ühe slotikeerutusega <0>võidu kordajaga {{count}}x või rohkem</0>. See austab neid, kes jahtivad suurust, võtavad omaks kõrge riski põnevuse ja saavad erakordseid auhindu. Nad pole tavalised mängijad – nad valitsevad rullikuid ja tõusevad teistest kõrgemale."
+    "name": "Slotimultiplikator",
+    "description": "See saavutus antakse mängijatele, kes on saavutanud <0>võidu {{count}}x multiplikatoriga</0> või rohkem ühes slotikeerutuses. See austab neid, kes jahtivad suursugusust, omavad kõrge riski põnevust ja saavutavad erakordseid auhindu. Need ei ole tavalised mängijad - nad valitsevad rulle ja tõusevad ülejäänutest."
+  },
+  "achievement_champion": {
+    "name": "Meister",
+    "description": "See saavutus antakse mängijatele, kes on kindlustanud <0>10 võitu</0>. Meister seisab julgelt juhuslikkuse areenil, tõestades oma vastupidavust ring pärast ringi. Iga võiduga kindlustavad nad oma koha nende seas, kes tõusevad üle õnne, et saavutada au."
+  },
+  "achievement_slot_master": {
+    "name": "Slotimeister",
+    "description": "See saavutus antakse mängijatele, kes on panustanud vähemalt <0>{{amount}}</0> slotimängudele. Slotimeister keerutab usaldusväärselt ja järjekindlalt, muutes iga rulli võimaluseks õnnele. Stabiilsete käte ja kartmatu mänguga tõestavad nad, et tõeline meisterlikkus on üles ehitatud ühe keerutuse kaupa."
+  },
+  "achievement_the_challenger": {
+    "name": "Väljakutsuja",
+    "description": "See saavutus antakse mängijatele, kes on teinud vähemalt <0>10 kehtivat panust</0> oma mänguajaloos. Väljakutsuja tõuseb igale võimalusele, olles motiveeritud otsustavusest ja konkurentsi põnevusest. Julge ja vankumatu, nad tõestavad, et tõelised kandidaadid ei pelga mängu — nad astuvad ette, valmis oma piire katsetama ja oma kohta kartmatute seas nõudma."
+  },
+  "achievement_dynamo": {
+    "name": "Dünaamika",
+    "description": "See saavutus antakse mängijatele, kes on teinud <0>1 sissemakse</0> vähemalt <0>{{amount}}</0> ühe tehingu jooksul. Dünaamika muutub iga laadimisega tugevamaks, tõestades oma järjepidevust ja otsustavust meistriks saamise teel."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Õnne Nägu",
+    "description": "See saavutus antakse mängijatele, kes on esmakordselt kohandanud oma avatari. Õnne Nägu teab, et identiteet on jõud — iga stiili, sümboli või väljendivalik on individuaalsuse märk. Oma välimuse kujundamisega näitavad nad, et tõelised mängijad ei mängi lihtsalt mängu — nad jätavad sellele oma jälje."
+  },
+  "achievement_name_of_fame": {
+    "name": "Kuulsuse Nimi",
+    "description": "See saavutus antakse mängijatele, kes on esmakordselt seadnud oma kasutajanime. Kuulsuse Nimi tähistab tõelise identiteedi algust, muutes uustulnuka tunnustatud kohalolekuks. Julge ja ainulaadne, nad tõestavad, et iga legend algab meeldejäävast nimest."
+  },
+  "achievement_guiding_star": {
+    "name": "Juhatav Täht",
+    "description": "See saavutus antakse mängijatele, kes on mängu lisanud oma Avalehele või rakenduse alla laadinud. Juhatav Täht hoiab tee õnne poole selgena, valgustades teed tagasi mängu ühe puudutusega."
+  },
+  "achievement_highroller": {
+    "name": "Suurepanustaja",
+    "description": "See saavutus antakse mängijatele, kes on panustanud kokku vähemalt <0>{{amount}}</0> kogu oma mänguajaloos. Suurepanustajad kannavad pühendumise ja prestiiži märki, tõestades oma pühendumust mängule iga keerutuse, panuse ja ringiga. Nende kroon ei ole lihtsalt sümbol — see on tõestus järjepidevusest, kirest ja õnne otsimisest."
+  },
+  "achievement_inferno": {
+    "name": "Põrgu",
+    "description": "See saavutus antakse mängijatele, kes on saanud <0>20x</0> kordaja mõnes slotis. Tulede leegid põlevad, Põrgu muudab ühe panuse õnnetormiks."
+  },
+  "achievement_money_maverick": {
+    "name": "Raha Mäster",
+    "description": "See saavutus antakse mängijatele, kes on teinud vähemalt <0>{{amount}}</0> ühe tehingu jooksul, kasutades fiat või kohalikke maksekanaleid. Raha Mäster loob oma rada julge enesekindlusega, muutes igapäeva raha erakordseteks võimalusteks. Kartmatu ja seiklushimu, nad tõestavad, et tõelised mästrid ei järgi lihtsalt reegleid — nad määratlevad need ümber."
+  },
+  "achievement_money_master": {
+    "name": "Raha Meister",
+    "description": "See saavutus antakse mängijatele, kes on teinud fiat väljamakse vähemalt <0>{{amount}}</0> ühe tehingu jooksul. Raha Meister seisab mängu ja auhinna ristteel, muutes oma võidud reaalseks väärtuseks. Stabiilsete käte ja terava ajastusega näitavad nad, et tõeline meisterlikkus ei ole ainult mängus — see on auhindade koju toomises."
+  },
+  "achievement_crypto_bro": {
+    "name": "Krüpto Vend",
+    "description": "See saavutus antakse mängijatele, kes on teinud vähemalt <0>{{amount}}</0> ühe tehingu jooksul, kasutades mis tahes krüptovaluutat. Krüpto Maestro juhib oma vahendeid nagu tõeline kunstnik, orkestreerides digitaalseid varasid täpsuse ja stiiliga. Kindel plokiahela laval, nad on mängu pioneerid, kes tõestavad, et õnn soosib julgeid."
+  },
+  "achievement_crypto_baron": {
+    "name": "Krüpto Baron",
+    "description": "See saavutus antakse mängijatele, kes on teinud krüpto väljamakse vähemalt <0>{{amount}}</0> ühe tehingu jooksul, kasutades mis tahes krüptovaluutat. Plokiahela Baron valitseb digitaalse varade valdkonda, liigutades vahendeid üle ahela enesekindlalt ja kindlalt. Iga eduka väljamaksega tõestavad nad, et õnne saab teenida, kindlustada ja koju viia plokiahelas."
+  },
+  "achievement_chain_shifter": {
+    "name": "Ahela Muutja",
+    "description": "See saavutus antakse mängijatele, kes on edukalt lõpetanud <0>krüpto vahetustehingu</0>. Ahela Muutja on keegi, kes teab, kuidas tokenite vahel enesekindlalt liikuda, kohandudes turu vooludega kergelt. Liikumise meistrid, nad õitsevad paindlikkuses ja muutustes, olles alati valmis käike vahetama ja võimalusi haarama."
   },
   "item": {
-    "conquest_just_wager_on_100": "Vallutus: Panusta 100",
-    "conquest_just_wager_on_200": "Vallutus: Panusta 200",
-    "conquest_roulette_master": "Vallutus: Ruletti meister",
-    "conquest_blackjack_master": "Vallutus: Blackjacki meister",
-    "conquest_baccarat_master": "Vallutus: Baccarat’i meister",
-    "conquest_gameshow_master": "Vallutus: Mängushow meister",
-    "conquest_slots_master_10": "Vallutus: Slotimängude meister 10",
-    "conquest_gameshow_master_20": "Vallutus: Mängushow meister 20",
-    "conquest_roulette_master_30": "Vallutus: Ruletti meister 30",
-    "conquest_blackjack_master_40": "Vallutus: Blackjacki meister 40",
-    "conquest_baccarat_master_50": "Vallutus: Baccarat’i meister 50",
-    "conquest_big_win": "Vallutus: Suur võit",
-    "conquest_huge_win": "Vallutus: Tohutu võit",
-    "conquest_massive_win": "Vallutus: Massiivne võit",
-    "achievement_verify_email": "Saavutus E-posti kinnitamine",
-    "achievement_verify_phone": "Saavutus Telefoni kinnitamine",
-    "achievement_add_desktop_app": "Saavutus Töölaua rakenduse lisamine",
-    "achievement_super_spreader": "Saavutus Superlevitaja",
-    "achievement_conquistador": "Saavutus Vallutaja",
-    "achievement_game_explorer": "Saavutus Mängude uurija",
+    "conquest_just_wager_on_100": "Vallutus lihtsalt panusta 100",
+    "conquest_just_wager_on_200": "Vallutus lihtsalt panusta 200",
+    "conquest_roulette_master": "Vallutus ruletti meister",
+    "conquest_blackjack_master": "Vallutus blackjacki meister",
+    "conquest_baccarat_master": "Vallutus bakara meister",
+    "conquest_gameshow_master": "Vallutus mängusaate meister",
+    "conquest_slots_master_10": "Vallutus slotimeister 10",
+    "conquest_gameshow_master_20": "Vallutus mängusaate meister 20",
+    "conquest_roulette_master_30": "Vallutus ruletti meister 30",
+    "conquest_blackjack_master_40": "Vallutus blackjacki meister 40",
+    "conquest_baccarat_master_50": "Vallutus bakara meister 50",
+    "conquest_big_win": "Vallutus suur võit",
+    "conquest_huge_win": "Vallutus hiiglaslik võit",
+    "conquest_massive_win": "Vallutus massiivne võit",
+    "achievement_verify_email": "Saavutus Kinnita e-post",
+    "achievement_verify_phone": "Saavutus Kinnita telefon",
+    "achievement_add_desktop_app": "Saavutus Lisa algusesse",
+    "achievement_super_spreader": "Saavutus Super levitaja",
+    "achievement_conquistador": "Saavutus Conquistador",
+    "achievement_game_explorer": "Saavutus Mängu uurija",
     "achievement_card_shark": "Saavutus Kaardihai",
-    "achievement_slotmaster": "Saavutus Mänguautomaatide meister",
-    "achievement_talkative": "Saavutus Jutukas",
+    "achievement_slotmaster": "Saavutus Slotimeister",
+    "achievement_talkative": "Saavutus Räägime",
     "achievement_bet_count": "Saavutus Panuste arv",
     "achievement_deposit_count": "Saavutus Sissemaksete arv",
-    "achievement_change_avatar": "Saavutus Avatarimuutus",
-    "achievement_set_username": "Saavutus Kasutajanime määramine",
-    "achievement_download_mobile_app": "Saavutus Mobiilirakenduse allalaadimine",
-    "achievement_wager_in_a_day_single_game": "Saavutus Panus ühel päeval ühes mängus",
-    "achievement_slots_win_count": "Saavutus Võitude arv mänguautomaatides",
-    "achievement_slots_multiplier": "Saavutus Mänguautomaatide kordistaja",
-    "level_up": "Taseme tõus",
+    "achievement_change_avatar": "Saavutus Muuda avatari",
+    "achievement_set_username": "Saavutus Seadista kasutajanimi",
+    "achievement_download_mobile_app": "Saavutus Laadi alla mobiilirakendus",
+    "achievement_wager_in_a_day_single_game": "Saavutus Max panus ühes mängus päevas",
+    "achievement_slots_win_count": "Saavutus Slotivõitude arv",
+    "achievement_slots_multiplier": "Saavutus Slotimultiplikator",
+    "level_up": "Tase üles",
     "rakeback": "Rakeback",
-    "cashback": "Raha tagasi",
+    "cashback": "Cashback",
     "group": "Komisjon",
     "referral": "Soovitus",
     "tournament": "Turniir",
-    "conquest_extra_reward": "Vallutuse lisaauhind",
+    "conquest_extra_reward": "Vallutus lisaboonus",
     "bonus": "Boonus",
-    "bonus_manual": "Manuaalne boonus",
-    "vip_bonus_lucky_number_seven": "VIP boonus õnnenumber seitse",
+    "bonus_manual": "Käsitsi boonus",
+    "vip_bonus_lucky_number_seven": "VIP boonus Õnnenumber seitse",
     "rakeback_bonus": "Rakeback boonus",
     "group_bonus": "Grupi boonus",
     "level_up_bonus": "Taseme tõusu boonus",
     "refer_bonus": "Soovituse boonus",
     "tournament_bonus": "Turniiri boonus",
-    "vip_bonus_mystery_box": "VIP Boonuse Müsteeriumikarp"
+    "vip_bonus_mystery_box": "VIP boonus Saladuslik kast"
   },
   "achievements_description": "Avatakse VIP {{vip}} juures, need auhinnad tähistavad teie verstaposte põnevate üllatustega teel!",
   "lucky_number_seven_description": "Tabage Õnnelik {{number}} ja teenige iga päev magus boonus!",
-"mystery_box_description": "Ava oma saladuse kast kord kuus üllatuspreemiate saamiseks!",
+  "mystery_box_description": "Ava oma saladuse kast kord kuus üllatuspreemiate saamiseks!",
+  "mystery_box_description2": "Saavuta VIP {{vip}} ja saa igakuiselt 7. kuupäeval Mystery Box!",
   "mystery_box": "Salapärane kast",
   "the_cannon_description": "Kuu auhind, mis on nii võimas, et selle tõeline olemus jääb rangelt saladuseks.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Kontrolli e-posti",
-    "achievement_verify_phone": "Kontrolli telefoni",
-    "achievement_add_desktop_app": "Lisa lauaarvuti rakendus",
-    "achievement_super_spreader": "Superlevitaja",
-    "achievement_conquistador": "Vallutaja",
-    "achievement_game_explorer": "Mängude avastaja"
+    "achievement_verify_email": "Kinnita e-post",
+    "achievement_verify_phone": "Kinnita telefon",
+    "achievement_add_desktop_app": "Lisa algusesse",
+    "achievement_super_spreader": "Super levitaja",
+    "achievement_conquistador": "Conquistador",
+    "achievement_game_explorer": "Mängu uurija"
   },
   "you_win": "Sa võidad",
   "mystery": "Müsteerium",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Preemiad arvutatakse ja krediteeritakse BUCK/USDT-s ning kuvatakse seejärel teie eelistatud fiat-valuutas reaalajas vahetuskursside alusel mugavuse huvides. Pange tähele, et kõik konverteerimised on ligikaudsed kuni vahetustehingu lõpuleviimiseni.",
   "general_terms_answer_2": "Kasiinol on õigus igal ajal õigusi muuta või tühistada ilma kohustuseta põhjendusi esitada. Kõik kuritarvitused või petturlik tegevus viib kampaaniast diskvalifitseerimiseni.",
   "available": "Saadaval",
-"refresh_in": "Värskendatakse pärast",
-  "deposit_bonus_pool": "Sissemakseboonuste Kogum"
+  "refresh_in": "Värskendatakse pärast",
+  "deposit_bonus_pool": "Sissemakseboonuste Kogum",
+  "dashboard": "Armatuurlaud",
+  "bonuses": "Boonused",
+  "vip_program": "VIP Programm",
+  "bonusHub": {
+    "root": "Boonuste keskus",
+    "resetOn": "Nulli {{time}}",
+    "ongoing": "{{count}} Käimasolevat",
+    "accrualIn": "Kogumine {{time}}",
+    "nextReleaseIn": "Järgmine vabastamine {{time}}"
+  },
+  "freeSpins": "Tasuta Spinnid",
+  "freeSpinsBonusDetails": "Tasuta spinnide boonused annavad sulle lisamängu valitud slotimängudes. Nõutud summa panustamine avab sinu tasuta spinnide võidud, mis kantakse seejärel koheselt sinu kontole.",
+  "freeSpinsClaimDistributionDescription1": "Tasuta spinnide võidud kantakse sinu kontole, kui panustamisnõue on täidetud ja sa klõpsad 'Nõua'.",
+  "freeSpinsClaimDistributionDescription2": "Jälgi oma edusamme igal ajal oma Boonuste Paneelis või Tasuta Spinnide Ajaloo osas.",
+  "freeSpinsExpirationDescription1": "Tasuta spinnid tuleb kasutada kehtivuse perioodi jooksul, mis on näidatud Tasuta Spinnide paneelis. Kasutamata spinnid aeguvad pärast seda perioodi.",
+  "freeSpinsExpirationDescription2": "Tasuta spinnide võidud ei aegu enne, kui need on avatud ja nõutud.",
+  "freeSpinsGeneralTermsDescription1": "Tasuta spinnide auhinnad arvutatakse ja kantakse BUCK-is, seejärel kuvatakse sinu eelistatud fiat valuutas mugavuse huvides. Palun pange tähele, et valuutavahetused on ligikaudsed.",
+  "freeSpinsGeneralTermsDescription2": "Kasiinol on õigus muuta või tühistada sobivust igal ajal, ilma kohustuseta õigustada. Iga kuritarvitamine või petturlik tegevus toob kaasa kampaaniast diskvalifitseerimise.",
+  "the_collector": "Koguja",
+  "collector_description": "Sobivad Auhinnad, Ühe Klõpsuga",
+  "claim_all": "Nõua Kõik",
+  "claimConfirmation": "Nõudmise Kinnitus",
+  "readyToClaim": "Valmis Nõudmiseks",
+  "selectClaimType": "Vali allpool oma nõudmise tüüp",
+  "claimableAmount": "Nõutav Summa",
+  "normalClaim": "Tavaline Nõudmine",
+  "normalClaimDesc": "Saa oma standardne auhinnasumma",
+  "doubleClaim": "Topelt Nõudmine",
+  "doubleClaimDesc": "Riskige 2x auhinna nimel!",
+  "doubleClaimInfo": "Topelt Nõudmise Valik",
+  "doubleClaimRisk": "Kõrgem risk, kõrgem auhind - võid võita kahekordselt või kaotada kõik!",
+  "claimModal": {
+    "title": "Kahekordne või mitte midagi",
+    "primaryDescription": "Nõua oma boonust nagu tavaliselt...",
+    "secondaryDescription": "Või astu julge samm <highlight>KAHEKORDISTA SEE!</highlight>",
+    "doubleAction": "Kahekordne või mitte midagi",
+    "comingSoon": "Kahekordne või mitte midagi funktsioon tuleb varsti!",
+    "approximateBuck": "Umbes {{amount}} DOLLAR"
+  },
+  "vip_monday": "VIP Esmaspäev",
+  "vip_monday_description": "Eriline iganädalane langus, et premeerida lojaalseid mängijaid igal esmaspäeval",
+  "vip_monday_wager": "Panusta vähemalt {{amount}} eelneva 7 päeva jooksul, et saada igal esmaspäeval saladuslik langus.",
+  "claim_on_monday": "Nõua esmaspäeval",
+  "vip_monday_title": "VIP \n <0>ESMASPÄEV</0>",
+  "bonus_already_claimed": "Boonus on juba nõutud",
+  "wager_requirement_not_met": "Panuse nõue ei ole täidetud",
+  "not_in_claim_time_range": "Ei ole nõudmise ajavahemikus",
+  "monday": "Esmaspäev",
+  "poolBalance": "Fondide saldo",
+  "program": "Programm",
+  "races": "Võistlused",
+  "loading_achievements": "Saavutuste laadimine...",
+  "no_achievements_available": "Saavutusi ei ole saadaval",
+  "check_back_later_for_new_achievements": "Vaata hiljem uusi saavutusi"
 }

@@ -141,7 +141,8 @@ export const FreeSpinGameSelection = ({
                         }`}
                         onClick={() => handleGameClick(item, itemIndex, index)}
                       >
-                          <GameImage 
+                          <GameImage
+                            data={item}
                             game={{
                               game_provider: item.game_provider,
                               image: item.image,
@@ -225,7 +226,8 @@ export const FreeSpinGameSelection = ({
                     }`}
                     onClick={() => handleGameClick(item, index, -1)}
                   >
-                      <GameImage 
+                      <GameImage
+                        data={item}
                         game={{
                           game_provider: item.game_provider,
                           image: item.image,

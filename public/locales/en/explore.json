@@ -1,12 +1,13 @@
 {
-  "**********": "********************此处开始新增翻译start********************",
+  "handball": "Handball",
+  "formula1": "Formula 1",
+  "sportsLive": "Live",
   "football": "Football",
   "tennis": "Tennis",
   "baseball": "Baseball",
   "iceHockey": "Ice Hockey",
   "basketball": "Basketball",
   "volleyball": "Volleyball",
-  "**********": "********************此处开始新增翻译end********************",
   "hot": "Hot",
   "all": "All",
   "recents": "Recents",
@@ -67,5 +68,6 @@
   "jackpot": "Jackpot",
   "live-casino": "Live Casino",
   "sports": "Sports",
-  "lotteries": "Lotteries"
+  "lotteries": "Lotteries",
+  "gamesYouShouldTry": "Games You Should Try"
 }

@@ -1,38 +1,38 @@
 {
   "faqOne": {
     "title": "Was sind Level-Up-Boni?",
-    "content": "<p class=\"leading-7\">Der Level-Up-Bonus ist unsere Art, treuen Spielerinnen und Spielern, die von Anfang an dabei sind, unsere Anerkennung zu zeigen. Wenn du in der VIP-Stufe aufsteigst, schaltest du höhere Level-Up-Belohnungen frei.</p>"
+    "content": "<p class=\"leading-7\">Der Level-Up-Bonus ist unsere Art, loyalen Spielern, die seit Beginn bei uns sind, Wertschätzung zu zeigen. Wenn Spieler die VIP-Stufen aufsteigen, schalten sie höhere Level-Up-Belohnungen frei.</p>"
   },
   "faqTwo": {
-    "title": "Was ist Daily Cashback?",
-    "content": "<p class=\"leading-7\">Tägliches Cashback wird an Spieler vergeben, die mit ihrem Einzahlungsbetrag Verluste erlitten haben. Dieser Bonus wird täglich als Prozentsatz des Verlustbetrags des Spielers ausgegeben. Der tägliche Cashback-Prozentsatz steigt mit deinem VIP-Level, bis zu einem Maximum von 40% Cashback, dem höchsten Cashback überhaupt. Bitte beachte, dass dieser Bonus nur für Spieler gilt, die einen Nettoverlust haben.</p>"
+    "title": "Was ist das tägliche Cashback?",
+    "content": "<p class=\"leading-7\">Tägliches Cashback wird Spielern gewährt, die Verluste im Vergleich zu ihrem Einzahlungsbetrag erlitten haben. Dieser Bonus wird täglich als Prozentsatz des Verlustbetrags des Spielers ausgezahlt. Der tägliche Cashback-Prozentsatz steigt mit Ihren VIP-Stufen, bis zu maximal 40% Cashback, dem höchsten Cashback überhaupt. Bitte beachten Sie, dass dieser Bonus nur für Spieler gilt, die sich in einer Nettoverlustposition befinden.</p>"
   },
   "faqThree": {
     "title": "Was sind Eroberungen/Quests?",
-    "content": "<p class=\"leading-7\">Eroberungen sind tägliche Aufgaben, die den Spielern zufällig zugeteilt werden, damit sie beim Spielen auf unserer Website zusätzliche Belohnungen verdienen können. Eroberungs-Belohnungen müssen innerhalb von 24 Stunden vor dem nächsten Zyklus eingefordert werden und verfallen, wenn sie nicht eingefordert werden. Eroberungs-Belohnungen werden in BUCK/USDT ausgezahlt und können über unsere Swap-Funktion in die Kryptowährung deiner Wahl umgewandelt werden.</p>"
+    "content": "<p class=\"leading-7\">Eroberungen sind tägliche Quests, die zufällig an Spieler vergeben werden, damit sie zusätzliche Belohnungen beim Spielen auf unserer Website verdienen können. Eroberungsbelohnungen müssen innerhalb von 24 Stunden vor dem nächsten Zyklus beansprucht werden und verfallen, wenn sie nicht beansprucht werden. Eroberungsbelohnungen werden in BUCK/USDT ausgezahlt und können über unsere Swap-Funktion in Ihre bevorzugte Kryptowährung umgewandelt werden.</p>"
   },
   "faqFour": {
     "title": "Was sind Turnierbelohnungen?",
-    "content": "<p class=\"leading-7\">Turnierprämien sind Preise, die für herausragende Leistungen in Wettbewerben vergeben werden. Turnierprämien sammeln sich an, bis sie eingefordert werden und haben kein Verfallsdatum. Die Turnierprämien werden in BUCK/USDT ausgezahlt und können über unsere Swap-Funktion in die Kryptowährung deiner Wahl umgewandelt werden.</p>"
+    "content": "<p class=\"leading-7\">Turnierbelohnungen sind Preise, die für herausragende Leistungen in Wettbewerben vergeben werden. Turnierbelohnungen sammeln sich an, bis sie beansprucht werden, und haben kein Ablaufdatum. Turnierbelohnungen werden in BUCK/USDT ausgezahlt und können über unsere Swap-Funktion in Ihre bevorzugte Kryptowährung umgewandelt werden.</p>"
   },
   "faqFive": {
     "title": "Was ist Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback ist unser Mechanismus zum Freischalten deiner Einzahlungsboni. Jedes Mal, wenn du eine Wette platzierst, bekommst du einen Prozentsatz deines Einsatzes (bis zu 3 %) zurück. Je höher dein VIP-Level, desto höher ist die Freischaltrate. Freigegebene BUCK/USDT= Einsatz x 2,5% x Freischaltquote%</p><p class=\"leading-7\">Freischaltrate:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">Super Rakeback ist unser Mechanismus zur Freischaltung Ihrer Einzahlungsboni. Ein Prozentsatz Ihres Einsatzes (bis zu 3%) wird Ihnen jedes Mal zurückgegeben, wenn Sie eine Wette platzieren. Je höher Ihr VIP-Level, desto höher der Freischaltprozentsatz. Freigeschaltete BUCK/USDT = Einsatz x 2,5% x Freischaltquote%</p><p class=\"leading-7\">Freischaltquote:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "Was ist ein Booster?",
-    "content": "<p class=\"leading-7\">Booster verdoppeln dein Rakeback für eine Stunde, wenn ein geworbener Spieler eine Einzahlung tätigt.</p><p class=\"leading-7\">Erhöhte Freischaltrate:</p><p class=\"leading-7\">Freischaltrate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Booster verdoppeln Ihren Rakeback für eine Stunde, jedes Mal, wenn eine Empfehlung eine Einzahlung tätigt.</p><p class=\"leading-7\">Erhöhter Freischaltprozentsatz:</p><p class=\"leading-7\">Freischaltquote:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Was ist der Bonuskalender?",
-    "content": "<p class=\"leading-7\">Die meisten Boni werden zu 50% auf dein echtes Guthaben und zu 50% auf deinen Bonuskalender ausgezahlt. Die Boni in deinem Bonuskalender können alle 8 Stunden eingefordert werden und verfallen nach 24 Stunden, wenn sie nicht eingefordert werden. Denke daran, die Boni in deinem Bonuskalender mindestens einmal am Tag einzufordern, um sicherzustellen, dass du alle deine Prämien erhältst!</p>"
+    "content": "<p class=\"leading-7\">Die meisten Boni werden zu 50% Ihrem Echtgeldguthaben und zu 50% Ihrem Bonuskalender gutgeschrieben. Boni, die Ihrem Bonuskalender gutgeschrieben werden, können alle 8 Stunden beansprucht werden und verfallen nach 24 Stunden, wenn sie nicht beansprucht werden. Denken Sie daran, die Boni in Ihrem Bonuskalender mindestens einmal täglich zu beanspruchen, um sicherzustellen, dass alle Ihre Belohnungen gesammelt werden!</p>"
   },
   "faqEight": {
     "title": "Was ist der wöchentliche Bonus?",
-    "content": "<p class=\"leading-7\">Der wöchentliche Bonus ist eine exklusive Vergünstigung auf unserer Website, die für Spieler ab VIP12 gedacht ist. Dieser Bonus wird wöchentlich vergeben und automatisch jeden Freitag an Spieler mit VIP12 und höher ausgezahlt. Die Höhe des Bonus hängt von den Einsätzen der vergangenen Woche ab, wobei ein Mindesteinsatz von {{minWager}} in der vergangenen Woche erforderlich ist.</p>"
+    "content": "<p class=\"leading-7\">Der wöchentliche Bonus ist ein exklusives Privileg auf unserer Website, das für Spieler ab VIP12 gedacht ist. Dieser Bonus wird wöchentlich ausgegeben und automatisch jeden Freitag an Spieler ab VIP12 ausgezahlt. Die Höhe des Bonus hängt von der Höhe des Einsatzes in der vergangenen Woche ab, mit einer Mindestanforderung von {{minWager}} in der vergangenen Woche.</p>"
   },
   "faqNine": {
-    "title": "Was sind Achievements?",
-    "content": "<p class=\"leading-7\">Erfolge sind unsere Art, deine Aktivitäten auf unserer Plattform zu würdigen. Wenn du deinen Erfolgsbonus einforderst, wird er in deinem Bonuskalender gutgeschrieben. Er kann alle 8 Stunden eingefordert werden und verfällt nach 24 Stunden, wenn er nicht eingefordert wird.</p>"
+    "title": "Was sind Erfolge?",
+    "content": "<p class=\"leading-7\">Erfolge sind unsere Art, Ihre Aktivität auf unserer Plattform anzuerkennen. Wenn Sie Ihren Erfolgsbonus beanspruchen, wird er Ihrem Bonuskalender gutgeschrieben und kann alle 8 Stunden beansprucht werden und verfällt nach 24 Stunden, wenn er nicht beansprucht wird.</p>"
   }
 }

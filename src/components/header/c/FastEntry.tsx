@@ -14,7 +14,7 @@ export function FastEntry() {
         isLoading
           ? <div className="skeleton bg-base-200 h-8 w-8 rounded-lg md:w-10 md:h-10" />
           : (<div
-            className="flex justify-center bg-base-200 h-8 w-8 md:h-10 md:w-10 rounded-lg cursor-pointer"
+            className="flex justify-center bg-base-200 h-8 w-8 md:h-10 md:w-10 rounded-lg cursor-pointer p-1"
             onClick={() => navigate({ to: "/profile" })}
           >
             <img

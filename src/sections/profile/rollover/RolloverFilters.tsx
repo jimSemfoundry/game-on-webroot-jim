@@ -32,7 +32,7 @@ export function RolloverFilters({
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-3">
       <div className="flex flex-col gap-2">
         <label className="text-xs sm:text-sm font-medium text-base-content/50">
           {t("transaction:filters.type", "Type")}

@@ -129,13 +129,8 @@
     "withdrawalNetwork": "Withdrawal Network",
     "blockchainWaiting": "Waiting for blockchain confirmation.",
     "blockchainFailed": "Blockchain transaction failed.",
-    "withdrawProcessingHint": "This process may take up to 1 hours.",
-    "updateAt": "Update at",
-    "swapFrom": "Swap From",
-    "rate": "Rate",
-    "createdOn": "Created On",
     "**********": "********************此处开始新增翻译start********************",
-    "withdrawOrderStatus": "We've received your request.<br/>To view the status, check Transactions in your Profile.",
+    "withdrawOrderStatus": "We’ve received your request.<br/>To view the status, check Transactions in your Profile.",
     "**********": "********************此处开始新增翻译end********************"
   },
   "betHistory": {

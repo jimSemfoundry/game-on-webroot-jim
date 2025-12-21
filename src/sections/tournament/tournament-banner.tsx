@@ -17,6 +17,7 @@ export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: 
 
   const mapTournamentToCard = (item: ITournament): TournamentCardData => {
     const provider = (item.game_provider || "").toLowerCase();
+    const userInfo = (item.user_info || {}) as any;
 
     let titleHighlight: string | undefined;
     let title: string = item.name || t("tournament:tournaments", "TOURNAMENTS");
@@ -45,9 +46,11 @@ export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: 
       titleHighlight,
       title,
       endTime: new Date((item.end_time || 0) * 1000),
-      prizePool: (item.user_info as any)?.prize ?? 0,
+      prizePool: Number(userInfo?.prize ?? 0),
       image,
       provider: item.game_provider,
+      tournamentId: userInfo?.tournament_id ?? (item as any).id,
+      tournamentLevel: userInfo?.tournament_level ?? "bronze",
     };
   };
 
@@ -79,17 +82,6 @@ export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: 
     }
   }, [selectedIndex, carousel.mainApi]);
 
-  if (tournaments.length === 0) {
-    return (
-      <div className="h-[300px] bg-base-300 rounded-2xl flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-2xl font-bold mb-2">No Tournaments</div>
-          <div className="text-base-content/70">No active tournaments available</div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="relative">
       <Carousel carousel={carousel} className="w-full">
@@ -100,6 +92,7 @@ export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: 
               key={cardData.id}
               data={cardData}
               onClick={() => onIndexChange(index)}
+              className="rounded-t-2xl rounded-b-none"
             />
           );
         })}

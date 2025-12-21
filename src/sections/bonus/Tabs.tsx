@@ -3,6 +3,8 @@ import { Tabs as TabsComponent } from "@/components/ui/Tabs";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { BonusAchievementsModal } from "./achievements";
+import { useAuth } from "@/contexts/AuthContext";
+import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
 
 interface BonusTabsProps {
   value: string;
@@ -13,8 +15,11 @@ interface BonusTabsProps {
 export function Tabs({ value, onChange, className }: BonusTabsProps) {
   const { t } = useTranslation();
   const [showAchievements, setShowAchievements] = useState(false);
+  const { isAuthenticated } = useAuth();
 
-  const tabs = [
+  const { switchData } = useBonusSwitch();
+
+  const allTabs = [
     {
       value: "dashboard",
       label: (
@@ -33,7 +38,10 @@ export function Tabs({ value, onChange, className }: BonusTabsProps) {
         </div>
       ),
     },
-  ];
+  ].filter((x) => switchData?.bonus_switch?.achievement === 0 ? x?.value !== 'achievements' : true);
+
+  // 根据登录状态过滤 tabs - 未登录时隐藏 achievements
+  const tabs = isAuthenticated ? allTabs : allTabs.filter(tab => tab.value !== "achievements");
 
   // Handle tab click - dashboard changes content, others open modals
   const handleTabClick = (tabValue: string) => {

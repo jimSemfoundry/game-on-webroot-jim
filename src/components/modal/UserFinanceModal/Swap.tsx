@@ -10,9 +10,16 @@ import { ArrowDownUpIcon } from "lucide-react";
 import { ReactNode, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
+import {
+  open_debug,
+  useAvailableBalance,
+  useSwapCurrencySelectedFirstTime
+} from "@/components/modal/UserFinanceModal/helper.ts";
 
-export const Swap = () => {
+export const Swap = ({ open }: { open: boolean }) => {
+  // initial default selected option
+  useSwapCurrencySelectedFirstTime();
+
   const { t } = useTranslation();
 
   const { swapFrom, swapTo, setSwapFrom } = useBoundStore();
@@ -30,6 +37,16 @@ export const Swap = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
+    if (open_debug) {
+      console.info("Swap Order Data");
+      console.info({
+        to_currency: swapTo.currency?.currency,
+        from_amount: swapFrom.inAmount,
+        from_currency: swapFrom.currency?.currency
+      });
+      return;
+    }
+
     set(true);
 
     try {
@@ -39,7 +56,11 @@ export const Swap = () => {
         from_currency: swapFrom.currency?.currency
       });
 
-      if (data?.code !== 0) return set(false);
+      if (data?.code !== 0) {
+        toast.error(t("toast:failedToCreateSwapOrder"));
+        set(false);
+        return;
+      }
 
       setSwapFrom({ inAmount: "" });
 
@@ -65,7 +86,7 @@ export const Swap = () => {
     <div className="flex flex-col gap-4 mt-4">
       <div className="flex flex-col">
         {/* You send */}
-        <SwapSend available={available} loading={userBalanceLoading || userBalanceExtensionLoading} />
+        <SwapSend open={open} available={available} loading={userBalanceLoading || userBalanceExtensionLoading} />
 
         <ExchangeIcon />
 
@@ -73,7 +94,7 @@ export const Swap = () => {
         <SwapReceive />
       </div>
 
-      {/* 交易按钮状态 */}
+      {/* 交易按钮状态 - 可交易 */}
       <MessageBox
         show={new Decimal(Number(swapFrom.inAmount)).gt(0) && new Decimal(available).gte(Number(swapFrom.inAmount))}>
         <ConfirmBox onClick={createOrder} loading={loading}>
@@ -81,12 +102,14 @@ export const Swap = () => {
         </ConfirmBox>
       </MessageBox>
 
+      {/* 交易按钮状态 - 余额不足 */}
       <MessageBox show={new Decimal(available).lt(Number(swapFrom.inAmount))}>
         <ConfirmBox disabled>
           <span className="text-base-content/50">{t("finance:insufficient_balance")}</span>
         </ConfirmBox>
       </MessageBox>
 
+      {/* 交易按钮状态 - 未输入 */}
       <MessageBox show={new Decimal(Number(swapFrom.inAmount)).lte(0)}>
         <ConfirmBox disabled>
           <span className="text-base-content/50">{t("finance:enter_amount")}</span>

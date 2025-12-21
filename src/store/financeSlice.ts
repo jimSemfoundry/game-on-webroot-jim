@@ -14,18 +14,34 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
   },
   setDepositFiat: (params) =>
     set((state) => {
-      return {
-        depositFiat: {
-          ...state.depositFiat,
-          ...params,
-          formItem:
-            params.currency || params.method
-              ? null
-              : params.formItem
-                ? { ...state.depositFiat.formItem, ...params.formItem }
-                : state.depositFiat.formItem
-        }
+      const nextFormItem = (params.currency || params.method)
+        ? null
+        : { ...state.depositFiat.formItem, ...params.formItem };
+
+      const nextDepositFiat = {
+        ...state.depositFiat,
+        ...params,
+        formItem: nextFormItem
       };
+
+      const prev = state.depositFiat;
+      const sameFormItem = (() => {
+        if (prev.formItem === nextFormItem) return true;
+        if (!prev.formItem || !nextFormItem) return false;
+        const prevKeys = Object.keys(prev.formItem);
+        const nextKeys = Object.keys(nextFormItem);
+        if (prevKeys.length !== nextKeys.length) return false;
+        for (const k of prevKeys) {
+          if (prev.formItem[k] !== nextFormItem[k]) return false;
+        }
+        return true;
+      })();
+
+      if (prev.method === nextDepositFiat.method && prev.currency === nextDepositFiat.currency && sameFormItem) {
+        return state;
+      }
+
+      return { depositFiat: nextDepositFiat };
     }),
 
   // deposit crypto
@@ -53,9 +69,7 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
         formItem:
           params.currency || params.method
             ? null
-            : params.formItem
-              ? { ...state.withdrawFiat.formItem, ...params.formItem }
-              : state.withdrawFiat.formItem
+            : { ...state.withdrawFiat.formItem, ...params.formItem }
       }
     })),
 
@@ -66,18 +80,18 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     formItem: null
   },
   setWithdrawFiatV2: (params) =>
-    set((state) => ({
-      withdrawFiatV2: {
-        ...state.withdrawFiatV2,
-        ...params,
-        formItem:
-          params.method
-            ? null
-            : params.formItem
-              ? { ...state.withdrawFiatV2.formItem, ...params.formItem }
-              : state.withdrawFiatV2.formItem
-      }
-    })),
+    set((state) => {
+      return ({
+        withdrawFiatV2: {
+          ...state.withdrawFiatV2,
+          ...params,
+          formItem:
+            params.method
+              ? null
+              : { ...state.withdrawFiatV2.formItem, ...params.formItem }
+        }
+      });
+    }),
 
   // withdraw fiat
   withdrawCrypto: {
@@ -87,15 +101,19 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     toWallet: "",
     inputAmount: ""
   },
-  setWithdrawCrypto: (params) =>
-    set((state) => ({
-      withdrawCrypto: {
-        ...state.withdrawCrypto,
-        ...params,
-        comment: params.currency || params.network ? "" : params.comment || state.withdrawCrypto.comment,
-        inputAmount: params.currency || params.network ? "" : params.inputAmount || state.withdrawCrypto.inputAmount
-      }
-    })),
+  setWithdrawCrypto: (params) => {
+    set((state) => {
+      const effect = (params.currency || params.network)
+        ? { ...params, comment: "", inputAmount: "" }
+        : { ...state.withdrawCrypto, ...params };
+      return ({
+        withdrawCrypto: {
+          ...state.withdrawCrypto,
+          ...effect
+        }
+      });
+    });
+  },
 
   // swap send
   swapFrom: { currency: null, inAmount: "" },

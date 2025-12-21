@@ -82,7 +82,12 @@ export type TActions =
   | "OPEN_CHANGE_PASSWORD_MODAL"
   | "OPEN_SET_WITHDRAWAL_PIN_MODAL"
   | "OPEN_EMAIL_VERIFICATION_MODAL"
-  | "OPEN_PHONE_VERIFICATION_MODAL";
+  | "OPEN_PHONE_VERIFICATION_MODAL"
+  | "OPEN_WELCOME_SIGN_UP_MODAL"
+  | "OPEN_BONUS_CLAIM_RESPONSE_MODAL"
+  | "OPEN_EXTRA_REFERRAL_BONUS_MODAL"
+  | "OPEN_DOUBLE_OR_NOTHING_MODAL"
+  | "CLOSE_FINANCE_MODAL";
 
 export type TPublicProfileKeys =
   | "HideAllProfileInfo"
@@ -102,4 +107,14 @@ export interface IPublicProfileSlice {
   setPublicProfile: (params: Partial<IPublicProfileKeys>) => void;
 }
 
-export type Store = IFinanceSlice;
+export interface ISettingSlice {
+  gameIsFullScreen: boolean;
+  setGameIsFullScreen: (isFullScreen: boolean) => void;
+}
+
+export interface IHeaderSlice {
+  headerBackAction: (() => void) | null;
+  setHeaderBackAction: (action: (() => void) | null) => void;
+}
+
+export type Store = IFinanceSlice & ISettingSlice & IHeaderSlice;

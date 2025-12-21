@@ -30,6 +30,7 @@ export interface AdTag {
   register_count: number;
   is_default: boolean;
   created_at: number;
+  share_to_referee: string;
 }
 
 export interface AdTagListResponse {
@@ -45,6 +46,19 @@ export interface CreateAdTagParams {
   share?: string;
 }
 
+export interface SetDefaultAdTagParams {
+  id: string;
+  campaign: string;
+  code: string;
+  is_default?: boolean;
+  share?: string;
+}
+
+export interface SetDefaultAdTagResponse {
+  code: number;
+  data: AdTag;
+  msg?: string;
+}
 export interface CommissionRecord {
   id: string;
   down_line: string;
@@ -103,3 +117,73 @@ export interface ReferralRewardsListResponse {
   last_page: number;
   msg?: string;
 }
+
+export type IReferralDetail = {
+  id: number;
+  up_line: number;
+  down_line: number;
+  down_line_username: string;
+  reward: string;
+  down_line_level_before: number;
+  down_line_level_after: number;
+  created_at: number;
+  updated_at: number;
+  referral_code: string;
+  type: string;
+  refer_type: string;
+  level_reward: string;
+  group_reward: string;
+  regitration_date: number;
+  vip_level: number;
+  username: string;
+};
+
+export type ICommissionDetail = {
+  referral_code: string;
+  referral_type: string;
+  regitration_date: number;
+  rewards_unlocked: string;
+  username: string;
+  vip_level: number;
+  id: number;
+};
+
+export type IReferralRewardsDetail = {
+  referral_code: string;
+  referral_type: string;
+  regitration_date: number;
+  rewards_unlocked: string;
+  username: string;
+  vip_level: number;
+  id: number;
+};
+
+export interface GlobalCommissionRecord {
+  id: string;
+  up_line: number;
+  down_line: number;
+  down_line_username: string;
+  created_at: number;
+  reward: string;
+  refer_type: "direct" | "indirect";
+  game_type_2: string;
+  f1: string;
+  f2: string;
+  f3: string;
+  f4: string;
+  f5: string;
+  f6: string;
+  f7: string;
+  f8: string;
+  f9: string;
+  f10: string;
+  updated_at: number;
+  version: number;
+}
+
+export interface GlobalCommissionsResponse {
+  code: number;
+  data: GlobalCommissionRecord[];
+  msg: string;
+}
+ 

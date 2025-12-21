@@ -36,3 +36,5 @@ export const WithdrawMinAmountModal = () => {
     </Modal>
   );
 };
+
+export default WithdrawMinAmountModal;

@@ -43,6 +43,7 @@ interface SelectProps {
   renderValue?: (option: SelectOption) => ReactNode;
   emptyMessage?: string;
   maxHeight?: string;
+  showCheckIcon?: boolean;
 }
 
 const variantClasses: Record<
@@ -182,6 +183,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       renderValue,
       emptyMessage = "No options available",
       maxHeight = "max-h-60",
+      showCheckIcon = true,
     },
     ref,
   ) => {
@@ -314,9 +316,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
       return (
         <div className="flex items-center flex-1">
-          {option.icon && <span className="flex-shrink-0">{option.icon}</span>}
+          {option.icon && <span className="shrink-0">{option.icon}</span>}
           <span className="flex-1">{option.label}</span>
-          {value === option.value && <Check className={cn("flex-shrink-0 ml-auto rtl:mr-auto", sizeStyles.icon)} />}
+          {value === option.value && showCheckIcon && <Check className={cn("shrink-0 ml-auto rtl:mr-auto", sizeStyles.icon)} />}
         </div>
       );
     };
@@ -331,7 +333,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
 
       return (
         <div className="flex items-center gap-2">
-          {selectedOption.icon && <span className="flex-shrink-0">{selectedOption.icon}</span>}
+          {selectedOption.icon && <span className="shrink-0">{selectedOption.icon}</span>}
           <span className={cn("flex-1 truncate", sizeStyles.text)}>{selectedOption.label}</span>
         </div>
       );
@@ -359,7 +361,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           aria-label={selectedOption ? `Selected: ${selectedOption.label}` : placeholder}
         >
           <div className={cn("flex items-center gap-2 flex-1 min-w-0 text-base-content", sizeStyles.text)}>
-            {icon && <span className="flex-shrink-0">{icon}</span>}
+            {icon && <span className="shrink-0">{icon}</span>}
             <div className="flex-1 text-left rtl:text-right truncate">
               {loading ? (
                 <div className="flex items-center gap-2">

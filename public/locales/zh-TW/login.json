@@ -13,7 +13,6 @@
   "userAgreementConfirm": "我同意用戶協議並確認已年滿18歲",
   "marketingPromotions": "我同意接收來自 {{siteName}} 的促銷資訊",
   "phoneNumberAlreadyRegistered": "該手機號碼已被註冊",
-  "emailAlreadyRegistered": "電子郵件已註冊",
   "pleaseLoginToContinue": "請登入以繼續",
   "telegramLoginFailed": "Telegram 登錄失敗",
   "resetPassword": "重設密碼",
@@ -25,5 +24,24 @@
   "pleaseCheckYourUsername": "如果您提供了在我們系統中註冊的有效電子郵件或手機號碼，您的一次性密碼（OTP）已發送。",
   "passwordsDoNotMatch": "密碼不匹配",
   "passwordTooShort": "密碼必須至少包含6個字符",
-  "passwordResetSuccess": "密碼重設成功"
+  "passwordResetSuccess": "密碼重設成功",
+  "**********": "",
+  "signInModal": {
+    "promoTitle1": "特別的\n驚喜\n在等待著。",
+    "promoTitle2": "快點！"
+  },
+  "signUpModal": {
+    "promoTitle1": "歡迎\n獎勵高達",
+    "promoTitle2": "1200% 存款\n獎金"
+  },
+  "secureSignIn": "安全登入",
+  "secureSignUp": "安全註冊",
+  "or": "或",
+  "forgotPasswordDescription": "輸入您的詳細信息。如果我們找到匹配的帳戶，我們將發送重置代碼給您。",
+  "recoverPassword": "找回密碼",
+  "dontReceiveCode": "沒有收到代碼？",
+  "resend": "重新發送",
+  "orLoginDirectlyWith": "或直接使用以下方式登入",
+  "needAnAccountSignUp": "需要帳戶？註冊",
+  "alreadyHaveAnAccount": "已經有帳戶？登入"
 }

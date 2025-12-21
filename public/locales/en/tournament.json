@@ -1,32 +1,9 @@
 {
-  "explore": "EXPLORE",
-  "tournamentsAndRaces": "TOURNAMENTS",
-  "andRaces": "AND RACES",
-  "enterTheArena": "Enter the Arena",
-  "arenaDescription1": "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here.",
-  "arenaDescription2": "Check back often, stack the perks, and never miss a chance to cash in.",
-  "arenaDescription3": "Your next big win could be one click away.",
-  "beginnersLuck": {
-    "highlight": "BEGINNER'S",
-    "title": "LUCK"
-  },
-  "liveCasino": {
-    "highlight": "LIVE CASINO",
-    "title": "SHOWDOWN"
-  },
-  "pragmatic": {
-    "highlight": "PRAGMATIC",
-    "title": "CHALLENGE"
-  },
-  "pgSoft": {
-    "highlight": "PG SOFT",
-    "title": "RACES"
-  },
-  "jiliSlots": {
-    "highlight": "JILI SLOTS",
-    "title": "MEGA BONANZA"
-  },
+  "enterTheArena":"Enter the Arena",
   "endingIn": "ENDING IN",
+  "enterTheArenaDescription1": "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here.",
+  "enterTheArenaDescription2": "Check back often, stack the perks, and never miss a chance to cash in.",
+  "enterTheArenaDescription3": "Your next big win could be one click away.",
   "day": "day",
   "hours": "hours",
   "minutes": "minutes",

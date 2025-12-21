@@ -1,6 +1,5 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
   import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { authService } from "@/services/authService.ts";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
@@ -12,7 +11,7 @@ import { toast } from "sonner";
 import { InnerImg } from "@/sections/profile/security/ChangePassword.tsx";
 import { ChevronLeft } from "lucide-react";
 import VerificationInput from "react-verification-input";
-import Countdown from "@/sections/profile/security/Countdown.tsx";
+import  Countdown from "@/sections/profile/security/Countdown.tsx";
 import dayjs from "dayjs";
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import { PhoneAreaCodeSelect } from "@/sections/profile/security/PhoneAreaCodeSelect.tsx";
@@ -21,6 +20,7 @@ import { Country } from "react-phone-number-input";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
 import { getCountryCallingCode } from "react-phone-number-input/min";
 import { useQueryClient } from "@tanstack/react-query";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -210,7 +210,7 @@ export const PhoneVerificationModal = () => {
           {/* confirm */}
           <ConfirmBox disabled={!status.phone || phone_format_error} onClick={sendCode}
                       loading={status.send_code_loading}>
-            Continue
+            {t('common:common.continue')}
           </ConfirmBox>
         </div>
       </DisplayContent>
@@ -257,7 +257,7 @@ export const PhoneVerificationModal = () => {
           {/* confirm */}
           <ConfirmBox disabled={!status.phone || !status.opt_code || phone_opt_code_error} onClick={bindPhone}
                       loading={status.bind_phone_loading}>
-            Continue
+            {t('common:common.continue')}
           </ConfirmBox>
 
           {/* 验证码发送倒计时 */}

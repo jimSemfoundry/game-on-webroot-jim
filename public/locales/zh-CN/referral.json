@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "全球",
+    "ratesAndRules": "费率与规则",
+    "campaigns": "活动",
+    "myReferrals": "我的推荐",
+    "commissions": "佣金",
+    "rewards": "奖励"
+  },
+  "commissionCalculator": "佣金计算器",
   "telegramReferralLink": "Telegram推荐链接",
   "network": "推荐网络",
   "lifetimeReferralRewards": "终身推荐奖励",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "可用的推荐奖励",
   "lockedRewards": "锁定奖励",
   "assembleYourCrewCashIn": "召集你的团队并套现！",
+  "assembleYourCrewCashInDescription1": "招募你的团队，每个朋友赚取 {{amount}} - 就像抢劫，但没有FBI追捕。而且，你还可以从他们的投注中赚取高达 {{percentage}} 的佣金。最棒的是？随着你升级，你的佣金比例也会增长，你甚至可以从你团队的推荐中获利！",
+  "assembleYourCrewCashInDescription2": "你的网络越大，你的分成就越丰厚。无论他们是赢、输还是疯狂投注，你都能不断积累现金。是时候建立你的帝国了 - 现在就开始招募吧！",
+  "quickShare": "快速分享",
   "referralRewards": "推荐奖励",
   "commissionRewards": "佣金奖励",
   "aboutDescription": "招募你的团队，每位好友可获得 {{amount}} 的奖励——就像一场抢劫，但无需担心追捕。此外，还能从他们的投注中赚取高达 50% 的佣金。最棒的是？随着你的等级提升，佣金率也会增长，你甚至还能从团队的新成员中赚取佣金！\n\n你的网络越大，收益越丰厚。无论他们赢、输，还是疯狂下注，你都能不断赚取更多现金。是时候建立你的帝国了——现在就开始招募吧！",
@@ -16,6 +28,7 @@
   "shareViaSocials": "通过社交媒体分享",
   "referralTermsConditions": "推荐条款和条件",
   "liveGlobalRewards": "实时全球奖励",
+  "liveGlobalCommissions": "实时全球佣金",
   "username": "用户名",
   "friendLevel": "朋友的级别",
   "totalExp": "总 EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "我的推荐",
   "more": "更多",
   "faqOne": {
-    "title": "推荐系统如何运作？",
-    "content": "<p class=\"leading-7\">当您与朋友分享您的推荐链接并且他们在我们网站注册时，他们将成为您的推荐人，您将通过他们在{{gameLink}}联盟的游戏获得佣金和推荐奖励。</p>"
+    "title": "推荐系统是如何运作的？",
+    "content": "<p class=\"leading-7\">当您与朋友分享您的推荐链接并且他们在我们的网站注册时；他们将成为您的推荐，并通过在 {{gameLink}} 联盟中玩游戏为您赚取佣金和推荐奖励。</p>"
   },
   "faqTwo": {
-    "title": "我可以从我的推荐中获得多少收入？",
-    "content": "<p class=\"leading-7\">您可以从他们的投注活动中赚取{{percentage}} 作为佣金 +{{amount}} 每位被推荐人。</p>"
+    "title": "我可以从我的推荐中赚多少钱？",
+    "content": "<p class=\"leading-7\">您可以赚取他们投注活动的 {{percentage}} 作为佣金 + 每个推荐 {{amount}}。</p>"
   },
   "faqThree": {
-    "title": "什么是 {{amount}} 美元奖励，如何运作？",
-    "content": "<p class=\"leading-7\">您为{{gameLink}}带来的每一位推荐人都可获得{{amount}}美元奖励。随着您的推荐等级从{{level}}提升，该奖励将分{{parts}}次发放。</p>"
+    "title": "什么是 {{amount}} 美元奖励，它是如何运作的？",
+    "content": "<p class=\"leading-7\">每个您带到 {{gameLink}} 的推荐都有 {{amount}} 美元的奖励。这个美元奖励分为 {{parts}} 部分，随着您的推荐等级从 {{level}} 提升而发放。</p>"
   },
   "faqFour": {
-    "title": "我有很多观众。我怎样才能获得特别优惠？",
-    "content": "<p class=\"leading-7\">如果您拥有访问量良好的网站或拥有大量观众的社交媒体账号，您可以通过{{emailLink}}给我们发送电子邮件。</p>"
+    "title": "我有一个庞大的受众。我该如何获得特别优惠？",
+    "content": "<p class=\"leading-7\">如果您有一个流量良好的网站或一个拥有大量受众的社交媒体账户，您可以通过电子邮件联系我们 {{emailLink}}</p>"
   },
   "faqFive": {
     "title": "如果我有不同的网站/社交媒体账户，我可以创建多少个联盟链接？",
-    "content": "<p class=\"leading-7\">您可以为不同的流量来源创建多达{{codes}} 个独特的代码</p>"
+    "content": "<p class=\"leading-7\">您可以为不同的流量来源创建最多 {{codes}} 个唯一代码。</p>"
   },
   "faqSix": {
-    "title": "我可以查看被推荐人的数据吗？",
-    "content": "<p class=\"leading-7\">是的，透明度、信任和公平是{{gameLink}}的核心价值观。用户名、总投注额和获得的佣金等数据均可在“我的佣金”和“推荐奖励”标签中查看。</p>"
+    "title": "我可以查看我的推荐数据吗？",
+    "content": "<p class=\"leading-7\">是的，透明度、信任和公平是 {{gameLink}} 的核心价值观。用户名、总投注和赚取的佣金等数据都可以在 \"我的佣金\" 和 \"推荐奖励\" 标签中查看。</p>"
   },
   "faqSeven": {
-    "title": "我可以与我的推荐人分享佣金奖励吗？",
-    "content": "<p class=\"leading-7\">是的，您可以通过点击 \"创建新活动 \"并在 \"活动 \"选项卡下设置佣金分成，与您的推荐人分享佣金奖励。</p>"
+    "title": "我可以与我的推荐分享佣金奖励吗？",
+    "content": "<p class=\"leading-7\">是的，您可以通过点击 \"创建新活动\" 并在 \"活动\" 标签下设置佣金分配来与您的推荐分享佣金奖励。</p>"
   },
   "faqEight": {
-    "title": "什么是间接推荐，我可以从他们那里赚取什么？",
-    "content": "<p class=\"leading-7\">间接推荐是指通过您的直接推荐人的邀请链接进来的活跃玩家。如果您的 VIP 等级高于直接推荐人的 VIP 等级，您也可以从间接推荐人那里赚取佣金。</p>"
+    "title": "什么是间接推荐，我可以从中赚取什么？",
+    "content": "<p class=\"leading-7\">间接推荐是通过您直接推荐的邀请链接进入的活跃玩家。如果您的 VIP 等级高于您直接推荐的 VIP 等级，您也可以从您的间接推荐中赚取佣金。</p>"
   },
   "levelReward": "升级奖励",
   "groupReward": "佣金奖励",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "为了简化示例，我们假设黄色标记的朋友正在积极投注，虚线旁的绿色百分比表示您从他们每个人获得的佣金。",
   "referralCommissionsIndirectDescription": "为了简化示例，我们假设紫色标记的朋友正在积极投注。虚线旁的百分比表示推荐链中每个成员获得的佣金。\n\n右侧我们可以看到推荐链中发生断开的示例。",
   "referralCodeMinLength": "推荐码至少需要6个字符",
-    "vipLevel": "VIP等级",
+  "vipLevel": "VIP等级",
   "earned": "已赚取",
   "directfriend": "直接朋友",
   "fast": "快速",
   "slots": "老虎机",
   "live-casino": "现场赌场",
   "fishing": "钓鱼",
-  "rewardsUnlocked": "奖励已解锁"
+  "rewardsUnlocked": "奖励已解锁",
+  "selectGame": "选择游戏",
+  "selectVipLevel": "选择VIP等级",
+  "myReferralCommissions": "我的推荐佣金",
+  "myReferralRewards": "我的推荐奖励",
+  "exp": "经验值",
+  "userLevel": "用户等级"
 }

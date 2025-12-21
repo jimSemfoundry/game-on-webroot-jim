@@ -39,10 +39,10 @@
   "addFailed": "Hozzáadás sikertelen",
   "addDesktopAppSuccessfully": "Asztali alkalmazás hozzáadása sikeres",
   "addDesktopAppFailed": "Asztali alkalmazás hozzáadása sikertelen",
-    "onlyTmaApp": "Ez a teljesítmény csak a Telegram mini alkalmazásban érhető el.",
-    "youArleadyHaveAPendingWithdrawalOrder": "Már van egy függőben lévő kifizetési kérelmed",
-    "pinError": "PIN-hiba",
-    "failedToObtainNotificationMessage": "Értesítési üzenet lekérése sikertelen",
+  "onlyTmaApp": "Ez a teljesítmény csak a Telegram mini alkalmazásban érhető el.",
+  "youArleadyHaveAPendingWithdrawalOrder": "Már van egy függőben lévő kifizetési kérelmed",
+  "pinError": "PIN-hiba",
+  "failedToObtainNotificationMessage": "Értesítési üzenet lekérése sikertelen",
   "incorrectAddressDataLength": "Helytelen címadat hosszúság",
-  "captchaFailed": "A captcha sikertelen"  
+  "captchaFailed": "A captcha sikertelen"
 }

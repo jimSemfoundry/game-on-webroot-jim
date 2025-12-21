@@ -1,20 +1,18 @@
-import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext.tsx";
 import Copy from "@/components/ui/Copy.tsx";
 import { Share2 } from "lucide-react";
-import { useDefaultAdTag } from "@/hooks/api/useAuth.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import Iconify from "@/components/iconify";
 import { Card } from "@/sections/profile/c/Card.tsx";
+import { useReferralLink } from "@/hooks/useReferralLink.ts";
 
 export function ReferralProgram() {
   const { t } = useTranslation();
+
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
-  const { data: ad, isLoading: l1 } = useDefaultAdTag();
-
-  const referralLink = useMemo(() => ad?.data?.code ? `${location.origin}?startapp=${ad?.data?.code}` : "", [ad]);
+  const { referralLink, adTagDataLoading } = useReferralLink();
 
   return (
     <Card title={t("common.referralProgram")} icon={<Iconify icon='custom:profile-referral-program' className='text-primary' />}
@@ -35,7 +33,7 @@ export function ReferralProgram() {
         <div className="flex items-center gap-4 md:flex-col">
           <img src="/icons/isometric/29.png" className="h-12 w-12" alt="" />
           <div className="flex flex-col gap-1 items-center">
-            <p className="text-sm font-bold">Invite and Get Rewarded</p>
+            <p className="text-sm font-bold">{t("profile:inviteAndGetRewarded")}</p>
             <p className="text-primary/80 text-xs font-semibold">
               {t("common.upToAmountCommission", {
                 amount: formatWithConversion(1200, "USDT", { showSymbol: true, showCode: false }).formatted,
@@ -45,7 +43,7 @@ export function ReferralProgram() {
           </div>
         </div>
         <SmallLoading
-          loading={l1}
+          loading={adTagDataLoading}
           className="bg-base-400 !rounded-md h-8"
           content={<div className="flex gap-1 items-center">
             <p className="flex-1 truncate bg-base-200 rounded-md p-2 text-xs text-base-content/50 font-semibold md:max-w-50">{referralLink}</p>

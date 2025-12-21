@@ -9,7 +9,7 @@ type PasswordInputProps = {
 
 export const PasswordInput = ({ value, onChange }: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false)
-  const { t } = useTranslation('auth')
+  const { t } = useTranslation()
 
   const handleShowPassword = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()

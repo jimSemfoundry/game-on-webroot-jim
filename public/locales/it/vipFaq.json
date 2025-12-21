@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Cosa sono i Bonus di Aumento di Livello?",
-    "content": "<p class=\"leading-7\">Il bonus di aumento di livello è il nostro modo di mostrare apprezzamento per i giocatori fedeli che sono con noi fin dall’inizio. Man mano che i giocatori avanzano nei livelli VIP, sbloccano premi di livello superiore.</p>"
+    "title": "Cosa sono i Bonus di Livello?",
+    "content": "<p class=\"leading-7\">Il bonus di livello è il nostro modo di mostrare apprezzamento per i giocatori fedeli che sono con noi fin dall'inizio. Man mano che i giocatori avanzano nei livelli VIP, sbloccano ricompense di livello superiore.</p>"
   },
   "faqTwo": {
-    "title": "Cos’è il Cashback Giornaliero?",
-    "content": "<p class=\"leading-7\">Il Cashback giornaliero viene assegnato ai giocatori che hanno subito perdite rispetto al loro deposito. Il bonus è erogato quotidianamente come percentuale delle perdite del giocatore. La percentuale di cashback giornaliero aumenta con il tuo livello VIP, fino a un massimo del 40% di cashback, il più alto disponibile. Nota che questo bonus è riservato ai giocatori in posizione di perdita netta.</p>"
+    "title": "Cos'è il Cashback Giornaliero?",
+    "content": "<p class=\"leading-7\">Il Cashback Giornaliero sarà assegnato ai giocatori che hanno subito perdite rispetto all'importo del loro deposito. Questo bonus viene emesso quotidianamente come una percentuale dell'importo delle perdite del giocatore. La percentuale di cashback giornaliero aumenterà con i tuoi livelli VIP, fino a un massimo del 40% di cashback, il cashback più alto in assoluto. Si prega di notare che questo bonus è riservato solo ai giocatori che si trovano in una posizione di perdita netta.</p>"
   },
   "faqThree": {
-    "title": "Cosa sono Conquiste/Missioni?",
-    "content": "<p class=\"leading-7\">Le conquiste sono missioni giornaliere assegnate casualmente ai giocatori per guadagnare premi extra giocando sul nostro sito. Le ricompense delle conquiste devono essere reclamate entro 24 ore prima del ciclo successivo e scadono se non reclamate. Le ricompense delle conquiste sono pagate in BUCK/USDT e possono essere convertite nella criptovaluta di tua scelta tramite la nostra funzione di scambio.</p>"
+    "title": "Cosa sono le Conquiste/Quest?",
+    "content": "<p class=\"leading-7\">Le conquiste sono quest giornaliere assegnate casualmente ai giocatori per guadagnare ricompense extra mentre giocano sul nostro sito web. Le Ricompense delle Conquiste devono essere richieste entro 24 ore prima del ciclo successivo e scadranno se non richieste. Le ricompense delle conquiste vengono pagate in BUCK/USDT e possono essere convertite nella tua criptovaluta preferita tramite la nostra funzione di scambio.</p>"
   },
   "faqFour": {
-    "title": "Cosa sono i Premi del Torneo?",
-    "content": "<p class=\"leading-7\">I Premi del Torneo sono premi assegnati per prestazioni eccezionali nelle competizioni. I premi dei tornei si accumulano fino a quando non vengono reclamati e non hanno una data di scadenza. I premi dei tornei sono pagati in BUCK/USDT e possono essere convertiti nella criptovaluta di tua scelta tramite la nostra funzione di scambio.</p>"
+    "title": "Cosa sono le Ricompense dei Tornei?",
+    "content": "<p class=\"leading-7\">Le Ricompense dei Tornei sono premi assegnati per prestazioni eccezionali nelle competizioni. Le Ricompense dei Tornei si accumuleranno fino a quando non verranno richieste e non hanno una data di scadenza. Le ricompense dei tornei vengono pagate in BUCK/USDT e possono essere convertite nella tua criptovaluta preferita tramite la nostra funzione di scambio.</p>"
   },
   "faqFive": {
-    "title": "Cos’è il Super Rimborso?",
-    "content": "<p class=\"leading-7\">Il Super Rimborso è il nostro meccanismo per sbloccare i bonus di deposito. Una percentuale della tua scommessa (fino al 3%) ti viene restituita ogni volta che effettui una scommessa. Più alto è il tuo livello VIP, più alto è il tasso di sblocco. BUCK/USDT sbloccato = Scommessa x 2,5% x Tasso di sblocco%</p><p class=\"leading-7\">Tasso di Sblocco:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "title": "Cos'è il Super Rakeback?",
+    "content": "<p class=\"leading-7\">Il Super Rakeback è il nostro meccanismo per sbloccare i tuoi bonus di deposito. Una percentuale della tua scommessa (fino al 3%) ti viene restituita ogni volta che piazzi una scommessa. Più alto è il tuo livello VIP, maggiore sarà il tasso di sblocco. BUCK/USDT sbloccati = Scommessa x 2,5% x Tasso di sblocco%</p><p class=\"leading-7\">Tasso di Sblocco:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Cos’è un Booster?",
-    "content": "<p class=\"leading-7\">I Booster raddoppiano il tuo Rimborso per un’ora ogni volta che una segnalazione effettua un deposito.</p><p class=\"leading-7\">Tasso di Sblocco Potenziato:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "title": "Cos'è un Booster?",
+    "content": "<p class=\"leading-7\">I Booster raddoppiano il tuo Rakeback per un'ora ogni volta che un referral effettua un deposito.</p><p class=\"leading-7\">Tasso di Sblocco Potenziato:</p><p class=\"leading-7\">Tasso di Sblocco:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Cos’è il Calendario dei Bonus?",
-    "content": "<p class=\"leading-7\">La maggior parte dei bonus viene pagata al 50% sul tuo Saldo Reale e al 50% sul tuo Calendario dei Bonus. I bonus versati nel tuo Calendario dei Bonus possono essere reclamati ogni 8 ore e scadono dopo 24 ore se non reclamati. Ricorda di reclamare i bonus del tuo Calendario dei Bonus almeno una volta al giorno per assicurarti che tutti i tuoi premi siano reclamati!</p>"
+    "title": "Cos'è il Calendario dei Bonus?",
+    "content": "<p class=\"leading-7\">La maggior parte dei bonus viene pagata al 50% sul tuo Saldo Reale e al 50% sul tuo Calendario dei Bonus. I bonus pagati al tuo Calendario dei Bonus possono essere richiesti ogni 8 ore e scadono in 24 ore se non richiesti. Ricorda di richiedere i bonus nel tuo Calendario dei Bonus almeno una volta al giorno per assicurarti di raccogliere tutte le tue ricompense!</p>"
   },
   "faqEight": {
-    "title": "Cos’è il Bonus Settimanale?",
-    "content": "<p class=\"leading-7\">Il Bonus Settimanale è un vantaggio esclusivo del nostro sito progettato per i giocatori a partire da VIP 12. Il bonus viene emesso settimanalmente e pagato automaticamente ogni venerdì ai giocatori di livello VIP 12 e superiore. L’entità del bonus dipende dall’importo scommesso nella settimana precedente, con un requisito minimo di scommessa di {{minWager}} nella settimana precedente.</p>"
+    "title": "Cos'è il Bonus Settimanale?",
+    "content": "<p class=\"leading-7\">Il Bonus Settimanale è un vantaggio esclusivo sul nostro sito web progettato per i giocatori che sono VIP12 e oltre. Questo bonus viene emesso settimanalmente e pagato automaticamente ogni venerdì ai giocatori di VIP12 e superiori. L'importo del bonus dipende dall'importo scommesso nell'ultima settimana, con un requisito di scommessa minima di {{minWager}} nell'ultima settimana.</p>"
   },
   "faqNine": {
-    "title": "Cosa sono i Traguardi?",
-    "content": "<p class=\"leading-7\">I traguardi sono il nostro modo di riconoscere la tua attività sulla nostra piattaforma. Quando reclami il tuo bonus per i traguardi, questo viene versato sul tuo Calendario dei Bonus e può essere reclamato ogni 8 ore, ma scade dopo 24 ore se non viene reclamato.</p>"
+    "title": "Cosa sono i Risultati?",
+    "content": "<p class=\"leading-7\">I Risultati sono il nostro modo di riconoscere la tua attività sulla nostra piattaforma. Quando richiedi il tuo bonus di risultato, verrà pagato nel tuo Calendario dei Bonus e può essere richiesto ogni 8 ore e scadere in 24 ore se non richiesto.</p>"
   }
 }

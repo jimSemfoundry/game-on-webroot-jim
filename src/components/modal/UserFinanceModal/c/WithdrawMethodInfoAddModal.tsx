@@ -6,12 +6,9 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
-import { email_reg_exp } from "@/utils/regexp.ts";
-import { InputBox } from "@/components/modal/UserFinanceModal/c/InputBox.tsx";
-import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { WithdrawMethodSelectV2 } from "@/components/modal/UserFinanceModal/c/WithdrawMethodSelectV2.tsx";
 import {
+  open_debug,
   useSupportedFiatWithdrawGatewaysV2,
   useUserWithdrawFiatInfo
 } from "@/components/modal/UserFinanceModal/helper.ts";
@@ -24,6 +21,9 @@ import { NoData } from "@/components/modal/UserFinanceModal/c/NoData.tsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { useToggle } from "ahooks";
 import { cn } from "@/utils/cn.ts";
+import { handleBindOrHideFormItemDefaultValue } from "@/components/modal/UserFinanceModal/c/DepositFiatFormInit.tsx";
+import { FormBox, InnerFieldItem } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 type ErrorString = `${string}_error`;
 
@@ -49,7 +49,7 @@ export const WithdrawMethodInfoAddModal = () => {
   const [status, setStatus] = useState<ISelectedOption>(initSelected);
 
   // from data store, share common data
-  const { withdrawFiat, syncAction, setSyncAction, setWithdrawFiatV2 } = useBoundStore();
+  const { withdrawFiat, syncAction, setWithdrawFiatV2 } = useBoundStore();
 
   // 法币是否支持新版的提币操作
   const { data: gatewaysV2 } = useSupportedFiatWithdrawGatewaysV2(withdrawFiat.currency?.currency);
@@ -60,6 +60,17 @@ export const WithdrawMethodInfoAddModal = () => {
   // 添加提款快捷信息
   const submit = useCallback(() => {
     const final_params = params(status.provider, status.formItem);
+
+    if (open_debug) {
+      console.info("Withdraw Fiat Fast Data");
+      console.info({
+        ...final_params,
+        currency: withdrawFiat.currency?.currency,
+        channel_class: status.provider?.channel_class
+      });
+      return;
+    }
+
     setStatus((v) => ({ ...v, loading: true }));
     authService
       .addUserWithdrawInfo({
@@ -71,7 +82,7 @@ export const WithdrawMethodInfoAddModal = () => {
         if (res.code === 200) { // FIXME: 怎么又是 200 了，约定的应该都是 0 吧
           toast.success(t("toast:walletAddressAddedSuccessfully"));
           setWithdrawFiatV2({ method: status.provider });
-          setStatus(initSelected);
+          setStatus((v) => ({ ...v, showModal: false }));
           void refetch();
         } else {
           toast.error(t("toast:failedToAddAddress"));
@@ -86,44 +97,44 @@ export const WithdrawMethodInfoAddModal = () => {
       });
   }, [status]);
 
+  // 附加的隐藏的必要的字段，不在表单出现
+  useEffect(() => {
+    if (!status.provider?.params) return;
+
+    const transform = parser(status.provider?.params);
+    for (const key in transform) {
+      const field = transform[key];
+
+      if (field.bind || field.hide) {
+        const value = handleBindOrHideFormItemDefaultValue(field, status.provider);
+        setStatus((old) => ({
+          ...old,
+          formItem: { ...old.formItem, [key]: value || "" }
+        }));
+      }
+    }
+  }, [status.provider]);
+
   const formItem = useMemo(() => {
     if (!status.provider) return;
+
     const transform = parser(status.provider?.params);
+
+    // console.info("Withdraw Fiat V2 表单项");
+    // console.info(transform);
+
     let selectNode: React.ReactNode = null;
     let nodes: React.ReactNode[] = [];
     if (transform) {
       for (const key in transform) {
         const field = transform[key];
+
         if (field.hide || !field.required) continue;
+
         if (key === "amount") continue;
-        if (key === "account") {
-          if (field.label === "mobile_number") {
-            nodes.push(<InnerPhone
-              name={key}
-              field={field}
-              onChange={(v) => {
-                setStatus((old) => ({
-                  ...old,
-                  formItem: { ...old.formItem, account: v.value },
-                  account_error: v.account_error
-                }));
-              }} />);
-            continue;
-          }
-          if (field.label === "bank_account_number") {
-            nodes.push(<InnerAccount
-              name={key}
-              field={field}
-              onChange={(v) => {
-                setStatus((old) => ({
-                  ...old,
-                  formItem: { ...old.formItem, account: v.value },
-                  account_error: v.account_error
-                }));
-              }} />);
-            continue;
-          }
-          nodes.push(<InnerField
+
+        if (field.select && field.select.length > 0) {
+          selectNode = (<InnerOptions
             key={key}
             name={key}
             field={field}
@@ -133,40 +144,17 @@ export const WithdrawMethodInfoAddModal = () => {
                 formItem: { ...old.formItem, ...v }
               }));
             }} />);
-        }
-        if (field.label === "email") {
-          nodes.push(<InnerEmail
-            name={key}
-            field={field}
-            onChange={(v) => {
-              setStatus((old) => ({
-                ...old,
-                formItem: { ...old.formItem, email: v.value },
-                email_error: v.email_error
-              }));
-            }} />);
           continue;
         }
-        if (field.select && field.select.length > 0) {
-          selectNode = (<InnerOptions
-            name={key}
-            field={field}
-            onChange={(v) => {
-              setStatus((old) => ({
-                ...old,
-                formItem: { ...old.formItem, ...v }
-              }));
-            }} />);
-          continue;
-        }
-        nodes.push(<InnerField
+        nodes.push(<InnerFieldItem
           key={key}
           name={key}
           field={field}
           onChange={(v) => {
             setStatus((old) => ({
               ...old,
-              formItem: { ...old.formItem, ...v }
+              formItem: { ...old.formItem, [key]: v.value },
+              [`${key}_error`]: v[`${key}_error`]
             }));
           }} />);
       }
@@ -189,9 +177,8 @@ export const WithdrawMethodInfoAddModal = () => {
   useEffect(() => {
     if (syncAction.type === "OPEN_WITHDRAW_METHOD_ADD_MODAL") {
       setStatus((v) => ({ ...v, showModal: true }));
-      setSyncAction(undefined);
     }
-  }, [syncAction.type]);
+  }, [syncAction]);
 
   useEffect(() => {
     if (status.showModal && Array.isArray(gatewaysV2?.data)) setStatus((old) => ({
@@ -210,7 +197,7 @@ export const WithdrawMethodInfoAddModal = () => {
       isOpen={status.showModal}
       onClose={() => setStatus(initSelected)}
       position="modal-middle"
-      className="bg-base-400 md:max-w-[360px] shadow-lg hide-scrollbar"
+      className="bg-base-400 md:max-w-[400px] shadow-lg hide-scrollbar"
     >
       <div className="flex flex-col gap-4">
         <FormBox label={t("finance:withdrawCurrency")}>
@@ -220,6 +207,7 @@ export const WithdrawMethodInfoAddModal = () => {
           </div>
         </FormBox>
 
+        {/* 供应商选择 */}
         <WithdrawMethodSelectV2
           method={status.provider}
           setMethod={(v) => setStatus((old) => ({ ...old, ...v }))}
@@ -231,7 +219,7 @@ export const WithdrawMethodInfoAddModal = () => {
         {formItem}
 
         <p className="text-base-content/50 font-semibold leading-4 text-xs">
-          请确保在提交前所有提款详情均准确无误。因用户输入错误导致的交易不可撤销。
+          {t('finance:ensure_all_withdrawal')}
         </p>
 
         <ConfirmBox disabled={!status.formItem || error1 || !!error2} onClick={submit} loading={status.loading}>
@@ -239,125 +227,6 @@ export const WithdrawMethodInfoAddModal = () => {
         </ConfirmBox>
       </div>
     </Modal>
-  );
-};
-
-const InnerEmail = ({ name, field, onChange }: {
-  name: string, field: Record<string, any>
-  onChange: (email: {
-    value: string
-    email_error: boolean
-  }) => void
-}) => {
-  const { t } = useTranslation();
-
-  const [email, setEmail] = useState<{
-    value: string
-    email_error: boolean
-  }>({
-    value: "",
-    email_error: false
-  });
-
-  useEffect(() => {
-    onChange({ value: "", email_error: false });
-  }, []);
-
-  return (
-    <div key={name} onClick={(e) => e.stopPropagation()}>
-      <InputBox
-        type="text"
-        label={<RequireItem label={t(`finance:${field.label}`)} />}
-        value={email.value}
-        onChange={(e) => {
-          const base = {
-            value: e.target.value.trim(),
-            email_error: e.target.value.trim() !== "" && !email_reg_exp.test(e.target.value.trim())
-          };
-          setEmail((old) => ({ ...old, ...base }));
-          onChange(base);
-        }}
-        placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
-      />
-      <ErrorMessageBox
-        sample
-        show={email.value !== "" && email.email_error}
-        content={t("login:emailError")}
-      />
-    </div>
-  );
-};
-
-const InnerPhone = ({ name, field, onChange }: {
-  name: string, field: Record<string, any>
-  onChange: (account: {
-    value: string
-    account_error: boolean
-  }) => void
-}) => {
-  const { t } = useTranslation();
-
-  const [account, setAccount] = useState<{
-    value: string
-    account_error: boolean
-  }>({
-    value: "",
-    account_error: false
-  });
-
-  useEffect(() => {
-    onChange({ value: "", account_error: false });
-  }, []);
-
-  return (
-    <div key={name} onClick={(e) => e.stopPropagation()}>
-      <InputBox
-        type="text"
-        label={<RequireItem label={t(`finance:${field.label}`)} />}
-        value={account.value}
-        onChange={(e) => {
-          const base = {
-            value: e.target.value,
-            account_error: e.target.value.trim() !== "" && !new RegExp(`^\\d{${field.min_length ?? 1},${field.max_length ?? 20}}$`).test(e.target.value.trim())
-          };
-          setAccount((old) => ({ ...old, ...base }));
-          onChange(base);
-        }}
-        placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
-      />
-      <ErrorMessageBox
-        sample
-        show={account.value !== "" && account.account_error}
-        content={`请输入${field.min_length === field.max_length ? field.max_length : `${field.min_length} - ${field.max_length}`}位手机号码`}
-      />
-    </div>
-  );
-};
-
-const InnerField = ({ name, field, onChange }: {
-  name: string, field: Record<string, any>
-  onChange: (v: Record<string, any>) => void
-}) => {
-  const { t } = useTranslation();
-
-  const [value, setValue] = useState<string>("");
-
-  useEffect(() => {
-    onChange({ [name]: "" });
-  }, []);
-
-  return (
-    <InputBox
-      key={name}
-      type={field.type}
-      label={<RequireItem label={t(`finance:${field.label}`)} />}
-      value={value}
-      onChange={(e) => {
-        setValue(e.target.value.trim());
-        onChange({ [name]: e.target.value.trim() });
-      }}
-      placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
-    />
   );
 };
 
@@ -372,11 +241,11 @@ const InnerOptions = ({ name, field, onChange }: {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<{
-    value: string,
+    option: Record<string, any> | null,
     search: string,
   }>({
     search: "",
-    value: ""
+    option: null
   });
 
   const [show, { set }] = useToggle<boolean>(false);
@@ -410,10 +279,12 @@ const InnerOptions = ({ name, field, onChange }: {
               "md:text-xs font-bold flex items-center justify-between",
               "cursor-pointer rounded-md p-2 select-none",
               "hover:bg-base-200 active:bg-base-200",
-              o.value === status.value ? "bg-base-200" : ""
+              o.value === status.option?.value ? "bg-base-200" : ""
             )}
             onClick={() => {
-              setStatus((v) => ({ ...v, value: o.value, search: "" }));
+              emitter.emit(name, o.value);
+              setStatus((v) => ({ ...v, option: o, search: "" }));
+              onChange({ [name]: o.value });
               set(false);
             }}
           >
@@ -422,11 +293,12 @@ const InnerOptions = ({ name, field, onChange }: {
         ))}
       </div>
     );
-  }, [memoFilteredOptions, status.value]);
+  }, [memoFilteredOptions, status.option]);
 
   useEffect(() => {
     onChange({ [name]: memoOptions[0].value });
-    setStatus((old) => ({...old, value: memoOptions[0].value}));
+    setStatus((old) => ({ ...old, option: memoOptions[0] }));
+    emitter.emit(name, memoOptions[0].value);
   }, [memoOptions]);
 
   return (
@@ -437,7 +309,7 @@ const InnerOptions = ({ name, field, onChange }: {
           set(!show);
           !show && setStatus((o) => ({ ...o, search: "" }));
         }}>
-        <span className="text-sm font-semibold">{status.value}</span>
+        <span className="text-sm font-semibold">{status.option?.label}</span>
         <ChevronDown
           className={cn("w-4 h-4 md:transition-transform md:duration-200 text-base-content/50", show ? "md:rotate-180" : "")}
         />
@@ -485,14 +357,15 @@ const InnerOptions = ({ name, field, onChange }: {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
-                  className="px-4 py-4 bg-base-400 fixed w-full z-[1000] top-0 bottom-0 flex flex-col"
+                  style={{ marginTop: 'env(safe-area-inset-top)' }}
+                  className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
                 >
                   <p className="flex items-center justify-center relative text-lg font-semibold h-10">
                     <button className={"absolute left-0 btn btn-md btn-square rounded-lg bg-base-300 border-0"}
                             onClick={() => set(false)}>
                       <ChevronLeft className="w-6 h-6" />
                     </button>
-                    {t("profile:phoneVerification")}
+                    {t(`finance:${field.label}`)}
                   </p>
                   <InnerSearch
                     className="mt-4 bg-base-300"
@@ -511,53 +384,7 @@ const InnerOptions = ({ name, field, onChange }: {
   );
 };
 
-const InnerAccount = ({ name, field, onChange }: {
-  name: string, field: Record<string, any>
-  onChange: (account: {
-    value: string
-    account_error: boolean
-  }) => void
-}) => {
-  const { t } = useTranslation();
-
-  const [account, setAccount] = useState<{
-    value: string
-    account_error: boolean
-  }>({
-    value: "",
-    account_error: false
-  });
-
-  useEffect(() => {
-    onChange({ value: "", account_error: false });
-  }, []);
-
-  return (
-    <div key={name} onClick={(e) => e.stopPropagation()}>
-      <InputBox
-        type="text"
-        label={<RequireItem label={t(`finance:${field.label}`)} />}
-        value={account.value}
-        onChange={(e) => {
-          const base = {
-            value: e.target.value.trim(),
-            account_error: e.target.value.trim() !== "" && !new RegExp(`^\\d{${field.min_length ?? 1},${field.max_length ?? 20}}$`).test(e.target.value.trim())
-          };
-          setAccount((old) => ({ ...old, ...base }));
-          onChange(base);
-        }}
-        placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
-      />
-      <ErrorMessageBox
-        sample
-        show={account.value !== "" && account.account_error}
-        content={`请输入${field.min_length === field.max_length ? field.max_length : `${field.min_length} - ${field.max_length}`}位数字`}
-      />
-    </div>
-  );
-};
-
-function parser(payload: string) {
+export function parser(payload: string) {
   if (!/^{.*}$/.test(payload)) return payload;
   const origin_payload = JSON.parse(payload);
   const output: any = {};
@@ -582,3 +409,5 @@ function params(a: Record<string, any> | null, b: Record<string, any> | null) {
   }
   return final_params;
 }
+
+export default WithdrawMethodInfoAddModal;

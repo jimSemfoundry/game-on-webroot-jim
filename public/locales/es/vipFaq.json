@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "¿Qué son las Bonificaciones por Subir de Nivel?",
-    "content": "<p class=\"leading-7\">La bonificación por subir de nivel es nuestra forma de agradecer a los jugadores leales que han estado con nosotros desde el inicio. A medida que los jugadores avanzan en los niveles VIP, desbloquean mayores recompensas por subir de nivel.</p>"
+    "title": "¿Qué son los Bonos de Nivel Superior?",
+    "content": "<p class=\"leading-7\">El bono de nivel superior es nuestra forma de mostrar aprecio a los jugadores leales que han estado con nosotros desde el principio. A medida que los jugadores suben de nivel en el VIP, desbloquean recompensas de nivel superior.</p>"
   },
   "faqTwo": {
     "title": "¿Qué es el Reembolso Diario?",
-    "content": "<p class=\"leading-7\">El Reembolso Diario se otorga a los jugadores que han tenido pérdidas frente al monto de su depósito. Esta bonificación se emite diariamente como un porcentaje del monto perdido por el jugador. El porcentaje de reembolso diario aumenta con tus niveles VIP, hasta un máximo del 40%, el reembolso más alto disponible. Ten en cuenta que esta bonificación es solo para jugadores en una posición de pérdida neta.</p>"
+    "content": "<p class=\"leading-7\">El reembolso diario se otorgará a los jugadores que hayan sufrido pérdidas en relación con su monto de depósito. Este bono se emite diariamente como un porcentaje de la cantidad de pérdida del jugador. El porcentaje de reembolso diario aumentará con tus niveles VIP, hasta un máximo del 40% de reembolso, el más alto en cualquier lugar. Ten en cuenta que este bono es solo para jugadores que están en una posición de pérdida neta.</p>"
   },
   "faqThree": {
     "title": "¿Qué son las Conquistas/Misiones?",
-    "content": "<p class=\"leading-7\">Las Conquistas son misiones diarias asignadas aleatoriamente a los jugadores para que ganen recompensas adicionales al jugar en nuestro sitio web. Las recompensas de Conquista deben reclamarse dentro de las 24 horas antes del próximo ciclo y expiran si no se reclaman. Las recompensas de Conquista se pagan en BUCK/USDT y pueden convertirse a la criptomoneda de tu elección mediante nuestra función de intercambio.</p>"
+    "content": "<p class=\"leading-7\">Las conquistas son misiones diarias que se otorgan aleatoriamente a los jugadores para que ganen recompensas adicionales al jugar en nuestro sitio web. Las recompensas de conquista deben ser reclamadas dentro de las 24 horas antes del siguiente ciclo y caducarán si no se reclaman. Las recompensas de conquista se pagan en BUCK/USDT y se pueden convertir a tu criptomoneda de elección a través de nuestra función de intercambio.</p>"
   },
   "faqFour": {
-    "title": "¿Qué son las Recompensas de Torneo?",
-    "content": "<p class=\"leading-7\">Las Recompensas de Torneo son premios otorgados por un desempeño excepcional en competiciones. Estas recompensas se acumulan hasta que se reclaman y no tienen fecha de vencimiento. Las recompensas de torneo se pagan en BUCK/USDT y pueden convertirse a la criptomoneda de tu elección mediante nuestra función de intercambio.</p>"
+    "title": "¿Qué son las Recompensas de Torneos?",
+    "content": "<p class=\"leading-7\">Las recompensas de torneos son premios otorgados por un rendimiento excepcional en competiciones. Las recompensas de torneos se acumularán hasta ser reclamadas y no tienen fecha de caducidad. Las recompensas de torneos se pagan en BUCK/USDT y se pueden convertir a tu criptomoneda de elección a través de nuestra función de intercambio.</p>"
   },
   "faqFive": {
     "title": "¿Qué es el Super Rakeback?",
-    "content": "<p class=\"leading-7\">El Super Rakeback es nuestro mecanismo para desbloquear tus bonificaciones de depósito. Un porcentaje de tu apuesta (hasta el 3%) se te devuelve cada vez que haces una apuesta. Cuanto mayor sea tu nivel VIP, mayor será la tasa de desbloqueo. BUCK/USDT Desbloqueado = Apuesta x 2.5% x Tasa de Desbloqueo%</p><p class=\"leading-7\">Tasa de Desbloqueo:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">El Super Rakeback es nuestro mecanismo para desbloquear tus bonos de depósito. Un porcentaje de tu apuesta (hasta el 3%) se te devuelve cada vez que realizas una apuesta. Cuanto mayor sea tu nivel VIP, mayor será la tasa de desbloqueo. BUCK/USDT desbloqueado = Apuesta x 2.5% x Tasa de desbloqueo%</p><p class=\"leading-7\">Tasa de Desbloqueo:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "¿Qué es un Booster?",
-    "content": "<p class=\"leading-7\">Los Boosters duplican tu Rakeback durante una hora cada vez que un referido realiza un depósito.</p><p class=\"leading-7\">Tasa de Desbloqueo Potenciada:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Los boosters duplican tu Rakeback durante una hora cada vez que un referido realiza un depósito.</p><p class=\"leading-7\">Tasa de Desbloqueo Aumentada:</p><p class=\"leading-7\">Tasa de Desbloqueo:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "¿Qué es el Calendario de Bonificaciones?",
-    "content": "<p class=\"leading-7\">La mayoría de las bonificaciones se pagan al 50% en tu Saldo Real y al 50% en tu Calendario de Bonificaciones. Las bonificaciones en tu Calendario de Bonificaciones pueden reclamarse cada 8 horas y expiran en 24 horas si no se reclaman. ¡Recuerda reclamar las bonificaciones de tu Calendario de Bonificaciones al menos una vez al día para asegurarte de recolectar todas tus recompensas!</p>"
+    "title": "¿Qué es el Calendario de Bonos?",
+    "content": "<p class=\"leading-7\">La mayoría de los bonos se pagan 50% a tu Saldo Real y 50% a tu Calendario de Bonos. Los bonos pagados a tu Calendario de Bonos se pueden reclamar cada 8 horas y caducan en 24 horas si no se reclaman. ¡Recuerda reclamar los bonos en tu Calendario de Bonos al menos una vez al día para asegurarte de que se recojan todas tus recompensas!</p>"
   },
   "faqEight": {
-    "title": "¿Qué es la Bonificación Semanal?",
-    "content": "<p class=\"leading-7\">La Bonificación Semanal es un beneficio exclusivo en nuestro sitio web diseñado para jugadores VIP 12 y superiores. Esta bonificación se emite semanalmente y se paga automáticamente cada viernes a los jugadores VIP 12 y superiores. El monto de la bonificación depende de la cantidad apostada en la última semana, con un requisito mínimo de apuesta de {{minWager}} en la última semana.</p>"
+    "title": "¿Qué es el Bono Semanal?",
+    "content": "<p class=\"leading-7\">El Bono Semanal es un beneficio exclusivo en nuestro sitio web diseñado para jugadores que son VIP12 y superiores. Este bono se emite semanalmente y se paga automáticamente cada viernes a los jugadores en VIP12 y superiores. El tamaño del bono depende de la cantidad apostada durante la semana pasada, con un requisito de apuesta mínima de {{minWager}} durante la semana pasada.</p>"
   },
   "faqNine": {
     "title": "¿Qué son los Logros?",
-    "content": "<p class=\"leading-7\">Los Logros son nuestra forma de reconocer tu actividad en nuestra plataforma. Cuando reclames tu bonificación por Logros, se abonará en tu Calendario de Bonificaciones y podrá reclamarse cada 8 horas; expira en 24 horas si no se reclama.</p>"
+    "content": "<p class=\"leading-7\">Los logros son nuestra forma de reconocer tu actividad en nuestra plataforma. Cuando reclamas tu bono de logro, se pagará a tu Calendario de Bonos y se puede reclamar cada 8 horas y caduca en 24 horas si no se reclama.</p>"
   }
 }

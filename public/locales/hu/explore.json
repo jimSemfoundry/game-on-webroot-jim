@@ -1,4 +1,13 @@
 {
+  "handball": "Kézilabda",
+  "formula1": "Forma 1",
+  "sportsLive": "Élő",
+  "football": "Foci",
+  "tennis": "Tenisz",
+  "baseball": "Baseball",
+  "iceHockey": "Jégkorong",
+  "basketball": "Kosárlabda",
+  "volleyball": "Röplabda",
   "hot": "Népszerű Játékok",
   "all": "Összes",
   "recents": "Az Ön Legutóbbiai",
@@ -29,6 +38,9 @@
   "oopsThereIsNoDataYet": "Még nincsenek elérhető adatok!",
   "noResultsFound": "Nincs találat.",
   "trySearchingWithDifferentKeywords": "Keressen más kulcsszavakkal!",
+  "searchMinLength": "Írj be legalább {{count}} karaktert a kereséshez.",
+  "searchPlaceholder": "Kezdj el játéknevet beírni",
+  "searchInstructions": "Írj be legalább 3 karaktert a kezdéshez.",
   "featureBuy": "Funkció vásárlása",
   "enhancedRTP": "Növelt RTP",
   "megaways": "Megaways",
@@ -54,7 +66,8 @@
   "selected": "Kiválasztva",
   "sort": "Rendez",
   "jackpot": "Jackpot",
-    "live-casino": "Élő kaszinó",
-    "sports": "Sportok",
-    "lotteries": "Lottók"  
+  "live-casino": "Élő kaszinó",
+  "sports": "Sportok",
+  "lotteries": "Lottók",
+  "gamesYouShouldTry": "Játékok, Amiket Ki Kell Próbálnod"
 }

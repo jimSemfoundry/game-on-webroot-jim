@@ -1,7 +1,7 @@
 {
-    "global": "ทั่วโลก",
-    "notifications": "การแจ้งเตือน",
-    "support": "สนับสนุน",
-    "retry": "ลองใหม่",
-    "customerServiceChatFailedToLoad": "แชทบริการลูกค้าไม่สามารถโหลดได้"
+  "global": "ทั่วโลก",
+  "notifications": "การแจ้งเตือน",
+  "support": "สนับสนุน",
+  "retry": "ลองใหม่",
+  "customerServiceChatFailedToLoad": "แชทบริการลูกค้าไม่สามารถโหลดได้"
 }

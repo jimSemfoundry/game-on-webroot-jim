@@ -95,7 +95,7 @@ export function ChatwootProvider({
     const setChatwootUser = async () => {
       // 未登录用户跳过用户信息设置，但仍可使用聊天功能
       if (!user || !user.id || !status || !isInitialized || !inboxUserId) return;
-      console.log("setChatwootUser", user, status, isInitialized, inboxUserId);
+      // console.log("setChatwootUser", user, status, isInitialized, inboxUserId);
       try {
         const secret = inboxUserId; // 使用动态获取的secret
         const message = user.id.toString();

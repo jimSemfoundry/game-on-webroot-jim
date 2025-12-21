@@ -1,18 +1,18 @@
 import Iconify from "@/components/iconify";
 import { Countdown } from "@/components/ui";
+import ImageColorCard from "@/components/ui/ImageColorCard";
+import { LazyImage } from "@/components/ui/LazyImage";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useActivateBoosterMutation, useClaimBonus, useClaimBonusMutation } from "@/hooks/api/useAuth";
-import { useBonusClaimConfirmation } from "@/sections/bonus/shared/use-bonus-claim-confirmation";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useState, useCallback } from "react";
-import { FastAverageColor } from "fast-average-color";
-import { BonusClaimConfirmationModal } from "../shared/double-or-nothing/bonus-claim-confirmation-modal";
-import { authService } from "@/services/authService";
-import { DoubledUp } from "../shared/double-or-nothing/DoubledUp";
-import { IDoubledUpProps } from "@/types/double-or-nothing";
-import { Nothing } from "../shared/double-or-nothing/Nothing";
+import { useBoundStore } from "@/store";
+import { useNavigate } from "@tanstack/react-router";
+import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
+
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -24,14 +24,19 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
+const ILLUSTRATION_URL = "/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png";
+
 export function BonusRakebackCard() {
   const { t } = useTranslation();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { status, isInitialized } = useAuth();
+  const { status, isInitialized, isAuthenticated } = useAuth();
   const { openTipsModal } = useTipsModal();
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
   const { mutate: activateBooster, isPending: isActivatePending } = useActivateBoosterMutation();
-  const { modalState, openClaimConfirmation, closeClaimConfirmation } = useBonusClaimConfirmation();
+  const navigate = useNavigate();
+
+  const { setSyncAction } = useBoundStore();
+
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
 
   // 查询是否有待领取的rakeback bonus
@@ -43,24 +48,16 @@ export function BonusRakebackCard() {
   // 处理嵌套的数据结构
   const rakebackData = claimData?.data?.data;
 
-  const claimableAmount = parseFloat(rakebackData?.value || "0");
+  const claimableAmount = parseFloat(rakebackData?.value || "0") || 0;
   const currency = rakebackData?.currency || "USDT";
 
-  const handleIllustrationLoad = useCallback(async (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    const fac = new FastAverageColor();
+  const { hex } = useVibrantColor(ILLUSTRATION_URL);
 
-    try {
-      const color = await fac.getColorAsync(img, {
-        algorithm: 'sqrt',
-        mode: 'precision',
-        ignoredColor: [
-          [255, 255, 255, 255, 50],
-          [0, 0, 0, 255, 150],
-          [20, 20, 20, 255, 120],
-        ],
-      });
-      const accentStop = `color-mix(in oklch, ${color.hex} 40%, transparent)`;
+  const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
+
+  useEffect(() => {
+    if (hex) {
+      const accentStop = `color-mix(in oklch, ${hex} 40%, transparent)`;
       setBackground(`
         radial-gradient(
           95.05% 100% at 0% 35.47%,
@@ -69,37 +66,31 @@ export function BonusRakebackCard() {
         ),
         linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
       `);
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn("Failed to derive bonus card color", error);
-      }
-    } finally {
-      fac.destroy();
     }
-  }, []);
+  }, [hex]);
 
-  const [donData, setDonData] = useState<IDoubledUpProps | null>(null);
-  const [donRecordId, setDonRecordId] = useState<string | null>(null);
 
   const handleClaim = () => {
-    openClaimConfirmation({
-      bonusType: "Super Rakeback",
-      claimableAmount: claimableAmount,
-      onNormalClaim: () => claimBonus({ item: "rakeback" }),
-      onDoubleClaim: () => claimBonus(
-        { item: "rakeback" },
-        {
-          onSuccess: (response) => {
-            setDonRecordId(response.data.don_record_id);
-            authService.donDeal(response.data.don_record_id).then((res) => {
-              if (res.code === 0) {
-                setDonData(res.data);
-              }
-            })
+    claimBonus(
+      { item: "rakeback" },
+      {
+        onSuccess: (response) => {
+          if (response.code !== 0 ) {
+            setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
+              code: response.code,
+              tryAgain: handleClaim
+            });
+            return
           }
-        }
-      ),
-    });
+          openDoubleOrNothingModal({
+            don_record_id: response?.data?.don_record_id,
+            amount: response?.data?.amount
+          });
+        },
+        onError: () => {
+        },
+      },
+    );
   };
 
   const handleOpenTips = () => {
@@ -115,6 +106,7 @@ export function BonusRakebackCard() {
 
   // Convert Unix timestamp to milliseconds for Countdown component
   const batteryExpireMs = status?.battery_expire ? status.battery_expire * 1000 : 0;
+
 
   if (isLoading) {
     return (
@@ -152,6 +144,29 @@ export function BonusRakebackCard() {
     );
   }
 
+  if (!isAuthenticated) {
+    return (
+      <ImageColorCard
+        gradientMode="linear"
+        imageUrl="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
+        colorOpacity={0.6}
+        paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
+        className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
+      >
+        <p className="text-2xl sm:text-4xl font-bold uppercase leading-6 sm:leading-8 text-start">
+          <span className="text-base-content block">{t("popup:super")}</span>
+          <span className="text-primary block">{t("bonus:rakeback")}</span>
+          <span className="text-primary block">{t("bonus:program")}</span>
+        </p>
+        <LazyImage
+          src="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
+          alt="free spins"
+          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0"
+        />
+      </ImageColorCard>
+    );
+  }
+
   return (
     <div
       className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative overflow-hidden border border-base-200"
@@ -163,14 +178,7 @@ export function BonusRakebackCard() {
         <Iconify icon="custom:info" className="text-base-content/50" />
       </button>
       <div className="flex items-center gap-2 h-15">
-        <img
-          src="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
-          alt={t("bonus:super_rakeback")}
-          className="w-15 h-15"
-          onLoad={handleIllustrationLoad}
-          loading="lazy"
-          decoding="async"
-        />
+        <img src={ILLUSTRATION_URL} alt={t("bonus:super_rakeback")} className="w-15 h-15" loading="lazy" decoding="async" />
         <div className="flex flex-col justify-between h-full w-full">
           <p className="text-sm font-bold sm:text-base">{t("bonus:super_rakeback")}</p>
           <div className="flex items-center gap-1 w-full justify-end">
@@ -193,43 +201,56 @@ export function BonusRakebackCard() {
         </div>
       </div>
 
-      <div className="flex items-center gap-1 w-full">
-        <label className="input input-md disabled:bg-base-300 bg-base-300 border-none flex-1">
-          <Iconify icon="custom:cash" />
-          <input type="text" className="grow border-none outline-none" readOnly value={formatWithConversion(claimableAmount, currency).formatted} />
-        </label>
+      {
+        1 > Number(claimableAmount) && (
+          <div className="flex w-full items-end justify-between gap-1">
+            <div className="flex flex-col flex-1 gap-1.5">
+              <div className="flex items-center justify-between text-base-content/50">
+                <p className="text-xs font-semibold">
+                  {t('bonus:claim')}:
+                </p>
+                <p className="text-xs font-semibold">
+                  {formatWithConversion(claimableAmount, currency, { showCode: false,minimizeDecimals: false }).formatted} / {formatWithConversion(1, 'USD', { showCode: false }).formatted}
+                </p>
+              </div>
+              <progress
+                className="progress progress-primary"
+                value={Number(claimableAmount)}
+                max={Number(1)}
+              />
+            </div>
+            <button
+              className="btn btn-primary btn-soft text-sm font-semibold max-w-20"
+              onClick={() => navigate({ to: "/explore" })}>
+              {t('bonus:ongoing')}
+            </button>
+          </div>
+        )
+      }
+      {
+        1 <= Number(claimableAmount)
+        && (
+          <div className="flex items-center gap-1 w-full">
+            <label className="input input-md disabled:bg-base-300 bg-base-300 border-none flex-1">
+              <Iconify icon="custom:cash" />
+              <input
+                type="text"
+                className="grow border-none outline-none"
+                readOnly
+                value={formatWithConversion(claimableAmount, currency).formatted}
+              />
+            </label>
 
-        <button
-          className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
-          onClick={handleClaim}
-          disabled={isClaimPending || claimableAmount <= 0}
-        >
-          {isClaimPending ? (
-            <span className="loading loading-spinner loading-xs" />
-          ) : (
-            t("bonus:claim")
-          )}
-        </button>
-      </div>
-
-      <div className="flex items-center justify-between px-1">
-        <p className="text-xs text-base-content/50">{t("bonus:deposit_bonus")}</p>
-        <p className="text-xs font-semibold text-base-content/50">0</p>
-      </div>
-
-      {/* Claim Confirmation Modal */}
-      <BonusClaimConfirmationModal
-        isOpen={modalState.isOpen}
-        onClose={closeClaimConfirmation}
-        onNormalClaim={modalState.onNormalClaim || (() => { })}
-        onDoubleClaim={modalState.onDoubleClaim || (() => { })}
-        bonusType={modalState.bonusType}
-        claimableAmount={modalState.claimableAmount}
-        isLoading={isClaimPending}
-      />
-      {donData?.is_win === true && <DoubledUp donData={donData} />}
-      {donData?.is_win === false && donRecordId && <Nothing don_record_id={donRecordId} />}
-
+            <button
+              className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
+              onClick={handleClaim}
+              disabled={isClaimPending || claimableAmount <= 0}
+            >
+              {isClaimPending ? <span className="loading loading-spinner loading-xs" /> : t("bonus:claim")}
+            </button>
+          </div>
+        )
+      }
     </div>
   );
 }

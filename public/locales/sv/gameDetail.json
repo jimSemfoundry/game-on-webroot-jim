@@ -24,5 +24,7 @@
   "gameInformation": "Spelinformation",
   "totalTips": "Tips",
   "result": "Resultat",
-  "myBets": "Mina insatser"
+  "myBets": "Mina insatser",
+  "**********": "",
+  "demoPlay": "Demospel"
 }

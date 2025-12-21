@@ -138,7 +138,7 @@ export const SelectDropdown = forwardRef<
     const handleSelect = (option: SelectOption) => {
       if (option.disabled) return;
 
-      if (onChange) {
+      if (onChange && option.value !== value) {
         onChange(option.value, option);
       }
       setIsOpen(false);
@@ -297,7 +297,7 @@ export const SelectDropdown = forwardRef<
               {isOpen
                 ? (<motion.div
                   className={clsx(
-                    "bg-base-300 absolute z-[1000] mt-1 w-full overflow-hidden rounded-lg shadow-lg",
+                    "bg-base-300 absolute z-[1001] mt-1 w-full overflow-hidden rounded-lg shadow-lg",
                     dropdownClassName
                   )}
                   // exit={{ height: 0 }}
@@ -336,10 +336,11 @@ export const SelectDropdown = forwardRef<
                 // animate={{ opacity: 1, y: 0 }}
                 // exit={{ opacity: 0, y: -8 }}
                 // transition={{ duration: 0.2, delay: 0.1,  ease: "easeOut" }}
-                className="px-4 py-4 bg-base-400 fixed w-full z-[1000] top-0 bottom-0 flex flex-col">
-                <p className="flex items-center justify-center relative text-lg font-semibold h-10">
+                style={{ marginTop: "env(safe-area-inset-top)" }}
+                className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col">
+                <div className="flex items-center justify-center relative text-lg font-semibold h-10">
                   <Close close={setIsOpen} />{title}
-                </p>
+                </div>
 
                 {/* 搜索框 */}
                 <Wrapper show={showSearch && options.length > 0}>

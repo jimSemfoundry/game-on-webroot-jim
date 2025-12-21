@@ -2,6 +2,7 @@
  * PWA 自动更新工具
  * 确保用户始终获取最新版本
  */
+import { getBroadcastChannel } from "@/utils/helper.ts";
 
 let updateCheckInterval: NodeJS.Timeout | null = null;
 let isRefreshing = false;
@@ -46,12 +47,27 @@ export function initPWAUpdate() {
       // 监听 Service Worker 控制权变更
       let refreshing = false;
       navigator.serviceWorker.addEventListener("controllerchange", () => {
-        if (refreshing) return;
+        if (refreshing || isRefreshing) return;
+
+        // FIXME: 利用 sessionStorage【同标签页内保持】 防止刷新瞬间再次触发
+        const pwa_reload_lock = "pwa_reload_lock";
+        const lastReload = sessionStorage.getItem(pwa_reload_lock);
+        const date_now = Date.now();
+
+        // FIXME: PWA: 拦截到短时间内的重复刷新
+        if (lastReload && date_now - parseInt(lastReload) < 10_000) return;
 
         refreshing = true;
         isRefreshing = true;
+        sessionStorage.setItem(pwa_reload_lock, date_now.toString());
 
-        window.location.reload();
+        // FIXME:
+        //  PWA 应用更新消息，需要用户确认是否更新
+        //  延迟一小段时间刷新，确保浏览器缓存层处理完毕
+        setTimeout(() => {
+          const channel = getBroadcastChannel();
+          if (channel) channel.postMessage("pwa-update");
+        }, 100);
       });
 
       // 页面可见性变更时检查更新（添加防抖）
@@ -64,7 +80,9 @@ export function initPWAUpdate() {
 
           visibilityTimeout = setTimeout(() => {
             navigator.serviceWorker.ready.then((reg) => {
-              reg.update();
+              if (navigator.onLine) {
+                void reg.update();
+              }
             });
           }, 3000);
         }

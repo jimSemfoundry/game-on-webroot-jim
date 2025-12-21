@@ -7,19 +7,24 @@ import { m } from "motion/react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Drawer } from "vaul";
-import { NAVIGATION_ITEMS } from "./config";
+import { NAVIGATION_ITEMS, SPORTS_NAVIGATION_ITEMS } from "./config";
 import { SidebarFooter } from "./SidebarFooter";
 import { SidebarHeader } from "./SidebarHeader";
 import { SidebarItem } from "./SidebarItem";
 
 function DesktopSidebar() {
-  const { mode, toggleMode } = useSidebar();
+  const { mode, toggleMode, activeTab } = useSidebar();
   const location = useLocation();
   const isMini = mode === "mini";
   const { isRTL } = useRTLContext();
   const { isAuthenticated, isLoading } = useAuth();
 
-  const { t } = useTranslation(["layout", "common"]);
+  const { t } = useTranslation(["common"]);
+
+  // 根据 activeTab 选择导航项
+  const navigationItems = activeTab === "sport" 
+    ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
+    : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
 
   return (
     <m.aside
@@ -52,11 +57,11 @@ function DesktopSidebar() {
       </div>
 
       <div className="card-body overflow-y-auto">
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col">
           <SidebarHeader />
 
           <nav className={`menu w-full overflow-y-auto overflow-x-hidden p-0 mt-4`}>
-            {NAVIGATION_ITEMS(t, isAuthenticated, isLoading).map((item, index) => (
+            {navigationItems.map((item, index) => (
               <React.Fragment key={item.id || `${item.type}-${index}`}>
                 {item.type === "divider" ? (
                   <div className="h-px bg-gradient-to-r from-base-400 via-base-100 to-base-400 my-2 md:my-4"></div>
@@ -69,12 +74,22 @@ function DesktopSidebar() {
                       if (!item.path) return false;
 
                       if (item.path.includes("?")) {
-                        const [itemPathname, itemSearch] = item.path.split("?");
+                        const [itemPathname, itemSearch = ""] = item.path.split("?");
+                        if (location.pathname !== itemPathname) return false;
+
                         const itemParams = new URLSearchParams(itemSearch);
                         const currentParams = new URLSearchParams(location.search);
 
-                        // Check if pathname matches and key parameters match
-                        return location.pathname === itemPathname && itemParams.get("type") === currentParams.get("type");
+                        for (const [key, value] of itemParams.entries()) {
+                          if (!currentParams.has(key)) {
+                            return false;
+                          }
+                          if ((currentParams.get(key) ?? "") !== value) {
+                            return false;
+                          }
+                        }
+
+                        return true;
                       }
 
                       return location.pathname === item.path;
@@ -94,11 +109,16 @@ function DesktopSidebar() {
 }
 
 function MobileDrawer() {
-  const { isDrawerOpen, closeDrawer } = useSidebar();
+  const { isDrawerOpen, closeDrawer, activeTab } = useSidebar();
   const location = useLocation();
   const { isRTL } = useRTLContext();
   const { isAuthenticated, isLoading } = useAuth();
-  const { t } = useTranslation(["layout", "common"]);
+  const { t } = useTranslation(["common"]);
+
+  // 根据 activeTab 选择导航项
+  const navigationItems = activeTab === "sport" 
+    ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
+    : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
 
   return (
     <Drawer.Root
@@ -110,16 +130,16 @@ function MobileDrawer() {
     >
       <Drawer.Portal>
         <Drawer.Title style={{ display: "none" }} />
-        <Drawer.Overlay className="fixed inset-0 bg-black/50 z-40" />
+        <Drawer.Overlay className="fixed inset-0 bg-black/50 z-[998]" />
         <Drawer.Content
-          className={`fixed ${isRTL ? "right-0" : "left-0"} top-20 bottom-2 w-[80%] bg-transparent z-45 md:hidden outline-none`}
+          className={`fixed ${isRTL ? "right-0" : "left-0"} top-12 bottom-2 w-[80%] bg-transparent z-[999] md:hidden outline-none`}
         >
           <div className={`${isRTL ? "mr-2" : "ml-2"} h-full bg-base-400 shadow-xl rounded-2xl flex flex-col overflow-hidden p-3`}>
             <div className="flex-1 flex flex-col overflow-hidden">
               <SidebarHeader />
 
               <nav className="flex-1 space-y-1 overflow-y-auto overflow-x-hidden mt-4 menu flex-nowrap w-full">
-                {NAVIGATION_ITEMS(t, isAuthenticated, isLoading).map((item, index) => (
+                {navigationItems.map((item, index) => (
                   <React.Fragment key={item.id || `${item.type}-${index}`}>
                     {item.type === "divider" ? (
                       <div className="h-px bg-gradient-to-r from-base-400 via-base-100 to-base-400 my-2"></div>
@@ -132,12 +152,22 @@ function MobileDrawer() {
                           if (!item.path) return false;
 
                           if (item.path.includes("?")) {
-                            const [itemPathname, itemSearch] = item.path.split("?");
+                            const [itemPathname, itemSearch = ""] = item.path.split("?");
+                            if (location.pathname !== itemPathname) return false;
+
                             const itemParams = new URLSearchParams(itemSearch);
                             const currentParams = new URLSearchParams(location.search);
 
-                            // Check if pathname matches and key parameters match
-                            return location.pathname === itemPathname && itemParams.get("type") === currentParams.get("type");
+                            for (const [key, value] of itemParams.entries()) {
+                              if (!currentParams.has(key)) {
+                                return false;
+                              }
+                              if ((currentParams.get(key) ?? "") !== value) {
+                                return false;
+                              }
+                            }
+
+                            return true;
                           }
 
                           return location.pathname === item.path;
@@ -159,11 +189,12 @@ function MobileDrawer() {
 }
 
 export const Sidebar = () => {
-  const { isMobile } = useSidebar();
+  const { isMobile, isMobileDevice } = useSidebar();
 
   return (
     <>
-      <DesktopSidebar />
+      {/* 移动设备上不显示桌面端 Sidebar（即使横屏宽度超过 md 断点） */}
+      {!isMobileDevice && <DesktopSidebar />}
       {isMobile && <MobileDrawer />}
     </>
   );

@@ -1,20 +1,19 @@
 import Iconify from "@/components/iconify";
 import { Countdown } from "@/components/ui";
 import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
+import ImageColorCard from "@/components/ui/ImageColorCard";
+import { LazyImage } from "@/components/ui/LazyImage";
 import { Select, SelectOption } from "@/components/ui/Select";
-import { BonusClaimConfirmationModal } from "@/sections/bonus/shared/double-or-nothing/bonus-claim-confirmation-modal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useClaimBonus, useClaimBonusMutation } from "@/hooks/api/useAuth";
-import { useBonusClaimConfirmation } from "@/sections/bonus/shared/use-bonus-claim-confirmation";
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FastAverageColor } from "fast-average-color";
-import { authService } from "@/services/authService";
-import { IDoubledUpProps } from "@/types/double-or-nothing";
-import { DoubledUp } from "../shared/double-or-nothing/DoubledUp";
-import { Nothing } from "../shared/double-or-nothing/Nothing";
+import { useBoundStore } from "@/store";
+import dayjs from "dayjs";
+import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -32,88 +31,61 @@ interface CashbackOption extends SelectOption {
   currency: string;
 }
 
+const ILLUSTRATION_URL = "/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png";
+
 export function BonusCashbackCard() {
   const { t } = useTranslation();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { isInitialized } = useAuth();
+  const { isInitialized, isAuthenticated } = useAuth();
   const { openTipsModal } = useTipsModal();
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
-  const { modalState, openClaimConfirmation, closeClaimConfirmation } = useBonusClaimConfirmation();
-  const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
-
   // 查询是否有待领取的cashback bonus
   const { data: claimData, isLoading: isDataLoading } = useClaimBonus("cashback");
+  const { setSyncAction } = useBoundStore();
+  const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
 
   // 优化的loading状态：未初始化或数据加载中时显示骨架屏
   const isLoading = !isInitialized || isDataLoading;
 
-  // 状态管理
-  const [selectedCurrency, setSelectedCurrency] = useState<string>("");
-  const [currentCashbackItem, setCurrentCashbackItem] = useState<any>(null);
+  const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
 
-  // 处理cashback数据为下拉选项
+  const { hex } = useVibrantColor(ILLUSTRATION_URL);
+
+  // 处理cashback选项
   const cashbackOptions = useMemo<CashbackOption[]>(() => {
-    if (!claimData?.data?.data) return [];
+    if (!claimData?.data?.items) return [];
 
-    // 确保data.data是数组
-    const data = Array.isArray(claimData.data.data) ? claimData.data.data : [];
+    return claimData.data.items
+      .filter((item: any) => parseFloat(item.value) > 0)
+      .map((item: any) => ({
+        label: item.currency,
+        value: item.currency,
+        amount: item.value,
+        currency: item.currency
+      }));
+  }, [claimData]);
 
-    return data.map((item: any) => ({
-      value: item.currency,
-      label: item.currency,
-      amount: item.value,
-      currency: item.currency,
-      icon: <CurrencyIcon currency={item.currency} className="w-4 h-4" />,
-    }));
-  }, [claimData?.data?.data]);
+  // 默认选中第一个有金额的选项
+  const [selectedCurrency, setSelectedCurrency] = useState<string>("");
 
-  // 设置默认选择的币种
   useEffect(() => {
     if (cashbackOptions.length > 0 && !selectedCurrency) {
-      setSelectedCurrency(cashbackOptions[0].value as string);
-
-      if (claimData?.data?.data && Array.isArray(claimData.data.data)) {
-        setCurrentCashbackItem(claimData.data.data[0]);
-      }
+      setSelectedCurrency(String(cashbackOptions[0].value));
     }
-  }, [cashbackOptions, claimData?.data?.data, selectedCurrency]);
+  }, [cashbackOptions, selectedCurrency]);
 
-  // 处理币种选择变化
   const handleCurrencyChange = (value: string | number) => {
-    setSelectedCurrency(value as string);
-
-    if (claimData?.data?.data && Array.isArray(claimData.data.data)) {
-      const selectedItem = claimData.data.data.find((item: any) => item.currency === value);
-      if (selectedItem) {
-        setCurrentCashbackItem(selectedItem);
-      }
-    }
+    setSelectedCurrency(String(value));
   };
 
-  // 计算距离UTC 0点的倒计时
-  const getNextUTCMidnight = () => {
-    const now = new Date();
-    const utcNow = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-    const nextUTCMidnight = new Date(utcNow);
-    nextUTCMidnight.setUTCHours(24, 0, 0, 0);
-    return nextUTCMidnight.getTime();
-  };
+  const currentCashbackItem = useMemo(() => {
+    if (!claimData?.data?.items) return null;
+    return claimData.data.items.find((item: any) => item.currency === selectedCurrency);
+  }, [claimData, selectedCurrency]);
 
-  const handleIllustrationLoad = useCallback(async (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    const fac = new FastAverageColor();
-
-    try {
-      const color = await fac.getColorAsync(img, {
-        algorithm: 'sqrt',
-        mode: 'precision',
-        ignoredColor: [
-          [255, 255, 255, 255, 50],
-          [0, 0, 0, 255, 150],
-          [20, 20, 20, 255, 120],
-        ],
-      });
-      const accentStop = `color-mix(in oklch, ${color.hex} 40%, transparent)`;
+  useEffect(() => {
+    if (hex) {
+      const accentStop = `color-mix(in oklch, ${hex} 40%, transparent)`;
       setBackground(`
         radial-gradient(
           95.05% 100% at 0% 35.47%,
@@ -122,37 +94,30 @@ export function BonusCashbackCard() {
         ),
         linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
       `);
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn("Failed to derive bonus card color", error);
-      }
-    } finally {
-      fac.destroy();
     }
-  }, []);
+  }, [hex]);
 
-  const [donRecordId, setDonRecordId] = useState<string | null>(null);
-  const [donData, setDonData] = useState<IDoubledUpProps | null>(null);
 
   const handleClaim = () => {
     if (currentCashbackItem?.currency) {
-      openClaimConfirmation({
-        bonusType: "Daily Cashback",
-        claimableAmount: currentCashbackItem.value,
-        onNormalClaim: () => claimBonus({ item: "cashback", currency: currentCashbackItem.currency }),
-        onDoubleClaim: () => claimBonus(
-          { item: "cashback", currency: currentCashbackItem.currency },
-          {
-            onSuccess: (response: any) => {
-              setDonRecordId(response.data.don_record_id);
-              authService.donDeal(response.data.don_record_id).then((res) => {
-                if (res.code === 0) {
-                  setDonData(res.data);
-                }
+      claimBonus(
+        { item: "cashback", currency: currentCashbackItem.currency },
+        {
+          onSuccess: (response: any) => {
+            if (response.code !== 0) {
+              setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
+                code: response.code,
+                tryAgain: () => handleClaim()
               });
+              return;
             }
-          }) // TODO: Add double claim support to API
-      });
+            openDoubleOrNothingModal({
+              don_record_id: response?.data?.don_record_id,
+              amount: response?.data?.amount
+            });
+          }
+        }
+      );
     }
   };
 
@@ -180,7 +145,8 @@ export function BonusCashbackCard() {
     return (
       <div className="flex items-center gap-2">
         <CurrencyIcon currency={cashbackOpt.currency} className="w-4 h-4" />
-        <span className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency).formatted}</span>
+        <span
+          className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency).formatted}</span>
       </div>
     );
   };
@@ -190,7 +156,7 @@ export function BonusCashbackCard() {
       <div
         className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
         style={{
-          background: DEFAULT_GRADIENT,
+          background: DEFAULT_GRADIENT
         }}
       >
         <div className="skeleton w-6 h-6 absolute right-4 rtl:right-auto rtl:left-4 top-4 rounded-btn"></div>
@@ -221,25 +187,42 @@ export function BonusCashbackCard() {
     );
   }
 
+  if (!isAuthenticated) {
+    return (
+      <ImageColorCard
+        gradientMode="linear"
+        imageUrl="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
+        colorOpacity={0.6}
+        paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
+        className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
+      >
+        <p className="text-2xl sm:text-4xl font-bold uppercase leading-6 sm:leading-8 text-start">
+          <span className="text-base-content block">{t("casino:daily")}</span>
+          <span className="block text-primary">{t("casino:cashback")}</span>
+        </p>
+        <LazyImage
+          src="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
+          alt="free spins"
+          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0"
+        />
+      </ImageColorCard>
+    );
+  }
+
   return (
     <div
       className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
       style={{
-        background,
+        background
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
+      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4"
+              onClick={handleOpenTips}>
         <Iconify icon="custom:info" className="text-base-content/50" />
       </button>
       <div className="flex items-center gap-2 h-15">
-        <img
-          src="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
-          alt={t("bonus:daily_cashback")}
-          className="w-15 h-15"
-          onLoad={handleIllustrationLoad}
-          loading="lazy"
-          decoding="async"
-        />
+        <img src={ILLUSTRATION_URL} alt={t("bonus:daily_cashback")} className="w-15 h-15" loading="lazy"
+             decoding="async" />
         <div className="flex flex-col justify-between h-full w-full">
           <p className="text-sm font-bold sm:text-base">{t("bonus:daily_cashback")}</p>
           <div className="flex items-center gap-1 w-full">
@@ -290,24 +273,21 @@ export function BonusCashbackCard() {
 
       <div className="flex items-center justify-center px-1">
         <p className="text-xs text-base-content/50">{t("bonus:next_claim_in")}: &nbsp;</p>
-        <Countdown
-          className="text-xs text-base-content/50"
-          target={getNextUTCMidnight()}
-        />
+        <Countdown className="text-xs text-base-content/50" target={getNextUTCMidnight()} />
       </div>
-
-      {/* Claim Confirmation Modal */}
-      <BonusClaimConfirmationModal
-        isOpen={modalState.isOpen}
-        onClose={closeClaimConfirmation}
-        onNormalClaim={modalState.onNormalClaim || (() => { })}
-        onDoubleClaim={modalState.onDoubleClaim || (() => { })}
-        bonusType={modalState.bonusType}
-        claimableAmount={modalState.claimableAmount}
-        isLoading={isClaimPending}
-      />
-      {donData?.is_win === true && <DoubledUp donData={donData} />}
-      {donData?.is_win === false && donRecordId && <Nothing don_record_id={donRecordId} />}
     </div>
   );
 }
+
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
+
+// 获取下一个UTC午夜时间
+export const getNextUTCMidnight = () => {
+  const now = dayjs();
+  let nextUtcMidnight = dayjs().utc().endOf("day").add(1, "second");
+  if (nextUtcMidnight.isBefore(now)) {
+    nextUtcMidnight = nextUtcMidnight.add(1, "day");
+  }
+  return nextUtcMidnight.valueOf();
+};

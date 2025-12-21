@@ -24,5 +24,7 @@
   "gameInformation": "Oyun Bilgileri",
   "totalTips": "Öneriler",
   "result": "Sonuç",
-  "myBets": "Bahislerim"
+  "myBets": "Bahislerim",
+  "**********": "",
+  "demoPlay": "Demo Oynama"
 }

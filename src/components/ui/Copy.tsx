@@ -39,9 +39,6 @@ const Copy = ({
 
   return text ? (
     <CopyToClipboard
-      className={
-        !v ? copyCls || 'text-base-content/50' : copiedCls || 'text-primary'
-      }
       text={text}
       onCopy={(e: any) => {
         setV(true)
@@ -51,7 +48,11 @@ const Copy = ({
         return
       }}
     >
-      <span>
+      <span
+        className={
+          !v ? copyCls || 'text-base-content/50' : copiedCls || 'text-primary'
+        }
+      >
         {trigger}
         {!trigger &&
           (icon || <Iconify icon="custom:copied" className={cn('w-5 h-5 cursor-pointer', className)} />)}

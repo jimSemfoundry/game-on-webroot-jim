@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { emitter } from "@/store/emitter.ts";
 import { ComponentProps } from "react";
+import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 
 export function FastFinanceLink() {
   const { t } = useTranslation();
@@ -12,12 +13,12 @@ export function FastFinanceLink() {
   return (
     <div className="flex items-center gap-2 mt-4">
       <button className="btn btn-primary btn-md sm:btn-lg flex-1"
-              onClick={() => openUserFinanceModalWithTab("deposit")}>
+              onClick={() => openUserFinanceModalWithTab(`deposit_${randomString()}`)}>
         <Iconify icon="custom:deposit" width={20} height={20} />
         <span>{t("common:common.deposit")}</span>
       </button>
       <button className="btn btn-ghost btn-md sm:btn-lg z-10 flex-1"
-              onClick={() => openUserFinanceModalWithTab("withdraw")}>
+              onClick={() => openUserFinanceModalWithTab(`withdraw_${randomString()}`)}>
         <Iconify icon="custom:withdraw" className="text-primary" width={20} height={20} />
         <span>{t("common:common.withdraw")}</span>
       </button>
@@ -26,40 +27,41 @@ export function FastFinanceLink() {
 }
 
 export function FastViewDataLink() {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const { openUserFinanceModalWithTab } = useFinanceModal();
 
   const items = [
     {
-      event: () => openUserFinanceModalWithTab("swap"),
+      event: () => openUserFinanceModalWithTab(`swap_${randomString()}`),
       id: "swap",
-      label: "Swap"
+      label: t("common:common.swap")
     },
     {
-      event: () => emitter.emit("SYNC_TABS_INDEX", "Transactions"),
+      event: () => emitter.emit("SYNC_TABS_INDEX", "transactions"),
       id: "transactions",
-      label: "Transactions"
+      label: t("common:common.transactions")
     },
     {
-      event: () => emitter.emit("SYNC_TABS_INDEX", "Rollover"),
+      event: () => emitter.emit("SYNC_TABS_INDEX", "rollover"),
       id: "rollover",
-      label: "Rollover"
+      label: t("common:common.rollover")
     },
     {
-      event: () => emitter.emit("SYNC_TABS_INDEX", "BetHistory"),
+      event: () => emitter.emit("SYNC_TABS_INDEX", "bet-history"),
       id: "bet-history",
-      label: "Bet History"
+      label: t("common:common.betHistory")
     }
   ];
 
   return (
-    <StopPropagation className="flex justify-between mt-4">
+    <StopPropagation className="flex justify-between mt-4 px-4">
       {items.map((item: Record<string, any>) => (<div
+        id={item.id}
         key={item.id}
         onClick={() => item.event()}
         className="cursor-pointer h-15 font-semibold flex flex-col items-center justify-center gap-1 text-base-content/50">
-        <Iconify icon={`custom:${item.id}`} className="w-6 h-6" />
+        <Iconify icon={`custom:${item.id}`} className="w-5 h-5" />
         <span className="text-[10px] font-bold whitespace-nowrap">{item.label}</span>
       </div>))}
     </StopPropagation>
@@ -68,7 +70,7 @@ export function FastViewDataLink() {
 
 const StopPropagation = (props: ComponentProps<"div">) => {
   return (<div {...props}
-    onClick={(e) => e.stopPropagation()}>
+               onClick={(e) => e.stopPropagation()}>
     {props.children}
   </div>);
 };

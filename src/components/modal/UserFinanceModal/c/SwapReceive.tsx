@@ -16,7 +16,7 @@ import { FormatAmount } from "sunmoon-working-components";
 export const SwapReceive = () => {
   const { t } = useTranslation();
 
-  const { swapTo, swapFrom, setSwapTo } = useBoundStore();
+  const { swapTo, swapFrom, setSwapTo, syncAction } = useBoundStore();
 
   const [l1, origin, currencies] = useSupportedSwapToCurrenciesFilter(swapFrom.currency);
 
@@ -31,12 +31,12 @@ export const SwapReceive = () => {
 
   const exchangeRate = useMemo(() => {
     if (!swapFrom.currency?.currency || !swapTo.currency?.currency) return "0";
-    
+
     const rate = convertCurrency({
       amount: 1,
       fromCurrency: swapFrom.currency.currency,
       toCurrency: swapTo.currency.currency,
-      exchangeRates,
+      exchangeRates
     }).toString();
 
     if (swapFeeRate.gt(0)) {
@@ -52,19 +52,18 @@ export const SwapReceive = () => {
   const swapToAmount = useMemo(() => {
     if (l2 || !swapFrom.currency || !swapFrom.inAmount || !swapTo.currency) return "";
     if (!swapFrom.currency?.currency || !swapTo.currency?.currency) return "";
-    
-    const amount = convertCurrency({
-      amount: swapFrom.inAmount,
-      fromCurrency: swapFrom.currency.currency,
-      toCurrency: swapTo.currency.currency,
-      exchangeRates,
-    }).toString();
+
+    const amount = (Decimal(exchangeRates?.[swapFrom.currency.currency] || 0)
+      .div(exchangeRates?.[swapTo.currency.currency] || 1)
+      .times(swapFrom.inAmount || 0)).toFixed(swapTo.currency?.display_decimal, Decimal.ROUND_DOWN).toString();
+
     if (swapFeeRate.gt(0)) {
       const b = Decimal(amount);
       const c = b.minus(b.mul(swapFeeRate));
       const d = c.gt(0) ? c : Decimal(0);
-      return d.toDP(8, Decimal.ROUND_DOWN).toString();
+      return d.toFixed(swapTo.currency?.display_decimal, Decimal.ROUND_DOWN).toString();
     }
+
     return amount;
   }, [l2, swapTo, swapFrom, swapFeeRate, exchangeRates]);
 
@@ -74,13 +73,18 @@ export const SwapReceive = () => {
       amount: swapToAmount,
       fromCurrency: swapTo.currency.currency,
       toCurrency: "USDT",
-      exchangeRates,
+      exchangeRates
     }).toString();
   }, [swapToAmount, swapTo, exchangeRates]);
 
   useEffect(() => {
-    if (Array.isArray(origin)) setSwapTo({ currency: origin[0] });
+    if (origin.length > 0) setSwapTo({ currency: origin[0] });
   }, [origin]);
+
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
+  useEffect(() => {
+    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setSwapTo({ outAmount: "" });
+  }, [syncAction]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -89,6 +93,7 @@ export const SwapReceive = () => {
           <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_receive")}</span>
           <NumericFormat
             readOnly
+            wrapCls={"!px-0"}
             className="!px-0 !text-lg !h-7"
             placeholder="0.00"
             value={swapToAmount}
@@ -109,13 +114,14 @@ export const SwapReceive = () => {
                 setSwapTo({ currency: origin.find((o: Record<string, any>) => o.currency === v) });
               }}
               placeholder={t("common.selectCurrency")}
-              className="!w-[140px]"
+              className="!w-[160px]"
               buttonClassName="rounded-full !p-2 !bg-base-400"
               showSearch
               loading={l1}
             />
           </div>
-          <SmallLoading loading={l2} className="bg-base-400 !rounded-full" content={<CurrencySymbol rate={exchangeRate} />} />
+          <SmallLoading loading={l2} className="bg-base-400 !rounded-full"
+                        content={<CurrencySymbol rate={exchangeRate} />} />
         </div>
       </div>
       <div className="bg-base-300 p-4 rounded-xl">

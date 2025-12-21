@@ -2,9 +2,11 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@/components/ui/Accordion";
 import { useTranslation } from "react-i18next";
+import { ReactNode, useMemo } from "react";
+import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
 
 export function VipFAQ() {
   const { t } = useTranslation();
@@ -13,12 +15,12 @@ export function VipFAQ() {
     {
       id: "vip-faq-1",
       question: t("vipFaq:faqOne.title"),
-      answer: t("vipFaq:faqOne.content"),
+      answer: t("vipFaq:faqOne.content")
     },
     {
       id: "vip-faq-2",
       question: t("vipFaq:faqTwo.title"),
-      answer: t("vipFaq:faqTwo.content"),
+      answer: t("vipFaq:faqTwo.content")
     },
     {
       id: "vip-faq-3",
@@ -28,28 +30,28 @@ export function VipFAQ() {
     {
       id: "vip-faq-4",
       question: t("vipFaq:faqFour.title"),
-      answer: t("vipFaq:faqFour.content"),
+      answer: t("vipFaq:faqFour.content")
     },
     {
       id: "vip-faq-5",
       question: t("vipFaq:faqFive.title"),
-      answer: t("vipFaq:faqFive.content"),
+      answer: t("vipFaq:faqFive.content")
     },
     {
       id: "vip-faq-6",
       question: t("vipFaq:faqSix.title"),
-      answer: t("vipFaq:faqSix.content"),
+      answer: t("vipFaq:faqSix.content")
     },
     {
       id: "vip-faq-7",
       question: t("vipFaq:faqEight.title"),
-      answer: t("vipFaq:faqEight.content", { minWager: "$1000" }),
+      answer: t("vipFaq:faqEight.content", { minWager: "$1000" })
     },
     {
       id: "vip-faq-8",
       question: t("vipFaq:faqNine.title"),
-      answer: t("vipFaq:faqNine.content"),
-    },
+      answer: t("vipFaq:faqNine.content")
+    }
   ];
 
   return (
@@ -59,21 +61,40 @@ export function VipFAQ() {
       </h2>
       <Accordion type="multiple" className="w-full flex flex-col gap-3">
         {faqItems.map((item) => (
-          <AccordionItem
-            key={item.id}
-            value={item.id}
-            className="bg-base-200 rounded-field px-4 sm:px-6"
-          >
-            <AccordionTrigger className="text-left text-xs sm:text-sm font-semibold text-base-content/70 hover:no-underline">
-              {item.question}
-            </AccordionTrigger>
-            <AccordionContent className="text-base-content/50 text-xs sm:text-sm leading-relaxed">
-              <div dangerouslySetInnerHTML={{ __html: item.answer }} />
-            </AccordionContent>
-          </AccordionItem>
+          <InnerGuardContainer item={item}>
+            <AccordionItem
+              key={item.id}
+              value={item.id}
+              className="bg-base-200 rounded-field px-4 sm:px-6"
+            >
+              <AccordionTrigger
+                className="text-left text-xs sm:text-sm font-semibold text-base-content/70 hover:no-underline">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-base-content/50 text-xs sm:text-sm leading-relaxed">
+                <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+              </AccordionContent>
+            </AccordionItem>
+          </InnerGuardContainer>
         ))}
       </Accordion>
     </div>
   );
 }
 
+export const InnerGuardContainer = (
+  {
+    item,
+    children
+  }: {
+    item: Record<string, any>
+    children: ReactNode
+  }
+) => {
+  const { switchData } = useBonusSwitch();
+
+  const is_conquest = useMemo(() => switchData?.bonus_switch?.conquest === 0 && (item?.id === "vip-faq-3" || item?.field === "conquests"), [switchData]);
+  const is_achievements = useMemo(() => switchData?.bonus_switch?.achievements === 0 && (item?.id === "vip-faq-3" || item?.field === "achievements"), [switchData]);
+
+  return ((is_conquest || is_achievements) ? null : children);
+};

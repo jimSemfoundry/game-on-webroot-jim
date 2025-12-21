@@ -10,10 +10,17 @@ export function Index() {
     <div className="flex flex-col gap-4 md:w-full md:flex-row md:items-start">
       {
         isMobile
-          ? (<><Profile /><Personal /><IDVerification /><PublicProfile /></>)
-          : (<><Personal className={"flex-1"} /><div className={'flex flex-col gap-4'}>
-            <Profile /><PublicProfile />
-          </div></>)
+          ? (<><Profile />
+            <Personal />
+            <IDVerification />
+            <PublicProfile />
+          </>)
+          : (<><Personal className={"flex-1"} />
+            <div className={"flex flex-col gap-4"}>
+              <Profile />
+              <PublicProfile />
+            </div>
+          </>)
       }
     </div>
   );

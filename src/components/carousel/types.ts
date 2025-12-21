@@ -104,11 +104,19 @@ export type CarouselBaseOptions = EmblaOptionsType & {
   slidesToShow?: string | number | Partial<Record<string, string | number>>
 }
 
+export type CarouselWatchOptions = {
+  arrows?: boolean
+  dots?: boolean
+  progress?: boolean
+  thumbs?: boolean
+}
+
 export type CarouselOptions = CarouselBaseOptions & {
   thumbs?: CarouselBaseOptions
   breakpoints?: {
     [key: string]: Omit<CarouselBaseOptions, 'slidesToShow'>
   }
+  watch?: CarouselWatchOptions
 }
 
 export type UseCarouselReturn = {

@@ -1,13 +1,15 @@
 import Iconify from "@/components/iconify";
-import { BonusClaimConfirmationModal } from "@/sections/bonus/shared/double-or-nothing/bonus-claim-confirmation-modal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useClaimBonus, useClaimBonusMutation } from "@/hooks/api/useAuth";
-import { useBonusClaimConfirmation } from "@/sections/bonus/shared/use-bonus-claim-confirmation";
 import { useTranslation } from "react-i18next";
-import { useState, useCallback } from "react";
-import { FastAverageColor } from "fast-average-color";
+import { useState, useEffect } from "react";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { BonusTournamentHelpModal } from "./bonus-tournament-help-modal";
+import ImageColorCard from "@/components/ui/ImageColorCard";
+import { LazyImage } from "@/components/ui/LazyImage";
+import { useBoundStore } from "@/store";
+import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -19,39 +21,32 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
+const ILLUSTRATION_URL = "/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png";
+
 export function BonusTournamentCard() {
   const { t } = useTranslation();
-  const { isInitialized } = useAuth();
+  const { isInitialized, isAuthenticated } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
 
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
-  const { modalState, openClaimConfirmation, closeClaimConfirmation } = useBonusClaimConfirmation();
-  
+
   const { data: claimData, isLoading: isDataLoading } = useClaimBonus("tournament");
-  
+  const { setSyncAction } = useBoundStore();
+  const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
+
   const isLoading = !isInitialized || isDataLoading;
-  
+
   const tournamentData = claimData?.data?.data;
-  const claimableAmount = parseFloat(tournamentData?.value || "0");
+  const claimableAmount = parseFloat(tournamentData?.value || "0") || 0;
   const currency = tournamentData?.currency || "USDT";
 
-  const handleIllustrationLoad = useCallback(async (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    const fac = new FastAverageColor();
+  const { hex } = useVibrantColor(ILLUSTRATION_URL);
 
-    try {
-      const color = await fac.getColorAsync(img, {
-        algorithm: 'sqrt',
-        mode: 'precision',
-        ignoredColor: [
-          [255, 255, 255, 255, 50],
-          [0, 0, 0, 255, 150],
-          [20, 20, 20, 255, 120],
-        ],
-      });
-      const accentStop = `color-mix(in oklch, ${color.hex} 40%, transparent)`;
+  useEffect(() => {
+    if (hex) {
+      const accentStop = `color-mix(in oklch, ${hex} 40%, transparent)`;
       setBackground(`
         radial-gradient(
           95.05% 100% at 0% 35.47%,
@@ -60,22 +55,28 @@ export function BonusTournamentCard() {
         ),
         linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
       `);
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn("Failed to derive bonus card color", error);
-      }
-    } finally {
-      fac.destroy();
     }
-  }, []);
+  }, [hex]);
 
   const handleClaim = () => {
-    openClaimConfirmation({
-      bonusType: "Tournament Reward",
-      claimableAmount: claimableAmount,
-      onNormalClaim: () => claimBonus({ item: "tournament" }),
-      onDoubleClaim: () => claimBonus({ item: "tournament" }) // TODO: Add double claim support to API
-    });
+    claimBonus(
+      { item: "tournament" },
+      {
+        onSuccess: (response) => {
+          if (response.code !== 0 ) {
+            setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
+              code: response.code,
+              tryAgain: handleClaim
+            });
+            return
+          }
+          openDoubleOrNothingModal({
+            don_record_id: response?.data?.don_record_id,
+            amount: response?.data?.amount
+          });
+        }
+      }
+    )
   };
 
   const handleOpenTips = () => {
@@ -109,6 +110,28 @@ export function BonusTournamentCard() {
     );
   }
 
+  if (!isAuthenticated) {
+    return (
+      <ImageColorCard
+        gradientMode="linear"
+        imageUrl="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
+        colorOpacity={0.6}
+        paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
+        className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
+      >
+        <p className="text-xl sm:text-2xl font-bold uppercase leading-6 sm:leading-8 text-start">
+          <span className="text-base-content block">{t("bonus:tournaments")}</span>
+          <span className="block text-base-content">& {t("bonus:races")}</span>
+        </p>
+        <LazyImage
+          src="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
+          alt="free spins"
+          className="w-[130px] h-[130px] sm:w-[170px] sm:h-[170px] -rotate-12 absolute right-0 top-0"
+        />
+      </ImageColorCard>
+    );
+  }
+
   return (
     <div
       className="flex flex-col p-4 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200"
@@ -121,10 +144,9 @@ export function BonusTournamentCard() {
       </button>
       <div className="flex items-center gap-2 h-15">
         <img
-          src="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
+          src={ILLUSTRATION_URL}
           alt={t("bonus:tournament_reward")}
           className="w-15 h-15 -rotate-8"
-          onLoad={handleIllustrationLoad}
           loading="lazy"
           decoding="async"
         />
@@ -139,8 +161,8 @@ export function BonusTournamentCard() {
           <input type="text" className="grow border-none outline-none" readOnly value={formatWithConversion(claimableAmount, currency).formatted} />
         </label>
 
-        <button 
-          className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20" 
+        <button
+          className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
           onClick={handleClaim}
           disabled={isClaimPending || claimableAmount <= 0}
         >
@@ -151,16 +173,6 @@ export function BonusTournamentCard() {
           )}
         </button>
       </div>
-
-      <BonusClaimConfirmationModal
-        isOpen={modalState.isOpen}
-        onClose={closeClaimConfirmation}
-        onNormalClaim={modalState.onNormalClaim || (() => {})}
-        onDoubleClaim={modalState.onDoubleClaim || (() => {})}
-        bonusType={modalState.bonusType}
-        claimableAmount={modalState.claimableAmount}
-        isLoading={isClaimPending}
-      />
 
       <BonusTournamentHelpModal
         isOpen={isHelpModalOpen}

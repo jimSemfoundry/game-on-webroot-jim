@@ -34,12 +34,14 @@ export interface ConquestTask {
   progress: number;
   completed: boolean;
   category?: string;
+  path?: string;
 }
 
 // Task configuration types
 interface TaskConfig {
   icon: string;
   category: string;
+  path?: string;
 }
 
 // Task configuration mappings
@@ -47,78 +49,86 @@ const CONQUEST_TASK_CONFIG: Record<string, TaskConfig> = {
   "slots master": {
     icon: "/images/games/achievements/slots-master.svg",
     category: "slots-master",
+    path: "/explore?type=slots&category=all"
   },
   "gameshow master": {
     icon: "/images/games/achievements/gameshow-master.png",
-    category: "gameshow-master",
+    category: "gameshow-master"
   },
   "blackjack master": {
     icon: "/images/games/achievements/blackjack-master.svg",
     category: "blackjack-master",
+    path: "/explore?type=liveCasino&category=blackjack"
   },
   "baccarat master": {
     icon: "/images/games/achievements/baccarat-master.svg",
     category: "baccarat-master",
+    path: "/explore?type=liveCasino&category=baccarat"
   },
   "roulette master": {
     icon: "/images/games/achievements/roulette-master.svg",
     category: "roulette-master",
+    path: "/explore?type=liveCasino&category=roulette"
   },
   "just wager": {
-    icon: "/images/games/achievements/daily-wager.png",
+    icon: "/images/games/achievements/just-wager.svg",
     category: "daily-wager",
+    path: "/explore?type=casino"
   },
   "big win": {
-    icon: "/images/games/achievements/big-win.png",
+    icon: "/images/games/achievements/big-win.svg",
     category: "big-multiplier",
+    path: "/explore?type=casino"
   },
   "huge win": {
-    icon: "/images/games/achievements/big-win.png",
+    icon: "/images/games/achievements/big-win.svg",
     category: "big-multiplier",
+    path: "/explore?type=casino"
   },
   "massive win": {
-    icon: "/images/games/achievements/big-win.png",
+    icon: "/images/games/achievements/massive-win.svg",
     category: "big-multiplier",
-  },
+    path: "/explore?type=casino"
+  }
 };
 
 const GAME_TAG_CONFIG: Record<string, TaskConfig> = {
   slots: {
     icon: "/images/games/achievements/slots-master.svg",
-    category: "slots",
+    category: "slots"
   },
   gameshow: {
     icon: "/images/games/achievements/gameshow-master.png",
-    category: "gameshow",
+    category: "gameshow"
   },
   blackjack: {
     icon: "/images/games/achievements/blackjack-master.svg",
-    category: "blackjack",
+    category: "blackjack"
   },
   baccarat: {
     icon: "/images/games/achievements/baccarat-master.svg",
-    category: "baccarat",
+    category: "baccarat"
   },
   roulette: {
     icon: "/images/games/achievements/roulette-master.svg",
-    category: "roulette",
-  },
+    category: "roulette"
+  }
 };
 
 const TASK_TYPE_CONFIG: Record<string, TaskConfig> = {
   wager: {
     icon: "/images/games/achievements/daily-wager.png",
-    category: "wager",
+    category: "wager"
   },
   multiplier: {
     icon: "/images/games/achievements/big-win.png",
-    category: "multiplier",
-  },
+    category: "multiplier"
+  }
 };
 
 const DEFAULT_TASK_CONFIG: TaskConfig = {
   icon: "/images/games/achievements/default.png",
-  category: "default",
+  category: "default"
 };
 
 /**
@@ -185,6 +195,7 @@ export const convertAPITaskToConquestTask = (apiTask: ConquestAPITask): Conquest
     progress,
     completed: apiTask.is_finish === 1,
     category: config.category,
+    path: config?.path
   };
 };
 

@@ -1,7 +1,7 @@
 {
-    "global": "Küresel",
-    "notifications": "Bildirimler",
-    "support": "Destek",
-    "retry": "Tekrar dene",
-    "customerServiceChatFailedToLoad": "Müşteri hizmetleri sohbeti yüklenemedi"
+  "global": "Küresel",
+  "notifications": "Bildirimler",
+  "support": "Destek",
+  "retry": "Tekrar dene",
+  "customerServiceChatFailedToLoad": "Müşteri hizmetleri sohbeti yüklenemedi"
 }

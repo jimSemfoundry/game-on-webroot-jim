@@ -1,4 +1,13 @@
 {
+  "handball": "Handball",
+  "formula1": "Formula 1",
+  "sportsLive": "Langsung",
+  "football": "Sepak Bola",
+  "tennis": "Tenis",
+  "baseball": "Bisbol",
+  "iceHockey": "Hoki Es",
+  "basketball": "Basket",
+  "volleyball": "Bola Voli",
   "hot": "Populer",
   "all": "Semua",
   "recents": "Terakhir Dimainkan",
@@ -29,6 +38,9 @@
   "oopsThereIsNoDataYet": "Tidak ada data!",
   "noResultsFound": "Tidak ada hasil.",
   "trySearchingWithDifferentKeywords": "Coba cari dengan kata kunci lain!",
+  "searchMinLength": "Masukkan setidaknya {{count}} karakter untuk mencari.",
+  "searchPlaceholder": "Mulai dengan Memasukkan Nama Permainan",
+  "searchInstructions": "Masukkan setidaknya 3 simbol untuk memulai.",
   "featureBuy": "Beli Fitur",
   "enhancedRTP": "RTP yang Ditingkatkan",
   "megaways": "Megaways",
@@ -54,7 +66,8 @@
   "selected": "Dipilih",
   "sort": "Urutkan",
   "jackpot": "Jackpot",
-      "live-casino": "Live Casino",
-    "sports": "Olahraga",
-    "lotteries": "Lotere"
+  "live-casino": "Live Casino",
+  "sports": "Olahraga",
+  "lotteries": "Lotere",
+  "gamesYouShouldTry": "Permainan yang Harus Anda Coba"
 }

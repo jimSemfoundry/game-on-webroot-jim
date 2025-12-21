@@ -2,8 +2,10 @@ export { TournamentHeroSection } from "./tournament-hero-section";
 export { TournamentList } from "./tournament-list";
 export { TournamentCard } from "./tournament-card";
 export { TournamentBanner } from "./tournament-banner";
+export { TournamentDetailsModal } from "./tournament-details-modal";
+export { TournamentRulesSection } from "./tournament-rules-section";
 export { TournamentMyProgress } from "./tournament-my-progress";
 export { TournamentLeaderboard } from "./tournament-leaderboard";
 export { TournamentParticipatingGames } from "./tournament-participating-games";
+export { GameProviderTournaments } from "./game-provider-tournaments";
 export type { TournamentCardData } from "./tournament-card";
-

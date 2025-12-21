@@ -1,6 +1,8 @@
 import { useCallback, useRef, useEffect, useState } from "react";
-import { FastAverageColor } from "fast-average-color";
+import { Vibrant } from "node-vibrant/browser";
 import { createBonusGradient } from "@/sections/bonus/styles";
+
+export type PaletteType = 'Vibrant' | 'Muted' | 'DarkVibrant' | 'DarkMuted' | 'LightVibrant' | 'LightMuted';
 
 export interface ImageColorCardProps {
   /** 卡片内容 */
@@ -23,6 +25,8 @@ export interface ImageColorCardProps {
   colorOpacity?: number;
   /** 是否启用颜色提取 */
   enableColorExtraction?: boolean;
+  /** 颜色提取优先级顺序 */
+  paletteOrder?: PaletteType[];
 }
 
 /**
@@ -45,10 +49,11 @@ export const ImageColorCard = ({
   gradientMode = 'radial',
   colorOpacity = 0.4,
   enableColorExtraction = true,
+  paletteOrder = ['Vibrant', 'Muted', 'DarkVibrant'],
 }: ImageColorCardProps) => {
   const [extractedBackground, setExtractedBackground] = useState<string>(defaultBackground);
   const internalImageRef = useRef<HTMLImageElement>(null);
-  
+
   // 使用传入的ref或内部ref
   const targetImageRef = imageRef || internalImageRef;
 
@@ -62,57 +67,45 @@ export const ImageColorCard = ({
     const imgElement = targetImageRef.current;
     if (!imgElement) return;
 
-    const fac = new FastAverageColor();
-    
     try {
       // 等待图片完全加载
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      const color = fac.getColor(imgElement, {
-        algorithm: 'simple',
-        mode: 'speed',
-        ignoredColor: [
-          [255, 255, 255, 255, 50], // 忽略白色
-          [0, 0, 0, 255, 80],       // 忽略黑色
-        ]
-      });
-      
-      let r, g, b;
-      
-      // 解析颜色值
-      if (color.value && Array.isArray(color.value) && color.value.length >= 3) {
-        [r, g, b] = color.value;
-      } else if (color.rgb && typeof color.rgb === 'string') {
-        const matches = color.rgb.match(/rgb\\((\\d+),\\s*(\\d+),\\s*(\\d+)\\)/);
-        if (matches) {
-          r = parseInt(matches[1]);
-          g = parseInt(matches[2]);
-          b = parseInt(matches[3]);
-        }
-      } else if (color.hex) {
-        const hex = color.hex.replace('#', '');
-        r = parseInt(hex.substring(0, 2), 16);
-        g = parseInt(hex.substring(2, 4), 16);
-        b = parseInt(hex.substring(4, 6), 16);
+      if (!imgElement.complete) {
+        await new Promise(resolve => {
+          imgElement.onload = resolve;
+          imgElement.onerror = resolve; // 防止无限等待
+        });
       }
-      
-      if (r !== undefined && g !== undefined && b !== undefined && !isNaN(r) && !isNaN(g) && !isNaN(b)) {
+
+      const palette = await Vibrant.from(imgElement).getPalette();
+
+      // 根据 paletteOrder 参数确定优先顺序
+      let swatch = null;
+      for (const type of paletteOrder) {
+        if (palette[type]) {
+          swatch = palette[type];
+          break;
+        }
+      }
+
+      if (swatch) {
+        const [r, g, b] = swatch.rgb;
+
         // 生成渐变背景
         const accent = `rgba(${r}, ${g}, ${b}, ${colorOpacity})`;
-        const gradient = gradientMode === 'radial' 
+        const gradient = gradientMode === 'radial'
           ? createBonusGradient(accent)
           : `
               linear-gradient(135deg, rgba(${r}, ${g}, ${b}, ${colorOpacity}) 0%, var(--color-base-300) 100%),
               linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
             `;
-        
+
         setExtractedBackground(gradient);
         onColorExtracted?.(gradient);
       } else {
         setExtractedBackground(defaultBackground);
         onColorExtracted?.(defaultBackground);
       }
-      
+
     } catch (error) {
       if (import.meta.env.DEV) {
         console.warn('Failed to extract color from image:', error);
@@ -170,7 +163,7 @@ export const ImageColorCard = ({
           crossOrigin="anonymous"
         />
       )}
-      
+
       {children}
     </div>
   );

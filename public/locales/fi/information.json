@@ -1,38 +1,38 @@
 {
-    "goBack": "Palaa Takaisin",
-    "tryAgain": "Yritä Uudelleen",
-    "retry": "Yritä Uudelleen",
-    "retryConnection": "Yritä Yhteys Uudelleen",
-    "emptyStateNoContent": {
-        "title": "Täällä Ei Ole Vielä Mitään!",
-        "description": "Näyttää siltä, että sisältöä ei ole juuri nyt. Tarkista myöhemmin tai kokeile jotain muuta."
-    },
-    "failedToLoadPage": {
-        "title": "Jokin Meni Pieleen",
-        "description": "Sivun latauksen aikana tapahtui järjestelmävirhe. Lataa sivu uudelleen tai ota yhteyttä tukeen, jos ongelma jatkuu."
-    },
-    "otherActiveSession": {
-        "title": "Istuntovirhe!",
-        "description": "Pääsy tästä laitteesta ei ole juuri nyt mahdollista turvallisuussyistä. Tämä voi johtua toisesta kirjautumisesta tai järjestelmäongelmasta. Yritä uudelleen tai käytä toista laitetta."
-    },
-    "noInternetConnection": {
-        "title": "Hups! Olet Poissa Verkosta",
-        "description": "Näyttää siltä, että et ole yhteydessä internetiin. Tarkista Wi-Fi tai mobiilidata ja yritä uudelleen, kun olet jälleen verkossa."
-    },
-    "pageNotFound": {
-        "title": "Hups! Tämä Sivu Puuttuu",
-        "description": "Näyttää siltä, että tätä sivua ei ole olemassa tai se on siirretty. Tarkista URL-osoite tai palaa etusivulle."
-    },
-    "tooManyRequest": {
-        "title": "Odota Hetki! Olemme Kiireisiä",
-        "description": "Palvelimemme käsittelevät juuri nyt paljon pyyntöjä. Anna hetki ja yritä uudelleen."
-    },
-    "underMaintenance": {
-        "title": "Palaamme Pian!",
-        "description": "Teemme päivityksiä pitääksemme kaiken sujuvana. Tarkista tilanne pian uudelleen!"
-    },
-    "userRestriction": {
-        "title": "Hups! Et Pääse Tähän",
-        "description": "Näyttää siltä, että sinulla ei ole oikeutta nähdä tätä. Tarkista käyttöoikeutesi tai ota yhteyttä tukeen."
-    }
+  "goBack": "Palaa Takaisin",
+  "tryAgain": "Yritä Uudelleen",
+  "retry": "Yritä Uudelleen",
+  "retryConnection": "Yritä Yhteys Uudelleen",
+  "emptyStateNoContent": {
+    "title": "Ei mitään täällä vielä!",
+    "description": "Näyttää siltä, että täällä ei ole tällä hetkellä sisältöä. Tarkista myöhemmin tai kokeile jotain muuta."
+  },
+  "failedToLoadPage": {
+    "title": "Jotain meni pieleen",
+    "description": "Sivun lataamisen aikana tapahtui järjestelmävirhe. Lataa sivu uudelleen tai ota yhteyttä tukeen, jos ongelma jatkuu."
+  },
+  "otherActiveSession": {
+    "title": "Istunto-ongelma!",
+    "description": "Pääsy tältä laitteelta ei ole tällä hetkellä saatavilla turvallisuussyistä. Tämä voi johtua toisesta kirjautumisesta tai järjestelmäongelmasta. Yritä uudelleen tai käytä toista laitetta."
+  },
+  "noInternetConnection": {
+    "title": "Ups! Olet offline",
+    "description": "Näyttää siltä, että et ole yhteydessä internetiin. Tarkista Wi-Fi- tai mobiilidata ja yritä uudelleen, kun olet takaisin verkossa."
+  },
+  "pageNotFound": {
+    "title": "Ups! Tämä sivu puuttuu",
+    "description": "Näyttää siltä, että tätä sivua ei ole olemassa tai se on siirretty. Tarkista URL-osoite tai palaa takaisin kotiin."
+  },
+  "tooManyRequest": {
+    "title": "Pysy rauhallisena! Olemme hieman kiireisiä",
+    "description": "Näyttää siltä, että palvelimemme käsittelevät tällä hetkellä paljon pyyntöjä. Anna hetki ja yritä uudelleen."
+  },
+  "underMaintenance": {
+    "title": "Olemme pian takaisin!",
+    "description": "Teemme päivityksiä, jotta asiat sujuvat sujuvasti. Tarkista pian uudelleen!"
+  },
+  "userRestriction": {
+    "title": "Ups! Et voi käyttää tätä",
+    "description": "Näyttää siltä, että sinulla ei ole lupaa nähdä tätä. Tarkista pääsysi tai ota yhteyttä saadaksesi apua."
+  }
 }

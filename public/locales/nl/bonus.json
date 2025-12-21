@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Claim je bonus zoals gewoonlijk...\nOf maak een gedurfde sprongetje naar",
+  "double_it": "Verdubbel Het!",
+  "no_thanks": "Nee bedankt",
+  "double_or_nothing": "Verdubbel of Niets",
+  "come_back_tomorrow": "Kom Morgen Terug",
+  "promo_code": "Promocode",
+  "got_a_code": "Heb je een code? Je weet wat je moet doen!",
+  "lifetime_bonus": "Levenslange Bonus",
+  "claimed": "Geclaimd",
+  "starter": "Starter",
+  "pack": "Pakket",
+  "achievements_card_description": "Verzamel speciale prestatiebeloningen die zijn ontworpen om elke stap van je vooruitgang te vieren!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Beheers de kunst van geluk",
+    "achievement_verify_phone": "Onstuitbare energie en kracht",
+    "achievement_add_desktop_app": "Altijd binnen handbereik",
+    "achievement_super_spreader": "Deel de game-ervaring",
+    "achievement_conquistador": "Ga elke uitdaging aan",
+    "achievement_game_explorer": "Ontdek nieuwe game-werelden",
+    "achievement_card_shark": "Heers over kaartspellen",
+    "achievement_slotmaster": "Beheers de gokkasten",
+    "achievement_talkative": "Leid de weg voor anderen",
+    "achievement_bet_count": "Beheers precisiegaming",
+    "achievement_deposit_count": "Bereik ultieme overwinning",
+    "achievement_wager_count": "Verbrand door uitdagingen",
+    "achievement_single_bet": "Word legendarisch",
+    "achievement_single_deposit": "Navigeer door blockchain-netwerken",
+    "achievement_single_wager": "Beheers financiële strategieën",
+    "achievement_single_payout": "Heers over de crypto-markt",
+    "achievement_crypto_bro": "Beheers cryptocurrency-handel",
+    "achievement_crypto_baron": "Heers over de crypto-markt",
+    "achievement_chain_shifter": "Navigeer door blockchain-netwerken",
+    "achievement_money_master": "Beheers financiële strategieën",
+    "achievement_sniper": "Beheers precisiegaming",
+    "achievement_champion": "Bereik ultieme overwinning",
+    "achievement_name_of_fame": "Word legendarisch",
+    "achievement_guiding_star": "Leid de weg voor anderen",
+    "achievement_face_of_fortune": "Beheers de kunst van geluk",
+    "achievement_dynamo": "Onstuitbare energie en kracht",
+    "achievement_inferno": "Verbrand door uitdagingen",
+    "achievement_the_challenger": "Ga elke uitdaging aan"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Totaal opgehaalde bonus",
   "details": "Details",
   "redeem": "Inwisselen",
-"deposit_bonus": "Collectie van stortingsbonussen",
+  "deposit_bonus": "Collectie van stortingsbonussen",
   "get_up_to": "Ontvang tot",
   "deposit_now": "Nu storten",
   "bonus_ends_in": "Bonus vervalt in",
@@ -26,14 +68,15 @@
   "daily_cashback": "Dagelijkse cashback",
   "bonus_calendar": "Bonuskalender",
   "claim_every_8_hours": "Elke 8 uur ophalen",
-"locked": "Collectie van stortingsbonussen",
+  "locked": "Collectie van stortingsbonussen",
   "next_claim_in": "Volgende claim in",
   "bonus_pool": "Collectie van komende beloningen",
-   "bonus_calendar_details": "Haal elke 8 uur een bonus op!",
+  "bonus_calendar_details": "Haal elke 8 uur een bonus op!",
   "release_schedule": "Vrijgaveschema",
   "total_vip_bonus_claimed": "Totaal opgehaalde VIP-bonus",
   "your_vip_progress": "Je VIP-vooruitgang",
   "available_at_vip": "Beschikbaar bij VIP {{vip}}",
+  "vip_progress_description": "Blijf vooruitgaan! Het volgende niveau ontgrendelt {{amount}} uit je bonuspool.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Bereik VIP 4 en krijg toegang tot Lucky Spin – je kans om dagelijks extra beloningen te winnen!",
   "weekly_cashback": "Wekelijkse cashback",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Bereik VIP 12 en ontgrendel wekelijkse cashback, je persoonlijke vangnet voor high roller-actie!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Geluksnummer zeven",
   "expires_in": "Vervalt in",
+  "expires": "Verloopt",
   "go": "Start",
   "conquest_just_wager_title": "Zet in op {{amount}}",
   "conquest_just_wager_description": "Zet {{amount}} in op spellen op één dag om vandaag {{reward}} uit je bonuspot vrij te spelen!",
@@ -98,134 +142,191 @@
   "sort_by": "Sorteren op:",
   "claimable": "Claimbaar",
   "achievement_verify_email": {
-    "name": "E-mail verifiëren",
-    "description": "Deze prestatie is voor spelers die hun e-mail hebben geverifieerd, hun identiteit hebben vastgelegd en veilige toegang hebben ontgrendeld. Het is een teken van betrouwbaarheid en de eerste stap van een serieuze speler."
+    "name": "Verifieer E-mail",
+    "description": "Deze prestatie wordt toegekend aan spelers die hun e-mail hebben geverifieerd, waardoor hun identiteit wordt vergrendeld en veilige toegang wordt ontgrendeld. Het is een teken van gereedheid en betrouwbaarheid - de eerste stap van elke serieuze speler."
   },
   "achievement_verify_phone": {
-    "name": "Telefoon verifiëren",
-    "description": "Deze prestatie is voor spelers die hun telefoonnummer hebben geverifieerd om verbonden en op de hoogte te blijven. Het toont vertrouwen en toewijding aan het spel."
+    "name": "Verifieer Telefoon",
+    "description": "Deze prestatie wordt toegekend aan spelers die hun telefoonnummer hebben geverifieerd om geïnformeerd en verbonden te blijven. Het signaleert vertrouwen, betrokkenheid en toewijding aan de puls van het spel."
   },
   "achievement_add_desktop_app": {
-    "name": "Toevoegen aan startscherm",
-    "description": "Deze prestatie wordt toegekend aan spelers die onze Telegram-mini-app aan hun startscherm hebben toegevoegd. Altijd binnen handbereik, deze actie toont echte toewijding – want echte spelers houden het spel dichtbij."
+    "name": "Toevoegen aan Startscherm",
+    "description": "Deze prestatie wordt toegekend aan spelers die onze Telegram mini-app aan hun startscherm hebben toegevoegd. Altijd binnen handbereik, deze actie toont ware toewijding - omdat echte spelers het spel dichtbij houden."
   },
   "achievement_super_spreader": {
-    "name": "Superverspreider",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} nieuwe gebruikers</0> hebben aanbevolen. Als echte gemeenschapsbouwers brengen ze nieuwe energie in het spel. Hun invloed groeit met elke connectie."
+    "name": "Super Verspreider",
+    "description": "Deze prestatie wordt toegekend aan spelers die met succes <0>{{count}} nieuwe gebruikers</0> hebben doorverwezen. Een echte gemeenschapsbouwer, ze breiden de cirkel uit en brengen nieuwe energie in het spel. Hun invloed groeit met elke verbinding die ze maken."
   },
   "achievement_conquistador": {
-    "name": "Veroveraar",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} missies</0> hebben voltooid. Gedreven door vastberadenheid en een honger naar winst overwinnen ze elke uitdaging – een echte kampioen."
+    "name": "Conquistador",
+    "description": "Deze prestatie wordt toegekend aan spelers die in totaal <0>{{count}} quests</0> hebben voltooid. Gedreven door vastberadenheid en een dorst naar overwinning, overwinnen ze elke uitdaging die op hun pad komt - een echte kampioen van de reis."
   },
   "achievement_game_explorer": {
-    "name": "Spelontdekker",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} verschillende spellen</0> hebben gespeeld. Nieuwsgierig en avontuurlijk, ze verkennen het platform en ontdekken nieuwe manieren om te winnen."
+    "name": "Game Explorer",
+    "description": "Deze prestatie wordt toegekend aan spelers die <0>{{count}} verschillende spellen</0> hebben geprobeerd. Nieuwsgierig en avontuurlijk, ze verkennen het platform, altijd eager om nieuwe manieren te ontdekken om te spelen en te winnen."
   },
   "achievement_card_shark": {
-    "name": "Kaartenkoning",
-    "description": "Deze prestatie is voor spelers die minstens <0>{{amount}}</0> hebben ingezet op kaartspellen, waarmee ze hun strategie en durf bewijzen. Deze high rollers verdienen hun plek onder de elite."
+    "name": "Kaarthaai",
+    "description": "Deze prestatie wordt toegekend aan spelers die minstens <0>{{amount}}</0> hebben ingezet op kaartspellen, waarmee ze hun veerkracht, strategie en bereidheid om risico's te nemen bewijzen. Deze high-stakes spelers hebben hun plaats onder de elite verdiend. De kaarten zijn in hun handen, en het spel is van hen om te beheersen."
   },
   "achievement_slotmaster": {
-    "name": "Slotsmeester",
-    "description": "Deze prestatie is voor spelers die minstens <0>{{amount}}</0> hebben ingezet op slots, waarmee ze hun doorzettingsvermogen en liefde voor de draai bewijzen. Geluk begint, maar meesterschap houdt ze in het spel."
+    "name": "Gokkastenmeester",
+    "description": "Deze prestatie wordt toegekend aan spelers die minstens <0>{{amount}}</0> hebben ingezet op gokkasten, waarmee ze hun volharding, thrill-seeking geest en liefde voor de draai bewijzen. Deze toegewijde spelers omarmen de rollen met vertrouwen - geluk kan leiden, maar meesterschap houdt ze in het spel."
   },
   "achievement_talkative": {
-    "name": "Spraakzaam",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} keer</0> hebben gesproken in de chat. Elk bericht telt – je wordt een echt deel van de community."
+    "name": "Praatziek",
+    "description": "Deze prestatie wordt toegekend aan spelers die <0>{{count}} keer</0> in de chatruimte hebben gesproken. Elke boodschap telt - je zet de eerste stap om een echt deel van het gesprek te worden."
   },
   "achievement_bet_count": {
-    "name": "Inzetscore",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} inzetten</0> hebben geplaatst. Ze geloven in kans en houden het spel levend met elke weddenschap."
+    "name": "Inzet Telling",
+    "description": "Deze prestatie wordt toegekend aan spelers die in totaal <0>{{count}} inzetten</0> hebben geplaatst. Een echte gelovige in kans, hun onverzettelijke geest houdt het spel levend met elke inzet."
   },
   "achievement_deposit_count": {
-    "name": "Stortingsscore",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} stortingen</0> hebben gedaan. Met constante credits en toewijding zijn ze niet zomaar spelers – ze zijn toekomstige grootheden."
+    "name": "Storting Telling",
+    "description": "Deze prestatie wordt toegekend aan spelers die in totaal <0>{{count}} stortingen</0> hebben gedaan. Met een constante stroom van credits en onverzettelijke toewijding, hebben ze laten zien dat ze niet alleen spelers zijn - ze zijn tycoons in de maak."
   },
   "achievement_change_avatar": {
-    "name": "Avatar wijzigen",
-    "description": "Deze prestatie is voor spelers die hun profiel personaliseren met een nieuwe avatar. Een gedurfde stap om je identiteit in het spel te claimen."
+    "name": "Verander Avatar",
+    "description": "Deze prestatie wordt toegekend aan spelers die hun profiel personaliseren door hun avatar te veranderen. Een gedurfde stap om op te vallen en je identiteit in het spel te bezitten."
   },
   "achievement_set_username": {
-    "name": "Gebruikersnaam kiezen",
-    "description": "Je hebt je naam gekozen – de legende begint. Deze prestatie eert spelers die hun plek in het spel officieel maken."
+    "name": "Stel Gebruikersnaam In",
+    "description": "Je hebt je naam geclaimd - nu begint de legende. Deze prestatie eert degenen die hun ruimte claimen en het officieel maken."
   },
   "achievement_download_mobile_app": {
-    "name": "Mobiele app downloaden",
-    "description": "Deze badge is voor spelers die het spel overal mee naartoe nemen. De app downloaden laat zien dat je altijd klaar bent om te spelen, waar je ook bent."
+    "name": "Download Mobiele App",
+    "description": "Deze badge gaat naar spelers die het spel met zich meedragen. De app downloaden toont dat je hier niet bent om te pauzeren - je bent hier om op elk moment en overal te spelen."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Max inzet in één spel per dag",
-    "description": "Deze prestatie is voor spelers die minstens <0>{{amount}}</0> hebben ingezet in één spel op een dag. Het eert hun focus, strategie en moed om grote risico’s te nemen. Deze toppers beheersen hun spel en spelen om te winnen."
+    "name": "Max Inzet in een Dag Enkel Spel",
+    "description": "Deze prestatie wordt toegekend aan spelers die minstens <0>{{amount}}</0> hebben ingezet op een enkel spel in een dag. Het erkent degenen met onverzettelijke focus, berekende strategie en de moed om gedurfde risico's te nemen. Deze elite spelers hebben hun gekozen spel beheerst - en ze spelen om te winnen."
   },
   "achievement_slots_win_count": {
-    "name": "Slots winstscore",
-    "description": "Deze prestatie is voor spelers die <0>{{count}} winsten</0> hebben behaald op slots. Elke draai tart de kansen, en ze vieren overwinning na overwinning. Geluk begint, maar consistentie maakt ze kampioen."
+    "name": "Gokkasten Win Telling",
+    "description": "Deze prestatie wordt toegekend aan spelers die <0>{{count}} overwinningen</0> op gokkasten hebben behaald. Met elke draai trotseren ze de kansen en vieren ze overwinning na overwinning. Geluk kan het spel starten - maar consistentie maakt ze een kampioen."
   },
   "achievement_slots_multiplier": {
-    "name": "Slots vermenigvuldiger",
-    "description": "Deze prestatie is voor spelers die een <0>winst met een {{count}}x vermenigvuldiger</0> of meer hebben behaald in één slotspin. Het eert wie groots speelt, risico’s omarmt en enorme beloningen wint. Zij beheersen de rollen en staan bovenaan."
+    "name": "Gokkasten Vermenigvuldiger",
+    "description": "Deze prestatie wordt toegekend aan spelers die een <0>winst met een {{count}}x vermenigvuldiger</0> of meer hebben behaald in een enkele gokkast draai. Het eert degenen die grootsheid nastreven, de spanning van hoog risico omarmen en buitengewone beloningen binnenhalen. Dit zijn geen gewone spelers - ze beheersen de rollen en stijgen boven de rest uit."
+  },
+  "achievement_champion": {
+    "name": "Kampioen",
+    "description": "Deze prestatie wordt toegekend aan spelers die <0>10 overwinningen</0> hebben behaald. Een Kampioen staat trots in de arena van kans, en bewijst hun veerkracht ronde na ronde. Met elke overwinning vestigen ze hun plaats onder de kandidaten die boven geluk uitstijgen om glorie te claimen."
+  },
+  "achievement_slot_master": {
+    "name": "Slot Master",
+    "description": "Deze prestatie wordt toegekend aan spelers die minstens <0>{{amount}}</0> hebben ingezet op gokkasten. Een Slot Master draait met vertrouwen en volharding, en verandert elke rol in een kans op fortuin. Met vaste handen en angstloos spel bewijzen ze dat ware beheersing één draai per keer wordt opgebouwd."
+  },
+  "achievement_the_challenger": {
+    "name": "De Uitdager",
+    "description": "Deze prestatie wordt toegekend aan spelers die minstens <0>10 geldige inzetten</0> hebben geplaatst in hun speelgeschiedenis. De Uitdager grijpt elke kans, gedreven door vastberadenheid en de spanning van competitie. Dapper en onvermoeibaar bewijzen ze dat ware kandidaten zich niet terugtrekken uit het spel — ze stappen naar voren, klaar om hun grenzen te testen en hun plaats onder de onverschrokkenen te claimen."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Deze prestatie wordt toegekend aan spelers die <0>1 storting</0> van minstens <0>{{amount}}</0> in één transactie hebben voltooid. Een Dynamo wordt sterker met elke oplading, en bewijst hun consistentie en vastberadenheid op de weg naar beheersing."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Gezicht van Fortuin",
+    "description": "Deze prestatie wordt toegekend aan spelers die voor het eerst hun avatar hebben aangepast. Een Gezicht van Fortuin weet dat identiteit kracht is — elke keuze van stijl, symbool of expressie is een teken van individualiteit. Door hun uiterlijk vorm te geven, tonen ze aan dat ware spelers niet alleen het spel spelen — ze laten hun stempel erop achter."
+  },
+  "achievement_name_of_fame": {
+    "name": "Naam van Roem",
+    "description": "Deze prestatie wordt toegekend aan spelers die voor het eerst hun gebruikersnaam hebben ingesteld. Een Naam van Roem markeert het begin van ware identiteit, en transformeert een nieuwkomer in een erkende aanwezigheid. Dapper en uniek bewijzen ze dat elke legende begint met een naam die herinnerd wordt."
+  },
+  "achievement_guiding_star": {
+    "name": "Leidende Ster",
+    "description": "Deze prestatie wordt toegekend aan spelers die het spel aan hun startscherm hebben toegevoegd of de app hebben gedownload. Een Leidende Ster houdt het pad naar fortuin helder, en verlicht de weg terug naar het spel met een enkele tik."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Deze prestatie wordt toegekend aan spelers die in totaal minstens <0>{{amount}}</0> hebben ingezet in hun gehele speelgeschiedenis. Highrollers dragen het teken van toewijding en prestige, en bewijzen hun toewijding aan het spel met elke draai, inzet en ronde. Hun kroon is niet alleen een symbool — het is een bewijs van volharding, passie en de zoektocht naar fortuin."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Deze prestatie wordt toegekend aan spelers die een <0>20x</0> vermenigvuldiger op een gokkast hebben behaald. Met vlammen die brullen, transformeert een Inferno een enkele inzet in een vuurstorm van fortuin."
+  },
+  "achievement_money_maverick": {
+    "name": "Geld Maverick",
+    "description": "Deze prestatie wordt toegekend aan spelers die een storting van minstens <0>{{amount}}</0> in één transactie hebben gedaan, met fiat of lokale betalingsgateways. Een Geld Maverick baant zijn eigen weg met gedurfde zelfverzekerdheid, en verandert alledaags geld in buitengewone kansen. Onverschrokken en avontuurlijk bewijzen ze dat ware mavericks zich niet alleen aan de regels houden — ze herdefiniëren ze."
+  },
+  "achievement_money_master": {
+    "name": "Geld Master",
+    "description": "Deze prestatie wordt toegekend aan spelers die een fiat-opname van minstens <0>{{amount}}</0> in één transactie hebben voltooid. Een Geld Master staat trots op het kruispunt van spel en beloning, en zet hun winsten om in waarde in de echte wereld. Met vaste handen en scherpe timing tonen ze aan dat ware beheersing niet alleen in het spel zit — het zit in het naar huis brengen van de beloningen."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Deze prestatie wordt toegekend aan spelers die een storting van minstens <0>{{amount}}</0> in één transactie hebben gedaan, met elke cryptocurrency. Een Crypto Maestro dirigeert zijn fondsen als een ware kunstenaar, en orkestreert digitale activa met precisie en flair. Zelfverzekerd op het blockchainpodium zijn ze pioniers van het spel die bewijzen dat fortuin de gedurfden begunstigt."
+  },
+  "achievement_crypto_baron": {
+    "name": "Crypto Baron",
+    "description": "Deze prestatie wordt toegekend aan spelers die een crypto-opname van minstens <0>{{amount}}</0> in één transactie hebben voltooid, met elke cryptocurrency. Een Blockchain Baron heerst over het rijk van digitale activa, en verplaatst fondsen over de keten met vertrouwen en gezag. Met elke succesvolle opname bewijzen ze dat fortuin verdiend, veiliggesteld en mee naar huis genomen kan worden op de blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Chain Shifter",
+    "description": "Deze prestatie wordt toegekend aan spelers die met succes een <0>crypto swap transactie</0> hebben voltooid. Een Chain Shifter is iemand die weet hoe hij met vertrouwen tussen tokens kan bewegen, en zich gemakkelijk aanpast aan de markttijden. Meesters van momentum, ze gedijen op flexibiliteit en transformatie, altijd klaar om van versnelling te veranderen en kansen te grijpen."
   },
   "item": {
-    "conquest_just_wager_on_100": "Missie: Zet in op 100",
-    "conquest_just_wager_on_200": "Missie: Zet in op 200",
-    "conquest_roulette_master": "Missie: Roulette Meester",
-    "conquest_blackjack_master": "Missie: Blackjack Meester",
-    "conquest_baccarat_master": "Missie: Baccarat Meester",
-    "conquest_gameshow_master": "Missie: Gameshow Meester",
-    "conquest_slots_master_10": "Missie: Slots Meester 10",
-    "conquest_gameshow_master_20": "Missie: Gameshow Meester 20",
-    "conquest_roulette_master_30": "Missie: Roulette Meester 30",
-    "conquest_blackjack_master_40": "Missie: Blackjack Meester 40",
-    "conquest_baccarat_master_50": "Missie: Baccarat Meester 50",
-    "conquest_big_win": "Missie: Grote Winst",
-    "conquest_huge_win": "Missie: Enorme Winst",
-    "conquest_massive_win": "Missie: Gigantische Winst",
-    "achievement_verify_email": "Prestatie E-mailadres verifiëren",
-    "achievement_verify_phone": "Prestatie Telefoonnummer verifiëren",
-    "achievement_add_desktop_app": "Prestatie Desktop-app toevoegen",
-    "achievement_super_spreader": "Prestatie Superspreider",
-    "achievement_conquistador": "Prestatie Veroveraar",
-    "achievement_game_explorer": "Prestatie Spellenverkenner",
-    "achievement_card_shark": "Prestatie Kaartenexpert",
-    "achievement_slotmaster": "Prestatie Slotmeester",
-    "achievement_talkative": "Prestatie Praatgraag",
-    "achievement_bet_count": "Prestatie Aantal weddenschappen",
-    "achievement_deposit_count": "Prestatie Aantal stortingen",
-    "achievement_change_avatar": "Prestatie Avatar wijzigen",
-    "achievement_set_username": "Prestatie Gebruikersnaam instellen",
-    "achievement_download_mobile_app": "Prestatie Mobiele app downloaden",
-    "achievement_wager_in_a_day_single_game": "Prestatie Inzetten op één spel op één dag",
-    "achievement_slots_win_count": "Prestatie Aantal overwinningen op slots",
-    "achievement_slots_multiplier": "Prestatie Slots-multiplier",
-    "level_up": "Niveau omhoog",
+    "conquest_just_wager_on_100": "Verovering Gewoon Inzetten op 100",
+    "conquest_just_wager_on_200": "Verovering Gewoon Inzetten op 200",
+    "conquest_roulette_master": "Verovering Roulette Meester",
+    "conquest_blackjack_master": "Verovering Blackjack Meester",
+    "conquest_baccarat_master": "Verovering Baccarat Meester",
+    "conquest_gameshow_master": "Verovering Spelshow Meester",
+    "conquest_slots_master_10": "Verovering Gokkasten Meester 10",
+    "conquest_gameshow_master_20": "Verovering Spelshow Meester 20",
+    "conquest_roulette_master_30": "Verovering Roulette Meester 30",
+    "conquest_blackjack_master_40": "Verovering Blackjack Meester 40",
+    "conquest_baccarat_master_50": "Verovering Baccarat Meester 50",
+    "conquest_big_win": "Verovering Grote Winst",
+    "conquest_huge_win": "Verovering Enorme Winst",
+    "conquest_massive_win": "Verovering Massale Winst",
+    "achievement_verify_email": "Prestatie Verifieer E-mail",
+    "achievement_verify_phone": "Prestatie Verifieer Telefoon",
+    "achievement_add_desktop_app": "Prestatie Voeg Desktop App Toe",
+    "achievement_super_spreader": "Prestatie Super Verspreider",
+    "achievement_conquistador": "Prestatie Conquistador",
+    "achievement_game_explorer": "Prestatie Game Explorer",
+    "achievement_card_shark": "Prestatie Kaarthaai",
+    "achievement_slotmaster": "Prestatie Gokkastenmeester",
+    "achievement_talkative": "Prestatie Praatziek",
+    "achievement_bet_count": "Prestatie Inzet Telling",
+    "achievement_deposit_count": "Prestatie Storting Telling",
+    "achievement_change_avatar": "Prestatie Verander Avatar",
+    "achievement_set_username": "Prestatie Stel Gebruikersnaam In",
+    "achievement_download_mobile_app": "Prestatie Download Mobiele App",
+    "achievement_wager_in_a_day_single_game": "Prestatie Inzetten in een Dag Enkel Spel",
+    "achievement_slots_win_count": "Prestatie Gokkasten Win Telling",
+    "achievement_slots_multiplier": "Prestatie Gokkasten Vermenigvuldiger",
+    "level_up": "Niveau Omhoog",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
     "group": "Commissie",
-    "referral": "Vriendenbonus",
+    "referral": "Verwijzing",
     "tournament": "Toernooi",
-    "conquest_extra_reward": "Conquest Extra Beloning",
+    "conquest_extra_reward": "Verovering Extra Beloning",
     "bonus": "Bonus",
     "bonus_manual": "Handmatige Bonus",
-    "vip_bonus_lucky_number_seven": "VIP-bonus geluksnummer zeven",
-    "rakeback_bonus": "Rakeback-bonus",
-    "group_bonus": "Groepsbonus",
-    "level_up_bonus": "Level-up bonus",
-    "refer_bonus": "Verwijzingsbonus",
-    "tournament_bonus": "Toernooibonus",
-    "vip_bonus_mystery_box": "VIP Bonus Mysteriebox"
+    "vip_bonus_lucky_number_seven": "VIP Bonus Gelukkige Nummer Zeven",
+    "rakeback_bonus": "Rakeback Bonus",
+    "group_bonus": "Groep Bonus",
+    "level_up_bonus": "Niveau Omhoog Bonus",
+    "refer_bonus": "Verwijs Bonus",
+    "tournament_bonus": "Toernooi Bonus",
+    "vip_bonus_mystery_box": "VIP Bonus Mysterie Doos"
   },
   "achievements_description": "Vrijgespeeld bij VIP {{vip}}, deze beloningen vieren je mijlpalen met spannende verrassingen onderweg!",
   "lucky_number_seven_description": "Raak de Geluks{{number}}s en scoor elke dag een lekkere bonus!",
-"mystery_box_description": "Open je mysteriedoos één keer per maand voor verrassingsbeloningen!",
+  "mystery_box_description": "Open je mysteriedoos één keer per maand voor verrassingsbeloningen!",
+  "mystery_box_description2": "Raak VIP {{vip}} om op de 7e van elke maand een Mystery Box te ontvangen!",
   "mystery_box": "Mysterie Doos",
   "the_cannon_description": "Een maandelijkse beloning zo krachtig dat de ware aard een streng bewaard geheim blijft.",
   "achievements_progress_name": {
-    "achievement_verify_email": "E-mail Verifiëren",
-    "achievement_verify_phone": "Telefoon Verifiëren",
-    "achievement_add_desktop_app": "Desktop App Toevoegen",
-    "achievement_super_spreader": "Superverspreider",
+    "achievement_verify_email": "Verifieer E-mail",
+    "achievement_verify_phone": "Verifieer Telefoon",
+    "achievement_add_desktop_app": "Voeg Desktop App Toe",
+    "achievement_super_spreader": "Super Verspreider",
     "achievement_conquistador": "Conquistador",
-    "achievement_game_explorer": "Spel Ontdekker"
+    "achievement_game_explorer": "Game Explorer"
   },
   "you_win": "Jij wint",
   "mystery": "Mysterie",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Beloningen worden berekend en bijgeschreven in BUCK/USDT, en vervolgens weergegeven in je favoriete fiatvaluta op basis van realtime wisselkoersen voor gebruiksgemak. Houd er rekening mee dat alle conversies bij benadering zijn totdat een swaptransactie is voltooid.",
   "general_terms_answer_2": "Het casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken zonder verplichting tot rechtvaardiging. Misbruik of frauduleuze activiteiten leiden tot diskwalificatie van de promotie.",
   "available": "Beschikbaar",
-"refresh_in": "Ververs over",
-"deposit_bonus_pool": "Collectie van stortingsbonussen"
+  "refresh_in": "Ververs over",
+  "deposit_bonus_pool": "Collectie van stortingsbonussen",
+  "dashboard": "Dashboard",
+  "bonuses": "Bonussen",
+  "vip_program": "VIP Programma",
+  "bonusHub": {
+    "root": "Bonus Hub",
+    "resetOn": "Reset Op {{time}}",
+    "ongoing": "{{count}} Lopend",
+    "accrualIn": "Opbouw In {{time}}",
+    "nextReleaseIn": "Volgende Vrijgave In {{time}}"
+  },
+  "freeSpins": "Gratis Spins",
+  "freeSpinsBonusDetails": "Gratis Spins bonussen belonen je met extra gameplay op geselecteerde gokkasttitels. Het inzetten van het vereiste bedrag ontgrendelt je gratis spinwinsten, die vervolgens onmiddellijk aan je accountbalans kunnen worden toegevoegd.",
+  "freeSpinsClaimDistributionDescription1": "Gratis Spins winsten worden aan je accountbalans toegevoegd zodra aan de inzetvereiste is voldaan en je op 'Claimen' klikt.",
+  "freeSpinsClaimDistributionDescription2": "Volg je voortgang op elk moment in je Bonuspaneel of Geschiedenis van Gratis Spins.",
+  "freeSpinsExpirationDescription1": "Gratis Spins moeten binnen de geldigheidsperiode die in het Gratis Spins-paneel wordt weergegeven, worden gebruikt. Ongebruikte spins vervallen na deze periode.",
+  "freeSpinsExpirationDescription2": "Winsten van gratis spins vervallen pas nadat ze zijn ontgrendeld en geclaimd.",
+  "freeSpinsGeneralTermsDescription1": "Gratis Spin beloningen worden berekend en gecrediteerd in BUCK, en vervolgens weergegeven in je favoriete fiat-valuta voor gemak. Houd er rekening mee dat valutaconversies bij benadering zijn.",
+  "freeSpinsGeneralTermsDescription2": "Het casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken, zonder de verplichting om dit te rechtvaardigen. Misbruik of frauduleuze activiteiten leiden tot diskwalificatie van de promotie.",
+  "the_collector": "De Verzamelaars",
+  "collector_description": "Geschikte Beloningen, Eén Klik",
+  "claim_all": "Claim Alles",
+  "claimConfirmation": "Claim Bevestiging",
+  "readyToClaim": "Klaar om te Claimen",
+  "selectClaimType": "Kies je claimtype hieronder",
+  "claimableAmount": "Te claimen Bedrag",
+  "normalClaim": "Normale Claim",
+  "normalClaimDesc": "Ontvang je standaard beloningsbedrag",
+  "doubleClaim": "Dubbele Claim",
+  "doubleClaimDesc": "Risico nemen voor 2x de beloning!",
+  "doubleClaimInfo": "Dubbele Claim Optie",
+  "doubleClaimRisk": "Hoger risico, hogere beloning - je kunt dubbel winnen of alles verliezen!",
+  "claimModal": {
+    "title": "Verdubbel of Niets",
+    "primaryDescription": "Claim je bonus zoals gewoonlijk...",
+    "secondaryDescription": "Of maak een gedurfde sprongetje naar <highlight>VERDUBBEL HET!</highlight>",
+    "doubleAction": "Verdubbel of Niets",
+    "comingSoon": "Verdubbel of Niets functie komt binnenkort!",
+    "approximateBuck": "Ongeveer {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Maandag",
+  "vip_monday_description": "Een speciale wekelijkse drop om loyale spelers elke maandag te belonen",
+  "vip_monday_wager": "Zet minstens {{amount}} in de afgelopen 7 dagen in voor een Mystery drop elke maandag.",
+  "claim_on_monday": "Claim op maandag",
+  "vip_monday_title": "VIP \n <0>MAANDAG</0>",
+  "bonus_already_claimed": "Bonus al geclaimd",
+  "wager_requirement_not_met": "Inzetvereiste niet gehaald",
+  "not_in_claim_time_range": "Niet binnen het claimtijdvenster",
+  "monday": "Maandag",
+  "poolBalance": "Poolbalans",
+  "program": "Programma",
+  "races": "Races",
+  "loading_achievements": "Prestaties laden...",
+  "no_achievements_available": "Geen prestaties beschikbaar",
+  "check_back_later_for_new_achievements": "Kom later terug voor nieuwe prestaties"
 }

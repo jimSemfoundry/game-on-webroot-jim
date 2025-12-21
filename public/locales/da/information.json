@@ -1,38 +1,38 @@
 {
-    "goBack": "Gå tilbage",
-    "tryAgain": "Prøv igen",
-    "retry": "Forsøg igen",
-    "retryConnection": "Prøv forbindelsen igen",
-    "emptyStateNoContent": {
-        "title": "Der er ikke noget her endnu!",
-        "description": "Det ser ud til, at der ikke er noget indhold her lige nu. Kom tilbage senere, eller prøv noget andet."
-    },
-    "failedToLoadPage": {
-        "title": "Noget gik galt",
-        "description": "Der opstod en systemfejl under indlæsning af siden. Genindlæs venligst siden, eller kontakt support, hvis problemet fortsætter."
-    },
-    "otherActiveSession": {
-        "title": "Sessionsfejl!",
-        "description": "Adgang fra denne enhed er i øjeblikket utilgængelig af sikkerhedsmæssige årsager. Det kan skyldes et andet login eller et systemproblem. Prøv venligst igen eller brug en anden enhed."
-    },
-    "noInternetConnection": {
-        "title": "Ups! Du er offline",
-        "description": "Det ser ud til, at du ikke har forbindelse til internettet. Tjek dit Wi-Fi eller dine mobildata, og prøv igen, når du er online igen."
-    },
-    "pageNotFound": {
-        "title": "Ups! Denne side mangler",
-        "description": "Det ser ud til, at denne side ikke findes eller er blevet flyttet. Prøv at tjekke URL'en eller gå hjem igen."
-    },
-    "tooManyRequest": {
-        "title": "Hold ud! Vi har lidt travlt",
-        "description": "Det ser ud til, at vores servere har travlt lige nu. Giv det et øjeblik og prøv igen."
-    },
-    "underMaintenance": {
-        "title": "Vi er straks tilbage!",
-        "description": "Vi er ved at lave nogle opdateringer for at holde tingene kørende. Kom snart tilbage!"
-    },
-    "userRestriction": {
-        "title": "Ups! Du kan ikke få adgang til dette",
-        "description": "Det ser ud til, at du ikke har tilladelse til at se dette. Dobbelttjek din adgang, eller bed om hjælp."
-    }
+  "goBack": "Gå tilbage",
+  "tryAgain": "Prøv igen",
+  "retry": "Forsøg igen",
+  "retryConnection": "Prøv forbindelsen igen",
+  "emptyStateNoContent": {
+    "title": "Der er ikke noget her endnu!",
+    "description": "Det ser ud til, at der ikke er noget indhold her lige nu. Tjek tilbage senere eller prøv noget andet."
+  },
+  "failedToLoadPage": {
+    "title": "Noget gik galt",
+    "description": "Der opstod en systemfejl under indlæsning af siden. Genindlæs siden, eller kontakt support, hvis problemet fortsætter."
+  },
+  "otherActiveSession": {
+    "title": "Sessionsfejl!",
+    "description": "Adgang fra denne enhed er i øjeblikket utilgængelig af sikkerhedsmæssige årsager. Dette kan skyldes en anden login eller et systemproblem. Prøv igen eller brug en anden enhed."
+  },
+  "noInternetConnection": {
+    "title": "Ups! Du er offline",
+    "description": "Det ser ud til, at du ikke er tilsluttet internettet. Tjek dit Wi-Fi eller mobildata og prøv igen, når du er online."
+  },
+  "pageNotFound": {
+    "title": "Ups! Denne side mangler",
+    "description": "Det ser ud til, at denne side ikke eksisterer eller er blevet flyttet. Prøv at tjekke URL'en eller gå tilbage til forsiden."
+  },
+  "tooManyRequest": {
+    "title": "Vent lige! Vi er lidt optaget",
+    "description": "Det ser ud til, at vores servere håndterer meget lige nu. Giv det et øjeblik og prøv igen."
+  },
+  "underMaintenance": {
+    "title": "Vi er tilbage om lidt!",
+    "description": "Vi laver nogle opdateringer for at holde tingene kørende glat. Tjek tilbage snart!"
+  },
+  "userRestriction": {
+    "title": "Ups! Du kan ikke få adgang til dette",
+    "description": "Det ser ud til, at du ikke har tilladelse til at se dette. Tjek din adgang eller kontakt for hjælp."
+  }
 }

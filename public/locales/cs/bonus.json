@@ -1,10 +1,52 @@
 {
+  "double_or_nothing_description": "Získejte svůj bonus jako obvykle...\nNebo udělejte odvážný skok k",
+  "double_it": "Zdvojnásobte to!",
+  "no_thanks": "Ne, děkuji",
+  "double_or_nothing": "Zdvojnásobit nebo nic",
+  "come_back_tomorrow": "Vraťte se zítra",
+  "promo_code": "Promo kód",
+  "got_a_code": "Máte kód? Víte, co dělat!",
+  "lifetime_bonus": "Bonus na celý život",
+  "claimed": "Uplatněno",
+  "starter": "Začátečník",
+  "pack": "Balíček",
+  "achievements_card_description": "Sbírejte speciální odměny za úspěchy navržené k oslavě každého kroku vašeho pokroku!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Ovládněte umění štěstí",
+    "achievement_verify_phone": "Nezastavitelná energie a síla",
+    "achievement_add_desktop_app": "Vždy na dosah",
+    "achievement_super_spreader": "Sdílejte herní zážitek",
+    "achievement_conquistador": "Čelte každé překážce",
+    "achievement_game_explorer": "Objevujte nové herní světy",
+    "achievement_card_shark": "Dominujte karetním hrám",
+    "achievement_slotmaster": "Ovládněte automaty",
+    "achievement_talkative": "Vede ostatní",
+    "achievement_bet_count": "Ovládněte precizní hraní",
+    "achievement_deposit_count": "Dosáhněte konečného vítězství",
+    "achievement_wager_count": "Procházejte výzvami",
+    "achievement_single_bet": "Staňte se legendou",
+    "achievement_single_deposit": "Navigujte blockchainovými sítěmi",
+    "achievement_single_wager": "Ovládněte finanční strategie",
+    "achievement_single_payout": "Dominujte kryptoměnovému trhu",
+    "achievement_crypto_bro": "Ovládněte obchodování s kryptoměnami",
+    "achievement_crypto_baron": "Dominujte kryptoměnovému trhu",
+    "achievement_chain_shifter": "Navigujte blockchainovými sítěmi",
+    "achievement_money_master": "Ovládněte finanční strategie",
+    "achievement_sniper": "Ovládněte precizní hraní",
+    "achievement_champion": "Dosáhněte konečného vítězství",
+    "achievement_name_of_fame": "Staňte se legendou",
+    "achievement_guiding_star": "Vede ostatní",
+    "achievement_face_of_fortune": "Ovládněte umění štěstí",
+    "achievement_dynamo": "Nezastavitelná energie a síla",
+    "achievement_inferno": "Procházejte výzvami",
+    "achievement_the_challenger": "Čelte každé překážce"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Celkem uplatněných bonusů",
   "details": "Detaily",
   "redeem": "Uplatnit",
-    "deposit_bonus": "Sbírka vkladových bonusů",
-"get_up_to": "Získejte až",
+  "deposit_bonus": "Sbírka vkladových bonusů",
+  "get_up_to": "Získejte až",
   "deposit_now": "Vložit nyní",
   "bonus_ends_in": "Bonus končí v",
   "general_bonus": "Obecný bonus",
@@ -26,14 +68,15 @@
   "daily_cashback": "Denní cashback",
   "bonus_calendar": "Bonusový kalendář",
   "claim_every_8_hours": "Vyzvednout každých 8 hodin",
-    "locked": "Sbírka vkladových bonusů",
+  "locked": "Sbírka vkladových bonusů",
   "next_claim_in": "Další nárok za",
   "bonus_pool": "Nadcházející odměny",
-    "bonus_calendar_details": "Vyzvedávejte bonus každých 8 hodin!",
+  "bonus_calendar_details": "Vyzvedávejte bonus každých 8 hodin!",
   "release_schedule": "Harmonogram uvolňování",
   "total_vip_bonus_claimed": "Celkem uplatněných VIP bonusů",
   "your_vip_progress": "Váš VIP pokrok",
   "available_at_vip": "Dostupné od VIP {{vip}}",
+  "vip_progress_description": "Posuňte se vpřed! Další úroveň odemkne {{amount}} z vašeho bonusového fondu.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Dosáhněte VIP 4 a získejte přístup k Lucky Spin – Vaše šance vyhrát další odměny každý den!",
   "weekly_cashback": "Týdenní cashback",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Dosáhněte VIP 12 a odemkněte týdenní cashback – Vaši osobní záchrannou síť pro hráče s vysokými sázkami!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Šťastné číslo sedm",
   "expires_in": "Platnost končí v",
+  "expires": "Vyprší",
   "go": "Přejít",
   "conquest_just_wager_title": "Stačí vsadit {{amount}}",
   "conquest_just_wager_description": "Vsaďte {{amount}} v libovolných hrách během jediného dne a uvolněte {{reward}} ze svého bonusového fondu ještě dnes!",
@@ -99,132 +143,189 @@
   "claimable": "K nároku",
   "achievement_verify_email": {
     "name": "Ověřit e-mail",
-    "description": "Tento úspěch získají hráči, kteří ověřili svůj e-mail, zamkli svou identitu a odemkli zabezpečený přístup. Je to známka připravenosti a spolehlivosti - první krok každého seriózního hráče."
+    "description": "Tento úspěch je udělován hráčům, kteří ověřili svůj e-mail, čímž si zajišťují svou identitu a odemykají bezpečný přístup. Je to známka připravenosti a spolehlivosti — první krok každého vážného hráče."
   },
   "achievement_verify_phone": {
-    "name": "Ověření telefonu",
-    "description": "Tento úspěch se uděluje hráčům, kteří si ověřili své telefonní číslo, aby zůstali informováni a ve spojení. Signalizuje důvěru, zapojení a odhodlání být v centru dění hry."
+    "name": "Ověřit telefon",
+    "description": "Tento úspěch je udělován hráčům, kteří ověřili své telefonní číslo, aby zůstali informováni a spojeni. Signalizuje důvěru, zapojení a závazek k pulzu hry."
   },
   "achievement_add_desktop_app": {
     "name": "Přidat na domovskou obrazovku",
-    "description": "Tento úspěch je udělen hráčům, kteří přidali naši miniaplikaci Telegram na svou domovskou obrazovku. Vždy po ruce, tento čin ukazuje skutečné odhodlání – protože skuteční hráči drží hru blízko."
+    "description": "Tento úspěch je udělován hráčům, kteří přidali naši mini aplikaci Telegram na svou domovskou obrazovku. Vždy na dosah, tato akce ukazuje skutečné odhodlání - protože skuteční hráči drží hru blízko."
   },
   "achievement_super_spreader": {
-    "name": "Super Spreader",
-    "description": "Tento úspěch se uděluje hráčům, kteří úspěšně doporučili <0>{{count}} nových uživatelů</0>. Jsou skutečnými tvůrci komunity, rozšiřují okruh hráčů a přinášejí do hry novou energii. Jejich vliv roste s každým novým připojením."
+    "name": "Super šířitel",
+    "description": "Tento úspěch je udělován hráčům, kteří úspěšně doporučili <0>{{count}} nových uživatelů</0>. Skutečný budovatel komunity, rozšiřují kruh a přinášejí novou energii do hry. Jejich vliv roste s každým spojením, které vytvoří."
   },
   "achievement_conquistador": {
-    "name": "Conquistador",
-    "description": "Tento úspěch se uděluje hráčům, kteří splnili celkem <0>{{count}} úkolů</0>. Hnáni odhodláním a touhou po vítězství, zdolávají každou výzvu, která se jim postaví do cesty – jsou to opravdoví šampioni cesty."
+    "name": "Dobyvatel",
+    "description": "Tento úspěch je udělován hráčům, kteří splnili celkem <0>{{count}} úkolů</0>. Poháněni odhodláním a touhou po vítězství, překonávají každou výzvu, která se jim postaví do cesty — skutečný šampion cesty."
   },
   "achievement_game_explorer": {
     "name": "Průzkumník her",
-    "description": "Tento úspěch se uděluje hráčům, kteří vyzkoušeli <0>{{count}} různých her</0>. Zvědaví a dobrodružní, vydávají se napříč platformou a vždy touží objevovat nové způsoby, jak hrát a vyhrávat."
+    "description": "Tento úspěch je udělován hráčům, kteří vyzkoušeli <0>{{count}} různých her</0>. Zvědaví a dobrodružní, putují po platformě, vždy dychtiví objevovat nové způsoby, jak hrát a vyhrávat."
   },
   "achievement_card_shark": {
-    "name": "Karta Žralok",
-    "description": "Tento úspěch získají hráči, kteří vsadili alespoň <0>{{amount}}</0> na karetních hrách, čímž prokáží svou odolnost, strategii a ochotu riskovat. Tito hráči s vysokými sázkami si vydobyli své místo mezi elitou. Karty jsou v jejich rukou a hru mohou ovládat "
+    "name": "Karetní žralok",
+    "description": "Tento úspěch je udělován hráčům, kteří vsadili alespoň <0>{{amount}}</0> na karetní hry, čímž prokázali svou odolnost, strategii a ochotu riskovat. Tito hráči s vysokými sázkami si vydobyli své místo mezi elitou. Karty jsou v jejich rukou a hra je jejich k ovládání."
   },
   "achievement_slotmaster": {
-    "name": "Slotmaster",
-    "description": "Tento úspěch získají hráči, kteří vsadili alespoň <0>{{amount}}</0> na výherních automatech, čímž prokáží svou vytrvalost, touhu po vzrušení a lásku k hraní. Tito oddaní hráči se s důvěrou chopí válců - štěstí je sice vede, ale mistrovství je udržuje ve hře."
+    "name": "Mistr automatů",
+    "description": "Tento úspěch je udělován hráčům, kteří vsadili alespoň <0>{{amount}}</0> na automatech, čímž prokázali svou vytrvalost, touhu po vzrušení a lásku k otáčení. Tito oddaní hráči přijímají válce s důvěrou — štěstí může vést, ale mistrovství je udržuje ve hře."
   },
   "achievement_talkative": {
-    "name": "Mluvný",
-    "description": "Tento úspěch získají hráči, kteří se v chatu ozvali <0>{{count}} krát</0>. Každá zpráva se počítá - děláte první krok k tomu, abyste se stali skutečnou součástí konverzace."
+    "name": "Povídavý",
+    "description": "Tento úspěch je udělován hráčům, kteří promluvili <0>{{count}} krát</0> v chatovací místnosti. Každá zpráva se počítá — děláte první krok k tomu, abyste se stali skutečnou součástí konverzace."
   },
   "achievement_bet_count": {
     "name": "Počet sázek",
-    "description": "Tento úspěch získají hráči, kteří podali celkem <0>{{count}} sázek</0>. Jejich neochvějný duch, který věří v náhodu, udržuje hru při životě s každou sázkou."
+    "description": "Tento úspěch je udělován hráčům, kteří provedli celkem <0>{{count}} sázek</0>. Skutečný věřící v náhodu, jejich neochvějný duch udržuje hru naživu s každou sázkou."
   },
   "achievement_deposit_count": {
     "name": "Počet vkladů",
-    "description": "Tento úspěch získají hráči, kteří provedli celkem <0>{{count}} vkladů</0>. Díky stálému přísunu kreditů a neochvějnému odhodlání ukázali, že nejsou jen hráči - jsou to začínající magnáti."
+    "description": "Tento úspěch je udělován hráčům, kteří provedli celkem <0>{{count}} vkladů</0>. S stabilním tokem kreditů a neochvějným závazkem ukázali, že nejsou jen hráči — jsou to tycooni v přípravě."
   },
   "achievement_change_avatar": {
-    "name": "Změnit avatara",
-    "description": "Tento úspěch získají hráči, kteří si přizpůsobí svůj profil změnou avatara. Je to odvážný krok k tomu, abyste se ve hře odlišili a získali vlastní identitu."
+    "name": "Změnit avatar",
+    "description": "Tento úspěch je udělován hráčům, kteří personalizovali svůj profil změnou svého avataru. Odvážný krok k tomu, abyste se odlišili a vlastnili svou identitu ve hře."
   },
   "achievement_set_username": {
-    "name": "Nastavení uživatelského jména",
-    "description": "Přihlásili jste se ke svému jménu - nyní začíná legenda. Tento úspěch je poctou těm, kteří si vybojovali svůj prostor a oficiálně ho uvedli."
+    "name": "Nastavit uživatelské jméno",
+    "description": "Uplatnili jste své jméno — nyní legenda začíná. Tento úspěch ctí ty, kteří si vytyčili své místo a učinili to oficiálním."
   },
   "achievement_download_mobile_app": {
     "name": "Stáhnout mobilní aplikaci",
-    "description": "Tento odznak získávají hráči, kteří si hru vzali s sebou. Stažením aplikace dáváte najevo, že tu nejste kvůli pauze - jste tu, abyste mohli hrát kdykoli a kdekoli."
+    "description": "Tento odznak získávají hráči, kteří vzali hru s sebou. Stahování aplikace ukazuje, že nejste zde, abyste pauzovali — jste zde, abyste hráli kdykoli a kdekoli."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Maximální sázka v jedné hře za den",
-    "description": "Tento úspěch získají hráči, kteří vsadili alespoň <0>{{amount}}</0> na jedné hře za den. Oceňuje ty, kteří se neochvějně soustředí, mají promyšlenou strategii a odvahu odvážně riskovat. Tito elitní hráči zvládli svou vybranou hru - a hrají tak, aby vyhráli."
+    "name": "Maximální sázka za den v jedné hře",
+    "description": "Tento úspěch je udělován hráčům, kteří vsadili alespoň <0>{{amount}}</0> na jednu hru za den. Uznává ty, kteří mají neochvějnou pozornost, vypočítanou strategii a odvahu riskovat. Tito elitní hráči ovládli svou hru a hrají, aby vyhráli."
   },
   "achievement_slots_win_count": {
     "name": "Počet výher na automatech",
-    "description": "Tento úspěch se uděluje hráčům, kteří <0>získali {{count}} výher</0> na výherních automatech. S každým roztočením vzdorují šancím a slaví jedno vítězství za druhým. Štěstí možná začíná hru – ale důslednost z nich dělá šampiony."
+    "description": "Tento úspěch je udělován hráčům, kteří zajistili <0>{{count}} výher</0> na automatech. S každým otočením se vzpírají šancím a oslavují vítězství za vítězstvím. Štěstí může hru začít — ale konzistence je činí šampiony."
   },
   "achievement_slots_multiplier": {
-    "name": "Násobitel slotů",
-    "description": "Tento úspěch se uděluje hráčům, kteří v jednom kole výherního automatu získají <0>výhru s {{count}}x násobitelem</0> nebo vyšším. Je poctou těm, kteří se honí za velikostí, přijímají vzrušení z vysokého rizika a získávají mimořádné odměny. Nejsou to obyčejní hráči – ovládají válce a vyvyšují se nad ostatní."
+    "name": "Multiplikátor automatů",
+    "description": "Tento úspěch je udělován hráčům, kteří zajistili <0>výhru s {{count}}x multiplikátorem</0> nebo více v jednom otočení automatu. Ctí ty, kteří pronásledují velikost, přijímají vzrušení z vysokého rizika a získávají mimořádné odměny. Tito nejsou obyčejní hráči — ovládají válce a vyčnívají nad ostatní."
+  },
+  "achievement_champion": {
+    "name": "Šampion",
+    "description": "Toto ocenění je uděleno hráčům, kteří získali <0>10 výher</0>. Šampion stojí hrdě v aréně náhody a prokazuje svou odolnost kolo za kolem. S každým vítězstvím upevňuje své místo mezi uchazeči, kteří se vyvyšují nad štěstí, aby si nárokovali slávu."
+  },
+  "achievement_slot_master": {
+    "name": "Mistr slotů",
+    "description": "Toto ocenění je uděleno hráčům, kteří vsadili alespoň <0>{{amount}}</0> na hracích automatech. Mistr slotů točí s důvěrou a vytrvalostí, přetváří každý válec na šanci na štěstí. S pevnými rukama a nebojácnou hrou dokazují, že pravé mistrovství se buduje jedno točení po druhém."
+  },
+  "achievement_the_challenger": {
+    "name": "Vyzyvatel",
+    "description": "Toto ocenění je uděleno hráčům, kteří umístili alespoň <0>10 platných sázek</0> během své herní historie. Vyzyvatel se postaví každé příležitosti, poháněn odhodláním a vzrušením z konkurence. Odvážný a neúnavný, dokazují, že praví uchazeči se hry nebojí — vystupují vpřed, připraveni otestovat své limity a nárokovat si své místo mezi nebojácnými."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Toto ocenění je uděleno hráčům, kteří dokončili <0>1 vklad</0> ve výši alespoň <0>{{amount}}</0> v jedné transakci. Dynamo sílí s každým dobíjením, prokazující svou konzistenci a odhodlání na cestě k mistrovství."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Tvář štěstí",
+    "description": "Toto ocenění je uděleno hráčům, kteří poprvé přizpůsobili svou avatara. Tvář štěstí ví, že identita je moc — každý výběr stylu, symbolu nebo výrazu je znakem individuality. Tím, že formují svůj vzhled, ukazují, že praví hráči se neomezují pouze na hru — zanechávají na ní svůj otisk."
+  },
+  "achievement_name_of_fame": {
+    "name": "Jméno slávy",
+    "description": "Toto ocenění je uděleno hráčům, kteří poprvé nastavili své uživatelské jméno. Jméno slávy označuje začátek pravé identity, transformující nováčka na uznávanou osobnost. Odvážní a jedineční dokazují, že každá legenda začíná jménem, které si pamatujeme."
+  },
+  "achievement_guiding_star": {
+    "name": "Vedená hvězda",
+    "description": "Toto ocenění je uděleno hráčům, kteří přidali hru na svou domovskou obrazovku nebo stáhli aplikaci. Vedená hvězda udržuje cestu k štěstí jasnou, osvětlující cestu zpět k hraní jedním klepnutím."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Toto ocenění je uděleno hráčům, kteří vsadili celkem alespoň <0>{{amount}}</0> během celé své herní historie. Highrolleři nosí znak závazku a prestiže, dokazující svou oddanost hře s každým točením, sázkou a kolem. Jejich koruna není jen symbolem — je to svědectví o vytrvalosti, vášni a honbě za štěstím."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Toto ocenění je uděleno hráčům, kteří dosáhli <0>20x</0> multiplikátoru na jakémkoli slotu. S plameny hřmícími, Inferno přetváří jednu sázku na ohnivou bouři štěstí."
+  },
+  "achievement_money_maverick": {
+    "name": "Maverick peněz",
+    "description": "Toto ocenění je uděleno hráčům, kteří provedli vklad alespoň <0>{{amount}}</0> v jedné transakci, pomocí fiat nebo místních platebních bran. Maverick peněz si razí vlastní cestu s odvážnou důvěrou, přetvářející každodenní hotovost na mimořádné příležitosti. Nebojácní a dobrodružní, dokazují, že praví maverickové se neřídí pravidly — redefinují je."
+  },
+  "achievement_money_master": {
+    "name": "Mistr peněz",
+    "description": "Toto ocenění je uděleno hráčům, kteří dokončili fiat výběr alespoň <0>{{amount}}</0> v jedné transakci. Mistr peněz stojí hrdě na křižovatce hry a odměny, přetvářející své výhry na hodnotu v reálném světě. S pevnými rukama a přesným načasováním ukazují, že pravé mistrovství není jen ve hře — je v přinášení odměn domů."
+  },
+  "achievement_crypto_bro": {
+    "name": "Krypto brácha",
+    "description": "Toto ocenění je uděleno hráčům, kteří provedli vklad alespoň <0>{{amount}}</0> v jedné transakci, s jakoukoli kryptoměnou. Krypto maestro řídí své prostředky jako pravý umělec, orchestrující digitální aktiva s precizností a stylem. S důvěrou na blockchainovém pódiu jsou průkopníky hry, kteří dokazují, že štěstí přeje odvážným."
+  },
+  "achievement_crypto_baron": {
+    "name": "Krypto baron",
+    "description": "Toto ocenění je uděleno hráčům, kteří dokončili krypto výběr alespoň <0>{{amount}}</0> v jedné transakci, s jakoukoli kryptoměnou. Baron blockchainu vládne říši digitálních aktiv, pohybujícími prostředky napříč řetězcem s důvěrou a kontrolou. S každým úspěšným výběrem dokazují, že štěstí lze vydělat, zabezpečit a přinést domů na blockchainu."
+  },
+  "achievement_chain_shifter": {
+    "name": "Přesunovač řetězce",
+    "description": "Toto ocenění je uděleno hráčům, kteří úspěšně dokončili <0>krypto směnnou transakci</0>. Přesunovač řetězce je někdo, kdo ví, jak se s důvěrou pohybovat mezi tokeny, snadno se přizpůsobující tržním vlnám. Mistři hybnosti, prospívají na flexibilitě a transformaci, vždy připraveni změnit směr a uchopit příležitost."
   },
   "item": {
-    "conquest_just_wager_on_100": "Dobývání Stačí vsadit 100",
-    "conquest_just_wager_on_200": "Dobývání Stačí vsadit 200",
-    "conquest_roulette_master": "Dobyvatelská ruleta Master",
-    "conquest_blackjack_master": "Conquest Blackjack Master",
-    "conquest_baccarat_master": "Conquest Baccarat Master",
-    "conquest_gameshow_master": "Conquest Gameshow Master",
-    "conquest_slots_master_10": "Dobyvatelské sloty Master 10",
-    "conquest_gameshow_master_20": "Dobývání Gameshow Master 20",
-    "conquest_roulette_master_30": "Dobyvatelská ruleta Master 30",
-    "conquest_blackjack_master_40": "Conquest Blackjack Master 40",
-    "conquest_baccarat_master_50": "Conquest Baccarat Master 50",
-    "conquest_big_win": "Dobývání Velká výhra",
-    "conquest_huge_win": "Dobytí Obrovské vítězství",
-    "conquest_massive_win": "Dobývání Masivní výhra",
-    "achievement_verify_email": "Úspěch Ověření e-mailu",
-    "achievement_verify_phone": "Úspěch Ověření telefonu",
-    "achievement_add_desktop_app": "Úspěch Přidání desktopové aplikace",
-    "achievement_super_spreader": "Úspěch Super šiřitel",
+    "conquest_just_wager_on_100": "Dozvání pouze na 100",
+    "conquest_just_wager_on_200": "Dozvání pouze na 200",
+    "conquest_roulette_master": "Dozvání Mistr rulety",
+    "conquest_blackjack_master": "Dozvání Mistr blackjacku",
+    "conquest_baccarat_master": "Dozvání Mistr baccaratu",
+    "conquest_gameshow_master": "Dozvání Mistr herní show",
+    "conquest_slots_master_10": "Dozvání Mistr automatů 10",
+    "conquest_gameshow_master_20": "Dozvání Mistr herní show 20",
+    "conquest_roulette_master_30": "Dozvání Mistr rulety 30",
+    "conquest_blackjack_master_40": "Dozvání Mistr blackjacku 40",
+    "conquest_baccarat_master_50": "Dozvání Mistr baccaratu 50",
+    "conquest_big_win": "Dozvání Velká výhra",
+    "conquest_huge_win": "Dozvání Obrovská výhra",
+    "conquest_massive_win": "Dozvání Masivní výhra",
+    "achievement_verify_email": "Úspěch Ověřit e-mail",
+    "achievement_verify_phone": "Úspěch Ověřit telefon",
+    "achievement_add_desktop_app": "Úspěch Přidat desktopovou aplikaci",
+    "achievement_super_spreader": "Úspěch Super šířitel",
     "achievement_conquistador": "Úspěch Dobyvatel",
     "achievement_game_explorer": "Úspěch Průzkumník her",
     "achievement_card_shark": "Úspěch Karetní žralok",
     "achievement_slotmaster": "Úspěch Mistr automatů",
-    "achievement_talkative": "Úspěch Ukecaný",
+    "achievement_talkative": "Úspěch Povídavý",
     "achievement_bet_count": "Úspěch Počet sázek",
     "achievement_deposit_count": "Úspěch Počet vkladů",
-    "achievement_change_avatar": "Úspěch Změna avataru",
-    "achievement_set_username": "Úspěch Nastavení uživatelského jména",
-    "achievement_download_mobile_app": "Úspěch Stažení mobilní aplikace",
-    "achievement_wager_in_a_day_single_game": "Úspěch Sázka během dne na jednu hru",
+    "achievement_change_avatar": "Úspěch Změnit avatar",
+    "achievement_set_username": "Úspěch Nastavit uživatelské jméno",
+    "achievement_download_mobile_app": "Úspěch Stáhnout mobilní aplikaci",
+    "achievement_wager_in_a_day_single_game": "Úspěch Maximální sázka za den v jedné hře",
     "achievement_slots_win_count": "Úspěch Počet výher na automatech",
-    "achievement_slots_multiplier": "Úspěch Násobitel automatů",
-    "level_up": "O úroveň výš",
+    "achievement_slots_multiplier": "Úspěch Multiplikátor automatů",
+    "level_up": "Postup na další úroveň",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
     "group": "Provize",
-    "referral": "Zdroj",
+    "referral": "Doporučení",
     "tournament": "Turnaj",
-    "conquest_extra_reward": "Dodatečná odměna za dobytí",
+    "conquest_extra_reward": "Dozvání Extra odměna",
     "bonus": "Bonus",
     "bonus_manual": "Manuální bonus",
-    "vip_bonus_lucky_number_seven": "VIP Bonus Šťastné Číslo Sedm",
-    "rakeback_bonus": "Bonus za Vrácení Provize",
-    "group_bonus": "Skupinový Bonus",
-    "level_up_bonus": "Bonus za Postup na Vyšší Úroveň",
-    "refer_bonus": "Bonus za Doporučení",
-    "tournament_bonus": "Turnajový Bonus",
-    "vip_bonus_mystery_box": "VIP Bonusový Tajemný Box"
+    "vip_bonus_lucky_number_seven": "VIP Bonus Šťastné číslo sedm",
+    "rakeback_bonus": "Rakeback bonus",
+    "group_bonus": "Skupinový bonus",
+    "level_up_bonus": "Bonus za postup na další úroveň",
+    "refer_bonus": "Bonus za doporučení",
+    "tournament_bonus": "Turnajový bonus",
+    "vip_bonus_mystery_box": "VIP Bonus Tajemná krabice"
   },
   "achievements_description": "Odemčeno na VIP {{vip}}, tyto odměny slaví vaše milníky s vzrušujícími překvapeními po cestě!",
   "lucky_number_seven_description": "Zasaďte šťastná čísla {{number}} a každý den získejte sladký bonus!",
-"mystery_box_description": "Otevřete svou tajemnou krabici jednou za měsíc a získejte překvapivé odměny!",
+  "mystery_box_description": "Otevřete svou tajemnou krabici jednou za měsíc a získejte překvapivé odměny!",
+  "mystery_box_description2": "Získejte VIP {{vip}} a obdržíte Tajnou krabici 7. dne každého měsíce!",
   "mystery_box": "Tajný box",
   "the_cannon_description": "Měsíční odměna tak mocná, že její pravá podstata zůstává přísně střešeným tajemstvím.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Ověřit email",
+    "achievement_verify_email": "Ověřit e-mail",
     "achievement_verify_phone": "Ověřit telefon",
     "achievement_add_desktop_app": "Přidat desktopovou aplikaci",
-    "achievement_super_spreader": "Super šířič",
-    "achievement_conquistador": "Dobytitel",
+    "achievement_super_spreader": "Super šířitel",
+    "achievement_conquistador": "Dobyvatel",
     "achievement_game_explorer": "Průzkumník her"
   },
   "you_win": "Vyhrál jsi",
@@ -246,7 +347,61 @@
   "general_terms": "Obecné podmínky",
   "general_terms_answer_1": "Odměny jsou vypočítávány a přičítány v BUCK/USDT, poté se zobrazují ve vámi preferované fiat měně na základě aktuálních směnných kurzů pro vaše pohodlí. Upozorňujeme, že všechny konverze jsou přibližné, dokud není dokončena směnná transakce.",
   "general_terms_answer_2": "Kasino si vyhrazuje právo kdykoli upravit nebo zrušit oprávnění bez nutnosti odůvodnění. Jakékoliv zneužití nebo podvodná činnost povede k diskvalifikaci z promoakce.",
-"available": "K dispozici",
-"refresh_in": "Obnoví se za",
-  "deposit_bonus_pool": "Sbírka vkladových bonusů"
+  "available": "K dispozici",
+  "refresh_in": "Obnoví se za",
+  "deposit_bonus_pool": "Sbírka vkladových bonusů",
+  "dashboard": "Nástěnka",
+  "bonuses": "Bonusy",
+  "vip_program": "VIP Program",
+  "bonusHub": {
+    "root": "Bonusový hub",
+    "resetOn": "Resetovat dne {{time}}",
+    "ongoing": "{{count}} Probíhající",
+    "accrualIn": "Nárok na {{time}}",
+    "nextReleaseIn": "Další uvolnění za {{time}}"
+  },
+  "freeSpins": "Volné otočky",
+  "freeSpinsBonusDetails": "Bonusy za volné otočky vám odměňují extra hraním na vybraných automatech. Sázka požadované částky odemkne vaše výhry z volných otoček, které mohou být okamžitě připsány na váš účet.",
+  "freeSpinsClaimDistributionDescription1": "Výhry z volných otoček budou připsány na váš účet, jakmile bude splněn sázkový požadavek a kliknete na 'Uplatnit'.",
+  "freeSpinsClaimDistributionDescription2": "Sledujte svůj pokrok kdykoli ve svém Bonusovém panelu nebo Historii volných otoček.",
+  "freeSpinsExpirationDescription1": "Volné otočky musí být použity v rámci platnosti zobrazené v panelu volných otoček. Nepoužité otočky vyprší po této době.",
+  "freeSpinsExpirationDescription2": "Výhry z volných otoček nevyprší, dokud nebudou odemčeny a uplatněny.",
+  "freeSpinsGeneralTermsDescription1": "Odměny za volné otočky jsou vypočítány a připsány v BUCK, poté zobrazeny ve vaší preferované fiat měně pro pohodlí. Upozorňujeme, že převody měn jsou přibližné.",
+  "freeSpinsGeneralTermsDescription2": "Kasino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost, aniž by bylo povinno to odůvodnit. Jakékoli zneužití nebo podvodné aktivity povedou k diskvalifikaci z akce.",
+  "the_collector": "Sběratel",
+  "collector_description": "Způsobilé odměny, jedno kliknutí",
+  "claim_all": "Uplatnit vše",
+  "claimConfirmation": "Potvrzení o uplatnění",
+  "readyToClaim": "Připraveno k uplatnění",
+  "selectClaimType": "Vyberte typ uplatnění níže",
+  "claimableAmount": "Uplatnitelná částka",
+  "normalClaim": "Normální uplatnění",
+  "normalClaimDesc": "Získejte svou standardní odměnu",
+  "doubleClaim": "Dvojnásobné uplatnění",
+  "doubleClaimDesc": "Riskujte pro 2x odměnu!",
+  "doubleClaimInfo": "Možnost dvojnásobného uplatnění",
+  "doubleClaimRisk": "Vyšší riziko, vyšší odměna - můžete vyhrát dvojnásobek nebo o všechno přijít!",
+  "claimModal": {
+    "title": "Zdvojnásobit nebo nic",
+    "primaryDescription": "Získejte svůj bonus jako obvykle...",
+    "secondaryDescription": "Nebo udělejte odvážný skok k <highlight>ZDVOJNÁSOBIT!</highlight>",
+    "doubleAction": "Zdvojnásobit nebo nic",
+    "comingSoon": "Funkce Zdvojnásobit nebo nic brzy!",
+    "approximateBuck": "Přibližně {{amount}} DOLAR"
+  },
+  "vip_monday": "VIP Pondělí",
+  "vip_monday_description": "Speciální týdenní akce, která odměňuje věrné hráče každé pondělí",
+  "vip_monday_wager": "Vsadit alespoň {{amount}} v předchozích 7 dnech pro tajemný drop každé pondělí.",
+  "claim_on_monday": "Uplatnit v pondělí",
+  "vip_monday_title": "VIP \n <0>PONDĚLÍ</0>",
+  "bonus_already_claimed": "Bonus již byl uplatněn",
+  "wager_requirement_not_met": "Požadavek na sázení nebyl splněn",
+  "not_in_claim_time_range": "Není v časovém rozmezí pro uplatnění",
+  "monday": "Pondělí",
+  "poolBalance": "Zůstatek fondu",
+  "program": "Program",
+  "races": "Závody",
+  "loading_achievements": "Načítání úspěchů...",
+  "no_achievements_available": "Žádné úspěchy nejsou k dispozici",
+  "check_back_later_for_new_achievements": "Zkontrolujte později pro nové úspěchy"
 }

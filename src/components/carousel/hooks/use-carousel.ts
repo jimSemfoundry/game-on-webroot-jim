@@ -20,19 +20,25 @@ export const useCarousel = (options?: CarouselOptions, plugins?: EmblaPluginType
 
   const [mainRef, mainApi] = useEmblaCarousel({ ...options, direction: i18n.dir() }, plugins)
 
-  const { disablePrev, disableNext, onClickPrev, onClickNext } = useCarouselArrows(mainApi)
+  const watch = options?.watch
+  const watchArrows = watch?.arrows ?? true
+  const watchDots = watch?.dots ?? true
+  const watchProgress = watch?.progress ?? true
+  const watchThumbs = watch?.thumbs ?? true
 
-  const pluginNames = plugins?.map(plugin => plugin.name)
+  const { disablePrev, disableNext, onClickPrev, onClickNext } = useCarouselArrows(mainApi, watchArrows)
 
-  const _dots = useCarouselDots(mainApi)
+  const pluginNames = useMemo(() => plugins?.map(plugin => plugin.name), [])
+
+  const _dots = useCarouselDots(mainApi, watchDots)
 
   const _autoplay = useCarouselAutoPlay(mainApi)
 
   const _autoScroll = useCarouselAutoScroll(mainApi)
 
-  const _progress = useCarouselProgress(mainApi)
+  const _progress = useCarouselProgress(mainApi, watchProgress)
 
-  const _thumbs = useThumbs(mainApi, options?.thumbs)
+  const _thumbs = useThumbs(mainApi, options?.thumbs, watchThumbs)
 
   useParallax(mainApi, options?.parallax)
 

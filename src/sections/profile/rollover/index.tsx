@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
 import Iconify from "@/components/iconify";
-import { useTranslation } from "react-i18next";
-import { RolloverFilters } from "./RolloverFilters";
-import type { EnrichedRolloverRecord, RolloverRecord, RolloverStatusKey, RolloverTypeKey } from "./types";
-import { RolloverList } from "./RolloverList";
 import { ROLLOVER_PAGE_SIZE, useRolloverRecords } from "@/query/rollover";
 import { cn } from "@/utils/cn";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Card } from "../c/Card";
+import { RolloverFilters } from "./RolloverFilters";
+import { RolloverList } from "./RolloverList";
+import type { EnrichedRolloverRecord, RolloverRecord, RolloverStatusKey, RolloverTypeKey } from "./types";
 
 const getPageNumbers = (currentPage: number, totalPages: number) => {
   const pages: (number | string)[] = [];
@@ -41,7 +42,7 @@ const getPageNumbers = (currentPage: number, totalPages: number) => {
 };
 
 const extractRolloverPayload = (rawData: any) => {
-  const payload = rawData?.data && !Array.isArray(rawData.data) ? rawData.data : rawData?.data ?? rawData;
+  const payload = rawData?.data && !Array.isArray(rawData.data) ? rawData.data : (rawData?.data ?? rawData);
 
   const records = Array.isArray(payload?.records)
     ? payload.records
@@ -71,12 +72,7 @@ const extractRolloverPayload = (rawData: any) => {
         ? rawData.total_pages
         : undefined;
 
-  const totalCount =
-    typeof payload?.total === "number"
-      ? payload.total
-      : typeof rawData?.total === "number"
-        ? rawData.total
-        : undefined;
+  const totalCount = typeof payload?.total === "number" ? payload.total : typeof rawData?.total === "number" ? rawData.total : undefined;
 
   return {
     records,
@@ -137,10 +133,13 @@ export function Index() {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastIdsMap, setLastIdsMap] = useState<Record<string, Record<number, number | string>>>({});
 
-  const baseParams = useMemo(() => ({
-    type: selectedType === "All" ? undefined : selectedType.toLowerCase(),
-    statuses: selectedStatus === "All Statuses" ? undefined : selectedStatus,
-  }), [selectedType, selectedStatus]);
+  const baseParams = useMemo(
+    () => ({
+      type: selectedType === "All" ? undefined : selectedType.toLowerCase(),
+      statuses: selectedStatus === "All Statuses" ? undefined : selectedStatus,
+    }),
+    [selectedType, selectedStatus],
+  );
 
   const paginationKey = useMemo(
     () =>
@@ -148,11 +147,11 @@ export function Index() {
         type: baseParams.type ?? null,
         statuses: baseParams.statuses ?? null,
       }),
-    [baseParams.type, baseParams.statuses]
+    [baseParams.type, baseParams.statuses],
   );
 
   const lastIdsForKey = lastIdsMap[paginationKey] ?? {};
-  const lastIdForCurrentPage = currentPage > 1 ? lastIdsForKey[currentPage - 1] ?? 0 : 0;
+  const lastIdForCurrentPage = currentPage > 1 ? (lastIdsForKey[currentPage - 1] ?? 0) : 0;
 
   const rolloverQuery = useRolloverRecords(
     {
@@ -160,7 +159,7 @@ export function Index() {
       limit: ROLLOVER_PAGE_SIZE,
       last_id: lastIdForCurrentPage,
     },
-    { enabled: true }
+    { enabled: true },
   );
 
   const { data, isLoading, isFetching } = rolloverQuery;
@@ -168,8 +167,7 @@ export function Index() {
 
   const enrichedRecords = useMemo(() => enrichRecords(records), [records]);
 
-  const derivedTotalPages =
-    apiTotalPages ?? (typeof totalCount === "number" ? Math.ceil(totalCount / ROLLOVER_PAGE_SIZE) : undefined);
+  const derivedTotalPages = apiTotalPages ?? (typeof totalCount === "number" ? Math.ceil(totalCount / ROLLOVER_PAGE_SIZE) : undefined);
   const totalPages = derivedTotalPages ?? (hasNext ? currentPage + 1 : currentPage);
   const safeTotalPages = Math.max(totalPages, 1);
   const pageNumbers = useMemo(() => getPageNumbers(currentPage, safeTotalPages), [currentPage, safeTotalPages]);
@@ -211,63 +209,61 @@ export function Index() {
   };
 
   return (
-    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden mx-0 sm:mx-5 md:mx-0">
-      <div className="bg-base-200 flex items-center gap-2 px-4 sm:px-6 sm:pt-6 sm:pb-4 py-4">
-        <Iconify icon="custom:rollover" width={20} height={20} className="text-primary" />
-        <h3 className="text-base sm:text-lg font-bold">{t("transaction:tabs.rollover", "Rollover")}</h3>
-      </div>
-
-      <div className="bg-base-200 px-4 sm:px-6">
+    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
+      <Card
+        icon={<Iconify icon="custom:rollover" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />}
+        title={t("transaction:tabs.rollover", "Rollover")}
+      >
         <RolloverFilters
           selectedType={selectedType}
           selectedStatus={selectedStatus}
           onTypeChange={handleTypeChange}
           onStatusChange={handleStatusChange}
         />
-      </div>
 
-      <div className="bg-base-200 flex flex-col relative">
-        <RolloverList records={enrichedRecords} isLoading={isLoading} isFetching={isFetching} />
+        <div className="bg-base-200 flex flex-col relative">
+          <RolloverList records={enrichedRecords} isLoading={isLoading} isFetching={isFetching} />
 
-        {(safeTotalPages > 1 || canGoNext) && (
-          <div className="flex items-center justify-center gap-1 sm:gap-2 py-5 px-4">
-            <button
-              onClick={() => canGoPrev && setCurrentPage((page) => Math.max(1, page - 1))}
-              disabled={!canGoPrev || isFetching}
-              className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-
-            {pageNumbers.map((page, index) => (
+          {(safeTotalPages > 1 || canGoNext) && (
+            <div className="flex items-center justify-center gap-1 sm:gap-2 py-5 px-3 sm:px-6">
               <button
-                key={`${page}-${index}`}
-                onClick={() => typeof page === "number" && setCurrentPage(page)}
-                disabled={page === "..." || isFetching}
-                className={cn(
-                  "btn btn-sm min-w-[2.5rem] rounded-2xl",
-                  page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300",
-                  page === "..." && "cursor-default hover:bg-transparent"
-                )}
+                onClick={() => canGoPrev && setCurrentPage((page) => Math.max(1, page - 1))}
+                disabled={!canGoPrev || isFetching}
+                className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
               >
-                {page}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </button>
-            ))}
 
-            <button
-              onClick={() => canGoNext && setCurrentPage((page) => page + 1)}
-              disabled={!canGoNext || isFetching}
-              className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-        )}
-      </div>
+              {pageNumbers.map((page, index) => (
+                <button
+                  key={`${page}-${index}`}
+                  onClick={() => typeof page === "number" && setCurrentPage(page)}
+                  disabled={page === "..." || isFetching}
+                  className={cn(
+                    "btn btn-sm min-w-[2.5rem] rounded-2xl",
+                    page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300",
+                    page === "..." && "cursor-default hover:bg-transparent",
+                  )}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => canGoNext && setCurrentPage((page) => page + 1)}
+                disabled={!canGoNext || isFetching}
+                className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          )}
+        </div>
+      </Card>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import Iconify from "@/components/iconify";
+import { useAuth } from "@/contexts/AuthContext";
+import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useReferralRewards } from "@/hooks/useReferralRewards";
-import { useAuth } from "@/contexts/AuthContext";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -11,6 +12,8 @@ export const ReferralHeroSection = ({ onNavigateToMyReferrals }: Props) => {
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
   const { formattedTotalRewards, networkCount, isLoading } = useReferralRewards();
+
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -36,21 +39,15 @@ export const ReferralHeroSection = ({ onNavigateToMyReferrals }: Props) => {
           <div className="flex items-center gap-4 w-full">
             <div className="h-[158px] sm:h-auto flex justify-center flex-col p-3 gap-1 sm:gap-3">
               <h1 className="text-2xl sm:text-[40px] font-black text-base-content uppercase leading-6 sm:leading-11">
-                {t("referral:guestView.title.referral")}
+                {t("common:common.referral")}
                 <br />
-                {t("referral:guestView.title.bonus")}
+                {t("common:common.bonus")}
                 <br />
-                <span className="text-primary">
-                  {t("referral:guestView.title.amount")}
-                </span>
-                  <br />
-                  <span className="text-primary">
-                    {t("referral:guestView.title.upTo")}
-                  </span>
-                  <br />
-                  <span className="text-primary">
-                    {t("referral:guestView.title.commission")}
-                  </span>
+                <span className="text-primary">{formatWithConversion(1200, "USD", { showSymbol: true, showCode: false }).formatted} &</span>
+                <br />
+                <span className="text-primary">{t("casino:upTo")} 50%</span>
+                <br />
+                <span className="text-primary">{t("referral:commission")}</span>
               </h1>
             </div>
             <img
@@ -95,11 +92,7 @@ export const ReferralHeroSection = ({ onNavigateToMyReferrals }: Props) => {
             <div className="flex items-center gap-2 sm:gap-4">
               <Iconify icon="custom:referral-bonus" className="w-6 h-6 sm:w-13 sm:h-13" />
               <h1 className="text-2xl sm:text-5xl font-bold">
-                {isLoading ? (
-                  <span className="loading loading-dots loading-md"></span>
-                ) : (
-                  formattedTotalRewards.formatted
-                )}
+                {isLoading ? <span className="loading loading-dots loading-md"></span> : formattedTotalRewards.formatted}
               </h1>
             </div>
             <div

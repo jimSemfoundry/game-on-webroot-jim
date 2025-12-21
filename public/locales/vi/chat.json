@@ -1,7 +1,7 @@
 {
-    "global": "Toàn cầu",
-    "notifications": "Thông báo",
-    "support": "Hỗ trợ",
-    "retry": "Thử lại",
-    "customerServiceChatFailedToLoad": "Trò chuyện dịch vụ khách hàng không tải được"
+  "global": "Toàn cầu",
+  "notifications": "Thông báo",
+  "support": "Hỗ trợ",
+  "retry": "Thử lại",
+  "customerServiceChatFailedToLoad": "Trò chuyện dịch vụ khách hàng không tải được"
 }

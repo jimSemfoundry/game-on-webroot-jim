@@ -3,6 +3,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import type { User, UserStatus } from "../types/auth";
+import { GeneralError } from "@/components/errors/GeneralError";
 
 /**
  * Router Context 类型定义
@@ -21,8 +22,13 @@ export interface RouterContext {
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <AppProviders>
-      <Toaster position="top-center" richColors />
+      <Toaster position="top-center" richColors style={{ marginTop: "env(safe-area-inset-top)" }} />
       <Outlet />
+    </AppProviders>
+  ),
+  errorComponent: (props) => (
+    <AppProviders>
+      <GeneralError {...props} />
     </AppProviders>
   ),
 });

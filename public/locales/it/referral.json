@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Globale",
+    "ratesAndRules": "Tariffe e Regole",
+    "campaigns": "Campagne",
+    "myReferrals": "I Miei Riferimenti",
+    "commissions": "Commissioni",
+    "rewards": "Ricompense"
+  },
+  "commissionCalculator": "Calcolatore di Commissioni",
   "telegramReferralLink": "Link di Riferimento Telegram",
-   "network": "Rete",
+  "network": "Rete",
   "lifetimeReferralRewards": "Premi a Vita per Segnalazioni",
   "referrals": "Segnalazioni",
   "availableCommissionRewards": "Commissioni Disponibili",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Premi per Segnalazioni Disponibili",
   "lockedRewards": "Premi bloccati",
   "assembleYourCrewCashIn": "Raduna la tua squadra e incassa!",
+  "assembleYourCrewCashInDescription1": "Recluta la tua squadra e guadagna {{amount}} per amico - come un colpo, ma senza l'inseguimento dell'FBI. Inoltre, guadagna fino al {{percentage}} di commissione sulle loro scommesse. La parte migliore? Il tuo tasso di commissione cresce con te man mano che sali di livello, e guadagnerai anche dai reclutamenti della tua crew!",
+  "assembleYourCrewCashInDescription2": "Più grande è la tua rete, più grosso è il tuo guadagno. Che vincano, perdano o scommettano come dei maniaci, tu continui a guadagnare. È tempo di costruire il tuo impero - Inizia a reclutare ora!",
+  "quickShare": "Condivisione Veloce",
   "referralRewards": "Premi per Segnalazioni",
   "commissionRewards": "Commissioni",
   "aboutDescription": "Recluta il tuo equipaggio e ottieni {{amount}} per ogni amico: come una rapina, ma senza l'inseguimento dell'FBI. Inoltre, guadagni fino al 50% di commissioni sulle loro scommesse. La parte migliore? Il tuo tasso di commissione cresce con te man mano che sali di livello, e guadagnerai anche dalle reclute del tuo equipaggio!\n\nPiù grande è la tua rete, più sostanzioso sarà il tuo guadagno. Che vincano, perdano o scommettano come pazzi, tu continui ad accumulare denaro. È ora di costruire il tuo impero: inizia subito a reclutare!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Condividi tramite i social",
   "referralTermsConditions": "Termini e Condizioni delle Segnalazioni",
   "liveGlobalRewards": "Premi Globali in Tempo Reale",
+  "liveGlobalCommissions": "Commissioni Globali Live",
   "username": "Nome utente",
   "friendLevel": "Livello dell'amico",
   "totalExp": "Totale EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Le mie Segnalazioni",
   "more": "Altro",
   "faqOne": {
-    "title": "Come funziona il sistema di segnalazione?",
-    "content": "<p class=\"leading-7\">Quando condividi il tuo link di referral con i tuoi amici e si registrano sul nostro sito, diventano tuoi referral e ti faranno guadagnare commissioni e premi referral giocando su {{gameLink}} Alleanza.</p>"
+    "title": "Come funziona il sistema di referral?",
+    "content": "<p class=\"leading-7\">Quando condividi il tuo link di referral con i tuoi amici e si registrano sul nostro sito; diventano i tuoi riferimenti e guadagnerai commissioni e ricompense per referral giocando su {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Quanto posso guadagnare dalla mia segnalazione?",
-    "content": "<p class=\"leading-7\">Puoi guadagnare il {{percentage}} della loro attività di scommessa come commissioni + {{amount}} per segnalazione.</p>"
+    "title": "Quanto posso guadagnare dal mio referral?",
+    "content": "<p class=\"leading-7\">Puoi guadagnare {{percentage}} delle loro attività di scommessa come commissioni + {{amount}} per ogni referral.</p>"
   },
   "faqThree": {
-    "title": "Cos’è la ricompensa {{amount}} USD e come funziona?",
-    "content": "<p class=\"leading-7\">Esiste una ricompensa di {{amount}} USD per ogni referral che porti a {{gameLink}}. Questa ricompensa viene erogata in {{parts}} parti man mano che il tuo livello di referral aumenta da {{level}}.</p>"
+    "title": "Qual è la ricompensa di {{amount}} USD e come funziona?",
+    "content": "<p class=\"leading-7\">C'è una ricompensa di {{amount}} USD per ogni referral che porti a {{gameLink}}. Questa ricompensa in USD viene data in {{parts}} parti man mano che il tuo livello di referral aumenta da {{level}}.</p>"
   },
   "faqFour": {
     "title": "Ho un grande pubblico. Come posso ottenere un'offerta speciale?",
-    "content": "<p class=\"leading-7\">Se hai un sito web con buon traffico o un account social con un grande pubblico, puoi inviarci un’email a {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Se hai un sito web con buon traffico o un account sui social media con un grande pubblico, puoi inviarci un'email a {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Quanti link di affiliazione posso creare se ho diversi siti web/account di social media?",
+    "title": "Quanti link di affiliazione posso creare se ho diversi siti web/account sui social media?",
     "content": "<p class=\"leading-7\">Puoi creare fino a {{codes}} codici unici per diverse fonti di traffico</p>"
   },
   "faqSix": {
-    "title": "Posso vedere i dati della mia segnalazione?",
-    "content": "<p class=\"leading-7\">Sì, Trasparenza, Fiducia e Giustizia sono valori fondamentali di {{gameLink}}. Dati come nome utente, totale delle puntate e commissioni guadagnate sono disponibili nelle schede \"Le mie commissioni\" e \"Premi referral\".</p>"
+    "title": "Posso vedere i dati del mio referral?",
+    "content": "<p class=\"leading-7\">Sì, Trasparenza, Fiducia e Equità fanno parte dei valori fondamentali di {{gameLink}}. Dati come nome utente, scommessa totale e commissioni guadagnate sono tutti disponibili nella scheda \"Le Mie Commissioni\" e \"Ricompense per Referral\".</p>"
   },
   "faqSeven": {
-    "title": "Posso condividere le commissioni con le mie segnalazioni?",
-    "content": "<p class=\"leading-7\">Sì, puoi condividere le commissioni con le tue segnalazioni cliccando su \"Crea Nuova Campagna\" e impostando la divisione delle commissioni nella scheda \"Campagne\".</p>"
+    "title": "Posso condividere le ricompense delle commissioni con i miei referral?",
+    "content": "<p class=\"leading-7\">Sì, puoi condividere le ricompense delle commissioni con i tuoi referral cliccando su \"crea nuova campagna\" e impostando la divisione delle commissioni nella scheda \"Campagne\".</p>"
   },
   "faqEight": {
-    "title": "Cos’è una segnalazione indiretta e cosa posso guadagnare da loro?",
-    "content": "<p class=\"leading-7\">Una segnalazione indiretta è un giocatore attivo che arriva dal link di invito di una delle tue segnalazioni dirette. Se il tuo livello VIP è superiore a quello della tua segnalazione diretta, puoi guadagnare commissioni anche dalla tua segnalazione indiretta.</p>"
+    "title": "Cos'è un referral indiretto e cosa posso guadagnare da loro?",
+    "content": "<p class=\"leading-7\">Un referral indiretto è un giocatore attivo che proviene dal link di invito di uno dei tuoi referral diretti. Se il tuo livello VIP è superiore a quello del tuo referral diretto, puoi anche guadagnare commissioni derivanti dal tuo referral indiretto.</p>"
   },
   "levelReward": "Ricompensa per il Livello",
   "groupReward": "Premio di Commissione",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Per semplificare l'esempio, presumiamo che gli amici contrassegnati in giallo stiano scommettendo attivamente, e le percentuali verdi lungo le linee tratteggiate rappresentano la commissione che ricevi da ciascuno di loro.",
   "referralCommissionsIndirectDescription": "Per semplificare l'esempio, supponiamo che gli amici contrassegnati in viola stiano scommettendo attivamente. Le percentuali lungo le linee tratteggiate indicano la commissione che ogni membro nella catena di referral guadagna. \n\n A destra, possiamo vedere un esempio di distacco che avviene nella catena di referral.",
   "referralCodeMinLength": "Il codice di riferimento deve contenere almeno 6 caratteri",
-    "vipLevel": "Livello VIP",
+  "vipLevel": "Livello VIP",
   "earned": "Guadagnato",
   "directfriend": "Amico Diretto",
   "fast": "Veloce",
   "slots": "Slot",
   "live-casino": "Casinò dal Vivo",
   "fishing": "Pesca",
-  "rewardsUnlocked": "Ricompense Sbloccate"
+  "rewardsUnlocked": "Ricompense Sbloccate",
+  "selectGame": "Seleziona un gioco",
+  "selectVipLevel": "Seleziona il livello VIP",
+  "myReferralCommissions": "Le mie commissioni di referral",
+  "myReferralRewards": "Le mie ricompense di referral",
+  "exp": "EXP",
+  "userLevel": "Livello Utente"
 }

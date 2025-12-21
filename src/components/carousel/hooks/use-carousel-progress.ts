@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 // ----------------------------------------------------------------------
 
-export function useCarouselProgress(mainApi?: EmblaCarouselType): UseCarouselProgressReturn {
+export function useCarouselProgress(mainApi?: EmblaCarouselType, enabled = true): UseCarouselProgressReturn {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const onScroll = useCallback((_mainApi: EmblaCarouselType) => {
@@ -15,12 +15,16 @@ export function useCarouselProgress(mainApi?: EmblaCarouselType): UseCarouselPro
   }, []);
 
   useEffect(() => {
-    if (!mainApi) return;
+    if (!mainApi || !enabled) return;
 
     onScroll(mainApi);
     mainApi.on('reInit', onScroll);
     mainApi.on('scroll', onScroll);
-  }, [mainApi, onScroll]);
+    return () => {
+      mainApi.off('reInit', onScroll);
+      mainApi.off('scroll', onScroll);
+    };
+  }, [mainApi, enabled, onScroll]);
 
   return { value: scrollProgress };
 }

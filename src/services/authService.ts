@@ -12,8 +12,12 @@ import type {
   GetReferralListParams,
   GetReferralRewardsListParams,
   ReferralListResponse,
-  ReferralRewardsListResponse
+  ReferralRewardsListResponse,
+  SetDefaultAdTagParams,
+  SetDefaultAdTagResponse
 } from "@/types/referral";
+import type { UserGameListParams, UserGameListResponse } from "@/types/game";
+import type { TournamentPoolPrizeParams } from "@/types/tournament";
 
 export const authService = {
   async signIn(credentials: LoginCredentials): Promise<LoginResponse> {
@@ -21,6 +25,21 @@ export const authService = {
 
     if (response.data.code !== 0) {
       throw new Error(response.data.msg || "Login failed");
+    }
+
+    return response.data;
+  },
+
+  async signupRoiBest(credentials: LoginCredentials): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.post<ApiResponse<any>>("/Authentication/signupRoiBest", credentials);
+
+    if (response.data.code !== 0) {
+      const error: Error & { code?: number; responseData?: ApiResponse<any> } = new Error(
+        response.data.msg || "Login failed"
+      );
+      error.code = response.data.code;
+      error.responseData = response.data;
+      throw error;
     }
 
     return response.data;
@@ -34,7 +53,12 @@ export const authService = {
     });
 
     if (response.data.code !== 0) {
-      throw new Error(response.data.msg || "Sign up failed");
+      const error: Error & { code?: number; responseData?: LoginResponse } = new Error(
+        response.data.msg || "Sign up failed"
+      );
+      error.code = response.data.code;
+      error.responseData = response.data;
+      throw error;
     }
 
     return response.data;
@@ -98,14 +122,16 @@ export const authService = {
    * @param username 邮箱或手机号
    * @param hcaptchaToken hCaptcha验证令牌
    */
-  async sendPasswordResetCode(username: string, hcaptchaToken: string): Promise<void> {
-    const response = await publicAxiosInstance.post("/authentication/forgetPasswordToSendCode", {
-      username,
-      hcaptcha_token: hcaptchaToken
-    });
+  async sendPasswordResetCode(data: any): Promise<void> {
+    const response = await publicAxiosInstance.post("/authentication/forgetPasswordToSendCode", data);
 
     if (response.data.code !== 0) {
-      throw new Error(response.data.msg || "Failed to send reset code");
+      const error: Error & { code?: number; responseData?: any } = new Error(
+        response.data.msg || "Failed to send reset code"
+      );
+      error.code = response.data.code;
+      error.responseData = response.data;
+      throw error;
     }
   },
 
@@ -115,16 +141,16 @@ export const authService = {
    * @param verificationCode 验证码
    * @param newPassword 新密码
    */
-  async resetPassword(emailOrPhone: string, verificationCode: string, newPassword: string): Promise<void> {
+  async resetPassword(emailOrPhone: string, verificationCode: string, newPassword: string): Promise<any> {
     const response = await publicAxiosInstance.post("/Authentication/resetPassword", {
       username: emailOrPhone,
       code: verificationCode,
       password: newPassword
     });
-
-    if (response.data.code !== 0) {
-      throw new Error(response.data.msg || "Failed to reset password");
-    }
+    return response.data;
+    // if (response.data.code !== 0) {
+    //   throw new Error(response.data.msg || "Failed to reset password");
+    // }
   },
 
   /**
@@ -165,7 +191,7 @@ export const authService = {
 
   // 获取法币提款网关的必填项
   async getFiatGatewayWithdrawParams(gateway_id: string, pay_bankcode: string): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/PaymentGateway/getFiatGatewayWithdrawParams", {
+    const response = await authAxiosInstance.post("/PaymentGateway/getFiatGatewayWithdrawParamsV2", {
       gateway_id,
       pay_bankcode
     });
@@ -184,7 +210,7 @@ export const authService = {
    * 获取当前用户是否有待领取的Bonus
    * @params item: cashback | rakeback | tournament | referral | group
    */
-  async getClaimBonus(item: "cashback" | "rakeback" | "tournament" | "referral" | "group"): Promise<ApiResponse<any>> {
+  async getClaimBonus(item: "cashback" | "rakeback" | "tournament" | "referral" | "group" | "level_up" | "vip_bonus_lucky_number_seven"): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.get("/Claim/index", {
       params: { item }
     });
@@ -203,7 +229,7 @@ export const authService = {
    * Get the required fields for a fiat deposit order
    */
   async getFiatGatewayDepositParams(gateway_id: string, pay_bankcode: string): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/PaymentGateway/getFiatGatewayDepositParams", {
+    const response = await authAxiosInstance.post("/PaymentGateway/getFiatGatewayDepositParamsV2", {
       gateway_id,
       pay_bankcode
     });
@@ -301,10 +327,53 @@ export const authService = {
     is_support_demo_game?: string;
   }): Promise<
     ApiResponse<string> & {
-      launch_type: "url" | "html";
-    }
+    launch_type: "url" | "html";
+  }
   > {
     const response = await authAxiosInstance.post("/Game/playV2", params);
+    return response.data;
+  },
+
+  /**
+   * 启动试玩游戏（需要登录）
+   */
+  async launchDemoGame(params: {
+    inner_game_id: string;
+    game_provider: string;
+    game_currency: string;
+    lang: string;
+    name_key?: string;
+    home_url?: string;
+    close_url?: string;
+    deposit_url?: string;
+    history_url?: string;
+  }): Promise<
+    ApiResponse<string> & {
+    launch_type: "url" | "html";
+  }
+  > {
+    const response = await authAxiosInstance.post("/Game/playDemo", params);
+    return response.data;
+  },
+
+  /**
+   * 检查游戏是否支持演示模式
+   */
+  async checkDemoSupport(params: {
+    inner_game_id: string;
+    game_provider: string;
+    game_currency?: string;
+    lang?: string;
+    name_key?: string;
+  }): Promise<
+    ApiResponse<{
+      support_demo: boolean;
+      inner_game_id: string;
+      game_provider: string;
+      game_name: string;
+    }>
+  > {
+    const response = await authAxiosInstance.get("/Game/isSupportDemo", { params });
     return response.data;
   },
 
@@ -343,7 +412,12 @@ export const authService = {
   },
 
   async getUserBetHistory(params: BetHistoryQueryParams): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV2", params);
+    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV3", params);
+    return response.data;
+  },
+
+  async getUserSportsBetHistory(params: BetHistoryQueryParams): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV3", params);
     return response.data;
   },
 
@@ -415,6 +489,13 @@ export const authService = {
     return response.data;
   },
 
+  async getUserGameList(params: UserGameListParams): Promise<UserGameListResponse> {
+    const response = await authAxiosInstance.get<UserGameListResponse>("/GameList/getUserGameListV2", {
+      params
+    });
+    return response.data;
+  },
+
   /**
    * 获取 Tournament 列表（需登录）
    */
@@ -438,6 +519,16 @@ export const authService = {
     return response.data;
   },
 
+  async getTournamentPoolPrize(params: TournamentPoolPrizeParams): Promise<ApiResponse<number>> {
+    const response = await authAxiosInstance.post<ApiResponse<number>>("/Tournament/getPoolPrizeTimer", params);
+
+    if (response.data.code !== 0) {
+      throw new Error(response.data.msg || "Failed to get tournament pool prize");
+    }
+
+    return response.data;
+  },
+
   async getDefaultAdTag(): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.get("/AdTag/getDefault");
     return response.data;
@@ -449,6 +540,13 @@ export const authService = {
    */
   async getUserAchievements(sort: "asc" | "desc" = "asc"): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.get("/Achievement/index", {
+      params: { sort }
+    });
+    return response.data;
+  },
+
+  async getUserAchievementsV2(sort: "asc" | "desc" = "asc"): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/Achievement/indexV2", {
       params: { sort }
     });
     return response.data;
@@ -562,6 +660,15 @@ export const authService = {
     return response.data;
   },
 
+  async setDefaultAdTag(params: SetDefaultAdTagParams): Promise<SetDefaultAdTagResponse> {
+    const response = await authAxiosInstance.post("/AdTag/setDefault", params);
+    if (response.data.code !== 0) {
+      throw new Error(response.data.msg || "Failed to set default ad tag");
+    }
+
+    return response.data;
+  },
+
   /**
    * 发送手机验证码
    */
@@ -577,7 +684,9 @@ export const authService = {
     const response = await authAxiosInstance.post<ApiResponse<AdTag>>("/AdTag/create", params);
 
     if (response.data.code !== 0) {
-      throw new Error(response.data.msg || "Failed to create ad tag");
+      const { data, msg } = response.data;
+      const errorMessage = (typeof data === "string" && data) || msg || "Failed to create ad tag";
+      throw new Error(errorMessage);
     }
 
     return response.data;
@@ -623,12 +732,17 @@ export const authService = {
    * 获取通知消息
    */
   async getNotificationMessage(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/NotificationMessage/getMessage', data);
+    const response = await authAxiosInstance.post("/NotificationMessage/getMessageV1", data);
+    return response.data;
+  },
+
+  async setNotificationMessageRead(data: any): Promise<any> {
+    const response = await authAxiosInstance.post(`/NotificationMessage/readV1?ids=${data?.ids}`);
     return response.data;
   },
 
   async updateWithdrawalPin(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/user/updatePin', data);
+    const response = await authAxiosInstance.post("/user/updatePin", data);
     return response.data;
   },
 
@@ -645,13 +759,19 @@ export const authService = {
   },
 
   async getUserReferralRecords(query?: Record<string, any>): Promise<ApiResponse<any>> {
-    const endpoint = query ? `/RewardReferUnlockLog/myList?${new URLSearchParams(query)}` : "/RewardReferUnlockLog/myList";
+    const searchParams = query ? new URLSearchParams(query) : undefined;
+    const endpoint = searchParams && Array.from(searchParams.keys()).length > 0
+      ? `/ClaimLog/index?${searchParams.toString()}`
+      : "/ClaimLog/index";
     const response = await authAxiosInstance.get(endpoint);
     return response.data;
   },
 
   async getUserCommissionRecords(query?: Record<string, any>): Promise<ApiResponse<any>> {
-    const endpoint = query ? `/RewardGroupLog/myList?${new URLSearchParams(query)}` : "/RewardGroupLog/myList";
+    const searchParams = query ? new URLSearchParams(query) : undefined;
+    const endpoint = searchParams && Array.from(searchParams.keys()).length > 0
+      ? `/ClaimLog/index?${searchParams.toString()}`
+      : "/ClaimLog/index";
     const response = await authAxiosInstance.get(endpoint);
     return response.data;
   },
@@ -662,38 +782,38 @@ export const authService = {
   },
 
   async updateUser(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/User/updateUser', data);
+    const response = await authAxiosInstance.post("/User/updateUser", data);
     return response.data;
   },
 
   async uploadPublicImage(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/Images/uploadPublic', data);
+    const response = await authAxiosInstance.post("/Images/uploadPublic", data);
     return response.data;
   },
 
   async uploadPrivateImage(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/Images/uploadPrivate', data);
+    const response = await authAxiosInstance.post("/Images/uploadPrivate", data);
     return response.data;
   },
 
   async updateKyc(data: any): Promise<any> {
-    const response = await authAxiosInstance.post('/UserKyc/update', data);
+    const response = await authAxiosInstance.post("/UserKyc/update", data);
     console.log(response);
     return response.data;
   },
 
   async getKycDetail(): Promise<any> {
-    const response = await authAxiosInstance.get('/UserKyc/getDetail');
+    const response = await authAxiosInstance.get("/UserKyc/getDetail");
     return response.data;
   },
 
   async getCurrentPromo(): Promise<any> {
-    const response = await authAxiosInstance.get('/Promo/getCurrentPromo');
+    const response = await authAxiosInstance.get("/Promo/getCurrentPromo");
     return response.data;
   },
 
   async checkDetailPromo(): Promise<any> {
-    const response = await authAxiosInstance.get('/Promo/checkDetailPromo');
+    const response = await authAxiosInstance.get("/Promo/checkDetailPromo");
     return response.data;
   },
 
@@ -727,6 +847,21 @@ export const authService = {
     return response.data;
   },
 
+  async getReferralDetail(data: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/RewardReferUnlockLog/getReferralDetail", data);
+    return response.data;
+  },
+
+  async getRewardGroupLogDetail(data: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/RewardGroupLog/detail", data);
+    return response.data;
+  },
+
+  async getReferralRewardDetail(data: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/RewardReferUnlockLog/getReferralRewardListTotalDetail", data);
+    return response.data;
+  },
+
   async setUserWithdrawInfoDefaultById(data: any): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.post("/UserWithdrawInfo/setUserWithdrawInfoDefaultById", data);
     return response.data;
@@ -739,6 +874,94 @@ export const authService = {
 
   async createWithdrawFiatOrderV2(data: any): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.post("/UserWithdraw/fiat_withdraw_V2", data);
+    return response.data;
+  },
+
+  async getSupportedCurrencyV2(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/Currency/index_V2");
+    return response.data;
+  },
+
+  async getPromoByPage(data: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/Promo/getPromoByPage", data);
+    return response.data;
+  },
+
+  async getPromoByPageV2(data?: any): Promise<any> {
+    const response = await authAxiosInstance.post("/Promo/getPromoByPage2", data);
+    return response.data;
+  },
+
+  async choicePromo(data: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/Promo/choicePromo", data);
+    return response.data;
+  },
+
+  /**
+   * 钱包设置中的法币列表
+   */
+  async getWalletSettingsCurrency(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/Currency/walletSettingsCurrency");
+    return response.data;
+  },
+
+  async claimAchievementBonus(reward_achievement_log_id: number): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/Achievement/claim", { reward_achievement_log_id });
+    return response.data;
+  },
+
+  /*
+* 统计可以提取的赏金分类个数
+* */
+  async getClaimCount() {
+    const response = await authAxiosInstance.get("/claim/getClaimCount");
+    return response.data;
+  },
+
+  async getMondayVipBonus(): Promise<any> {
+    const response = await authAxiosInstance.get("/MondayVipBonus/index");
+    return response.data;
+  },
+
+  async claimMondayVipBonus(id: any): Promise<any> {
+    const response = await authAxiosInstance.post("/MondayVipBonus/claim", { id });
+    return response.data;
+  },
+
+  async bonusSwitch() {
+    const response = await authAxiosInstance.get("/branch/bonusSwitch");
+    return response.data;
+  },
+
+  async hasMysteryBox() {
+    const response = await authAxiosInstance.get("/Claim/hasMysteryBox");
+    return response.data;
+  },
+
+  async getPaymentIcons() {
+    const response = await authAxiosInstance.get("/PaymentGateway/getPaymentIcons");
+    return response.data;
+  },
+
+  async getPaymentGatewayByUser() {
+    const response = await authAxiosInstance.get("/PaymentGateway/getPaymentIconsByUser");
+    return response.data;
+  },
+
+  // 周六充值奖励激活
+  async userAddSundayBonus() {
+    const response = await authAxiosInstance.post("/Promo/addSundayBonus");
+    return response.data;
+  },
+
+// 周四充值奖励激活
+  async userAddThursdayBonus() {
+    const response = await authAxiosInstance.post("/Promo/addThursdayBonus");
+    return response.data;
+  },
+
+  async getBanGameList() {
+    const response = await authAxiosInstance.post('/GameList/getBanGameList');
     return response.data;
   }
 };

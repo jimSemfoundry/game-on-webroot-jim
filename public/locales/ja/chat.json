@@ -1,7 +1,7 @@
 {
-    "global": "グローバル",
-    "notifications": "通知",
-    "support": "サポート",
-    "retry": "再試行",
-    "customerServiceChatFailedToLoad": "カスタマーサービスのチャットが読み込めませんでした"
+  "global": "グローバル",
+  "notifications": "通知",
+  "support": "サポート",
+  "retry": "再試行",
+  "customerServiceChatFailedToLoad": "カスタマーサービスのチャットが読み込めませんでした"
 }

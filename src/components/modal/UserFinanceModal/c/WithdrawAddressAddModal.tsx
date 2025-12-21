@@ -4,16 +4,18 @@ import {
   useSupportedCryptoWithdrawGatewaysFilter,
   validateAddress
 } from "@/components/modal/UserFinanceModal/helper.ts";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
-import { useUserWithdrawWallet } from "@/hooks/api/useAuth.ts";
+import { AUTH_QUERY_KEYS, useUserWithdrawWallet } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
+import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface ISelectedOption {
   network: string;
@@ -32,15 +34,20 @@ const initSelected = {
 };
 
 export const WithdrawAddressAddModal = () => {
+  // 服务于数据更新
+  const queryClient = useQueryClient();
+
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<ISelectedOption>(initSelected);
 
   // from data store, share common data
-  const { withdrawCrypto, syncAction, setSyncAction } = useBoundStore();
+  const { withdrawCrypto, syncAction } = useBoundStore();
 
   // 用户钱包地址列表
-  const { refetch } = useUserWithdrawWallet(withdrawCrypto.network?.network);
+  // useUserWithdrawWallet的第二个参数@effect是标记只为本组件服务，不影响外围数据
+  // 本组件中有自己的网络选择，要查询用户有多少地址
+  const { data: wallets, isLoading } = useUserWithdrawWallet(status.network, true);
 
   // 币种支持提款的链
   const [l1, , networks] = useSupportedCryptoWithdrawGatewaysFilter(withdrawCrypto.currency?.currency);
@@ -61,9 +68,12 @@ export const WithdrawAddressAddModal = () => {
     authService
       .addUserWithdrawWallet(status)
       .then((res) => {
-        if (res.code === 0) {
-          void refetch(); // 更新用户钱包地址列表
+        if ([200, 0].includes(res.code)) {
+          // 更新用户目标链的钱包地址
+          void queryClient.refetchQueries({ queryKey: [...AUTH_QUERY_KEYS.userWithdrawWallet, withdrawCrypto.network?.network, false] }); // 更新用户钱包地址列表
+
           toast.success(t("toast:walletAddressAddedSuccessfully"));
+
           setStatus((v) => ({ ...v, showModal: false, name: "", address: "" }));
         } else if (res.code === 1) {
           toast.error(t("finance:repeat_address_added"));
@@ -84,20 +94,26 @@ export const WithdrawAddressAddModal = () => {
 
   // 事件通知
   useEffect(() => {
-    if (syncAction.type === "OPEN_WITHDRAW_ADDRESS_ADD_MODAL") {
-      setStatus((v) => ({ ...v, showModal: true }));
-      setSyncAction(undefined);
-    }
-  }, [syncAction.type]);
+    if (syncAction.type === "OPEN_WITHDRAW_ADDRESS_ADD_MODAL") setStatus((v) => ({ ...v, showModal: true }));
+  }, [syncAction]);
 
-  // 设置网络默认值
+  // 设置网络默认值 & 设置地址名称默认值
   useEffect(() => {
-    if (withdrawCrypto)
+    if (withdrawCrypto && status.showModal)
       setStatus((old) => ({
         ...old,
         network: withdrawCrypto.network?.network
       }));
-  }, [withdrawCrypto.network]);
+  }, [withdrawCrypto.network, status.showModal]);
+
+  // 设置网络默认值 & 设置地址名称默认值
+  useEffect(() => {
+    if (status.showModal)
+      setStatus((old) => ({
+        ...old,
+        name: `${status.network} ADDRESS ${(wallets?.data ?? [])?.length + 1}`
+      }));
+  }, [wallets, status.network, status.showModal]);
 
   return (
     <Modal
@@ -135,18 +151,15 @@ export const WithdrawAddressAddModal = () => {
         <div className="flex flex-col gap-2">
           <RequireItem
             label={<label className="text-xs text-base-content/50 font-semibold">{t("finance:address_name")}</label>} />
-          <input
-            type="text"
-            className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4"
-            placeholder={t("finance:address_name")}
-            value={status.name}
-            onChange={(v) => {
-              setStatus((old) => ({
-                ...old,
-                name: v.target.value
-              }));
-            }}
-          />
+          <SmallLoading loading={isLoading} className="h-10 bg-base-300 !rounded-lg" content={
+            <input
+              type="text"
+              readOnly
+              className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 text-base-content/50"
+              placeholder={t("finance:address_name")}
+              value={status.name}
+            />
+          } />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -180,3 +193,5 @@ export const WithdrawAddressAddModal = () => {
     </Modal>
   );
 };
+
+export default WithdrawAddressAddModal;

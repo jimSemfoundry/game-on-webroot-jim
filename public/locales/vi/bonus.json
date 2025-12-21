@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Nhận thưởng của bạn như thường lệ...\nHoặc thực hiện một bước nhảy táo bạo đến",
+  "double_it": "Gấp Đôi!",
+  "no_thanks": "Không Cảm Ơn",
+  "double_or_nothing": "Gấp Đôi Hay Không Gì Cả",
+  "come_back_tomorrow": "Quay Lại Ngày Mai",
+  "promo_code": "Mã Khuyến Mãi",
+  "got_a_code": "Có mã không? Bạn biết phải làm gì!",
+  "lifetime_bonus": "Thưởng Trọn Đời",
+  "claimed": "Đã Nhận",
+  "starter": "Khởi Đầu",
+  "pack": "Gói",
+  "achievements_card_description": "Thu thập phần thưởng thành tựu đặc biệt được thiết kế để kỷ niệm từng bước tiến bộ của bạn!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Làm chủ nghệ thuật may mắn",
+    "achievement_verify_phone": "Năng lượng và sức mạnh không thể ngăn cản",
+    "achievement_add_desktop_app": "Luôn trong tầm tay",
+    "achievement_super_spreader": "Chia sẻ trải nghiệm chơi game",
+    "achievement_conquistador": "Đối mặt với mọi trở ngại",
+    "achievement_game_explorer": "Khám phá những thế giới game mới",
+    "achievement_card_shark": "Thống trị các trò chơi bài",
+    "achievement_slotmaster": "Làm chủ các máy slot",
+    "achievement_talkative": "Dẫn dắt con đường cho người khác",
+    "achievement_bet_count": "Làm chủ trò chơi chính xác",
+    "achievement_deposit_count": "Đạt được chiến thắng tối thượng",
+    "achievement_wager_count": "Vượt qua những thử thách",
+    "achievement_single_bet": "Trở thành huyền thoại",
+    "achievement_single_deposit": "Điều hướng các mạng blockchain",
+    "achievement_single_wager": "Làm chủ các chiến lược tài chính",
+    "achievement_single_payout": "Thống trị thị trường crypto",
+    "achievement_crypto_bro": "Làm chủ giao dịch tiền điện tử",
+    "achievement_crypto_baron": "Thống trị thị trường crypto",
+    "achievement_chain_shifter": "Điều hướng các mạng blockchain",
+    "achievement_money_master": "Làm chủ các chiến lược tài chính",
+    "achievement_sniper": "Làm chủ trò chơi chính xác",
+    "achievement_champion": "Đạt được chiến thắng tối thượng",
+    "achievement_name_of_fame": "Trở thành huyền thoại",
+    "achievement_guiding_star": "Dẫn dắt con đường cho người khác",
+    "achievement_face_of_fortune": "Làm chủ nghệ thuật may mắn",
+    "achievement_dynamo": "Năng lượng và sức mạnh không thể ngăn cản",
+    "achievement_inferno": "Vượt qua những thử thách",
+    "achievement_the_challenger": "Đối mặt với mọi trở ngại"
+  },
   "bonus": "Tiền thưởng",
   "total_bonus_claimed": "Tổng số tiền thưởng đã nhận",
   "details": "Chi tiết",
   "redeem": "Đổi thưởng",
-"deposit_bonus": "Bộ sưu tập tiền thưởng nạp tiền",
+  "deposit_bonus": "Bộ sưu tập tiền thưởng nạp tiền",
   "get_up_to": "Nhận tối đa",
   "deposit_now": "Nạp tiền ngay",
   "bonus_ends_in": "Tiền thưởng kết thúc sau",
@@ -26,7 +68,7 @@
   "daily_cashback": "Hoàn tiền hàng ngày",
   "bonus_calendar": "Lịch thưởng",
   "claim_every_8_hours": "Nhận thưởng mỗi 8 giờ",
-"locked": "Bộ sưu tập tiền thưởng nạp tiền",
+  "locked": "Bộ sưu tập tiền thưởng nạp tiền",
   "next_claim_in": "Yêu cầu tiếp theo trong",
   "bonus_pool": "Bộ sưu tập phần thưởng sắp tới",
   "bonus_calendar_details": "Nhận thưởng mỗi 8 giờ để được thưởng thêm!",
@@ -34,6 +76,7 @@
   "total_vip_bonus_claimed": "Tổng tiền thưởng VIP đã nhận",
   "your_vip_progress": "Tiến trình VIP của bạn",
   "available_at_vip": "Có sẵn tại cấp VIP {{vip}}",
+  "vip_progress_description": "Tiến lên! Cấp độ tiếp theo mở khóa {{amount}} từ quỹ thưởng của bạn.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Đạt cấp VIP 4 để mở khóa Vòng Quay May Mắn - cơ hội nhận thêm phần thưởng mỗi ngày!",
   "weekly_cashback": "Hoàn tiền hàng tuần",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Đạt cấp VIP 12 để mở khóa hoàn tiền hàng tuần - mạng an toàn cá nhân cho những lần chơi lớn!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Vòng Quay May Mắn",
   "lucky_number_seven": "Số Bảy May Mắn",
   "expires_in": "Hết hạn sau",
+  "expires": "Hết Hạn",
   "go": "Bắt đầu",
   "conquest_just_wager_title": "Chỉ cần đặt cược {{amount}}",
   "conquest_just_wager_description": "Đặt cược {{amount}} trong bất kỳ trò chơi nào trong một ngày để nhận {{reward}} từ quỹ tiền thưởng của bạn hôm nay!",
@@ -99,133 +143,190 @@
   "claimable": "Có thể yêu cầu",
   "achievement_verify_email": {
     "name": "Xác Minh Email",
-    "description": "Thành tựu này được trao cho người chơi đã xác minh email, đảm bảo danh tính và mở khóa quyền truy cập an toàn. Đây là dấu hiệu của sự sẵn sàng và đáng tin cậy — bước đầu tiên của mọi người chơi nghiêm túc."
+    "description": "Thành tích này được trao cho những người chơi đã xác minh email của họ, khóa danh tính của họ và mở khóa quyền truy cập an toàn. Đây là dấu hiệu của sự sẵn sàng và đáng tin cậy - bước đầu tiên của mọi người chơi nghiêm túc."
   },
   "achievement_verify_phone": {
-    "name": "Xác Minh Số Điện Thoại",
-    "description": "Thành tựu này được trao cho người chơi đã xác minh số điện thoại để luôn cập nhật và kết nối. Nó thể hiện sự tin cậy, gắn bó và cam kết với trò chơi."
+    "name": "Xác Minh Điện Thoại",
+    "description": "Thành tích này được trao cho những người chơi đã xác minh số điện thoại của họ để luôn được thông báo và kết nối. Nó báo hiệu sự tin tưởng, tham gia và cam kết với nhịp đập của trò chơi."
   },
   "achievement_add_desktop_app": {
-    "name": "Thêm vào Màn hình chính",
-    "description": "Thành tựu này được trao cho những người chơi đã thêm ứng dụng mini Telegram của chúng tôi vào màn hình chính. Luôn trong tầm tay, hành động này thể hiện sự cống hiến thực sự - bởi vì những người chơi đích thực luôn giữ trò chơi gần gũi."
+    "name": "Thêm vào Màn Hình Chính",
+    "description": "Thành tích này được trao cho những người chơi đã thêm ứng dụng mini Telegram của chúng tôi vào màn hình chính của họ. Luôn trong tầm tay, hành động này cho thấy sự cống hiến thực sự - vì những người chơi thực sự giữ trò chơi gần gũi."
   },
   "achievement_super_spreader": {
-    "name": "Người Mời Siêu Cấp",
-    "description": "Thành tựu này được trao cho người chơi đã mời thành công <0>{{count}} người dùng mới</0>. Một người xây dựng cộng đồng thực thụ, họ mở rộng mạng lưới và mang lại năng lượng mới cho trò chơi. Ảnh hưởng của họ tăng lên với mỗi kết nối."
+    "name": "Người Chia Sẻ Siêu Cấp",
+    "description": "Thành tích này được trao cho những người chơi đã giới thiệu thành công <0>{{count}} người dùng mới</0>. Một người xây dựng cộng đồng thực sự, họ mở rộng vòng tròn và mang lại năng lượng mới cho trò chơi. Ảnh hưởng của họ tăng lên với mỗi kết nối mà họ tạo ra."
   },
   "achievement_conquistador": {
     "name": "Người Chinh Phục",
-    "description": "Thành tựu này được trao cho người chơi đã hoàn thành tổng cộng <0>{{count}} nhiệm vụ</0>. Được thúc đẩy bởi quyết tâm và khát khao chiến thắng, họ chinh phục mọi thử thách — một nhà vô địch thực thụ."
+    "description": "Thành tích này được trao cho những người chơi đã hoàn thành tổng cộng <0>{{count}} nhiệm vụ</0>. Được thúc đẩy bởi quyết tâm và khát khao chiến thắng, họ chinh phục mọi thử thách đến với họ - một nhà vô địch thực sự của hành trình."
   },
   "achievement_game_explorer": {
-    "name": "Nhà Khám Phá Trò Chơi",
-    "description": "Thành tựu này được trao cho người chơi đã thử <0>{{count}} trò chơi khác nhau</0>. Tò mò và thích phiêu lưu, họ khám phá khắp nền tảng, luôn háo hức tìm kiếm cách chơi và chiến thắng mới."
+    "name": "Người Khám Phá Trò Chơi",
+    "description": "Thành tích này được trao cho những người chơi đã thử <0>{{count}} trò chơi khác nhau</0>. Tò mò và phiêu lưu, họ khám phá khắp nền tảng, luôn háo hức khám phá những cách chơi và chiến thắng mới."
   },
   "achievement_card_shark": {
-    "name": "Cao Thủ Bài",
-    "description": "Thành tựu này được trao cho người chơi đã đặt cược ít nhất <0>{{amount}}</0> trong các trò chơi bài, chứng minh sự kiên cường, chiến lược và sẵn sàng chấp nhận rủi ro. Những người chơi cược lớn này đã giành được vị trí trong giới tinh hoa. Lá bài nằm trong tay họ, và trò chơi thuộc về họ."
+    "name": "Cá Mập Bài",
+    "description": "Thành tích này được trao cho những người chơi đã đặt cược ít nhất <0>{{amount}}</0> vào các trò chơi bài, chứng minh sự kiên cường, chiến lược và sẵn sàng chấp nhận rủi ro. Những người chơi có mức cược cao này đã kiếm được vị trí của họ trong số những người ưu tú. Những quân bài nằm trong tay họ, và trò chơi là của họ để chỉ huy."
   },
   "achievement_slotmaster": {
     "name": "Bậc Thầy Slot",
-    "description": "Thành tựu này được trao cho người chơi đã đặt cược ít nhất <0>{{amount}}</0> trong các trò chơi slot, chứng minh sự kiên trì, tinh thần tìm kiếm cảm giác mạnh và niềm đam mê với vòng quay. Những người chơi tận tụy này tự tin làm chủ các cuộn phim — may mắn có thể dẫn lối, nhưng kỹ năng giữ họ trong cuộc chơi."
+    "description": "Thành tích này được trao cho những người chơi đã đặt cược ít nhất <0>{{amount}}</0> vào các trò chơi slot, chứng minh sự kiên trì, tinh thần tìm kiếm cảm giác mạnh và tình yêu với vòng quay. Những người chơi tận tâm này ôm lấy các cuộn với sự tự tin - may mắn có thể dẫn dắt, nhưng sự thành thạo giữ họ trong trò chơi."
   },
   "achievement_talkative": {
-    "name": "Hoạt Ngôn",
-    "description": "Thành tựu này được trao cho người chơi đã lên tiếng <0>{{count}} lần</0> trong phòng trò chuyện. Mỗi tin nhắn đều có giá trị — bạn đang tiến gần hơn để trở thành một phần quan trọng của cuộc trò chuyện."
+    "name": "Nói Nhiều",
+    "description": "Thành tích này được trao cho những người chơi đã nói lên <0>{{count}} lần</0> trong phòng chat. Mỗi tin nhắn đều quan trọng - bạn đang thực hiện bước đầu tiên để trở thành một phần thực sự của cuộc trò chuyện."
   },
   "achievement_bet_count": {
-    "name": "Số Lượng Cược",
-    "description": "Thành tựu này được trao cho người chơi đã đặt tổng cộng <0>{{count}} cược</0>. Một người tin tưởng vào vận may, tinh thần kiên định của họ giữ cho trò chơi luôn sôi động qua mỗi lần cược."
+    "name": "Số Lượng Đặt Cược",
+    "description": "Thành tích này được trao cho những người chơi đã đặt tổng cộng <0>{{count}} cược</0>. Một người thực sự tin vào cơ hội, tinh thần kiên định của họ giữ cho trò chơi sống động với mỗi lần đặt cược."
   },
   "achievement_deposit_count": {
-    "name": "Số Lần Nạp Tiền",
-    "description": "Thành tựu này được trao cho người chơi đã thực hiện tổng cộng <0>{{count}} lần nạp tiền</0>. Với dòng tiền ổn định và cam kết mạnh mẽ, họ chứng minh rằng mình không chỉ là người chơi — họ là những tay chơi lớn đầy tiềm năng."
+    "name": "Số Lượng Gửi Tiền",
+    "description": "Thành tích này được trao cho những người chơi đã thực hiện tổng cộng <0>{{count}} khoản gửi tiền</0>. Với dòng chảy ổn định của tín dụng và cam kết không ngừng, họ đã cho thấy họ không chỉ là những người chơi - họ là những ông trùm đang hình thành."
   },
   "achievement_change_avatar": {
-    "name": "Thay Hình Đại Diện",
-    "description": "Thành tựu này được trao cho người chơi đã cá nhân hóa hồ sơ bằng cách thay đổi hình đại diện. Một bước tiến táo bạo để nổi bật và khẳng định bản sắc trong trò chơi."
+    "name": "Thay Đổi Avatar",
+    "description": "Thành tích này được trao cho những người chơi cá nhân hóa hồ sơ của họ bằng cách thay đổi avatar. Một bước táo bạo để nổi bật và sở hữu danh tính của bạn trong trò chơi."
   },
   "achievement_set_username": {
     "name": "Đặt Tên Người Dùng",
-    "description": "Bạn đã chọn tên cho mình — giờ thì huyền thoại bắt đầu. Thành tựu này vinh danh những người tạo dựng dấu ấn và chính thức hóa nó."
+    "description": "Bạn đã xác nhận tên của mình - giờ huyền thoại bắt đầu. Thành tích này vinh danh những người đã tạo ra không gian của riêng họ và chính thức hóa nó."
   },
   "achievement_download_mobile_app": {
     "name": "Tải Ứng Dụng Di Động",
-    "description": "Huy hiệu này dành cho những người chơi mang trò chơi theo bên mình. Tải ứng dụng cho thấy bạn không bao giờ tạm dừng — bạn sẵn sàng chơi mọi lúc, mọi nơi."
+    "description": "Huy hiệu này được trao cho những người chơi đã mang trò chơi theo mình. Tải ứng dụng cho thấy bạn không ở đây để tạm dừng - bạn ở đây để chơi bất cứ lúc nào, bất cứ nơi đâu."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Cược Tối Đa Một Trò Chơi Trong Ngày",
-    "description": "Thành tựu này được trao cho người chơi đã đặt cược ít nhất <0>{{amount}}</0> trong một trò chơi duy nhất trong ngày. Phần thưởng này ghi nhận sự tập trung tuyệt đối, chiến lược tính toán và lòng dũng cảm để chấp nhận rủi ro lớn. Những người chơi ưu tú này đã làm chủ trò chơi họ chọn — và họ chơi để chiến thắng."
+    "name": "Đặt Cược Tối Đa Trong Một Ngày Trên Một Trò Chơi",
+    "description": "Thành tích này được trao cho những người chơi đã đặt cược ít nhất <0>{{amount}}</0> vào một trò chơi trong một ngày. Nó công nhận những người có sự tập trung không ngừng, chiến lược tính toán và dũng cảm để chấp nhận những rủi ro táo bạo. Những người chơi ưu tú này đã làm chủ trò chơi mà họ chọn - và họ chơi để chiến thắng."
   },
   "achievement_slots_win_count": {
-    "name": "Số Lần Thắng Slot",
-    "description": "Thành tựu này được trao cho người chơi đã giành <0>{{count}} chiến thắng</0> trong các trò chơi slot. Với mỗi vòng quay, họ thách thức mọi tỷ lệ và ăn mừng chiến thắng liên tiếp. May mắn có thể khởi đầu, nhưng sự kiên định biến họ thành nhà vô địch."
+    "name": "Số Lượng Chiến Thắng Slot",
+    "description": "Thành tích này được trao cho những người chơi đã giành được <0>{{count}} chiến thắng</0> trong các trò chơi slot. Với mỗi vòng quay, họ thách thức tỷ lệ cược và ăn mừng chiến thắng sau chiến thắng. May mắn có thể bắt đầu trò chơi - nhưng sự nhất quán khiến họ trở thành nhà vô địch."
   },
   "achievement_slots_multiplier": {
-    "name": "Hệ Số Thắng Slot",
-    "description": "Thành tựu này được trao cho người chơi đã giành chiến thắng với <0>hệ số {{count}}x</0> hoặc hơn trong một vòng quay slot. Nó tôn vinh những người theo đuổi sự vĩ đại, đón nhận cảm giác hồi hộp của rủi ro cao và giành phần thưởng phi thường. Họ không phải người chơi bình thường — họ làm chủ các cuộn phim và vượt trội hơn tất cả."
+    "name": "Bội Số Slot",
+    "description": "Thành tích này được trao cho những người chơi đã giành được <0>chiến thắng với bội số {{count}}x</0> hoặc nhiều hơn trong một lần quay slot. Nó vinh danh những người theo đuổi sự vĩ đại, ôm lấy cảm giác hồi hộp của rủi ro cao và đạt được những phần thưởng phi thường. Đây không phải là những người chơi bình thường - họ chỉ huy các cuộn và vượt lên trên phần còn lại."
+  },
+  "achievement_champion": {
+    "name": "Nhà vô địch",
+    "description": "Danh hiệu này được trao cho những người chơi đã giành được <0>10 chiến thắng</0>. Một Nhà vô địch đứng vững trong đấu trường may rủi, chứng tỏ sự kiên cường của họ qua từng vòng chơi. Với mỗi chiến thắng, họ khẳng định vị trí của mình trong số những người tranh tài vượt lên trên vận may để giành lấy vinh quang."
+  },
+  "achievement_slot_master": {
+    "name": "Bậc thầy Slot",
+    "description": "Danh hiệu này được trao cho những người chơi đã đặt cược ít nhất <0>{{amount}}</0> vào các trò chơi slot. Một Bậc thầy Slot quay cuồng với sự tự tin và kiên trì, biến mỗi cuộn thành một cơ hội cho vận may. Với đôi tay vững vàng và lối chơi không sợ hãi, họ chứng minh rằng sự thành thạo thực sự được xây dựng từng vòng quay một."
+  },
+  "achievement_the_challenger": {
+    "name": "Người Thách Thức",
+    "description": "Danh hiệu này được trao cho những người chơi đã đặt ít nhất <0>10 cược hợp lệ</0> trong lịch sử chơi của họ. Người Thách Thức luôn sẵn sàng cho mọi cơ hội, được thúc đẩy bởi quyết tâm và sự hồi hộp của cuộc cạnh tranh. Dũng cảm và không ngừng nghỉ, họ chứng minh rằng những người tranh tài thực sự không lùi bước trước trò chơi — họ tiến lên, sẵn sàng thử thách giới hạn của mình và khẳng định vị trí của mình trong số những người không sợ hãi."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành <0>1 khoản tiền gửi</0> ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất. Một Dynamo trở nên mạnh mẽ hơn với mỗi lần nạp tiền, chứng minh sự nhất quán và quyết tâm của họ trên con đường đến sự thành thạo."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Gương Mặt của Vận May",
+    "description": "Danh hiệu này được trao cho những người chơi đã tùy chỉnh avatar của họ lần đầu tiên. Một Gương Mặt của Vận May biết rằng danh tính là sức mạnh — mỗi lựa chọn về phong cách, biểu tượng hoặc biểu cảm là một dấu ấn của sự cá nhân hóa. Bằng cách định hình diện mạo của mình, họ cho thấy rằng những người chơi thực sự không chỉ chơi trò chơi — họ để lại dấu ấn của mình trên đó."
+  },
+  "achievement_name_of_fame": {
+    "name": "Tên của Danh Vọng",
+    "description": "Danh hiệu này được trao cho những người chơi đã đặt tên người dùng của họ lần đầu tiên. Một Tên của Danh Vọng đánh dấu sự khởi đầu của danh tính thực sự, biến một người mới thành một sự hiện diện được công nhận. Dũng cảm và độc đáo, họ chứng minh rằng mỗi huyền thoại bắt đầu với một cái tên được nhớ đến."
+  },
+  "achievement_guiding_star": {
+    "name": "Ngôi Sao Hướng Dẫn",
+    "description": "Danh hiệu này được trao cho những người chơi đã thêm trò chơi vào Màn hình chính hoặc tải xuống ứng dụng. Một Ngôi Sao Hướng Dẫn giữ cho con đường đến vận may luôn rõ ràng, chiếu sáng lối về chơi chỉ với một lần chạm."
+  },
+  "achievement_highroller": {
+    "name": "Người Chơi Cao Cấp",
+    "description": "Danh hiệu này được trao cho những người chơi đã đặt cược tổng cộng ít nhất <0>{{amount}}</0> trong toàn bộ lịch sử chơi của họ. Những người Chơi Cao Cấp mang dấu ấn của sự cam kết và uy tín, chứng minh sự cống hiến của họ cho trò chơi với mỗi vòng quay, cược và vòng chơi. Vương miện của họ không chỉ là một biểu tượng — nó là một minh chứng cho sự kiên trì, đam mê và theo đuổi vận may."
+  },
+  "achievement_inferno": {
+    "name": "Địa Ngục",
+    "description": "Danh hiệu này được trao cho những người chơi đã đạt được một hệ số nhân <0>20x</0> trên bất kỳ slot nào. Với ngọn lửa bùng cháy, một Địa Ngục biến một cược đơn thành một cơn bão vận may."
+  },
+  "achievement_money_maverick": {
+    "name": "Người Dám Chơi Tiền",
+    "description": "Danh hiệu này được trao cho những người chơi đã thực hiện một khoản tiền gửi ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất, sử dụng fiat hoặc cổng thanh toán địa phương. Một Người Dám Chơi Tiền mở ra con đường riêng của mình với sự tự tin mạnh mẽ, biến tiền mặt hàng ngày thành những cơ hội phi thường. Không sợ hãi và mạo hiểm, họ chứng minh rằng những người dám chơi thực sự không chỉ tuân theo quy tắc — họ định nghĩa lại chúng."
+  },
+  "achievement_money_master": {
+    "name": "Bậc Thầy Tiền",
+    "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành một khoản rút tiền fiat ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất. Một Bậc Thầy Tiền đứng vững ở ngã ba giữa trò chơi và phần thưởng, chuyển đổi chiến thắng của họ thành giá trị thực tế. Với đôi tay vững vàng và thời điểm chính xác, họ cho thấy rằng sự thành thạo thực sự không chỉ nằm trong trò chơi — mà còn trong việc mang phần thưởng về nhà."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Danh hiệu này được trao cho những người chơi đã thực hiện một khoản tiền gửi ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất, với bất kỳ loại tiền điện tử nào. Một Crypto Maestro điều khiển quỹ của họ như một nghệ sĩ thực thụ, tổ chức tài sản kỹ thuật số với sự chính xác và phong cách. Tự tin trên sân khấu blockchain, họ là những người tiên phong trong trò chơi, chứng minh rằng vận may ưu ái những người dũng cảm."
+  },
+  "achievement_crypto_baron": {
+    "name": "Crypto Baron",
+    "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành một khoản rút tiền crypto ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất, với bất kỳ loại tiền điện tử nào. Một Blockchain Baron cai trị lĩnh vực tài sản kỹ thuật số, di chuyển quỹ qua chuỗi với sự tự tin và quyền lực. Với mỗi lần rút tiền thành công, họ chứng minh rằng vận may có thể được kiếm được, bảo đảm và mang về nhà trên blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Người Chuyển Đổi Chuỗi",
+    "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành thành công một <0>giao dịch hoán đổi crypto</0>. Một Người Chuyển Đổi Chuỗi là người biết cách di chuyển giữa các token với sự tự tin, thích ứng với những biến động của thị trường một cách dễ dàng. Những bậc thầy của động lực, họ phát triển trên sự linh hoạt và biến đổi, luôn sẵn sàng chuyển đổi và nắm bắt cơ hội."
   },
   "item": {
-    "conquest_just_wager_on_100": "Nhiệm Vụ Cược 100",
-    "conquest_just_wager_on_200": "Nhiệm Vụ Cược 200",
-    "conquest_roulette_master": "Nhiệm Vụ Bậc Thầy Roulette",
-    "conquest_blackjack_master": "Nhiệm Vụ Bậc Thầy Blackjack",
-    "conquest_baccarat_master": "Nhiệm Vụ Bậc Thầy Baccarat",
-    "conquest_gameshow_master": "Nhiệm Vụ Bậc Thầy Gameshow",
-    "conquest_slots_master_10": "Nhiệm Vụ Huyền Thoại Slot 10",
-    "conquest_gameshow_master_20": "Nhiệm Vụ Bậc Thầy Gameshow 20",
-    "conquest_roulette_master_30": "Nhiệm Vụ Bậc Thầy Roulette 30",
-    "conquest_blackjack_master_40": "Nhiệm Vụ Bậc Thầy Blackjack 40",
-    "conquest_baccarat_master_50": "Nhiệm Vụ Bậc Thầy Baccarat 50",
-    "conquest_big_win": "Nhiệm Vụ Thắng Lớn",
-    "conquest_huge_win": "Nhiệm Vụ Thắng Siêu Lớn",
-    "conquest_massive_win": "Nhiệm Vụ Thắng Khổng Lồ",
-    "achievement_verify_email": "Thành tựu Xác minh email",
-    "achievement_verify_phone": "Thành tựu Xác minh số điện thoại",
-    "achievement_add_desktop_app": "Thành tựu Thêm ứng dụng máy tính",
-    "achievement_super_spreader": "Thành tựu Siêu người lan truyền",
-    "achievement_conquistador": "Thành tựu Kẻ chinh phục",
-    "achievement_game_explorer": "Thành tựu Nhà thám hiểm trò chơi",
-    "achievement_card_shark": "Thành tựu Cao thủ bài",
-    "achievement_slotmaster": "Thành tựu Bậc thầy máy đánh bạc",
-    "achievement_talkative": "Thành tựu Hay nói",
-    "achievement_bet_count": "Thành tựu Số lượng cược",
-    "achievement_deposit_count": "Thành tựu Số lần nạp tiền",
-    "achievement_change_avatar": "Thành tựu Thay đổi ảnh đại diện",
-    "achievement_set_username": "Thành tựu Đặt tên người dùng",
-    "achievement_download_mobile_app": "Thành tựu Tải ứng dụng di động",
-    "achievement_wager_in_a_day_single_game": "Thành tựu Cược trong một ngày cho một trò chơi",
-    "achievement_slots_win_count": "Thành tựu Số lần thắng máy đánh bạc",
-    "achievement_slots_multiplier": "Thành tựu Hệ số nhân máy đánh bạc",
-    "level_up": "Thăng Cấp",
-    "rakeback": "Hoàn Trả",
+    "conquest_just_wager_on_100": "Chinh Phục Chỉ Đặt Cược 100",
+    "conquest_just_wager_on_200": "Chinh Phục Chỉ Đặt Cược 200",
+    "conquest_roulette_master": "Chinh Phục Bậc Thầy Roulette",
+    "conquest_blackjack_master": "Chinh Phục Bậc Thầy Blackjack",
+    "conquest_baccarat_master": "Chinh Phục Bậc Thầy Baccarat",
+    "conquest_gameshow_master": "Chinh Phục Bậc Thầy Gameshow",
+    "conquest_slots_master_10": "Chinh Phục Bậc Thầy Slot 10",
+    "conquest_gameshow_master_20": "Chinh Phục Bậc Thầy Gameshow 20",
+    "conquest_roulette_master_30": "Chinh Phục Bậc Thầy Roulette 30",
+    "conquest_blackjack_master_40": "Chinh Phục Bậc Thầy Blackjack 40",
+    "conquest_baccarat_master_50": "Chinh Phục Bậc Thầy Baccarat 50",
+    "conquest_big_win": "Chinh Phục Chiến Thắng Lớn",
+    "conquest_huge_win": "Chinh Phục Chiến Thắng Khổng Lồ",
+    "conquest_massive_win": "Chinh Phục Chiến Thắng Khổng Lồ",
+    "achievement_verify_email": "Thành Tích Xác Minh Email",
+    "achievement_verify_phone": "Thành Tích Xác Minh Điện Thoại",
+    "achievement_add_desktop_app": "Thành Tích Thêm Ứng Dụng Máy Tính",
+    "achievement_super_spreader": "Thành Tích Người Chia Sẻ Siêu Cấp",
+    "achievement_conquistador": "Thành Tích Người Chinh Phục",
+    "achievement_game_explorer": "Thành Tích Người Khám Phá Trò Chơi",
+    "achievement_card_shark": "Thành Tích Cá Mập Bài",
+    "achievement_slotmaster": "Thành Tích Bậc Thầy Slot",
+    "achievement_talkative": "Thành Tích Nói Nhiều",
+    "achievement_bet_count": "Thành Tích Số Lượng Đặt Cược",
+    "achievement_deposit_count": "Thành Tích Số Lượng Gửi Tiền",
+    "achievement_change_avatar": "Thành Tích Thay Đổi Avatar",
+    "achievement_set_username": "Thành Tích Đặt Tên Người Dùng",
+    "achievement_download_mobile_app": "Thành Tích Tải Ứng Dụng Di Động",
+    "achievement_wager_in_a_day_single_game": "Thành Tích Đặt Cược Trong Một Ngày Trên Một Trò Chơi",
+    "achievement_slots_win_count": "Thành Tích Số Lượng Chiến Thắng Slot",
+    "achievement_slots_multiplier": "Thành Tích Bội Số Slot",
+    "level_up": "Nâng Cấp",
+    "rakeback": "Hoàn Tiền",
     "cashback": "Hoàn Tiền",
-    "group": "Hoa hồng",
-    "referral": "Mời Bạn Bè",
+    "group": "Hoa Hồng",
+    "referral": "Giới Thiệu",
     "tournament": "Giải Đấu",
-    "conquest_extra_reward": "Phần thưởng thêm của Chinh phục",
-    "bonus": "Tiền thưởng",
-    "bonus_manual": "Tiền thưởng thủ công",
+    "conquest_extra_reward": "Chinh Phục Thưởng Thêm",
+    "bonus": "Thưởng",
+    "bonus_manual": "Thưởng Thủ Công",
     "vip_bonus_lucky_number_seven": "Thưởng VIP Số May Mắn Bảy",
     "rakeback_bonus": "Thưởng Hoàn Tiền",
     "group_bonus": "Thưởng Nhóm",
-    "level_up_bonus": "Thưởng Thăng Cấp",
+    "level_up_bonus": "Thưởng Nâng Cấp",
     "refer_bonus": "Thưởng Giới Thiệu",
     "tournament_bonus": "Thưởng Giải Đấu",
-    "vip_bonus_mystery_box": "Hộp Bí Ẩn Thưởng VIP"
+    "vip_bonus_mystery_box": "Thưởng VIP Hộp Bí Ẩn"
   },
   "achievements_description": "Mở khóa ở VIP {{vip}}, những phần thưởng này tôn vinh các cột mốc của bạn với những bất ngờ thú vị trên hành trình!",
   "lucky_number_seven_description": "Trúng các số may mắn {{number}} và nhận phần thưởng ngọt ngào mỗi ngày!",
-"mystery_box_description": "Mở hộp bí ẩn của bạn một lần mỗi tháng để nhận phần thưởng bất ngờ!",
+  "mystery_box_description": "Mở hộp bí ẩn của bạn một lần mỗi tháng để nhận phần thưởng bất ngờ!",
+  "mystery_box_description2": "Nhấn VIP {{vip}} để nhận Hộp Bí Mật vào ngày 7 hàng tháng!",
   "mystery_box": "Hộp bí ẩn",
   "the_cannon_description": "Một phần thưởng hàng tháng mạnh mẽ đến mức bản chất thực sự của nó vẫn là bí mật được bảo vệ nghiêm ngặt.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Xác minh Email",
-    "achievement_verify_phone": "Xác minh Số điện thoại",
-    "achievement_add_desktop_app": "Thêm Ứng dụng Máy tính để bàn",
-    "achievement_super_spreader": "Người lan truyền siêu tốc",
-    "achievement_conquistador": "Chinh phục",
-    "achievement_game_explorer": "Khám phá trò chơi"
+    "achievement_verify_email": "Xác Minh Email",
+    "achievement_verify_phone": "Xác Minh Điện Thoại",
+    "achievement_add_desktop_app": "Thêm Ứng Dụng Máy Tính",
+    "achievement_super_spreader": "Người Chia Sẻ Siêu Cấp",
+    "achievement_conquistador": "Người Chinh Phục",
+    "achievement_game_explorer": "Người Khám Phá Trò Chơi"
   },
   "you_win": "Bạn thắng",
   "mystery": "Bí ẩn",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Phần thưởng được tính và ghi có bằng BUCK/USDT, sau đó hiển thị bằng loại tiền pháp định bạn chọn dựa trên tỷ giá hối đoái theo thời gian thực để thuận tiện. Vui lòng lưu ý rằng tất cả các khoản chuyển đổi chỉ mang tính gần đúng cho đến khi giao dịch hoán đổi hoàn tất.",
   "general_terms_answer_2": "Casino có quyền thay đổi hoặc thu hồi quyền tham gia bất cứ lúc nào mà không cần giải thích. Mọi hành vi lạm dụng hoặc gian lận sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi.",
   "available": "Có sẵn",
-"refresh_in": "Làm mới sau",
-"deposit_bonus_pool": "Bộ sưu tập tiền thưởng nạp tiền"
+  "refresh_in": "Làm mới sau",
+  "deposit_bonus_pool": "Bộ sưu tập tiền thưởng nạp tiền",
+  "dashboard": "Bảng điều khiển",
+  "bonuses": "Phần thưởng",
+  "vip_program": "Chương trình VIP",
+  "bonusHub": {
+    "root": "Trung Tâm Thưởng",
+    "resetOn": "Đặt Lại Vào {{time}}",
+    "ongoing": "{{count}} Đang Diễn Ra",
+    "accrualIn": "Tích Lũy Trong {{time}}",
+    "nextReleaseIn": "Phát Hành Tiếp Theo Trong {{time}}"
+  },
+  "freeSpins": "Vòng quay miễn phí",
+  "freeSpinsBonusDetails": "Phần thưởng Vòng quay miễn phí thưởng cho bạn thêm gameplay trên các tựa game slot được chọn. Đặt cược số tiền yêu cầu sẽ mở khóa phần thưởng vòng quay miễn phí của bạn, sau đó có thể được ghi có ngay lập tức vào số dư tài khoản của bạn.",
+  "freeSpinsClaimDistributionDescription1": "Phần thưởng từ Vòng quay miễn phí sẽ được ghi có vào số dư tài khoản của bạn ngay khi yêu cầu đặt cược hoàn thành và bạn nhấn 'Nhận.'",
+  "freeSpinsClaimDistributionDescription2": "Theo dõi tiến trình của bạn bất cứ lúc nào trong Bảng Phần thưởng hoặc Lịch sử Vòng quay miễn phí.",
+  "freeSpinsExpirationDescription1": "Vòng quay miễn phí phải được sử dụng trong thời gian hiệu lực được hiển thị trong bảng Vòng quay miễn phí. Các vòng quay chưa sử dụng sẽ hết hạn sau thời gian này.",
+  "freeSpinsExpirationDescription2": "Phần thưởng từ vòng quay miễn phí sẽ không hết hạn cho đến khi được mở khóa và nhận.",
+  "freeSpinsGeneralTermsDescription1": "Phần thưởng Vòng quay miễn phí được tính toán và ghi có bằng BUCK, sau đó được hiển thị bằng loại tiền tệ fiat mà bạn ưa thích để tiện lợi. Xin lưu ý, việc chuyển đổi tiền tệ chỉ mang tính chất ước lượng.",
+  "freeSpinsGeneralTermsDescription2": "Casino có quyền sửa đổi hoặc thu hồi quyền đủ điều kiện bất cứ lúc nào, mà không cần phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi.",
+  "the_collector": "Người thu thập",
+  "collector_description": "Phần thưởng đủ điều kiện, Một cú nhấp chuột",
+  "claim_all": "Nhận tất cả",
+  "claimConfirmation": "Xác nhận nhận",
+  "readyToClaim": "Sẵn sàng để nhận",
+  "selectClaimType": "Chọn loại yêu cầu của bạn bên dưới",
+  "claimableAmount": "Số tiền có thể nhận",
+  "normalClaim": "Yêu cầu bình thường",
+  "normalClaimDesc": "Nhận số tiền thưởng tiêu chuẩn của bạn",
+  "doubleClaim": "Yêu cầu gấp đôi",
+  "doubleClaimDesc": "Mạo hiểm để nhận 2x phần thưởng!",
+  "doubleClaimInfo": "Tùy chọn yêu cầu gấp đôi",
+  "doubleClaimRisk": "Rủi ro cao hơn, phần thưởng cao hơn - bạn có thể thắng gấp đôi hoặc mất tất cả!",
+  "claimModal": {
+    "title": "Gấp Đôi Hay Không Gì Cả",
+    "primaryDescription": "Nhận thưởng của bạn như thường lệ...",
+    "secondaryDescription": "Hoặc thực hiện một bước nhảy táo bạo đến <highlight>GẤP ĐÔI!</highlight>",
+    "doubleAction": "Gấp Đôi Hay Không Gì Cả",
+    "comingSoon": "Tính năng Gấp Đôi Hay Không Gì Cả sắp ra mắt!",
+    "approximateBuck": "Khoảng {{amount}} BUCK"
+  },
+  "vip_monday": "Thứ Hai VIP",
+  "vip_monday_description": "Một sự kiện đặc biệt hàng tuần để thưởng cho những người chơi trung thành mỗi thứ Hai",
+  "vip_monday_wager": "Đặt cược ít nhất {{amount}} trong 7 ngày trước để nhận một phần thưởng Bí ẩn mỗi thứ Hai.",
+  "claim_on_monday": "Nhận vào thứ Hai",
+  "vip_monday_title": "VIP \n <0>THỨ HAI</0>",
+  "bonus_already_claimed": "Phần thưởng đã được nhận",
+  "wager_requirement_not_met": "Yêu cầu đặt cược không được đáp ứng",
+  "not_in_claim_time_range": "Không trong khoảng thời gian nhận",
+  "monday": "Thứ Hai",
+  "poolBalance": "Số dư quỹ",
+  "program": "Chương trình",
+  "races": "Cuộc đua",
+  "loading_achievements": "Đang tải thành tích...",
+  "no_achievements_available": "Không có thành tích nào khả dụng",
+  "check_back_later_for_new_achievements": "Hãy quay lại sau để xem thành tích mới"
 }

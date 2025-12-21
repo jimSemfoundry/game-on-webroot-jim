@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Hvad er level-up-bonusser?",
-    "content": "<p class=\"leading-7\">Level up-bonus er vores måde at vise taknemmelighed over for loyale spillere, der har været med os siden starten. Når spillerne rykker op på VIP-niveauerne, låser de op for højere belønninger.</p>"
+    "title": "Hvad er Level-Up Bonusser?",
+    "content": "<p class=\"leading-7\">Level-up bonus er vores måde at vise påskønnelse for loyale spillere, der har været med os siden starten. Når spillere bevæger sig op ad VIP-niveauerne, låser de op for højere level-up belønninger.</p>"
   },
   "faqTwo": {
     "title": "Hvad er Daglig Cashback?",
-    "content": "<p class=\"leading-7\">Daglig cashback tildeles spillere, der har lidt tab i forhold til deres indbetalingsbeløb. Denne bonus udstedes dagligt som en procentdel af spillerens tabsbeløb. Den daglige tilbagebetalingsprocent stiger med dit VIP-niveau, op til maksimalt 40% cashback, den højeste tilbagebetaling nogen steder. Bemærk, at denne bonus kun er for spillere, der er i en nettotabsposition.</p>"
+    "content": "<p class=\"leading-7\">Daglig Cashback vil blive tildelt spillere, der har lidt tab i forhold til deres indbetalingsbeløb. Denne bonus udstedes dagligt som en procentdel af spillerens tab. Den daglige cashback-procent vil stige med dine VIP-niveauer, op til maksimalt 40% cashback, den højeste cashback noget sted. Bemærk venligst, at denne bonus kun er for spillere, der er i en netto tab position.</p>"
   },
   "faqThree": {
-    "title": "Hvad er Udfordringer?",
-    "content": "<p class=\"leading-7\">Udfordringer er daglige opgaver, der gives tilfældigt til spillere, så de kan optjene ekstra belønninger, når de spiller på vores hjemmeside. Udfordringsbelønninger skal indløses inden for 24 timer før den næste cyklus og udløber, hvis de ikke indløses. Udfordringsbelønninger udbetales i BUCK/USDT og kan konverteres til din foretrukne kryptovaluta via vores vekslingsfunktion.</p>"
+    "title": "Hvad er Erobringer/Opgaver?",
+    "content": "<p class=\"leading-7\">Erobringer er daglige opgaver, der tilfældigt gives til spillere for at tjene ekstra belønninger, når de spiller på vores hjemmeside. Erobringsbelønninger skal indløses inden for 24 timer før næste cyklus og udløber, hvis de ikke indløses. Erobringsbelønninger udbetales i BUCK/USDT og kan konverteres til din valgte kryptovaluta via vores swap-funktion.</p>"
   },
   "faqFour": {
-    "title": "Hvad er Turneringsbelønninger?",
-    "content": "<p class=\"leading-7\">Turneringsbelønninger er præmier, der gives for fremragende præstationer i konkurrencer. Turneringsbelønninger akkumuleres, indtil de indløses, og har ingen udløbsdato. Turneringsbelønninger udbetales i BUCK/USDT og kan konverteres til din foretrukne kryptovaluta via vores vekslingsfunktion.</p>"
+    "title": "Hvad er Turnering Belønninger?",
+    "content": "<p class=\"leading-7\">Turnering Belønninger er præmier givet for fremragende præstation i konkurrencer. Turnering Belønninger vil akkumuleres, indtil de indløses, og har ingen udløbsdato. Turnering belønninger udbetales i BUCK/USDT og kan konverteres til din valgte kryptovaluta via vores swap-funktion.</p>"
   },
   "faqFive": {
     "title": "Hvad er Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback er vores mekanisme til at låse op for dine indbetalingsbonusser. En procentdel af din indsats (op til 3%) bliver returneret til dig, hver gang du placerer et væddemål. Jo højere dit VIP-niveau er, jo højere er oplåsningsprocenten. Oplåst BUCK/USDT = Indsats x 2,5% x Oplåsningsprocent%</p><p class=\"leading-7\">Oplåsningshastighed:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">Super Rakeback er vores mekanisme til at låse op for dine indbetalingsbonusser. En procentdel af dit væddemål (op til 3%) returneres til dig hver gang, du placerer et væddemål. Jo højere dit VIP-niveau, jo højere låseprocent. Låste BUCK/USDT= Væddemål x 2,5% x Låseprocent%</p><p class=\"leading-7\">Låseprocent:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "Hvad er en Booster?",
-    "content": "<p class=\"leading-7\">Boosters fordobler din Rakeback i en time, hver gang en henvisning foretager en indbetaling.</p><p class=\"leading-7\">Forhøjet oplåsningshastighed:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boostere fordobler din Rakeback i en time hver gang en henvisning foretager en indbetaling.</p><p class=\"leading-7\">Boostet Låseprocent:</p><p class=\"leading-7\">Låseprocent:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Hvad er Bonuskalenderen?",
-    "content": "<p class=\"leading-7\">De fleste bonusser udbetales 50% til din reelle saldo og 50% til din bonuskalender. Bonusser, der udbetales til din bonuskalender, kan indløses hver 8. time og udløber efter 24 timer, hvis de ikke indløses. Husk at indløse bonusserne i din bonuskalender mindst én gang om dagen for at sikre, at du får alle dine belønninger!</p>"
+    "title": "Hvad er Bonus Kalender?",
+    "content": "<p class=\"leading-7\">De fleste bonusser udbetales 50% til din Rigtige Balance og 50% til din Bonus Kalender. Bonusser, der udbetales til din Bonus Kalender, kan indløses hver 8. time og udløber efter 24 timer, hvis de ikke indløses. Husk at indløse bonusserne i din Bonus Kalender mindst én gang om dagen for at sikre, at alle dine belønninger bliver indsamlet!</p>"
   },
   "faqEight": {
     "title": "Hvad er den Ugentlige Bonus?",
-    "content": "<p class=\"leading-7\">Ugentlig Bonus er en eksklusiv fordel på vores hjemmeside designet til spillere, der er VIP12 og opefter. Denne bonus udstedes ugentligt og udbetales automatisk hver fredag til spillere på VIP12 og derover. Størrelsen på bonussen afhænger af det beløb, der er satset i løbet af den seneste uge, med et minimumskrav på {{minWager}} i løbet af den seneste uge.</p>"
+    "content": "<p class=\"leading-7\">Ugentlig Bonus er en eksklusiv fordel på vores hjemmeside designet til spillere, der er VIP12 og op. Denne bonus udstedes ugentligt og udbetales automatisk hver fredag til spillere på VIP12 og derover. Størrelsen på bonusen afhænger af det beløb, der er væddet i den forgangne uge, med et minimums væddemål krav på {{minWager}} i den forgangne uge.</p>"
   },
   "faqNine": {
     "title": "Hvad er Præstationer?",
-    "content": "<p class=\"leading-7\">Præstationer er vores måde at anerkende din aktivitet på vores platform. Når du indløser din præstationsbonus, bliver den udbetalt til din bonuskalender og kan indløses hver 8. time og udløber om 24 timer, hvis den ikke indløses.</p>"
+    "content": "<p class=\"leading-7\">Præstationer er vores måde at anerkende din aktivitet på vores platform. Når du indløser din præstationsbonus, vil den blive udbetalt til din Bonus Kalender og kan indløses hver 8. time og udløber efter 24 timer, hvis den ikke indløses.</p>"
   }
 }

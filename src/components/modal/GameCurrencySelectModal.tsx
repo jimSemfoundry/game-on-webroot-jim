@@ -19,7 +19,7 @@ type GameCurrencySelectModalProps = {
 }
 
 export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectModalProps) => {
-  const { t } = useTranslation(['common', 'wallet'])
+  const { t } = useTranslation(['common'])
   const { user } = useAuth()
   const queryClient = useQueryClient()
   const [searchTerm, setSearchTerm] = useState('')
@@ -35,8 +35,8 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
   // 过滤货币列表
   const filteredCurrencies = fiatCurrencies.filter(
     currency =>
-      currency.display_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      currency.currency.toLowerCase().includes(searchTerm.toLowerCase()),
+      currency?.display_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      currency?.currency?.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
   // 处理货币选择
@@ -75,22 +75,22 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
           // 同时刷新余额数据，因为余额显示可能依赖货币设置
           await queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.userBalance })
 
-          toast.success(t('wallet:currencyUpdated'))
+          toast.success(t('common:currencyUpdated'))
         } catch (error) {
           console.error('Failed to update currency on server:', error)
-          toast.error(t('wallet:updateCurrencyFailed'))
+          toast.error(t('common:currencyUpdatedFailed'))
           // 如果后端更新失败，不回滚本地状态，因为用户可能只想本地切换
         }
       } else {
         // 未登录用户只更新本地状态
-        toast.success(t('wallet:currencyUpdated'))
+        toast.success(t('common:currencyUpdated'))
       }
 
       // 关闭模态框
       onClose()
     } catch (error) {
       console.error('Failed to update currency:', error)
-      toast.error(t('wallet:updateCurrencyFailed'))
+      toast.error(t('common:currencyUpdatedFailed'))
     } finally {
       setIsUpdating(false)
     }
@@ -104,7 +104,7 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
   )
 
   return (
-    <Modal position={isMobile ? 'modal-bottom' : 'modal-middle'} isOpen={isOpen} onClose={onClose} title={headerContent} className="bg-base-400 md:w-[420px] max-w-sm mx-auto overflow-hidden">
+    <Modal position={isMobile ? 'modal-bottom' : 'modal-middle'} isOpen={isOpen} onClose={onClose} title={headerContent} className="bg-base-400 md:w-[420px] max-w-sm mx-auto overflow-hidden h-[75vh] max-h-[75vh] md:max-h-[500px]">
       <div className="flex flex-col max-h-[60vh]">
         {/* 固定区域 - 描述和搜索框 */}
         <div className="flex-shrink-0 pb-4">

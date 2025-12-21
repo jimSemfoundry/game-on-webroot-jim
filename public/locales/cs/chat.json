@@ -1,7 +1,7 @@
 {
-    "global": "Globální",
-    "notifications": "Oznámení",
-    "support": "Podpora",
-    "retry": "Zkusit znovu",
-    "customerServiceChatFailedToLoad": "Chat zákaznické podpory se nepodařilo načíst"
+  "global": "Globální",
+  "notifications": "Oznámení",
+  "support": "Podpora",
+  "retry": "Zkusit znovu",
+  "customerServiceChatFailedToLoad": "Chat zákaznické podpory se nepodařilo načíst"
 }

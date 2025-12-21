@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Berapa usia yang dibutuhkan untuk mendaftar di situs Anda?",
-    "content": "<p class=\"leading-7\">Anda harus berusia minimal {{faqAge}} tahun atau sudah cukup umur di yurisdiksi Anda untuk mendaftar. Anda juga harus diizinkan secara hukum untuk bermain game online sesuai hukum yang berlaku untuk Anda. Untuk informasi lebih lanjut, baca ketentuan layanan kami.</p><p class=\"leading-7\">Bermain game dapat membuat ketagihan, dan pemain disarankan untuk mengendalikan diri.</p>"
+    "title": "Berapa umur yang harus saya miliki untuk mendaftar di situs Anda?",
+    "content": "<p class=\"leading-7\">Anda harus berusia setidaknya {{faqAge}} tahun atau mencapai usia dewasa di yurisdiksi Anda untuk mendaftar. Anda juga harus secara hukum diizinkan untuk bermain game online sesuai dengan hukum yang berlaku untuk Anda. Untuk informasi lebih lanjut, silakan baca syarat layanan kami.</p><p class=\"leading-7\">Bermain game dapat membuat ketagihan, dan pemain disarankan untuk mengendalikan diri.</p>"
   },
   "faqTwo": {
     "title": "Mata uang apa yang didukung dompet?",
-    "content": "<p class=\"leading-7\">Kami mendukung mata uang kripto utama seperti {{currency}}.</p>"
+    "content": "<p class=\"leading-7\">Kami mendukung cryptocurrency utama seperti {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Bagaimana cara saya deposit?",
-    "content": "<p class=\"leading-7\">Buka halaman profil Anda dan klik \"Deposit\", pilih mata uang kripto pilihan Anda, salin alamat dompet atau pindai kode QR untuk pembayaran.</p>"
+    "title": "Bagaimana cara saya melakukan deposit?",
+    "content": "<p class=\"leading-7\">Pergi ke halaman profil Anda dan klik \"Deposit\", pilih cryptocurrency pilihan Anda, salin alamat dompet atau pindai kode QR untuk pembayaran.</p>"
   },
   "faqFour": {
-    "title": "Dapatkah saya menukar mata uang kripto di situs Anda?",
-    "content": "<p class=\"leading-7\">{{siteName}} menawarkan fitur tukar di mana Anda dapat menukar mata uang kripto Anda ke mata uang kripto lain dengan aman dan mudah. Namun, karena masalah pencampuran koin, semua kripto yang disetorkan ke {{siteName}} memiliki persyaratan rollover 1x, artinya Anda harus bertaruh dengan dana yang disetorkan setidaknya 1 kali sebelum menukarnya.</p>"
+    "title": "Bisakah saya menukar cryptocurrency saya di situs Anda?",
+    "content": "<p class=\"leading-7\">{{siteName}} menawarkan fitur tukar di mana Anda dapat dengan aman dan mudah menukar cryptocurrency Anda menjadi cryptocurrency lain. Namun, karena kekhawatiran pencampuran koin, semua crypto yang disetorkan ke {{siteName}} memiliki persyaratan rollover 1x, yang berarti Anda harus bertaruh dengan dana yang disetorkan setidaknya 1 kali sebelum Anda dapat menukarnya.</p>"
   },
   "faqFive": {
-    "title": "Bagaimana cara saya tarik?",
-    "content": "<p class=\"leading-7\">Buka halaman profil Anda dan klik \"Tarik\", masukkan alamat dompet tujuan penarikan dan jumlah yang ingin Anda tarik. (Perhatikan bahwa mungkin ada biaya berbeda sesuai blockchain yang berbeda).</p>"
+    "title": "Bagaimana cara saya menarik dana?",
+    "content": "<p class=\"leading-7\">Pergi ke halaman profil Anda dan klik \"Withdraw\", masukkan alamat dompet yang ingin Anda tarik dan jumlah yang ingin Anda tarik. (Harap dicatat bahwa mungkin ada biaya berbeda yang dikenakan sesuai dengan blockchain yang berbeda)</p>"
   },
   "faqSix": {
-    "title": "Berapa jumlah penarikan minimum untuk setiap mata uang kripto?",
-    "content": "<p class=\"leading-7\">Karena nilai mata uang kripto dan biaya penambangan berbeda, periksa halaman penarikan Anda untuk jumlah penarikan minimum setiap mata uang kripto.</p>"
+    "title": "Apa jumlah penarikan minimum untuk setiap cryptocurrency?",
+    "content": "<p class=\"leading-7\">Karena nilai cryptocurrency yang berbeda serta biaya penambangan yang berbeda, silakan periksa halaman penarikan Anda untuk jumlah penarikan minimum yang berlaku untuk setiap cryptocurrency.</p>"
   },
   "faqSeven": {
-    "title": "Berapa lama waktu untuk deposit dan penarikan?",
-    "content": "<p class=\"leading-7\">Setiap transaksi di blockchain memerlukan beberapa siklus untuk dikonfirmasi.</p><p class=\"leading-7\">Umumnya, setiap transaksi memerlukan 5-10 menit untuk dikonfirmasi oleh jaringan blockchain untuk rantai BTC dan ETH; dan sekitar 1-2 menit untuk rantai TRON, TON, SOLANA.</p><p class=\"leading-7\">Jika Anda mengalami masalah saat deposit atau penarikan, Anda dapat memeriksa transaksi Anda menggunakan penjelajah blockchain jaringan tersebut atau menghubungi dukungan live kami.</p>"
+    "title": "Berapa lama waktu yang dibutuhkan untuk deposit dan penarikan?",
+    "content": "<p class=\"leading-7\">Setiap transaksi di blockchain memerlukan beberapa siklus untuk dikonfirmasi.</p><p class=\"leading-7\">Secara umum, setiap transaksi memerlukan waktu 5-10 menit sebelum dapat dikonfirmasi oleh jaringan blockchain untuk rantai BTC dan ETH; dan sekitar 1-2 menit untuk rantai TRON, TON, SOLANA.</p><p class=\"leading-7\">Jika Anda mengalami masalah selama deposit atau penarikan, Anda dapat memeriksa transaksi Anda menggunakan penjelajah blockchain yang sesuai untuk jaringan tersebut atau menghubungi dukungan langsung kami.</p>"
   },
   "faqEight": {
-    "title": "Dari mana konfirmasi transaksi berasal?",
-    "content": "<p class=\"leading-7\">Semua informasi konfirmasi berasal dari blockchain dan penambang blockchain.</p>"
+    "title": "Dari mana asal konfirmasi transaksi?",
+    "content": "<p class=\"leading-7\">Semua informasi konfirmasi berasal dari blockchain dan penambang untuk blockchain tersebut</p>"
   },
   "faqNine": {
     "title": "Apakah permainan Anda adil?",
-  "content": "<p class=\"leading-7\">Transparansi, Kepercayaan, dan Keadilan adalah bagian dari nilai inti {{gameLink}} dan dasar dari bisnis kami. Itulah alasan mengapa kami hanya bekerja dengan mitra game terpercaya tingkat atas untuk memberikan pengalaman berkualitas yang layak diterima pelanggan kami.</p><p class=\"leading-7\">Semua game dari mitra kami diuji secara ketat untuk memastikan keacakan oleh auditor independen, dan dilisensikan oleh regulator permainan yang secara rutin melakukan audit terhadap Generator Angka Acak mereka.</p>"
+    "content": "<p class=\"leading-7\">Transparansi, Kepercayaan, dan Keadilan adalah bagian dari nilai inti {{gameLink}} dan dasar dari bisnis kami. Inilah alasan mengapa kami hanya bekerja dengan mitra permainan terkemuka yang terpercaya untuk memberikan pengalaman berkualitas yang layak bagi pelanggan kami.</p><p class=\"leading-7\">Semua permainan dari mitra kami diuji secara ketat untuk acak oleh auditor independen, dan dilisensikan oleh regulator permainan yang mengharuskan mereka untuk menjalani audit rutin pada Generator Angka Acak mereka.</p>"
   },
   "faqTen": {
-    "title": "Apa yang harus saya lakukan jika permainan saya macet atau terputus?",
-    "content": "<p class=\"leading-7\">Jika Anda mengalami masalah teknis, coba segarkan halaman. Status permainan disimpan oleh penyedia kami dan Anda akan melihat status permainan sebelumnya saat terhubung kembali.</p>"
+    "title": "Apa yang harus saya lakukan jika permainan saya macet atau jika saya terputus?",
+    "content": "<p class=\"leading-7\">Jika Anda mengalami masalah teknis, silakan coba segarkan halaman. Status permainan disimpan oleh penyedia kami dan Anda seharusnya melihat status permainan sebelumnya saat Anda terhubung kembali.</p>"
   }
 }

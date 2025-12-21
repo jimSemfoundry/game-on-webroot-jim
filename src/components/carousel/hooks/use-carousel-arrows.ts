@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 // ----------------------------------------------------------------------
 
-export const useCarouselArrows = (mainApi?: EmblaCarouselType): UseCarouselArrowsReturn => {
+export const useCarouselArrows = (mainApi?: EmblaCarouselType, enabled = true): UseCarouselArrowsReturn => {
   const [disablePrev, setDisabledPrevBtn] = useState(true);
   const [disableNext, setDisabledNextBtn] = useState(true);
 
@@ -25,12 +25,16 @@ export const useCarouselArrows = (mainApi?: EmblaCarouselType): UseCarouselArrow
   }, []);
 
   useEffect(() => {
-    if (!mainApi) return;
+    if (!mainApi || !enabled) return;
 
     onSelect(mainApi);
     mainApi.on('reInit', onSelect);
     mainApi.on('select', onSelect);
-  }, [mainApi, onSelect]);
+    return () => {
+      mainApi.off('reInit', onSelect);
+      mainApi.off('select', onSelect);
+    };
+  }, [mainApi, enabled, onSelect]);
 
   return {
     disablePrev,

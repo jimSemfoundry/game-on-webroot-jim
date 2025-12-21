@@ -27,4 +27,7 @@ export interface ITournamentTable {
   medal?: number | string;
 }
 
-
+export interface TournamentPoolPrizeParams {
+  tournament_id: number | string;
+  tournament_level: string;
+}

@@ -1,7 +1,7 @@
 {
-    "global": "عالمي",
-    "notifications": "الإشعارات",
-    "support": "الدعم",
-    "retry": "إعادة المحاولة",
-    "customerServiceChatFailedToLoad": "فشل تحميل دردشة خدمة العملاء"
+  "global": "عالمي",
+  "notifications": "الإشعارات",
+  "support": "الدعم",
+  "retry": "إعادة المحاولة",
+  "customerServiceChatFailedToLoad": "فشل تحميل دردشة خدمة العملاء"
 }

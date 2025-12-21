@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Globális",
+    "ratesAndRules": "Díjak és Szabályok",
+    "campaigns": "Kampányok",
+    "myReferrals": "Saját Ajánlásaim",
+    "commissions": "Jutalékok",
+    "rewards": "Jutalmak"
+  },
+  "commissionCalculator": "Jutalék Kiszámító",
   "telegramReferralLink": "Telegram Ajánló Link",
-    "network": "Hálózat",
+  "network": "Hálózat",
   "lifetimeReferralRewards": "Értéktartó Ajánlási Jutalmak",
   "referrals": "Ajánlások",
   "availableCommissionRewards": "Elérhető Jutalék Jutalmak",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Elérhető Ajánlási Jutalmak",
   "lockedRewards": "Zárolt Jutalmak",
   "assembleYourCrewCashIn": "Állítsa össze az Ön csapatát és profitáljon!",
+  "assembleYourCrewCashInDescription1": "Toborozd a csapatodat, és szerezz {{amount}} barátonként - mint egy rablás, de FBI üldözés nélkül. Ráadásul akár {{percentage}} jutalékot is kereshetsz a tétjeik után. A legjobb rész? A jutalékod mértéke veled együtt nő, ahogy fejlődsz, és még a csapatod új tagjaiból is kereshetsz!",
+  "assembleYourCrewCashInDescription2": "Minél nagyobb a hálózatod, annál nagyobb a részesedésed. Akár nyernek, akár veszítenek, vagy őrült módon fogadnak, te folyamatosan gyűjtöd a pénzt. Itt az idő, hogy felépítsd a birodalmadat - Kezdj el toborozni most!",
+  "quickShare": "Gyors Megosztás",
   "referralRewards": "Ajánlási Jutalmak",
   "commissionRewards": "Jutalék Jutalmak",
   "aboutDescription": "Toborozza barátait, és szerezzen {{amount}} összeget barátonként, FBI üldözés nélkül. Emellett akár 50% jutalékot is kereshet tétjeiken. A legjobb rész az, hogy jutalékának mértéke az Ön szintjével együtt nő, és még az Ön csapata által toborzottak után is kereshet. Minél nagyobb az Ön hálózata, annál nagyobb a részesedése. Függetlenül attól, hogy nyernek vagy veszítenek, Ön folyamatosan növeli bevételeit. Kezdje el építeni birodalmát, toborozzon most!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Megosztás Közösségi Oldalakon",
   "referralTermsConditions": "Ajánlási Feltételek",
   "liveGlobalRewards": "Élő Globális Jutalmak",
+  "liveGlobalCommissions": "Élő Globális Jutalékok",
   "username": "Felhasználónév",
   "friendLevel": "Barát Szintje",
   "totalExp": "Összes EXP",
@@ -105,35 +118,35 @@
   "more": "Továbbiak",
   "faqOne": {
     "title": "Hogyan működik az ajánlási rendszer?",
-    "content": "<p class=\"leading-7\">Amikor megosztod az ajánlói linkedet a barátaiddal, és ők regisztrálnak az oldalunkra, ők lesznek a referáltaid, és jutalékot, valamint ajánlói jutalmakat szerezhetsz, amikor játszanak a {{gameLink}} Szövetségnél.</p>"
+    "content": "<p class=\"leading-7\">Amikor megosztod az ajánlási linkedet a barátaiddal, és ők regisztrálnak az oldalunkon; ők a te ajánlásaid lesznek, és jutalékot, valamint ajánlási jutalmakat keresnek a {{gameLink}} Szövetség játékával.</p>"
   },
   "faqTwo": {
-    "title": "Mennyit kereshetek az ajánlásaimmal?",
-    "content": "<p class=\"leading-7\">Az ajánlottjai téttevékenységéből {{percentage}} jutalékot és ajánlónként {{amount}} összeget kereshet</p>"
+    "title": "Mennyit kereshetek az ajánlásaimból?",
+    "content": "<p class=\"leading-7\">A téttevékenységük {{percentage}}-át keresheted jutalékként + {{amount}} ajánlásonként.</p>"
   },
   "faqThree": {
     "title": "Mi az a {{amount}} USD jutalom és hogyan működik?",
-    "content": "<p class=\"leading-7\">Minden ajánlott játékos után, akit a {{gameLink}}-hez hozol, {{amount}} USD jutalmat kapsz. Ez a jutalom {{parts}} részletben kerül kifizetésre, ahogy az ajánlói szinted emelkedik a {{level}}-től.</p>"
+    "content": "<p class=\"leading-7\">Minden ajánlásod után {{amount}} USD jutalmat kapsz a {{gameLink}}-n. Ez az USD jutalom {{parts}} részletben kerül kifizetésre, ahogy az ajánlási szinted emelkedik {{level}}-ről.</p>"
   },
   "faqFour": {
-    "title": "Nagy közönségem van, hogyan kaphatok különleges ajánlatot?",
-    "content": "<p class=\"leading-7\">Ha van weboldalad jó forgalommal vagy közösségi média fiókod nagy közönséggel, írj nekünk az alábbi email címre: {{emailLink}}</p>"
+    "title": "Nagy közönségem van. Hogyan kaphatok különleges ajánlatot?",
+    "content": "<p class=\"leading-7\">Ha van egy jól látogatott weboldalad vagy egy nagy közönséggel rendelkező közösségi média fiókod, írj nekünk az {{emailLink}} címen.</p>"
   },
   "faqFive": {
-    "title": "Hány affiliate linket hozhatok létre különböző weboldalak vagy közösségi média fiókok esetén?",
-    "content": "<p class=\"leading-7\">Akár {{codes}} egyedi kódot is létrehozhat különböző forgalmi forrásokhoz</p>"
+    "title": "Hány affiliate linket hozhatok létre, ha különböző weboldalaim/közösségi média fiókjaim vannak?",
+    "content": "<p class=\"leading-7\">Legfeljebb {{codes}} egyedi kódot hozhatsz létre különböző forrásokhoz.</p>"
   },
   "faqSix": {
-    "title": "Láthatom az ajánlásaim adatait?",
-    "content": "<p class=\"leading-7\">Igen, az átláthatóság, a bizalom és az igazságosság a {{gameLink}} alapértékei közé tartoznak. Olyan adatok, mint a felhasználónév, az összes fogadás és a megszerzett jutalék, elérhetők a \"Saját jutalékaim\" és a \"Referral jutalmak\" fülön.</p>"
+    "title": "Megnézhetem az ajánlásaim adatait?",
+    "content": "<p class=\"leading-7\">Igen, az Átláthatóság, Bizalom és Méltányosság a {{gameLink}} alapértékei közé tartozik. Az olyan adatok, mint a felhasználónév, a teljes tét és a keresett jutalék, mind elérhetők a \"Saját Jutalékaim\" és \"Ajánlási Jutalmak\" fül alatt.</p>"
   },
   "faqSeven": {
-    "title": "Megoszthatom a jutalék jutalmakat az ajánlottjaimmal?",
-    "content": "<p class=\"leading-7\">Megoszthatja a jutalék jutalmakat ajánlottjaival az Új kampány létrehozása gombra kattintva és a jutalék megosztását a Kampányok fül alatt beállítva</p>"
+    "title": "Megoszthatom a jutalék jutalmakat az ajánlásaimmal?",
+    "content": "<p class=\"leading-7\">Igen, megoszthatod a jutalék jutalmakat az ajánlásaid között az \"új kampány létrehozása\" gombra kattintva, és beállíthatod a jutalék megosztását a \"Kampányok\" fül alatt.</p>"
   },
   "faqEight": {
-    "title": "Mi az a közvetett ajánlás, és mit kereshetek vele?",
-    "content": "<p class=\"leading-7\">A közvetett ajánlás olyan aktív játékos, aki az Ön közvetlen ajánlottjának meghívó linkjén keresztül érkezik. Ha az Ön VIP szintje magasabb, mint közvetlen ajánlottjának VIP szintje, akkor a közvetett ajánlásából származó jutalékot is kereshet</p>"
+    "title": "Mi az az indirekt ajánlás és mit kereshetek belőle?",
+    "content": "<p class=\"leading-7\">Az indirekt ajánlás egy aktív játékos, aki az egyik közvetlen ajánlásod meghívó linkjén keresztül érkezik. Ha a VIP szinted magasabb, mint a közvetlen ajánlásod VIP szintje, akkor jutalékot is kereshetsz az indirekt ajánlásodból származó tevékenység után.</p>"
   },
   "levelReward": "Szintlépési Jutalom",
   "groupReward": "Jutalék Jutalom",
@@ -150,5 +163,11 @@
   "slots": "Nyerőgépek",
   "live-casino": "Élő Kaszinó",
   "fishing": "Horgászat",
-  "rewardsUnlocked": "Jutalmak Felszabadítva"
+  "rewardsUnlocked": "Jutalmak Felszabadítva",
+  "selectGame": "Válassz egy játékot",
+  "selectVipLevel": "Válassz VIP szintet",
+  "myReferralCommissions": "Saját Ajánlói Jutalmak",
+  "myReferralRewards": "Saját Ajánlói Díjak",
+  "exp": "EXP",
+  "userLevel": "Felhasználói Szint"
 }

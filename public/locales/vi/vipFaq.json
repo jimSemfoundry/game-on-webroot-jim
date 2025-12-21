@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Thưởng Lên Cấp Là Gì?",
-    "content": "<p class=\"leading-7\">Thưởng lên cấp là cách chúng tôi thể hiện sự tri ân với những người chơi trung thành đã đồng hành từ đầu. Khi lên cấp VIP, người chơi sẽ mở khóa các phần thưởng lên cấp cao hơn.</p>"
+    "title": "Tiền thưởng Level-Up là gì?",
+    "content": "<p class=\"leading-7\">Tiền thưởng level up là cách chúng tôi thể hiện sự trân trọng đối với những người chơi trung thành đã đồng hành cùng chúng tôi từ những ngày đầu. Khi người chơi nâng cấp lên các cấp VIP, họ sẽ mở khóa những phần thưởng level up cao hơn.</p>"
   },
   "faqTwo": {
-    "title": "Hoàn Tiền Hàng Ngày Là Gì?",
-    "content": "<p class=\"leading-7\">Hoàn Tiền Hàng Ngày được trao cho người chơi thua lỗ so với số tiền nạp. Phần thưởng này được phát hành hàng ngày, tính theo tỷ lệ phần trăm số tiền thua lỗ. Tỷ lệ hoàn tiền tăng theo cấp VIP, tối đa 40%—mức hoàn tiền cao nhất hiện nay. Lưu ý, phần thưởng này chỉ dành cho người chơi ở vị thế thua lỗ ròng.</p>"
+    "title": "Cashback hàng ngày là gì?",
+    "content": "<p class=\"leading-7\">Cashback hàng ngày sẽ được trao cho những người chơi chịu thua lỗ so với số tiền gửi của họ. Tiền thưởng này được phát hàng ngày dưới dạng phần trăm của số tiền thua lỗ của người chơi. Phần trăm cashback hàng ngày sẽ tăng lên theo các cấp VIP của bạn, tối đa lên đến 40% cashback, mức cashback cao nhất hiện có. Xin lưu ý rằng tiền thưởng này chỉ dành cho những người chơi đang ở trong tình trạng thua lỗ ròng.</p>"
   },
   "faqThree": {
-    "title": "Nhiệm Vụ Là Gì?",
-    "content": "<p class=\"leading-7\">Nhiệm Vụ là các thử thách hàng ngày được giao ngẫu nhiên, giúp người chơi kiếm thêm phần thưởng khi tham gia trên trang web. Phần thưởng Nhiệm Vụ phải được yêu cầu trong vòng 24 giờ trước chu kỳ tiếp theo, nếu không sẽ hết hạn. Phần thưởng được thanh toán bằng BUCK/USDT và có thể chuyển đổi sang tiền mã hóa bạn chọn qua chức năng hoán đổi.</p>"
+    "title": "Cuộc chinh phục/Nhiệm vụ là gì?",
+    "content": "<p class=\"leading-7\">Cuộc chinh phục là những nhiệm vụ hàng ngày được giao ngẫu nhiên cho người chơi để họ kiếm thêm phần thưởng khi chơi trên trang web của chúng tôi. Phần thưởng chinh phục phải được yêu cầu trong vòng 24 giờ trước khi chu kỳ tiếp theo bắt đầu và sẽ hết hạn nếu không được yêu cầu. Phần thưởng chinh phục được trả bằng BUCK/USDT và có thể được chuyển đổi sang loại tiền điện tử mà bạn chọn thông qua chức năng hoán đổi của chúng tôi.</p>"
   },
   "faqFour": {
-    "title": "Phần Thưởng Giải Đấu Là Gì?",
-    "content": "<p class=\"leading-7\">Phần Thưởng Giải Đấu là giải thưởng dành cho thành tích xuất sắc trong các cuộc thi. Phần thưởng này tích lũy cho đến khi được yêu cầu và không có thời hạn hết hạn. Phần thưởng được thanh toán bằng BUCK/USDT và có thể chuyển đổi sang tiền mã hóa bạn chọn qua chức năng hoán đổi.</p>"
+    "title": "Phần thưởng giải đấu là gì?",
+    "content": "<p class=\"leading-7\">Phần thưởng giải đấu là những giải thưởng được trao cho những thành tích xuất sắc trong các cuộc thi. Phần thưởng giải đấu sẽ tích lũy cho đến khi được yêu cầu và không có ngày hết hạn. Phần thưởng giải đấu được trả bằng BUCK/USDT và có thể được chuyển đổi sang loại tiền điện tử mà bạn chọn thông qua chức năng hoán đổi của chúng tôi.</p>"
   },
   "faqFive": {
-    "title": "Siêu Rakeback Là Gì?",
-    "content": "<p class=\"leading-7\">Siêu Rakeback là cơ chế giúp mở khóa thưởng nạp tiền. Một phần trăm số tiền cược (tối đa 3%) được hoàn lại mỗi khi bạn cược. Cấp VIP càng cao, tỷ lệ mở khóa càng lớn. BUCK/USDT mở khóa = Số tiền cược x 2,5% x Tỷ lệ mở khóa%</p><p class=\"leading-7\">Tỷ lệ mở khóa:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "title": "Super Rakeback là gì?",
+    "content": "<p class=\"leading-7\">Super Rakeback là cơ chế của chúng tôi để mở khóa tiền thưởng gửi của bạn. Một phần trăm số tiền cược của bạn (tối đa 3%) sẽ được trả lại cho bạn mỗi khi bạn đặt cược. Cấp VIP của bạn càng cao, tỷ lệ mở khóa càng cao. BUCK/USDT đã mở khóa = Cược x 2.5% x Tỷ lệ mở khóa%</p><p class=\"leading-7\">Tỷ lệ mở khóa:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Tăng Cường Là Gì?",
-    "content": "<p class=\"leading-7\">Tăng Cường nhân đôi Rakeback của bạn trong một giờ mỗi khi người được giới thiệu nạp tiền.</p><p class=\"leading-7\">Tỷ lệ mở khóa tăng cường:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "title": "Booster là gì?",
+    "content": "<p class=\"leading-7\">Boosters gấp đôi Rakeback của bạn trong một giờ mỗi khi một người giới thiệu thực hiện một khoản gửi tiền.</p><p class=\"leading-7\">Tỷ lệ mở khóa được tăng cường:</p><p class=\"leading-7\">Tỷ lệ mở khóa:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Lịch Thưởng Là Gì?",
-    "content": "<p class=\"leading-7\">Hầu hết phần thưởng được chia 50% vào Số Dư Thực và 50% vào Lịch Thưởng. Phần thưởng trong Lịch Thưởng có thể được yêu cầu cứ mỗi 8 giờ và hết hạn sau 24 giờ nếu không được yêu cầu. Hãy nhớ yêu cầu phần thưởng trong Lịch Thưởng ít nhất một lần mỗi ngày để thu thập hết phần thưởng!</p>"
+    "title": "Lịch thưởng là gì?",
+    "content": "<p class=\"leading-7\">Hầu hết các tiền thưởng được trả 50% vào Số dư thực của bạn và 50% vào Lịch thưởng của bạn. Các tiền thưởng được trả vào Lịch thưởng của bạn có thể được yêu cầu mỗi 8 giờ và sẽ hết hạn trong 24 giờ nếu không được yêu cầu. Hãy nhớ yêu cầu các tiền thưởng trong Lịch thưởng của bạn ít nhất một lần mỗi ngày để đảm bảo rằng tất cả các phần thưởng của bạn được thu thập!</p>"
   },
   "faqEight": {
-    "title": "Thưởng Hàng Tuần Là Gì?",
-    "content": "<p class=\"leading-7\">Thưởng Hàng Tuần là đặc quyền độc quyền dành cho người chơi từ VIP 12 trở lên. Phần thưởng này được phát hành hàng tuần, tự động thanh toán vào mỗi thứ Sáu cho người chơi từ VIP 12 trở lên. Số tiền thưởng phụ thuộc vào tổng số tiền cược trong tuần trước, với yêu cầu cược tối thiểu là {{minWager}} trong tuần trước.</p>"
+    "title": "Tiền thưởng hàng tuần là gì?",
+    "content": "<p class=\"leading-7\">Tiền thưởng hàng tuần là một đặc quyền độc quyền trên trang web của chúng tôi dành cho những người chơi từ VIP12 trở lên. Tiền thưởng này được phát hàng tuần và tự động được trả vào mỗi thứ Sáu cho những người chơi từ VIP12 trở lên. Kích thước của tiền thưởng phụ thuộc vào số tiền đã cược trong tuần trước, với yêu cầu cược tối thiểu là {{minWager}} trong tuần trước.</p>"
   },
   "faqNine": {
-    "title": "Thành Tựu Là Gì?",
-    "content": "<p class=\"leading-7\">Thành Tựu là cách chúng tôi ghi nhận hoạt động của bạn trên nền tảng. Khi yêu cầu thưởng thành tựu, phần thưởng sẽ được thanh toán vào Lịch Thưởng, có thể yêu cầu cứ mỗi 8 giờ và hết hạn sau 24 giờ nếu không được yêu cầu.</p>"
+    "title": "Thành tựu là gì?",
+    "content": "<p class=\"leading-7\">Thành tựu là cách chúng tôi công nhận hoạt động của bạn trên nền tảng của chúng tôi. Khi bạn yêu cầu tiền thưởng thành tựu của mình, nó sẽ được trả vào Lịch thưởng của bạn và có thể được yêu cầu mỗi 8 giờ và sẽ hết hạn trong 24 giờ nếu không được yêu cầu.</p>"
   }
 }

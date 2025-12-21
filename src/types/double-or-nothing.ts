@@ -12,3 +12,17 @@ export interface ICurrentPromo {
   bonus_amount: string;
   total_deposit: string;
 }
+
+export interface ICurrentPromoList {
+  id: number;
+  promo_code: string;
+  promo_type: number;
+  is_default: number;
+  expired_at: number;
+  created_at: number;
+  min_amount: string;
+  bonus_amount: string;
+  total_deposit: string;
+  bonus_rate: number;
+  max_deposit: string;
+}

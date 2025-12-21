@@ -1,25 +1,26 @@
+import Iconify from "@/components/iconify";
+import {
+  TRANSACTION_PAGE_SIZE,
+  useBonusRecords,
+  useCommissionRecords,
+  useDepositRecords,
+  useReferralRecords,
+  useSwapRecords,
+  useUserBalance,
+  useWithdrawRecords,
+} from "@/query/transactions";
+import dayjs from "dayjs";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Iconify from "@/components/iconify";
+import { Card } from "../c/Card";
+import { useTransactionDetailMapper } from "./TransactionDetailMapper";
+import { TransactionDetailsDialog } from "./TransactionDetailsDialog";
 import { TransactionFilters } from "./TransactionFilters";
 import { TransactionList } from "./TransactionList";
-import { TransactionDetailsDialog } from "./TransactionDetailsDialog";
 import type { TransactionFilters as TFilters, Transaction, TransactionType } from "./types";
-import { useTransactionDetailMapper } from "./TransactionDetailMapper";
-import dayjs from "dayjs";
-import {
-  useDepositRecords, 
-  useWithdrawRecords, 
-  useBonusRecords, 
-  useSwapRecords,
-  useReferralRecords,
-  useCommissionRecords,
-  useUserBalance,
-  TRANSACTION_PAGE_SIZE
-} from "@/query/transactions";
 
 const extractTransactionPayload = (rawData: any) => {
-  const payload = rawData?.data && !Array.isArray(rawData.data) ? rawData.data : rawData?.data ?? rawData;
+  const payload = rawData?.data && !Array.isArray(rawData.data) ? rawData.data : (rawData?.data ?? rawData);
   const pagination = payload?.pagination ?? rawData?.pagination;
 
   const records = Array.isArray(payload?.records)
@@ -108,7 +109,7 @@ export function Index() {
     type: "Deposit",
     status: "All",
     asset: "all",
-    period: "Past 24 Hours"
+    period: "Past 24 Hours",
   });
   const [lastIdsMap, setLastIdsMap] = useState<Record<string, Record<number, string | number | undefined>>>({});
 
@@ -118,7 +119,7 @@ export function Index() {
   const getPeriodTimestamp = (period: string): number | undefined => {
     const now = dayjs();
     const toUnix = (value: dayjs.Dayjs) => Math.floor(value.unix());
-    
+
     switch (period) {
       case "Past 90 Days":
         return toUnix(now.subtract(90, "day"));
@@ -135,34 +136,57 @@ export function Index() {
     }
   };
 
-  const baseQueryParams = useMemo(() => ({
-    status: filters.status === "All" ? undefined : filters.status,
-    end_timestamp: getPeriodTimestamp(filters.period),
-    currency: filters.asset === "all" ? undefined : filters.asset,
-  }), [filters]);
+  const baseQueryParams = useMemo(
+    () => ({
+      status: filters.status === "All" ? undefined : filters.status,
+      end_timestamp: getPeriodTimestamp(filters.period),
+      currency: filters.asset === "all" ? undefined : filters.asset,
+    }),
+    [filters],
+  );
 
-  const paginationKey = useMemo(() => JSON.stringify({
-    type: filters.type,
-    status: baseQueryParams.status ?? null,
-    end_timestamp: baseQueryParams.end_timestamp ?? null,
-    currency: baseQueryParams.currency ?? null,
-  }), [filters.type, baseQueryParams.status, baseQueryParams.end_timestamp, baseQueryParams.currency]);
+  const paginationKey = useMemo(
+    () =>
+      JSON.stringify({
+        type: filters.type,
+        status: baseQueryParams.status ?? null,
+        end_timestamp: baseQueryParams.end_timestamp ?? null,
+        currency: baseQueryParams.currency ?? null,
+      }),
+    [filters.type, baseQueryParams.status, baseQueryParams.end_timestamp, baseQueryParams.currency],
+  );
 
   const lastIdsForKey = lastIdsMap[paginationKey] ?? {};
-  const lastIdForCurrentPage = currentPage > 1 ? lastIdsForKey[currentPage - 1] ?? 0 : 0;
+  const lastIdForCurrentPage = currentPage > 1 ? (lastIdsForKey[currentPage - 1] ?? 0) : 0;
 
-  const paginatedParams = useMemo(() => ({
-    ...baseQueryParams,
-    limit: TRANSACTION_PAGE_SIZE,
-    last_id: lastIdForCurrentPage,
-  }), [baseQueryParams, lastIdForCurrentPage]);
+  const paginatedParams = useMemo(
+    () => ({
+      ...baseQueryParams,
+      limit: TRANSACTION_PAGE_SIZE,
+      last_id: lastIdForCurrentPage,
+    }),
+    [baseQueryParams, lastIdForCurrentPage],
+  );
 
-  const referralParams = useMemo(() => ({
-    end_timestamp: baseQueryParams.end_timestamp,
-    currency: baseQueryParams.currency,
-    limit: TRANSACTION_PAGE_SIZE,
-    last_id: lastIdForCurrentPage,
-  }), [baseQueryParams.end_timestamp, baseQueryParams.currency, lastIdForCurrentPage]);
+  const referralParams = useMemo(
+    () => ({
+      end_timestamp: baseQueryParams.end_timestamp,
+      currency: baseQueryParams.currency,
+      limit: TRANSACTION_PAGE_SIZE,
+      page: currentPage,
+    }),
+    [baseQueryParams.end_timestamp, baseQueryParams.currency, currentPage],
+  );
+
+  const commissionParams = useMemo(
+    () => ({
+      end_timestamp: baseQueryParams.end_timestamp,
+      currency: baseQueryParams.currency,
+      limit: TRANSACTION_PAGE_SIZE,
+      page: currentPage,
+    }),
+    [baseQueryParams.end_timestamp, baseQueryParams.currency, currentPage],
+  );
 
   const activeType = filters.type;
 
@@ -171,7 +195,7 @@ export function Index() {
   const bonusQuery = useBonusRecords(paginatedParams, { enabled: activeType === "Bonus" });
   const swapQuery = useSwapRecords(paginatedParams, { enabled: activeType === "Swap" });
   const referralQuery = useReferralRecords(referralParams, { enabled: activeType === "Referral" });
-  const commissionQuery = useCommissionRecords(referralParams, { enabled: activeType === "Commission" });
+  const commissionQuery = useCommissionRecords(commissionParams, { enabled: activeType === "Commission" });
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedDetail, setSelectedDetail] = useState<ReturnType<ReturnType<typeof useTransactionDetailMapper>> | null>(null);
   const mapTransactionDetail = useTransactionDetailMapper();
@@ -204,7 +228,8 @@ export function Index() {
   const currentQuery = getCurrentQuery();
   const { data, isLoading, isFetching } = currentQuery;
   const { records: transactions, hasNext: hasNextPage, totalPages: totalPagesFromApi, totalCount } = extractTransactionPayload(data);
-  const derivedTotalPages = totalPagesFromApi ?? (typeof totalCount === "number" ? Math.ceil(totalCount / TRANSACTION_PAGE_SIZE) : undefined);
+  const derivedTotalPages =
+    totalPagesFromApi ?? (typeof totalCount === "number" ? Math.ceil(totalCount / TRANSACTION_PAGE_SIZE) : undefined);
   const totalPages = derivedTotalPages ?? (hasNextPage ? currentPage + 1 : currentPage);
   const safeTotalPages = Math.max(totalPages, 1);
   const pageNumbers = useMemo(() => getPageNumbers(currentPage, safeTotalPages), [currentPage, safeTotalPages]);
@@ -245,75 +270,70 @@ export function Index() {
   }, [transactions, paginationKey, currentPage]);
 
   return (
-    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden mx-0 sm:mx-5 md:mx-0">
-      <div className="bg-base-200 flex items-center gap-2 px-4 sm:px-6 sm:pt-6 sm:pb-4 py-4">
-        <Iconify icon="custom:transactions" width={20} height={20} className="text-primary" />
-        <h3 className="text-base sm:text-lg font-bold">{t("profile:transactions")}</h3>
-      </div>
+    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
+      <div className={`flex flex-col gap-4 flex-1 pb-5 md:p-0`}>
+        <Card
+          icon={<Iconify icon="custom:transactions" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />}
+          title={t("profile:transactions")}
+        >
+          <TransactionFilters filters={filters} onFiltersChange={handleFiltersChange} userBalance={userBalance} />
 
-      <div className="bg-base-200 px-4 sm:px-6">
-        <TransactionFilters 
-          filters={filters} 
-          onFiltersChange={handleFiltersChange}
-          userBalance={userBalance}
-        />
-      </div>
+          <div className="bg-base-200 flex flex-col relative">
+            <TransactionList
+              transactions={transactions}
+              isLoading={isLoading}
+              isFetching={isFetching}
+              transactionType={filters.type}
+              onTransactionClick={handleTransactionClick}
+            />
 
-      <div className="bg-base-200 flex flex-col relative">
-        <TransactionList 
-          transactions={transactions} 
-          isLoading={isLoading}
-          isFetching={isFetching}
-          transactionType={filters.type}
-          onTransactionClick={handleTransactionClick}
-        />
+            {safeTotalPages > 1 && (
+              <div className="flex items-center justify-center gap-1 sm:gap-2 py-5 px-3 sm:px-6">
+                <button
+                  onClick={() => canGoPrev && setCurrentPage((page) => Math.max(1, page - 1))}
+                  disabled={!canGoPrev || isFetching}
+                  className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
 
-        {safeTotalPages > 1 && (
-          <div className="flex items-center justify-center gap-1 sm:gap-2 py-5 px-4">
-            <button
-              onClick={() => canGoPrev && setCurrentPage((page) => Math.max(1, page - 1))}
-              disabled={!canGoPrev || isFetching}
-              className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+                {pageNumbers.map((page, index) => (
+                  <button
+                    key={`${page}-${index}`}
+                    onClick={() => typeof page === "number" && setCurrentPage(page)}
+                    disabled={page === "..." || isFetching}
+                    className={`btn btn-sm min-w-[2.5rem] rounded-2xl ${
+                      page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300"
+                    } ${page === "..." ? "cursor-default hover:bg-transparent" : ""}`}
+                  >
+                    {page}
+                  </button>
+                ))}
 
-            {pageNumbers.map((page, index) => (
-              <button
-                key={`${page}-${index}`}
-                onClick={() => typeof page === "number" && setCurrentPage(page)}
-                disabled={page === "..." || isFetching}
-                className={`btn btn-sm min-w-[2.5rem] rounded-2xl ${
-                  page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300"
-                } ${page === "..." ? "cursor-default hover:bg-transparent" : ""}`}
-              >
-                {page}
-              </button>
-            ))}
-
-            <button
-              onClick={() => canGoNext && setCurrentPage((page) => Math.min(safeTotalPages, page + 1))}
-              disabled={!canGoNext || isFetching}
-              className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+                <button
+                  onClick={() => canGoNext && setCurrentPage((page) => Math.min(safeTotalPages, page + 1))}
+                  disabled={!canGoNext || isFetching}
+                  className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </Card>
+        <TransactionDetailsDialog
+          isOpen={isDetailsOpen && !!selectedDetail}
+          onClose={() => {
+            setIsDetailsOpen(false);
+            setSelectedDetail(null);
+          }}
+          detail={selectedDetail}
+        />
       </div>
-
-      <TransactionDetailsDialog
-        isOpen={isDetailsOpen && !!selectedDetail}
-        onClose={() => {
-          setIsDetailsOpen(false);
-          setSelectedDetail(null);
-        }}
-        detail={selectedDetail}
-      />
     </div>
   );
 }

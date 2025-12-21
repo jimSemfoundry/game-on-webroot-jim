@@ -1,18 +1,23 @@
+import { useNavigate } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export const PromotionalSection = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-12 sm:gap-4 min-h-[120px] sm:min-h-[180px] lg:min-h-[223px]">
       <div className="p-4 sm:px-6 sm:py-7 w-full rounded-box bg-base-200 relative overflow-hidden flex flex-col justify-between lg:col-span-5">
         <div className="flex flex-col gap-2 sm:gap-4 z-10 relative">
           <p className="font-bold text-base sm:text-lg lg:text-2xl">{t("common:common.casino")}</p>
           <p className="hidden sm:block text-base-content/50 font-semibold text-sm lg:text-lg max-w-[200px] leading-5">
-            Spin, play, and win across top casino hits
+            {t("casino:spinPlayAndWinAcrossTopCasinoHits")}
           </p>
         </div>
-        <button className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative">
+        <button
+          className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative"
+          onClick={() => navigate({ to: "/explore", search: { type: "casino", category: "hot" } })}
+        >
           <span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>
           <ChevronRight className="rtl:rotate-y-180 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
         </button>
@@ -39,10 +44,13 @@ export const PromotionalSection = () => {
         <div className="flex flex-col gap-2 sm:gap-4 z-10 relative">
           <p className="font-bold text-base sm:text-lg lg:text-2xl">{t("common:common.sports")}</p>
           <p className="hidden sm:block text-base-content/50 font-semibold text-sm lg:text-lg max-w-[230px] leading-5">
-            Score big on sports from around the world
+            {t("casino:scoreBigOnSportsFromAroundTheWorld")}
           </p>
         </div>
-        <button className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative">
+        <button
+          className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative"
+          onClick={() => navigate({ to: "/sports", search: { category: undefined, sport: undefined } })}
+        >
           <span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>
           <ChevronRight className="rtl:rotate-y-180 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
         </button>
@@ -68,7 +76,12 @@ export const PromotionalSection = () => {
 
       <div className="hidden lg:flex lg:col-span-2 bg-primary/10 relative rounded-box py-4 lg:py-7 flex-col justify-between items-center overflow-hidden min-h-full">
         <p className="font-bold text-base lg:text-xl xl:text-2xl text-center px-2 z-10 relative">{t("bonus:bonusHub.root")}</p>
-        <button className="btn btn-primary btn-sm lg:btn-md xl:btn-lg z-20 w-10/12 max-w-32 text-xs lg:text-sm">Claim</button>
+        <button
+          className="btn btn-primary btn-sm lg:btn-md xl:btn-lg z-20 w-10/12 max-w-32 text-xs lg:text-sm"
+          onClick={() => navigate({ to: "/bonus" })}
+        >
+          Claim
+        </button>
         {/* Responsive bonus illustration */}
         <img
           src="/images/illustrations/b64b4fb56de8b136b8c6835d3b0cfd761f66bc9c.png"

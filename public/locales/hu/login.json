@@ -13,7 +13,6 @@
   "userAgreementConfirm": "Elfogadom a Felhasználói Megállapodást és megerősítem, hogy legalább 18 éves vagyok",
   "marketingPromotions": "Hozzájárulok, hogy a {{siteName}} marketing promóciókat küldjön nekem.",
   "phoneNumberAlreadyRegistered": "Az Ön telefonszáma már regisztrálva van",
-  "emailAlreadyRegistered": "Az e-mail már regisztrálva van",
   "pleaseLoginToContinue": "Kérjük, jelentkezzen be az Ön fiókjával a folytatáshoz",
   "telegramLoginFailed": "A Telegram bejelentkezés sikertelen",
   "resetPassword": "Jelszó visszaállítása",
@@ -25,5 +24,24 @@
   "pleaseCheckYourUsername": "Ha érvényes e-mail címet vagy mobilszámot adott meg, amely regisztrálva van a rendszerünkben, akkor az egyszeri jelszavát (OTP) elküldtük.",
   "passwordsDoNotMatch": "A jelszavak nem egyeznek",
   "passwordTooShort": "A jelszónak legalább 6 karakter hosszúnak kell lennie",
-  "passwordResetSuccess": "Jelszó sikeresen visszaállítva"
+  "passwordResetSuccess": "Jelszó sikeresen visszaállítva",
+  "**********": "",
+  "signInModal": {
+    "promoTitle1": "VALAMI\nKÜLÖNLEGES\nVÁR RÁD.",
+    "promoTitle2": "SIESS!"
+  },
+  "signUpModal": {
+    "promoTitle1": "ÜDVÖZÖLJÜK\nCSOMAG AKÁR",
+    "promoTitle2": "1200% BETÉTI\nBÓNUSZ"
+  },
+  "secureSignIn": "Biztonságos Bejelentkezés",
+  "secureSignUp": "Biztonságos Regisztráció",
+  "or": "VAGY",
+  "forgotPasswordDescription": "Add meg az adataidat. Ha találunk egy megfelelő fiókot, elküldjük neked a visszaállító kódot.",
+  "recoverPassword": "Jelszó Visszaállítása",
+  "dontReceiveCode": "Nem kaptad meg a kódot?",
+  "resend": "Újraküldés",
+  "orLoginDirectlyWith": "Vagy jelentkezz be közvetlenül a következővel",
+  "needAnAccountSignUp": "Szükséged van egy fiókra? Regisztrálj",
+  "alreadyHaveAnAccount": "Már van fiókod? Jelentkezz be"
 }

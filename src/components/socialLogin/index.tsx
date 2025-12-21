@@ -15,8 +15,7 @@ export default function SocialLogin() {
   const params = useMemo(() => {
     let baseParams: Record<string, any> = {
       locale: i18n.language || "en",
-      // service: import.meta.env.VITE_API_URL,
-      service: 'https://uat1.betfrom.com', // FIXME
+      service: import.meta.env.VITE_API_URL?.replace("/api", ""),
       redirect_uri: location.origin
     };
 
@@ -45,7 +44,7 @@ export default function SocialLogin() {
   }, [params]);
 
   return <>
-    {Array.isArray(social?.data) && social?.data?.length > 0 && (<div className="flex flex-col gap-4 mb-4">
+    {Array.isArray(social?.data) && social?.data?.length > 0 && (<div className="flex flex-col gap-4">
       <div className="flex items-center gap-2 text-sm font-semibold">
         <div className="flex-1 h-px bg-gradient-to-r from-base-content/0 to-base-content/10" />
         <span className="whitespace-nowrap uppercase">{t("login:orLoginDirectlyWith")}</span>

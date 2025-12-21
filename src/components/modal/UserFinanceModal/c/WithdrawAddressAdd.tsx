@@ -1,4 +1,3 @@
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useUserWithdrawWallet } from "@/hooks/api/useAuth.ts";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
@@ -12,6 +11,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 // import { authService } from "@/services/authService.ts";
 // import { toast } from "sonner";
 
@@ -22,7 +22,7 @@ interface StateProps {
 
 const initState = {
   selected: undefined,
-  create: false,
+  create: false
 };
 
 export const WithdrawAddressAdd = () => {
@@ -46,10 +46,19 @@ export const WithdrawAddressAdd = () => {
     setStatus((v) => ({ ...v, create: false }));
   }, [ref]);
 
+  /**
+   * FIXME:
+   *  1. 有些网关没钱包地址
+   *  2. 有些网关用户添加了地址
+   *  切换数据的时候要重置存储的值
+   */
   useEffect(() => {
     if (currentWallet?.length > 0) {
       setStatus((old) => ({ ...old, selected: currentWallet[0] }));
       setWithdrawCrypto({ toWallet: currentWallet[0]?.address });
+    } else {
+      setStatus((old) => ({ ...old, selected: undefined }));
+      setWithdrawCrypto({ toWallet: "" });
     }
   }, [currentWallet]);
 
@@ -61,7 +70,8 @@ export const WithdrawAddressAdd = () => {
         {l1 && <Loading />}
 
         {/* 当前网络无钱包地址 */}
-        <DisplayContent status={!l1 && (wallets?.data?.length === 0 || (wallets?.data?.length > 0 && currentWallet.length === 0))}>
+        <DisplayContent
+          status={!l1 && (wallets?.data?.length === 0 || (wallets?.data?.length > 0 && currentWallet.length === 0))}>
           <AddAddr
             t={t}
             onClick={() => {
@@ -103,7 +113,8 @@ export const WithdrawAddressAdd = () => {
                     transition={{ duration: 0.1 }}
                   >
                     <div className="h-2 bg-base-300 sticky top-0" />
-                    <div className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
+                    <div
+                      className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
                       <p className="h-5 text-xs font-semibold">{t("finance:withdrawalAddress")}</p>
                       <AddressList
                         data={currentWallet}
@@ -137,8 +148,8 @@ export const WithdrawAddressAdd = () => {
                       exit={{ opacity: 0 }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                      className="px-4 py-6 bg-base-300 fixed w-full z-999 top-0 bottom-0 flex flex-col"
+                      transition={{ duration: 0.2, delay: 0.1, ease: "easeOut" }}
+                      className="px-4 py-6 bg-base-300 fixed w-full z-1001 top-0 bottom-0 flex flex-col"
                     >
                       <p className="flex items-center justify-center relative text-lg font-semibold h-7">
                         <button
@@ -154,7 +165,13 @@ export const WithdrawAddressAdd = () => {
                           data={currentWallet}
                           selected={status.selected}
                           onSelect={(v: Record<string, any>) => {
-                            setStatus((old) => ({ ...old, selected: v, create: false }));
+                            setStatus((old) => ({ ...old, selected: v }));
+
+                            setWithdrawCrypto({ toWallet: v?.address });
+
+                            setTimeout(() => {
+                              setStatus((old) => ({ ...old, create: false }));
+                            }, 100);
                           }}
                         />
                         <AddAddr
@@ -169,7 +186,7 @@ export const WithdrawAddressAdd = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>,
-                document.body,
+                document.body
               )}
           </div>
         </DisplayContent>
@@ -185,14 +202,15 @@ const AddAddr = ({ t, onClick, className }: { t: TFunction; onClick: () => void;
       onClick={onClick}
       className={cn(
         "bg-base-300 hover:bg-base-300/60 flex cursor-pointer justify-between items-center gap-4 rounded-lg p-4 transition-colors",
-        className,
+        className
       )}
     >
       <div className="flex items-center gap-4 font-semibold">
         <img src="/icons/isometric/8.svg" className="h-12 w-12" alt="" />
         <div className="flex flex-col gap-2">
           <p className="text-sm font-semibold">{t("finance:add_withdrawal_address")}</p>
-          <p className="text-xs text-base-content/50">{t("finance:kindly_fill_in_your_crypto_withdrawal_address_details")}</p>
+          <p
+            className="text-xs text-base-content/50">{t("finance:kindly_fill_in_your_crypto_withdrawal_address_details")}</p>
         </div>
       </div>
       <button className="btn btn-square btn-sm btn-soft">
@@ -203,13 +221,13 @@ const AddAddr = ({ t, onClick, className }: { t: TFunction; onClick: () => void;
 };
 
 const Address = ({
-  data,
-  edit,
-  extra,
-  className,
-  selected,
-  onClick,
-}: {
+                   data,
+                   edit,
+                   extra,
+                   className,
+                   selected,
+                   onClick
+                 }: {
   data: Record<string, any>;
   selected?: Record<string, any>;
   edit?: boolean;
@@ -261,10 +279,10 @@ const Address = ({
 };
 
 const AddressList = ({
-  data,
-  selected,
-  onSelect,
-}: {
+                       data,
+                       selected,
+                       onSelect
+                     }: {
   data: Record<string, any>[];
   selected?: Record<string, any>;
   onSelect: (v: Record<string, any>) => void;

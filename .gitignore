@@ -8,6 +8,7 @@ count.txt
 .env
 .nitro
 .tanstack
+landingPage
 
 # YoYo AI version control directory
 .yoyo/
@@ -19,3 +20,4 @@ AGENTS.md
 
 # version.json
 public/version.json
+Peter-QA

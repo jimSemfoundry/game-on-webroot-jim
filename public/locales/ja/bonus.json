@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "ボーナスをいつも通り請求してください...\nそれとも、大胆に飛び込んで",
+  "double_it": "倍にする！",
+  "no_thanks": "いいえ、結構です",
+  "double_or_nothing": "倍にするか、何もかも失うか",
+  "come_back_tomorrow": "明日戻ってきてください",
+  "promo_code": "プロモコード",
+  "got_a_code": "コードを持っていますか？やるべきことはわかっています！",
+  "lifetime_bonus": "生涯ボーナス",
+  "claimed": "請求済み",
+  "starter": "スターター",
+  "pack": "パック",
+  "achievements_card_description": "進捗のすべてのステップを祝うためにデザインされた特別な達成報酬を集めよう！",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "運の技をマスターする",
+    "achievement_verify_phone": "止まらないエネルギーと力",
+    "achievement_add_desktop_app": "常に手の届くところに",
+    "achievement_super_spreader": "ゲーム体験を共有する",
+    "achievement_conquistador": "すべての障害に立ち向かう",
+    "achievement_game_explorer": "新しいゲームの世界を発見する",
+    "achievement_card_shark": "カードゲームを支配する",
+    "achievement_slotmaster": "スロットをマスターする",
+    "achievement_talkative": "他の人のために道を示す",
+    "achievement_bet_count": "精密なゲームをマスターする",
+    "achievement_deposit_count": "究極の勝利を達成する",
+    "achievement_wager_count": "挑戦を燃やし尽くす",
+    "achievement_single_bet": "伝説的になる",
+    "achievement_single_deposit": "ブロックチェーンネットワークをナビゲートする",
+    "achievement_single_wager": "金融戦略をマスターする",
+    "achievement_single_payout": "暗号市場を支配する",
+    "achievement_crypto_bro": "暗号通貨取引をマスターする",
+    "achievement_crypto_baron": "暗号市場を支配する",
+    "achievement_chain_shifter": "ブロックチェーンネットワークをナビゲートする",
+    "achievement_money_master": "金融戦略をマスターする",
+    "achievement_sniper": "精密なゲームをマスターする",
+    "achievement_champion": "究極の勝利を達成する",
+    "achievement_name_of_fame": "伝説的になる",
+    "achievement_guiding_star": "他の人のために道を示す",
+    "achievement_face_of_fortune": "運の技をマスターする",
+    "achievement_dynamo": "止まらないエネルギーと力",
+    "achievement_inferno": "挑戦を燃やし尽くす",
+    "achievement_the_challenger": "すべての障害に立ち向かう"
+  },
   "bonus": "ボーナス",
   "total_bonus_claimed": "ボーナス総額",
   "details": "詳細",
   "redeem": "引き換え",
-    "deposit_bonus": "入金ボーナスの集合",
+  "deposit_bonus": "入金ボーナスの集合",
   "get_up_to": "まで",
   "deposit_now": "今すぐ入金",
   "bonus_ends_in": "ボーナス終了",
@@ -26,14 +68,15 @@
   "daily_cashback": "デイリーキャッシュバック",
   "bonus_calendar": "ボーナスカレンダー",
   "claim_every_8_hours": "8時間ごとに獲得",
-    "locked": "入金ボーナスの集合",
-    "next_claim_in": "次回の請求まで",
-    "bonus_pool": "近日中の報酬の集合",
-      "bonus_calendar_details": "8時間ごとにボーナスをゲット！",
+  "locked": "入金ボーナスの集合",
+  "next_claim_in": "次回の請求まで",
+  "bonus_pool": "近日中の報酬の集合",
+  "bonus_calendar_details": "8時間ごとにボーナスをゲット！",
   "release_schedule": "リリーススケジュール",
   "total_vip_bonus_claimed": "VIPボーナス総額",
   "your_vip_progress": "VIP進行状況",
   "available_at_vip": "VIP {{vip}}で利用可能",
+  "vip_progress_description": "前進しよう！次のレベルではボーナスプールから{{amount}}がアンロックされます。",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "VIP4に到達してラッキースピンにアクセス！毎日追加報酬を獲得するチャンス！",
   "weekly_cashback": "ウィークリーキャッシュバック",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "VIP12に到達してウィークリーキャッシュバックをアンロック！ハイローラーのための安全ネット！",
@@ -49,6 +92,7 @@
   "lucky_spin": "ラッキースピン",
   "lucky_number_seven": "ラッキーナンバー7",
   "expires_in": "有効期限：",
+  "expires": "期限切れ",
   "go": "スタート",
   "conquest_just_wager_title": "{{amount}}を賭けるだけ",
   "conquest_just_wager_description": "1日でどのゲームでも{{amount}}を賭けて、今日のボーナスプールから{{reward}}をゲット！",
@@ -98,134 +142,191 @@
   "sort_by": "並び替え：",
   "claimable": "請求可能",
   "achievement_verify_email": {
-    "name": "メール認証",
-    "description": "この実績は、メールを認証してアイデンティティを確立し、安全なアクセスを解除したプレイヤーに贈られます。本気でプレイする第一歩です！"
+    "name": "メールを確認する",
+    "description": "この達成は、メールを確認したプレイヤーに授与され、彼らのアイデンティティを固定し、安全なアクセスを解除します。これは、準備と信頼性の印であり、すべての真剣なプレイヤーの第一歩です。"
   },
   "achievement_verify_phone": {
-    "name": "電話認証",
-    "description": "この実績は、電話番号を認証して最新情報を入手し、つながりを保つプレイヤーに贈られます。信頼とゲームへの情熱を示す一歩です！"
+    "name": "電話を確認する",
+    "description": "この達成は、電話番号を確認して情報を得てつながりを保つプレイヤーに授与されます。これは、信頼、関与、ゲームの脈動へのコミットメントを示します。"
   },
   "achievement_add_desktop_app": {
     "name": "ホーム画面に追加",
-    "description": "この実績は、テレグラムのミニアプリをホーム画面に追加したプレイヤーに授与されます。いつでも手の届くところにあり、この行動は真の献身を示します—本物のプレイヤーはゲームを近くに保つからです。"
+    "description": "この達成は、私たちのTelegramミニアプリをホーム画面に追加したプレイヤーに授与されます。常に手の届くところに、この行動は真の献身を示します - 本物のプレイヤーはゲームを近くに保ちます。"
   },
   "achievement_super_spreader": {
     "name": "スーパースプレッダー",
-    "description": "この実績は、<0>{{count}}人の新規ユーザー</0>を紹介したプレイヤーに贈られます。コミュニティを広げ、ゲームに新たな活力を吹き込む真のビルダーです！"
+    "description": "この達成は、<0>{{count}}人の新しいユーザー</0>を成功裏に紹介したプレイヤーに授与されます。真のコミュニティビルダーであり、彼らはサークルを広げ、ゲームに新しいエネルギーをもたらします。彼らの影響は、彼らが作るすべてのつながりとともに成長します。"
   },
   "achievement_conquistador": {
-    "name": "コンキスタドール",
-    "description": "この実績は、合計<0>{{count}}クエスト</0>を達成したプレイヤーに贈られます。決意と勝利への情熱で、どんな挑戦も征服する真の覇者です！"
+    "name": "征服者",
+    "description": "この達成は、合計で<0>{{count}}のクエスト</0>を達成したプレイヤーに授与されます。決意と勝利への渇望に駆り立てられ、彼らは彼らの道に来るすべての挑戦を征服します - 旅の真のチャンピオンです。"
   },
   "achievement_game_explorer": {
-    "name": "ゲームエクスプローラー",
-    "description": "この実績は、<0>{{count}}種類のゲーム</0>を試したプレイヤーに贈られます。好奇心と冒険心で、常に新しい遊び方や勝ち方を探す冒険者です！"
+    "name": "ゲーム探検者",
+    "description": "この達成は、<0>{{count}}の異なるゲーム</0>を試したプレイヤーに授与されます。好奇心旺盛で冒険心に満ち、彼らはプラットフォームを横断し、常に新しい遊び方と勝ち方を発見することを楽しみにしています。"
   },
   "achievement_card_shark": {
     "name": "カードシャーク",
-    "description": "この実績は、カードゲームで<0>{{amount}}</0>以上を賭け、粘り強さ、戦略、リスクへの意欲を証明したプレイヤーに贈られます。エリートな高額ベットプレイヤーとして、カードを握り、ゲームを支配します！"
+    "description": "この達成は、カードゲームで少なくとも<0>{{amount}}</0>を賭けたプレイヤーに授与され、彼らのレジリエンス、戦略、リスクを取る意欲を証明します。これらのハイステークプレイヤーは、エリートの仲間入りを果たしました。カードは彼らの手の中にあり、ゲームは彼らの指揮下にあります。"
   },
   "achievement_slotmaster": {
     "name": "スロットマスター",
-    "description": "この実績は、スロットゲームで<0>{{amount}}</0>以上を賭け、粘り強さ、スリルへの情熱、リールを愛する心を証明したプレイヤーに贈られます。自信を持ってリールに挑むマスターです！"
+    "description": "この達成は、スロットゲームで少なくとも<0>{{amount}}</0>を賭けたプレイヤーに授与され、彼らの持続力、スリルを求める精神、スピンへの愛を証明します。これらの献身的なプレイヤーは、自信を持ってリールを受け入れます - 運が導くかもしれませんが、マスタリーが彼らをゲームに留まらせます。"
   },
   "achievement_talkative": {
     "name": "おしゃべり",
-    "description": "この実績は、チャットで<0>{{count}}回</0>発言したプレイヤーに贈られます。すべてのメッセージが会話の一部となる第一歩です！"
+    "description": "この達成は、チャットルームで<0>{{count}}回</0>発言したプレイヤーに授与されます。すべてのメッセージが重要です - あなたは真の会話の一部になる第一歩を踏み出しています。"
   },
   "achievement_bet_count": {
-    "name": "ベット数",
-    "description": "この実績は、合計<0>{{count}}回</0>のベットを置いたプレイヤーに贈られます。チャンスを信じ、毎回の賭けでゲームを盛り上げるプレイヤーです！"
+    "name": "賭けの数",
+    "description": "この達成は、合計で<0>{{count}}の賭け</0>を行ったプレイヤーに授与されます。偶然を信じる真の信者であり、彼らの揺るぎない精神は、すべての賭けでゲームを生き生きとさせます。"
   },
   "achievement_deposit_count": {
-    "name": "入金回数",
-    "description": "この実績は、合計<0>{{count}}回</0>の入金をしたプレイヤーに贈られます。安定した資金と情熱で、単なるプレイヤーではなく大物を目指す存在です！"
+    "name": "入金の数",
+    "description": "この達成は、合計で<0>{{count}}の入金</0>を行ったプレイヤーに授与されます。安定したクレジットの流れと揺るぎないコミットメントを持ち、彼らは単なるプレイヤーではなく、作り上げる大物であることを示しています。"
   },
   "achievement_change_avatar": {
-    "name": "アバター変更",
-    "description": "この実績は、アバターを変更してプロフィールを自分らしくしたプレイヤーに贈られます。ゲーム内で目立つ大胆な一歩です！"
+    "name": "アバターを変更する",
+    "description": "この達成は、アバターを変更してプロフィールをパーソナライズしたプレイヤーに授与されます。目立ち、ゲーム内でのアイデンティティを所有するための大胆な一歩です。"
   },
   "achievement_set_username": {
-    "name": "ユーザー名設定",
-    "description": "自分の名前を決め、伝説の第一歩を踏み出しました。この実績は、ゲームでの居場所を確立したプレイヤーに贈られます！"
+    "name": "ユーザー名を設定する",
+    "description": "あなたは自分の名前を請求しました - さあ、伝説が始まります。この達成は、自分のスペースを切り開き、それを公式にする人々を称えます。"
   },
   "achievement_download_mobile_app": {
-    "name": "モバイルアプリダウンロード",
-    "description": "この実績は、アプリをダウンロードしてゲームをどこでも楽しむプレイヤーに贈られます。いつでもプレイする準備ができています！"
+    "name": "モバイルアプリをダウンロードする",
+    "description": "このバッジは、ゲームを持ち歩いたプレイヤーに授与されます。アプリをダウンロードすることは、あなたが一時停止するためにここにいるのではなく、いつでもどこでもプレイするためにここにいることを示します。"
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "1日最大ベット",
-    "description": "この実績は、1日で1つのゲームに<0>{{amount}}</0>以上を賭けたプレイヤーに贈られます。集中力、戦略、大胆なリスクで、選んだゲームを支配するエリートです！"
+    "name": "1日の単一ゲームでの最大賭け",
+    "description": "この達成は、1日の単一ゲームで少なくとも<0>{{amount}}</0>を賭けたプレイヤーに授与されます。これは、揺るぎない集中力、計算された戦略、そして大胆なリスクを取る勇気を持つ人々を認識します。これらのエリートプレイヤーは、自分の選んだゲームをマスターしており、勝つためにプレイします。"
   },
   "achievement_slots_win_count": {
     "name": "スロット勝利数",
-    "description": "この実績は、スロットゲームで<0>{{count}}回</0>の勝利を収めたプレイヤーに贈られます。毎スピンでオッズに挑み、勝利を重ねるチャンピオンです！"
+    "description": "この達成は、スロットゲームで<0>{{count}}回の勝利</0>を確保したプレイヤーに授与されます。すべてのスピンで、彼らは確率に逆らい、勝利を祝います。運がゲームを始めるかもしれませんが、一貫性が彼らをチャンピオンにします。"
   },
   "achievement_slots_multiplier": {
     "name": "スロットマルチプライヤー",
-    "description": "この実績は、スロットで<0>{{count}}倍</0>以上の勝利を収めたプレイヤーに贈られます。偉大さを追い、ハイリスクのスリルで並外れた報酬を獲得する支配者です！"
+    "description": "この達成は、単一のスロットスピンで<0>{{count}}倍のマルチプライヤー</0>以上の勝利を確保したプレイヤーに授与されます。これは、偉大さを追求し、高リスクのスリルを受け入れ、並外れた報酬を得る人々を称えます。これらは普通のプレイヤーではなく、リールを指揮し、他のプレイヤーを超えて成長します。"
+  },
+  "achievement_champion": {
+    "name": "チャンピオン",
+    "description": "この達成は、<0>10回の勝利</0>を確保したプレイヤーに授与されます。チャンピオンは運のアリーナで堂々と立ち、ラウンドごとにそのレジリエンスを証明します。勝利を重ねることで、彼らは運を超えて栄光を手にする挑戦者の中での地位を確立します。"
+  },
+  "achievement_slot_master": {
+    "name": "スロットマスター",
+    "description": "この達成は、スロットゲームで少なくとも<0>{{amount}}</0>を賭けたプレイヤーに授与されます。スロットマスターは自信と粘り強さでスピンし、すべてのリールを運のチャンスに変えます。安定した手と恐れを知らないプレイで、彼らは真のマスタリーが一回のスピンから築かれることを証明します。"
+  },
+  "achievement_the_challenger": {
+    "name": "挑戦者",
+    "description": "この達成は、プレイ履歴で少なくとも<0>10回の有効な賭け</0>を行ったプレイヤーに授与されます。挑戦者は、決意と競争のスリルによってすべての機会に立ち向かいます。大胆で容赦なく、彼らは真の挑戦者がゲームから逃げないことを証明します — 彼らは前に進み、自分の限界を試し、恐れ知らずの仲間の中での地位を確立します。"
+  },
+  "achievement_dynamo": {
+    "name": "ダイナモ",
+    "description": "この達成は、単一の取引で少なくとも<0>1回の入金</0>を完了したプレイヤーに授与されます。ダイナモは、毎回のリチャージで強くなり、マスタリーへの道での一貫性と決意を証明します。"
+  },
+  "achievement_face_of_fortune": {
+    "name": "運の顔",
+    "description": "この達成は、初めてアバターをカスタマイズしたプレイヤーに授与されます。運の顔は、アイデンティティが力であることを知っています — スタイル、シンボル、または表現の選択はすべて個性の印です。自分の見た目を形作ることで、真のプレイヤーはゲームをプレイするだけでなく、それに自分の痕跡を残すことを示します。"
+  },
+  "achievement_name_of_fame": {
+    "name": "名声の名",
+    "description": "この達成は、初めてユーザー名を設定したプレイヤーに授与されます。名声の名は、真のアイデンティティの始まりを示し、新参者を認識された存在に変えます。大胆でユニークな彼らは、すべての伝説が記憶に残る名前から始まることを証明します。"
+  },
+  "achievement_guiding_star": {
+    "name": "導きの星",
+    "description": "この達成は、ゲームをホーム画面に追加したり、アプリをダウンロードしたプレイヤーに授与されます。導きの星は、運への道を明るく保ち、ワンタップでプレイに戻る道を照らします。"
+  },
+  "achievement_highroller": {
+    "name": "ハイローラー",
+    "description": "この達成は、プレイ履歴全体で少なくとも<0>{{amount}}</0>を賭けたプレイヤーに授与されます。ハイローラーは、すべてのスピン、賭け、ラウンドでゲームへの献身を証明し、コミットメントと名声の印を身に着けています。彼らの王冠は単なるシンボルではなく、持続性、情熱、運の追求の証です。"
+  },
+  "achievement_inferno": {
+    "name": "インフェルノ",
+    "description": "この達成は、任意のスロットで<0>20倍</0>のマルチプライヤーを達成したプレイヤーに授与されます。炎が燃え上がる中、インフェルノは単一の賭けを運の火の嵐に変えます。"
+  },
+  "achievement_money_maverick": {
+    "name": "マネー・マーベリック",
+    "description": "この達成は、法定通貨またはローカル決済ゲートウェイを使用して、単一の取引で少なくとも<0>{{amount}}</0>を入金したプレイヤーに授与されます。マネー・マーベリックは、大胆な自信で自分の道を切り開き、日常の現金を特別な機会に変えます。恐れを知らず冒険心に満ちた彼らは、真のマーベリックがルールに従うだけでなく、それを再定義することを証明します。"
+  },
+  "achievement_money_master": {
+    "name": "マネー・マスター",
+    "description": "この達成は、単一の取引で少なくとも<0>{{amount}}</0>の法定通貨の引き出しを完了したプレイヤーに授与されます。マネー・マスターは、プレイと報酬の交差点で堂々と立ち、勝利を現実の価値に変えます。安定した手と鋭いタイミングで、真のマスタリーはゲームの中だけでなく、報酬を家に持ち帰ることにあることを示します。"
+  },
+  "achievement_crypto_bro": {
+    "name": "クリプト・ブロ",
+    "description": "この達成は、任意の暗号通貨で単一の取引で少なくとも<0>{{amount}}</0>を入金したプレイヤーに授与されます。クリプト・マエストロは、真のアーティストのように資金を操り、デジタル資産を精密かつ華やかにオーケストレーションします。ブロックチェーンの舞台で自信を持ち、彼らはプレイの先駆者であり、運は大胆な者に微笑むことを証明します。"
+  },
+  "achievement_crypto_baron": {
+    "name": "クリプト・バロン",
+    "description": "この達成は、任意の暗号通貨で単一の取引で少なくとも<0>{{amount}}</0>の引き出しを完了したプレイヤーに授与されます。ブロックチェーン・バロンは、デジタル資産の領域を支配し、自信と指揮で資金をチェーン上で移動させます。成功した引き出しごとに、彼らは運が得られ、確保され、ブロックチェーン上で家に持ち帰られることを証明します。"
+  },
+  "achievement_chain_shifter": {
+    "name": "チェーン・シフター",
+    "description": "この達成は、<0>暗号スワップ取引</0>を成功裏に完了したプレイヤーに授与されます。チェーン・シフターは、自信を持ってトークン間を移動する方法を知っており、市場の潮流に柔軟に適応します。モメンタムの達人であり、彼らは柔軟性と変革を重視し、常にギアをシフトして機会をつかむ準備ができています。"
   },
   "item": {
-    "conquest_just_wager_on_100": "征服：100賭け",
-    "conquest_just_wager_on_200": "征服：200賭け",
-    "conquest_roulette_master": "征服：ルーレットマスター",
-    "conquest_blackjack_master": "征服：ブラックジャックマスター",
-    "conquest_baccarat_master": "征服：バカラマスター",
-    "conquest_gameshow_master": "征服：ゲームショーマスター",
-    "conquest_slots_master_10": "征服：スロットマスター10",
-    "conquest_gameshow_master_20": "征服：ゲームショーマスター20",
-    "conquest_roulette_master_30": "征服：ルーレットマスター30",
-    "conquest_blackjack_master_40": "征服：ブラックジャックマスター40",
-    "conquest_baccarat_master_50": "征服：バカラマスター50",
-    "conquest_big_win": "征服：ビッグウィン",
-    "conquest_huge_win": "征服：大勝利",
-    "conquest_massive_win": "征服：超大勝利",
-    "achievement_verify_email": "実績 メールアドレスの確認",
-    "achievement_verify_phone": "実績 電話番号の確認",
-    "achievement_add_desktop_app": "実績 デスクトップアプリの追加",
-    "achievement_super_spreader": "実績 スーパー拡散者",
-    "achievement_conquistador": "実績 征服者",
-    "achievement_game_explorer": "実績 ゲーム探検家",
-    "achievement_card_shark": "実績 カードの達人",
-    "achievement_slotmaster": "実績 スロットマスター",
-    "achievement_talkative": "実績 おしゃべり",
-    "achievement_bet_count": "実績 ベット回数",
-    "achievement_deposit_count": "実績 入金回数",
-    "achievement_change_avatar": "実績 アバターの変更",
-    "achievement_set_username": "実績 ユーザー名の設定",
-    "achievement_download_mobile_app": "実績 モバイルアプリのダウンロード",
-    "achievement_wager_in_a_day_single_game": "実績 1日に1つのゲームで賭ける",
-    "achievement_slots_win_count": "実績 スロットの勝利回数",
-    "achievement_slots_multiplier": "実績 スロットのマルチプライヤー",
+    "conquest_just_wager_on_100": "征服 100に賭けるだけ",
+    "conquest_just_wager_on_200": "征服 200に賭けるだけ",
+    "conquest_roulette_master": "征服 ルーレットマスター",
+    "conquest_blackjack_master": "征服 ブラックジャックマスター",
+    "conquest_baccarat_master": "征服 バカラマスター",
+    "conquest_gameshow_master": "征服 ゲームショーマスター",
+    "conquest_slots_master_10": "征服 スロットマスター 10",
+    "conquest_gameshow_master_20": "征服 ゲームショーマスター 20",
+    "conquest_roulette_master_30": "征服 ルーレットマスター 30",
+    "conquest_blackjack_master_40": "征服 ブラックジャックマスター 40",
+    "conquest_baccarat_master_50": "征服 バカラマスター 50",
+    "conquest_big_win": "征服 大勝利",
+    "conquest_huge_win": "征服 巨大勝利",
+    "conquest_massive_win": "征服 大規模勝利",
+    "achievement_verify_email": "達成 メールを確認する",
+    "achievement_verify_phone": "達成 電話を確認する",
+    "achievement_add_desktop_app": "達成 ホーム画面に追加",
+    "achievement_super_spreader": "達成 スーパースプレッダー",
+    "achievement_conquistador": "達成 征服者",
+    "achievement_game_explorer": "達成 ゲーム探検者",
+    "achievement_card_shark": "達成 カードシャーク",
+    "achievement_slotmaster": "達成 スロットマスター",
+    "achievement_talkative": "達成 おしゃべり",
+    "achievement_bet_count": "達成 賭けの数",
+    "achievement_deposit_count": "達成 入金の数",
+    "achievement_change_avatar": "達成 アバターを変更する",
+    "achievement_set_username": "達成 ユーザー名を設定する",
+    "achievement_download_mobile_app": "達成 モバイルアプリをダウンロードする",
+    "achievement_wager_in_a_day_single_game": "達成 1日の単一ゲームでの最大賭け",
+    "achievement_slots_win_count": "達成 スロット勝利数",
+    "achievement_slots_multiplier": "達成 スロットマルチプライヤー",
     "level_up": "レベルアップ",
-    "rakeback": "レーキバック",
+    "rakeback": "レイクバック",
     "cashback": "キャッシュバック",
     "group": "コミッション",
     "referral": "紹介",
     "tournament": "トーナメント",
-    "conquest_extra_reward": "征服エクストラ報酬",
+    "conquest_extra_reward": "征服 追加報酬",
     "bonus": "ボーナス",
     "bonus_manual": "手動ボーナス",
-    "vip_bonus_lucky_number_seven": "VIPボーナス ラッキーナンバーセブン",
-    "rakeback_bonus": "レーキバックボーナス",
+    "vip_bonus_lucky_number_seven": "VIPボーナス ラッキーナンバー7",
+    "rakeback_bonus": "レイクバックボーナス",
     "group_bonus": "グループボーナス",
     "level_up_bonus": "レベルアップボーナス",
     "refer_bonus": "紹介ボーナス",
     "tournament_bonus": "トーナメントボーナス",
-    "vip_bonus_mystery_box": "VIPボーナスミステリーボックス"
+    "vip_bonus_mystery_box": "VIPボーナス ミステリーボックス"
   },
   "achievements_description": "VIP {{vip}}で解除されるこれらの報酬は、あなたの節目を祝うエキサイティングなサプライズをもたらします！",
   "lucky_number_seven_description": "ラッキーな{{number}}を当てて、毎日素敵なボーナスを獲得しよう！",
-"mystery_box_description": "毎月一度、ミステリーボックスを開けてサプライズ報酬を手に入れよう！",
+  "mystery_box_description": "毎月一度、ミステリーボックスを開けてサプライズ報酬を手に入れよう！",
+  "mystery_box_description2": "VIP {{vip}} をヒットして、毎月7日にミステリーボックスを受け取ろう！",
   "mystery_box": "ミステリーボックス",
   "the_cannon_description": "その真の力が厳重に秘匿されている、月間で最も強力な報酬です。",
   "achievements_progress_name": {
-    "achievement_verify_email": "メール認証",
-    "achievement_verify_phone": "電話認証",
-    "achievement_add_desktop_app": "デスクトップアプリ追加",
+    "achievement_verify_email": "メールを確認する",
+    "achievement_verify_phone": "電話を確認する",
+    "achievement_add_desktop_app": "ホーム画面に追加",
     "achievement_super_spreader": "スーパースプレッダー",
-    "achievement_conquistador": "コンキスタドール",
-    "achievement_game_explorer": "ゲームエクスプローラー"
+    "achievement_conquistador": "征服者",
+    "achievement_game_explorer": "ゲーム探検者"
   },
   "you_win": "あなたが勝ちました",
   "mystery": "ミステリー",
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "報酬はBUCK/USDTで計算および付与され、その後、利便性のためにリアルタイムの為替レートに基づいて選択した法定通貨で表示されます。すべての換算は、スワップ取引が完了するまで概算であることにご注意ください。",
   "general_terms_answer_2": "カジノは、理由を説明することなく、いつでも参加資格を変更または取り消す権利を留保します。不正行為や詐欺行為はプロモーションからの失格につながります。",
   "available": "利用可能",
-"refresh_in": "更新まであと",
-"deposit_bonus_pool": "入金ボーナスの集合"
+  "refresh_in": "更新まであと",
+  "deposit_bonus_pool": "入金ボーナスの集合",
+  "dashboard": "ダッシュボード",
+  "bonuses": "ボーナス",
+  "vip_program": "VIPプログラム",
+  "bonusHub": {
+    "root": "ボーナスハブ",
+    "resetOn": "{{time}}にリセット",
+    "ongoing": "{{count}} 継続中",
+    "accrualIn": "{{time}}での蓄積",
+    "nextReleaseIn": "{{time}}での次のリリース"
+  },
+  "freeSpins": "フリースピン",
+  "freeSpinsBonusDetails": "フリースピンボーナスは、選択されたスロットタイトルでの追加ゲームプレイを報酬として提供します。必要な金額を賭けることで、フリースピンの勝利が解除され、すぐにアカウント残高にクレジットされます。",
+  "freeSpinsClaimDistributionDescription1": "フリースピンの勝利は、賭け要件が完了し、'クレーム'をクリックするとアカウント残高にクレジットされます。",
+  "freeSpinsClaimDistributionDescription2": "ボーナスパネルまたはフリースピン履歴でいつでも進捗を追跡できます。",
+  "freeSpinsExpirationDescription1": "フリースピンは、フリースピンパネルに表示された有効期限内に使用する必要があります。未使用のスピンはこの期間後に失効します。",
+  "freeSpinsExpirationDescription2": "フリースピンからの勝利は、解除されてクレームされるまで失効しません。",
+  "freeSpinsGeneralTermsDescription1": "フリースピンの報酬はBUCKで計算され、クレジットされ、その後便利のために希望する法定通貨で表示されます。通貨の換算は概算であることに注意してください。",
+  "freeSpinsGeneralTermsDescription2": "カジノは、いつでも資格を変更または取り消す権利を留保し、正当化する義務はありません。いかなる悪用または詐欺行為も、プロモーションからの失格につながります。",
+  "the_collector": "コレクター",
+  "collector_description": "対象報酬、ワンクリック",
+  "claim_all": "すべてクレーム",
+  "claimConfirmation": "クレーム確認",
+  "readyToClaim": "クレームの準備ができました",
+  "selectClaimType": "以下からクレームタイプを選択してください",
+  "claimableAmount": "クレーム可能な金額",
+  "normalClaim": "通常のクレーム",
+  "normalClaimDesc": "標準の報酬金額を取得",
+  "doubleClaim": "ダブルクレーム",
+  "doubleClaimDesc": "2倍の報酬を得るためにリスクを取る！",
+  "doubleClaimInfo": "ダブルクレームオプション",
+  "doubleClaimRisk": "リスクが高いほど報酬も高い - 2倍の勝利を得るか、すべてを失うかもしれません！",
+  "claimModal": {
+    "title": "倍にするか、何もかも失うか",
+    "primaryDescription": "ボーナスをいつも通り請求してください...",
+    "secondaryDescription": "それとも、大胆に飛び込んで<highlight>倍にする！</highlight>",
+    "doubleAction": "倍にするか、何もかも失うか",
+    "comingSoon": "倍にするか、何もかも失うか機能が近日登場！",
+    "approximateBuck": "約{{amount}} バック"
+  },
+  "vip_monday": "VIP 月曜日",
+  "vip_monday_description": "毎週月曜日に忠実なプレイヤーを報いる特別なドロップ",
+  "vip_monday_wager": "前の7日間で少なくとも{{amount}}を賭けて、毎週月曜日にミステリードロップを受け取ります。",
+  "claim_on_monday": "月曜日に請求",
+  "vip_monday_title": "VIP \n <0>月曜日</0>",
+  "bonus_already_claimed": "ボーナスはすでに請求されています",
+  "wager_requirement_not_met": "賭け要件が満たされていません",
+  "not_in_claim_time_range": "請求時間範囲外です",
+  "monday": "月曜日",
+  "poolBalance": "プール残高",
+  "program": "プログラム",
+  "races": "レース",
+  "loading_achievements": "実績を読み込み中...",
+  "no_achievements_available": "利用可能な実績はありません",
+  "check_back_later_for_new_achievements": "新しい実績のために後で戻ってきてください"
 }

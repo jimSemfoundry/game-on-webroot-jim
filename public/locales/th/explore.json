@@ -1,4 +1,13 @@
 {
+  "handball": "แฮนด์บอล",
+  "formula1": "ฟอร์มูล่า 1",
+  "sportsLive": "ถ่ายทอดสด",
+  "football": "ฟุตบอล",
+  "tennis": "เทนนิส",
+  "baseball": "เบสบอล",
+  "iceHockey": "ฮอกกี้น้ำแข็ง",
+  "basketball": "บาสเกตบอล",
+  "volleyball": "วอลเลย์บอล",
   "hot": "ยอดนิยม",
   "all": "ทั้งหมด",
   "recents": "ล่าสุด",
@@ -29,6 +38,9 @@
   "oopsThereIsNoDataYet": "อุ๊ย! ยังไม่มีข้อมูล",
   "noResultsFound": "ไม่พบผลลัพธ์",
   "trySearchingWithDifferentKeywords": "ลองค้นหาด้วยคำอื่นดูสิ!",
+  "searchMinLength": "กรุณาใส่ตัวอักษรอย่างน้อย {{count}} ตัวเพื่อค้นหา.",
+  "searchPlaceholder": "เริ่มต้นโดยการใส่ชื่อเกม",
+  "searchInstructions": "กรุณาใส่สัญลักษณ์อย่างน้อย 3 ตัวเพื่อเริ่ม.",
   "featureBuy": "ซื้อฟีเจอร์",
   "enhancedRTP": "RTP ที่ปรับปรุงแล้ว",
   "megaways": "เมกะเวย์",
@@ -54,7 +66,8 @@
   "selected": "เลือกแล้ว",
   "sort": "เรียงลำดับ",
   "jackpot": "แจ็คพอต",
-      "live-casino": "คาสิโนสด",
-    "sports": "กีฬา",
-    "lotteries": "ลอตเตอรี่"
+  "live-casino": "คาสิโนสด",
+  "sports": "กีฬา",
+  "lotteries": "ลอตเตอรี่",
+  "gamesYouShouldTry": "เกมที่คุณควรลอง"
 }

@@ -48,11 +48,11 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
     >
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4 px-6 h-10 sm:h-12">
-          <img src={`/icons/vip-level/${order?.vip || 1}.png`} alt={order?.vip || '1'} className="w-10 h-10 sm:w-12 sm:h-12" />
+          <img src={`/images/vip/levels/${order?.vip || 1}.png`} alt={order?.vip || '1'} className="w-10 h-10 sm:w-12 sm:h-12" />
           <div className="flex flex-col justify-between">
             <span className="text-md sm:text-lg font-bold">{order?.nickname ?? 'Anonymous'}</span>
             <p className="text-xs sm:text-sm font-semibold text-base-content/50 flex items-center gap-1">
-              <span>{formatDateTime(order?.updated_at * 1000)}</span>
+              <span>{formatDateTime(order?.created_at * 1000)}</span>
               <Iconify icon="custom:shield" className="w-4 h-4 text-primary" />
             </p>
           </div>
@@ -80,7 +80,7 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
           </div>
 
           <div className="bg-base-300 rounded-field p-4 flex flex-col">
-            <p className="font-semibold text-base-content/50">{t('transaction:tableHeaders.payout')}</p>
+            <p className="font-semibold text-base-content/50">X</p>
             <p className="font-bold sm:text-lg text-base">
               {(Number(order.real_win_amount) / Number(order.real_bet_amount)).toLocaleString()}x
             </p>

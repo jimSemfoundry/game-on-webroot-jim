@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "像往常一樣領取您的獎金...\n或者大膽一跳到",
+  "double_it": "雙倍獎勵！",
+  "no_thanks": "不，謝謝",
+  "double_or_nothing": "雙倍或什麼都沒有",
+  "come_back_tomorrow": "明天再來",
+  "promo_code": "優惠碼",
+  "got_a_code": "有代碼嗎？你知道該怎麼做！",
+  "lifetime_bonus": "終身獎金",
+  "claimed": "已領取",
+  "starter": "入門",
+  "pack": "包",
+  "achievements_card_description": "收集特別成就獎勵，慶祝您每一步的進展！",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "掌握運氣的藝術",
+    "achievement_verify_phone": "無法阻擋的能量與力量",
+    "achievement_add_desktop_app": "隨時隨地可及",
+    "achievement_super_spreader": "分享遊戲體驗",
+    "achievement_conquistador": "面對每一個障礙",
+    "achievement_game_explorer": "發現新的遊戲世界",
+    "achievement_card_shark": "主宰牌類遊戲",
+    "achievement_slotmaster": "掌握老虎機",
+    "achievement_talkative": "為他人引路",
+    "achievement_bet_count": "掌握精準遊戲",
+    "achievement_deposit_count": "達成終極勝利",
+    "achievement_wager_count": "燃燒挑戰",
+    "achievement_single_bet": "成為傳奇",
+    "achievement_single_deposit": "導航區塊鏈網絡",
+    "achievement_single_wager": "掌握財務策略",
+    "achievement_single_payout": "主宰加密市場",
+    "achievement_crypto_bro": "掌握加密貨幣交易",
+    "achievement_crypto_baron": "主宰加密市場",
+    "achievement_chain_shifter": "導航區塊鏈網絡",
+    "achievement_money_master": "掌握財務策略",
+    "achievement_sniper": "掌握精準遊戲",
+    "achievement_champion": "達成終極勝利",
+    "achievement_name_of_fame": "成為傳奇",
+    "achievement_guiding_star": "為他人引路",
+    "achievement_face_of_fortune": "掌握運氣的藝術",
+    "achievement_dynamo": "無法阻擋的能量與力量",
+    "achievement_inferno": "燃燒挑戰",
+    "achievement_the_challenger": "面對每一個障礙"
+  },
   "bonus": "獎金",
   "total_bonus_claimed": "已領取的獎金總額",
   "details": "詳情",
   "redeem": "兌換",
-"deposit_bonus": "存款獎金集合",
+  "deposit_bonus": "存款獎金集合",
   "get_up_to": "最高可得",
   "deposit_now": "立即存款",
   "bonus_ends_in": "獎金截止時間",
@@ -26,7 +68,7 @@
   "daily_cashback": "每日返現",
   "bonus_calendar": "獎金日曆",
   "claim_every_8_hours": "每8小時領取一次",
-"locked": "存款獎金池",
+  "locked": "存款獎金池",
   "next_claim_in": "下一次領取在",
   "bonus_pool": "即將推出的獎勵",
   "bonus_calendar_details": "每8小時領取一次獎金！",
@@ -34,6 +76,7 @@
   "total_vip_bonus_claimed": "已領取的貴賓獎金總額",
   "your_vip_progress": "您的貴賓進度",
   "available_at_vip": "在貴賓{{vip}}級可用",
+  "vip_progress_description": "繼續前進！下一級將從您的獎金池中解鎖 {{amount}}。",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "達到貴賓4級，即可解鎖幸運轉盤，每天都有機會贏得額外獎勵！",
   "weekly_cashback": "每週返現",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "達到貴賓12級，即可解鎖每週返現，為您的高額投注提供個人安全保障！",
@@ -49,6 +92,7 @@
   "lucky_spin": "幸運轉盤",
   "lucky_number_seven": "幸運七號",
   "expires_in": "過期時間",
+  "expires": "到期",
   "go": "開始",
   "conquest_just_wager_title": "只需投注{{amount}}",
   "conquest_just_wager_description": "在單日內任何遊戲中投注{{amount}}，即可從您今日的獎金池中釋放{{reward}}！",
@@ -99,131 +143,188 @@
   "claimable": "可領取",
   "achievement_verify_email": {
     "name": "驗證電子郵件",
-    "description": "此成就授予驗證了電子郵件、確認身份並解鎖安全訪問的玩家。這是準備就緒和可信賴的標誌，也是每位認真玩家的第一步。"
+    "description": "此成就頒發給已驗證其電子郵件的玩家，鎖定其身份並解鎖安全訪問。這是每位認真玩家的第一步，象徵著準備和可靠性。"
   },
   "achievement_verify_phone": {
-    "name": "驗證手機號碼",
-    "description": "此成就授予驗證了手機號碼以保持聯繫和獲取最新資訊的玩家。這象徵著信任、參與和對遊戲動態的投入。"
+    "name": "驗證電話",
+    "description": "此成就頒發給已驗證其電話號碼的玩家，以保持信息通暢和連接。它象徵著信任、參與和對遊戲脈動的承諾。"
   },
   "achievement_add_desktop_app": {
-    "name": "添加到主螢幕",
-    "description": "此成就授予將我們的Telegram迷你應用程式添加到主螢幕的玩家。隨時觸手可及，此舉動展現了真正的奉獻精神——因為真正的玩家總是將遊戲保持在身邊。"
+    "name": "添加到主屏幕",
+    "description": "此成就頒發給已將我們的 Telegram 小應用添加到主屏幕的玩家。隨時可及，這一行動顯示了真正的奉獻精神——因為真正的玩家會將遊戲放在身邊。"
   },
   "achievement_super_spreader": {
-    "name": "超級傳播者",
-    "description": "此成就授予成功推薦<0>{{count}}位新用戶</0>的玩家。他們是真正的社群建設者，擴大了遊戲圈子，為遊戲注入了新的活力。他們的影響力隨著每一個新聯繫而增長。"
+    "name": "超級擴散者",
+    "description": "此成就頒發給成功推薦 <0>{{count}} 名新用戶</0> 的玩家。真正的社區建設者，他們擴大圈子，為遊戲帶來新能量。隨著每一次連接，他們的影響力不斷增長。"
   },
   "achievement_conquistador": {
     "name": "征服者",
-    "description": "此成就授予總共完成<0>{{count}}項任務</0>的玩家。在決心和對勝利的渴望驅使下，他們征服了每一個挑戰——真正的征途冠軍。"
+    "description": "此成就頒發給完成總共 <0>{{count}} 個任務</0> 的玩家。由決心和對勝利的渴望驅動，他們征服每一個挑戰——真正的旅程冠軍。"
   },
   "achievement_game_explorer": {
     "name": "遊戲探索者",
-    "description": "此成就授予嘗試過<0>{{count}}種不同遊戲</0>的玩家。他們充滿好奇心和探險精神，在平台上冒險，總是渴望發現新的玩法和贏錢方式。"
+    "description": "此成就頒發給嘗試過 <0>{{count}} 款不同遊戲</0> 的玩家。好奇而冒險，他們在平台上探索，總是渴望發現新的遊玩和獲勝方式。"
   },
   "achievement_card_shark": {
-    "name": "紙牌高手",
-    "description": "此成就授予在紙牌遊戲中下注至少<0>{{amount}}</0>的玩家，證明了他們的應變能力、策略和承擔風險的意願。這些高額玩家已躋身菁英行列。牌在他們手中，遊戲由他們掌控。"
+    "name": "牌類高手",
+    "description": "此成就頒發給在牌類遊戲中至少下注 <0>{{amount}}</0> 的玩家，證明了他們的韌性、策略和冒險精神。這些高風險玩家已經贏得了精英中的一席之地。牌在他們手中，遊戲由他們掌控。"
   },
   "achievement_slotmaster": {
     "name": "老虎機大師",
-    "description": "此成就授予在老虎機遊戲中下注至少<0>{{amount}}</0>的玩家，證明了他們的毅力、追求刺激的精神和對旋轉的熱愛。這些執著玩家滿懷信心地擁抱轉輪——運氣可能引導他們，但精湛的技術讓他們在遊戲中立於不敗。"
+    "description": "此成就頒發給在老虎機遊戲中至少下注 <0>{{amount}}</0> 的玩家，證明了他們的堅持、追求刺激的精神和對旋轉的熱愛。這些專注的玩家自信地擁抱轉輪——運氣可能引領，但精通讓他們留在遊戲中。"
   },
   "achievement_talkative": {
-    "name": "健談者",
-    "description": "此成就授予在聊天室中發言<0>{{count}}次</0>的玩家。每條資訊都很重要——您正在邁向成為聊天室真正一員的第一步。"
+    "name": "健談",
+    "description": "此成就頒發給在聊天室中發言 <0>{{count}} 次</0> 的玩家。每條消息都很重要——您正在邁出成為真正對話一部分的第一步。"
   },
   "achievement_bet_count": {
-    "name": "投注次數",
-    "description": "此成就授予總共下注<0>{{count}}次</0>的玩家。他們是機會的忠實信徒，他們堅定不移的精神讓遊戲在每一次下注中都充滿活力。"
+    "name": "下注次數",
+    "description": "此成就頒發給總共下注 <0>{{count}} 次</0> 的玩家。真正相信機會的人，他們堅定的精神讓遊戲在每次下注中保持活力。"
   },
   "achievement_deposit_count": {
     "name": "存款次數",
-    "description": "此成就授予總共進行<0>{{count}}次存款</0>的玩家。憑藉穩定的存款和堅定的承諾，他們證明了自己不僅是玩家，更是正在崛起的博彩大亨。"
+    "description": "此成就頒發給總共進行 <0>{{count}} 次存款</0> 的玩家。隨著穩定的信用流和不懈的承諾，他們顯示出他們不僅僅是玩家——他們是正在崛起的巨頭。"
   },
   "achievement_change_avatar": {
-    "name": "更換頭像",
-    "description": "此成就授予通過更換頭像來個性化個人資料的玩家。這是在遊戲中脫穎而出並擁有自己身份的大膽一步。"
+    "name": "更改頭像",
+    "description": "此成就頒發給通過更改頭像來個性化其個人資料的玩家。這是邁向脫穎而出和擁有自己身份的勇敢一步。"
   },
   "achievement_set_username": {
     "name": "設置用戶名",
-    "description": "您已經擁有了自己的名字——現在傳奇開始了。此成就表彰那些開辟自己的空間並將其正式化的玩家。"
+    "description": "您已經聲明了您的名字——現在傳奇開始了。此成就表彰那些開創自己空間並使其正式的人。"
   },
   "achievement_download_mobile_app": {
-    "name": "下載移動應用程式",
-    "description": "此成就授予下載了移動應用程式、隨時隨地享受遊戲的玩家。下載應用程式表明您不是來短暫體驗，而是準備好隨時暢玩無阻。"
+    "name": "下載移動應用",
+    "description": "此徽章頒發給將遊戲帶到身邊的玩家。下載應用顯示您不是來這裡暫停的——您是來隨時隨地玩遊戲的。"
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "單日單場最高投注",
-    "description": "此成就授予在單日內單個遊戲中下注至少<0>{{amount}}</0>的玩家。它表彰那些擁有堅定專注、精算策略和敢於冒險的勇氣的玩家。這些菁英玩家已掌握他們所選擇的遊戲——他們為贏而玩。"
+    "name": "單一遊戲一天內最大下注",
+    "description": "此成就頒發給在一天內在單一遊戲中下注至少 <0>{{amount}}</0> 的玩家。它表彰那些擁有不屈不撓的專注、計算策略和勇於冒險的勇氣。這些精英玩家已經掌握了他們所選擇的遊戲——而且他們是為了贏而玩。"
   },
   "achievement_slots_win_count": {
-    "name": "老虎機贏次",
-    "description": "此成就授予在老虎機遊戲中贏得<0>{{count}}場勝利</0>的玩家。每一次旋轉，他們都挑戰賠率並慶祝一次又一次的勝利。運氣可能是遊戲的開端，但始終如一讓他們成為冠軍。"
+    "name": "老虎機勝利次數",
+    "description": "此成就頒發給在老虎機遊戲中獲得 <0>{{count}} 次勝利</0> 的玩家。隨著每一次旋轉，他們挑戰機率，慶祝一次又一次的勝利。運氣可能開始遊戲——但穩定性使他們成為冠軍。"
   },
   "achievement_slots_multiplier": {
     "name": "老虎機倍數",
-    "description": "此成就授予在單次老虎機旋轉中獲得<0>{{count}}倍或更高倍率的勝利</0>的玩家。它表彰那些追逐卓越、敢於挑戰高風險並贏得豐厚獎勵的玩家。他們是非凡的玩家——他們掌控轉盤，超越眾人。"
+    "description": "此成就頒發給在單次老虎機旋轉中獲得 <0>{{count}} 倍或以上的勝利</0> 的玩家。它表彰那些追求卓越、擁抱高風險刺激並獲得非凡獎勵的人。這些不是普通玩家——他們掌控轉輪，超越其他人。"
+  },
+  "achievement_champion": {
+    "name": "冠軍",
+    "description": "此成就頒發給已獲得 <0>10 次勝利</0> 的玩家。冠軍在機會的競技場中屹立不搖，證明了他們的堅韌不拔。每一次勝利，他們都鞏固了自己在超越運氣、獲得榮耀的競爭者中的地位。"
+  },
+  "achievement_slot_master": {
+    "name": "老虎機大師",
+    "description": "此成就頒發給在老虎機遊戲中至少下注 <0>{{amount}}</0> 的玩家。老虎機大師自信而堅持地旋轉每一個轉輪，將每一次旋轉變成獲得財富的機會。以穩定的手和無畏的玩法，他們證明了真正的大師是一步一步建立起來的。"
+  },
+  "achievement_the_challenger": {
+    "name": "挑戰者",
+    "description": "此成就頒發給在遊玩歷史中至少下過 <0>10 次有效投注</0> 的玩家。挑戰者迎接每一個機會，受到決心和競爭刺激的驅動。大膽而不屈，他們證明了真正的競爭者不會退縮 — 他們會向前邁進，準備挑戰自己的極限，並在無畏者中佔有一席之地。"
+  },
+  "achievement_dynamo": {
+    "name": "動力者",
+    "description": "此成就頒發給在單次交易中完成至少 <0>{{amount}}</0> 的 <0>1 次存款</0> 的玩家。動力者隨著每次充值變得更強，證明了他們在追求大師之路上的一致性和決心。"
+  },
+  "achievement_face_of_fortune": {
+    "name": "財富之面",
+    "description": "此成就頒發給首次自定義其虛擬形象的玩家。財富之面知道身份就是力量 — 每一個風格、符號或表達的選擇都是個性的標誌。通過塑造自己的外觀，他們展示了真正的玩家不僅僅是玩遊戲 — 他們在遊戲中留下了自己的印記。"
+  },
+  "achievement_name_of_fame": {
+    "name": "名聲之名",
+    "description": "此成就頒發給首次設置用戶名的玩家。名聲之名標誌著真正身份的開始，將新手轉變為被認可的存在。大膽而獨特，他們證明了每一個傳奇都始於一個被記住的名字。"
+  },
+  "achievement_guiding_star": {
+    "name": "指引之星",
+    "description": "此成就頒發給將遊戲添加到主屏幕或下載應用的玩家。指引之星保持通往財富的道路清晰，只需輕觸一下即可照亮回到遊玩的路。"
+  },
+  "achievement_highroller": {
+    "name": "高額投注者",
+    "description": "此成就頒發給在整個遊玩歷史中總共下注至少 <0>{{amount}}</0> 的玩家。高額投注者承載著承諾和聲望的印記，通過每一次旋轉、每一筆投注和每一輪遊戲證明了他們對遊戲的奉獻。他們的冠冕不僅僅是一個象徵 — 它是堅持、熱情和追求財富的見證。"
+  },
+  "achievement_inferno": {
+    "name": "地獄火",
+    "description": "此成就頒發給在任何老虎機上達到 <0>20x</0> 乘數的玩家。隨著火焰咆哮，地獄火將單一的投注轉變為一場財富的火storm。"
+  },
+  "achievement_money_maverick": {
+    "name": "金錢獨行俠",
+    "description": "此成就頒發給在單次交易中存入至少 <0>{{amount}}</0> 的玩家，使用法幣或本地支付網關。金錢獨行俠以大膽的自信開創自己的道路，將日常現金轉變為非凡的機會。無畏而冒險，他們證明了真正的獨行俠不僅僅是遵循規則 — 他們重新定義了規則。"
+  },
+  "achievement_money_master": {
+    "name": "金錢大師",
+    "description": "此成就頒發給在單次交易中完成至少 <0>{{amount}}</0> 的法幣提款的玩家。金錢大師在遊戲和獎勵的交匯點上屹立不搖，將他們的獲勝轉化為現實價值。以穩定的手和敏銳的時機，他們展示了真正的大師不僅僅在遊戲中 — 而是在將獎勵帶回家中。"
+  },
+  "achievement_crypto_bro": {
+    "name": "加密兄弟",
+    "description": "此成就頒發給在單次交易中存入至少 <0>{{amount}}</0> 的玩家，使用任何加密貨幣。加密大師像真正的藝術家一樣指揮他們的資金，以精確和風格編排數字資產。在區塊鏈舞台上自信，他們是遊戲的先驅，證明了財富青睞大膽者。"
+  },
+  "achievement_crypto_baron": {
+    "name": "加密男爵",
+    "description": "此成就頒發給在單次交易中完成至少 <0>{{amount}}</0> 的加密提款的玩家，使用任何加密貨幣。區塊鏈男爵統治著數字資產的領域，自信而果斷地在鏈上移動資金。每一次成功的提款，他們證明了財富可以在區塊鏈上賺取、保護並帶回家。"
+  },
+  "achievement_chain_shifter": {
+    "name": "鏈上轉換者",
+    "description": "此成就頒發給成功完成 <0>加密交換交易</0> 的玩家。鏈上轉換者是知道如何自信地在代幣之間移動的人，輕鬆適應市場潮流。作為動量的大師，他們在靈活性和轉變中茁壯成長，隨時準備換檔並抓住機會。"
   },
   "item": {
-    "conquest_just_wager_on_100": "征服：投注100",
-    "conquest_just_wager_on_200": "征服：投注200",
+    "conquest_just_wager_on_100": "征服 100 下注",
+    "conquest_just_wager_on_200": "征服 200 下注",
     "conquest_roulette_master": "征服輪盤大師",
     "conquest_blackjack_master": "征服二十一點大師",
     "conquest_baccarat_master": "征服百家樂大師",
     "conquest_gameshow_master": "征服遊戲秀大師",
-    "conquest_slots_master_10": "征服老虎機大師10",
-    "conquest_gameshow_master_20": "征服遊戲秀大師20",
-    "conquest_roulette_master_30": "征服輪盤大師30",
-    "conquest_blackjack_master_40": "征服二十一點大師40",
-    "conquest_baccarat_master_50": "征服百家樂大師50",
-    "conquest_big_win": "征服大贏",
-    "conquest_huge_win": "征服巨贏",
-    "conquest_massive_win": "征服超級大贏",
+    "conquest_slots_master_10": "征服老虎機大師 10",
+    "conquest_gameshow_master_20": "征服遊戲秀大師 20",
+    "conquest_roulette_master_30": "征服輪盤大師 30",
+    "conquest_blackjack_master_40": "征服二十一點大師 40",
+    "conquest_baccarat_master_50": "征服百家樂大師 50",
+    "conquest_big_win": "征服大獎",
+    "conquest_huge_win": "征服巨大獎",
+    "conquest_massive_win": "征服龐大獎",
     "achievement_verify_email": "成就 驗證電子郵件",
-    "achievement_verify_phone": "成就 驗證電話號碼",
-    "achievement_add_desktop_app": "成就 新增桌面應用程式",
-    "achievement_super_spreader": "成就 超級傳播者",
+    "achievement_verify_phone": "成就 驗證電話",
+    "achievement_add_desktop_app": "成就 添加桌面應用",
+    "achievement_super_spreader": "成就 超級擴散者",
     "achievement_conquistador": "成就 征服者",
     "achievement_game_explorer": "成就 遊戲探索者",
-    "achievement_card_shark": "成就 撲克高手",
-    "achievement_slotmaster": "成就 拉霸大師",
-    "achievement_talkative": "成就 健談者",
-    "achievement_bet_count": "成就 投注次數",
+    "achievement_card_shark": "成就 牌類高手",
+    "achievement_slotmaster": "成就 老虎機大師",
+    "achievement_talkative": "成就 健談",
+    "achievement_bet_count": "成就 下注次數",
     "achievement_deposit_count": "成就 存款次數",
-    "achievement_change_avatar": "成就 更換頭像",
-    "achievement_set_username": "成就 設定使用者名稱",
-    "achievement_download_mobile_app": "成就 下載行動應用程式",
-    "achievement_wager_in_a_day_single_game": "成就 單日單遊戲投注",
-    "achievement_slots_win_count": "成就 拉霸機獲勝次數",
-    "achievement_slots_multiplier": "成就 拉霸機倍數",
+    "achievement_change_avatar": "成就 更改頭像",
+    "achievement_set_username": "成就 設置用戶名",
+    "achievement_download_mobile_app": "成就 下載移動應用",
+    "achievement_wager_in_a_day_single_game": "成就 單一遊戲一天內最大下注",
+    "achievement_slots_win_count": "成就 老虎機勝利次數",
+    "achievement_slots_multiplier": "成就 老虎機倍數",
     "level_up": "升級",
     "rakeback": "返佣",
-    "cashback": "返現",
+    "cashback": "現金回饋",
     "group": "佣金",
     "referral": "推薦",
     "tournament": "錦標賽",
     "conquest_extra_reward": "征服額外獎勵",
     "bonus": "獎金",
     "bonus_manual": "手動獎金",
-    "vip_bonus_lucky_number_seven": "VIP幸運七號獎金",
-    "rakeback_bonus": "返水獎金",
+    "vip_bonus_lucky_number_seven": "VIP 獎金 幸運數字七",
+    "rakeback_bonus": "返佣獎金",
     "group_bonus": "團體獎金",
     "level_up_bonus": "升級獎金",
     "refer_bonus": "推薦獎金",
     "tournament_bonus": "錦標賽獎金",
-    "vip_bonus_mystery_box": "VIP獎金神秘盒"
+    "vip_bonus_mystery_box": "VIP 獎金 神秘盒子"
   },
   "achievements_description": "在VIP {{vip}}解鎖，這些獎勵透過一路上的精彩驚喜慶祝您的里程碑！",
   "lucky_number_seven_description": "擊中幸運的{{number}}，每天贏取甜美獎金！",
-"mystery_box_description": "每月打開一次神秘盒，贏取驚喜獎勵！",
+  "mystery_box_description": "每月打開一次神秘盒，贏取驚喜獎勵！",
+  "mystery_box_description2": "每月7日達到VIP {{vip}} 即可獲得神秘盒子！",
   "mystery_box": "神秘箱",
   "the_cannon_description": "一項每月獎勵，其真正性質仍是嚴密保守的秘密。",
   "achievements_progress_name": {
     "achievement_verify_email": "驗證電子郵件",
-    "achievement_verify_phone": "驗證手機",
-    "achievement_add_desktop_app": "新增桌面應用程式",
-    "achievement_super_spreader": "超級傳播者",
+    "achievement_verify_phone": "驗證電話",
+    "achievement_add_desktop_app": "添加桌面應用",
+    "achievement_super_spreader": "超級擴散者",
     "achievement_conquistador": "征服者",
     "achievement_game_explorer": "遊戲探索者"
   },
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "獎勵以BUCK/USDT計算和記入，然後根據實時匯率以您首選的法定貨幣顯示，方便使用。請注意，所有轉換均為近似值，直到完成兌換交易。",
   "general_terms_answer_2": "賭場保留隨時修改或撤銷資格的權利，且無需提供理由。任何濫用或欺詐行為將導致被取消促銷資格。",
   "available": "可用",
-"refresh_in": "刷新於",
-"deposit_bonus_pool": "存款獎金池"
+  "refresh_in": "刷新於",
+  "deposit_bonus_pool": "存款獎金池",
+  "dashboard": "儀表板",
+  "bonuses": "獎金",
+  "vip_program": "VIP計劃",
+  "bonusHub": {
+    "root": "獎金中心",
+    "resetOn": "重置於 {{time}}",
+    "ongoing": "{{count}} 進行中",
+    "accrualIn": "累積於 {{time}}",
+    "nextReleaseIn": "下次釋放於 {{time}}"
+  },
+  "freeSpins": "免費旋轉",
+  "freeSpinsBonusDetails": "免費旋轉獎金為您提供在選定老虎機標題上的額外遊玩。滿足所需的投注金額即可解鎖您的免費旋轉獲勝，然後可以立即存入您的帳戶餘額。",
+  "freeSpinsClaimDistributionDescription1": "免費旋轉獲勝將在滿足投注要求並點擊「索取」後存入您的帳戶餘額。",
+  "freeSpinsClaimDistributionDescription2": "隨時在您的獎金面板或免費旋轉歷史中跟踪您的進度。",
+  "freeSpinsExpirationDescription1": "免費旋轉必須在免費旋轉面板中顯示的有效期內使用。未使用的旋轉將在此期間後過期。",
+  "freeSpinsExpirationDescription2": "免費旋轉的獲勝在解鎖和索取之前不會過期。",
+  "freeSpinsGeneralTermsDescription1": "免費旋轉獎勵以BUCK計算並存入，然後為方便起見顯示為您首選的法定貨幣。請注意，貨幣轉換為近似值。",
+  "freeSpinsGeneralTermsDescription2": "賭場保留隨時修改或撤銷資格的權利，無需說明。任何濫用或欺詐行為將導致取消參加促銷活動的資格。",
+  "the_collector": "收集者",
+  "collector_description": "符合條件的獎勵，一鍵獲取",
+  "claim_all": "全部索取",
+  "claimConfirmation": "索取確認",
+  "readyToClaim": "準備索取",
+  "selectClaimType": "請在下方選擇您的索取類型",
+  "claimableAmount": "可索取金額",
+  "normalClaim": "正常索取",
+  "normalClaimDesc": "獲取您的標準獎勵金額",
+  "doubleClaim": "雙倍索取",
+  "doubleClaimDesc": "冒險獲得2倍獎勵！",
+  "doubleClaimInfo": "雙倍索取選項",
+  "doubleClaimRisk": "風險越高，獎勵越高 - 您可能會贏得雙倍或失去所有！",
+  "claimModal": {
+    "title": "雙倍或什麼都沒有",
+    "primaryDescription": "像往常一樣領取您的獎金...",
+    "secondaryDescription": "或者大膽一跳到 <highlight>雙倍獎勵！</highlight>",
+    "doubleAction": "雙倍或什麼都沒有",
+    "comingSoon": "雙倍或什麼都沒有功能即將推出！",
+    "approximateBuck": "約 {{amount}} 美元"
+  },
+  "vip_monday": "VIP 週一",
+  "vip_monday_description": "每週一的特別獎勵，回饋忠實玩家",
+  "vip_monday_wager": "在前 7 天內至少下注 {{amount}}，每週一可獲得神秘獎勵。",
+  "claim_on_monday": "週一領取",
+  "vip_monday_title": "VIP \n <0>週一</0>",
+  "bonus_already_claimed": "獎金已經領取",
+  "wager_requirement_not_met": "未滿足下注要求",
+  "not_in_claim_time_range": "不在領取時間範圍內",
+  "monday": "週一",
+  "poolBalance": "獎金池餘額",
+  "program": "計劃",
+  "races": "賽事",
+  "loading_achievements": "加載成就中...",
+  "no_achievements_available": "沒有可用的成就",
+  "check_back_later_for_new_achievements": "稍後查看以獲取新成就"
 }

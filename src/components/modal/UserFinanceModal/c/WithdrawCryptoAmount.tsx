@@ -1,11 +1,11 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import {
+  open_debug,
   perRangeOptions,
   useAvailableBalance,
-  useSupportedCryptoWithdrawGatewaysFilter,
+  useSupportedCryptoWithdrawGatewaysFilter
 } from "@/components/modal/UserFinanceModal/helper.ts";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { MotionContentBox } from "@/components/modal/UserFinanceModal/c/MotionContentBox.tsx";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
@@ -20,19 +20,32 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { FormatAmount } from "sunmoon-working-components";
-import { InputBox } from "@/components/modal/UserFinanceModal/c/InputBox.tsx";
+import {
+  DisplayContent,
+  InnerProviderAmountRangeFormat,
+  InputBox
+} from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { TFunction } from "i18next";
+import { useNavigate } from "@tanstack/react-router";
+import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import classNames from "classnames";
 
 interface OptionProps {
   label: string;
-  value: string;
+  value: number;
 }
 
 export const WithdrawCryptoAmount = () => {
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
 
   const [option, selected] = useState<OptionProps | null>(null);
 
   const [loading, { set }] = useToggle<boolean>(false);
+
+  // finance 弹窗控制开关
+  const { closeUserFinanceModal } = useFinanceModal();
 
   // from data store, share common data
   const { withdrawCrypto, setWithdrawCrypto, syncAction, setSyncAction } = useBoundStore();
@@ -46,44 +59,56 @@ export const WithdrawCryptoAmount = () => {
   // 提款范围错误提示
   const rangeError = useMemo(() => {
     return (
-      (withdrawCrypto.inputAmount !== "" && Decimal(Number(withdrawCrypto.inputAmount)).lt(withdrawCrypto.network?.min ?? 0)) ||
+      (!!withdrawCrypto.inputAmount && Decimal(Number(withdrawCrypto.inputAmount)).lt(withdrawCrypto.network?.min ?? 0)) ||
       Decimal(Number(withdrawCrypto.inputAmount)).gt(withdrawCrypto.network?.max ?? 0)
     );
   }, [withdrawCrypto.inputAmount, withdrawCrypto.network]);
 
   // 输入的提款数量大于余额
   const insufficient = useMemo(() => {
-    return withdrawCrypto.inputAmount !== "" && Decimal(Number(withdrawCrypto.inputAmount)).gt(availableAndLocked.available);
-  }, [withdrawCrypto.inputAmount]);
+    return !!withdrawCrypto.inputAmount && Decimal(Number(withdrawCrypto.inputAmount)).gt(availableAndLocked.available);
+  }, [withdrawCrypto.inputAmount, availableAndLocked.available]);
 
   // 小于最小提款数量限制错误
   const lessThanMinimum = useMemo(() => {
     return Decimal(availableAndLocked.available).lt(withdrawCrypto.network?.min ?? 0);
-  }, [withdrawCrypto.network, availableAndLocked]);
+  }, [withdrawCrypto.network, availableAndLocked.available]);
+
+  // 无地址 / 无输入 拒绝
+  const inoutError = useMemo(() => !withdrawCrypto.inputAmount || !withdrawCrypto.toWallet, [withdrawCrypto.inputAmount, withdrawCrypto.toWallet])
 
   const calcWithdrawAmount = useCallback(
     (option: Record<string, any>) => {
       const min = withdrawCrypto.network?.min ?? 0;
       const max = withdrawCrypto.network?.max ?? 0;
       const balance = Decimal(availableAndLocked.available);
-      switch (option?.value) {
-        case "min":
+      switch (option?.label) {
+        case "Min":
           setWithdrawCrypto({ inputAmount: balance.lt(min) ? 0 : min });
           break;
         case "25%":
           const de_25 = Decimal(balance).mul(0.25);
-          setWithdrawCrypto({ inputAmount: de_25.gt(max) ? max : de_25.toString() });
+          let de_25_final_value = de_25.toString();
+          if (de_25.lt(min)) de_25_final_value = min;
+          if (de_25.gt(max)) de_25_final_value = max;
+          setWithdrawCrypto({ inputAmount: de_25_final_value });
           break;
         case "50%":
           const de_50 = Decimal(balance).mul(0.5);
-          setWithdrawCrypto({ inputAmount: de_50.gt(max) ? max : de_50.toString() });
+          let de_50_final_value = de_50.toString();
+          if (de_50.lt(min)) de_50_final_value = min;
+          if (de_50.gt(max)) de_50_final_value = max;
+          setWithdrawCrypto({ inputAmount: de_50_final_value });
           break;
-        case "max":
-          setWithdrawCrypto({ inputAmount: Decimal.min(balance, max).toString() });
+        case "Max":
+          const de_100 = Decimal(balance);
+          let de_100_final_value = de_100.toString();
+          if (de_100.gt(max)) de_100_final_value = max;
+          setWithdrawCrypto({ inputAmount: de_100_final_value });
           break;
       }
     },
-    [availableAndLocked.available, withdrawCrypto.network],
+    [availableAndLocked.available, withdrawCrypto.network]
   );
 
   // 根据输入的值判断快捷选项激活
@@ -92,30 +117,29 @@ export const WithdrawCryptoAmount = () => {
       const d_min = withdrawCrypto.network?.min ?? 0;
       const d_amount = Decimal(amount || 0);
       const d_balance = Decimal(availableAndLocked.available);
-      if (d_amount.lte(0)) return;
       if (d_amount.eq(d_min)) {
-        const find = perRangeOptions.find((o) => o.value === "min");
+        const find = perRangeOptions.find((o) => o.value === 0);
         selected(find!);
         return;
       }
-      if (d_amount.eq(d_balance)) {
-        const find = perRangeOptions.find((o) => o.value === "max");
+      if (d_amount.eq(d_balance.toDP(withdrawCrypto.currency?.display_decimal, Decimal.ROUND_DOWN))) {
+        const find = perRangeOptions.find((o) => o.value === 1);
         selected(find!);
         return;
       }
-      if (d_amount.eq(d_balance.mul(0.25))) {
-        const find = perRangeOptions.find((o) => o.value === "25%");
+      if (d_amount.eq(d_balance.mul(0.25).toDP(withdrawCrypto.currency?.display_decimal, Decimal.ROUND_DOWN)) && d_amount.gte(d_min)) {
+        const find = perRangeOptions.find((o) => o.value === 0.25);
         selected(find!);
         return;
       }
-      if (d_amount.eq(d_balance.mul(0.5))) {
-        const find = perRangeOptions.find((o) => o.value === "50%");
+      if (d_amount.eq(d_balance.mul(0.5).toDP(withdrawCrypto.currency?.display_decimal, Decimal.ROUND_DOWN)) && d_amount.gte(d_min)) {
+        const find = perRangeOptions.find((o) => o.value === 0.5);
         selected(find!);
         return;
       }
       selected(null);
     },
-    [availableAndLocked.available, withdrawCrypto.network],
+    [availableAndLocked.available, withdrawCrypto.network, withdrawCrypto.currency]
   );
 
   // 手续费
@@ -141,6 +165,19 @@ export const WithdrawCryptoAmount = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
+    if (open_debug) {
+      console.info("Withdraw Crypto Order Data");
+      console.info({
+        pin: md5(syncAction?.data),
+        amount: withdrawCrypto.inputAmount,
+        network: withdrawCrypto.network?.network,
+        comment: withdrawCrypto.comment,
+        currency: withdrawCrypto.currency?.currency,
+        wallet_address: withdrawCrypto.toWallet
+      });
+      return;
+    }
+
     set(true);
     authService
       .createWithdrawCryptoOrder({
@@ -149,18 +186,19 @@ export const WithdrawCryptoAmount = () => {
         network: withdrawCrypto.network?.network,
         comment: withdrawCrypto.comment,
         currency: withdrawCrypto.currency?.currency,
-        wallet_address: withdrawCrypto.toWallet,
+        wallet_address: withdrawCrypto.toWallet
       })
       .then((res) => {
-        if (res.code === 0) {
+        fn_withdraw_common_status(() => {
           setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL");
-        } else if (res.code === 4) {
-          toast.error(t("toast:pinError"));
-        } else if (res.code === 7) {
-          toast.error(t("toast:youArleadyHaveAPendingWithdrawalOrder"));
-        } else {
-          toast.error(t("toast:failedToCreateWithdrawalOrder"));
-        }
+
+          // 清空表单数据
+          setWithdrawCrypto({
+            comment: "",
+            toWallet: "",
+            inputAmount: ""
+          });
+        }, res.code, t);
       })
       .catch(() => {
         toast.error(t("toast:failedToCreateWithdrawalOrder"));
@@ -179,6 +217,7 @@ export const WithdrawCryptoAmount = () => {
   return (
     <>
       <div className="flex flex-col">
+        {/* TON comment add */}
         <MotionContentBox
           sample
           show={withdrawCrypto.network?.network === "TON"}
@@ -202,17 +241,23 @@ export const WithdrawCryptoAmount = () => {
               <SmallLoading
                 loading={isGatewaysLoading}
                 content={
-                  <>
+                  <div className={"flex gap-1"}>
                     <BadgeAlert
                       className="w-4 h-4 cursor-pointer"
                       onClick={() => {
                         setSyncAction("OPEN_WITHDRAW_MIN_AMOUNT_MODAL");
                       }}
                     />
-                    <p className="text-xs">
-                      {t("finance:min")}: {withdrawCrypto.network?.min?.toLocaleString() ?? "?"} {withdrawCrypto.currency?.currency}
-                    </p>
-                  </>
+                    <div className={"flex flex-col text-[10px]"}>
+                      <p className="text-xs">
+                        {t("finance:min")}:{" "}{withdrawCrypto.network?.min}{" "}{withdrawCrypto.currency?.currency}
+                      </p>
+                      <InnerProviderAmountRangeFormat
+                        min={withdrawCrypto.network?.min}
+                        max={withdrawCrypto.network?.max}
+                        currency={withdrawCrypto.currency?.currency} />
+                    </div>
+                  </div>
                 }
               />
             </div>
@@ -227,13 +272,17 @@ export const WithdrawCryptoAmount = () => {
               setWithdrawCrypto({ inputAmount: values.value });
               calcWithdrawOption(values.value);
             }}
-            decimalScale={withdrawCrypto.currency?.decimal}
+            disabled={lessThanMinimum}
+            decimalScale={withdrawCrypto.currency?.display_decimal}
           />
 
           {/* 输入发生错误 */}
-          <ErrorMessageBox show={insufficient} content={t("finance:insufficient_balance")} />
+          {/*<ErrorMessageBox sample show={lessThanMinimum}*/}
+          {/*                 content={t("finance:theBalanceDoesNotReachTheMinimumWithdrawalLimit")} />*/}
+          <ErrorMessageBox sample show={insufficient} content={t("finance:insufficient_balance")} />
           <ErrorMessageBox
-            show={rangeError}
+            sample
+            show={rangeError && !insufficient}
             content={
               <>
                 {t("finance:pleaseEnterAnAmountBetween")} {withdrawCrypto.network?.min?.toLocaleString()} {t("finance:and")}{" "}
@@ -244,6 +293,7 @@ export const WithdrawCryptoAmount = () => {
 
           {/* 数量输入快捷选项 */}
           <MotionContentBox
+            sample
             show={!lessThanMinimum}
             content={
               <WithdrawRangeOptions
@@ -261,14 +311,26 @@ export const WithdrawCryptoAmount = () => {
 
       {/* available & locked */}
       <div className="flex items-center justify-between">
-        <span className="text-base-content/50 text-xs font-semibold">
+        <span
+          className={classNames("text-base-content/50 text-xs font-semibold underline cursor-pointer", { "text-error": lessThanMinimum })}
+          onClick={() => {
+            void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
+
+            closeUserFinanceModal();
+          }}>
           {t("finance:available")}:{" "}
-          <FormatAmount amount={availableAndLocked.available} decimals={withdrawCrypto.currency?.display_decimal} local />{" "}
+          <FormatAmount amount={availableAndLocked.available} decimals={withdrawCrypto.currency?.display_decimal}
+                        local />{" "}
           {withdrawCrypto.currency?.currency}
         </span>
-        <span className="text-base-content/50 text-xs font-semibold underline">
+        <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
+          void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
+
+          closeUserFinanceModal();
+        }}>
           {t("finance:locked")}:{" "}
-          <FormatAmount amount={availableAndLocked.locked} decimals={withdrawCrypto.currency?.display_decimal} local />{" "}
+          <FormatAmount amount={availableAndLocked.locked} decimals={withdrawCrypto.currency?.display_decimal}
+                        local />{" "}
           {withdrawCrypto.currency?.currency}
         </span>
       </div>
@@ -297,7 +359,8 @@ export const WithdrawCryptoAmount = () => {
         <div className="flex items-center justify-between mt-2">
           <span className="text-base-content/50 text-xs font-semibold">{t("finance:totalWithdrawAmount")}</span>
           <span className="text-base-content text-xs font-bold flex items-center gap-2">
-            <FormatAmount amount={totalWithdrawAmountControl.toString()} local decimals={withdrawCrypto.currency?.display_decimal} />
+            <FormatAmount amount={totalWithdrawAmountControl.toString()} local
+                          decimals={withdrawCrypto.currency?.display_decimal} />
             {withdrawCrypto.currency?.currency}
           </span>
         </div>
@@ -305,7 +368,7 @@ export const WithdrawCryptoAmount = () => {
 
       <ConfirmBox
         loading={loading}
-        disabled={withdrawCrypto.inputAmount === "" || lessThanMinimum || rangeError || insufficient}
+        disabled={inoutError || lessThanMinimum || rangeError || insufficient}
         onClick={() => {
           setSyncAction("OPEN_WITHDRAW_CRYPTO_PIN_MODAL");
         }}
@@ -314,4 +377,21 @@ export const WithdrawCryptoAmount = () => {
       </ConfirmBox>
     </>
   );
+};
+
+export const fn_withdraw_common_status = (action: () => void, code: number, t: TFunction) => {
+  switch (code) {
+    case 0:
+    case 200:
+      action();
+      break;
+    case 7:
+      toast.error(t("toast:youArleadyHaveAPendingWithdrawalOrder"));
+      break;
+    case 20010:
+      toast.error(t("toast:pinError"));
+      break;
+    default:
+      toast.error(t("toast:failedToCreateWithdrawalOrder"));
+  }
 };

@@ -1,6 +1,5 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { authService } from "@/services/authService.ts";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
@@ -14,6 +13,9 @@ import VerificationInput from "react-verification-input";
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import md5 from "md5";
 import { useQueryClient } from "@tanstack/react-query";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { useAuth } from "@/contexts/AuthContext.tsx";
+import { TActions } from "@/store/type.ts";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -33,14 +35,18 @@ const initStatus: IStatus = {
   show_modal: false
 };
 
-export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN" }) => {
+export const SetWithdrawalPINModal = () => {
   const queryClient = useQueryClient();
 
   const { t } = useTranslation();
 
+  const { user } = useAuth();
+
   const { syncAction, setSyncAction } = useBoundStore();
 
   const [status, setStatus] = useState<IStatus>(initStatus);
+
+  const operate_pin_type = useMemo(() => user?.pin_setted ? "UPDATE_PIN" : "BIND_PIN", [user?.pin_setted]);
 
   /**
    * PIN错误
@@ -61,13 +67,17 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
       .then((res) => {
         if (res.code === 0) {
           setStatus((old) => ({ ...old, step: "STEP3", opt_code: "" }));
+
           void queryClient.refetchQueries({ queryKey: ["auth", "currentUser"] });
+
+          // 自定义行为 - 来源于用户提款操作但是未设置PIN码
+          user_todo_withdraw_but_unset_pin_code(setSyncAction, status.confirm_pin, syncAction?.data);
         } else {
           toast.error(matchResponseCodeError(res.code));
         }
       })
       .finally(() => {
-        setStatus((old) => ({ ...old, bind_pin_loading: false }));
+        setStatus((old) => ({ ...old, show_modal: false, bind_pin_loading: false }));
       });
   };
 
@@ -77,7 +87,6 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
   useEffect(() => {
     if (syncAction.type === "OPEN_SET_WITHDRAWAL_PIN_MODAL") {
       setStatus((v) => ({ ...v, ...initStatus, show_modal: true }));
-      setSyncAction(undefined);
     }
   }, [syncAction]);
 
@@ -107,7 +116,7 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
             <button className="btn btn-square btn-sm mr-2" onClick={() => setStatus((v) => ({ ...v, step: "STEP1" }))}>
               <ChevronLeft className="w-4 h-4" /></button>}
           <p className="text-lg font-bold truncate">
-            {status.step === "STEP1" && (type === "BIND_PIN" ? "Change Withdrawal PIN" : t("common.updateWithdrawalPin"))}
+            {status.step === "STEP1" && (operate_pin_type === "BIND_PIN" ? "Change Withdrawal PIN" : t("common.updateWithdrawalPin"))}
             {status.step === "STEP2" && "Confirm Withdrawal PIN"}
           </p>
         </div>
@@ -138,10 +147,13 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
               inputProps={{ id: "NEW_PIN_CODE", autoComplete: "off" }}
               placeholder="0"
               value={status.new_pin}
-              onChange={(v) => setStatus((old) => ({
-                ...old,
-                new_pin: v
-              }))}
+              onChange={(v) => {
+                if (v === "" || /^\d+$/.test(v))
+                  setStatus((old) => ({
+                    ...old,
+                    new_pin: v
+                  }));
+              }}
             />
 
             {/* PIN - 格式 - 错误 */}
@@ -153,17 +165,18 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
             </DisplayContent>
           </div>
 
-          <div className='w-full'>
+          <div className="w-full">
             {/* confirm */}
             <ConfirmBox disabled={!status.new_pin || new_pin_code_error} onClick={() => setStatus((old) => ({
               ...old,
               step: "STEP2"
             }))}
             >
-              Continue
+              {t("common:common.continue")}
             </ConfirmBox>
             <DisplayContent status={!!status.new_pin && !new_pin_code_error}>
-              <div className={'text-xs font-semibold text-primary text-center mt-4'}>请在下一步确认您的PIN码</div>
+              <div
+                className={"text-xs font-semibold text-primary text-center mt-4"}>{t("common.confirmCodeEntered")}</div>
             </DisplayContent>
           </div>
         </div>
@@ -196,7 +209,7 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
 
             {/* PIN码 - 不一致 - 错误 */}
             <DisplayContent status={repeat_pin_code_error}>
-              <ErrorMessageBox content="请保持和上一步输入的PIN码一致" show={repeat_pin_code_error} />
+              <ErrorMessageBox content={t("common.ensureSameEntered")} show={repeat_pin_code_error} />
             </DisplayContent>
           </div>
 
@@ -218,7 +231,7 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
             <InnerImg name="security-verification-ok" className="md:w-30 md:h-30 w-25 h-25" />
             <div className="flex flex-col gap-4 items-center">
               <p className="text-md">
-                {type === "BIND_PIN" ? t("common.pinSetUpSuccessfully") : t("common.pinUpdatedSuccessfully")}
+                {operate_pin_type === "BIND_PIN" ? t("common.pinSetUpSuccessfully") : t("common.pinUpdatedSuccessfully")}
               </p>
               <p className="text-base-content/50 text-sm text-center">
                 <Trans i18nKey={t("common.pinSetUpSuccessfullyDescription")} />
@@ -235,3 +248,16 @@ export const SetWithdrawalPINModal = ({ type }: { type: "UPDATE_PIN" | "BIND_PIN
     </Modal>
   );
 };
+
+export default SetWithdrawalPINModal;
+
+/**
+ * 自定义行为 - 来源于用户提款操作但是未设置PIN码
+ * 前提：用户操作提款但是未设置PIN码
+ * PIN码设置成功则立即执行提现订单创建
+ */
+function user_todo_withdraw_but_unset_pin_code(action: (v: TActions, data: any) => void, pin: string, type: string) {
+  if (type === "OPEN_WITHDRAW_FIAT_PIN_MODAL") action("SYNC_WITHDRAW_FIAT_CREATE", pin);
+  if (type === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL") action("SYNC_WITHDRAW_CRYPTO_CREATE", pin);
+}
+

@@ -1,7 +1,7 @@
 {
-    "global": "Παγκόσμιος",
-    "notifications": "Ειδοποιήσεις",
-    "support": "Υποστήριξη",
-    "retry": "Δοκιμάστε ξανά",
-    "customerServiceChatFailedToLoad": "Η συνομιλία εξυπηρέτησης πελατών απέτυχε να φορτώσει"
+  "global": "Παγκόσμιος",
+  "notifications": "Ειδοποιήσεις",
+  "support": "Υποστήριξη",
+  "retry": "Δοκιμάστε ξανά",
+  "customerServiceChatFailedToLoad": "Η συνομιλία εξυπηρέτησης πελατών απέτυχε να φορτώσει"
 }

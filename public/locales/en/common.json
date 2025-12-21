@@ -26,7 +26,6 @@
     "totalWagered": "Total Wagered",
     "achievements": "Achievements",
     "top3Games": "Top 3 Games",
-    "recentTop3Games": "Recent Top 3 Games",
     "totalBalance": "Total Balance",
     "view": "View",
     "referralProgram": "Referral Program",
@@ -124,7 +123,6 @@
     "pleaseSelect": "Please select",
     "noData": "No data",
     "searchPlaceholder": "Search...",
-    "loadMore": "Load More",
     "days": {
       "Monday": "Monday",
       "Tuesday": "Tuesday",
@@ -156,7 +154,8 @@
     "setAccountAndPasswordFailed": "Set account and password failed",
     "emailSendError": "Email send error",
     "phoneSendError": "Phone send error",
-    "emailHasBeenUsed": "Email has been used"
+    "emailHasBeenUsed": "Email has been used",
+    "tooManyRequests": "Too many requests"
   },
   "bonus_pool": "Bonus Pool",
   "pleaseEnterValidUsernameOrEmail": "Please enter a valid username or email",
@@ -168,5 +167,12 @@
     "probablyFair": "Probably Fair",
     "underage": "Underage",
     "gamingPolicy": "Gaming Policy"
-  }
+  },
+  "of_games": "{{loadedCount}} of {{totalCount}} games",
+  "selectCountry": "Select Country",
+  "logout": "Logout",
+  "oops": "Oops..",
+  "somethingWentWrong": "Something Went Wrong",
+  "tryRefresh": "Try refreshing the page or give it another shot in a moment. If it still looks weird, switching devices might do the trick.",
+  "languageUpdated": "Language updated"
 }

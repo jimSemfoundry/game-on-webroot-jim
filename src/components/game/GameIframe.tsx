@@ -15,15 +15,25 @@ interface GameIframeProps {
 
 export function GameIframe({ launchData, launchType, isFullScreen = false, onError, onClose, gameName: _ }: GameIframeProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // 延迟渲染 iframe，确保页面和认证状态都准备好
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleBack = useCallback(() => {
     if (onClose) {
       onClose();
     } else {
-      navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+      // Use browser history to go back to the previous page
+      navigate({ to: -1 as any });
     }
   }, [navigate, onClose]);
 
@@ -37,58 +47,13 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
     return "h-full w-full";
   }, [isFullScreen]);
 
-  const UrlIframe = useCallback(() => {
-    if (launchType !== 'url' || !launchData) return null;
 
-    return (
-      <iframe
-        ref={iframeRef}
-        src={launchData}
-        className={`${sizeClasses} border-none`}
-        allowFullScreen={isFullScreen}
-        allow="fullscreen; microphone; camera; payment; autoplay; encrypted-media"
-        sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads"
-        onLoad={() => setIsLoading(false)}
-        onError={handleError}
-        title="Game"
-      />
-    );
-  }, [launchData, launchType, sizeClasses, isFullScreen, handleError]);
-
-  const HtmlIframe = useCallback(() => {
-    if (launchType !== 'html' || !launchData) return null;
-
-    return (
-      <iframe
-        ref={iframeRef}
-        srcDoc={launchData}
-        className={`${sizeClasses} border-none`}
-        allowFullScreen={isFullScreen}
-        allow="fullscreen; microphone; camera; payment; autoplay; encrypted-media"
-        sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads"
-        onLoad={() => setIsLoading(false)}
-        onError={handleError}
-        title="Game"
-      />
-    );
-  }, [launchData, launchType, sizeClasses, isFullScreen, handleError]);
-
-  // 清理函数
-  useEffect(() => {
-    return () => {
-      if (iframeRef.current) {
-        // 清理 iframe 内容
-        iframeRef.current.src = 'about:blank';
-      }
-    };
-  }, []);
-
-  if (!launchData) {
+  if (!launchData || !isReady) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
           <div className="loading loading-spinner loading-lg text-primary mb-4" />
-          <p className="text-base-content/70">Loading game...</p>
+          <p className="text-base-content/70">{t("common:common.loading")}</p>
         </div>
       </div>
     );
@@ -97,11 +62,15 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
   // 全屏模式
   if (isFullScreen) {
     return (
-      <div className="fixed inset-0 z-50 bg-black">
+      <div className="fixed inset-0 z-[1002] bg-black">
         {/* 返回按钮 */}
-        <button 
+        <button
           onClick={handleBack}
-          className="fixed top-4 left-4 z-[9999] btn btn-sm btn-square"
+          className="fixed z-[9999] btn btn-sm btn-square"
+          style={{
+            top: "calc(env(safe-area-inset-top) + 1rem)",
+            left: "calc(env(safe-area-inset-left) + 1rem)",
+          }}
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -111,16 +80,39 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50">
             <div className="flex flex-col items-center gap-4 text-white">
               <span className="loading loading-spinner loading-xl text-primary" />
-              <p className="text-lg font-medium">Loading Game...</p>
-              <p className="text-sm opacity-70">Preparing your gaming experience...</p>
+              <p className="text-lg font-medium">{t("common:common.loading")}</p>
             </div>
           </div>
         )}
 
         {/* 游戏内容 */}
-        <div className="h-screen w-full">
-          {launchType === 'url' && <UrlIframe />}
-          {launchType === 'html' && <HtmlIframe />}
+        <div className="h-[100dvh] w-full">
+          {launchType === 'url' && launchData && (
+            <iframe
+              ref={iframeRef}
+              src={launchData}
+              className={`${sizeClasses} border-none`}
+              allowFullScreen={isFullScreen}
+              allow="fullscreen; microphone; camera; payment; autoplay; encrypted-media; storage-access"
+              sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads allow-storage-access-by-user-activation"
+              onLoad={() => setIsLoading(false)}
+              onError={handleError}
+              title="Game"
+            />
+          )}
+          {launchType === 'html' && launchData && (
+            <iframe
+              ref={iframeRef}
+              srcDoc={launchData}
+              className={`${sizeClasses} border-none`}
+              allowFullScreen={isFullScreen}
+              allow="fullscreen; microphone; camera; payment; autoplay; encrypted-media; storage-access"
+              sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads allow-storage-access-by-user-activation"
+              onLoad={() => setIsLoading(false)}
+              onError={handleError}
+              title="Game"
+            />
+          )}
         </div>
       </div>
     );
@@ -134,16 +126,39 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
         <div className="absolute inset-0 z-[100] flex items-center justify-center bg-black/50 rounded-lg">
           <div className="flex flex-col items-center gap-4 text-white">
             <span className="loading loading-spinner loading-xl text-primary" />
-            <p className="text-lg font-medium">Loading Game...</p>
-            <p className="text-sm opacity-70">Preparing your gaming experience...</p>
+            <p className="text-lg font-medium">{t("common:common.loading")}</p>
           </div>
         </div>
       )}
 
       {/* 游戏iframe */}
       <div className="h-full w-full rounded-lg overflow-hidden">
-        {launchType === 'url' && <UrlIframe />}
-        {launchType === 'html' && <HtmlIframe />}
+        {launchType === 'url' && launchData && (
+          <iframe
+            ref={iframeRef}
+            src={launchData}
+            className={`${sizeClasses} border-none`}
+            allowFullScreen={false}
+            allow="microphone; camera; payment; autoplay; encrypted-media; storage-access"
+            sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads allow-storage-access-by-user-activation"
+            onLoad={() => setIsLoading(false)}
+            onError={handleError}
+            title="Game"
+          />
+        )}
+        {launchType === 'html' && launchData && (
+          <iframe
+            ref={iframeRef}
+            srcDoc={launchData}
+            className={`${sizeClasses} border-none`}
+            allowFullScreen={false}
+            allow="microphone; camera; payment; autoplay; encrypted-media; storage-access"
+            sandbox="allow-forms allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation allow-downloads allow-storage-access-by-user-activation"
+            onLoad={() => setIsLoading(false)}
+            onError={handleError}
+            title="Game"
+          />
+        )}
       </div>
     </div>
   );

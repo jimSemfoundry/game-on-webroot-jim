@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { ChevronRight } from "lucide-react";
+import Copy from "@/components/ui/Copy";
+import { AdTag } from "@/types/referral";
 
 export const ReferralCampaigns = () => {
   const { t } = useTranslation();
@@ -17,6 +19,7 @@ export const ReferralCampaigns = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 639px)");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [compaignDetail, setCompaignDetail] = useState<AdTag | null>(null);
 
   const adTagList = adTagListResponse?.data || [];
   const itemsPerPage = isMobile ? 5 : 10;
@@ -111,7 +114,15 @@ export const ReferralCampaigns = () => {
         </div>
       </div>
 
-      <div className="bg-base-200 flex flex-col h-[320px] sm:h-[450px]">
+      <div className={cn(
+        "bg-base-200 flex flex-col",
+        // 根据数据数量动态设置高度
+        isLoading || adTagList.length === 0
+          ? "h-[320px] sm:h-[450px]"
+          : adTagList.length <= itemsPerPage
+            ? "" // 如果数据少于一页，使用自动高度
+            : "h-[320px] sm:h-[450px]" // 如果数据超过一页，使用固定高度以显示滚动
+      )}>
         {isLoading ? (
           <div className="flex-1 flex items-center justify-center py-20">
             <span className="loading loading-spinner loading-xl text-primary"></span>
@@ -119,17 +130,20 @@ export const ReferralCampaigns = () => {
         ) : adTagList.length === 0 ? (
           <div className="flex-1 flex items-center justify-center py-20">
             <div className="flex flex-col items-center gap-4">
-              <img 
-                src="/images/illustrations/no-data.svg" 
-                alt="No data" 
+              <img
+                src="/images/illustrations/no-data.svg"
+                alt="No data"
                 className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
               />
-              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.nothingYet")}</div>
+              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.noData")}</div>
             </div>
           </div>
         ) : (
           <>
-            <div ref={scrollContainerRef} className="hidden sm:block flex-1 overflow-y-auto px-4">
+            <div ref={scrollContainerRef} className={cn(
+              "hidden sm:block px-4",
+              adTagList.length > itemsPerPage ? "flex-1 overflow-y-auto" : "" // 只在超过一页时启用滚动
+            )}>
               <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
                 <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                   <tr>
@@ -147,6 +161,10 @@ export const ReferralCampaigns = () => {
                         "rounded-lg transition-colors cursor-pointer",
                         index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-200 hover:bg-base-300/50"
                       )}
+                      onClick={() => {
+                        setCompaignDetail(item);
+                        setIsCreateModalOpen(true);
+                      }}
                     >
                       <td className="px-4 py-2.5 rounded-l-lg">
                         <div className="flex items-center gap-2">
@@ -175,16 +193,19 @@ export const ReferralCampaigns = () => {
                         <div className="w-[11rem]">
                           <div className="bg-base-100/60 rounded-lg px-3 py-1.5 flex items-center justify-between gap-2">
                             <span className="font-semibold text-left truncate text-base-content/50 text-sm">{item.code}</span>
-                            <button
-                              className="inline-flex h-5 w-5 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                navigator.clipboard?.writeText(item.code).catch(() => {});
-                              }}
-                              aria-label={t("referral:referralCode")}
-                            >
-                              <Iconify icon="solar:copy-linear" width={12} height={12} />
-                            </button>
+                            <div onClick={(e) => e.stopPropagation()}>
+                              <Copy
+                                text={item.code}
+                                trigger={
+                                  <button
+                                    className="inline-flex h-5 w-5 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none cursor-pointer"
+                                    aria-label={t("referral:referralCode")}
+                                  >
+                                    <Iconify icon="solar:copy-linear" width={12} height={12} />
+                                  </button>
+                                }
+                              />
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -201,7 +222,10 @@ export const ReferralCampaigns = () => {
               </table>
             </div>
 
-            <div className="sm:hidden flex-1 overflow-y-auto px-4 pb-4 space-y-2">
+            <div className={cn(
+              "sm:hidden px-4 pb-4 space-y-2",
+              adTagList.length > itemsPerPage ? "flex-1 overflow-y-auto" : "" // 只在超过一页时启用滚动
+            )}>
               {paginatedCampaigns.map((item, index) => (
                 <div
                   key={item.id}
@@ -209,6 +233,10 @@ export const ReferralCampaigns = () => {
                     "rounded-2xl px-4 py-2.5 flex flex-col gap-2",
                     index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50"
                   )}
+                  onClick={() => {
+                    setCompaignDetail(item);
+                    setIsCreateModalOpen(true);
+                  }}
                 >
                   <div className="flex items-center justify-between gap-2 min-w-0">
                     <div className="flex items-center gap-2 flex-1 min-w-0">
@@ -222,16 +250,23 @@ export const ReferralCampaigns = () => {
                         {item.campaign}
                       </span>
                     </div>
-                    <div className="bg-base-100/60 rounded-lg px-2 py-1 flex items-center gap-1.5 flex-shrink-0">
+                    <div
+                      className="bg-base-100/60 rounded-lg px-2 py-1 flex items-center gap-1.5 flex-shrink-0"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <span className="text-xs font-semibold text-base-content truncate uppercase max-w-[3.5rem]">{item.code}</span>
-                      <button
-                        type="button"
-                        onClick={() => navigator.clipboard?.writeText(item.code).catch(() => {})}
-                        className="text-primary hover:text-primary-focus flex-shrink-0"
-                        aria-label={t("referral:copyCode", "Copy code")}
-                      >
-                        <Iconify icon="solar:copy-linear" width={10} height={10} />
-                      </button>
+                      <Copy
+                        text={item.code}
+                        trigger={
+                          <button
+                            type="button"
+                            className="text-primary hover:text-primary-focus flex-shrink-0"
+                            aria-label={t("referral:copyCode", "Copy code")}
+                          >
+                            <Iconify icon="solar:copy-linear" width={10} height={10} />
+                          </button>
+                        }
+                      />
                     </div>
                   </div>
 
@@ -287,8 +322,12 @@ export const ReferralCampaigns = () => {
       </div>
 
       <CreateCampaignModal
+        compaignDetail={compaignDetail}
         isOpen={isCreateModalOpen}
-        onClose={() => setIsCreateModalOpen(false)}
+        onClose={() => {
+          setIsCreateModalOpen(false);
+          setCompaignDetail(null);
+        }}
         onCreated={() => {
           setCurrentPage(1);
         }}

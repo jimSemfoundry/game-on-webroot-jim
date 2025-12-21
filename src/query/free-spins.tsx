@@ -2,6 +2,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { authService } from "@/services/authService";
 import { keepPreviousData, useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth.ts";
 
 // ========== Type Definitions ==========
 
@@ -106,6 +107,9 @@ export const useClaimReward = () => {
       });
       queryClient.invalidateQueries({
         queryKey: ["earliestPendingRecord"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: AUTH_QUERY_KEYS.userFreeGameRecords,
       });
 
       if (result.code === 0) {

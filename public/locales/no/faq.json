@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Hvor gammel må jeg være for å registrere meg på nettstedet deres?",
-    "content": "<p class=\"leading-7\">Du må være minst {{faqAge}} år gammel eller myndig i din jurisdiksjon for å registrere deg. Du må også ha lovlig tillatelse til å spille nettspill i henhold til de lovene som gjelder for deg. For mer informasjon, vennligst les våre tjenestevilkår.</p><p class=\"leading-7\">Spill kan være avhengighetsskapende, og spillere anbefales å utøve selvkontroll.</p>"
+    "title": "Hvor gammel må jeg være for å registrere meg på nettstedet ditt?",
+    "content": "<p class=\"leading-7\">Du må være minst {{faqAge}} år gammel eller i myndighetsalder i din jurisdiksjon for å registrere deg. Du må også være lovlig tillatt å spille online spill i henhold til lovene som gjelder for deg. For mer informasjon, vennligst les våre vilkår for bruk.</p><p class=\"leading-7\">Spill kan være vanedannende, og spillere anbefales å utvise selvkontroll.</p>"
   },
   "faqTwo": {
-    "title": "Hvilke valutaer støtter lommeboken?",
-    "content": "<p class=\"leading-7\">Vi støtter viktige kryptovalutaer som {{currency}}</p>"
+    "title": "Hvilken valuta støtter lommeboken?",
+    "content": "<p class=\"leading-7\">Vi støtter store kryptovalutaer som {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Hvordan gjør Jeg innskudd?",
+    "title": "Hvordan setter jeg inn penger?",
     "content": "<p class=\"leading-7\">Gå til profilsiden din og klikk på \"Innskudd\", velg kryptovalutaen du ønsker, kopier lommebokadressen eller skann QR-koden for betaling.</p>"
   },
   "faqFour": {
-    "title": "Kan jeg veksle kryptovalutaene mine på nettstedet deres?",
-    "content": "<p class=\"leading-7\">{{siteName}} tilbyr en vekslefunksjon der du trygt og enkelt kan veksle kryptovalutaene dine til andre kryptovalutaer. På grunn av bekymringer for myntblanding har imidlertid all krypto som settes inn på {{siteName}} et omsetningskrav på 1x, noe som betyr at du må satse med de innbetalte midlene minst én gang før du kan veksle dem.</p>"
+    "title": "Kan jeg bytte kryptovalutaene mine på nettstedet ditt?",
+    "content": "<p class=\"leading-7\">{{siteName}} tilbyr en byttefunksjon der du trygt og enkelt kan bytte kryptovalutaene dine til andre kryptovalutaer. Imidlertid, på grunn av bekymringer om myntblanding, har all kryptovaluta som settes inn i {{siteName}} et 1x omsetningskrav, noe som betyr at du må spille med de innskutte midlene dine minst 1 gang før du kan bytte dem.</p>"
   },
   "faqFive": {
-    "title": "Hvordan tar jeg ut?",
-    "content": "<p class=\"leading-7\">Gå til profilsiden din og klikk på \"Ta ut\", skriv inn adressen til lommeboken du ønsker å ta ut til og beløpet du ønsker å ta ut. (Vær oppmerksom på at det kan påløpe ulike gebyrer for de ulike blokkjedene)</p>"
+    "title": "Hvordan tar jeg ut penger?",
+    "content": "<p class=\"leading-7\">Gå til profilsiden din og klikk på \"Uttak\", skriv inn adressen til lommeboken du ønsker å ta ut til og beløpet du ønsker å ta ut. (Vennligst merk at det kan være forskjellige gebyrer avhengig av de forskjellige blokkjedene)</p>"
   },
   "faqSix": {
-    "title": "Hva er minstebeløpet for uttak for hver kryptovaluta?",
-    "content": "<p class=\"leading-7\">På grunn av kryptovalutaenes ulike verdi og de ulike transaksjonsgebyrene som er involvert, må du sjekke Ta ut-siden din for minimumsbeløp for uttak for hver kryptovaluta.</p>"
+    "title": "Hva er minimumsbeløpet for uttak for hver kryptovaluta?",
+    "content": "<p class=\"leading-7\">På grunn av den forskjellige verdien av kryptovaluta samt de forskjellige minedriftsgebyrene som er involvert, vennligst sjekk uttakssiden din for minimumsbeløp for uttak som gjelder for hver kryptovaluta.</p>"
   },
   "faqSeven": {
-    "title": "Hvor lang tid tar det å gjøre innskudd og ta ut?",
-    "content": "<p class=\"leading-7\">Hver transaksjon i blokkjeden krever flere sykluser for å bli bekreftet.</p><p class=\"leading-7\">Generelt sett krever hver transaksjon 5-10 minutter før den kan bekreftes av blokkjedenettverket for BTC- og ETH-kjeden; og omtrent 1-2 minutter for TRON-, TON- og SOLANA-kjeden.</p><p class=\"leading-7\">Hvis du støter på problemer under innskudd eller ta ut, kan du sjekke transaksjonen din ved hjelp av den respektive blockchain-utforskeren for nettverket eller kontakte vår Live støtte.</p>"
+    "title": "Hvor lang tid tar det å sette inn og ta ut penger?",
+    "content": "<p class=\"leading-7\">Hver transaksjon på blokkjeden krever flere sykluser for å bli bekreftet.</p><p class=\"leading-7\">Generelt sett krever hver transaksjon 5-10 minutter før den kan bli bekreftet av blokkjedenettverket for BTC og ETH-kjeden; og omtrent 1-2 minutter for TRON, TON, SOLANA-kjeden.</p><p class=\"leading-7\">Hvis du opplever problemer under innskudd eller uttak, kan du sjekke transaksjonen din ved å bruke den respektive blokkjedeutforskeren for nettverket eller kontakte vår live support.</p>"
   },
   "faqEight": {
-    "title": "Hvor kommer transaksjonsbekreftelsene fra?",
-    "content": "<p class=\"leading-7\">All bekreftelsesinformasjon kommer fra blokkjeden og blokkjedeutvinnere</p>"
+    "title": "Hvor kommer bekreftelsene for transaksjoner fra?",
+    "content": "<p class=\"leading-7\">All bekreftelsesinformasjon kommer fra blokkjeden og minerne for blokkjeden</p>"
   },
   "faqNine": {
-    "title": "Er spillene dine rettferdige?",
-  "content": "<p class=\"leading-7\">Åpenhet, Tillit og Rettferdighet er en del av {{gameLink}} sine kjerneverdier og grunnlaget for vår virksomhet. Derfor samarbeider vi kun med pålitelige toppspillpartnere for å gi kundene våre den kvalitetsopplevelsen de fortjener.</p><p class=\"leading-7\">Alle spill fra våre partnere blir grundig testet for tilfeldig utvalg av uavhengige revisorer, og er lisensiert av spillmyndigheter som gjennomfører hyppige revisjoner av deres tilfeldige tallgenerator.</p>"
+    "title": "Er spillene deres rettferdige?",
+    "content": "<p class=\"leading-7\">Åpenhet, tillit og rettferdighet er en del av {{gameLink}}'s kjerneverdier og grunnlaget for vår virksomhet. Dette er grunnen til at vi kun samarbeider med pålitelige toppspillpartnere for å gi kundene våre den kvaliteten de fortjener.</p><p class=\"leading-7\">Alle spill fra våre partnere blir grundig testet for tilfeldighet av uavhengige revisorer, og er lisensiert av spilleregulatorer som underlegger dem hyppige revisjoner av deres tilfeldige tallgenerator.</p>"
   },
   "faqTen": {
-    "title": "Hva skal jeg gjøre hvis spillet henger seg opp eller hvis jeg blir koblet fra?",
-    "content": "<p class=\"leading-7\">Hvis du støter på tekniske problemer, kan du prøve å oppdatere siden. Spillstatusene lagres av leverandørene våre, og du bør se din forrige spillstatus når du kobler deg til igjen.</p>"
+    "title": "Hva skal jeg gjøre hvis spillet henger eller hvis jeg blir frakoblet?",
+    "content": "<p class=\"leading-7\">Hvis du opplever tekniske problemer, vennligst prøv å oppdatere siden. Spilltilstander lagres av våre leverandører, og du bør se din forrige spilltilstand når du kobler deg på nytt.</p>"
   }
 }

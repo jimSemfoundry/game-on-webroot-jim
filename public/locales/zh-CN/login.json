@@ -13,7 +13,6 @@
   "userAgreementConfirm": "我同意用户协议并确认我已年满 18 岁",
   "marketingPromotions": "我同意接收来自 {{siteName}} 的营销推广信息",
   "phoneNumberAlreadyRegistered": "电话号码已被注册",
-"emailAlreadyRegistered": "电子邮件已注册",
   "pleaseLoginToContinue": "请登录以继续",
   "telegramLoginFailed": "Telegram 登录失败",
   "resetPassword": "重置密码",
@@ -25,5 +24,24 @@
   "pleaseCheckYourUsername": "如果您提供了在我们系统注册的有效电子邮件或手机号码，您的一次性密码（OTP）已发送。",
   "passwordsDoNotMatch": "密码不匹配",
   "passwordTooShort": "密码必须至少包含6个字符",
-  "passwordResetSuccess": "密码重置成功"
+  "passwordResetSuccess": "密码重置成功",
+  "**********": "",
+  "signInModal": {
+    "promoTitle1": "有些东西\n特别\n在等待。",
+    "promoTitle2": "快点！"
+  },
+  "signUpModal": {
+    "promoTitle1": "欢迎\n套餐高达",
+    "promoTitle2": "1200% 存款\n奖金"
+  },
+  "secureSignIn": "安全登录",
+  "secureSignUp": "安全注册",
+  "or": "或者",
+  "forgotPasswordDescription": "输入您的详细信息。如果我们找到匹配的账户，我们将向您发送重置代码。",
+  "recoverPassword": "找回密码",
+  "dontReceiveCode": "没有收到代码？",
+  "resend": "重新发送",
+  "orLoginDirectlyWith": "或者直接使用以下方式登录",
+  "needAnAccountSignUp": "需要账户？注册",
+  "alreadyHaveAnAccount": "已经有账户？登录"
 }

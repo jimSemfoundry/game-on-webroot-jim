@@ -1,42 +1,42 @@
 {
   "faqOne": {
     "title": "Wie alt muss ich sein, um mich auf Ihrer Seite zu registrieren?",
-    "content": "<p class=\"leading-7\">Sie müssen mindestens {{faqAge}} Jahre alt sein oder das Alter der Volljährigkeit in Ihrer Gerichtsbarkeit erreicht haben, um sich zu registrieren. Sie müssen auch rechtlich berechtigt sein, Online-Spiele gemäß den für Sie geltenden Gesetzen zu spielen. Weitere Informationen finden Sie in unseren Nutzungsbedingungen.</p><p class=\"leading-7\">Glücksspiel kann süchtig machen, und Spielern wird geraten, Selbstkontrolle zu üben.</p>"
+    "content": "<p class=\"leading-7\">Sie müssen mindestens {{faqAge}} Jahre alt oder das gesetzliche Mindestalter in Ihrer Gerichtsbarkeit erreicht haben, um sich zu registrieren. Sie müssen auch rechtlich berechtigt sein, Online-Spiele gemäß den für Sie geltenden Gesetzen zu spielen. Für weitere Informationen lesen Sie bitte unsere Nutzungsbedingungen.</p><p class=\"leading-7\">Spielen kann süchtig machen, und Spielern wird geraten, Selbstkontrolle auszuüben.</p>"
   },
   "faqTwo": {
-    "title": "Welche Währung unterstützt die Wallet?",
+    "title": "Welche Währung unterstützt das Wallet?",
     "content": "<p class=\"leading-7\">Wir unterstützen wichtige Kryptowährungen wie {{currency}}</p>"
   },
   "faqThree": {
     "title": "Wie kann ich einzahlen?",
-    "content": "<p class=\"leading-7\">Gehen Sie zu Ihrer Profilseite und klicken Sie auf \"Einzahlen\", wählen Sie die Kryptowährung Ihrer Wahl, kopieren Sie die Wallet-Adresse oder scannen Sie den QR-Code für die Zahlung.</p>"
+    "content": "<p class=\"leading-7\">Gehen Sie zu Ihrer Profilseite und klicken Sie auf \"Einzahlen\", wählen Sie die Kryptowährung Ihrer Wahl aus, kopieren Sie die Wallet-Adresse oder scannen Sie den QR-Code zur Zahlung.</p>"
   },
   "faqFour": {
     "title": "Kann ich meine Kryptowährungen auf Ihrer Seite tauschen?",
-    "content": "<p class=\"leading-7\">{{siteName}} bietet eine Tauschfunktion an, mit der du deine Kryptowährungen sicher und einfach in andere Kryptowährungen tauschen kannst. Aufgrund von Bedenken bezüglich des Coin-Mixings haben alle bei {{siteName}} eingezahlten Kryptowährungen jedoch eine 1x-Rollover-Anforderung, was bedeutet, dass du mit deinen eingezahlten Geldern mindestens einmal wetten musst, bevor du sie tauschen kannst.</p>"
+    "content": "<p class=\"leading-7\">{{siteName}} bietet eine Tauschfunktion, mit der Sie Ihre Kryptowährungen sicher und einfach in andere Kryptowährungen tauschen können. Aufgrund von Bedenken hinsichtlich des Coin-Mixings hat jedoch jede in {{siteName}} eingezahlte Krypto eine 1x Umsatzanforderung, was bedeutet, dass Sie mit Ihren eingezahlten Mitteln mindestens 1 Mal wetten müssen, bevor Sie sie tauschen können.</p>"
   },
   "faqFive": {
     "title": "Wie kann ich abheben?",
-    "content": "<p class=\"leading-7\">Gehe zu deiner Profilseite und klicke auf \"Abheben\", gib die Adresse der Wallet ein, auf die du abheben möchtest, und den Betrag, den du abheben möchtest. (Bitte beachte, dass je nach Blockchain unterschiedliche Gebühren anfallen können)</p>"
+    "content": "<p class=\"leading-7\">Gehen Sie zu Ihrer Profilseite und klicken Sie auf \"Abheben\", geben Sie die Adresse der Wallet ein, auf die Sie abheben möchten, und den Betrag, den Sie abheben möchten. (Bitte beachten Sie, dass je nach verschiedenen Blockchains unterschiedliche Gebühren anfallen können)</p>"
   },
   "faqSix": {
-    "title": "Was ist der Mindestbetrag für die Auszahlung für jede Kryptowährung?",
-    "content": "<p class=\"leading-7\">Aufgrund des unterschiedlichen Wertes der Kryptowährung sowie der verschiedenen anfallenden Mining-Gebühren, überprüfe bitte deine Auszahlungsseite für Mindestbeträge für die Auszahlung, die für jede Kryptowährung gelten.</p>"
+    "title": "Was ist der Mindestabhebebetrag für jede Kryptowährung?",
+    "content": "<p class=\"leading-7\">Aufgrund des unterschiedlichen Wertes von Kryptowährungen sowie der unterschiedlichen Mining-Gebühren überprüfen Sie bitte Ihre Abhebeseite auf die Mindestabhebebeträge für jede Kryptowährung.</p>"
   },
   "faqSeven": {
     "title": "Wie lange dauert es, einzuzahlen und abzuheben?",
-    "content": "<p class=\"leading-7\">Jede Transaktion auf der Blockchain erfordert mehrere Zyklen zur Bestätigung.</p><p class=\"leading-7\">Im Allgemeinen benötigt jede Transaktion 5-10 Minuten, bevor sie vom Blockchain-Netzwerk für BTC und ETH-Chain bestätigt werden kann; und etwa 1-2 Minuten für TRON, TON, SOLANA Chain.</p><p class=\"leading-7\">Wenn du während der Einzahlung oder Auszahlung auf Probleme stößt, kannst du deine Transaktion mit dem jeweiligen Blockchain-Explorer für das Netzwerk überprüfen oder unseren Live-Support kontaktieren.</p>"
+    "content": "<p class=\"leading-7\">Jede Transaktion auf der Blockchain benötigt mehrere Zyklen zur Bestätigung.</p><p class=\"leading-7\">Im Allgemeinen benötigt jede Transaktion 5-10 Minuten, bevor sie vom Blockchain-Netzwerk für BTC- und ETH-Chain bestätigt werden kann; und etwa 1-2 Minuten für TRON, TON, SOLANA-Chain.</p><p class=\"leading-7\">Wenn Sie während der Einzahlung oder Abhebung auf ein Problem stoßen, können Sie Ihre Transaktion mit dem jeweiligen Blockchain-Explorer für das Netzwerk überprüfen oder unseren Live-Support kontaktieren.</p>"
   },
   "faqEight": {
     "title": "Woher kommen die Transaktionsbestätigungen?",
     "content": "<p class=\"leading-7\">Alle Bestätigungsinformationen stammen von der Blockchain und den Minern für die Blockchain</p>"
   },
   "faqNine": {
-    "title": "Sind deine Spiele fair?",
-  "content": "<p class=\"leading-7\">Transparenz, Vertrauen und Fairness sind Teil der Kernwerte von {{gameLink}} und das Fundament unseres Geschäfts. Deshalb arbeiten wir nur mit vertrauenswürdigen erstklassigen Spielpartnern zusammen, um unseren Kunden das hochwertige Erlebnis zu bieten, das sie verdienen.</p><p class=\"leading-7\">Alle Spiele unserer Partner werden von unabhängigen Prüfern streng auf Zufälligkeit getestet und sind von Glücksspielbehörden lizenziert, die sie häufig einer Überprüfung ihres Zufallszahlengenerators unterziehen.</p>"
+    "title": "Sind Ihre Spiele fair?",
+    "content": "<p class=\"leading-7\">Transparenz, Vertrauen und Fairness sind Teil der Kernwerte von {{gameLink}} und das Fundament unseres Geschäfts. Aus diesem Grund arbeiten wir nur mit vertrauenswürdigen Top-Spielpartnern zusammen, um unseren Kunden die Qualitätserfahrung zu bieten, die sie verdienen.</p><p class=\"leading-7\">Alle Spiele unserer Partner werden von unabhängigen Prüfern rigoros auf Zufälligkeit getestet und sind von Glücksspielbehörden lizenziert, die sie häufigen Prüfungen ihres Zufallszahlengenerators unterziehen.</p>"
   },
   "faqTen": {
-    "title": "Was soll ich tun, wenn mein Spiel hängen bleibt oder die Verbindung unterbrochen wird?",
-    "content": "<p class=\"leading-7\">Wenn du technische Probleme hast, versuche bitte, die Seite zu aktualisieren. Die Spielstände werden von unseren Providern gespeichert und du solltest deinen vorherigen Spielstand sehen, wenn du dich wieder verbindest.</p>"
+    "title": "Was soll ich tun, wenn mein Spiel hängt oder ich die Verbindung verliere?",
+    "content": "<p class=\"leading-7\">Wenn Sie auf technische Probleme stoßen, versuchen Sie bitte, die Seite zu aktualisieren. Die Spielstände werden von unseren Anbietern gespeichert, und Sie sollten Ihren vorherigen Spielstand sehen, wenn Sie sich wieder verbinden.</p>"
   }
 }

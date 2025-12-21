@@ -3,12 +3,15 @@ import { useConquestList } from "@/hooks/api/useAuth";
 import { formatConquestTasksData, type ConquestAPITask, type ConquestTask } from "@/utils/conquestDataFormatter";
 import { useCallback, useMemo, useState } from "react";
 import { BonusConquestsTaskCard } from "./bonus-conquests-task-card";
+import { useNavigate } from "@tanstack/react-router";
 
 interface TaskColors {
   [taskId: string]: string;
 }
 
-export function   BonusConquestsSection() {
+export function BonusConquestsSection() {
+  const navigate = useNavigate();
+
   const [taskColors, setTaskColors] = useState<TaskColors>({});
 
   // API hooks
@@ -42,24 +45,26 @@ export function   BonusConquestsSection() {
 
     // Navigation logic based on task type
     const taskTitle = task.title.toLowerCase();
-    
-    if (taskTitle.includes('slots')) {
+
+    if (taskTitle.includes("slots")) {
       console.log("Navigate to slots games");
-    } else if (taskTitle.includes('gameshow')) {
+    } else if (taskTitle.includes("gameshow")) {
       console.log("Navigate to live gameshows");
-    } else if (taskTitle.includes('blackjack')) {
+    } else if (taskTitle.includes("blackjack")) {
       console.log("Navigate to live blackjack");
-    } else if (taskTitle.includes('baccarat')) {
+    } else if (taskTitle.includes("baccarat")) {
       console.log("Navigate to live baccarat");
-    } else if (taskTitle.includes('roulette')) {
+    } else if (taskTitle.includes("roulette")) {
       console.log("Navigate to live roulette");
-    } else if (taskTitle.includes('wager')) {
+    } else if (taskTitle.includes("wager")) {
       console.log("Navigate to casino for wagering");
-    } else if (taskTitle.includes('win') && (taskTitle.includes('big') || taskTitle.includes('huge') || taskTitle.includes('massive'))) {
+    } else if (taskTitle.includes("win") && (taskTitle.includes("big") || taskTitle.includes("huge") || taskTitle.includes("massive"))) {
       console.log("Navigate to high volatility games for big wins");
     } else {
       console.log("Navigate to casino (default)");
     }
+
+    void navigate({ to: task?.path });
   };
 
 

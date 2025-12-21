@@ -35,8 +35,8 @@ export const useChatwoot = (config: ChatwootConfig) => {
       // 初始化SDK
       if ((window as any).chatwootSDK) {
         (window as any).chatwootSDK.run({
-          websiteToken: "Bq5W2ytQfRsoDrfcKwLhnY4d",
-          baseUrl: "https://app.openchats.online",
+          websiteToken: config.websiteToken,
+          baseUrl: config.baseUrl || "https://app.openchats.online",
         });
         setIsInitialized(true);
       }

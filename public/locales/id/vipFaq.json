@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Apa yang dimaksud dengan Bonus Naik Level?",
-    "content": "<p class=\"leading-7\">Bonus naik level adalah cara kami memberi apresiasi kepada pemain setia yang sudah bersama kami sejak awal. Saat pemain naik level VIP, mereka mendapat hadiah naik level yang lebih besar.</p>"
+    "title": "Apa itu Bonus Level-Up?",
+    "content": "<p class=\"leading-7\">Bonus level up adalah cara kami untuk menunjukkan penghargaan kepada pemain setia yang telah bersama kami sejak awal. Saat pemain naik ke level VIP, mereka membuka hadiah level up yang lebih tinggi.</p>"
   },
   "faqTwo": {
-    "title": "Apa yang dimaksud dengan Cashback Harian?",
-    "content": "<p class=\"leading-7\">Cashback Harian diberikan kepada pemain yang rugi dari deposit mereka. Bonus ini diberikan setiap hari sebagai persentase dari jumlah kerugian pemain. Persentase cashback harian akan naik seiring level VIP Anda, sampai maksimum 40%, cashback tertinggi di mana saja. Perlu diingat, bonus ini hanya untuk pemain yang sedang rugi.</p>"
+    "title": "Apa itu Cashback Harian?",
+    "content": "<p class=\"leading-7\">Cashback Harian akan diberikan kepada pemain yang mengalami kerugian dibandingkan dengan jumlah deposit mereka. Bonus ini diberikan setiap hari sebagai persentase dari jumlah kerugian pemain. Persentase cashback harian akan meningkat seiring dengan level VIP Anda, hingga maksimum 40% cashback, cashback tertinggi di mana pun. Harap dicatat bahwa bonus ini hanya untuk pemain yang berada dalam posisi kerugian bersih.</p>"
   },
   "faqThree": {
-    "title": "Apa yang dimaksud dengan Misi?",
-    "content": "<p class=\"leading-7\">Misi adalah tugas harian yang diberikan secara acak kepada pemain untuk mendapat hadiah ekstra saat bermain di situs kami. Hadiah Misi harus diklaim dalam 24 jam sebelum siklus berikutnya dan akan habis waktu jika tidak diklaim. Hadiah misi dibayarkan dalam BUCK/USDT dan bisa ditukar ke mata uang kripto pilihan Anda lewat pilihan tukar kami.</p>"
+    "title": "Apa itu Penaklukan/Misi?",
+    "content": "<p class=\"leading-7\">Penaklukan adalah misi harian yang diberikan secara acak kepada pemain untuk mereka mendapatkan hadiah tambahan saat bermain di situs kami. Hadiah Penaklukan harus diklaim dalam waktu 24 jam sebelum siklus berikutnya dan akan kedaluwarsa jika tidak diklaim. Hadiah penaklukan dibayarkan dalam BUCK/USDT dan dapat ditukar ke cryptocurrency pilihan Anda melalui fungsi swap kami.</p>"
   },
   "faqFour": {
-    "title": "Apa yang dimaksud dengan Hadiah Turnamen?",
-    "content": "<p class=\"leading-7\">Hadiah Turnamen adalah hadiah untuk hasil bagus dalam kompetisi. Hadiah Turnamen akan bertambah sampai diklaim dan tidak punya batas waktu. Hadiah turnamen dibayarkan dalam BUCK/USDT dan bisa ditukar ke mata uang kripto pilihan Anda lewat pilihan tukar kami.</p>"
+    "title": "Apa itu Hadiah Turnamen?",
+    "content": "<p class=\"leading-7\">Hadiah Turnamen adalah hadiah yang diberikan untuk kinerja luar biasa dalam kompetisi. Hadiah Turnamen akan terakumulasi hingga diklaim dan tidak memiliki tanggal kedaluwarsa. Hadiah turnamen dibayarkan dalam BUCK/USDT dan dapat ditukar ke cryptocurrency pilihan Anda melalui fungsi swap kami.</p>"
   },
   "faqFive": {
-    "title": "Apa yang dimaksud dengan Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback adalah cara kami membuka bonus deposit Anda. Sebagian taruhan Anda (hingga 3%) akan kembali ke Anda setiap kali Anda bertaruh. Semakin tinggi level VIP Anda, semakin besar persentase kembali. BUCK/USDT yang dibuka = Taruhan x 2.5% x Persentase kembali%</p><p class=\"leading-7\">Persentase Kembali:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "title": "Apa itu Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback adalah mekanisme kami untuk membuka bonus deposit Anda. Persentase dari taruhan Anda (hingga 3%) akan dikembalikan kepada Anda setiap kali Anda memasang taruhan. Semakin tinggi level VIP Anda, semakin tinggi tingkat pembukaannya. BUCK/USDT yang dibuka = Taruhan x 2.5% x Tingkat Pembukaan%</p><p class=\"leading-7\">Tingkat Pembukaan:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Apa yang dimaksud dengan Booster?",
-    "content": "<p class=\"leading-7\">Booster menggandakan Rakeback Anda selama satu jam setiap kali referral melakukan deposit.</p><p class=\"leading-7\">Tingkat Buka Kunci yang Ditingkatkan:</p><p class=\"leading-7\">Tingkat Buka Kunci:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "title": "Apa itu Booster?",
+    "content": "<p class=\"leading-7\">Booster menggandakan Rakeback Anda selama satu jam setiap kali seorang referral melakukan deposit.</p><p class=\"leading-7\">Tingkat Pembukaan yang Ditingkatkan:</p><p class=\"leading-7\">Tingkat Pembukaan:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Apa yang dimaksud dengan Kalender Bonus?",
-    "content": "<p class=\"leading-7\">Kebanyakan bonus dibagi 50% ke Saldo Riil Anda dan 50% ke Kalender Bonus Anda. Bonus di Kalender Bonus bisa diklaim setiap 8 jam dan akan habis waktu dalam 24 jam jika tidak diklaim. Jangan lupa klaim bonus di Kalender Bonus Anda minimal sekali sehari agar semua hadiah Anda didapat!</p>"
+    "title": "Apa itu Kalender Bonus?",
+    "content": "<p class=\"leading-7\">Sebagian besar bonus dibayarkan 50% ke Saldo Riil Anda dan 50% ke Kalender Bonus Anda. Bonus yang dibayarkan ke Kalender Bonus Anda dapat diklaim setiap 8 jam dan kedaluwarsa dalam 24 jam jika tidak diklaim. Ingat untuk mengklaim bonus di Kalender Bonus Anda setidaknya sekali sehari untuk memastikan semua hadiah Anda terkumpul!</p>"
   },
   "faqEight": {
-    "title": "Apa yang dimaksud dengan Bonus Mingguan?",
-    "content": "<p class=\"leading-7\">Bonus Mingguan adalah bonus khusus di situs kami untuk pemain VIP12 ke atas. Bonus ini diberikan setiap minggu dan otomatis dibayar setiap Jumat kepada pemain VIP12 ke atas. Besar bonus tergantung pada jumlah yang ditaruh seminggu terakhir, dengan taruhan minimal {{minWager}} selama seminggu terakhir.</p>"
+    "title": "Apa itu Bonus Mingguan?",
+    "content": "<p class=\"leading-7\">Bonus Mingguan adalah keuntungan eksklusif di situs kami yang dirancang untuk pemain yang VIP12 dan lebih. Bonus ini diberikan setiap minggu dan dibayarkan secara otomatis setiap hari Jumat kepada pemain di VIP12 dan di atasnya. Besar bonus tergantung pada jumlah taruhan selama seminggu terakhir, dengan persyaratan taruhan minimum sebesar {{minWager}} selama seminggu terakhir.</p>"
   },
   "faqNine": {
-    "title": "Apa yang dimaksud dengan Pencapaian?",
-    "content": "<p class=\"leading-7\">Pencapaian adalah cara kami mengenali aktivitas Anda di platform kami. Ketika Anda mengklaim bonus pencapaian, bonus akan dibayarkan ke Kalender Bonus Anda dan bisa diklaim setiap 8 jam dan akan habis waktu dalam 24 jam jika tidak diklaim.</p>"
+    "title": "Apa itu Pencapaian?",
+    "content": "<p class=\"leading-7\">Pencapaian adalah cara kami untuk mengakui aktivitas Anda di platform kami. Ketika Anda mengklaim bonus pencapaian Anda, itu akan dibayarkan ke Kalender Bonus Anda dan dapat diklaim setiap 8 jam dan kedaluwarsa dalam 24 jam jika tidak diklaim.</p>"
   }
 }

@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Tarife și reguli",
+    "campaigns": "Campanii",
+    "myReferrals": "Recomandările mele",
+    "commissions": "Comisioane",
+    "rewards": "Recompense"
+  },
+  "commissionCalculator": "Calculator de Comisioane",
   "telegramReferralLink": "Link de Recomandare Telegram",
   "network": "Rețea",
   "lifetimeReferralRewards": "Recompense pe viață pentru recomandări",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Recompense disponibile pentru recomandare",
   "lockedRewards": "Recompense blocate",
   "assembleYourCrewCashIn": "Adună-ți echipajul și încasați banii!",
+  "assembleYourCrewCashInDescription1": "Recrutează-ți echipa și câștigă {{amount}} per prieten - ca un jaf, dar fără urmărirea FBI-ului. În plus, câștigă până la {{percentage}} comision din pariurile lor. Partea cea mai bună? Rata ta de comision crește odată cu tine pe măsură ce avansezi, iar tu vei câștiga chiar și din recruții echipei tale!",
+  "assembleYourCrewCashInDescription2": "Cu cât rețeaua ta este mai mare, cu atât câștigul tău este mai mare. Indiferent dacă ei câștigă, pierd sau pariază ca niște nebuni, tu continui să aduni bani. E timpul să-ți construiești imperiul - Începe să recrutezi acum!",
+  "quickShare": "Partajare Rapidă",
   "referralRewards": "Recompense de recomandare",
   "commissionRewards": "Recompensele Comisiei",
   "aboutDescription": "Recrutează-ți echipa și câștigă {{amount}} per prieten - ca un jaf, dar fără urmărirea FBI. În plus, câștigă până la 50% Comision la pariurile lor. Cea mai bună parte? Rata ta de Comision crește odată cu tine pe măsură ce crești în nivel și vei câștiga chiar și de la recruții echipei tale!\n\nCu cât rețeaua ta este mai mare, cu atât partea ta este mai mare. Indiferent dacă ei câștigă, pierd sau pariază ca niște maniaci, tu continui să acumulezi bani. E timpul să îți construiești imperiul - Începe să recrutezi acum!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Distribuie prin rețele sociale",
   "referralTermsConditions": "Termeni și condiții de recomandare",
   "liveGlobalRewards": "Recompense globale live",
+  "liveGlobalCommissions": "Comisioane globale live",
   "username": "Utilizator",
   "friendLevel": "Nivelul prietenului",
   "totalExp": "EXP total",
@@ -104,36 +117,36 @@
   "myReferrals": "Recomandările mele",
   "more": "Mai mult",
   "faqOne": {
-    "title": "Cum funcționează sistemul de recomandare?",
-    "content": "<p class=\"leading-7\">Când îți împărtășești link-ul de recomandare prietenilor și aceștia se înscriu pe site-ul nostru, devin recomandările tale și vei câștiga comisioane și recompense pentru recomandări jucând în alianța {{gameLink}}.</p>"
+    "title": "Cum funcționează sistemul de recomandări?",
+    "content": "<p class=\"leading-7\">Când îți împărtășești linkul de recomandare cu prietenii tăi și aceștia se înscriu pe site-ul nostru; ei devin recomandările tale și îți vor aduce comision și recompense de recomandare jucând la {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Cât de mult pot câștiga din recomandarea mea?",
-    "content": "<p class=\"leading-7\">Puteți câștiga {{percentage}} din activitatea lor de pariere sub formă de comisioane + {{amount}} per recomandare.</p>"
+    "title": "Cât pot câștiga din recomandarea mea?",
+    "content": "<p class=\"leading-7\">Poți câștiga {{percentage}} din activitatea lor de pariere ca comisioane + {{amount}} per recomandare.</p>"
   },
   "faqThree": {
     "title": "Ce este recompensa de {{amount}} USD și cum funcționează?",
-    "content": "<p class=\"leading-7\">Există o recompensă de {{amount}} USD pentru fiecare recomandare adusă la {{gameLink}}. Această recompensă este oferită în {{parts}} părți pe măsură ce nivelul tău de recomandare crește de la {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Există o recompensă de {{amount}} USD pentru fiecare recomandare pe care o aduci la {{gameLink}}. Această recompensă USD este oferită în {{parts}} părți pe măsură ce nivelul tău de recomandare crește de la {{level}}.</p>"
   },
   "faqFour": {
     "title": "Am o audiență mare. Cum pot obține o ofertă specială?",
-    "content": "<p class=\"leading-7\">Dacă ai un site web cu trafic bun sau un cont de social media cu un public mare, ne poți trimite un email la {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Dacă ai un site web cu trafic bun sau un cont de social media cu o audiență mare, ne poți trimite un email la {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Câte link-uri afiliate pot crea dacă am diferite site-uri web/conturi de social media?",
-    "content": "<p class=\"leading-7\">Puteți crea până la {{codes}} coduri unice pentru diferite surse de trafic</p>"
+    "title": "Câte linkuri de afiliat pot crea dacă am site-uri/conturi de social media diferite?",
+    "content": "<p class=\"leading-7\">Poți crea până la {{codes}} coduri unice pentru diferite surse de trafic</p>"
   },
   "faqSix": {
-    "title": "Pot vedea datele referinței mele?",
-    "content": "<p class=\"leading-7\">Da, transparența, încrederea și corectitudinea fac parte din valorile de bază ale {{gameLink}}. Date precum numele de utilizator, miza totală și comisioanele câștigate sunt disponibile în filele \"Comisioanele mele\" și \"Recompensele pentru recomandări\".</p>"
+    "title": "Pot vedea datele referitoare la recomandarea mea?",
+    "content": "<p class=\"leading-7\">Da, transparența, încrederea și corectitudinea sunt parte din valorile fundamentale ale {{gameLink}}. Date precum numele de utilizator, totalul pariat și comisionul câștigat sunt toate disponibile în tab-ul \"Comisioanele mele\" și \"Recompensele de recomandare\".</p>"
   },
   "faqSeven": {
-    "title": "Pot să împart recompensele comisionului cu recomandările mele?",
-    "content": "<p class=\"leading-7\">Da, puteți partaja recompensele de comision cu recomandările dvs. făcând clic pe „Creați o nouă campanie” și setând împărțirea comisionului în fila „Campanii”.</p>"
+    "title": "Pot împărtăși recompensele comisionului cu recomandările mele?",
+    "content": "<p class=\"leading-7\">Da, poți împărtăși recompensele comisionului cu recomandările tale făcând clic pe \"creați o nouă campanie\" și setând împărțirea comisionului sub tab-ul \"Campanii\".</p>"
   },
   "faqEight": {
-    "title": "Ce este o recomandare indirectă și ce pot câștiga din ea?",
-    "content": "<p class=\"leading-7\">O recomandare indirectă este un jucător activ care vine de la link-ul de invitație al uneia dintre recomandările dvs. directe. Dacă nivelul dvs. VIP este mai mare decât nivelul VIP al recomandării dvs. directe, puteți, de asemenea, să câștigați comision din recomandarea dvs. indirectă.</p>"
+    "title": "Ce este o recomandare indirectă și ce pot câștiga din ele?",
+    "content": "<p class=\"leading-7\">O recomandare indirectă este un jucător activ care vine din linkul de invitație al uneia dintre recomandările tale directe. Dacă nivelul tău VIP este mai mare decât nivelul VIP al recomandării tale directe, poți câștiga, de asemenea, comision din recomandarea ta indirectă.</p>"
   },
   "levelReward": "recompensă pentru creșterea nivelului",
   "groupReward": "recompensă comision",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Pentru a simplifica exemplul, vom presupune că prietenii marcați cu galben pariază activ, iar procentele verzi de-a lungul liniilor punctate reprezintă comisionul pe care îl primești de la fiecare dintre ei.",
   "referralCommissionsIndirectDescription": "Pentru a simplifica exemplul, să presupunem că prietenii marcați cu mov pariază activ. Procentele de-a lungul liniilor punctate indică comisionul pe care îl câștigă fiecare membru din lanțul de recomandări. \n\n În dreapta, putem vedea un exemplu de desprindere care are loc în lanțul de recomandări.",
   "referralCodeMinLength": "Codul de recomandare trebuie să aibă cel puțin 6 caractere",
-    "vipLevel": "Nivel VIP",
+  "vipLevel": "Nivel VIP",
   "earned": "Câștigat",
   "directfriend": "Prieten Direct",
   "fast": "Rapid",
   "slots": "Păcanele",
   "live-casino": "Cazinou Live",
   "fishing": "Pescuit",
-  "rewardsUnlocked": "Recompense Deblocate"
+  "rewardsUnlocked": "Recompense Deblocate",
+  "selectGame": "Selectează un joc",
+  "selectVipLevel": "Selectează nivelul VIP",
+  "myReferralCommissions": "Comisioanele Mele de Recomandare",
+  "myReferralRewards": "Recompensele Mele de Recomandare",
+  "exp": "EXP",
+  "userLevel": "Nivelul Utilizatorului"
 }

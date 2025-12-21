@@ -28,7 +28,7 @@ export function TransactionDetailsDialog({ isOpen, onClose, detail }: Transactio
         </span>
       }
       position="modal-middle"
-      className="bg-base-400 p-6 md:max-w-[400px] shadow-xl"
+      className="bg-base-400 p-6 md:max-w-[400px] shadow-xl h-[75vh] max-h-[75vh] md:max-h-[500px] hide-scrollbar"
     >
       <div className="flex flex-col gap-5">
         <div className="flex flex-col items-center gap-3 text-center">
@@ -100,7 +100,7 @@ const TimelineStep = ({
     )}
   >
     <div className="flex flex-col gap-1">
-      <p className="text-sm font-semibold text-base-content">{label}</p>
+      <p className="text-sm font-semibold text-base-content text-left">{label}</p>
       {description ? <p className="text-xs text-base-content/60">{description}</p> : null}
     </div>
   </li>

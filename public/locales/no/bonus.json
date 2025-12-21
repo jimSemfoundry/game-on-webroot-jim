@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Krev bonusen din som vanlig...\nEller ta et dristig sprang til",
+  "double_it": "Dobbel det!",
+  "no_thanks": "Nei takk",
+  "double_or_nothing": "Dobbel eller ingenting",
+  "come_back_tomorrow": "Kom tilbake i morgen",
+  "promo_code": "Kampanjekode",
+  "got_a_code": "Har du en kode? Du vet hva du skal gjøre!",
+  "lifetime_bonus": "Livstidsbonus",
+  "claimed": "Krevd",
+  "starter": "Starter",
+  "pack": "Pakke",
+  "achievements_card_description": "Samle spesielle belønningsprestasjoner designet for å feire hvert steg av fremgangen din!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Mestring av lykke",
+    "achievement_verify_phone": "Ustoppelig energi og kraft",
+    "achievement_add_desktop_app": "Alltid innen rekkevidde",
+    "achievement_super_spreader": "Del spillopplevelsen",
+    "achievement_conquistador": "Møt hver hindring",
+    "achievement_game_explorer": "Oppdag nye spillverdener",
+    "achievement_card_shark": "Dominer kortspill",
+    "achievement_slotmaster": "Mestring av spilleautomater",
+    "achievement_talkative": "Led veien for andre",
+    "achievement_bet_count": "Mestring av presisjonsspill",
+    "achievement_deposit_count": "Oppnå ultimat seier",
+    "achievement_wager_count": "Brenn gjennom utfordringer",
+    "achievement_single_bet": "Bli legendarisk",
+    "achievement_single_deposit": "Naviger i blockchain-nettverk",
+    "achievement_single_wager": "Mestring av finansielle strategier",
+    "achievement_single_payout": "Dominer kryptomarkedet",
+    "achievement_crypto_bro": "Mestring av kryptovaluta-handel",
+    "achievement_crypto_baron": "Dominer kryptomarkedet",
+    "achievement_chain_shifter": "Naviger i blockchain-nettverk",
+    "achievement_money_master": "Mestring av finansielle strategier",
+    "achievement_sniper": "Mestring av presisjonsspill",
+    "achievement_champion": "Oppnå ultimat seier",
+    "achievement_name_of_fame": "Bli legendarisk",
+    "achievement_guiding_star": "Led veien for andre",
+    "achievement_face_of_fortune": "Mestring av lykke",
+    "achievement_dynamo": "Ustoppelig energi og kraft",
+    "achievement_inferno": "Brenn gjennom utfordringer",
+    "achievement_the_challenger": "Møt hver hindring"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Total bonus hentet",
   "details": "Detaljer",
   "redeem": "Innløs",
-"deposit_bonus": "Samling av innskuddsbonuser",
+  "deposit_bonus": "Samling av innskuddsbonuser",
   "get_up_to": "Få opptil",
   "deposit_now": "Sett inn nå",
   "bonus_ends_in": "Bonus slutter i",
@@ -26,14 +68,15 @@
   "daily_cashback": "Daglig cashback",
   "bonus_calendar": "Bonuskalender",
   "claim_every_8_hours": "Krav hver 8. time",
-"locked": "Samling av innskuddsbonuser",
+  "locked": "Samling av innskuddsbonuser",
   "next_claim_in": "Neste krav om",
   "bonus_pool": "Samling av kommende belønninger",
-    "bonus_calendar_details": "Gjør krav hver 8. time for å få en bonus!",
+  "bonus_calendar_details": "Gjør krav hver 8. time for å få en bonus!",
   "release_schedule": "Tidsplan for utgivelse",
   "total_vip_bonus_claimed": "Totalt utbetalt VIP-bonus",
   "your_vip_progress": "Din VIP-fremgang",
   "available_at_vip": "Tilgjengelig på VIP {{vip}}",
+  "vip_progress_description": "Skyv fremover! Neste nivå låser opp {{amount}} fra din bonusbeholdning.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Trykk VIP 4 og få tilgang til Lucky Spin - din sjanse til å vinne ekstra belønninger hver eneste dag!",
   "weekly_cashback": "Ukentlig cashback",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Oppnå VIP 12 og lås opp ukentlig cashback - ditt personlige sikkerhetsnett for high roller-action!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Lykketall sju",
   "expires_in": "Utløper i",
+  "expires": "Utløper",
   "go": "Gå",
   "conquest_just_wager_title": "Bare sats på {{amount}}",
   "conquest_just_wager_description": "Sats {{amount}} i et hvilket som helst spill på én dag for å frigjøre {{reward}} fra bonuspotten din i dag!",
@@ -98,131 +142,188 @@
   "sort_by": "Sorter etter:",
   "claimable": "Kan kreves",
   "achievement_verify_email": {
-    "name": "Bekreft e-post",
-    "description": "Denne utmerkelsen tildeles spillere som har verifisert e-posten sin, låst identiteten sin og låst opp sikker tilgang. Det er et tegn på beredskap og pålitelighet - det første steget for enhver seriøs spiller."
+    "name": "Verifiser e-post",
+    "description": "Denne prestasjonen tildeles spillere som har verifisert e-posten sin, og låser inn identiteten deres og åpner for sikker tilgang. Det er et tegn på beredskap og pålitelighet - det første steget for hver seriøs spiller."
   },
   "achievement_verify_phone": {
-    "name": "Bekreft telefon",
-    "description": "Denne utmerkelsen tildeles spillere som har verifisert telefonnummeret sitt for å holde seg informert og tilkoblet. Det signaliserer tillit, engasjement og forpliktelse til spillets puls."
+    "name": "Verifiser telefon",
+    "description": "Denne prestasjonen tildeles spillere som har verifisert telefonnummeret sitt for å holde seg informert og tilkoblet. Det signaliserer tillit, engasjement og forpliktelse til spillets puls."
   },
   "achievement_add_desktop_app": {
-    "name": "Legg til på hjemskjermen",
-    "description": "Denne prestasjonen tildeles spillere som har lagt til vår Telegram-miniapp på hjemskjermen. Alltid innen rekkevidde, denne handlingen viser ekte dedikasjon – for ekte spillere holder spillet nært."
+    "name": "Legg til på Hjemmeskjerm",
+    "description": "Denne prestasjonen tildeles spillere som har lagt til vår Telegram mini-app på hjemmeskjermen. Alltid innen rekkevidde, viser denne handlingen ekte dedikasjon - fordi ekte spillere holder spillet nært."
   },
   "achievement_super_spreader": {
-    "name": "Superspreder",
-    "description": "Denne prestasjonen tildeles spillere som har vervet <0>{{count}} nye brukere</0>. De er ekte samfunnsbyggere, utvider sirkelen og tilfører ny energi til spillet. Innflytelsen deres vokser med hver forbindelse de knytter."
+    "name": "Super Spreader",
+    "description": "Denne prestasjonen tildeles spillere som har referert <0>{{count}} nye brukere</0>. En ekte samfunnsbygger, de utvider sirkelen og bringer ny energi til spillet. Deres innflytelse vokser med hver forbindelse de lager."
   },
   "achievement_conquistador": {
     "name": "Conquistador",
-    "description": "Denne prestasjonen tildeles spillere som har fullført totalt <0>{{count}} oppdrag</0>. Drevet av besluttsomhet og en tørst etter seier, overvinner de alle utfordringer som kommer i deres vei - en sann mester på reisen."
+    "description": "Denne prestasjonen tildeles spillere som har fullført totalt <0>{{count}} oppdrag</0>. Drevet av besluttsomhet og en tørst etter seier, er deobservert hver utfordring som kommer deres vei - en ekte mester av reisen."
   },
   "achievement_game_explorer": {
     "name": "Spillutforsker",
-    "description": "Denne prestasjonen tildeles spillere som har prøvd <0>{{count}} forskjellige spill</0>. De er nysgjerrige og eventyrlystne, og de våger seg over hele plattformen, alltid ivrige etter å oppdage nye måter å spille og vinne på."
+    "description": "Denne prestasjonen tildeles spillere som har prøvd <0>{{count}} forskjellige spill</0>. Nysgjerrige og eventyrlystne, de utforsker plattformen, alltid ivrige etter å oppdage nye måter å spille og vinne på."
   },
   "achievement_card_shark": {
     "name": "Korthai",
-    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på kortspill, og som har bevist at de er utholdende, strategiske og risikovillige. Disse spillerne har gjort seg fortjent til en plass blant eliten. De har kortene i hendene, og spillet er deres å styre "
+    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på kortspill, og beviser deres motstandskraft, strategi og vilje til å ta risiko. Disse høyinnsats spillerne har tjent sin plass blant de elite. Kortene er i deres hender, og spillet er deres å kommandere."
   },
   "achievement_slotmaster": {
-    "name": "Slotmaster",
-    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på spilleautomater, noe som beviser deres utholdenhet, spenningssøken og kjærlighet til spinn. Disse dedikerte spillerne omfavner hjulene med selvtillit - flaks kan lede, men mestring holder dem i spillet."
+    "name": "Spilleautomatmester",
+    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på spilleautomater, og beviser deres utholdenhet, spenning og kjærlighet for spinn. Disse dedikerte spillerne omfavner hjulene med selvtillit - lykken kan lede, men mestring holder dem i spillet."
   },
   "achievement_talkative": {
-    "name": "Snakkesalig",
-    "description": "Denne prestasjonen tildeles spillere som har snakket <0>{{count}} ganger</0> i chatterommet. Hver melding teller - du tar det første skrittet mot å bli en del av samtalen."
+    "name": "Pratsom",
+    "description": "Denne prestasjonen tildeles spillere som har snakket <0>{{count}} ganger</0> i chat-rommet. Hver melding teller - du tar det første steget mot å bli en ekte del av samtalen."
   },
   "achievement_bet_count": {
-    "name": "Antall innsatser",
-    "description": "Denne prestasjonen tildeles spillere som har plassert totalt <0>{{count}} innsatser</0>. De tror på sjansen, og deres urokkelige vilje holder spillet i live med hver eneste innsats."
+    "name": "Bettingsantall",
+    "description": "Denne prestasjonen tildeles spillere som har plassert totalt <0>{{count}} spill</0>. En ekte troende på sjansen, deres urokkelige ånd holder spillet i live med hver innsats."
   },
   "achievement_deposit_count": {
-    "name": "Antall innskudd",
-    "description": "Denne prestasjonen tildeles spillere som har gjort totalt <0>{{count}} innskudd</0>. Med en jevn strøm av kreditter og et urokkelig engasjement har de vist at de ikke bare er spillere - de er i ferd med å bli magnater."
+    "name": "Innskuddsantall",
+    "description": "Denne prestasjonen tildeles spillere som har gjort totalt <0>{{count}} innskudd</0>. Med en jevn strøm av kreditter og urokkelig forpliktelse, har de vist at de ikke bare er spillere - de er tycoons i ferd med å bli."
   },
   "achievement_change_avatar": {
     "name": "Endre avatar",
-    "description": "Denne prestasjonen tildeles spillere som tilpasser profilen sin ved å endre avataren sin. Et modig skritt mot å skille seg ut og eie sin egen identitet i spillet."
+    "description": "Denne prestasjonen tildeles spillere som tilpasser profilen sin ved å endre avataren sin. Et dristig skritt mot å skille seg ut og eie identiteten din i spillet."
   },
   "achievement_set_username": {
-    "name": "Angi brukernavn",
-    "description": "Du har gjort krav på navnet ditt - nå begynner legenden. Denne prestasjonen hedrer de som skaper sin egen plass og gjør den offisiell."
+    "name": "Sett brukernavn",
+    "description": "Du har krevd navnet ditt - nå begynner legenden. Denne prestasjonen hedrer de som skaper sitt rom og gjør det offisielt."
   },
   "achievement_download_mobile_app": {
-    "name": "Last ned mobilappen",
-    "description": "Dette merket går til spillere som har tatt spillet med seg. Nedlasting av appen viser at du ikke er her for å ta en pause - du er her for å spille når som helst, hvor som helst."
+    "name": "Last ned mobilapp",
+    "description": "Denne utmerkelsen går til spillere som har tatt med seg spillet. Å laste ned appen viser at du ikke er her for å pause - du er her for å spille når som helst, hvor som helst."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Maks innsats på en dag enkeltspill",
-    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på ett enkelt spill i løpet av en dag. Det er en anerkjennelse til de som har urokkelig fokus, kalkulert strategi og mot til å ta dristige sjanser. Disse elitespillerne mestrer spillet de har valgt - og de spiller for å vinne."
+    "name": "Maks innsats på en dag i ett spill",
+    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på et enkelt spill på en dag. Den anerkjenner de med urokkelig fokus, kalkulert strategi og mot til å ta dristige risikoer. Disse elite spillerne har mestret sitt valgte spill - og de spiller for å vinne."
   },
   "achievement_slots_win_count": {
-    "name": "Antall gevinster på spilleautomater",
-    "description": "Denne prestasjonen tildeles spillere som har sikret seg <0>{{count}} gevinster</0> på spilleautomater. For hvert spinn trosser de oddsen og feirer seier etter seier. Flaks kan starte spillet - men utholdenhet gjør dem til en mester."
+    "name": "Vinn på spilleautomater",
+    "description": "Denne prestasjonen tildeles spillere som har sikret <0>{{count}} gevinster</0> på spilleautomater. Med hvert spinn trosser de oddsene og feirer seier etter seier. Lykke kan starte spillet - men konsistens gjør dem til en mester."
   },
   "achievement_slots_multiplier": {
-    "name": "Spilleautomater Multiplikator",
-    "description": "Denne prestasjonen tildeles spillere som har sikret seg en <0>gevinst med en multiplikator på {{count}}</0> x eller mer i ett enkelt spinn. Den hedrer de som jakter på storhet, omfavner spenningen ved høy risiko og får ekstraordinære belønninger. Dette er ikke vanlige spillere - de styrer hjulene og hever seg over resten."
+    "name": "Spilleautomater multiplikator",
+    "description": "Denne prestasjonen tildeles spillere som har sikret en <0>gevinst med en {{count}}x multiplikator</0> eller mer i et enkelt spinn på spilleautomater. Den hedrer de som jager storhet, omfavner spenningen ved høy risiko, og lander ekstraordinære belønninger. Disse er ikke ordinære spillere - de kommanderer hjulene og hever seg over resten."
+  },
+  "achievement_champion": {
+    "name": "Mester",
+    "description": "Denne prestasjonen tildeles spillere som har sikret <0>10 seire</0>. En Mester står høyt i sjansens arena, og beviser sin motstandskraft runde etter runde. Med hver seier sementerer de sin plass blant de som hever seg over flaks for å kreve ære."
+  },
+  "achievement_slot_master": {
+    "name": "Spilleautomat Mester",
+    "description": "Denne prestasjonen tildeles spillere som har satset minst <0>{{amount}}</0> på spilleautomater. En Spilleautomat Mester spinner med selvtillit og utholdenhet, og gjør hver spinn til en sjanse for formue. Med stødig hånd og fryktløs spillestil beviser de at ekte mestring bygges ett spinn av gangen."
+  },
+  "achievement_the_challenger": {
+    "name": "Utfordreren",
+    "description": "Denne prestasjonen tildeles spillere som har plassert minst <0>10 gyldige innsatser</0> i sin spillhistorikk. Utfordreren griper hver mulighet, drevet av besluttsomhet og konkurransens spenning. Modig og utrettelig beviser de at ekte utfordrere ikke trekker seg unna spillet — de trår frem, klare til å teste sine grenser og kreve sin plass blant de fryktløse."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Denne prestasjonen tildeles spillere som har fullført <0>1 innskudd</0> på minst <0>{{amount}}</0> i en enkelt transaksjon. En Dynamo blir sterkere med hver opplading, og beviser sin konsistens og besluttsomhet på veien mot mestring."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Ansiktet til Formuen",
+    "description": "Denne prestasjonen tildeles spillere som har tilpasset sin avatar for første gang. Et Ansikt til Formuen vet at identitet er makt — hvert valg av stil, symbol eller uttrykk er et preg av individualitet. Ved å forme sitt utseende viser de at ekte spillere ikke bare spiller spillet — de setter sitt preg på det."
+  },
+  "achievement_name_of_fame": {
+    "name": "Navn av Berømmelse",
+    "description": "Denne prestasjonen tildeles spillere som har satt sitt brukernavn for første gang. Et Navn av Berømmelse markerer begynnelsen på ekte identitet, og forvandler en nykommer til en anerkjent tilstedeværelse. Modig og unik beviser de at hver legende starter med et navn som huskes."
+  },
+  "achievement_guiding_star": {
+    "name": "Veiledende Stjerne",
+    "description": "Denne prestasjonen tildeles spillere som har lagt til spillet på Hjem-skjermen eller lastet ned appen. En Veiledende Stjerne holder veien til formuen klar, og lyser opp veien tilbake til spill med et enkelt trykk."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Denne prestasjonen tildeles spillere som har satset totalt minst <0>{{amount}}</0> i hele sin spillhistorikk. Highrollere bærer merket av forpliktelse og prestisje, og beviser sin dedikasjon til spillet med hver spinn, innsats og runde. Deres krone er ikke bare et symbol — det er et vitnesbyrd om utholdenhet, lidenskap og jakten på formue."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Denne prestasjonen tildeles spillere som har oppnådd en <0>20x</0> multiplikator på en hvilken som helst spilleautomat. Med flammer som brøler, forvandler et Inferno en enkelt innsats til en ildstorm av formue."
+  },
+  "achievement_money_maverick": {
+    "name": "Penge Maverick",
+    "description": "Denne prestasjonen tildeles spillere som har gjort et innskudd på minst <0>{{amount}}</0> i en enkelt transaksjon, ved bruk av fiat eller lokale betalingsløsninger. En Penge Maverick baner sin egen vei med dristig selvtillit, og forvandler hverdagskontanter til ekstraordinære muligheter. Fryktløs og eventyrlysten beviser de at ekte mavericks ikke bare følger reglene — de redefinerer dem."
+  },
+  "achievement_money_master": {
+    "name": "Penge Mester",
+    "description": "Denne prestasjonen tildeles spillere som har fullført et fiat uttak på minst <0>{{amount}}</0> i en enkelt transaksjon. En Penge Mester står høyt ved veikrysset mellom spill og belønning, og konverterer sine gevinster til virkelig verdi. Med stødig hånd og presis timing viser de at ekte mestring ikke bare er i spillet — det er i å ta med belønningene hjem."
+  },
+  "achievement_crypto_bro": {
+    "name": "Krypto Bro",
+    "description": "Denne prestasjonen tildeles spillere som har gjort et innskudd på minst <0>{{amount}}</0> i en enkelt transaksjon, med hvilken som helst kryptovaluta. En Krypto Maestro dirigerer sine midler som en ekte kunstner, og orkestrerer digitale eiendeler med presisjon og stil. Selvsikker på blockchain-scenen, er de pionerer innen spill som beviser at formuen favoriserer de dristige."
+  },
+  "achievement_crypto_baron": {
+    "name": "Krypto Baron",
+    "description": "Denne prestasjonen tildeles spillere som har fullført et krypto uttak på minst <0>{{amount}}</0> i en enkelt transaksjon, med hvilken som helst kryptovaluta. En Blockchain Baron hersker over riket av digitale eiendeler, og flytter midler over kjeden med selvtillit og kontroll. Med hvert vellykket uttak beviser de at formuen kan tjenes, sikres og bæres hjem på blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Kjede Skifter",
+    "description": "Denne prestasjonen tildeles spillere som har fullført en <0>krypto swap transaksjon</0> med suksess. En Kjede Skifter er noen som vet hvordan man beveger seg mellom tokens med selvtillit, og tilpasser seg markedets tidevann med letthet. Mesterne av momentum trives på fleksibilitet og transformasjon, alltid klare til å skifte gir og gripe muligheter."
   },
   "item": {
-    "conquest_just_wager_on_100": "Conquest Just Wager på 100",
-    "conquest_just_wager_on_200": "Conquest Just Wager på 200",
-    "conquest_roulette_master": "Conquest Roulette Master",
-    "conquest_blackjack_master": "Conquest Blackjack Master",
-    "conquest_baccarat_master": "Conquest Baccarat Master",
-    "conquest_gameshow_master": "Conquest Gameshow Master",
-    "conquest_slots_master_10": "Conquest Slots Master 10",
-    "conquest_gameshow_master_20": "Conquest Gameshow Master 20",
-    "conquest_roulette_master_30": "Conquest Roulette Master 30",
-    "conquest_blackjack_master_40": "Conquest Blackjack Master 40",
-    "conquest_baccarat_master_50": "Conquest Baccarat Master 50",
-    "conquest_big_win": "Conquest Big Win",
-    "conquest_huge_win": "Kjempeseier i Conquest",
-    "conquest_massive_win": "Conquest Massive Win",
-    "achievement_verify_email": "Prestasjon Bekreft e-post",
-    "achievement_verify_phone": "Prestasjon Bekreft telefon",
-    "achievement_add_desktop_app": "Prestasjon Legg til skrivebordsapp",
-    "achievement_super_spreader": "Prestasjon Superspreder",
-    "achievement_conquistador": "Prestasjon Erobrer",
-    "achievement_game_explorer": "Prestasjon Spilleutforsker",
-    "achievement_card_shark": "Prestasjon Kortekspert",
-    "achievement_slotmaster": "Prestasjon Slotmester",
-    "achievement_talkative": "Prestasjon Snakkesalig",
-    "achievement_bet_count": "Prestasjon Antall innsatser",
-    "achievement_deposit_count": "Prestasjon Antall innskudd",
-    "achievement_change_avatar": "Prestasjon Endre avatar",
-    "achievement_set_username": "Prestasjon Angi brukernavn",
-    "achievement_download_mobile_app": "Prestasjon Last ned mobilapp",
-    "achievement_wager_in_a_day_single_game": "Prestasjon Innsats på én dag i ett spill",
-    "achievement_slots_win_count": "Prestasjon Antall gevinster på slots",
-    "achievement_slots_multiplier": "Prestasjon Slot-multiplikator",
-    "level_up": "Nivå opp",
+    "conquest_just_wager_on_100": "Erobring Bare Spill på 100",
+    "conquest_just_wager_on_200": "Erobring Bare Spill på 200",
+    "conquest_roulette_master": "Erobring Roulette Mester",
+    "conquest_blackjack_master": "Erobring Blackjack Mester",
+    "conquest_baccarat_master": "Erobring Baccarat Mester",
+    "conquest_gameshow_master": "Erobring Spillshow Mester",
+    "conquest_slots_master_10": "Erobring Spilleautomater Mester 10",
+    "conquest_gameshow_master_20": "Erobring Spillshow Mester 20",
+    "conquest_roulette_master_30": "Erobring Roulette Mester 30",
+    "conquest_blackjack_master_40": "Erobring Blackjack Mester 40",
+    "conquest_baccarat_master_50": "Erobring Baccarat Mester 50",
+    "conquest_big_win": "Erobring Stor Gevinst",
+    "conquest_huge_win": "Erobring Kjempestor Gevinst",
+    "conquest_massive_win": "Erobring Massiv Gevinst",
+    "achievement_verify_email": "Prestasjon Verifiser E-post",
+    "achievement_verify_phone": "Prestasjon Verifiser Telefon",
+    "achievement_add_desktop_app": "Prestasjon Legg til Desktop App",
+    "achievement_super_spreader": "Prestasjon Super Spreader",
+    "achievement_conquistador": "Prestasjon Conquistador",
+    "achievement_game_explorer": "Prestasjon Spillutforsker",
+    "achievement_card_shark": "Prestasjon Korthai",
+    "achievement_slotmaster": "Prestasjon Spilleautomatmester",
+    "achievement_talkative": "Prestasjon Pratsom",
+    "achievement_bet_count": "Prestasjon Bettingsantall",
+    "achievement_deposit_count": "Prestasjon Innskuddsantall",
+    "achievement_change_avatar": "Prestasjon Endre Avatar",
+    "achievement_set_username": "Prestasjon Sett Brukernavn",
+    "achievement_download_mobile_app": "Prestasjon Last ned Mobilapp",
+    "achievement_wager_in_a_day_single_game": "Prestasjon Maks Innsats på en Dag i Ett Spill",
+    "achievement_slots_win_count": "Prestasjon Vinn på Spilleautomater",
+    "achievement_slots_multiplier": "Prestasjon Spilleautomater Multiplikator",
+    "level_up": "Nivå Opp",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
     "group": "Kommisjon",
     "referral": "Henvisning",
     "tournament": "Turnering",
-    "conquest_extra_reward": "Ekstra Conquest-belønning",
+    "conquest_extra_reward": "Erobring Ekstra Belønning",
     "bonus": "Bonus",
     "bonus_manual": "Manuell Bonus",
-    "vip_bonus_lucky_number_seven": "VIP-bonus lykketall syv",
-    "rakeback_bonus": "Rakeback-bonus",
-    "group_bonus": "Gruppebonus",
-    "level_up_bonus": "Nivåoppstigningsbonus",
+    "vip_bonus_lucky_number_seven": "VIP Bonus Lykke Nummer Syv",
+    "rakeback_bonus": "Rakeback Bonus",
+    "group_bonus": "Gruppe Bonus",
+    "level_up_bonus": "Nivå Opp Bonus",
     "refer_bonus": "Henvisningsbonus",
     "tournament_bonus": "Turneringsbonus",
-    "vip_bonus_mystery_box": "VIP Bonus Mysterieboks"
+    "vip_bonus_mystery_box": "VIP Bonus Mysterie Boks"
   },
   "achievements_description": "Låst opp ved VIP {{vip}}, disse belønningene feirer dine milepæler med spennende overraskelser underveis!",
   "lucky_number_seven_description": "Treff Lykketall {{number}} og få en deilig bonus hver dag!",
-"mystery_box_description": "Åpne mysterieboksen din en gang i måneden for overraskelsesbelønninger!",
+  "mystery_box_description": "Åpne mysterieboksen din en gang i måneden for overraskelsesbelønninger!",
+  "mystery_box_description2": "Treff VIP {{vip}} for å motta en Mystery Box den 7. i hver måned!",
   "mystery_box": "Mysterie-boks",
   "the_cannon_description": "En månedlig belønning så kraftig at dens sanne natur forblir en nøye bevart hemmelighet.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Bekreft e-post",
-    "achievement_verify_phone": "Bekreft telefon",
-    "achievement_add_desktop_app": "Legg til skrivebordsapp",
+    "achievement_verify_email": "Verifiser E-post",
+    "achievement_verify_phone": "Verifiser Telefon",
+    "achievement_add_desktop_app": "Legg til Desktop App",
     "achievement_super_spreader": "Super Spreader",
     "achievement_conquistador": "Conquistador",
     "achievement_game_explorer": "Spillutforsker"
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Beloningen worden berekend en bijgeschreven in BUCK/USDT, en vervolgens weergegeven in je favoriete fiatvaluta op basis van realtime wisselkoersen voor gebruiksgemak. Houd er rekening mee dat alle conversies bij benadering zijn totdat een swaptransactie is voltooid.",
   "general_terms_answer_2": "Het casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken zonder verplichting tot rechtvaardiging. Misbruik of frauduleuze activiteiten leiden tot diskwalificatie van de promotie.",
   "available": "Tilgjengelig",
-"refresh_in": "Oppdateres om",
-"deposit_bonus_pool": "Samling av innskuddsbonuser"
+  "refresh_in": "Oppdateres om",
+  "deposit_bonus_pool": "Samling av innskuddsbonuser",
+  "dashboard": "Dashbord",
+  "bonuses": "Bonuser",
+  "vip_program": "VIP-program",
+  "bonusHub": {
+    "root": "Bonus Hub",
+    "resetOn": "Tilbakestill På {{time}}",
+    "ongoing": "{{count}} Pågående",
+    "accrualIn": "Opptjening I {{time}}",
+    "nextReleaseIn": "Neste Utgivelse I {{time}}"
+  },
+  "freeSpins": "Gratisspinn",
+  "freeSpinsBonusDetails": "Gratisspinn-bonuser belønner deg med ekstra spill på utvalgte spilleautomater. Å satse det nødvendige beløpet låser opp gevinstene fra gratisspinnene, som deretter kan krediteres umiddelbart til kontobalansen din.",
+  "freeSpinsClaimDistributionDescription1": "Gevinstene fra gratisspinn vil bli kreditert kontobalansen din når omsetningskravet er oppfylt og du klikker på 'Krev.'",
+  "freeSpinsClaimDistributionDescription2": "Følg fremgangen din når som helst i Bonuspanelet eller Historikk for gratisspinn.",
+  "freeSpinsExpirationDescription1": "Gratisspinn må brukes innen gyldighetsperioden som vises i gratisspinnpanelet. Ubrukte spinn vil utløpe etter denne perioden.",
+  "freeSpinsExpirationDescription2": "Gevinster fra gratisspinn vil ikke utløpe før de er låst opp og krevd.",
+  "freeSpinsGeneralTermsDescription1": "Gratisspinn-belønninger beregnes og krediteres i BUCK, og vises deretter i din foretrukne fiat-valuta for enkelhets skyld. Vennligst merk at valutakonverteringer er omtrentlige.",
+  "freeSpinsGeneralTermsDescription2": "Casinoet forbeholder seg retten til å endre eller tilbakekalle berettigelse når som helst, uten forpliktelse til å rettferdiggjøre. Enhver misbruk eller svindelaktivitet vil føre til diskvalifikasjon fra kampanjen.",
+  "the_collector": "Samleren",
+  "collector_description": "Berettigede belønninger, ett klikk",
+  "claim_all": "Krev alt",
+  "claimConfirmation": "Krev bekreftelse",
+  "readyToClaim": "Klar til å kreve",
+  "selectClaimType": "Velg kravtype nedenfor",
+  "claimableAmount": "Krevbar mengde",
+  "normalClaim": "Normal krav",
+  "normalClaimDesc": "Få din standard belønningsmengde",
+  "doubleClaim": "Dobbel krav",
+  "doubleClaimDesc": "Risiko for 2x belønningen!",
+  "doubleClaimInfo": "Dobbel krav-alternativ",
+  "doubleClaimRisk": "Høyere risiko, høyere belønning - du kan vinne dobbelt eller miste alt!",
+  "claimModal": {
+    "title": "Dobbel eller ingenting",
+    "primaryDescription": "Krev bonusen din som vanlig...",
+    "secondaryDescription": "Eller ta et dristig sprang til <highlight>DOBBEL DET!</highlight>",
+    "doubleAction": "Dobbel eller ingenting",
+    "comingSoon": "Dobbel eller ingenting-funksjonen kommer snart!",
+    "approximateBuck": "Omtrent {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Mandag",
+  "vip_monday_description": "Et spesielt ukentlig tilbud for å belønne lojale spillere hver mandag",
+  "vip_monday_wager": "Sett inn minst {{amount}} de siste 7 dagene for en Mystery drop hver mandag.",
+  "claim_on_monday": "Krev på mandag",
+  "vip_monday_title": "VIP \n <0>MANDAG</0>",
+  "bonus_already_claimed": "Bonus allerede krevd",
+  "wager_requirement_not_met": "Innsatskrav ikke oppfylt",
+  "not_in_claim_time_range": "Ikke innen krav tidsramme",
+  "monday": "Mandag",
+  "poolBalance": "Beholdning",
+  "program": "Program",
+  "races": "Løp",
+  "loading_achievements": "Laster prestasjoner...",
+  "no_achievements_available": "Ingen prestasjoner tilgjengelig",
+  "check_back_later_for_new_achievements": "Sjekk tilbake senere for nye prestasjoner"
 }

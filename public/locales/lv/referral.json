@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Globālais",
+    "ratesAndRules": "Likmes un noteikumi",
+    "campaigns": "Kampaņas",
+    "myReferrals": "Mani ieteikumi",
+    "commissions": "Komisijas",
+    "rewards": "Balvas"
+  },
+  "commissionCalculator": "Komisijas kalkulators",
   "telegramReferralLink": "Telegram Norādes Saite",
   "network": "Tīkls",
   "lifetimeReferralRewards": "Mūža ieteikumu atlīdzības",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Pieejamās ieteikumu atlīdzības",
   "lockedRewards": "Bloķētas atlīdzības",
   "assembleYourCrewCashIn": "Savāc savu komandu un gūsti peļņu!",
+  "assembleYourCrewCashInDescription1": "Rekrūtējiet savu komandu un nopelniet {{amount}} par katru draugu - kā laupīšanu, bet bez FIB vajāšanas. Turklāt nopelniet līdz {{percentage}} komisiju no viņu likmēm. Labākais ir tas, ka jūsu komisijas likme aug kopā ar jums, kad jūs līmenojat, un jūs pat nopelnīsiet no savas komandas rekrutiem!",
+  "assembleYourCrewCashInDescription2": "Jo lielāka jūsu tīkls, jo lielāka jūsu daļa. Neatkarīgi no tā, vai viņi uzvar, zaudē vai liek likmes kā maniaki, jūs turpināt krāt naudu. Laiks būvēt savu impēriju - Sāciet rekrutēšanu tagad!",
+  "quickShare": "Ātra koplietošana",
   "referralRewards": "Ieteikumu atlīdzības",
   "commissionRewards": "Komisijas atlīdzības",
   "aboutDescription": "Vervējiet savu komandu un saņemiet {{amount}} par katru draugu – gluži kā laupīšanā, bet bez FBI pakaļdzīšanās. Turklāt nopelniet līdz 50% komisiju no viņu likmēm. Labākais? Jūsu komisijas likme aug, paaugstinoties jūsu līmenim, un jūs pelnīsiet arī no savas komandas vervētajiem!\n\nJo lielāks tīkls, jo lielāka peļņa. Neatkarīgi no tā, vai viņi uzvar, zaudē vai liek likmes kā traki, jūs turpināt pelnīt. Laiks būvēt impēriju – sāciet vervēt jau tagad!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Kopīgojiet sociālajos tīklos",
   "referralTermsConditions": "Ieteikumu noteikumi un nosacījumi",
   "liveGlobalRewards": "Tiešsaistes globālās atlīdzības",
+  "liveGlobalCommissions": "Tiešsaistes globālās komisijas",
   "username": "Lietotājvārds",
   "friendLevel": "Drauga līmenis",
   "totalExp": "Kopējā EXP summa",
@@ -105,35 +118,35 @@
   "more": "Vairāk",
   "faqOne": {
     "title": "Kā darbojas ieteikumu sistēma?",
-    "content": "<p class=\"leading-7\">Kad dalāties ar savu ieteikuma saiti ar draugiem un viņi reģistrējas mūsu vietnē, viņi kļūst par jūsu ieteikumiem, un jūs nopelnīsiet komisiju un ieteikumu atlīdzības, spēlējot {{gameLink}} Alianse.</p>"
+    "content": "<p class=\"leading-7\">Kad jūs dalāties ar savu ieteikumu saiti ar draugiem un viņi reģistrējas mūsu vietnē; viņi kļūst par jūsu ieteikumiem un spēlējot {{gameLink}} Alliance, nopelna jums komisiju un ieteikumu balvas.</p>"
   },
   "faqTwo": {
     "title": "Cik daudz es varu nopelnīt no sava ieteikuma?",
-    "content": "<p class=\"leading-7\">Jūs varat nopelnīt {{percentage}} no viņu likmju aktivitātes kā komisiju + {{amount}} par katru ieteikumu.</p>"
+    "content": "<p class=\"leading-7\">Jūs varat nopelnīt {{percentage}} no viņu likmju aktivitātes kā komisijas + {{amount}} par katru ieteikumu.</p>"
   },
   "faqThree": {
     "title": "Kas ir {{amount}} USD balva un kā tā darbojas?",
-    "content": "<p class=\"leading-7\">Par katru ieteikumu, ko atvedat uz {{gameLink}}, ir {{amount}} USD atlīdzība. Šī atlīdzība tiek sadalīta {{parts}} daļās, kad jūsu ieteikumu līmenis paaugstinās no {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Ir {{amount}} USD balva par katru ieteikumu, ko jūs piesaistat {{gameLink}}. Šī USD balva tiek piešķirta {{parts}} daļās, kad jūsu ieteikumu līmenis paaugstinās no {{level}}.</p>"
   },
   "faqFour": {
-    "title": "Man ir liela auditorija. Kā es varu saņemt īpašu piedāvājumu?",
-    "content": "<p class=\"leading-7\">Ja jums ir vietne ar labu trafiku vai sociālo mediju konts ar lielu auditoriju, varat mums rakstīt uz {{emailLink}}</p>"
+    "title": "Man ir liela auditorija. Kā es varu iegūt īpašu piedāvājumu?",
+    "content": "<p class=\"leading-7\">Ja jums ir vietne ar labu apmeklējumu vai sociālo mediju konts ar lielu auditoriju, jūs varat mums rakstīt uz {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Cik ieteikumu saites varu izveidot, ja man ir dažādas vietnes/sociālo mediju konti?",
-    "content": "<p class=\"leading-7\">Jūs varat izveidot līdz {{codes}} unikāliem kodiem dažādiem datplūsmas avotiem.</p>"
+    "title": "Cik daudz filiāļu saites es varu izveidot, ja man ir dažādas vietnes/sociālo mediju konti?",
+    "content": "<p class=\"leading-7\">Jūs varat izveidot līdz {{codes}} unikālām kodēm dažādiem satiksmes avotiem</p>"
   },
   "faqSix": {
     "title": "Vai es varu redzēt sava ieteikuma datus?",
-    "content": "<p class=\"leading-7\">Jā, caurspīdīgums, uzticība un godīgums ir daļa no {{gameLink}} pamatvērtībām. Dati, piemēram, lietotājvārds, kopējais likmes apjoms un nopelnītā komisija, ir pieejami cilnēs \"Manas komisijas\" un \"Ieteikumu atlīdzības\".</p>"
+    "content": "<p class=\"leading-7\">Jā, caurspīdīgums, uzticība un godīgums ir daļa no {{gameLink}} pamatvērtībām. Dati, piemēram, lietotājvārds, kopējā likme un nopelnītā komisija, ir pieejami \"Manas komisijas\" un \"Ieteikumu balvas\" cilnē.</p>"
   },
   "faqSeven": {
-    "title": "Vai es varu dalīt komisijas atlīdzības ar saviem ieteikumiem?",
-    "content": "<p class=\"leading-7\">Jā, jūs varat dalīt komisijas atlīdzības ar saviem ieteikumiem, noklikšķinot uz \"Izveidot jaunu kampaņu\" un iestatot komisijas sadalījumu cilnē \"Kampaņas\".</p>"
+    "title": "Vai es varu dalīties komisijas balvās ar saviem ieteikumiem?",
+    "content": "<p class=\"leading-7\">Jā, jūs varat dalīties komisijas balvās ar saviem ieteikumiem, noklikšķinot uz \"izveidot jaunu kampaņu\" un iestatot komisijas sadalījumu \"Kampaņu\" cilnē.</p>"
   },
   "faqEight": {
-    "title": "Kas ir netiešais ieteikums un ko es varu no tā nopelnīt?",
-    "content": "<p class=\"leading-7\">Netiešais ieteikums ir aktīvs spēlētājs, kas piesaistīts, izmantojot jūsu tiešā ieteikuma saiti. Ja jūsu VIP līmenis ir augstāks par tiešā ieteikuma VIP līmeni, jūs varat nopelnīt komisiju arī no netiešā ieteikuma.</p>"
+    "title": "Kas ir netiešais ieteikums un ko es varu no tiem nopelnīt?",
+    "content": "<p class=\"leading-7\">Netiešais ieteikums ir aktīvs spēlētājs, kurš nāk no viena no jūsu tiešajiem ieteikumiem. Ja jūsu VIP līmenis ir augstāks par jūsu tiešā ieteikuma VIP līmeni, jūs varat arī nopelnīt komisiju no sava netiešā ieteikuma.</p>"
   },
   "levelReward": "Līmeņa paaugstināšanas balva",
   "groupReward": "Komisijas atlīdzība",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Lai vienkāršotu piemēru, pieņemsim, ka dzeltenā krāsā atzīmētie draugi aktīvi veic likmes, un zaļie procenti pa punktotām līnijām attēlo komisiju, ko saņemat no katra no viņiem.",
   "referralCommissionsIndirectDescription": "Lai vienkāršotu piemēru, pieņemsim, ka violeta krāsā atzīmētie draugi aktīvi veic likmes. Procenti pa punktotām līnijām norāda komisiju, ko katrs dalībnieks iesūtīšanas ķēdē saņem. \n\n Labajā pusē redzams piemērs, kur iesūtīšanas ķēdē notiek atdalīšanās.",
   "referralCodeMinLength": "Ieteikuma kodam jābūt vismaz 6 rakstzīmēm garam",
-    "vipLevel": "VIP līmenis",
+  "vipLevel": "VIP līmenis",
   "earned": "Nopelnīts",
   "directfriend": "Tiešais Draugs",
   "fast": "Ātrs",
   "slots": "Spēļu Automāti",
   "live-casino": "Tiešsaistes Kazino",
   "fishing": "Makšķerēšana",
-  "rewardsUnlocked": "Atbloķētas Balvas"
+  "rewardsUnlocked": "Atbloķētas Balvas",
+  "selectGame": "Izvēlieties spēli",
+  "selectVipLevel": "Izvēlieties VIP līmeni",
+  "myReferralCommissions": "Mani atsauces komisijas",
+  "myReferralRewards": "Mani atsauces atlīdzības",
+  "exp": "EXP",
+  "userLevel": "Lietotāja līmenis"
 }

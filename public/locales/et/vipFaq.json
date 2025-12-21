@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Mis on Taseme Tõusu Boonused?",
-    "content": "<p class=\"leading-7\">Taseme tõusu boonus on meie viis näidata tunnustust lojaalsetele mängijatele, kes on meiega algusest peale. Kui tõusete VIP-tasemetel, avate suuremad taseme tõusu auhinnad.</p>"
+    "title": "Mis on taseme tõstmise boonused?",
+    "content": "<p class=\"leading-7\">Taseme tõstmise boonus on meie viis näidata tänu lojaalsetele mängijatele, kes on meiega alates algusest. Kui mängijad tõusevad VIP tasemetele, avavad nad kõrgema taseme tõstmise auhindu.</p>"
   },
   "faqTwo": {
-    "title": "Mis on Igapäevane Tagasimakse?",
-    "content": "<p class=\"leading-7\">Igapäevane Tagasimakse premeerib mängijaid, kes on kandnud kahjumit oma sissemakse summaga võrreldes. See boonus väljastatakse iga päev protsendina mängija kaotatud summast. Tagasimakse protsent suureneb koos teie VIP-tasemega, ulatudes kuni 40%-ni – kõrgeim tagasimakse kusagil. Pange tähele, et see boonus on saadaval ainult netokahjumis olevatele mängijatele.</p>"
+    "title": "Mis on igapäevane tagasimakse?",
+    "content": "<p class=\"leading-7\">Igapäevane tagasimakse antakse mängijatele, kes on kaotanud oma sissemakse summa. See boonus antakse iga päev protsendina mängija kaotatud summast. Igapäevane tagasimakse protsent suureneb koos teie VIP tasemega, kuni maksimaalselt 40% tagasimakset, mis on kõrgeim tagasimakse igal pool. Palun pange tähele, et see boonus on mõeldud ainult mängijatele, kes on netokaotuse positsioonis.</p>"
   },
   "faqThree": {
-    "title": "Mis on Ülesanded?",
-    "content": "<p class=\"leading-7\">Ülesanded on igapäevased missioonid, mis antakse mängijatele juhuslikult, et teenida meie veebisaidil mängides lisapreemiaid. Ülesannete auhinnad tuleb nõuda 24 tunni jooksul enne järgmist tsüklit, vastasel juhul need aeguvad. Auhinnad makstakse BUCK/USDT-s ja neid saab meie vahetusfunktsiooni kaudu konverteerida teie valitud krüptovaluutaks.</p>"
+    "title": "Mis on vallutused/ülesanded?",
+    "content": "<p class=\"leading-7\">Vallutused on igapäevased ülesanded, mis antakse mängijatele juhuslikult, et nad saaksid meie veebisaidil mängides teenida lisaboonuseid. Vallutuse auhindu tuleb nõuda 24 tunni jooksul enne järgmise tsükli algust ja need aeguvad, kui neid ei nõuta. Vallutuse auhinnad makstakse BUCK/USDT ja neid saab konverteerida teie valitud krüptovaluutaks meie vahetusfunktsiooni kaudu.</p>"
   },
   "faqFour": {
-    "title": "Mis on Turniiri Auhinnad?",
-    "content": "<p class=\"leading-7\">Turniiri auhinnad on preemiad, mis antakse silmapaistva esituse eest võistlustel. Need auhinnad kogunevad kuni nende nõudmiseni ega aegu. Auhinnad makstakse BUCK/USDT-s ja neid saab meie vahetusfunktsiooni kaudu konverteerida teie valitud krüptovaluutaks.</p>"
+    "title": "Mis on turniiri auhinnad?",
+    "content": "<p class=\"leading-7\">Turniiri auhinnad on auhinnad, mis antakse silmapaistva soorituse eest võistlustel. Turniiri auhinnad kogunevad kuni nende nõudmiseni ja neil ei ole aegumiskuupäeva. Turniiri auhinnad makstakse BUCK/USDT ja neid saab konverteerida teie valitud krüptovaluutaks meie vahetusfunktsiooni kaudu.</p>"
   },
   "faqFive": {
-    "title": "Mis on Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback on meie süsteem sissemakseboonuste avamiseks. Iga panuse puhul tagastatakse teile kuni 3% panusest. Mida kõrgem on teie VIP-tase, seda suurem on avamismäär. Avatud BUCK/USDT = Panus x 2,5% x Avamismäär%</p><p class=\"leading-7\">Avamismäär:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "title": "Mis on super tagasimakse?",
+    "content": "<p class=\"leading-7\">Super tagasimakse on meie mehhanism teie sissemakse boonuste avamiseks. Protsent teie panusest (kuni 3%) tagastatakse teile iga kord, kui teete panuse. Mida kõrgem on teie VIP tase, seda kõrgem on avamise määr. Avatud BUCK/USDT= Panus x 2.5% x Avamise määr%</p><p class=\"leading-7\">Avamise määr:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Mis on Võimendi?",
-    "content": "<p class=\"leading-7\">Võimendid kahekordistavad teie Rakebacki ühe tunni jooksul, kui soovitatud mängija teeb sissemakse.</p><p class=\"leading-7\">Võimendatud Avamismäär:</p><p class=\"leading-7\">Avamismäär:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "title": "Mis on booster?",
+    "content": "<p class=\"leading-7\">Boosterid kahekordistavad teie tagasimakse ühe tunni jooksul iga kord, kui soovitus teeb sissemakse.</p><p class=\"leading-7\">Tõhustatud avamise määr:</p><p class=\"leading-7\">Avamise määr:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Mis on Boonuskalender?",
-    "content": "<p class=\"leading-7\">Enamik boonuseid makstakse 50% teie reaalsele saldole ja 50% teie Boonuskalendrile. Boonuskalendris olevaid boonuseid saab nõuda iga 8 tunni järel ja need aeguvad 24 tunni jooksul, kui neid ei nõuta. Nõudke oma Boonuskalendri boonuseid vähemalt kord päevas, et tagada kõigi auhindade kättesaamine!</p>"
+    "title": "Mis on boonuste kalender?",
+    "content": "<p class=\"leading-7\">Enamik boonuseid makstakse 50% teie reaalsetele saldodele ja 50% teie boonuste kalendrile. Boonused, mis makstakse teie boonuste kalendrisse, saab nõuda iga 8 tunni järel ja need aeguvad 24 tunni jooksul, kui neid ei nõuta. Ärge unustage nõuda boonuseid oma boonuste kalendris vähemalt kord päevas, et tagada kõikide teie auhindade kogumine!</p>"
   },
   "faqEight": {
-    "title": "Mis on Nädalane Boonus?",
-    "content": "<p class=\"leading-7\">Nädalane Boonus on eksklusiivne eelis meie veebisaidil, mõeldud VIP12 ja kõrgema taseme mängijatele. See boonus makstakse automaatselt igal reedel VIP12 ja kõrgematele mängijatele. Boonuse suurus sõltub viimase nädala panuste summast, minimaalse panustamisnõudega {{minWager}} viimase nädala jooksul.</p>"
+    "title": "Mis on iganädalane boonus?",
+    "content": "<p class=\"leading-7\">Iganädalane boonus on eksklusiivne eelis meie veebisaidil, mis on mõeldud mängijatele, kes on VIP12 ja kõrgemad. See boonus antakse iganädalaselt ja makstakse automaatselt välja igal reedel VIP12 ja kõrgematele mängijatele. Boonuse suurus sõltub eelneva nädala panustamisest, minimaalne panustamisnõue on {{minWager}} eelneva nädala jooksul.</p>"
   },
   "faqNine": {
-    "title": "Mis on Saavutused?",
-    "content": "<p class=\"leading-7\">Saavutused on meie viis tunnustada teie aktiivsust meie platvormil. Saavutusboonuse nõudmisel makstakse see teie Boonuskalendrile, kust seda saab nõuda iga 8 tunni järel, ja see aegub 24 tunni jooksul, kui seda ei nõuta.</p>"
+    "title": "Mis on saavutused?",
+    "content": "<p class=\"leading-7\">Saavutused on meie viis tunnustada teie tegevust meie platvormil. Kui nõuate oma saavutuse boonust, makstakse see teie boonuste kalendrisse ja seda saab nõuda iga 8 tunni järel ning see aegub 24 tunni jooksul, kui seda ei nõuta.</p>"
   }
 }

@@ -2,9 +2,9 @@ import { useTranslation } from "react-i18next";
 import { Card } from "@/sections/profile/c/Card.tsx";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext.tsx";
 import { GameImage } from "@/components/ui/GameImage.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { useTopWageredGames } from "@/hooks/api/useAuth.ts";
 import Iconify from "@/components/iconify";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export function Top3Games() {
   const { t } = useTranslation();
@@ -22,6 +22,7 @@ export function Top3Games() {
           {(games?.data ?? []).map((game: Record<string, any>) => (
             <div key={game.id} className="flex flex-col items-center sm:gap-4 text-xs text-base-content/50 sm:bg-base-300 sm:p-4 sm:rounded-field sm:flex-row">
               <GameImage
+                data={game}
                 game={{
                   inner_game_id: game.inner_game_id,
                   game_provider: game.game_provider,

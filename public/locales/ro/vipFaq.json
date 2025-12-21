@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Ce sunt bonusurile de nivel superior?",
-    "content": "<p class=\"leading-7\">Bonusurile de nivel superior sunt modul nostru de a-ți arăta aprecierea pentru loialitatea ta de la bun început. Pe măsură ce urci în nivelurile VIP, deblochezi recompense din ce în ce mai atractive.</p>"
+    "title": "Ce sunt bonusurile de nivelare?",
+    "content": "<p class=\"leading-7\">Bonusul de nivelare este modul nostru de a arăta aprecierea pentru jucătorii loiali care sunt cu noi încă de la început. Pe măsură ce jucătorii avansează în nivelurile VIP, aceștia deblochează recompense de nivel superior.</p>"
   },
   "faqTwo": {
-    "title": "Ce este Daily Cashback?",
-    "content": "<p class=\"leading-7\">Daily Cashback este acordat jucătorilor care înregistrează pierderi față de suma depusă. Acest bonus se oferă zilnic, ca un procent din pierderile tale. Procentul de cashback zilnic crește odată cu nivelurile VIP, ajungând până la un maxim de 40% - cel mai mare cashback de pe piață! Reține că acest bonus este doar pentru jucătorii care au o pierdere netă.</p>"
+    "title": "Ce este Cashback-ul zilnic?",
+    "content": "<p class=\"leading-7\">Cashback-ul zilnic va fi acordat jucătorilor care au suferit pierderi în raport cu suma depusă. Acest bonus este emis zilnic ca un procent din suma pierdută de jucător. Procentul de cashback zilnic va crește odată cu nivelurile tale VIP, până la un maxim de 40% cashback, cel mai mare cashback de oriunde. Vă rugăm să rețineți că acest bonus este doar pentru jucătorii care se află într-o poziție de pierdere netă.</p>"
   },
   "faqThree": {
-    "title": "Ce sunt Misiunile?",
-    "content": "<p class=\"leading-7\">Misiunile sunt provocări zilnice oferite aleatoriu jucătorilor pentru a câștiga recompense suplimentare atunci când joacă pe site-ul nostru. Recompensele pentru misiuni trebuie revendicate în 24 de ore, înainte de următorul ciclu, și expiră dacă nu sunt revendicate. Aceste recompense sunt plătite în BUCK/USDT și pot fi convertite în criptomoneda dorită prin funcția noastră de schimb.</p>"
+    "title": "Ce sunt Conquistele/Misiunile?",
+    "content": "<p class=\"leading-7\">Conquistele sunt misiuni zilnice oferite aleatoriu jucătorilor pentru a câștiga recompense suplimentare atunci când joacă pe site-ul nostru. Recompensele de Conquista trebuie revendicate în termen de 24 de ore înainte de următorul ciclu și vor expira dacă nu sunt revendicate. Recompensele de Conquista sunt plătite în BUCK/USDT și pot fi convertite în criptomoneda aleasă de tine prin funcția noastră de schimb.</p>"
   },
   "faqFour": {
-    "title": "Ce sunt recompensele pentru turnee?",
-    "content": "<p class=\"leading-7\">Recompensele de turneu sunt premii acordate pentru performanțe excepționale în competiții. Acestea se acumulează până când le revendici și nu au dată de expirare. Recompensele pentru turnee sunt plătite în BUCK/USDT și pot fi convertite în criptomoneda dorită prin funcția noastră de schimb.</p>"
+    "title": "Ce sunt Recompensele de Turneu?",
+    "content": "<p class=\"leading-7\">Recompensele de Turneu sunt premii oferite pentru performanțe deosebite în competiții. Recompensele de Turneu se vor acumula până la revendicare și nu au dată de expirare. Recompensele de Turneu sunt plătite în BUCK/USDT și pot fi convertite în criptomoneda aleasă de tine prin funcția noastră de schimb.</p>"
   },
   "faqFive": {
     "title": "Ce este Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback este mecanismul nostru de deblocare a bonusurilor de depunere. Un procent din pariul tău (până la 3%) îți este returnat de fiecare dată când plasezi un pariu. Cu cât nivelul tău VIP este mai mare, cu atât rata de deblocare este mai ridicată. BUCK/USDT deblocat = Pariu x 2,5% x Rata de deblocare%</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
+    "content": "<p class=\"leading-7\">Super Rakeback este mecanismul nostru pentru deblocarea bonusurilor tale de depunere. Un procent din miza ta (până la 3%) ți se returnează de fiecare dată când plasezi o miză. Cu cât nivelul tău VIP este mai mare, cu atât rata de deblocare este mai mare. BUCK/USDT deblocat = Miza x 2.5% x Rata de deblocare%</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
     "title": "Ce este un Booster?",
-    "content": "<p class=\"leading-7\">Booster-ul îți dublează Rakeback-ul timp de o oră de fiecare dată când o persoană recomandată de tine face o depunere.</p><p class=\"leading-7\">Rata de deblocare amplificată:</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosterele îți dublează Rakeback-ul timp de o oră de fiecare dată când un referral face o depunere.</p><p class=\"leading-7\">Rata de deblocare îmbunătățită:</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Ce este Calendarul bonus?",
-    "content": "<p class=\"leading-7\">Majoritatea bonusurilor sunt plătite 50% în Soldul real și 50% în Calendarul bonus. Bonusurile din Calendarul bonus pot fi revendicate la fiecare 8 ore și expiră în 24 de ore dacă nu sunt revendicate. Nu uita să revendici bonusurile din Calendarul bonus cel puțin o dată pe zi pentru a te asigura că îți colectezi toate recompensele!</p>"
+    "title": "Ce este Calendarul Bonusurilor?",
+    "content": "<p class=\"leading-7\">Cele mai multe bonusuri sunt plătite 50% în Soldul Tău Real și 50% în Calendarul Tău de Bonusuri. Bonusurile plătite în Calendarul Tău de Bonusuri pot fi revendicate la fiecare 8 ore și expiră în 24 de ore dacă nu sunt revendicate. Amintește-ți să revendici bonusurile din Calendarul Tău de Bonusuri cel puțin o dată pe zi pentru a te asigura că toate recompensele tale sunt colectate!</p>"
   },
   "faqEight": {
     "title": "Ce este Bonusul Săptămânal?",
-    "content": "<p class=\"leading-7\">Bonusul Săptămânal este un avantaj exclusiv pe site-ul nostru, dedicat jucătorilor de nivel VIP12 și peste. Acest bonus este acordat săptămânal și plătit automat în fiecare vineri jucătorilor cu VIP12 și peste. Valoarea bonusului depinde de suma pariată în ultima săptămână, cu o cerință minimă de pariere de {{minWager}} în ultimele 7 zile.</p>"
+    "content": "<p class=\"leading-7\">Bonusul Săptămânal este un beneficiu exclusiv pe site-ul nostru destinat jucătorilor care sunt VIP12 și mai sus. Acest bonus este emis săptămânal și plătit automat în fiecare vineri jucătorilor de la VIP12 în sus. Dimensiunea bonusului depinde de suma mizată în ultima săptămână, cu o cerință minimă de miză de {{minWager}} în ultima săptămână.</p>"
   },
   "faqNine": {
     "title": "Ce sunt Realizările?",
-    "content": "<p class=\"leading-7\">Realizările sunt modul nostru de a-ți recunoaște activitatea pe platformă. Când revendici un bonus de realizare, acesta este plătit în Calendarul bonus și poate fi revendicat la fiecare 8 ore, expirând în 24 de ore dacă nu este revendicat.</p>"
+    "content": "<p class=\"leading-7\">Realizările sunt modul nostru de a recunoaște activitatea ta pe platforma noastră. Când revendici bonusul tău de realizare, acesta va fi plătit în Calendarul Tău de Bonusuri și poate fi revendicat la fiecare 8 ore și expiră în 24 de ore dacă nu este revendicat.</p>"
   }
 }

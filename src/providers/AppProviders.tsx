@@ -1,5 +1,6 @@
 import { AppProvider } from "@/contexts/AppProvider";
 import { ChatwootProvider } from "@/contexts/ChatwootContext";
+import { AdProvider } from "@/contexts/AdProvider";
 import { RTLProvider } from "@/contexts/RTLContext";
 import { SettlementCurrencyProvider } from "@/contexts/SettlementCurrencyContext";
 import { SidebarProvider } from "@/contexts/SidebarContext";
@@ -25,9 +26,11 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
       <RTLProvider>
         <ThemeProvider>
           <SidebarProvider>
-            <AppProvider>
-              <ChatwootProvider>{children}</ChatwootProvider>
-            </AppProvider>
+            <AdProvider>
+              <AppProvider>
+                <ChatwootProvider>{children}</ChatwootProvider>
+              </AppProvider>
+            </AdProvider>
           </SidebarProvider>
         </ThemeProvider>
       </RTLProvider>

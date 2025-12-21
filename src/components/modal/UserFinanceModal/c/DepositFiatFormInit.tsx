@@ -1,11 +1,11 @@
 import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useFiatGatewayDepositParams, useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
-import { PropsWithChildren, useEffect, useMemo } from "react";
+import { PropsWithChildren, useCallback, useEffect, useMemo } from "react";
 
 export const DepositFiatFormInit = (props: PropsWithChildren) => {
   // from data store, share common data
-  const { depositFiat, setDepositFiat } = useBoundStore();
+  const { depositFiat, setDepositFiat, syncAction } = useBoundStore();
 
   // 获取支持网关
   const { data: gateways, isLoading: l1 } = useSupportedFiatDepositGateways(depositFiat.currency?.currency);
@@ -16,26 +16,43 @@ export const DepositFiatFormInit = (props: PropsWithChildren) => {
     isLoading: l2
   } = useFiatGatewayDepositParams(depositFiat.method?.gateway_id, depositFiat.method?.pay_bankcode);
 
-  // 初始化表单项
-  useEffect(() => {
+  // 初始化表单项 & 重置表单项
+  const initFormFields = useCallback(() => {
     if (fields?.data) {
       const transform = fields.data;
       for (const key in transform) {
         const field = transform[key];
-        if (field.hide || !field.required) continue;
+
+        if (field.bind || field.hide) {
+          const value = handleBindOrHideFormItemDefaultValue(field, depositFiat.method);
+          setDepositFiat({ formItem: { [key]: value || "" } });
+          continue;
+        }
+
         if (field.select && field.select.length > 0) {
           setDepositFiat({ formItem: { [key]: field.default || field.select[0].value } });
           continue;
         }
+
         setDepositFiat({ formItem: { [key]: field.default || "" } });
       }
     }
   }, [fields]);
 
+  // 初始化表单项
+  useEffect(() => {
+    initFormFields();
+  }, [fields]);
+
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
+  useEffect(() => {
+    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) initFormFields();
+  }, [syncAction, initFormFields]);
+
   // 支付通道对应的表单项生成之后安全加载表单内容
   const memoFields = useMemo(() => {
-    return depositFiat.formItem ? props?.children : <Loading className="h-52" />;
-  }, [depositFiat.formItem, props?.children]);
+    return depositFiat.formItem ? props?.children : null;
+  }, [depositFiat, props?.children]);
 
   // 币种有支付通道才可以继续后续步骤
   const memoGateways = useMemo(() => {
@@ -44,3 +61,10 @@ export const DepositFiatFormInit = (props: PropsWithChildren) => {
 
   return <>{l1 || l2 ? <Loading className="h-52" /> : memoGateways}</>;
 };
+
+export function handleBindOrHideFormItemDefaultValue(field: Record<string, any>, data: Record<string, any> | null) {
+  if (field.bind && data && Object.prototype.hasOwnProperty.call(data, field.bind)) {
+    return data[field.bind];
+  }
+  return field.default;
+}

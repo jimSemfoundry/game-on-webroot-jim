@@ -8,4 +8,6 @@ export * from './breakpoints';
 
 export * from './hooks/use-carousel';
 
+export { default as AutoScrollLite } from './plugins/auto-scroll-lite';
+
 export type * from './types';

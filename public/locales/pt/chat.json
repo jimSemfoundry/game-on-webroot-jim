@@ -1,7 +1,7 @@
 {
-    "global": "Global",
-    "notifications": "Notificações",
-    "support": "Suporte",
-    "retry": "Tentar novamente",
-    "customerServiceChatFailedToLoad": "O chat de atendimento ao cliente não pôde ser carregado"
+  "global": "Global",
+  "notifications": "Notificações",
+  "support": "Suporte",
+  "retry": "Tentar novamente",
+  "customerServiceChatFailedToLoad": "O chat de atendimento ao cliente não pôde ser carregado"
 }

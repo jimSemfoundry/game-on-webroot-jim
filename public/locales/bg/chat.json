@@ -1,7 +1,7 @@
 {
-    "global": "Глобален",
-    "notifications": "Известия",
-    "support": "Поддръжка",
-    "retry": "Опитай отново",
-    "customerServiceChatFailedToLoad": "Чатът за обслужване на клиенти не успя да се зареди"
+  "global": "Глобален",
+  "notifications": "Известия",
+  "support": "Поддръжка",
+  "retry": "Опитай отново",
+  "customerServiceChatFailedToLoad": "Чатът за обслужване на клиенти не успя да се зареди"
 }

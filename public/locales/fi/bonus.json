@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Väitä bonuksesi kuten tavallista...\nTai ota rohkea hyppy kohti",
+  "double_it": "Tuplaa se!",
+  "no_thanks": "Ei kiitos",
+  "double_or_nothing": "Tuplaa tai ei mitään",
+  "come_back_tomorrow": "Tule takaisin huomenna",
+  "promo_code": "Kampanjakoodi",
+  "got_a_code": "Onko sinulla koodi? Tiedät mitä tehdä!",
+  "lifetime_bonus": "Elinikäinen bonus",
+  "claimed": "Väitetty",
+  "starter": "Aloittelija",
+  "pack": "Paketti",
+  "achievements_card_description": "",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Hallitse onnen taidetta",
+    "achievement_verify_phone": "Pysäyttämätön energia ja voima",
+    "achievement_add_desktop_app": "Aina ulottuvilla",
+    "achievement_super_spreader": "Jaa pelielämys",
+    "achievement_conquistador": "Kohtaa jokainen este",
+    "achievement_game_explorer": "Löydä uusia pelimaailmoja",
+    "achievement_card_shark": "Hallitse korttipelejä",
+    "achievement_slotmaster": "Hallitse kolikkopelejä",
+    "achievement_talkative": "Johda tietä muille",
+    "achievement_bet_count": "Hallitse tarkkuuspelit",
+    "achievement_deposit_count": "Saavuta lopullinen voitto",
+    "achievement_wager_count": "Polta läpi haasteet",
+    "achievement_single_bet": "Tule legendaariseksi",
+    "achievement_single_deposit": "Navigoi lohkoketjuverkkoja",
+    "achievement_single_wager": "Hallitse taloudellisia strategioita",
+    "achievement_single_payout": "Hallitse kryptomarkkinoita",
+    "achievement_crypto_bro": "Hallitse kryptovaluuttakauppaa",
+    "achievement_crypto_baron": "Hallitse kryptomarkkinoita",
+    "achievement_chain_shifter": "Navigoi lohkoketjuverkkoja",
+    "achievement_money_master": "Hallitse taloudellisia strategioita",
+    "achievement_sniper": "Hallitse tarkkuuspelit",
+    "achievement_champion": "Saavuta lopullinen voitto",
+    "achievement_name_of_fame": "Tule legendaariseksi",
+    "achievement_guiding_star": "Johda tietä muille",
+    "achievement_face_of_fortune": "Hallitse onnen taidetta",
+    "achievement_dynamo": "Pysäyttämätön energia ja voima",
+    "achievement_inferno": "Polta läpi haasteet",
+    "achievement_the_challenger": "Kohtaa jokainen este"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Lunastettu Bonus Yhteensä",
   "details": "Yksityiskohdat",
   "redeem": "Lunasta",
-    "deposit_bonus": "Talletusbonusten Kokoelma",
+  "deposit_bonus": "Talletusbonusten Kokoelma",
   "get_up_to": "Saat Jopa",
   "deposit_now": "Talleta Nyt",
   "bonus_ends_in": "Bonus Päättyy",
@@ -26,14 +68,15 @@
   "daily_cashback": "Päivittäinen Käteispalautus",
   "bonus_calendar": "Bonuskalenteri",
   "claim_every_8_hours": "Lunasta 8 tunnin välein",
-    "locked": "Talletusbonusten Kokoelma",
+  "locked": "Talletusbonusten Kokoelma",
   "next_claim_in": "Seuraava Lunastus",
   "bonus_pool": "Tulevat Palkinnot",
-   "bonus_calendar_details": "Lunasta 8 tunnin välein saadaksesi bonuksen!",
+  "bonus_calendar_details": "Lunasta 8 tunnin välein saadaksesi bonuksen!",
   "release_schedule": "Vapautusaikataulu",
   "total_vip_bonus_claimed": "Lunastettu VIP-Bonus Yhteensä",
   "your_vip_progress": "VIP-Edistymisesi",
   "available_at_vip": "Saatavilla VIP-tasolla {{vip}}",
+  "vip_progress_description": "Pyrähdä eteenpäin! Seuraava taso avaa {{amount}} bonustililtäsi.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Saavuta VIP 4 ja avaa Lucky Spin – mahdollisuutesi voittaa lisäpalkintoja joka päivä!",
   "weekly_cashback": "Viikoittainen Käteispalautus",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Saavuta VIP 12 ja avaa viikoittainen käteispalautus – henkilökohtainen turvaverkkosi suurille panoksille!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Onnen Numero Seitsemän",
   "expires_in": "Vanhenee",
+  "expires": "Vanhenee",
   "go": "Mene",
   "conquest_just_wager_title": "Panosta {{amount}}",
   "conquest_just_wager_description": "Panosta {{amount}} missä tahansa peleissä yhden päivän aikana vapauttaaksesi {{reward}} bonuspotistasi tänään!",
@@ -98,134 +142,191 @@
   "sort_by": "Lajittele:",
   "claimable": "Vaatimuksen alainen",
   "achievement_verify_email": {
-    "name": "Vahvista Sähköposti",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat vahvistaneet sähköpostiosoitteensa, lukiten henkilöllisyytensä ja avaten turvallisen pääsyn. Se on merkki valmiudesta ja luotettavuudesta – jokaisen vakavan pelaajan ensimmäinen askel."
+    "name": "Vahvista sähköposti",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat vahvistaneet sähköpostinsa, lukiten heidän identiteettinsä ja avaten turvallisen pääsyn. Se on valmiuden ja luotettavuuden merkki - jokaisen vakavan pelaajan ensimmäinen askel."
   },
   "achievement_verify_phone": {
-    "name": "Vahvista Puhelin",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat vahvistaneet puhelinnumeronsa pysyäkseen ajan tasalla ja yhteydessä. Se viestii luottamuksesta, sitoutumisesta ja omistautumisesta pelin rytmiin."
+    "name": "Vahvista puhelin",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat vahvistaneet puhelinnumeronsa pysyäkseen ajan tasalla ja yhteydessä. Se merkitsee luottamusta, sitoutumista ja sitoutumista pelin sykkeeseen."
   },
   "achievement_add_desktop_app": {
-    "name": "Lisää aloitusnäytölle",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat lisänneet Telegram-miniappsimme aloitusnäytölleen. Aina käden ulottuvilla, tämä teko osoittaa aitoa omistautumista – sillä todelliset pelaajat pitävät pelin lähellä."
+    "name": "Lisää aloitusnäyttöön",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat lisänneet Telegram-minisovelluksemme aloitusnäyttöön. Aina ulottuvilla, tämä toiminto osoittaa todellista omistautumista - koska oikeat pelaajat pitävät pelin lähellä."
   },
   "achievement_super_spreader": {
-    "name": "Supersuosittelija",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat onnistuneesti suositelleet <0>{{count}} uutta käyttäjää</0>. Todellisia yhteisön rakentajia, he laajentavat verkostoa ja tuovat uutta energiaa peliin. Heidän vaikutuksensa kasvaa jokaisen luodun yhteyden myötä."
+    "name": "Superlevittäjä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat onnistuneesti viitanneet <0>{{count}} uutta käyttäjää</0>. Todellinen yhteisön rakentaja, he laajentavat piiriä ja tuovat uutta energiaa peliin. Heidän vaikutusvaltansa kasvaa jokaisella yhteydellä, jonka he tekevät."
   },
   "achievement_conquistador": {
     "name": "Valloittaja",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat suorittaneet yhteensä <0>{{count}} tehtävää</0>. Määrätietoisuuden ja voitonjanon ajamina he voittavat jokaisen eteen tulevan haasteen – todellisia matkan mestareita."
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat suorittaneet yhteensä <0>{{count}} tehtävää</0>. Päättäväisyyden ja voitonjanon ajamina he valloittavat jokaisen haasteen, joka tulee heidän tielleen - todellinen matkan mestari."
   },
   "achievement_game_explorer": {
-    "name": "Pelitutkija",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat kokeilleet <0>{{count}} eri peliä</0>. Uteliaat ja seikkailunhaluiset, he kulkevat alustalla, aina innokkaina löytämään uusia tapoja pelata ja voittaa."
+    "name": "Peli tutkija",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat kokeilleet <0>{{count}} eri peliä</0>. Uteliaita ja seikkailunhaluisia, he vaeltavat alustalla, aina innokkaina löytämään uusia tapoja pelata ja voittaa."
   },
   "achievement_card_shark": {
     "name": "Korttihai",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> korttipeleissä, osoittaen kestävyytensä, strategiansa ja halukkuutensa ottaa riskejä. Nämä suurten panosten pelaajat ovat ansainneet paikkansa eliitin joukossa. Kortit ovat heidän käsissään, ja peli on heidän hallinnassaan."
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> korttipeleissä, todistaen sitkeytensä, strategiansa ja halukkuutensa ottaa riskejä. Nämä korkean panoksen pelaajat ovat ansainneet paikkansa eliitissä. Kortit ovat heidän käsissään, ja peli on heidän hallittavanaan."
   },
   "achievement_slotmaster": {
     "name": "Kolikkopelimestari",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> kolikkopeleissä, osoittaen sinnikkyytensä, jännitystä etsivän luonteensa ja rakkautensa pyöräytyksiin. Nämä omistautuneet pelaajat omaksuvat rullat luottavaisesti – onni voi johtaa, mutta mestaruus pitää heidät pelissä."
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> kolikkopeleissä, todistaen sitkeytensä, jännityksenhalunsa ja rakkauden pyöräytyksiin. Nämä omistautuneet pelaajat omaksuvat kelat luottavaisesti - onni voi johtaa, mutta mestaruus pitää heidät pelissä."
   },
   "achievement_talkative": {
-    "name": "Puhelias",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat osallistuneet <0>{{count}} kertaa</0> keskusteluun chat-huoneessa. Jokainen viesti merkitsee – otat ensimmäisen askeleen kohti todellista osallisuutta keskustelussa."
+    "name": "Puhuja",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat puhuneet <0>{{count}} kertaa</0> chat-huoneessa. Jokainen viesti lasketaan - otat ensimmäisen askeleen tullaksesi todelliseksi osaksi keskustelua."
   },
   "achievement_bet_count": {
-    "name": "Panosten Määrä",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat asettaneet yhteensä <0>{{count}} panosta</0>. Todellisia sattuman uskovaisia, heidän horjumaton henkensä pitää pelin elossa jokaisen panoksen myötä."
+    "name": "Panosten määrä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet yhteensä <0>{{count}} panosta</0>. Todellinen usko sattumaan, heidän horjumaton henki pitää pelin elävänä jokaisella panoksella."
   },
   "achievement_deposit_count": {
-    "name": "Talletusten Määrä",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet yhteensä <0>{{count}} talletusta</0>. Tasaisen rahavirran ja vankkumattoman sitoutumisen ansiosta he ovat osoittaneet, etteivät ole vain pelaajia – he ovat tulevia suurpelureita."
+    "name": "Talletusten määrä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet yhteensä <0>{{count}} talletusta</0>. Tasaisella luottoviralla ja horjumattomalla sitoutumisella he ovat osoittaneet, etteivät he ole vain pelaajia - he ovat tulevia liikemiehiä."
   },
   "achievement_change_avatar": {
-    "name": "Vaihda Avatar",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka muokkaavat profiiliaan vaihtamalla avatarinsa. Rohkea askel kohti erottumista ja oman identiteetin omistamista pelissä."
+    "name": "Vaihda avatar",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka personoivat profiilinsa vaihtamalla avatarinsa. Rohkea askel erottua ja omistaa identiteettisi pelissä."
   },
   "achievement_set_username": {
-    "name": "Aseta Käyttäjänimi",
-    "description": "Olet lunastanut nimesi – nyt legenda alkaa. Tämä saavutus kunnioittaa niitä, jotka raivaavat oman tilansa ja tekevät siitä virallisen."
+    "name": "Aseta käyttäjänimi",
+    "description": "Olet väittänyt nimesi - nyt legenda alkaa. Tämä saavutus kunnioittaa niitä, jotka kaivavat oman tilansa ja tekevät sen viralliseksi."
   },
   "achievement_download_mobile_app": {
-    "name": "Lataa Mobiilisovellus",
-    "description": "Tämä merkki myönnetään pelaajille, jotka ovat ottaneet pelin mukaansa. Sovelluksen lataaminen osoittaa, ettet ole täällä pysähtymässä – olet täällä pelaamassa missä ja milloin tahansa."
+    "name": "Lataa mobiilisovellus",
+    "description": "Tämä merkki myönnetään pelaajille, jotka ovat ottaneet pelin mukaansa. Sovelluksen lataaminen osoittaa, että et ole täällä taukoa varten - olet täällä pelaamassa milloin tahansa, missä tahansa."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Suurin Panos Päivässä Yksittäisessä Pelissä",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> yhdessä pelissä päivän aikana. Se tunnustaa keskittyneen strategian, laskelmoidun rohkeuden ja pelin hallinnan. Nämä eliittipelaajat ovat mestaroineet valitsemansa pelin – ja he pelaavat voittaakseen."
+    "name": "Maksimipanostus yhdessä päivässä yhdellä pelillä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> yhdessä pelissä päivässä. Se tunnustaa ne, joilla on horjumaton keskittyminen, laskelmoitu strategia ja rohkeus ottaa rohkeita riskejä. Nämä huipputason pelaajat ovat hallinneet valitsemansa pelin - ja he pelaavat voittaakseen."
   },
   "achievement_slots_win_count": {
-    "name": "Kolikkopelivoittojen Määrä",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat saavuttaneet <0>{{count}} voittoa</0> kolikkopeleissä. Jokaisella pyöräytyksellä he uhmaavat todennäköisyyksiä ja juhlivat voittoa toisensa jälkeen. Onni voi aloittaa pelin – mutta johdonmukaisuus tekee heistä mestareita."
+    "name": "Kolikkopelivoittojen määrä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat saavuttaneet <0>{{count}} voittoa</0> kolikkopeleissä. Jokaisella pyöräytyksellä he haastavat todennäköisyydet ja juhlivat voittoa voiton jälkeen. Onni voi aloittaa pelin - mutta johdonmukaisuus tekee heistä mestareita."
   },
   "achievement_slots_multiplier": {
-    "name": "Kolikkopelien Kerroin",
-    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat saavuttaneet <0>voiton {{count}}x-kertoimella</0> tai suuremmalla yhdellä kolikkopelipyöräytyksellä. Se kunnioittaa niitä, jotka jahtaavat suuruutta, omaksuvat korkean riskin jännityksen ja saavuttavat poikkeuksellisia palkintoja. He eivät ole tavallisia pelaajia – he hallitsevat rullat ja nousevat muiden yläpuolelle."
+    "name": "Kolikkopelien kertoimet",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat saavuttaneet <0>voiton {{count}}x kertoimella</0> tai enemmän yhdessä kolikkopelin pyöräytyksessä. Se kunnioittaa niitä, jotka jahtaavat suuruutta, omaksuvat korkean riskin jännityksen ja saavat poikkeuksellisia palkintoja. Nämä eivät ole tavallisia pelaajia - he hallitsevat keloja ja nousevat muiden ylle."
+  },
+  "achievement_champion": {
+    "name": "Mestari",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat voittaneet <0>10 kertaa</0>. Mestari seisoo korkealla onnen areenalla, todistaen sitkeytensä kierros kierrokselta. Jokaisella voitolla he vankistavat paikkaansa kilpailijoiden joukossa, jotka nousevat onnen ylle saadakseen kunniaa."
+  },
+  "achievement_slot_master": {
+    "name": "Kolikkopelimestari",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet vähintään <0>{{amount}}</0> kolikkopeleihin. Kolikkopelimestari pyörittää luottamuksella ja sinnikkyydellä, muuttaen jokaisen kelan mahdollisuudeksi onneen. Vakailla käsillä ja pelottomalla pelillä he todistavat, että todellinen mestaruus rakentuu yksi pyöräytys kerrallaan."
+  },
+  "achievement_the_challenger": {
+    "name": "Haastaja",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet vähintään <0>10 voimassa olevaa vetoa</0> pelihistoriansa aikana. Haastaja nousee jokaiseen mahdollisuuteen, ajettuna päättäväisyydestä ja kilpailun jännityksestä. Rohkea ja väsymätön, he todistavat, että todelliset kilpailijat eivät väisty pelistä — he astuvat eteenpäin, valmiina testaamaan rajojaan ja ottamaan paikkansa pelottomien joukossa."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet <0>1 talletuksen</0> vähintään <0>{{amount}}</0> yhdellä kertaa. Dynamo vahvistuu jokaisella latauksella, todistaen johdonmukaisuutensa ja päättäväisyytensä mestaruuden polulla."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Onnen Kasvo",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat räätälöineet avatarinsa ensimmäistä kertaa. Onnen Kasvo tietää, että identiteetti on voimaa — jokainen tyylin, symbolin tai ilmeen valinta on yksilöllisyyden merkki. Muokkaamalla ulkonäköään he osoittavat, että todelliset pelaajat eivät vain pelaa peliä — he jättävät siihen jälkensä."
+  },
+  "achievement_name_of_fame": {
+    "name": "Kunnian Nimi",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat asettaneet käyttäjänimensä ensimmäistä kertaa. Kunnian Nimi merkitsee todellisen identiteetin alkua, muuttaen tulokkaan tunnistettavaksi läsnäoloksi. Rohkea ja ainutlaatuinen, he todistavat, että jokainen legenda alkaa muistettavasta nimestä."
+  },
+  "achievement_guiding_star": {
+    "name": "Opastava Tähti",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat lisänneet pelin aloitusnäytölleen tai ladanneet sovelluksen. Opastava Tähti pitää onnen polun selkeänä, valaisten tien takaisin peliin yhdellä napautuksella."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat panostaneet yhteensä vähintään <0>{{amount}}</0> koko pelihistoriansa aikana. Highrollerit kantavat sitoutumisen ja arvostuksen merkkiä, todistaen omistautumisensa peliin jokaisella pyöräytyksellä, vedolla ja kierroksella. Heidän kruununsa ei ole vain symboli — se on todistus sinnikkyydestä, intohimosta ja onnen tavoittelusta."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat saavuttaneet <0>20x</0> kertoimen millä tahansa kolikkopelillä. Tulien roihutessa, Inferno muuttaa yhden vedon onnen tulimyrskyksi."
+  },
+  "achievement_money_maverick": {
+    "name": "Raha Maverick",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet talletuksen, joka on vähintään <0>{{amount}}</0> yhdellä kertaa, käyttäen fiat- tai paikallisia maksutapoja. Raha Maverick raivaa omaa polkuaan rohkealla itseluottamuksella, muuttaen jokapäiväisen rahan poikkeuksellisiksi mahdollisuuksiksi. Pelottomana ja seikkailunhaluisena he todistavat, että todelliset maverickit eivät vain seuraa sääntöjä — he määrittelevät ne uudelleen."
+  },
+  "achievement_money_master": {
+    "name": "Raha Mestari",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat suorittaneet fiat-noston, joka on vähintään <0>{{amount}}</0> yhdellä kertaa. Raha Mestari seisoo korkealla pelin ja palkkion risteyksessä, muuttaen voittonsa todelliseksi arvoksi. Vakailla käsillä ja tarkalla ajoituksella he osoittavat, että todellinen mestaruus ei ole vain pelissä — se on palkintojen tuomisessa kotiin."
+  },
+  "achievement_crypto_bro": {
+    "name": "Krypto Kaveri",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat tehneet talletuksen, joka on vähintään <0>{{amount}}</0> yhdellä kertaa, käyttäen mitä tahansa kryptovaluuttaa. Krypto Maestro johtaa varojaan kuin todellinen taiteilija, orkestroimalla digitaalisia omaisuuksia tarkkuudella ja tyyliin. Luottavaisena lohkoketjun näyttämöllä he ovat pelin pioneereja, jotka todistavat, että onni suosii rohkeita."
+  },
+  "achievement_crypto_baron": {
+    "name": "Krypto Baron",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat suorittaneet kryptonoston, joka on vähintään <0>{{amount}}</0> yhdellä kertaa, käyttäen mitä tahansa kryptovaluuttaa. Lohkoketju Baron hallitsee digitaalisten omaisuuksien valtakuntaa, liikuttaen varoja ketjun yli luottavaisesti ja hallitsevasti. Jokaisella onnistuneella nostolla he todistavat, että onnea voi ansaita, turvata ja tuoda kotiin lohkoketjussa."
+  },
+  "achievement_chain_shifter": {
+    "name": "Ketjun Siirtäjä",
+    "description": "Tämä saavutus myönnetään pelaajille, jotka ovat onnistuneesti suorittaneet <0>kryptovaihtokaupan</0>. Ketjun Siirtäjä on henkilö, joka tietää, miten siirtyä tokenien välillä luottavaisesti, sopeutuen markkinoiden virtauksiin vaivattomasti. Liikkuvuuden mestarit, he kukoistavat joustavuudessa ja muutoksessa, ollen aina valmiita vaihtamaan vaihdetta ja tarttumaan mahdollisuuteen."
   },
   "item": {
-    "conquest_just_wager_on_100": "Tehtävä: Panosta 100",
-    "conquest_just_wager_on_200": "Tehtävä: Panosta 200",
-    "conquest_roulette_master": "Tehtävä: Ruletti-Mestari",
-    "conquest_blackjack_master": "Tehtävä: Blackjack-Mestari",
-    "conquest_baccarat_master": "Tehtävä: Baccarat-Mestari",
-    "conquest_gameshow_master": "Tehtävä: Peliohjelma-Mestari",
-    "conquest_slots_master_10": "Tehtävä: Kolikkopeli-Mestari 10",
-    "conquest_gameshow_master_20": "Tehtävä: Peliohjelma-Mestari 20",
-    "conquest_roulette_master_30": "Tehtävä: Ruletti-Mestari 30",
-    "conquest_blackjack_master_40": "Tehtävä: Blackjack-Mestari 40",
-    "conquest_baccarat_master_50": "Tehtävä: Baccarat-Mestari 50",
-    "conquest_big_win": "Tehtävä: Suuri Voitto",
-    "conquest_huge_win": "Tehtävä: Valtava Voitto",
-    "conquest_massive_win": "Tehtävä: Massiivinen Voitto",
-    "achievement_verify_email": "Saavutus Sähköpostin vahvistus",
-    "achievement_verify_phone": "Saavutus Puhelinnumeron vahvistus",
-    "achievement_add_desktop_app": "Saavutus Työpöytäsovelluksen lisääminen",
+    "conquest_just_wager_on_100": "Valloita Panosta vain 100",
+    "conquest_just_wager_on_200": "Valloita Panosta vain 200",
+    "conquest_roulette_master": "Valloita Ruletti Mestari",
+    "conquest_blackjack_master": "Valloita Blackjack Mestari",
+    "conquest_baccarat_master": "Valloita Baccarat Mestari",
+    "conquest_gameshow_master": "Valloita Pelishow Mestari",
+    "conquest_slots_master_10": "Valloita Kolikkopeli Mestari 10",
+    "conquest_gameshow_master_20": "Valloita Pelishow Mestari 20",
+    "conquest_roulette_master_30": "Valloita Ruletti Mestari 30",
+    "conquest_blackjack_master_40": "Valloita Blackjack Mestari 40",
+    "conquest_baccarat_master_50": "Valloita Baccarat Mestari 50",
+    "conquest_big_win": "Valloita Suuri Voitto",
+    "conquest_huge_win": "Valloita Huikea Voitto",
+    "conquest_massive_win": "Valloita Massiivinen Voitto",
+    "achievement_verify_email": "Saavutus Vahvista sähköposti",
+    "achievement_verify_phone": "Saavutus Vahvista puhelin",
+    "achievement_add_desktop_app": "Saavutus Lisää aloitusnäyttöön",
     "achievement_super_spreader": "Saavutus Superlevittäjä",
     "achievement_conquistador": "Saavutus Valloittaja",
-    "achievement_game_explorer": "Saavutus Pelien tutkimusmatkailija",
+    "achievement_game_explorer": "Saavutus Peli tutkija",
     "achievement_card_shark": "Saavutus Korttihai",
     "achievement_slotmaster": "Saavutus Kolikkopelimestari",
-    "achievement_talkative": "Saavutus Puhelias",
-    "achievement_bet_count": "Saavutus Vedonlyöntien määrä",
+    "achievement_talkative": "Saavutus Puhuja",
+    "achievement_bet_count": "Saavutus Panosten määrä",
     "achievement_deposit_count": "Saavutus Talletusten määrä",
     "achievement_change_avatar": "Saavutus Vaihda avatar",
-    "achievement_set_username": "Saavutus Käyttäjänimen asettaminen",
+    "achievement_set_username": "Saavutus Aseta käyttäjänimi",
     "achievement_download_mobile_app": "Saavutus Lataa mobiilisovellus",
-    "achievement_wager_in_a_day_single_game": "Saavutus Panostus yhdessä pelissä yhden päivän aikana",
-    "achievement_slots_win_count": "Saavutus Kolikkopelien voittomäärä",
-    "achievement_slots_multiplier": "Saavutus Kolikkopelien kerroin",
-    "level_up": "Tasonousu",
+    "achievement_wager_in_a_day_single_game": "Saavutus Maksimipanostus yhdessä päivässä yhdellä pelillä",
+    "achievement_slots_win_count": "Saavutus Kolikkopelivoittojen määrä",
+    "achievement_slots_multiplier": "Saavutus Kolikkopelien kertoimet",
+    "level_up": "Taso nousee",
     "rakeback": "Rakeback",
-    "cashback": "Käteispalautus",
+    "cashback": "Cashback",
     "group": "Komissio",
-    "referral": "Suosittelu",
+    "referral": "Viittaus",
     "tournament": "Turnaus",
-    "conquest_extra_reward": "Conquest Lisäpalkinto",
+    "conquest_extra_reward": "Valloita Lisäpalkinto",
     "bonus": "Bonus",
-    "bonus_manual": "Manuaalinen Bonus",
-    "vip_bonus_lucky_number_seven": "VIP-bonus onnennumero seitsemän",
-    "rakeback_bonus": "Rakeback-bonus",
-    "group_bonus": "Ryhmäbonus",
-    "level_up_bonus": "Tasonousubonus",
-    "refer_bonus": "Suosittelubonus",
+    "bonus_manual": "Manuaalinen bonus",
+    "vip_bonus_lucky_number_seven": "VIP Bonus Onnennumero Seitsemän",
+    "rakeback_bonus": "Rakeback Bonus",
+    "group_bonus": "Ryhmän bonus",
+    "level_up_bonus": "Tason nousu bonus",
+    "refer_bonus": "Viittausbonus",
     "tournament_bonus": "Turnausbonus",
-    "vip_bonus_mystery_box": "VIP-bonuksen mysteerilaatikko"
+    "vip_bonus_mystery_box": "VIP Bonus Mysteerilaatikko"
   },
   "achievements_description": "Avattu VIP-tasolla {{vip}}, nämä palkinnot juhlistavat virstanpylväitäsi jännittävillä yllätyksillä matkan varrella!",
   "lucky_number_seven_description": "Osu Onnen {{number}} -numeroihin ja nappaa makea bonus joka päivä!",
-"mystery_box_description": "Avaa salaisuuslaatikko kerran kuukaudessa saadaksesi yllätyspalkintoja!",
+  "mystery_box_description": "Avaa salaisuuslaatikko kerran kuukaudessa saadaksesi yllätyspalkintoja!",
+  "mystery_box_description2": "",
   "mystery_box": "Salainen Laatikko",
   "the_cannon_description": "Kuukausittainen palkinto, jonka voima on niin suuri, että sen todellinen luonne pysyy tarkoin salassa.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Vahvista Sähköposti",
-    "achievement_verify_phone": "Vahvista Puhelin",
-    "achievement_add_desktop_app": "Lisää Työpöytäsovellus",
+    "achievement_verify_email": "Vahvista sähköposti",
+    "achievement_verify_phone": "Vahvista puhelin",
+    "achievement_add_desktop_app": "Lisää aloitusnäyttöön",
     "achievement_super_spreader": "Superlevittäjä",
-    "achievement_conquistador": "Conquistador",
-    "achievement_game_explorer": "Pelin Tutkija"
+    "achievement_conquistador": "Valloittaja",
+    "achievement_game_explorer": "Peli tutkija"
   },
   "you_win": "Sinä voitat",
   "mystery": "Mysteeri",
@@ -248,5 +349,59 @@
   "general_terms_answer_2": "Kasinolla on oikeus muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman velvollisuutta perustella päätöstään. Kaikki väärinkäytökset tai petollinen toiminta johtavat kampanjasta poistamiseen.",
   "available": "Saatavilla",
   "refresh_in": "Päivittyy",
-  "deposit_bonus_pool": "Talletusbonusten Kokoelma"
+  "deposit_bonus_pool": "Talletusbonusten Kokoelma",
+  "dashboard": "",
+  "bonuses": "",
+  "vip_program": "",
+  "bonusHub": {
+    "root": "Bonus Hub",
+    "resetOn": "Nollaa {{time}}",
+    "ongoing": "{{count}} Käynnissä",
+    "accrualIn": "Kerryttää {{time}}",
+    "nextReleaseIn": "Seuraava julkaisu {{time}}"
+  },
+  "freeSpins": "",
+  "freeSpinsBonusDetails": "",
+  "freeSpinsClaimDistributionDescription1": "",
+  "freeSpinsClaimDistributionDescription2": "",
+  "freeSpinsExpirationDescription1": "",
+  "freeSpinsExpirationDescription2": "",
+  "freeSpinsGeneralTermsDescription1": "",
+  "freeSpinsGeneralTermsDescription2": "",
+  "the_collector": "",
+  "collector_description": "",
+  "claim_all": "",
+  "claimConfirmation": "",
+  "readyToClaim": "",
+  "selectClaimType": "",
+  "claimableAmount": "",
+  "normalClaim": "",
+  "normalClaimDesc": "",
+  "doubleClaim": "",
+  "doubleClaimDesc": "",
+  "doubleClaimInfo": "",
+  "doubleClaimRisk": "",
+  "claimModal": {
+    "title": "Tuplaa tai ei mitään",
+    "primaryDescription": "Väitä bonuksesi kuten tavallista...",
+    "secondaryDescription": "Tai ota rohkea hyppy kohti <highlight>TUPLAA SE!</highlight>",
+    "doubleAction": "Tuplaa tai ei mitään",
+    "comingSoon": "Tuplaa tai ei mitään -ominaisuus tulossa pian!",
+    "approximateBuck": "Noin {{amount}} DOLLARIA"
+  },
+  "vip_monday": "VIP Maanantai",
+  "vip_monday_description": "Erityinen viikoittainen pudotus, joka palkitsee uskollisia pelaajia joka maanantai",
+  "vip_monday_wager": "Panosta vähintään {{amount}} edellisen 7 päivän aikana saadaksesi mysteeripudotuksen joka maanantai.",
+  "claim_on_monday": "Vaatiminen maanantaina",
+  "vip_monday_title": "VIP \n <0>MAANANTAI</0>",
+  "bonus_already_claimed": "Bonus on jo vaadittu",
+  "wager_requirement_not_met": "Panostusvaatimusta ei ole täytetty",
+  "not_in_claim_time_range": "Ei vaatimisaikavälin sisällä",
+  "monday": "Maanantai",
+  "poolBalance": "Poolin saldo",
+  "program": "Ohjelma",
+  "races": "Kilpailut",
+  "loading_achievements": "Ladataan saavutuksia...",
+  "no_achievements_available": "Ei saavutuksia saatavilla",
+  "check_back_later_for_new_achievements": "Tarkista myöhemmin uusia saavutuksia varten"
 }

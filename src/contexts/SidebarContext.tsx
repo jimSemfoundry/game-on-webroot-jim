@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useIsMobileDevice } from "@/hooks/useIsMobileDevice";
 
 type SidebarMode = "mini" | "expanded";
+type SidebarTab = "casino" | "sport";
 
 interface SidebarContextType {
   // Desktop sidebar state
@@ -16,6 +18,12 @@ interface SidebarContextType {
 
   // Responsive state
   isMobile: boolean;
+  // 基于设备类型的检测，不受横屏影响
+  isMobileDevice: boolean;
+
+  // Active tab state
+  activeTab: SidebarTab;
+  setActiveTab: (tab: SidebarTab) => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -24,6 +32,9 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<SidebarMode>("expanded");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeTab, setActiveTab] = useState<SidebarTab>("casino");
+  // 基于设备类型的检测，不受横屏影响
+  const isMobileDevice = useIsMobileDevice();
 
   // Check if screen is mobile size
   useEffect(() => {
@@ -61,6 +72,9 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
     closeDrawer,
     toggleDrawer,
     isMobile,
+    isMobileDevice,
+    activeTab,
+    setActiveTab,
   };
 
   return <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>;

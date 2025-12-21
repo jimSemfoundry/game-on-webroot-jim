@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Kunin ang iyong bonus tulad ng dati...\nO tumalon ng matapang sa",
+  "double_it": "Dobleng Ito!",
+  "no_thanks": "Hindi Salamat",
+  "double_or_nothing": "Doble o Wala",
+  "come_back_tomorrow": "Bumalik Bukas",
+  "promo_code": "Promo Code",
+  "got_a_code": "May code ka? Alam mo na ang gagawin!",
+  "lifetime_bonus": "Lifetime Bonus",
+  "claimed": "Nakuha na",
+  "starter": "Nagsisimula",
+  "pack": "Pack",
+  "achievements_card_description": "Kolektahin ang mga espesyal na gantimpala sa tagumpay na dinisenyo upang ipagdiwang ang bawat hakbang ng iyong pag-unlad!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Master ang sining ng swerte",
+    "achievement_verify_phone": "Walang humpay na enerhiya at kapangyarihan",
+    "achievement_add_desktop_app": "Laging nasa kamay",
+    "achievement_super_spreader": "Ibahagi ang karanasan sa paglalaro",
+    "achievement_conquistador": "Harapin ang bawat hadlang",
+    "achievement_game_explorer": "Tuklasin ang mga bagong mundo ng paglalaro",
+    "achievement_card_shark": "Pangibabawan ang mga laro ng baraha",
+    "achievement_slotmaster": "Master ang mga slot",
+    "achievement_talkative": "Pangunahan ang daan para sa iba",
+    "achievement_bet_count": "Master ang tumpak na paglalaro",
+    "achievement_deposit_count": "Makamit ang pinakamataas na tagumpay",
+    "achievement_wager_count": "Sumabog sa mga hamon",
+    "achievement_single_bet": "Maging alamat",
+    "achievement_single_deposit": "Mag-navigate sa mga blockchain network",
+    "achievement_single_wager": "Master ang mga estratehiya sa pananalapi",
+    "achievement_single_payout": "Pangibabawan ang merkado ng crypto",
+    "achievement_crypto_bro": "Master ang kalakalan ng cryptocurrency",
+    "achievement_crypto_baron": "Pangibabawan ang merkado ng crypto",
+    "achievement_chain_shifter": "Mag-navigate sa mga blockchain network",
+    "achievement_money_master": "Master ang mga estratehiya sa pananalapi",
+    "achievement_sniper": "Master ang tumpak na paglalaro",
+    "achievement_champion": "Makamit ang pinakamataas na tagumpay",
+    "achievement_name_of_fame": "Maging alamat",
+    "achievement_guiding_star": "Pangunahan ang daan para sa iba",
+    "achievement_face_of_fortune": "Master ang sining ng swerte",
+    "achievement_dynamo": "Walang humpay na enerhiya at kapangyarihan",
+    "achievement_inferno": "Sumabog sa mga hamon",
+    "achievement_the_challenger": "Harapin ang bawat hadlang"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Kabuuang Bonus na Na-claim",
   "details": "Mga Detalye",
   "redeem": "Tubusin",
-    "deposit_bonus": "Koleksyon ng Bonus sa Deposito",
+  "deposit_bonus": "Koleksyon ng Bonus sa Deposito",
   "get_up_to": "Makakuha ng Hanggang",
   "deposit_now": "Magdeposito Ngayon",
   "bonus_ends_in": "Matatapos ang Bonus Sa",
@@ -26,14 +68,15 @@
   "daily_cashback": "Araw-araw na Cashback",
   "bonus_calendar": "Kalendaryo ng Bonus",
   "claim_every_8_hours": "Mag-claim Tuwing 8 Oras",
-    "locked": "Koleksyon ng Bonus sa Deposito",
+  "locked": "Koleksyon ng Bonus sa Deposito",
   "next_claim_in": "Prochaine Réclamation dans",
   "bonus_pool": "Récompenses à Venir",
-    "bonus_calendar_details": "Mag-claim tuwing 8 oras para makakuha ng bonus!",
+  "bonus_calendar_details": "Mag-claim tuwing 8 oras para makakuha ng bonus!",
   "release_schedule": "Iskedyul ng Pagpapalabas",
   "total_vip_bonus_claimed": "Kabuuang VIP Bonus na Na-claim",
   "your_vip_progress": "Iyong Progreso sa VIP",
   "available_at_vip": "Available sa VIP {{vip}}",
+  "vip_progress_description": "Itulak pasulong! Ang susunod na antas ay nagbubukas ng {{amount}} mula sa iyong bonus pool.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Abutin ang VIP 4 at makakuha ng access sa Lucky Spin – ang iyong pagkakataon para manalo ng karagdagang gantimpala araw-araw!",
   "weekly_cashback": "Lingguhang Cashback",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Abutin ang VIP 12 at i-unlock ang lingguhang cashback – ang iyong personal na safety net para sa high roller action!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Maswerteng Numero Siyete",
   "expires_in": "Mag-e-expire Sa",
+  "expires": "Mag-eexpire",
   "go": "Pumunta",
   "conquest_just_wager_title": "Tumaya Lang sa {{amount}}",
   "conquest_just_wager_description": "Tumaya ng {{amount}} sa anumang laro sa isang araw para palabasin ang {{reward}} mula sa iyong bonus pool ngayon!",
@@ -99,111 +143,167 @@
   "claimable": "Maaaring I-claim",
   "achievement_verify_email": {
     "name": "I-verify ang Email",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nag-verify ng kanilang email, na nagla-lock sa kanilang pagkakakilanlan at nag-a-unlock ng secure na access. Ito ay tanda ng kahandaan at pagiging maaasahan – ang unang hakbang ng bawat seryosong manlalaro."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-verify ng kanilang email, na nag-lock in ng kanilang pagkakakilanlan at nag-unlock ng secure na access. Ito ay tanda ng kahandaan at pagiging maaasahan — ang unang hakbang ng bawat seryosong manlalaro."
   },
   "achievement_verify_phone": {
     "name": "I-verify ang Telepono",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nag-verify ng kanilang numero ng telepono para manatiling may kaalaman at konektado. Ito ay nagpapahiwatig ng tiwala, pakikipag-ugnayan, at pangako sa pulso ng laro."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-verify ng kanilang numero ng telepono upang manatiling may kaalaman at konektado. Ito ay senyales ng tiwala, pakikilahok, at pangako sa tibok ng laro."
   },
   "achievement_add_desktop_app": {
-    "name": "Idagdag sa Home Screen",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nagdagdag ng aming Telegram mini app sa kanilang home screen. Laging abot-kamay, ang aksyong ito ay nagpapakita ng tunay na dedikasyon – dahil ang mga tunay na manlalaro ay pinapanatili ang laro malapit."
+    "name": "Idagdag sa Homescreen",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nagdagdag ng aming Telegram mini app sa kanilang home screen. Laging nasa kamay, ang hakbang na ito ay nagpapakita ng tunay na dedikasyon - dahil ang mga tunay na manlalaro ay pinapanatiling malapit ang laro."
   },
   "achievement_super_spreader": {
     "name": "Super Spreader",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na matagumpay na nag-refer ng <0>{{count}} bagong user</0>. Isang tunay na tagabuo ng komunidad, pinapalawak nila ang bilog at nagdadala ng bagong enerhiya sa laro. Lumalago ang kanilang impluwensya sa bawat koneksyong ginagawa nila."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na matagumpay na nag-refer ng <0>{{count}} bagong gumagamit</0>. Isang tunay na tagabuo ng komunidad, pinalawak nila ang bilog at nagdadala ng bagong enerhiya sa laro. Ang kanilang impluwensya ay lumalaki sa bawat koneksyon na kanilang ginagawa."
   },
   "achievement_conquistador": {
     "name": "Conquistador",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nakakumpleto ng kabuuang <0>{{count}} quest</0>. Dahil sa determinasyon at uhaw sa tagumpay, nilalabanan nila ang bawat hamon na dumating – isang tunay na kampeon ng paglalakbay."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakamit ang kabuuang <0>{{count}} quests</0>. Pinapagana ng determinasyon at uhaw sa tagumpay, kanilang sinasakop ang bawat hamon na dumarating sa kanilang landas — isang tunay na kampeon ng paglalakbay."
   },
   "achievement_game_explorer": {
     "name": "Game Explorer",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na sumubok ng <0>{{count}} iba’t ibang laro</0>. Mausisa at mahilig sa pakikipagsapalaran, sila ay naglalakbay sa buong platform, laging sabik na tumuklas ng mga bagong paraan para maglaro at manalo."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na sumubok ng <0>{{count}} iba't ibang laro</0>. Mapaghimagsik at mapagsapantaha, sila ay naglalakbay sa platform, laging sabik na matuklasan ang mga bagong paraan upang maglaro at manalo."
   },
   "achievement_card_shark": {
     "name": "Card Shark",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na tumaya ng hindi bababa sa <0>{{amount}}</0> sa mga laro ng baraha, na nagpapatunay ng kanilang katatagan, diskarte, at kahandaang makipagsapalaran. Ang mga high-stakes na manlalarong ito ay nakakuha ng kanilang lugar sa mga elite. Ang mga baraha ay nasa kanilang mga kamay, at ang laro ay sa kanila na kontrolin."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-wager ng hindi bababa sa <0>{{amount}}</0> sa mga laro ng baraha, na nagpapatunay ng kanilang tibay, estratehiya, at kahandaang kumuha ng mga panganib. Ang mga manlalaro na ito na may mataas na stake ay nakamit ang kanilang lugar sa mga elite. Ang mga baraha ay nasa kanilang mga kamay, at ang laro ay kanila upang pamahalaan."
   },
   "achievement_slotmaster": {
     "name": "Slotmaster",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na tumaya ng hindi bababa sa <0>{{amount}}</0> sa mga laro ng slot, na nagpapatunay ng kanilang pagtitiyaga, espiritung naghahanap ng kilig, at pagmamahal sa pag-ikot. Ang mga dedikadong manlalarong ito ay yakapin ang mga reel nang may kumpiyansa – maaaring manguna ang swerte, pero ang kasanayan ang nagpapanatili sa kanila sa laro."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-wager ng hindi bababa sa <0>{{amount}}</0> sa mga laro ng slot, na nagpapatunay ng kanilang pagtitiyaga, espiritu ng paghahanap ng saya, at pagmamahal sa pag-ikot. Ang mga dedikadong manlalaro na ito ay niyayakap ang mga reel nang may kumpiyansa — maaaring ang swerte ang manguna, ngunit ang mastery ang nagpapanatili sa kanila sa laro."
   },
   "achievement_talkative": {
-    "name": "Madaldal",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nagsalita ng <0>{{count}} beses</0> sa chat room. Mahalaga ang bawat mensahe – ikaw ay gumagawa ng unang hakbang para maging tunay na bahagi ng usapan."
+    "name": "Talkative",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nagsalita ng <0>{{count}} beses</0> sa chat room. Bawat mensahe ay mahalaga—kumuha ka ng unang hakbang upang maging tunay na bahagi ng pag-uusap."
   },
   "achievement_bet_count": {
-    "name": "Bilang ng Taya",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na naglagay ng kabuuang <0>{{count}} taya</0>. Tunay na naniniwala sa pagkakataon, ang kanilang hindi natitinag na espiritu ay nagpapanatili sa laro ng buhay sa bawat taya."
+    "name": "Bet Count",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na naglagay ng kabuuang <0>{{count}} bets</0>. Isang tunay na naniniwala sa pagkakataon, ang kanilang hindi matitinag na espiritu ay nagpapanatili ng buhay sa laro sa bawat wager."
   },
   "achievement_deposit_count": {
-    "name": "Bilang ng Deposito",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nakagawa ng kabuuang <0>{{count}} deposito</0>. Sa tuluy-tuloy na daloy ng kredito at hindi natitinag na pangako, ipinakita nila na hindi lang sila mga manlalaro – sila ay mga tycoon sa paggawa."
+    "name": "Deposit Count",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na gumawa ng kabuuang <0>{{count}} deposits</0>. Sa isang tuloy-tuloy na daloy ng mga kredito at hindi matitinag na pangako, kanilang ipinakita na hindi lamang sila mga manlalaro — sila ay mga tycoon na nasa proseso ng pagbuo."
   },
   "achievement_change_avatar": {
     "name": "Palitan ang Avatar",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nag-personalize ng kanilang profile sa pamamagitan ng pagpapalit ng kanilang avatar. Isang matapang na hakbang tungo sa pagiging kakaiba at pagmamay-ari ng iyong pagkakakilanlan sa laro."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na pinersonalize ang kanilang profile sa pamamagitan ng pagpapalit ng kanilang avatar. Isang matapang na hakbang patungo sa pagiging natatangi at pagmamay-ari ng iyong pagkakakilanlan sa laro."
   },
   "achievement_set_username": {
     "name": "Itakda ang Username",
-    "description": "Na-claim mo na ang iyong pangalan – ngayon magsisimula ang alamat. Ang tagumpay na ito ay nagpaparangal sa mga nag-ukit ng kanilang espasyo at ginawang opisyal ito."
+    "description": "Nakuha mo na ang iyong pangalan — ngayon nagsisimula ang alamat. Ang gantimpalang ito ay nagbibigay pugay sa mga nag-ukit ng kanilang espasyo at ginawang opisyal."
   },
   "achievement_download_mobile_app": {
     "name": "I-download ang Mobile App",
-    "description": "Ang badge na ito ay para sa mga manlalaro na dinala ang laro kahit saan. Ang pag-download ng app ay nagpapakita na hindi ka narito para mag-pause – narito ka para maglaro anumang oras, kahit saan."
+    "description": "Ang badge na ito ay napupunta sa mga manlalaro na nagdala ng laro sa kanila. Ang pag-download ng app ay nagpapakita na hindi ka narito upang huminto — narito ka upang maglaro anumang oras, kahit saan."
   },
   "achievement_wager_in_a_day_single_game": {
     "name": "Max Wager sa Isang Araw sa Isang Laro",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na tumaya ng hindi bababa sa <0>{{amount}}</0> sa isang laro sa isang araw. Kinikilala nito ang mga may hindi natitinag na pokus, kalkuladong diskarte, at tapang na kumuha ng malalaking panganib. Ang mga elite na manlalarong ito ay pinagkadalubhasaan ang kanilang napiling laro – at naglalaro sila para manalo."
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-wager ng hindi bababa sa <0>{{amount}}</0> sa isang solong laro sa isang araw. Kinilala nito ang mga may hindi matitinag na pokus, nakalkulang estratehiya, at tapang na kumuha ng matitinding panganib. Ang mga elite na manlalaro na ito ay master ng kanilang napiling laro — at naglalaro sila upang manalo."
   },
   "achievement_slots_win_count": {
-    "name": "Bilang ng Panalo sa Slot",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nakakuha ng <0>{{count}} panalo</0> sa mga laro ng slot. Sa bawat pag-ikot, nilalabanan nila ang mga logro at ipinagdiriwang ang tagumpay pagkatapos ng tagumpay. Maaaring simulan ng swerte ang laro – pero ang pagkakapare-pareho ang nagdadala sa kanila bilang kampeon."
+    "name": "Slots Win Count",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakakuha ng <0>{{count}} panalo</0> sa mga laro ng slot. Sa bawat pag-ikot, kanilang pinapawalang bisa ang mga pagkakataon at ipinagdiriwang ang tagumpay pagkatapos ng tagumpay. Maaaring ang swerte ang magsimula ng laro — ngunit ang pagkakapare-pareho ang ginagawang kampeon sila."
   },
   "achievement_slots_multiplier": {
-    "name": "Slot Multiplier",
-    "description": "Ang tagumpay na ito ay iginawad sa mga manlalaro na nakakuha ng <0>panalo na may {{count}}x multiplier</0> o higit pa sa isang slot spin. Pinararangalan nito ang mga humahabol sa kadakilaan, tinatanggap ang kilig ng mataas na panganib, at nakakuha ng pambihirang gantimpala. Hindi sila ordinaryong manlalaro – sila ang nag-uutos sa mga reel at umaangat sa iba."
+    "name": "Slots Multiplier",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakakuha ng <0>panalo na may {{count}}x multiplier</0> o higit pa sa isang solong pag-ikot ng slot. Ipinapakita nito ang mga humahabol sa kadakilaan, niyayakap ang saya ng mataas na panganib, at nakakamit ng pambihirang gantimpala. Ang mga ito ay hindi ordinaryong manlalaro — sila ang namamahala sa mga reel at umaangat sa iba."
+  },
+  "achievement_champion": {
+    "name": "Kampeon",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakakuha ng <0>10 panalo</0>. Ang isang Kampeon ay nakatayo ng matatag sa arena ng pagkakataon, pinapatunayan ang kanilang tibay sa bawat round. Sa bawat tagumpay, pinagtitibay nila ang kanilang lugar sa mga kalahok na umaangat sa swerte upang makamit ang kaluwalhatian."
+  },
+  "achievement_slot_master": {
+    "name": "Master ng Slot",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na naglagay ng taya ng hindi bababa sa <0>{{amount}}</0> sa mga laro ng slot. Ang isang Master ng Slot ay umiikot nang may kumpiyansa at pagtitiyaga, ginagawang pagkakataon para sa kayamanan ang bawat reel. Sa matatag na mga kamay at walang takot na laro, pinatutunayan nila na ang tunay na kasanayan ay nabuo ng isang spin sa bawat pagkakataon."
+  },
+  "achievement_the_challenger": {
+    "name": "Ang Challenger",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na naglagay ng hindi bababa sa <0>10 wastong taya</0> sa kanilang kasaysayan ng paglalaro. Ang Challenger ay tumataas sa bawat pagkakataon, pinapagana ng determinasyon at ang kilig ng kumpetisyon. Matapang at walang humpay, pinatutunayan nila na ang mga tunay na kalahok ay hindi umaatras sa laro — sila ay sumusulong, handang subukan ang kanilang mga limitasyon at kunin ang kanilang lugar sa mga walang takot."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakumpleto ang <0>1 deposito</0> ng hindi bababa sa <0>{{amount}}</0> sa isang solong transaksyon. Ang isang Dynamo ay lumalakas sa bawat recharge, pinatutunayan ang kanilang pagkakapare-pareho at determinasyon sa landas patungo sa kasanayan."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Mukha ng Kapalaran",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nag-customize ng kanilang avatar sa unang pagkakataon. Ang Mukha ng Kapalaran ay alam na ang pagkakakilanlan ay kapangyarihan — bawat pagpili ng estilo, simbolo, o ekspresyon ay tanda ng pagkakaiba. Sa paghubog ng kanilang hitsura, ipinapakita nila na ang mga tunay na manlalaro ay hindi lamang naglalaro ng laro — nag-iiwan sila ng kanilang marka dito."
+  },
+  "achievement_name_of_fame": {
+    "name": "Pangalan ng Katanyagan",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nagtakda ng kanilang username sa unang pagkakataon. Ang Pangalan ng Katanyagan ay nagmamarka ng simula ng tunay na pagkakakilanlan, binabago ang isang baguhan sa isang kilalang presensya. Matapang at natatangi, pinatutunayan nila na ang bawat alamat ay nagsisimula sa isang pangalang naaalala."
+  },
+  "achievement_guiding_star": {
+    "name": "Patnubay na Bituin",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nagdagdag ng laro sa kanilang Home Screen o nag-download ng app. Ang Patnubay na Bituin ay pinapanatiling maliwanag ang daan patungo sa kayamanan, pinapaliwanag ang daan pabalik sa paglalaro sa isang tap."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na naglagay ng taya ng hindi bababa sa <0>{{amount}}</0> sa kanilang buong kasaysayan ng paglalaro. Ang mga Highroller ay may tanda ng pangako at prestihiyo, pinatutunayan ang kanilang dedikasyon sa laro sa bawat spin, taya, at round. Ang kanilang korona ay hindi lamang simbolo — ito ay patunay ng pagtitiyaga, pasyon, at pagsusumikap para sa kayamanan."
+  },
+  "achievement_inferno": {
+    "name": "Impiyerno",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakakuha ng <0>20x</0> multiplier sa anumang slot. Sa mga apoy na umaalab, ang isang Impiyerno ay nagiging isang solong taya sa isang bagyong kayamanan."
+  },
+  "achievement_money_maverick": {
+    "name": "Money Maverick",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na gumawa ng deposito ng hindi bababa sa <0>{{amount}}</0> sa isang solong transaksyon, gamit ang fiat o lokal na mga gateway sa pagbabayad. Ang isang Money Maverick ay naglalakad sa kanilang sariling landas na may matapang na kumpiyansa, ginagawang pambihirang pagkakataon ang pangkaraniwang pera. Walang takot at mapaghimagsik, pinatutunayan nila na ang mga tunay na mavericks ay hindi lamang sumusunod sa mga patakaran — binabago nila ang mga ito."
+  },
+  "achievement_money_master": {
+    "name": "Master ng Pera",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakumpleto ang isang fiat withdrawal ng hindi bababa sa <0>{{amount}}</0> sa isang solong transaksyon. Ang isang Master ng Pera ay nakatayo ng matatag sa sangandaan ng paglalaro at gantimpala, binabago ang kanilang mga panalo sa tunay na halaga. Sa matatag na mga kamay at tamang timing, pinatutunayan nila na ang tunay na kasanayan ay hindi lamang nasa laro — ito ay sa pagdadala ng mga gantimpala pauwi."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na gumawa ng deposito ng hindi bababa sa <0>{{amount}}</0> sa isang solong transaksyon, gamit ang anumang cryptocurrency. Ang isang Crypto Maestro ay nag-uugong ng kanilang mga pondo tulad ng isang tunay na artista, inaayos ang mga digital na asset nang may katumpakan at estilo. Kumpiyansa sa entablado ng blockchain, sila ay mga tagapanguna ng paglalaro na pinatutunayan na ang kapalaran ay pabor sa mga matapang."
+  },
+  "achievement_crypto_baron": {
+    "name": "Crypto Baron",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na nakumpleto ang isang crypto withdrawal ng hindi bababa sa <0>{{amount}}</0> sa isang solong transaksyon, gamit ang anumang cryptocurrency. Ang isang Blockchain Baron ay namumuno sa kaharian ng mga digital na asset, inilipat ang mga pondo sa buong chain nang may kumpiyansa at kapangyarihan. Sa bawat matagumpay na withdrawal, pinatutunayan nila na ang kapalaran ay maaaring makuha, ma-secure, at madala pauwi sa blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Chain Shifter",
+    "description": "Ang gantimpalang ito ay ibinibigay sa mga manlalaro na matagumpay na nakumpleto ang isang <0>crypto swap transaction</0>. Ang isang Chain Shifter ay isang tao na marunong lumipat sa pagitan ng mga token nang may kumpiyansa, umaangkop sa mga alon ng merkado nang madali. Mga master ng momentum, sila ay umuunlad sa kakayahang umangkop at pagbabago, palaging handang lumipat ng gears at sakupin ang pagkakataon."
   },
   "item": {
-    "conquest_just_wager_on_100": "Pananakop: Tumaya Lang sa 100",
-    "conquest_just_wager_on_200": "Pananakop: Tumaya Lang sa 200",
-    "conquest_roulette_master": "Pananakop: Roulette Master",
-    "conquest_blackjack_master": "Pananakop: Blackjack Master",
-    "conquest_baccarat_master": "Pananakop: Baccarat Master",
-    "conquest_gameshow_master": "Pananakop: Gameshow Master",
-    "conquest_slots_master_10": "Pananakop: Slots Master 10",
-    "conquest_gameshow_master_20": "Pananakop: Gameshow Master 20",
-    "conquest_roulette_master_30": "Pananakop: Roulette Master 30",
-    "conquest_blackjack_master_40": "Pananakop: Blackjack Master 40",
-    "conquest_baccarat_master_50": "Pananakop: Baccarat Master 50",
-    "conquest_big_win": "Pananakop: Malaking Panalo",
-    "conquest_huge_win": "Pananakop: Napakalaking Panalo",
-    "conquest_massive_win": "Pananakop: Sobrang Malaking Panalo",
-    "achievement_verify_email": "Tagumpay Kumpirmahin ang email",
-    "achievement_verify_phone": "Tagumpay Kumpirmahin ang telepono",
-    "achievement_add_desktop_app": "Tagumpay Magdagdag ng desktop app",
-    "achievement_super_spreader": "Tagumpay Super tagapagkalat",
-    "achievement_conquistador": "Tagumpay Mananakop",
-    "achievement_game_explorer": "Tagumpay Tagasiyasat ng laro",
-    "achievement_card_shark": "Tagumpay Eksperto sa baraha",
-    "achievement_slotmaster": "Tagumpay Guro ng slots",
-    "achievement_talkative": "Tagumpay Madaldal",
-    "achievement_bet_count": "Tagumpay Bilang ng taya",
-    "achievement_deposit_count": "Tagumpay Bilang ng deposito",
-    "achievement_change_avatar": "Tagumpay Palitan ang avatar",
-    "achievement_set_username": "Tagumpay Itakda ang username",
-    "achievement_download_mobile_app": "Tagumpay I-download ang mobile app",
-    "achievement_wager_in_a_day_single_game": "Tagumpay Pagtaya sa isang araw sa iisang laro",
-    "achievement_slots_win_count": "Tagumpay Bilang ng panalo sa slots",
-    "achievement_slots_multiplier": "Tagumpay Slots multiplier",
-    "level_up": "Pag-level Up",
+    "conquest_just_wager_on_100": "Conquest Just Wager on 100",
+    "conquest_just_wager_on_200": "Conquest Just Wager on 200",
+    "conquest_roulette_master": "Conquest Roulette Master",
+    "conquest_blackjack_master": "Conquest Blackjack Master",
+    "conquest_baccarat_master": "Conquest Baccarat Master",
+    "conquest_gameshow_master": "Conquest Gameshow Master",
+    "conquest_slots_master_10": "Conquest Slots Master 10",
+    "conquest_gameshow_master_20": "Conquest Gameshow Master 20",
+    "conquest_roulette_master_30": "Conquest Roulette Master 30",
+    "conquest_blackjack_master_40": "Conquest Blackjack Master 40",
+    "conquest_baccarat_master_50": "Conquest Baccarat Master 50",
+    "conquest_big_win": "Conquest Big Win",
+    "conquest_huge_win": "Conquest Huge Win",
+    "conquest_massive_win": "Conquest Massive Win",
+    "achievement_verify_email": "Achievement I-verify ang Email",
+    "achievement_verify_phone": "Achievement I-verify ang Telepono",
+    "achievement_add_desktop_app": "Achievement Idagdag sa Desktop App",
+    "achievement_super_spreader": "Achievement Super Spreader",
+    "achievement_conquistador": "Achievement Conquistador",
+    "achievement_game_explorer": "Achievement Game Explorer",
+    "achievement_card_shark": "Achievement Card Shark",
+    "achievement_slotmaster": "Achievement Slotmaster",
+    "achievement_talkative": "Achievement Talkative",
+    "achievement_bet_count": "Achievement Bet Count",
+    "achievement_deposit_count": "Achievement Deposit Count",
+    "achievement_change_avatar": "Achievement Palitan ang Avatar",
+    "achievement_set_username": "Achievement Itakda ang Username",
+    "achievement_download_mobile_app": "Achievement I-download ang Mobile App",
+    "achievement_wager_in_a_day_single_game": "Achievement Max Wager sa Isang Araw sa Isang Laro",
+    "achievement_slots_win_count": "Achievement Slots Win Count",
+    "achievement_slots_multiplier": "Achievement Slots Multiplier",
+    "level_up": "Level Up",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
     "group": "Komisyon",
     "referral": "Referral",
-    "tournament": "Tournament",
-    "conquest_extra_reward": "Karagdagang Gantimpala sa Conquest",
+    "tournament": "Torneo",
+    "conquest_extra_reward": "Conquest Extra Reward",
     "bonus": "Bonus",
     "bonus_manual": "Manwal na Bonus",
     "vip_bonus_lucky_number_seven": "VIP Bonus Lucky Number Seven",
@@ -216,13 +316,14 @@
   },
   "achievements_description": "Maaaring ma-unlock sa VIP {{vip}}, ipinagdiriwang ng mga gantimpalang ito ang iyong mga milestone sa pamamagitan ng mga kapanapanabik na sorpresa sa daan!",
   "lucky_number_seven_description": "Tamaan ang Maswerteng {{number}} at makakuha ng matamis na bonus araw-araw!",
-"mystery_box_description": "Buksan ang iyong misteryosong kahon isang beses sa isang buwan para sa mga sorpresa na gantimpala!",
+  "mystery_box_description": "Buksan ang iyong misteryosong kahon isang beses sa isang buwan para sa mga sorpresa na gantimpala!",
+  "mystery_box_description2": "Hit VIP {{vip}} upang makatanggap ng Mystery Box sa ika-7 ng bawat buwan!",
   "mystery_box": "Mystery Box",
   "the_cannon_description": "Isang buwanang gantimpala na napakalakas kaya ang tunay na likas nito ay mahigpit na lihim.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Beripikahin ang Email",
-    "achievement_verify_phone": "Beripikahin ang Telepono",
-    "achievement_add_desktop_app": "Magdagdag ng Desktop App",
+    "achievement_verify_email": "I-verify ang Email",
+    "achievement_verify_phone": "I-verify ang Telepono",
+    "achievement_add_desktop_app": "Idagdag sa Desktop App",
     "achievement_super_spreader": "Super Spreader",
     "achievement_conquistador": "Conquistador",
     "achievement_game_explorer": "Game Explorer"
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Ang mga gantimpala ay kinakalkula at ina-credit sa BUCK/USDT, pagkatapos ay ipinapakita sa iyong nais na fiat na pera base sa real-time na mga palitan para sa kaginhawahan. Pakitandaan na ang lahat ng conversion ay tinatayang hanggang matapos ang swap na transaksyon.",
   "general_terms_answer_2": "May karapatan ang casino na baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyong magbigay ng paliwanag. Anumang pang-aabuso o mapanlinlang na aktibidad ay magreresulta sa diskwalipikasyon mula sa promosyon.",
   "available": "Available",
-"refresh_in": "Refresh In",
-"deposit_bonus_pool": "Koleksyon ng Bonus sa Deposito"
+  "refresh_in": "Refresh In",
+  "deposit_bonus_pool": "Koleksyon ng Bonus sa Deposito",
+  "dashboard": "Dashboard",
+  "bonuses": "Bonuses",
+  "vip_program": "VIP Program",
+  "bonusHub": {
+    "root": "Bonus Hub",
+    "resetOn": "I-reset Sa {{time}}",
+    "ongoing": "{{count}} Patuloy",
+    "accrualIn": "Accrual Sa {{time}}",
+    "nextReleaseIn": "Susunod na Paglabas Sa {{time}}"
+  },
+  "freeSpins": "Libreng Spins",
+  "freeSpinsBonusDetails": "Ang mga bonus ng Libreng Spins ay nagbibigay sa iyo ng karagdagang gameplay sa mga napiling pamagat ng slot. Ang pagtaya sa kinakailangang halaga ay nagbubukas ng iyong mga panalo sa libreng spins, na agad na maikredito sa iyong balanse ng account.",
+  "freeSpinsClaimDistributionDescription1": "Ang mga panalo mula sa libreng spins ay ikikredito sa iyong balanse ng account kapag natapos ang kinakailangang pagtaya at nag-click ka sa 'Claim.'",
+  "freeSpinsClaimDistributionDescription2": "Subaybayan ang iyong pag-unlad anumang oras sa iyong Bonus Panel o Kasaysayan ng Libreng Spins.",
+  "freeSpinsExpirationDescription1": "Ang mga Libreng Spins ay dapat gamitin sa loob ng panahon ng bisa na ipinapakita sa panel ng Libreng Spins. Ang mga hindi nagamit na spins ay mawawalan ng bisa pagkatapos ng panahong ito.",
+  "freeSpinsExpirationDescription2": "Ang mga panalo mula sa libreng spins ay hindi mawawalan ng bisa hanggang sa ma-unlock at ma-claim.",
+  "freeSpinsGeneralTermsDescription1": "Ang mga gantimpala ng Libreng Spins ay kinakalkula at ikinredito sa BUCK, pagkatapos ay ipinapakita sa iyong ginustong fiat currency para sa kaginhawaan. Mangyaring tandaan, ang mga conversion ng currency ay tinatayang.",
+  "freeSpinsGeneralTermsDescription2": "Ang casino ay may karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyong ipaliwanag. Anumang pang-aabuso o mapanlinlang na aktibidad ay magreresulta sa diskwalipikasyon mula sa promosyon.",
+  "the_collector": "Ang Kolektor",
+  "collector_description": "Mga Karapat-dapat na Gantimpala, Isang Click",
+  "claim_all": "I-claim Lahat",
+  "claimConfirmation": "Kumpirmasyon ng Pag-claim",
+  "readyToClaim": "Handa nang I-claim",
+  "selectClaimType": "Pumili ng iyong uri ng pag-claim sa ibaba",
+  "claimableAmount": "Maaaring I-claim na Halaga",
+  "normalClaim": "Normal na Pag-claim",
+  "normalClaimDesc": "Kunin ang iyong karaniwang halaga ng gantimpala",
+  "doubleClaim": "Double Claim",
+  "doubleClaimDesc": "Isugal ito para sa 2x na gantimpala!",
+  "doubleClaimInfo": "Opsyon sa Double Claim",
+  "doubleClaimRisk": "Mas mataas na panganib, mas mataas na gantimpala - maaari kang manalo ng doble o mawala ang lahat!",
+  "claimModal": {
+    "title": "Doble o Wala",
+    "primaryDescription": "Kunin ang iyong bonus tulad ng dati...",
+    "secondaryDescription": "O tumalon ng matapang sa <highlight>DOBLE ITO!</highlight>",
+    "doubleAction": "Doble o Wala",
+    "comingSoon": "Doble o Wala na tampok na darating sa lalong madaling panahon!",
+    "approximateBuck": "Tinatayang {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Lunes",
+  "vip_monday_description": "Isang espesyal na lingguhang drop upang gantimpalaan ang mga tapat na manlalaro tuwing Lunes",
+  "vip_monday_wager": "Maglagay ng taya ng hindi bababa sa {{amount}} sa nakaraang 7 araw para sa isang Mystery drop tuwing Lunes.",
+  "claim_on_monday": "Kunin sa Lunes",
+  "vip_monday_title": "VIP \n <0>LUHOD</0>",
+  "bonus_already_claimed": "Bonus na nakuha na",
+  "wager_requirement_not_met": "Hindi natugunan ang kinakailangan sa taya",
+  "not_in_claim_time_range": "Hindi sa saklaw ng oras ng pagkuha",
+  "monday": "Lunes",
+  "poolBalance": "Balanseng Pool",
+  "program": "Programa",
+  "races": "Karera",
+  "loading_achievements": "Naglo-load ng mga gantimpala...",
+  "no_achievements_available": "Walang mga gantimpala na available",
+  "check_back_later_for_new_achievements": "Bumalik mamaya para sa mga bagong gantimpala"
 }

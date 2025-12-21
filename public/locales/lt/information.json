@@ -1,38 +1,38 @@
 {
-    "goBack": "Atgal",
-    "tryAgain": "Bandyti dar kartą",
-    "retry": "Bandyti dar kartą",
-    "retryConnection": "Pakartoti ryšį",
-    "emptyStateNoContent": {
-        "title": "Čia dar nieko nėra",
-        "description": "atrodo, kad dabar čia nėra turinio. grįžkite vėliau arba išbandykite ką nors kita"
-    },
-    "failedToLoadPage": {
-        "title": "Kažkas nutiko ne taip",
-        "description": "Įvyko sistemos klaida įkeliant puslapį. Prašome perkrauti puslapį arba susisiekite su palaikymu, jei problema išlieka."
-    },
-    "otherActiveSession": {
-        "title": "Sesijos klaida",
-        "description": "prieiga iš šio įrenginio šiuo metu neprieinama dėl saugumo priežasčių. tai gali būti dėl kito prisijungimo arba sistemos problemos. bandykite dar kartą arba naudokite kitą įrenginį"
-    },
-    "noInternetConnection": {
-        "title": "Oi! jūs neprisijungę prie interneto",
-        "description": "atrodo, kad nesate prisijungę prie interneto. patikrinkite savo wi-fi arba mobiliuosius duomenis ir bandykite dar kartą, kai būsite prisijungę"
-    },
-    "pageNotFound": {
-        "title": "Oi! šio puslapio nėra",
-        "description": "atrodo, kad šis puslapis neegzistuoja arba buvo perkeltas. pabandykite patikrinti URL arba grįžkite į pagrindinį puslapį"
-    },
-    "tooManyRequest": {
-        "title": "Laikykitės! esame užimti",
-        "description": "atrodo, kad mūsų serveriai dabar daug dirba. palaukite akimirką ir bandykite dar kartą"
-    },
-    "underMaintenance": {
-        "title": "Mes tuoj grįšime",
-        "description": "atliekame keletą atnaujinimų, kad viskas veiktų sklandžiai. netrukus apsilankykite"
-    },
-    "userRestriction": {
-        "title": "Oi! jūs negalite prieiti prie šio",
-        "description": "atrodo, kad neturite leidimo tai peržiūrėti. dar kartą patikrinkite savo prieigą arba kreipkitės pagalbos"
-    }
+  "goBack": "Atgal",
+  "tryAgain": "Bandyti dar kartą",
+  "retry": "Bandyti dar kartą",
+  "retryConnection": "Pakartoti ryšį",
+  "emptyStateNoContent": {
+    "title": "Dar nieko čia nėra!",
+    "description": "Atrodo, kad šiuo metu čia nėra turinio. Grįžkite vėliau arba išbandykite ką nors kita."
+  },
+  "failedToLoadPage": {
+    "title": "Kažkas nepavyko",
+    "description": "Įkeliant puslapį įvyko sistemos klaida. Prašome atnaujinti puslapį arba kreiptis į pagalbą, jei problema išlieka."
+  },
+  "otherActiveSession": {
+    "title": "Sesijos klaida!",
+    "description": "Prieiga iš šio įrenginio šiuo metu nėra prieinama dėl saugumo priežasčių. Tai gali būti dėl kito prisijungimo arba sistemos problemos. Prašome bandyti dar kartą arba naudoti kitą įrenginį."
+  },
+  "noInternetConnection": {
+    "title": "O ne! Jūs esate neprisijungę",
+    "description": "Atrodo, kad nesate prisijungę prie interneto. Patikrinkite savo Wi-Fi arba mobiliojo ryšio duomenis ir bandykite dar kartą, kai būsite prisijungę."
+  },
+  "pageNotFound": {
+    "title": "O ne! Šis puslapis trūksta",
+    "description": "Atrodo, kad šio puslapio nėra arba jis buvo perkelti. Patikrinkite URL arba grįžkite atgal į namus."
+  },
+  "tooManyRequest": {
+    "title": "Palaukite! Mes šiek tiek užimti",
+    "description": "Atrodo, kad mūsų serveriai šiuo metu tvarko daug užklausų. Palaukite akimirką ir bandykite dar kartą."
+  },
+  "underMaintenance": {
+    "title": "Mes greitai sugrįšime!",
+    "description": "Mes atliekame keletą atnaujinimų, kad viskas veiktų sklandžiai. Grįžkite greitai!"
+  },
+  "userRestriction": {
+    "title": "O ne! Jūs negalite prieiti prie šio",
+    "description": "Atrodo, kad neturite leidimo tai peržiūrėti. Patikrinkite savo prieigą arba kreipkitės pagalbos."
+  }
 }

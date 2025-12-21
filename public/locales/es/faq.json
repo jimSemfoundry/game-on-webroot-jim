@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "¿Qué edad debo tener para registrarme en su sitio?",
-    "content": "<p class=\"leading-7\">Debes tener al menos {{faqAge}} años o la mayoría de edad en tu jurisdicción para registrarte. También debes estar legalmente autorizado para jugar juegos en línea según las leyes aplicables. Para más información, consulta nuestros términos de servicio.</p><p class=\"leading-7\">Los juegos pueden ser adictivos, y se recomienda a los jugadores ejercer autocontrol.</p>"
+    "title": "¿Cuántos años debo tener para registrarme en su sitio?",
+    "content": "<p class=\"leading-7\">Debes tener al menos {{faqAge}} años o la edad de mayoría en tu jurisdicción para registrarte. También debes estar legalmente permitido para jugar juegos en línea de acuerdo con las leyes que te son aplicables. Para más información, por favor lee nuestros términos de servicio.</p><p class=\"leading-7\">El juego puede ser adictivo, y se aconseja a los jugadores que ejerzan autocontrol.</p>"
   },
   "faqTwo": {
-    "title": "¿Qué monedas soporta el monedero?",
-    "content": "<p class=\"leading-7\">Soportamos criptomonedas principales como {{currency}}.</p>"
+    "title": "¿Qué moneda soporta la billetera?",
+    "content": "<p class=\"leading-7\">Soportamos criptomonedas principales como {{currency}}</p>"
   },
   "faqThree": {
     "title": "¿Cómo deposito?",
-    "content": "<p class=\"leading-7\">Ve a tu página de perfil y haz clic en \"Depósito\", selecciona la criptomoneda de tu elección, copia la dirección del monedero o escanea el código QR para realizar el pago.</p>"
+    "content": "<p class=\"leading-7\">Ve a tu página de perfil y haz clic en \"Depositar\", selecciona la criptomoneda de tu elección, copia la dirección de la billetera o escanea el código QR para el pago.</p>"
   },
   "faqFour": {
     "title": "¿Puedo intercambiar mis criptomonedas en su sitio?",
-    "content": "<p class=\"leading-7\">{{siteName}} ofrece una función de intercambio donde puedes cambiar tus criptomonedas por otras de manera segura y sencilla. Sin embargo, debido a preocupaciones por la mezcla de monedas, todas las criptomonedas depositadas en {{siteName}} tienen un requisito de apuesta 1x, lo que significa que debes apostar tus fondos depositados al menos una vez antes de poder intercambiarlos.</p>"
+    "content": "<p class=\"leading-7\">{{siteName}} ofrece una función de intercambio donde puedes intercambiar tus criptomonedas de manera segura y fácil por otras criptomonedas. Sin embargo, debido a preocupaciones sobre la mezcla de monedas, todas las criptomonedas depositadas en {{siteName}} tienen un requisito de rollover de 1x, lo que significa que debes apostar con tus fondos depositados al menos 1 vez antes de poder intercambiarlos.</p>"
   },
   "faqFive": {
     "title": "¿Cómo retiro?",
-    "content": "<p class=\"leading-7\">Ve a tu página de perfil y haz clic en \"Retirar\", introduce la dirección del monedero al que deseas retirar y el monto que deseas retirar. (Ten en cuenta que pueden aplicarse diferentes tarifas según las cadenas de bloques).</p>"
+    "content": "<p class=\"leading-7\">Ve a tu página de perfil y haz clic en \"Retirar\", ingresa la dirección de la billetera a la que deseas retirar y la cantidad que deseas retirar. (Ten en cuenta que pueden aplicarse diferentes tarifas según las diferentes cadenas de bloques)</p>"
   },
   "faqSix": {
     "title": "¿Cuál es el monto mínimo de retiro para cada criptomoneda?",
-    "content": "<p class=\"leading-7\">Debido a los diferentes valores de las criptomonedas y las tarifas de minería involucradas, verifica en tu página de retiro los montos mínimos de retiro para cada criptomoneda.</p>"
+    "content": "<p class=\"leading-7\">Debido al diferente valor de las criptomonedas así como a las diferentes tarifas de minería involucradas, por favor verifica tu página de retiro para los montos mínimos de retiro correspondientes a cada criptomoneda.</p>"
   },
   "faqSeven": {
-    "title": "¿Cuánto tiempo toma depositar y retirar?",
-    "content": "<p class=\"leading-7\">Cada transacción en la cadena de bloques requiere varios ciclos para confirmarse.</p><p class=\"leading-7\">Generalmente, cada transacción toma de 5 a 10 minutos antes de ser confirmada por la red de blockchain para las cadenas BTC y ETH; y de 1 a 2 minutos para las cadenas TRON, TON y SOLANA.</p><p class=\"leading-7\">Si encuentras algún problema durante el depósito o retiro, puedes verificar tu transacción usando el explorador de blockchain correspondiente o contactar a nuestro soporte en vivo.</p>"
+    "title": "¿Cuánto tiempo tarda en depositar y retirar?",
+    "content": "<p class=\"leading-7\">Cada transacción en la cadena de bloques requiere varios ciclos para ser confirmada.</p><p class=\"leading-7\">En términos generales, cada transacción requiere de 5 a 10 minutos antes de que pueda ser confirmada por la red de blockchain para BTC y ETH; y alrededor de 1 a 2 minutos para TRON, TON, cadena SOLANA.</p><p class=\"leading-7\">Si encuentras algún problema durante el depósito o el retiro, puedes verificar tu transacción utilizando el explorador de blockchain respectivo para la red o contactar a nuestro soporte en vivo.</p>"
   },
   "faqEight": {
     "title": "¿De dónde provienen las confirmaciones de transacciones?",
-    "content": "<p class=\"leading-7\">Toda la información de confirmación proviene de la cadena de bloques y los mineros de la cadena de bloques.</p>"
+    "content": "<p class=\"leading-7\">Toda la información de confirmación proviene de la cadena de bloques y de los mineros de la cadena de bloques</p>"
   },
   "faqNine": {
-    "title": "¿Son vuestros juegos justos?",
-  "content": "<p class=\"leading-7\">La transparencia, la confianza y la justicia forman parte de los valores fundamentales de {{gameLink}} y son la base de nuestro negocio. Por eso solo trabajamos con socios de juegos de primer nivel y confianza para brindar a nuestros clientes la experiencia de calidad que merecen.</p><p class=\"leading-7\">Todos los juegos de nuestros socios son rigurosamente probados para garantizar la aleatoriedad por auditores independientes, y están licenciados por reguladores de juegos que los someten a auditorías frecuentes sobre su generador de números aleatorios.</p>"
+    "title": "¿Son justos sus juegos?",
+    "content": "<p class=\"leading-7\">La transparencia, la confianza y la equidad son parte de los valores fundamentales de {{gameLink}} y la base de nuestro negocio. Esta es la razón por la que solo trabajamos con socios de juegos de confianza y de primer nivel para ofrecer a nuestros clientes la experiencia de calidad que merecen.</p><p class=\"leading-7\">Todos los juegos de nuestros socios son rigurosamente probados por auditores independientes para verificar su aleatoriedad y están licenciados por reguladores de juegos que los someten a auditorías frecuentes sobre su Generador de Números Aleatorios.</p>"
   },
   "faqTen": {
-    "title": "¿Qué debo hacer si mi juego se cuelga o me desconecto?",
-    "content": "<p class=\"leading-7\">Si encuentras problemas técnicos, intenta refrescar la página. Los estados de los juegos son guardados por nuestros proveedores, y deberías ver tu estado de juego anterior al reconectarte.</p>"
+    "title": "¿Qué debo hacer si mi juego se congela o si me desconecto?",
+    "content": "<p class=\"leading-7\">Si encuentras algún problema técnico, intenta refrescar la página. Los estados de los juegos son guardados por nuestros proveedores y deberías ver tu estado de juego anterior cuando te reconectes.</p>"
   }
 }

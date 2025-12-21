@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Kui vana pean olema, et teie saidil registreeruda?",
-    "content": "<p class=\"leading-7\">Registreerimiseks pead olema vähemalt {{faqAge}} aastat vana või oma jurisdiktsiooni täisealisuse vanuses. Samuti pead olema seaduslikult lubatud mängima online-mänge vastavalt sinule kohaldatavatele seadustele. Lisateabe saamiseks tutvu meie teenusetingimustega.</p><p class=\"leading-7\">Mängimine võib tekitada sõltuvust ja soovitame mängijatel rakendada enesekontrolli.</p>"
+    "title": "Kui vana ma pean olema, et registreeruda teie saidil?",
+    "content": "<p class=\"leading-7\">Te peate olema vähemalt {{faqAge}} aastat vana või oma jurisdiktsiooni täisealine, et registreeruda. Samuti peate olema seaduslikult lubatud mängida veebimänge vastavalt teile kehtivatele seadustele. Lisainformatsiooni saamiseks lugege meie teenuse tingimusi.</p><p class=\"leading-7\">Mängimine võib olla sõltuvust tekitav ja mängijatele soovitatakse harjutada enesekontrolli.</p>"
   },
   "faqTwo": {
     "title": "Millist valuutat rahakott toetab?",
-    "content": "<p class=\"leading-7\">Toetame peamisi krüptovaluutasid, nagu {{currency}}.</p>"
+    "content": "<p class=\"leading-7\">Toetame peamisi krüptovaluutasid nagu {{currency}}</p>"
   },
   "faqThree": {
-    "title": "Kuidas hoiustan?",
-    "content": "<p class=\"leading-7\">Mine oma profiililehele ja klõpsa \"Hoiusta\", vali soovitud krüptovaluuta, kopeeri rahakoti aadress või skaneeri makse jaoks QR-kood.</p>"
+    "title": "Kuidas ma saan sissemakse teha?",
+    "content": "<p class=\"leading-7\">Mine oma profiili lehele ja kliki \"Sissemakse\", vali soovitud krüptovaluuta, kopeeri rahakoti aadress või skaneeri QR-kood maksmiseks.</p>"
   },
   "faqFour": {
-    "title": "Kas saan teie saidil krüptovaluutasid vahetada?",
-    "content": "<p class=\"leading-7\">{{siteName}} pakub vahetusfunktsiooni, millega saad turvaliselt ja lihtsalt vahetada krüptovaluutasid teiste krüptovaluutade vastu. Müntide segamise tõttu on kõigil {{siteName}} hoiustatud krüptovaluutadel 1x läbimängimise nõue, mis tähendab, et pead hoiustatud vahenditega vähemalt korra panustama, enne kui saad neid vahetada.</p>"
+    "title": "Kas ma saan oma krüptovaluutasid teie saidil vahetada?",
+    "content": "<p class=\"leading-7\">{{siteName}} pakub vahetusfunktsiooni, kus saate ohutult ja lihtsalt vahetada oma krüptovaluutasid teiste krüptovaluutade vastu. Kuid müntide segamise murede tõttu on kõik {{siteName}}-s deponeeritud krüptovaluutad 1x läbimängimise nõudega, mis tähendab, et peate oma deponeeritud rahaga vähemalt 1 kord panustama, enne kui saate seda vahetada.</p>"
   },
   "faqFive": {
-    "title": "Kuidas teen väljamakset?",
-    "content": "<p class=\"leading-7\">Mine oma profiililehele ja klõpsa \"Väljamakse\", sisesta rahakoti aadress, kuhu soovid raha välja võtta, ning summa, mida soovid väljastada. (Pea meeles, et erinevate plokiahelate puhul võivad kehtida erinevad tasud.)</p>"
+    "title": "Kuidas ma saan raha välja võtta?",
+    "content": "<p class=\"leading-7\">Mine oma profiili lehele ja kliki \"Väljamakse\", sisesta rahakoti aadress, kuhu soovid raha välja võtta, ja summa, mille soovid välja võtta. (Palun pange tähele, et erinevad plokiahelad võivad kehtestada erinevaid tasusid)</p>"
   },
   "faqSix": {
-    "title": "Milline on iga krüptovaluuta minimaalne väljamaksesumma?",
-    "content": "<p class=\"leading-7\">Erinevate krüptovaluutade väärtuse ja kaevandamistasude tõttu vaata oma väljamakselehelt iga krüptovaluuta minimaalseid väljamaksesummasid.</p>"
+    "title": "Mis on iga krüptovaluuta minimaalne väljamakse summa?",
+    "content": "<p class=\"leading-7\">Kuna krüptovaluutade erinev väärtus ja erinevad kaevandustasud, palun kontrollige oma väljamakse lehte, et leida iga krüptovaluuta minimaalne väljamakse summa.</p>"
   },
   "faqSeven": {
-    "title": "Kui kaua võtab aega hoiustamine ja väljamaksmine?",
-    "content": "<p class=\"leading-7\">Plokiahelas tehingu kinnitamiseks on vaja mitut tsüklit.</p><p class=\"leading-7\">Üldjuhul võtab tehing 5–10 minutit, enne kui BTC ja ETH plokiahelavõrk selle kinnitab, ning umbes 1–2 minutit TRON, TON ja SOLANA plokiahela puhul.</p><p class=\"leading-7\">Kui hoiustamisel või väljamaksmisel tekib probleeme, saad tehingut kontrollida vastava plokiahela uurijaga või võtta ühendust meie reaalajas toega.</p>"
+    "title": "Kui kaua kulub sissemakse ja väljamakse tegemiseks?",
+    "content": "<p class=\"leading-7\">Iga tehing plokiahelas vajab kinnitamiseks mitmeid tsükleid.</p><p class=\"leading-7\">Üldiselt vajab iga tehing BTC ja ETH plokiahela jaoks 5-10 minutit enne, kui see plokiahela võrgu poolt kinnitatakse; ja umbes 1-2 minutit TRON, TON, SOLANA plokiahela jaoks.</p><p class=\"leading-7\">Kui teil tekib sissemakse või väljamakse tegemisel probleeme, saate kontrollida oma tehingut vastava plokiahela uurija kaudu või võtta ühendust meie reaalajas toega.</p>"
   },
   "faqEight": {
-    "title": "Kust tulevad tehingukinnitused?",
-    "content": "<p class=\"leading-7\">Kõik kinnitused pärinevad plokiahelast ja selle kaevuritelt.</p>"
+    "title": "Kust tulevad tehingu kinnitused?",
+    "content": "<p class=\"leading-7\">Kõik kinnitusteave tuleb plokiahelast ja plokiahela kaevandajatelt</p>"
   },
   "faqNine": {
-    "title": "Kas teie mängud on õiglased?",
-  "content": "<p class=\"leading-7\">Läbipaistvus, Usaldus ja Õiglus on {{gameLink}} põhiväärtused ja meie ettevõtte nurgakivi. Seetõttu teeme koostööd ainult usaldusväärsete tipptasemel mängupartneritega, et pakkuda oma klientidele kvaliteetset kogemust, mida nad väärivad.</p><p class=\"leading-7\">Kõiki meie partnerite mänge testitakse juhuslikkuse osas rangelt sõltumatute audiitorite poolt ning neil on mänguregulaatorite litsentsid, kes teostavad sagedasi auditeid nende juhuslike arvude generaatorile.</p>"
+    "title": "Kas teie mängud on õiged?",
+    "content": "<p class=\"leading-7\">Läbipaistvus, usaldus ja õiglus on osa {{gameLink}} põhiväärtustest ja meie äri alusest. Just sellepärast teeme koostööd ainult usaldusväärsete tippmängupartneritega, et pakkuda meie klientidele kvaliteetset kogemust, mida nad väärivad.</p><p class=\"leading-7\">Kõik meie partnerite mängud on sõltumatute audiitorite poolt rangelt testitud juhuslikkuse osas ja need on litsentseeritud mänguregulaatorite poolt, mis allutavad need sagedastele audititele nende juhuslike numbrite generaatori osas.</p>"
   },
   "faqTen": {
-    "title": "Mida teha, kui mäng hangub või ühendus katkeb?",
-    "content": "<p class=\"leading-7\">Kui esineb tehnilisi probleeme, proovi lehte värskendada. Meie pakkujad salvestavad mängu oleku ja uuesti ühendudes peaksid nägema oma eelmist mänguseisu.</p>"
+    "title": "Mida ma peaksin tegema, kui mu mäng hangub või kui ma kaotan ühenduse?",
+    "content": "<p class=\"leading-7\">Kui teil tekib tehnilisi probleeme, proovige lehte värskendada. Mängu olekud salvestatakse meie pakkujate poolt ja peaksite nägema oma eelmist mänguolekut, kui te uuesti ühendate.</p>"
   }
 }

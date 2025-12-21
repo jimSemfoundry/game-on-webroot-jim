@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Įkainiai ir taisyklės",
+    "campaigns": "Kampanijos",
+    "myReferrals": "Mano rekomendacijos",
+    "commissions": "Komisijos",
+    "rewards": "Apdovanojimai"
+  },
+  "commissionCalculator": "Komisijos skaičiuoklė",
   "telegramReferralLink": "Telegram Siuntimo Nuoroda",
   "network": "Tinklas",
   "lifetimeReferralRewards": "Viso gyvenimo rekomendacijų apdovanojimai",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Galimi rekomendacijų apdovanojimai",
   "lockedRewards": "Užrakinti apdovanojimai",
   "assembleYourCrewCashIn": "Surinkite savo komandą ir gaukite pinigų!",
+  "assembleYourCrewCashInDescription1": "Rekrutuok savo komandą ir uždirbk {{amount}} už kiekvieną draugą - kaip apiplėšimas, bet be FBI persekiojimo. Be to, uždirbk iki {{percentage}} komisijos iš jų statymų. Geriausia dalis? Tavo komisijos tarifas auga kartu su tavimi, kai kylai lygiais, ir net uždirbsi iš savo komandos rekrūtų!",
+  "assembleYourCrewCashInDescription2": "Kuo didesnis tavo tinklas, tuo didesnis tavo pelnas. Nesvarbu, ar jie laimi, pralaimi, ar stato kaip maniakai, tu vis tiek kaupiasi pinigus. Laikas statyti savo imperiją - pradėk rekrutuoti dabar!",
+  "quickShare": "Greitas dalinimasis",
   "referralRewards": "Rekomendacijų apdovanojimai",
   "commissionRewards": "Komisijos apdovanojimai",
   "aboutDescription": "Surinkite savo komandą ir gaukite {{amount}} už kiekvieną draugą – tarsi apiplėšimas, bet be FTB gaudynių. Be to, uždirbkite iki 50% komisiją nuo jų statymų. Geriausia dalis? Jūsų komisijos tarifas auga kartu su jūsų lygiu, ir netgi uždirbsite iš savo komandos rekomendacijų!\n\nKuo didesnis jūsų tinklas, tuo didesnė jūsų dalis. Nesvarbu, ar jie laimi, pralaimi, ar stato kaip maniakai, jūs kaupiate pinigus. Laikas kurti savo imperiją – pradėkite dabar!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Dalytis per socialinius tinklus",
   "referralTermsConditions": "Rekomendacijų sąlygos",
   "liveGlobalRewards": "Tiesioginiai pasauliniai apdovanojimai",
+  "liveGlobalCommissions": "Gyvos globalios komisijos",
   "username": "Vartotojo vardas",
   "friendLevel": "Draugo lygis",
   "totalExp": "Viso EXP",
@@ -105,35 +118,35 @@
   "more": "Daugiau",
   "faqOne": {
     "title": "Kaip veikia rekomendacijų sistema?",
-    "content": "<p class=\"leading-7\">Kai pasidalinate savo rekomendacijos nuoroda su draugais ir jie užsiregistruoja mūsų svetainėje, jie tampa jūsų rekomenduojamais ir jūs uždirbate komisinius bei rekomendacijų premijas žaisdami {{gameLink}} aljanse.</p>"
+    "content": "<p class=\"leading-7\">Kai dalinatės savo rekomendacijų nuoroda su draugais ir jie užsiregistruoja mūsų svetainėje; jie tampa jūsų rekomendacija ir uždirbs jums komisiją bei rekomendacijų apdovanojimus žaisdami {{gameLink}} Aljanse.</p>"
   },
   "faqTwo": {
     "title": "Kiek galiu uždirbti iš savo rekomendacijos?",
-    "content": "<p class=\"leading-7\">Galite uždirbti {{percentage}} jų statymų veiklos kaip komisiją + {{amount}} už kiekvieną rekomendaciją</p>"
+    "content": "<p class=\"leading-7\">Galite uždirbti {{percentage}} iš jų statymų veiklos kaip komisiją + {{amount}} už kiekvieną rekomendaciją.</p>"
   },
   "faqThree": {
     "title": "Kas yra {{amount}} USD apdovanojimas ir kaip jis veikia?",
-    "content": "<p class=\"leading-7\">Už kiekvieną atvestą rekomenduojamą žaidėją {{gameLink}} gaunate {{amount}} USD premiją. Ši USD premija mokama {{parts}} dalimis, kai jūsų rekomendacijų lygis kyla nuo {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Yra {{amount}} USD apdovanojimas už kiekvieną rekomendaciją, kurią atvedate į {{gameLink}}. Šis USD apdovanojimas suteikiamas {{parts}} dalimis, kai jūsų rekomendacijos lygis kyla nuo {{level}}.</p>"
   },
   "faqFour": {
     "title": "Turiu didelę auditoriją. Kaip galiu gauti specialų pasiūlymą?",
-    "content": "<p class=\"leading-7\">Jei turite svetainę su gera lankytojų srautu arba socialinių tinklų paskyrą su didelę auditoriją, galite mums parašyti el. paštu {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Jei turite svetainę su geru srautu arba socialinės žiniasklaidos paskyrą su didele auditorija, galite mums parašyti el. paštu {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Kiek partnerių nuorodų galiu sukurti, jei turiu skirtingas svetaines ar socialinės žiniasklaidos paskyras?",
+    "title": "Kiek partnerių nuorodų galiu sukurti, jei turiu skirtingas svetaines/socialinės žiniasklaidos paskyras?",
     "content": "<p class=\"leading-7\">Galite sukurti iki {{codes}} unikalių kodų skirtingiems srauto šaltiniams</p>"
   },
   "faqSix": {
     "title": "Ar galiu matyti savo rekomendacijos duomenis?",
-    "content": "<p class=\"leading-7\">Taip, skaidrumas, pasitikėjimas ir teisingumas yra {{gameLink}} pagrindinės vertybės. Vartotojo vardas, bendras statymas ir uždirbti komisiniai yra prieinami skiltyse „Mano komisiniai“ ir „Rekomendacijų premijos“.</p>"
+    "content": "<p class=\"leading-7\">Taip, skaidrumas, pasitikėjimas ir sąžiningumas yra dalis {{gameLink}} pagrindinių vertybių. Tokie duomenys kaip vartotojo vardas, bendras statymas ir uždirbta komisija yra visi prieinami \"Mano komisijos\" ir \"Rekomendacijų apdovanojimai\" skiltyse.</p>"
   },
   "faqSeven": {
-    "title": "Ar galiu dalytis komisijos apdovanojimais su savo rekomenduotais asmenimis?",
-    "content": "<p class=\"leading-7\">Taip, komisijos apdovanojimus galite dalytis su savo rekomenduotais asmenimis spustelėję „Sukurti naują kampaniją“ ir nustatę komisijos paskirstymą skirtuke „Kampanijos“</p>"
+    "title": "Ar galiu dalintis komisijos apdovanojimais su savo rekomendacijomis?",
+    "content": "<p class=\"leading-7\">Taip, galite dalintis komisijos apdovanojimais su savo rekomendacijomis paspaudę \"sukurti naują kampaniją\" ir nustatydami komisijos pasidalijimą skiltyje \"Kampanijos\".</p>"
   },
   "faqEight": {
-    "title": "Kas yra netiesioginė rekomendacija ir ką galiu iš jos uždirbti?",
-    "content": "<p class=\"leading-7\">Netiesioginė rekomendacija – tai aktyvus žaidėjas, prisijungęs per vieno iš jūsų tiesioginių rekomenduotojų kvietimo nuorodą. Jei jūsų VIP lygis yra aukštesnis nei tiesioginio rekomenduotojo VIP lygis, taip pat galite uždirbti komisiją iš netiesioginės rekomendacijos</p>"
+    "title": "Kas yra netiesioginė rekomendacija ir ką galiu iš jų uždirbti?",
+    "content": "<p class=\"leading-7\">Netiesioginė rekomendacija yra aktyvus žaidėjas, kuris ateina iš vieno jūsų tiesioginių rekomendacijų kvietimo nuorodos. Jei jūsų VIP lygis yra aukštesnis nei jūsų tiesioginės rekomendacijos VIP lygis, galite taip pat uždirbti komisiją, kylančią iš jūsų netiesioginės rekomendacijos.</p>"
   },
   "levelReward": "Lygio pakėlimo apdovanojimas",
   "groupReward": "Komisijos apdovanojimas",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Norint supaprastinti pavyzdį, laikysime, kad geltonai pažymėti draugai aktyviai stato, o žalieji procentai palei punktyrines linijas rodo komisiją, kurią gaunate iš kiekvieno jų.",
   "referralCommissionsIndirectDescription": "Norint supaprastinti pavyzdį, laikysime, kad violetiniai pažymėti draugai aktyviai stato. Procentai palei punktyrines linijas nurodo komisiją, kurią uždirba kiekvienas narys rekomendacijų grandinėje. \n\n Dešinėje matome pavyzdį, kai rekomendacijų grandinėje įvyksta atskilimas.",
   "referralCodeMinLength": "Rekomendacinis kodas turi būti bent 6 simbolių ilgio",
-    "vipLevel": "VIP lygis",
+  "vipLevel": "VIP lygis",
   "earned": "Uždarbis",
   "directfriend": "Tiesioginis Draugas",
   "fast": "Greitas",
   "slots": "Lošimo Automatai",
   "live-casino": "Gyvas Kazino",
   "fishing": "Žvejyba",
-  "rewardsUnlocked": "Atrakinti Apdovanojimai"
+  "rewardsUnlocked": "Atrakinti Apdovanojimai",
+  "selectGame": "Pasirink žaidimą",
+  "selectVipLevel": "Pasirink VIP lygį",
+  "myReferralCommissions": "Mano rekomendacijų komisijos",
+  "myReferralRewards": "Mano rekomendacijų apdovanojimai",
+  "exp": "EXP",
+  "userLevel": "Vartotojo lygis"
 }

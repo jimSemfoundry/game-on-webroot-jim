@@ -1,6 +1,5 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { authService } from "@/services/authService.ts";
 import { useEffect, useMemo, useState } from "react";
@@ -18,6 +17,7 @@ import { matchResponseCodeError } from "@/sections/profile/security/response_cod
 import { toast } from "sonner";
 import Iconify from "@/components/iconify";
 import { InnerImg } from "@/sections/profile/security/ChangePassword.tsx";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 interface IStatus {
   success: boolean
@@ -63,9 +63,9 @@ export const ChangePasswordModal = () => {
   const confirm_password_match_error = useMemo(() => status.confirm_password !== "" && status.confirm_password !== status.new_password, [status.new_password, status.confirm_password]);
   const new_password_match_error = useMemo(() => status.new_password !== "" && status.current_password === status.new_password, [status.new_password, status.current_password]);
   const input_null_error = useMemo(() =>
-      status.new_password === "" ||
-      status.current_password === "" ||
-      status.confirm_password === ""
+    status.new_password === "" ||
+    status.current_password === "" ||
+    status.confirm_password === ""
     , [status.new_password, status.current_password, status.confirm_password]);
 
   // 修改密码
@@ -250,7 +250,7 @@ export const ChangePasswordModal = () => {
 
               void logout();
 
-              void navigate({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+              void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
 
               openSignInModal();
             }}>{t("common.close")}</ConfirmBox>

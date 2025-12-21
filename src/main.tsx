@@ -21,6 +21,8 @@ import { useDeferredPromptStore } from './store/deferredPrompt.ts';
 const router = createRouter({
   routeTree,
   history: import.meta.env.VITE_PROMOTION_MODEL === 'roibest' ? createHashHistory() : createBrowserHistory(),
+  // Prefix all routes with /main without changing the file-based routes
+  basepath: '/main',
   context: {
     ...TanStackQueryProvider.getContext(),
     // auth 状态会在 InnerApp 组件中动态更新
@@ -37,14 +39,7 @@ const router = createRouter({
   defaultPreloadStaleTime: 0,
 });
 
-// Subscribe to route changes to scroll to top
-router.subscribe("onResolved", () => {
-  // The main scrollable container is not window, but the <main> element in AppLayout
-  const mainElement = document.querySelector("main");
-  if (mainElement) {
-    mainElement.scrollTo(0, 0);
-  }
-});
+
 
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {
@@ -80,7 +75,7 @@ function InnerApp() {
 const setupPwaDetection = () => {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
-    useDeferredPromptStore.getState().setDeferredPrompt(e); 
+    useDeferredPromptStore.getState().setDeferredPrompt(e);
   });
 };
 

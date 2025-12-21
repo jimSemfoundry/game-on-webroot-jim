@@ -53,8 +53,12 @@ export const useTransactionDetailMapper = () => {
 
 const resolveAmount = (transaction: Transaction, transactionType: TransactionType): number => {
   if (transactionType === "Swap") {
-    const toAmount = Number(transaction.to_amount ?? transaction.toAmount ?? transaction.amount);
+    const toAmount = Number(transaction.to_amount_received ?? transaction.toAmount ?? transaction.amount);
     if (!Number.isNaN(toAmount)) return toAmount;
+  }
+
+  if (transactionType === 'Bonus') {
+    transaction.amount = transaction.bonus
   }
 
   const candidates = [
@@ -157,7 +161,7 @@ const buildInfoRows = (
       });
     }
 
-    const toAmount = Number(transaction.to_amount ?? transaction.toAmount ?? 0);
+    const toAmount = Number(transaction.to_amount_received ?? transaction.toAmountReceived ?? 0);
     const toCurrency = transaction.to_currency ?? transaction.toCurrency ?? "";
     
     if (fromAmount && toAmount && fromCurrency && toCurrency) {

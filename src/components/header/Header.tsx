@@ -1,18 +1,19 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { useAuthModals } from "@/contexts/ModalsProvider";
 import { useSidebar } from "@/contexts/SidebarContext";
-import { Link, useRouter, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useRouter } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 import { m } from "motion/react";
 import { useTranslation } from "react-i18next";
 
+import { FastEntry } from "@/components/header/c/FastEntry.tsx";
+import { InternalMessageEntry } from "@/components/header/message-v2/InternalMessageEntry.tsx";
+import { cn } from "@/utils/cn";
 import Iconify from "../iconify";
 import Logo from "../Logo";
-import { BonusHub } from "./BonusHub";
+// import { BonusHub } from "./BonusHub";
 import { WalletFinance } from "./WalletFinance";
-import { cn } from "@/utils/cn";
-import { FastEntry } from "@/components/header/c/FastEntry.tsx";
-import InternalMessageCounter from "@/components/header/c/InternalMessageCounter.tsx";
+import { useBoundStore } from "@/store";
 
 function AuthSection() {
   const { isAuthenticated, user, isLoading } = useAuth();
@@ -27,8 +28,8 @@ function AuthSection() {
     <div className="flex items-center gap-2 rtl:flex-row-reverse">
       {isAuthenticated && user ? (
         <div className="flex flex-row items-center gap-2">
-          {/* 站内信统计数 */}
-          <InternalMessageCounter />
+          {/* 站内信 */}
+          <InternalMessageEntry />
           <WalletFinance />
           <FastEntry />
         </div>
@@ -50,28 +51,40 @@ export default function Header() {
   // const { openModal: openLanguageModal } = useLanguageModal();
   const router = useRouter();
   const location = useLocation();
-  const { toggleDrawer } = useSidebar();
+  const { toggleDrawer, isMobileDevice } = useSidebar();
 
   return (
     <m.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
         duration: 0.3,
-        ease: [0.23, 0.5, 0.32, 1]
+        ease: [0.23, 0.5, 0.32, 1],
       }}
-      className="w-full bg-base-300 h-12 md:h-18 sticky top-0 z-30"
+      className={cn(
+        "w-full bg-base-300 sticky top-0 z-1001 flex gap-2 justify-between items-center",
+        // 移动设备上始终使用移动端高度（即使横屏）
+        isMobileDevice ? "h-12" : "h-12 md:h-18"
+      )}
+      style={{ marginTop: "env(safe-area-inset-top)" }}
     >
-      <div className="absolute ltr:left-0 rtl:right-0 top-0 h-full flex items-center px-2 md:px-6"
-           style={{ zIndex: 40 }}>
+      <div className={cn(
+        "flex-1 ltr:left-0 rtl:right-0 top-0 h-full flex items-center gap-2",
+        isMobileDevice ? "pl-2" : "pl-2 md:pl-6"
+      )} style={{ zIndex: 40 }}>
         <button
-          className={cn("btn btn-square btn-sm sm:hidden")}
+          className={cn("btn btn-square btn-sm", isMobileDevice ? "" : "sm:hidden")}
           onClick={(e) => {
             e.preventDefault();
             if (location.pathname === "/casino") {
               toggleDrawer();
             } else {
-              router.history.back();
+              const { headerBackAction } = useBoundStore.getState();
+              if (headerBackAction) {
+                headerBackAction();
+              } else {
+                router.history.back();
+              }
             }
           }}
           onTouchStart={() => console.log("Touch start")}
@@ -84,26 +97,36 @@ export default function Header() {
             <ChevronLeft className="w-5 h-5 pointer-events-none" />
           )}
         </button>
-        <div className="ms-3 md:ms-0 md:me-12">
+        <div className="ms-0 md:me-12">
           <Link to="/" search={{ openLogin: undefined, redirect: undefined, startapp: undefined }}>
             <Logo />
           </Link>
         </div>
 
         {/* Desktop BonusHub */}
-        <div className="hidden md:block">
-          <BonusHub />
-        </div>
+        {/* {isAuthenticated && (
+          <div className="hidden md:block">
+            <BonusHub />
+          </div>
+        )} */}
       </div>
 
       {/* 主要内容容器 - 与内容区域对齐 */}
       <div className="relative h-full">
-        <div className="container mx-auto md:max-w-7xl h-full flex items-center justify-end">
-          <div className="flex items-center gap-2 px-2 md:px-6">
+        <div className={cn(
+          "container mx-auto h-full flex items-center justify-end",
+          isMobileDevice ? "" : "md:max-w-7xl"
+        )}>
+          <div className={cn(
+            "flex items-center gap-2",
+            isMobileDevice ? "pr-2" : "pr-2 md:pr-6"
+          )}>
             {/* Mobile BonusHub */}
-            <div className="md:hidden">
-              <BonusHub />
-            </div>
+            {/* {isAuthenticated && (
+              <div className="md:hidden">
+                <BonusHub />
+              </div>
+            )} */}
 
             {/* Auth Section */}
             <div className="md:block">
@@ -129,4 +152,3 @@ export default function Header() {
     </m.header>
   );
 }
-

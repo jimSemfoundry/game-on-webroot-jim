@@ -3,7 +3,6 @@ import { Country, getCountries, getCountryCallingCode } from "react-phone-number
 import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import locale from "react-phone-number-input/locale/en";
 import { cn } from "@/utils/cn.ts";
-import { InnerLoading } from "@/components/modal/UserFinanceModal/c/DepositMethodSelect.tsx";
 import { ChevronDown, ChevronLeft, Search } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 import { createPortal } from "react-dom";
@@ -12,6 +11,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { NoData } from "@/components/modal/UserFinanceModal/c/NoData.tsx";
 import classNames from "classnames";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import { InnerLoading } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 interface IStatus {
   phone: string,
@@ -25,9 +25,10 @@ const initStatus: IStatus = {
   area_code: ""
 };
 
-export const PhoneAreaCodeSelect = ({ loading, defaultCode, onPhoneChange, onCodeChange }: {
+export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', onPhoneChange, onCodeChange }: {
   loading: boolean
   defaultCode: string
+  defaultValue?: string
   onCodeChange: (v: string) => void,
   onPhoneChange: (v: string) => void
 }) => {
@@ -112,9 +113,9 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, onPhoneChange, onCod
       <div className="relative flex items-center gap-2">
         <input
           type="text"
-          className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 pl-28"
+          className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 pl-28 text-white"
           placeholder="Enter"
-          value={status.phone}
+          value={status.phone || defaultValue}
           onChange={(v) => {
             const phone = v.target.value;
             let final_phone = phone;
@@ -194,7 +195,8 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, onPhoneChange, onCod
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
-                  className="px-4 py-4 bg-base-400 fixed w-full z-[1000] top-0 bottom-0 flex flex-col"
+                  style={{ marginTop: 'env(safe-area-inset-top)' }}
+                  className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
                 >
                   <p className="flex items-center justify-center relative text-lg font-semibold h-10">
                     <button className={"absolute left-0 btn btn-md btn-square rounded-lg bg-base-300 border-0"} onClick={() => set(false)}>

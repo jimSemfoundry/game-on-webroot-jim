@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Regler & Villkor",
+    "campaigns": "Kampanjer",
+    "myReferrals": "Mina Referenser",
+    "commissions": "Provisioner",
+    "rewards": "Belöningar"
+  },
+  "commissionCalculator": "Provisionskalkylator",
   "telegramReferralLink": "Telegram Värvningslänk",
   "network": "Nätverk",
   "lifetimeReferralRewards": "Livstidsbelöningar för värvning",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Tillgängliga värvningsbelöningar",
   "lockedRewards": "Låsta belöningar",
   "assembleYourCrewCashIn": "Samla din besättning och casha in!",
+  "assembleYourCrewCashInDescription1": "Rekrytera ditt gäng och tjäna {{amount}} per vän - som ett rån, men utan FBI-jakten. Dessutom, tjäna upp till {{percentage}} provision på deras insatser. Den bästa delen? Din provisionssats växer med dig när du avancerar, och du kommer till och med att tjäna på ditt gängs rekryter!",
+  "assembleYourCrewCashInDescription2": "Ju större ditt nätverk, desto fetare din andel. Oavsett om de vinner, förlorar eller satsar som galningar, fortsätter du att stapla pengar. Dags att bygga ditt imperium - Börja rekrytera nu!",
+  "quickShare": "Snabb Dela",
   "referralRewards": "Värvningsbelöningar",
   "commissionRewards": "Kommissionsbelöningar",
   "aboutDescription": "Rekrytera din grupp och få {{amount}} per vän – som en kupp, men utan FBI-jakten. Dessutom tjänar du upp till 50% kommission på deras insatser. Och det bästa? Din kommissionssats växer med dig när du går upp i nivå, och du tjänar även på din besättnings rekryter!\n\nJu större ditt nätverk, desto större blir din andel. Oavsett om de vinner, förlorar eller satsar som galningar, fortsätter du att stapla pengar. Börja bygga ditt imperium – rekrytera nu!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Dela via sociala medier",
   "referralTermsConditions": "Villkor för värvning",
   "liveGlobalRewards": "Live globala belöningar",
+  "liveGlobalCommissions": "Live Globala Provisioner",
   "username": "Användarnamn",
   "friendLevel": "Vännens nivå",
   "totalExp": "Totalt EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Mina värvningar",
   "more": "Mer",
   "faqOne": {
-    "title": "Hur fungerar värvningssystemet?",
-    "content": "<p class=\"leading-7\">När du delar din rekommendationslänk med dina vänner och de registrerar sig på vår sida blir de dina rekommendationer och du tjänar provisioner och rekommendationsbelöningar genom att spela i {{gameLink}}-alliansen.</p>"
+    "title": "Hur fungerar referralsystemet?",
+    "content": "<p class=\"leading-7\">När du delar din referralslänk med dina vänner och de registrerar sig på vår sida; blir de din referens och kommer att tjäna dig provision och referralsbelöningar genom att spela på {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Hur mycket kan jag tjäna på mina värvningar?",
-    "content": "<p class=\"leading-7\">Du kan tjäna {{percentage}} av deras insatsaktivitet som kommissioner + {{amount}} per värvning.</p>"
+    "title": "Hur mycket kan jag tjäna på min referens?",
+    "content": "<p class=\"leading-7\">Du kan tjäna {{percentage}} av deras spelaktivitet som provision + {{amount}} per referens.</p>"
   },
   "faqThree": {
     "title": "Vad är belöningen på {{amount}} USD och hur fungerar den?",
-    "content": "<p class=\"leading-7\">Det finns en belöning på {{amount}} USD för varje rekommendation du för med dig till {{gameLink}}. Denna USD-belöning delas ut i {{parts}} delar när din rekommendationsnivå ökar från {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Det finns en belöning på {{amount}} USD för varje referens du tar till {{gameLink}}. Denna USD-belöning ges i {{parts}} delar när din referensnivå ökar från {{level}}.</p>"
   },
   "faqFour": {
     "title": "Jag har en stor publik. Hur kan jag få ett specialerbjudande?",
-    "content": "<p class=\"leading-7\">Om du har en webbplats med bra trafik eller ett socialt mediakonto med en stor publik kan du mejla oss på {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Om du har en webbplats med bra trafik eller ett socialt mediekonto med en stor publik kan du mejla oss på {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Hur många värvningslänkar kan jag skapa om jag har olika webbplatser/konton på sociala medier?",
-    "content": "<p class=\"leading-7\">Du kan skapa upp till {{codes}} unika koder för olika trafikkällor.</p>"
+    "title": "Hur många affiliate-länkar kan jag skapa om jag har olika webbplatser/sociala mediekonton?",
+    "content": "<p class=\"leading-7\">Du kan skapa upp till {{codes}} unika koder för olika trafikskällor</p>"
   },
   "faqSix": {
-    "title": "Kan jag se uppgifter om mina värvningar?",
-    "content": "<p class=\"leading-7\">Ja, transparens, förtroende och rättvisa är en del av {{gameLink}}s kärnvärden. Data som användarnamn, totala satsningar och intjänade provisioner finns tillgängliga i flikarna \"Mina provisioner\" och \"Rekommendationsbelöningar\".</p>"
+    "title": "Kan jag se data om min referens?",
+    "content": "<p class=\"leading-7\">Ja, Transparens, Tillit och Rättvisa är en del av {{gameLink}}'s kärnvärden. Data som användarnamn, total insats och tjänad provision är alla tillgängliga i fliken \"Mina Provisioner\" och \"Referensbelöningar\".</p>"
   },
   "faqSeven": {
-    "title": "Kan jag dela kommissionsbelöningarna med mina värvningar?",
-    "content": "<p class=\"leading-7\">Ja, du kan dela kommissionsbelöningarna med dina värvningar genom att klicka på \"Skapa ny kampanj\" och ställa in kommissionsdelningen under fliken \"Kampanjer\".</p>"
+    "title": "Kan jag dela provisionsbelöningarna med mina referenser?",
+    "content": "<p class=\"leading-7\">Ja, du kan dela provisionsbelöningarna med dina referenser genom att klicka på \"skapa ny kampanj\" och ställa in provisionsfördelningen under fliken \"Kampanjer\".</p>"
   },
   "faqEight": {
-    "title": "Vad är en indirekt värvning och vad kan jag tjäna på dem?",
-    "content": "<p class=\"leading-7\">En indirekt värvning är en aktiv spelare som kommer via en inbjudningslänk från en av dina direkta värvningar. Om din VIP-nivå är högre än din direkta värvnings VIP-nivå kan du också tjäna kommission från din indirekta värvning.</p>"
+    "title": "Vad är en indirekt referens och vad kan jag tjäna på dem?",
+    "content": "<p class=\"leading-7\">En indirekt referens är en aktiv spelare som kommer in via inbjudningslänken från en av dina direkta referenser. Om din VIP-nivå är högre än VIP-nivån för din direkta referens kan du också tjäna provision från din indirekta referens.</p>"
   },
   "levelReward": "Nivåbelöning",
   "groupReward": "Kommissionsbelöning",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "För att förenkla exemplet antar vi att de gulmarkerade vännerna aktivt spelar, och de gröna procentsatserna längs de prickade linjerna visar provisionen du får från var och en av dem.",
   "referralCommissionsIndirectDescription": "För att förenkla exemplet antar vi att de lila markerade vännerna aktivt spelar. Procentsatserna längs de prickade linjerna visar provisionen varje medlem i rekommendationskedjan tjänar. \n\n Till höger kan vi se ett exempel på ett avhopp i rekommendationskedjan.",
   "referralCodeMinLength": "Rekommendationskoden måste vara minst 6 tecken lång",
-    "vipLevel": "VIP-nivå",
+  "vipLevel": "VIP-nivå",
   "earned": "Intjänat",
   "directfriend": "Direkt Vän",
   "fast": "Snabb",
   "slots": "Spelautomater",
   "live-casino": "Livekasino",
   "fishing": "Fiske",
-  "rewardsUnlocked": "Belöningar Upplåsta"
+  "rewardsUnlocked": "Belöningar Upplåsta",
+  "selectGame": "Välj ett spel",
+  "selectVipLevel": "Välj VIP-nivå",
+  "myReferralCommissions": "Mina hänvisningskommissioner",
+  "myReferralRewards": "Mina hänvisningsbelöningar",
+  "exp": "EXP",
+  "userLevel": "Användarnivå"
 }

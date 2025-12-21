@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Toàn cầu",
+    "ratesAndRules": "Tỷ lệ & Quy tắc",
+    "campaigns": "Chiến dịch",
+    "myReferrals": "Giới thiệu của tôi",
+    "commissions": "Hoa hồng",
+    "rewards": "Phần thưởng"
+  },
+  "commissionCalculator": "Máy tính hoa hồng",
   "telegramReferralLink": "Liên Kết Giới Thiệu Telegram",
   "network": "Mạng lưới",
   "lifetimeReferralRewards": "Phần thưởng mời bạn bè trọn đời",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Phần thưởng mời bạn bè có sẵn",
   "lockedRewards": "Phần thưởng đã khóa",
   "assembleYourCrewCashIn": "Xây dựng đội của bạn và kiếm tiền!",
+  "assembleYourCrewCashInDescription1": "Chiêu mộ đội ngũ của bạn và kiếm được {{amount}} cho mỗi người bạn - như một vụ cướp, nhưng không có cuộc truy đuổi của FBI. Thêm vào đó, kiếm tới {{percentage}} hoa hồng trên các cược của họ. Phần tốt nhất? Tỷ lệ hoa hồng của bạn sẽ tăng theo bạn khi bạn lên cấp, và bạn sẽ còn kiếm được từ những người mà đội ngũ của bạn chiêu mộ!",
+  "assembleYourCrewCashInDescription2": "Mạng lưới của bạn càng lớn, phần chia của bạn càng béo. Dù họ thắng, thua, hay cược như những kẻ điên, bạn vẫn tiếp tục tích lũy tiền. Đã đến lúc xây dựng đế chế của bạn - Bắt đầu chiêu mộ ngay bây giờ!",
+  "quickShare": "Chia sẻ nhanh",
   "referralRewards": "Phần thưởng mời bạn bè",
   "commissionRewards": "Phần thưởng hoa hồng",
   "aboutDescription": "Tuyển dụng đội của bạn và nhận {{amount}} cho mỗi người bạn - như một vụ cướp, nhưng không lo bị truy đuổi! Hơn nữa, kiếm tới 50% hoa hồng từ các khoản cược của họ. Điều tuyệt nhất? Tỷ lệ hoa hồng của bạn tăng theo cấp độ, và bạn còn kiếm được từ những người do đội của bạn mời!\n\nMạng lưới càng lớn, phần thưởng càng nhiều. Dù họ thắng, thua hay cược điên cuồng, bạn vẫn liên tục tích lũy tiền. Đã đến lúc xây dựng đế chế của bạn - Bắt đầu mời ngay bây giờ!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Chia sẻ qua mạng xã hội",
   "referralTermsConditions": "Điều khoản và điều kiện mời bạn bè",
   "liveGlobalRewards": "Phần thưởng toàn cầu trực tiếp",
+  "liveGlobalCommissions": "Hoa hồng Toàn cầu Trực tiếp",
   "username": "Tên người dùng",
   "friendLevel": "Cấp độ bạn bè",
   "totalExp": "Tổng EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Người được tôi mời",
   "more": "Thêm",
   "faqOne": {
-    "title": "Hệ thống mời bạn bè hoạt động thế nào?",
-    "content": "<p class=\"leading-7\">Khi bạn chia sẻ liên kết giới thiệu với bạn bè và họ đăng ký trên trang của chúng tôi; họ sẽ trở thành người được giới thiệu của bạn và bạn sẽ kiếm được hoa hồng và phần thưởng giới thiệu khi chơi tại Liên minh {{gameLink}}.</p>"
+    "title": "Hệ thống giới thiệu hoạt động như thế nào?",
+    "content": "<p class=\"leading-7\">Khi bạn chia sẻ liên kết giới thiệu của mình với bạn bè và họ đăng ký tại trang web của chúng tôi; họ trở thành người giới thiệu của bạn và sẽ kiếm được hoa hồng và phần thưởng giới thiệu khi chơi tại {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Tôi có thể kiếm bao nhiêu từ người được mời?",
-    "content": "<p class=\"leading-7\">Bạn có thể kiếm {{percentage}} từ hoạt động cược của họ dưới dạng hoa hồng + {{amount}} cho mỗi người được mời.</p>"
+    "title": "Tôi có thể kiếm được bao nhiêu từ người giới thiệu của mình?",
+    "content": "<p class=\"leading-7\">Bạn có thể kiếm được {{percentage}} từ hoạt động đặt cược của họ như hoa hồng + {{amount}} cho mỗi người giới thiệu.</p>"
   },
   "faqThree": {
-    "title": "Phần thưởng {{amount}} USD là gì và hoạt động ra sao?",
-    "content": "<p class=\"leading-7\">Có phần thưởng {{amount}} USD cho mỗi người được giới thiệu mà bạn mang đến cho {{gameLink}}. Phần thưởng USD này được trao thành {{parts}} phần khi cấp độ giới thiệu của bạn tăng lên từ {{level}}.</p>"
+    "title": "Phần thưởng {{amount}} USD là gì và nó hoạt động như thế nào?",
+    "content": "<p class=\"leading-7\">Có một phần thưởng {{amount}} USD cho mỗi người giới thiệu mà bạn mang đến {{gameLink}}. Phần thưởng USD này được chia thành {{parts}} phần khi cấp độ giới thiệu của bạn tăng từ {{level}}.</p>"
   },
   "faqFour": {
-    "title": "Tôi có lượng khán giả lớn. Làm sao để nhận ưu đãi đặc biệt?",
-    "content": "<p class=\"leading-7\">Nếu bạn có một trang web với lưu lượng truy cập tốt hoặc tài khoản mạng xã hội với lượng khán giả lớn, bạn có thể gửi email cho chúng tôi tại {{emailLink}}</p>"
+    "title": "Tôi có một lượng khán giả lớn. Làm thế nào tôi có thể nhận được một thỏa thuận đặc biệt?",
+    "content": "<p class=\"leading-7\">Nếu bạn có một trang web với lưu lượng truy cập tốt hoặc một tài khoản mạng xã hội với lượng khán giả lớn, bạn có thể gửi email cho chúng tôi tại {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Tôi có thể tạo bao nhiêu link mời nếu có nhiều website/tài khoản mạng xã hội?",
-    "content": "<p class=\"leading-7\">Bạn có thể tạo tối đa {{codes}} mã duy nhất cho các nguồn lưu lượng khác nhau.</p>"
+    "title": "Tôi có thể tạo bao nhiêu liên kết liên kết nếu tôi có các trang web/ tài khoản mạng xã hội khác nhau?",
+    "content": "<p class=\"leading-7\">Bạn có thể tạo tối đa {{codes}} mã duy nhất cho các nguồn lưu lượng khác nhau</p>"
   },
   "faqSix": {
-    "title": "Tôi có thể xem dữ liệu của người được mời không?",
-    "content": "<p class=\"leading-7\">Có, Minh bạch, Tin cậy và Công bằng là một phần trong các giá trị cốt lõi của {{gameLink}}. Dữ liệu như tên người dùng, tổng cược và hoa hồng kiếm được đều có sẵn trong tab \"Hoa hồng của tôi\" và \"Phần thưởng giới thiệu\".</p>"
+    "title": "Tôi có thể xem dữ liệu của người giới thiệu của mình không?",
+    "content": "<p class=\"leading-7\">Có, Sự minh bạch, Tin cậy và Công bằng là một phần trong các giá trị cốt lõi của {{gameLink}}. Dữ liệu như tên người dùng, tổng số tiền đặt cược và hoa hồng kiếm được đều có sẵn trong tab \"Hoa hồng của tôi\" và \"Phần thưởng Giới thiệu\".</p>"
   },
   "faqSeven": {
-    "title": "Tôi có thể chia sẻ phần thưởng hoa hồng với người được mời không?",
-    "content": "<p class=\"leading-7\">Có, bạn có thể chia sẻ phần thưởng hoa hồng bằng cách nhấp vào \"tạo chiến dịch mới\" và thiết lập mức chia hoa hồng trong tab \"Chiến dịch\".</p>"
+    "title": "Tôi có thể chia sẻ phần thưởng hoa hồng với người giới thiệu của mình không?",
+    "content": "<p class=\"leading-7\">Có, bạn có thể chia sẻ phần thưởng hoa hồng với người giới thiệu của mình bằng cách nhấp vào \"tạo chiến dịch mới\" và thiết lập tỷ lệ chia hoa hồng trong tab \"Chiến dịch\".</p>"
   },
   "faqEight": {
-    "title": "Người được mời gián tiếp là gì và tôi kiếm được gì từ họ?",
-    "content": "<p class=\"leading-7\">Người được mời gián tiếp là người chơi tích cực đến từ link mời của một trong những người bạn mời trực tiếp. Nếu cấp VIP của bạn cao hơn cấp VIP của người mời trực tiếp, bạn cũng có thể kiếm hoa hồng từ người được mời gián tiếp.</p>"
+    "title": "Giới thiệu gián tiếp là gì và tôi có thể kiếm được gì từ chúng?",
+    "content": "<p class=\"leading-7\">Một giới thiệu gián tiếp là một người chơi hoạt động đến từ liên kết mời của một trong những người giới thiệu trực tiếp của bạn. Nếu cấp độ VIP của bạn cao hơn cấp độ VIP của người giới thiệu trực tiếp của bạn, bạn cũng có thể kiếm được hoa hồng phát sinh từ giới thiệu gián tiếp của bạn.</p>"
   },
   "levelReward": "Phần thưởng lên cấp",
   "groupReward": "Phần thưởng hoa hồng",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Để đơn giản hóa ví dụ, chúng tôi giả định rằng những người bạn được đánh dấu màu vàng đang cược tích cực, và các phần trăm màu xanh lá dọc theo các đường chấm thể hiện hoa hồng bạn nhận được từ mỗi người trong số họ.",
   "referralCommissionsIndirectDescription": "Để đơn giản hóa ví dụ, giả sử những người bạn được đánh dấu màu tím đang cược tích cực. Các phần trăm dọc theo các đường chấm chỉ ra hoa hồng mà mỗi thành viên trong chuỗi giới thiệu kiếm được. \n\n Ở bên phải, chúng ta có thể thấy một ví dụ về việc tách chuỗi xảy ra trong chuỗi giới thiệu.",
   "referralCodeMinLength": "Mã giới thiệu phải có ít nhất 6 ký tự",
-    "vipLevel": "Cấp VIP",
+  "vipLevel": "Cấp VIP",
   "earned": "Đã kiếm được",
   "directfriend": "Bạn Bè Trực Tiếp",
   "fast": "Nhanh",
   "slots": "Máy Đánh Bạc",
   "live-casino": "Sòng Bạc Trực Tiếp",
   "fishing": "Câu Cá",
-  "rewardsUnlocked": "Phần Thưởng Đã Mở Khóa"
+  "rewardsUnlocked": "Phần Thưởng Đã Mở Khóa",
+  "selectGame": "Chọn một trò chơi",
+  "selectVipLevel": "Chọn cấp độ VIP",
+  "myReferralCommissions": "Hoa hồng Giới thiệu của tôi",
+  "myReferralRewards": "Phần thưởng Giới thiệu của tôi",
+  "exp": "Kinh nghiệm",
+  "userLevel": "Cấp độ Người dùng"
 }

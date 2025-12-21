@@ -1,42 +1,42 @@
 {
   "faqOne": {
     "title": "Hur gammal måste jag vara för att registrera mig på er sida?",
-    "content": "<p class=\"leading-7\">Du måste vara minst {{faqAge}} år gammal eller myndig i din jurisdiktion för att registrera dig. Du måste också ha laglig rätt att spela onlinespel enligt de lagar som gäller för dig. För mer information, läs våra villkor.</p><p class=\"leading-7\">Spel kan vara beroendeframkallande, och spelare uppmanas att spela ansvarsfullt.</p>"
+    "content": "<p class=\"leading-7\">Du måste vara minst {{faqAge}} år gammal eller ha myndighetsåldern i din jurisdiktion för att registrera dig. Du måste också vara lagligt berättigad att spela online-spel enligt de lagar som gäller för dig. För mer information, vänligen läs våra användarvillkor.</p><p class=\"leading-7\">Spel kan vara beroendeframkallande, och spelare rekommenderas att utöva självkontroll.</p>"
   },
   "faqTwo": {
-    "title": "Vilka valutor stöder plånboken?",
+    "title": "Vilken valuta stöder plånboken?",
     "content": "<p class=\"leading-7\">Vi stöder stora kryptovalutor som {{currency}}</p>"
   },
   "faqThree": {
     "title": "Hur gör jag en insättning?",
-    "content": "<p class=\"leading-7\">Gå till din profilsida och klicka på \"Insättning\", välj din kryptovaluta, kopiera plånboksadress eller skanna QR-koden för betalning.</p>"
+    "content": "<p class=\"leading-7\">Gå till din profil sida och klicka på \"Insättning\", välj den kryptovaluta du vill använda, kopiera plånboksadressen eller skanna QR-koden för betalning.</p>"
   },
   "faqFour": {
-    "title": "Kan jag byta kryptovalutor på er sida?",
-    "content": "<p class=\"leading-7\">{{siteName}} erbjuder en swap-funktion där du säkert och enkelt kan byta dina kryptovalutor till andra kryptovalutor. På grund av problem med kryptomixning har all krypto som sätts in på {{siteName}} ett 1x omsättningskrav, vilket innebär att du måste satsa dina insatta medel minst en gång innan du kan byta dem.</p>"
+    "title": "Kan jag byta mina kryptovalutor på er sida?",
+    "content": "<p class=\"leading-7\">{{siteName}} erbjuder en bytesfunktion där du kan säkert och enkelt byta dina kryptovalutor mot andra kryptovalutor. Men på grund av oro kring myntblandning har all kryptovaluta som sätts in i {{siteName}} ett krav på 1x omsättning, vilket innebär att du måste satsa med dina insatta medel minst 1 gång innan du kan byta dem.</p>"
   },
   "faqFive": {
     "title": "Hur gör jag ett uttag?",
-    "content": "<p class=\"leading-7\">Gå till din profilsida och klicka på \"Uttag\", ange adressen till den plånbok du vill överföra till och det belopp du vill ta ut. (Observera att olika avgifter kan tas beroende på blockkedjorna)</p>"
+    "content": "<p class=\"leading-7\">Gå till din profil sida och klicka på \"Uttag\", ange adressen till plånboken du vill ta ut till och det belopp du vill ta ut. (Observera att det kan finnas olika avgifter beroende på de olika blockkedjorna)</p>"
   },
   "faqSix": {
-    "title": "Vad är det minsta uttagsbeloppet för varje kryptovaluta?",
-    "content": "<p class=\"leading-7\">På grund av kryptovalutors olika värde och varierande transaktionsavgifter, kontrollera din uttagssida för minsta uttagsbelopp för varje kryptovaluta.</p>"
+    "title": "Vad är det minimiuttag för varje kryptovaluta?",
+    "content": "<p class=\"leading-7\">På grund av det olika värdet av kryptovaluta samt de olika gruvavgifterna, vänligen kontrollera din uttagssida för minimiuttag som gäller för varje kryptovaluta.</p>"
   },
   "faqSeven": {
-    "title": "Hur lång tid tar insättningar och uttag?",
-    "content": "<p class=\"leading-7\">Varje transaktion på blockkedjan kräver flera cykler för att bekräftas.</p><p class=\"leading-7\">Generellt sett tar varje transaktion 5–10 minuter innan den bekräftas av blockkedjenätverket för BTC- och ETH-kedjorna, och cirka 1–2 minuter för TRON-, TON- och SOLANA-kedjorna.</p><p class=\"leading-7\">Om du stöter på problem under insättning eller uttag kan du kontrollera din transaktion med respektive blockkedjeutforskare för nätverket eller kontakta vår kundtjänst.</p>"
+    "title": "Hur lång tid tar det att sätta in och ta ut?",
+    "content": "<p class=\"leading-7\">Varje transaktion på blockkedjan kräver flera cykler för att bekräftas.</p><p class=\"leading-7\">Generellt sett kräver varje transaktion 5-10 minuter innan den kan bekräftas av blockkedjenätverket för BTC och ETH-kedjan; och cirka 1-2 minuter för TRON, TON, SOLANA-kedjan.</p><p class=\"leading-7\">Om du stöter på några problem under insättning eller uttag kan du kontrollera din transaktion med den respektive blockkedjeutforskaren för nätverket eller kontakta vår live-support.</p>"
   },
   "faqEight": {
-    "title": "Varifrån kommer transaktionsbekräftelserna?",
-    "content": "<p class=\"leading-7\">All bekräftelseinformation kommer från blockkedjan och dess gruvarbetare.</p>"
+    "title": "Varifrån kommer transaktionsbekräftelser?",
+    "content": "<p class=\"leading-7\">All bekräftelseinformation kommer från blockkedjan och gruvarbetarna för blockkedjan</p>"
   },
   "faqNine": {
     "title": "Är era spel rättvisa?",
-  "content": "<p class=\"leading-7\">Transparens, förtroende och rättvisa är en del av {{gameLink}}s kärnvärden och grunden för vår verksamhet. Därför arbetar vi endast med betrodda toppspelspartner för att ge våra kunder den kvalitetsupplevelse de förtjänar.</p><p class=\"leading-7\">Alla spel från våra partners testas noggrant för slumpmässighet av oberoende revisorer och är licensierade av spelreglerare som regelbundet granskar deras slumpgeneratorer.</p>"
+    "content": "<p class=\"leading-7\">Transparens, förtroende och rättvisa är en del av {{gameLink}}'s kärnvärden och grunden för vår verksamhet. Detta är anledningen till att vi endast arbetar med betrodda topp-tier spelpartners för att ge våra kunder den kvalitetsupplevelse de förtjänar.</p><p class=\"leading-7\">Alla spel från våra partners testas noggrant för slumpmässighet av oberoende revisorer och är licensierade av spelreglerande myndigheter som utsätter dem för frekventa revisioner av deras Slumptalsgenerator.</p>"
   },
   "faqTen": {
-    "title": "Vad ska jag göra om mitt spel hänger sig eller om jag blir frånkopplad?",
-    "content": "<p class=\"leading-7\">Om du stöter på tekniska problem, försök uppdatera sidan. Speltillstånd sparas av våra leverantörer, och du bör se ditt tidigare speltillstånd när du återansluter.</p>"
+    "title": "Vad ska jag göra om mitt spel hänger eller om jag blir frånkopplad?",
+    "content": "<p class=\"leading-7\">Om du stöter på några tekniska problem, vänligen försök att uppdatera sidan. Spelstatus sparas av våra leverantörer och du bör se din tidigare spelstatus när du återansluter.</p>"
   }
 }

@@ -130,3 +130,5 @@ const CopyOrderID = ({ t, id }: { t: TFunction; id: string }) => {
     </div>
   );
 };
+
+export default TransactionDetailsModal;

@@ -112,7 +112,7 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
       onClose={onClose}
       hideTitle
       position="modal-middle"
-      className="bg-base-400 w-full max-w-full sm:w-[460px] sm:max-w-[92vw] rounded-t-3xl sm:rounded-3xl text-base-content shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
+      className="bg-base-400 max-w-full sm:w-[460px] sm:max-w-[92vw] rounded-t-3xl sm:rounded-3xl text-base-content shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
       closeButtonClassName="btn-sm btn-square bg-base-300/40 border-0 text-base-content/70 hover:bg-base-300"
       id="referral-share"
     >

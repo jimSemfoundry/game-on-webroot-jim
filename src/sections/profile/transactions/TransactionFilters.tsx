@@ -54,10 +54,11 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
   }, [userBalance, t]);
 
   const showStatusFilter = !["Referral", "Commission"].includes(filters.type);
+  const isReferralOrCommission = !showStatusFilter;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-      <div className="flex flex-col gap-2">
+    <div className={cn("grid grid-cols-2 gap-2 sm:gap-3", showStatusFilter && "sm:grid-cols-4")}>
+      <div className={cn("flex flex-col gap-2", isReferralOrCommission && "col-span-2")}>
         <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.type", "Type")}</label>
         <Select
           options={typeOptions}
@@ -106,7 +107,7 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
         </div>
       )}
 
-      <div className={cn("flex flex-col gap-2", !showStatusFilter && "col-span-2 sm:col-span-1")}>
+      <div className="flex flex-col gap-2">
         <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.asset", "Asset")}</label>
         <Select
           options={currencyOptions}
@@ -140,7 +141,7 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
         />
       </div>
 
-      <div className={cn("flex flex-col gap-2", !showStatusFilter && "col-span-2 sm:col-span-1")}>
+      <div className="flex flex-col gap-2">
         <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.period", "Period")}</label>
         <div className="flex rounded-lg bg-base-300 p-[2px] gap-1 sm:gap-[6px] h-10 sm:h-10">
           {periodOptions.map((option) => {

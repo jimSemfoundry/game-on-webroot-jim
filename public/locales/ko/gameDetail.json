@@ -24,5 +24,7 @@
   "gameInformation": "게임 정보",
   "totalTips": "팁",
   "result": "결과",
-    "myBets": "내 베팅"
+  "myBets": "내 베팅",
+  "**********": "",
+  "demoPlay": "데모 플레이"
 }

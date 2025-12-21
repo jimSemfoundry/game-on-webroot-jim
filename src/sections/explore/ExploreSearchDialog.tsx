@@ -1,7 +1,8 @@
 import { Carousel, useCarousel } from "@/components/carousel";
-import { Modal } from "@/components/ui/Modal";
-import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
+import Iconify from "@/components/iconify";
 import { GameImage } from "@/components/ui/GameImage";
+import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
+import { Modal } from "@/components/ui/Modal";
 import { useSidebar } from "@/contexts/SidebarContext";
 import { useCasinoGameList } from "@/hooks/api/usePublic";
 import { useDebounce } from "@/hooks/useDebounce";
@@ -19,11 +20,7 @@ export interface ExploreSearchDialogProps {
   baseFilters: Record<string, any>;
 }
 
-export function ExploreSearchDialog({
-  isOpen,
-  onClose,
-  baseFilters,
-}: ExploreSearchDialogProps) {
+export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSearchDialogProps) {
   const { t } = useTranslation();
   const { isMobile } = useSidebar();
   const navigate = useNavigate();
@@ -63,6 +60,25 @@ export function ExploreSearchDialog({
     };
   }, [baseFilters, trimmedDebouncedQuery, meetsMinLength]);
 
+  // 获取 Hot Games 数据
+  const hotGamesParams = useMemo(() => ({
+    ...baseFilters,
+    category: 'hot',
+    page: 1,
+    limit: 12,
+  }), [baseFilters]);
+
+  const { data: hotGamesData } = useCasinoGameList(hotGamesParams, {
+    enabled: isOpen,
+    refetchOnMount: false,
+    staleTime: 5 * 60 * 1000, // 5分钟缓存
+  });
+
+  const hotGames = useMemo(() => {
+    const list = Array.isArray((hotGamesData as any)?.data) ? (hotGamesData as any).data : [];
+    return list.slice(0, 12);
+  }, [hotGamesData]);
+
   const {
     data: searchGameListData,
     isFetching: isSearchFetching,
@@ -85,8 +101,16 @@ export function ExploreSearchDialog({
   const showCarousel = meetsMinLength && isSearchFetched && displayResults.length > 0;
 
   const resultsCarousel = useCarousel({
-    slidesToShow: isMobile ? 4 : 6,
-    slideSpacing: "12px",
+    slidesToShow: isMobile ? 2.5 : 6,
+    slideSpacing: "8px",
+    align: "start",
+    dragFree: true,
+    containScroll: "trimSnaps",
+  });
+
+  const hotGamesCarousel = useCarousel({
+    slidesToShow: isMobile ? 2.5 : 6,
+    slideSpacing: "8px",
     align: "start",
     dragFree: true,
     containScroll: "trimSnaps",
@@ -105,7 +129,7 @@ export function ExploreSearchDialog({
     if (!navigationId) return;
 
     onClose();
-    navigate({ to: "/games/$gameId", params: { gameId: navigationId } });
+    navigate({ to: "/games/$gameId", params: { gameId: navigationId }, search: {} });
   };
 
   return (
@@ -118,20 +142,13 @@ export function ExploreSearchDialog({
       position="modal-middle"
     >
       <LiquidGlassEffect
-        className="!flex w-full min-h-[420px] flex-col gap-6 rounded-3xl bg-base-300/40 !p-6 backdrop-blur-lg md:min-h-[480px] md:p-10"
+        className="!flex w-full min-h-[560px] flex-col gap-6 rounded-3xl bg-base-300/55 backdrop-blur-lg !p-6 md:min-h-[640px] md:p-10"
         backgroundElements={<div className="absolute inset-0" />}
       >
         <div className="flex items-start justify-between">
-          <p className="text-lg font-semibold text-base-content">
-            {t("common:common.search")}
-          </p>
-          <button
-            type="button"
-            className="btn btn-sm btn-square btn-ghost"
-            onClick={onClose}
-            aria-label={t("common:common.close")}
-          >
-            <X size={16} />
+          <p className="text-lg font-semibold text-base-content">{t("common:common.search")}</p>
+          <button type="button" className="btn btn-sm btn-square btn-ghost" onClick={onClose} aria-label={t("common:common.close")}>
+            <X size={16} className="text-base-content" />
           </button>
         </div>
 
@@ -144,23 +161,18 @@ export function ExploreSearchDialog({
               placeholder={t("explore:searchPlaceholder")}
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
-              className="grow bg-transparent text-base font-semibold placeholder:text-base-content/40 focus:outline-none"
+              className="grow bg-transparent sm:text-base text-sm font-semibold placeholder:text-base-content/40 focus:outline-none"
             />
             {inputValue && (
-              <button
-                type="button"
-                className="btn btn-xs btn-square btn-ghost"
-                onClick={handleClear}
-                aria-label={t("common:common.clear")}
-              >
+              <button type="button" className="btn btn-xs btn-square btn-ghost" onClick={handleClear} aria-label={t("common:common.clear")}>
                 <Trash2 size={14} />
               </button>
             )}
           </label>
 
-          <div className="flex-1 min-h-0 overflow-hidden">
-            <div className="h-full w-full rounded-field p-3 flex flex-col">
-              <div className="flex h-full items-center justify-center text-sm text-base-content/50 text-center">
+          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden touch-pan-y">
+            <div className="h-full w-full flex flex-col gap-4">
+              <div className="flex items-center justify-center text-sm text-base-content/50 text-center touch-pan-x">
                 {trimmedInputQuery.length === 0 || !meetsMinLength ? (
                   t("explore:searchInstructions")
                 ) : showLoading ? (
@@ -168,19 +180,55 @@ export function ExploreSearchDialog({
                 ) : showNoResults ? (
                   t("explore:noResultsFound")
                 ) : showCarousel ? (
-                  <Carousel carousel={resultsCarousel} className="w-full overflow-visible">
-                    {displayResults.map((game: any, index: number) => {
+                  <div className="flex flex-col gap-2 w-full">
+                    <div className="flex items-center gap-2">
+                      <Iconify icon="custom:explore" className="w-4 h-4 text-primary" />
+                      <p className="text-base-content font-semibold text-sm">Result</p>
+                    </div>
+                    <Carousel carousel={resultsCarousel} className="w-full overflow-visible will-change-transform">
+                      {displayResults.map((game: any, index: number) => {
+                        const key = game?.id ?? `${game?.game_provider ?? "provider"}-${game?.inner_game_id ?? index}`;
+                        return (
+                          <div key={key}>
+                            <GameImage
+                              data={game}
+                              game={{
+                                inner_game_id: game?.inner_game_id ?? game?.id,
+                                game_provider: game?.game_provider ?? game?.provider,
+                                game_name: game?.display_game_name ?? game?.name ?? game?.title,
+                                image: game?.image ?? game?.imageUrl,
+                              }}
+                              showHoverEffects
+                              onClick={() => handleResultNavigate(game)}
+                            />
+                          </div>
+                        );
+                      })}
+                    </Carousel>
+                  </div>
+                ) : null}
+              </div>
+
+              {/* Hot Games Section */}
+              {hotGames.length > 0 && (
+                <div className="flex flex-col gap-2 w-full touch-pan-x">
+                  <div className="flex items-center gap-2">
+                    <Iconify icon="custom:heart" className="w-4 h-4 text-primary" />
+                    <p className="text-base-content font-semibold text-sm">{t("explore:gamesYouShouldTry")}</p>
+                  </div>
+                  <Carousel carousel={hotGamesCarousel} className="w-full overflow-visible will-change-transform">
+                    {hotGames.map((game: any, index: number) => {
                       const key = game?.id ?? `${game?.game_provider ?? "provider"}-${game?.inner_game_id ?? index}`;
                       return (
-                        <div key={key} className="w-[128px] px-1">
+                        <div key={key}>
                           <GameImage
+                            data={game}
                             game={{
                               inner_game_id: game?.inner_game_id ?? game?.id,
                               game_provider: game?.game_provider ?? game?.provider,
                               game_name: game?.display_game_name ?? game?.name ?? game?.title,
                               image: game?.image ?? game?.imageUrl,
                             }}
-                            containerClassName="w-[128px]"
                             showHoverEffects
                             onClick={() => handleResultNavigate(game)}
                           />
@@ -188,10 +236,8 @@ export function ExploreSearchDialog({
                       );
                     })}
                   </Carousel>
-                ) : (
-                  null
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

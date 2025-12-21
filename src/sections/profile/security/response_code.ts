@@ -1,4 +1,6 @@
 enum AUTH_ERROR_CODES {
+  TOO_MANY_REQUESTS_CODE = 429,
+
   // Input parameter error - invalid parameters that bypassed frontend validation
   INPUT_PARAM_ERROR = 60004,
 
@@ -33,7 +35,15 @@ enum AUTH_ERROR_CODES {
   CODE_NEW_PASSWORD_AND_CURRENT_PASSWORD_AS_SAME = 60014,
 
   // 无效的验证码
-  CODE_INVALID_OR_EXPIRED_VERIFICATION_CODE = 60016
+  CODE_INVALID_OR_EXPIRED_VERIFICATION_CODE = 60016,
+
+  CODE_SMS_COUNTRY_NOT_SUPPORTED = 60018, // 国家不支持
+
+  CODE_SMS_PROVIDER_NOT_AVAILABLE = 60019, // 短信提供商不可用
+
+  CODE_SMS_SEND_FAILED = 60020,  // 短信发送失败
+
+  CODE_SMS_INVALID_MOBILE_FORMAT = 60021 // 手机号格式错误
 }
 
 export function matchResponseCodeError(code: number): string {
@@ -61,8 +71,17 @@ export function matchResponseCodeError(code: number): string {
     case AUTH_ERROR_CODES.CODE_NEW_PASSWORD_AND_CURRENT_PASSWORD_AS_SAME:
       return "login:oldAndNewPasswordAreSame";
     case AUTH_ERROR_CODES.CODE_INVALID_OR_EXPIRED_VERIFICATION_CODE:
-    case 400:
       return "login:invalidVerificationCode";
+    case AUTH_ERROR_CODES.CODE_SMS_COUNTRY_NOT_SUPPORTED:
+      return "login:code_sms_country_not_supported";
+    case AUTH_ERROR_CODES.CODE_SMS_PROVIDER_NOT_AVAILABLE:
+      return "login:code_sms_provider_not_available";
+    case AUTH_ERROR_CODES.CODE_SMS_SEND_FAILED:
+      return "login:code_sms_send_failed";
+    case AUTH_ERROR_CODES.CODE_SMS_INVALID_MOBILE_FORMAT:
+      return "login:phoneError";
+    case AUTH_ERROR_CODES.TOO_MANY_REQUESTS_CODE:
+      return "common.tooManyRequests";
     default:
       return "common.serverError";
   }

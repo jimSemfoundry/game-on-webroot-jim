@@ -30,7 +30,7 @@ export const CryptoSettlementModal = () => {
       isOpen={status}
       onClose={() => set(false)}
       position="modal-middle"
-      className="bg-transparent p-0 md:max-w-[460px] hide-scrollbar relative max-h-[calc(100%-2rem)] shadow-lg rounded-2xl"
+      className="bg-transparent p-0 md:max-w-[460px] hide-scrollbar relative max-h-[calc(100vh-10em)] shadow-lg rounded-2xl"
       closeButtonClassName={classNames("top-40", { "w-7.5 h-7.5": isMobile })}
     >
       <div className="bg-base-400 sticky top-0">
@@ -97,3 +97,5 @@ export const CryptoSettlementModal = () => {
     </Modal>
   );
 };
+
+export default CryptoSettlementModal;

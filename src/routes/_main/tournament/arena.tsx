@@ -1,9 +1,10 @@
 import { createFileRoute, redirect, useNavigate, useSearch } from "@tanstack/react-router";
 import { publicService } from "@/services/publicService";
 import { useTournamentList } from "@/hooks/api/useAuth";
-import { TournamentBanner, TournamentMyProgress, TournamentLeaderboard, TournamentParticipatingGames } from "@/sections/tournament";
+import { TournamentBanner, TournamentRulesSection, TournamentMyProgress, TournamentLeaderboard, TournamentParticipatingGames } from "@/sections/tournament";
 import { useState, useEffect } from "react";
 import { requireAuth } from "@/lib/auth-guards";
+import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/_main/tournament/arena")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/_main/tournament/arena")({
 
     const isLeagueEnabled = baseConfig?.data?.is_league === 1;
     if (!isLeagueEnabled) {
-      throw redirect({ to: "/casino", search: { openLogin: undefined, redirect: undefined } });
+      throw redirect({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined , startapp: undefined, openFinance: undefined} });
     }
   },
   component: TournamentArenaPage,
@@ -34,6 +35,7 @@ function TournamentArenaPage() {
   const search = useSearch({ from: "/_main/tournament/arena" });
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const { t } = useTranslation();
 
   // 根据查询参数确定初始选中的赛事
   useEffect(() => {
@@ -67,6 +69,8 @@ function TournamentArenaPage() {
     }
   };
 
+  // 详情弹窗仅在列表页使用；此处不再弹窗
+
   if (isLoading) {
     return (
       <div className="flex flex-col gap-3 pb-26">
@@ -87,39 +91,42 @@ function TournamentArenaPage() {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-4">
         <div className="text-6xl">🏆</div>
-        <h2 className="text-xl font-bold">No Tournaments Available</h2>
+        <h2 className="text-xl font-bold">{t("bonus.no_tournaments_available")}</h2>
         <p className="text-base-content/70 text-center max-w-md">
-          There are currently no active tournaments. Check back later for exciting competitions!
+          {t("bonus.tournaments_available_desc")}
         </p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-3 pb-26 px-5 sm:px-0">
-      {/* Tournament Banner Carousel */}
-      <div className="relative">
-        <TournamentBanner 
-          tournaments={tournamentList}
-          selectedIndex={selectedIndex}
-          onIndexChange={handleBannerChange}
-        />
+    <>
+      <div className="flex flex-col gap-3 pb-26 px-5 sm:px-0">
+        {/* Tournament Banner and Rules - No gap between them */}
+        <div className="relative">
+          <TournamentBanner
+            tournaments={tournamentList}
+            selectedIndex={selectedIndex}
+            onIndexChange={handleBannerChange}
+          />
+          <TournamentRulesSection tournament={selectedTournament} />
+        </div>
+
+        {/* Tournament Details */}
+        <div className="flex flex-col gap-3">
+          {/* My Progress */}
+          {selectedTournament?.user_info && (
+            <TournamentMyProgress data={selectedTournament.user_info} />
+          )}
+
+          {/* Leaderboard */}
+          <TournamentLeaderboard tournament={selectedTournament} />
+
+          {/* Participating Games */}
+          <TournamentParticipatingGames tournament={selectedTournament} />
+        </div>
       </div>
-
-      {/* Tournament Details */}
-      <div className="flex flex-col gap-3">
-        {/* My Progress */}
-        {selectedTournament?.user_info && (
-          <TournamentMyProgress data={selectedTournament.user_info} />
-        )}
-
-        {/* Leaderboard */}
-        <TournamentLeaderboard tournament={selectedTournament} />
-
-        {/* Participating Games */}
-        <TournamentParticipatingGames tournament={selectedTournament} />
-      </div>
-    </div>
+    </>
   );
 }
 

@@ -6,21 +6,23 @@ import { useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
 import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import { cn } from "@/utils/cn.ts";
 import Decimal from "decimal.js";
 import { Plus } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { FormatAmount } from "sunmoon-working-components";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
-import { RangeSlider } from "./RangeSlider.tsx";
-import { useCurrentPromo } from "@/query/promo";
+import { RangeSliderThr } from "./RangeSliderThr.tsx";
+import { useGetPromoByPage } from "@/query/promo";
+import { InnerProviderAmountRangeFormat } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import { DepositRangeOptions } from "@/components/modal/UserFinanceModal/c/DepositRangeOptions.tsx";
 
 // 默认的数量输入快捷选项
 export const amounts = ["200", "500", "1000", "5000", "10000", "50000"];
 
 export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
-  const { currentPromo, isFetching } = useCurrentPromo();
+  const { currentPromo } = useGetPromoByPage();
 
   const { t } = useTranslation();
 
@@ -39,31 +41,49 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
   const { getCurrencySymbol, convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
 
   const bonusPercent = useMemo(() => {
-    const usdBonusConfig = bonusConfig?.data?.find((item: { level: number }) => item.level - 1 === status?.deposit_bonus_times);
+    const usdBonusConfig = bonusConfig?.data?.find((item: {
+      level: number
+    }) => item.level - 1 === status?.deposit_bonus_times);
     return usdBonusConfig?.bonus_percent ?? 1;
   }, [bonusConfig, status]);
 
   const minAmountValue = useMemo(() => {
+    if (currentPromo?.promo_type === 1) {
+      const value = convertCurrency({
+        amount: currentPromo?.min_amount,
+        fromCurrency: "USDT",
+        toCurrency: depositFiat?.currency?.currency,
+        exchangeRates: exchangeRates
+      }) || 0;
 
-    const value = convertCurrency({
-      amount: currentPromo?.min_amount,
-      fromCurrency: 'USDT',
-      toCurrency: depositFiat?.currency?.currency,
-      exchangeRates: exchangeRates,
-    }) || 0;
+      const valueNum = Math.ceil(value || 0);
 
-    const valueNum = Math.ceil(value || 0);
+      return valueNum;
+    }
+    return 0;
+  }, [depositFiat.currency?.currency, currentPromo, exchangeRates]);
 
-    const minAmountValue = Math.max(depositFiat.method?.min, valueNum)
+  const maxAmountValue = useMemo(() => {
+    if (currentPromo?.promo_type === 1) {
 
-    return minAmountValue;
+      const value = convertCurrency({
+        amount: currentPromo?.max_deposit,
+        fromCurrency: "USDT",
+        toCurrency: depositFiat?.currency?.currency,
+        exchangeRates: exchangeRates
+      }) || 0;
 
-  }, [depositFiat.method?.min, depositFiat.currency?.currency, currentPromo, exchangeRates]);
+      const valueNum = Math.ceil(value);
+
+      return valueNum;
+    }
+    return 0;
+  }, [depositFiat.currency?.currency, currentPromo, exchangeRates]);
 
   const rangeError = useMemo(() => {
     const d_amount = Decimal(depositFiat.formItem?.[formKey] || 0);
-    return (d_amount.lt(minAmountValue) || d_amount.gt(depositFiat.method?.max ?? 0))
-  }, [depositFiat.formItem, depositFiat.method, minAmountValue]);
+    return (d_amount.lt(depositFiat.method?.min) || d_amount.gt(depositFiat.method?.max));
+  }, [depositFiat.formItem, depositFiat.method]);
 
   useEffect(() => {
     setDepositFiat({ range_error: rangeError });
@@ -77,46 +97,68 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
           loading={isLoading}
           content={
             <p>
-              {depositFiat.method ? (
-                <>
-                  {depositFiat.method?.min?.toLocaleString()} ~ {depositFiat.method?.max?.toLocaleString()}{" "}
-                  {depositFiat.currency?.currency}
-                </>
-              ) : (
-                <>? {depositFiat.currency?.currency}</>
-              )}
+              {depositFiat.method
+                ? (<InnerProviderAmountRangeFormat
+                  min={depositFiat.method?.min}
+                  max={depositFiat.method?.max}
+                  currency={depositFiat.currency?.currency} />)
+                : (<>? {depositFiat.currency?.currency}</>)}
             </p>
           }
         />
       </div>
 
       {/* deposit fiat amount control */}
-      <div className='relative overflow-hidden rounded-sm'>
+      <div className="relative overflow-hidden rounded-sm">
         <NumericFormat
           suf={
             <div className="text-primary text-sm font-bold flex items-center gap-1">
               <img src="/icons/ui/gift-box.svg" alt="" className="w-5 h-5" />
               <Plus size={10} strokeWidth={5} />
               {
-                !isFetching && currentPromo?.promo_type === 1 && (() => {
+                currentPromo?.promo_type === 1 && (() => {
+                  if (parseFloat(depositFiat.formItem?.[formKey]) < minAmountValue) {
+                    return '0.00';
+                  }
+                  if (
+                    currentPromo?.promo_code === 'special_offer_thursday' ||
+                    currentPromo?.promo_code === 'special_offer_sunday'
+                  ) {
+                    const rawRate = Number(currentPromo?.bonus_rate ?? 0);
+                    const rate = Number.isFinite(rawRate) ? rawRate : 0;
 
-                  const value = convertCurrency({
-                    amount: currentPromo?.bonus_amount,
-                    fromCurrency: 'USDT',
-                    toCurrency: depositFiat?.currency?.currency,
-                    exchangeRates: exchangeRates,
-                  }) || 0;
+                    const parsedAmount = parseFloat(depositFiat.formItem?.[formKey]);
+                    if (!Number.isFinite(parsedAmount)) {
+                      return '0.00';
+                    }
 
-                  return formatCurrency({
-                    currency: depositFiat?.currency?.currency,
-                    amount: value,
-                    showCode: false,
-                    showSymbol: true,
-                  }).formatted
+                    const amountValue = Math.min(parsedAmount, maxAmountValue) * rate;
+
+                    // 有小数：截断为 2 位；没有小数：直接返回整数
+                    if (Number.isInteger(amountValue)) {
+                      return amountValue.toString();
+                    }
+
+                    return Math.trunc(amountValue * 100) / 100;
+                  } else {
+                    const value = convertCurrency({
+                      amount: currentPromo?.bonus_amount,
+                      fromCurrency: "USDT",
+                      toCurrency: depositFiat?.currency?.currency,
+                      exchangeRates: exchangeRates
+                    }) || 0;
+
+                    return formatCurrency({
+                      currency: depositFiat?.currency?.currency,
+                      amount: value,
+                      showCode: false,
+                      showSymbol: true
+                    }).formatted;
+                  }
                 })()
               }
               {
-                !isFetching && !currentPromo && (
+                !currentPromo && (
                   <FormatAmount
                     unit={getCurrencySymbol(depositFiat.currency?.currency)}
                     amount={String(Number(depositFiat.formItem?.[formKey]) * bonusPercent)}
@@ -128,7 +170,7 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
             </div>
           }
           isAllowed={({ value }) => Decimal(value || 0).lt(1000000000000)}
-          className='input-lg'
+          wrapCls="py-1"
           decimalScale={depositFiat.currency?.decimal}
           placeholder="0.00"
           prefix={getCurrencySymbol(depositFiat.currency?.currency)}
@@ -136,62 +178,56 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
           thousandSeparator
           onValueChange={(values) => {
             setDepositFiat({
-              formItem: { [formKey]: values.value },
+              formItem: { [formKey]: values.value }
             });
           }}
         />
 
-        <span className='absolute top-0 right-0 bg-primary text-[8px] font-bold px-2 text-primary-content rounded-bl-sm z-1'>
+        <span
+          className="absolute top-0 right-0 bg-primary text-[8px] font-bold px-2 text-primary-content rounded-bl-sm z-1">
           {
-            !isFetching && currentPromo?.promo_type === 1 && (
+            currentPromo?.promo_type === 1 && (
               t(`finance:to_your_account_balance`)
             )
           }
           {
-            !isFetching && !currentPromo && (
-              'TO YOUR BONUS POOL'
+            !currentPromo && (
+              t(`finance:toYourBonusPool`)
             )
           }
         </span>
 
-
-        {/* 输入发生错误 */}
+        {/* 输入发生错误 - 数值输入范围错误 */}
         <ErrorMessageBox
           sample
           show={depositFiat.formItem?.[formKey] !== "" && rangeError}
-          content={`${t("finance:pleaseEnterAnAmountBetween")}
-                       ${depositFiat.method?.min?.toLocaleString()}
-                       ~
-                       ${depositFiat.method?.max?.toLocaleString()}
-                       ${depositFiat.currency?.currency}`}
+          content={<>{t("finance:pleaseEnterAnAmountBetween")}
+            <InnerProviderAmountRangeFormat
+              min={depositFiat.method?.min}
+              max={depositFiat.method?.max}
+              currency={depositFiat.currency?.currency} />
+          </>}
         />
-        {/* 数量输入快捷选项 */}
 
-        {
-          !isFetching && !currentPromo && (
-            <div className="mt-2 grid grid-cols-3 gap-2">
-              {(depositFiat.method?.recommended ?? amounts)?.map((amount: string, i: number) => (
-                <button
-                  key={i}
-                  className={cn(
-                    `btn btn-sm bg-base-300 text-base-content/50 border-0 rounded-sm`,
-                    Decimal(amount || 0).eq(depositFiat.formItem?.[formKey] || 0) && "btn-outline btn-primary border-1 text-primary",
-                  )}
-                  onClick={() => setDepositFiat({ formItem: { [formKey]: amount } })}
-                  disabled={!depositFiat.method}
-                >
-                  {getCurrencySymbol(depositFiat.currency?.currency)}
-                  {amount.toLocaleString()}
-                </button>
-              ))}
-            </div>
-          )
-        }
-        {
-          !isFetching && currentPromo?.promo_type === 1 && (
-            <RangeSlider />
-          )
-        }
+        {/* 数量输入快捷选项 - 无优惠充值活动的时候 */}
+        <InnerDisplayContent show={true}  >
+          {
+            !currentPromo && (
+              <DepositRangeOptions
+                amount={depositFiat.formItem?.[formKey] || 0}
+                onClick={(amount) => setDepositFiat({ formItem: { [formKey]: amount } })}
+                rangeOptions={depositFiat.method?.recommended ?? amounts}
+              />
+            )
+          }
+          {
+            currentPromo && currentPromo?.promo_type === 1 && (
+              <div className="mt-3">
+                <RangeSliderThr />
+              </div>
+            )
+          }
+        </InnerDisplayContent>
       </div>
     </div>
   );

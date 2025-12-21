@@ -21,8 +21,9 @@ export const WalletFinance = () => {
   const isGameDetailPage = location.pathname.startsWith("/games/");
 
   return (
-    <div className="flex items-center py-0.5 md:py-1 bg-base-200 rounded-lg pl-1 md:pl-1 pr-0.5 md:pr-1 rtl:pr-1 rtl:md:pr-1 rtl:pl-0.5 rtl:md:pl-1 relative">
-      <div className="flex items-center gap-1 max-w-[140px] sm:max-w-[200px] justify-between">
+    <div
+      className="flex items-center py-1 md:py-1 bg-base-200 rounded-lg px-1 rtl:pr-1 rtl:md:pr-1 rtl:md:pl-1 relative z-1000">
+      <div className="flex items-center gap-2 justify-between">
         {!isGameDetailPage && (
           <div className="flex-1">
             <CurrencySelector
@@ -35,7 +36,7 @@ export const WalletFinance = () => {
         )}
 
         <button
-          className={`btn btn-primary btn-square h-7 w-7 md:h-8 md:w-8 rounded-md ${isGameDetailPage ? "ml-auto" : ""}`}
+          className={`btn btn-primary btn-square h-6 w-6 md:h-8 md:w-8 rounded-md ${isGameDetailPage ? "ml-auto" : ""}`}
           onClick={openUserFinanceModal}
         >
           <Iconify icon="custom:wallet" className="w-5 h-5" />

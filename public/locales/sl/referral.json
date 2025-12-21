@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Cene in pravila",
+    "campaigns": "Kampanje",
+    "myReferrals": "Moje napotitve",
+    "commissions": "Provizije",
+    "rewards": "Nagrade"
+  },
+  "commissionCalculator": "Kalkulator provizij",
   "telegramReferralLink": "Napotitvena Povezava Telegram",
   "network": "Omrežje",
   "lifetimeReferralRewards": "DOŽIVLJENJSKE NAGRADE ZA NAPOTITEV",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "RAZPOLOŽLJIVE NAGRADE ZA NAPOTITEV",
   "lockedRewards": "ZAKLENJENE NAGRADE",
   "assembleYourCrewCashIn": "SESTAVITE SVOJO EKIPO IN ZASLUŽITE!",
+  "assembleYourCrewCashInDescription1": "Rekrutirajte svojo ekipo in zaslužite {{amount}} na prijatelja - kot rop, vendar brez pregona FBI. Poleg tega zaslužite do {{percentage}} provizije na njihove stave. Najboljši del? Vaša stopnja provizije raste z vami, ko napredujete, in zaslužili boste tudi od rekrutov vaše ekipe!",
+  "assembleYourCrewCashInDescription2": "Večja kot je vaša mreža, večji je vaš delež. Ne glede na to, ali zmagajo, izgubijo ali stavijo kot maniaki, vi še naprej kopičite denar. Čas je, da zgradite svoje cesarstvo - začnite rekrutirati zdaj!",
+  "quickShare": "Hitro deljenje",
   "referralRewards": "NAGRADE ZA NAPOTITEV",
   "commissionRewards": "NAGRADE ZA PROVIZIJO",
   "aboutDescription": "Zberite svojo ekipo in zaslužite {{amount}} na prijatelja – kot pri ropu, a brez FBI-ja za petami. Poleg tega zaslužite do 50 % provizije na njihove stave. Najboljše? Vaša provizija raste z vami, ko napredujete na višje ravni, in zaslužili boste tudi od napotitev vaše ekipe!\n\nVečja kot je vaša mreža, večji je vaš zaslužek. Ne glede na to, ali zmagujejo, izgubljajo ali stavijo kot nori, vi še naprej kopičite denar. Čas je, da zgradite svoj imperij – začnite zaposlovati zdaj!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "DELITE PREK DRUŽABNIH OMREŽIJ",
   "referralTermsConditions": "POGOJI ZA NAPOTITEV",
   "liveGlobalRewards": "GLOBALNE NAGRADE V ŽIVO",
+  "liveGlobalCommissions": "Žive globalne provizije",
   "username": "UPORABNIŠKO IME",
   "friendLevel": "RAVEN PRIJATELJA",
   "totalExp": "SKUPAJ EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "MOJE NAPOTITVE",
   "more": "VEČ",
   "faqOne": {
-    "title": "KAKO DELUJE SISTEM NAPOTITEV?",
-    "content": "<p class=\"leading-7\">Ko delite svojo povezavo za priporočilo s prijatelji in se ti prijavijo na naši strani, postanejo vaši priporočeni igralci in vam prinašajo provizijo in nagrade za priporočila, ko igrajo na {{gameLink}} Zvezi.</p>"
+    "title": "Kako deluje sistem napotitev?",
+    "content": "<p class=\"leading-7\">Ko delite svojo napotitveno povezavo s prijatelji in se prijavijo na naši strani; postanejo vaša napotitev in vam prinašajo provizijo ter nagrade za napotitev z igranjem na {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "KOLIKO LAHKO ZASLUŽIM Z NAPOTITVIJO?",
-    "content": "<p class=\"leading-7\">Zaslužite lahko {{percentage}} njihovih stavnih dejavnosti kot provizijo + {{amount}} na napotitev.</p>"
+    "title": "Koliko lahko zaslužim s svojo napotitvijo?",
+    "content": "<p class=\"leading-7\">Lahko zaslužite {{percentage}} od njihovega stavnega prometa kot provizije + {{amount}} na napotitev.</p>"
   },
   "faqThree": {
-    "title": "KAJ JE NAGRADA {{amount}} USD IN KAKO DELUJE?",
-    "content": "<p class=\"leading-7\">Za vsakega priporočenega igralca, ki ga pripeljete na {{gameLink}}, prejmete nagrado v višini {{amount}} USD. Ta nagrada se izplačuje v {{parts}} delih, ko se vaša raven priporočil povečuje od {{level}}.</p>"
+    "title": "Kaj je nagrada {{amount}} USD in kako deluje?",
+    "content": "<p class=\"leading-7\">Obstaja nagrada {{amount}} USD za vsako napotitev, ki jo prinesete na {{gameLink}}. Ta USD nagrada se izplačuje v {{parts}} delih, ko se vaša raven napotitve povečuje od {{level}}.</p>"
   },
   "faqFour": {
-    "title": "IMAM VELIKO OBČINSTVO. KAKO LAHKO DOBIM POSEBNO PONUDBO?",
-    "content": "<p class=\"leading-7\">Če imate spletno stran z dobro prometnostjo ali račun na družbenih omrežjih z veliko občinstva, nam lahko pišete na {{emailLink}}</p>"
+    "title": "Imam veliko občinstvo. Kako lahko dobim posebno ponudbo?",
+    "content": "<p class=\"leading-7\">Če imate spletno stran z dobrim prometom ali račun na družbenih omrežjih z velikim občinstvom, nam lahko pišete na {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "KOLIKO PARTNERSKIH POVEZAV LAHKO USTVARIM, ČE IMAM RAZLIČNE SPLETNE STRANI/RAČUNE NA DRUŽBENIH OMREŽJIH?",
-    "content": "<p class=\"leading-7\">Ustvarite lahko do {{codes}} edinstvenih kod za različne vire prometa.</p>"
+    "title": "Koliko partnerskih povezav lahko ustvarim, če imam različne spletne strani/družbena omrežja?",
+    "content": "<p class=\"leading-7\">Lahko ustvarite do {{codes}} edinstvenih kod za različne vire prometa</p>"
   },
   "faqSix": {
-    "title": "ALI LAHKO VIDIM PODATKE O SVOJI NAPOTITVI?",
-    "content": "<p class=\"leading-7\">Da, preglednost, zaupanje in poštenost so del osnovnih vrednot {{gameLink}}. Podatki, kot so uporabniško ime, skupne stave in zaslužena provizija, so na voljo na zavihkih \"Moje provizije\" in \"Nagrade za priporočila\".</p>"
+    "title": "Ali lahko vidim podatke o svoji napotitvi?",
+    "content": "<p class=\"leading-7\">Da, preglednost, zaupanje in poštenost so del osnovnih vrednot {{gameLink}}. Podatki, kot so uporabniško ime, skupni vložek in zaslužena provizija, so na voljo v zavihku \"Moje provizije\" in \"Nagrade za napotitve\".</p>"
   },
   "faqSeven": {
-    "title": "ALI LAHKO DELIM NAGRADE ZA PROVIZIJO S SVOJIMI NAPOTITVAMI?",
-    "content": "<p class=\"leading-7\">Da, nagrade za provizijo lahko delite s svojimi napotitvami tako, da v zavihku »Kampanje« kliknete »Ustvari novo kampanjo« in nastavite razdelitev provizije.</p>"
+    "title": "Ali lahko delim nagrade za provizije s svojimi napotitvami?",
+    "content": "<p class=\"leading-7\">Da, nagrade za provizije lahko delite s svojimi napotitvami tako, da kliknete \"ustvari novo kampanjo\" in nastavite delitev provizij pod zavihkom \"Kampanje\".</p>"
   },
   "faqEight": {
-    "title": "KAJ JE POSREDNA NAPOTITEV IN KAJ LAHKO ZASLUŽIM Z NJO?",
-    "content": "<p class=\"leading-7\">Posredna napotitev je aktiven igralec, ki pride prek povabilne povezave enega od vaših neposrednih napotiteljev. Če je vaša raven VIP višja od ravni VIP vašega neposrednega napotitelja, lahko zaslužite tudi provizijo od vaše posredne napotitve.</p>"
+    "title": "Kaj je posredna napotitev in kaj lahko zaslužim od njih?",
+    "content": "<p class=\"leading-7\">Posredna napotitev je aktiven igralec, ki pride preko povabilne povezave ene od vaših neposrednih napotitev. Če je vaša VIP raven višja od VIP ravni vaše neposredne napotitve, lahko zaslužite tudi provizijo, ki izhaja iz vaše posredne napotitve.</p>"
   },
   "levelReward": "NAGRADA ZA NAPREDOVANJE NA VIŠJO RAVEN",
   "groupReward": "NAGRADA ZA PROVIZIJO",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Za poenostavitev primera predpostavimo, da prijatelji označeni z rumeno aktivno stavijo, zelene odstotke ob črtkanih linijah pa predstavljajo provizije, ki jih prejmete od vsakega izmed njih.",
   "referralCommissionsIndirectDescription": "Za poenostavitev primera predpostavimo, da prijatelji označeni z vijolično aktivno stavijo. Odstotki ob črtkanih linijah kažejo provizije, ki jih zasluži vsak član v verigi napotitev. \n\n Na desni vidimo primer odcepitve v verigi napotitev.",
   "referralCodeMinLength": "Priporočilna koda mora biti dolga vsaj 6 znakov",
-    "vipLevel": "VIP raven",
+  "vipLevel": "VIP raven",
   "earned": "Zasluženo",
   "directfriend": "Neposredni Prijatelj",
   "fast": "Hiter",
   "slots": "Igralni Avtomati",
   "live-casino": "Živo Kazino",
   "fishing": "Ribolov",
-  "rewardsUnlocked": "Odklenjene Nagrade"
+  "rewardsUnlocked": "Odklenjene Nagrade",
+  "selectGame": "Izberite igro",
+  "selectVipLevel": "Izberite VIP raven",
+  "myReferralCommissions": "Moje napotitvene provizije",
+  "myReferralRewards": "Moje napotitvene nagrade",
+  "exp": "EXP",
+  "userLevel": "Raven uporabnika"
 }

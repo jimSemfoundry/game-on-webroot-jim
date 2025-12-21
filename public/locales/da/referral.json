@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Rater & Regler",
+    "campaigns": "Kampagner",
+    "myReferrals": "Mine Henvisninger",
+    "commissions": "Kommissioner",
+    "rewards": "Belønninger"
+  },
+  "commissionCalculator": "Provisionsberegner",
   "telegramReferralLink": "Telegram Henvisningslink",
   "network": "Netværk",
   "lifetimeReferralRewards": "Livstidsbelønninger for henvisninger",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Tilgængelige henvisningsbelønninger",
   "lockedRewards": "Låste belønninger",
   "assembleYourCrewCashIn": "Saml dit hold og tjen penge!",
+  "assembleYourCrewCashInDescription1": "Rekrutter dit hold og score {{amount}} per ven - ligesom et kup, men uden FBI-jagten. Plus, tjen op til {{percentage}} provision på deres væddemål. Den bedste del? Din provisionssats vokser med dig, når du stiger i niveau, og du vil endda tjene på dit holds rekrutter!",
+  "assembleYourCrewCashInDescription2": "Jo større dit netværk, jo større din andel. Uanset om de vinder, taber eller vædder som vanvittige, fortsætter du med at stable penge. Tid til at bygge dit imperium - Begynd at rekruttere nu!",
+  "quickShare": "Hurtig Deling",
   "referralRewards": "Belønninger for henvisninger",
   "commissionRewards": "Kommissionsbelønninger",
   "aboutDescription": "Rekrutter dit hold og scor {{amount}} pr. ven - som et røveri, men uden FBI-jagten. Plus, tjen op til 50% kommission på deres indsatser. Det bedste af det hele? Din kommissionssats vokser med dig, når du stiger i niveau, og du tjener endda på dit holds rekrutter!\n\nJo større dit netværk er, jo større er din andel. Uanset om de vinder, taber eller satser som gale, bliver du ved med at tjene penge. Det er tid til at opbygge dit imperium - begynd at rekruttere nu!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Del via sociale medier",
   "referralTermsConditions": "Vilkår og betingelser for henvisning",
   "liveGlobalRewards": "Live globale belønninger",
+  "liveGlobalCommissions": "Live Globale Kommissioner",
   "username": "Brugernavn",
   "friendLevel": "Vennens niveau",
   "totalExp": "Samlet EXP",
@@ -105,50 +118,56 @@
   "more": "Mere",
   "faqOne": {
     "title": "Hvordan fungerer henvisningssystemet?",
-    "content": "<p class=\"leading-7\">Når du deler dit henvisningslink med dine venner, og de tilmelder sig på vores side, bliver de dine henvisninger og vil tjene dig kommission og henvisningsbelønninger ved at spille på {{gameLink}} Alliance.</p>"
+    "content": "<p class=\"leading-7\">Når du deler dit henvisningslink med dine venner, og de tilmelder sig på vores side; bliver de din henvisning og vil tjene dig kommission og henvisningsbelønninger ved at spille på {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
     "title": "Hvor meget kan jeg tjene på min henvisning?",
-    "content": "<p class=\"leading-7\">Du kan tjene {{percentage}} af deres indsatsaktivitet som kommission + {{amount}} pr. henvisning.</p>"
+    "content": "<p class=\"leading-7\">Du kan tjene {{percentage}} af deres væddemålsaktivitet som kommission + {{amount}} pr. henvisning.</p>"
   },
   "faqThree": {
-    "title": "Hvad er {{amount}} USD-belønningen, og hvordan fungerer den?",
-    "content": "<p class=\"leading-7\">Der er en belønning på {{amount}} USD for hver henvisning, du bringer til {{gameLink}}. Denne USD-belønning udbetales i {{parts}} dele, efterhånden som dit henvisningsniveau stiger fra {{level}}.</p>"
+    "title": "Hvad er {{amount}} USD belønningen, og hvordan fungerer den?",
+    "content": "<p class=\"leading-7\">Der er en {{amount}} USD belønning for hver henvisning, du bringer til {{gameLink}}. Denne USD belønning gives i {{parts}} dele, efterhånden som dit henvisningsniveau stiger fra {{level}}.</p>"
   },
   "faqFour": {
     "title": "Jeg har et stort publikum. Hvordan kan jeg få en særlig aftale?",
     "content": "<p class=\"leading-7\">Hvis du har en hjemmeside med god trafik eller en social mediekonto med et stort publikum, kan du sende os en e-mail på {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Hvor mange affiliate-links kan jeg oprette, hvis jeg har forskellige hjemmesider/konti på sociale medier?",
-    "content": "<p class=\"leading-7\">Du kan oprette op til {{codes}} unikke koder til forskellige trafikkilder</p>"
+    "title": "Hvor mange affiliate links kan jeg oprette, hvis jeg har forskellige hjemmesider/sociale mediekonti?",
+    "content": "<p class=\"leading-7\">Du kan oprette op til {{codes}} unikke koder til forskellige trafik kilder</p>"
   },
   "faqSix": {
     "title": "Kan jeg se dataene for min henvisning?",
-    "content": "<p class=\"leading-7\">Ja, gennemsigtighed, tillid og retfærdighed er en del af {{gameLink}}'s kerneværdier. Data som brugernavn, samlet indsats og optjent kommission er alle tilgængelige under fanerne \"Mine Provisioner\" og \"Henvisningsbelønninger\".</p>"
+    "content": "<p class=\"leading-7\">Ja, gennemsigtighed, tillid og retfærdighed er en del af {{gameLink}}'s kerneværdier. Data som brugernavn, samlet væddemål og tjent kommission er alle tilgængelige i fanen \"Mine Kommissioner\" og \"Henvisningsbelønninger\".</p>"
   },
   "faqSeven": {
     "title": "Kan jeg dele kommissionsbelønningerne med mine henvisninger?",
-    "content": "<p class=\"leading-7\">Ja, du kan dele kommissionsbelønningerne med dine henvisninger ved at klikke på \"Opret ny kampagne\" og indstille kommissionsopdelingen under fanen \"Kampagner\".</p>"
+    "content": "<p class=\"leading-7\">Ja, du kan dele kommissionsbelønningerne med dine henvisninger ved at klikke på \"opret ny kampagne\" og indstille kommissionens fordeling under fanen \"Kampagner\".</p>"
   },
   "faqEight": {
     "title": "Hvad er en indirekte henvisning, og hvad kan jeg tjene på dem?",
-    "content": "<p class=\"leading-7\">En indirekte henvisning er en aktiv spiller, der kommer ind via et invitationslink fra en af dine direkte henvisninger. Hvis dit VIP-niveau er højere end VIP-niveauet for din direkte henvisning, kan du også tjene kommission fra din indirekte henvisning.</p>"
+    "content": "<p class=\"leading-7\">En indirekte henvisning er en aktiv spiller, der kommer ind fra invite-linket fra en af dine direkte henvisninger. Hvis dit VIP-niveau er højere end VIP-niveauet for din direkte henvisning, kan du også tjene kommission fra din indirekte henvisning.</p>"
   },
-    "levelReward": "niveauopstigningsbelønning",
-    "groupReward": "kommissionsbelønning",
-    "hideInfographic": "Skjul Infografik",
+  "levelReward": "niveauopstigningsbelønning",
+  "groupReward": "kommissionsbelønning",
+  "hideInfographic": "Skjul Infografik",
   "showInfographic": "Vis Infografik",
   "referralCommissions": "Henvisningskommissioner",
   "referralCommissionsDirectDescription": "For at forenkle eksemplet antager vi, at de gulmarkerede venner aktivt spiller, og de grønne procenter langs de stiplede linjer repræsenterer den kommission, du modtager fra hver af dem.",
   "referralCommissionsIndirectDescription": "For at forenkle eksemplet antager vi, at de lilla markerede venner aktivt spiller. Procenterne langs de stiplede linjer angiver den kommission, hvert medlem i henvisningskæden tjener. \n\n Til højre kan vi se et eksempel på en afbrydelse i henvisningskæden.",
   "referralCodeMinLength": "Henvisningskoden skal være mindst 6 tegn lang",
-    "vipLevel": "VIP-niveau",
+  "vipLevel": "VIP-niveau",
   "earned": "Optjent",
   "directfriend": "Direkte Ven",
   "fast": "Hurtig",
   "slots": "Spilleautomater",
   "live-casino": "Live Casino",
   "fishing": "Fiskeri",
-  "rewardsUnlocked": "Belønninger Udlåst"
+  "rewardsUnlocked": "Belønninger Udlåst",
+  "selectGame": "Vælg et spil",
+  "selectVipLevel": "Vælg VIP-niveau",
+  "myReferralCommissions": "Mine henvisningskommissioner",
+  "myReferralRewards": "Mine henvisningsbelønninger",
+  "exp": "EXP",
+  "userLevel": "Bruger niveau"
 }

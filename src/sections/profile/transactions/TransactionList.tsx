@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import type { Transaction } from "./types";
+import { getTransactionStatus } from "@/sections/profile/transactions/helper.ts";
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -165,7 +166,8 @@ const getTransactionTypeLabel = (transactionType: string, item: Transaction, t: 
         : t("transaction:transactionTypes.cryptoWithdraw");
     }
     case "Bonus":
-      return t("transaction:transactionTypes.bonus");
+      // return t("transaction:transactionTypes.bonus");
+      return t(`bonus:item.${item?.note}`)
     case "Swap":
       return t("finance:swap", "Swap");
     case "Referral":
@@ -177,28 +179,34 @@ const getTransactionTypeLabel = (transactionType: string, item: Transaction, t: 
   }
 };
 
-export function TransactionList({ transactions, isLoading, isFetching, transactionType, onTransactionClick }: TransactionListProps) {
+export function TransactionList({
+                                  transactions,
+                                  isLoading,
+                                  isFetching,
+                                  transactionType,
+                                  onTransactionClick
+                                }: TransactionListProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
-  const { formatWithoutConversion } = useDisplayCurrencyFormatter();
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const renderSwapAmount = (item: Transaction, orientation: "row" | "column" = "row") => {
     const fromAmount = Number(item.from_amount ?? item.fromAmount ?? 0);
-    const toAmount = Number(item.to_amount ?? item.toAmount ?? 0);
+    const toAmount = Number(item.to_amount_received ?? item.toAmountReceived ?? 0);
     const fromCurrency = String(item.from_currency ?? item.fromCurrency ?? "USD");
     const toCurrency = String(item.to_currency ?? item.toCurrency ?? "USD");
 
-    const fromFormatted = formatWithoutConversion(fromAmount, fromCurrency, {
+    const fromConverted = formatWithConversion(fromAmount, fromCurrency, {
       showSymbol: false,
       showCode: false,
-      minimizeDecimals: true,
-    }).formatted;
+      minimizeDecimals: true
+    });
 
-    const toFormatted = formatWithoutConversion(toAmount, toCurrency, {
+    const toConverted = formatWithConversion(toAmount, toCurrency, {
       showSymbol: false,
       showCode: false,
-      minimizeDecimals: true,
-    }).formatted;
+      minimizeDecimals: true
+    });
 
     const containerClass =
       orientation === "row"
@@ -208,11 +216,11 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
     return (
       <div className={containerClass}>
         <div className="flex items-center gap-1.5 text-error font-bold text-base">
-          <span>-{fromFormatted}</span>
+          <span>-{fromConverted.formatted}</span>
           {fromCurrency && <CurrencyIcon currency={fromCurrency} className="w-4 h-4" />}
         </div>
         <div className="flex items-center gap-1.5 text-success font-bold text-base">
-          <span>+{toFormatted}</span>
+          <span>+{toConverted.formatted}</span>
           {toCurrency && <CurrencyIcon currency={toCurrency} className="w-4 h-4" />}
         </div>
       </div>
@@ -233,20 +241,20 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
       item.fromCurrency ??
       "USD";
 
-    const formatted = formatWithoutConversion(amount, String(currency), {
+    const converted = formatWithConversion(amount, String(currency), {
       showSymbol: false,
       showCode: false,
-      minimizeDecimals: true,
-    }).formatted;
+      minimizeDecimals: true
+    });
 
     const containerClass =
       orientation === "row"
-        ? "flex items-center justify-end gap-2 text-primary font-bold text-base"
-        : "flex flex-col items-end gap-1 text-primary font-bold text-base";
+        ? "flex items-center justify-end gap-2 text-primary font-bold text-xs"
+        : "flex items-end gap-1 text-primary font-bold text-xs";
 
     return (
       <div className={containerClass}>
-        <span>{formatted}</span>
+        <span>{converted.formatted}</span>
         {currency && <CurrencyIcon currency={String(currency)} className="w-4 h-4" />}
       </div>
     );
@@ -260,32 +268,30 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
     );
   }
 
-  if (transactions.length === 0) {
-    return (
-      <div className="flex-1 flex items-center justify-center py-20">
-        <div className="flex flex-col items-center gap-4">
-          <img
-            src="/images/illustrations/no-data.svg"
-            alt="No data"
-            className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
-          />
-          <div className="text-base-content/50 text-sm font-semibold">
-            {t("common:nothingYet", "No transactions yet")}
-          </div>
+  const renderEmptyState = () => (
+    <div className="bg-base-300 rounded-field flex items-center justify-center py-20">
+      <div className="flex flex-col items-center gap-4">
+        <img
+          src="/images/illustrations/no-data.svg"
+          alt="No data"
+          className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
+        />
+        <div className="text-base-content/50 text-sm font-semibold">
+          {t("common:common.noData", "No transactions yet")}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 
   return (
-    <div className="relative flex flex-col h-[450px]">
+    <div className="relative flex flex-col">
       {isFetching && (
         <div className="absolute inset-0 bg-base-200/50 backdrop-blur-sm z-20 flex items-center justify-center">
           <span className="loading loading-spinner loading-lg text-primary"></span>
         </div>
       )}
 
-      <div ref={scrollContainerRef} className="hidden sm:block flex-1 overflow-y-auto px-4">
+      <div ref={scrollContainerRef} className="hidden sm:block flex-1 overflow-y-auto">
         <table className="w-full table-fixed text-sm text-base-content border-separate border-spacing-y-1">
           <colgroup>
             <col className="w-[28%]" />
@@ -293,35 +299,36 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
             <col className="w-[26%]" />
             <col className="w-[18%]" />
           </colgroup>
-          <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60 tracking-wide">
-            <tr>
-              <th className="px-4 py-3 text-left">
-                {t("transaction:tableHeaders.type")}
-              </th>
-              <th className="px-4 py-3 text-left">
-                {t("transaction:tableHeaders.time")}
-              </th>
-              <th className="px-4 py-3 text-right">
-                {t("transaction:tableHeaders.amount")}
-              </th>
-              <th className="px-4 py-3 text-right">
-                {t("transaction:tableHeaders.status")}
-              </th>
-            </tr>
+          <thead
+            className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/50 tracking-wide">
+          <tr>
+            <th className="px-4 py-3 text-left">
+              {t("transaction:tableHeaders.type")}
+            </th>
+            <th className="px-4 py-3 text-left">
+              {t("transaction:tableHeaders.time")}
+            </th>
+            <th className="px-4 py-3 text-right">
+              {t("transaction:tableHeaders.amount")}
+            </th>
+            <th className="px-4 py-3 text-right">
+              {t("transaction:tableHeaders.status")}
+            </th>
+          </tr>
           </thead>
-          <tbody>
-            {transactions.map((item, index) => (
-              <tr
-                key={item.id ?? `${transactionType}-${index}`}
-                className={cn(
-                  "rounded-lg transition-colors border border-transparent cursor-pointer",
-                  index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-300 hover:bg-base-300/50"
-                )}
-                onClick={() => onTransactionClick?.(item, { transactionType })}
-              >
-                <td className="px-4 py-3 rounded-l-lg align-middle">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-bold whitespace-nowrap uppercase">
+          <tbody className="relative">
+          {transactions.map((item, index) => (
+            <tr
+              key={item.id ?? `${transactionType}-${index}`}
+              className={cn(
+                "rounded-lg transition-colors border border-transparent cursor-pointer bg-base-300"
+              )}
+              onClick={() => onTransactionClick?.(item, { transactionType })}
+            >
+              <td className="px-4 py-3 rounded-l-lg align-middle">
+                <div className="flex items-center gap-3">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-primary text-xs font-bold whitespace-nowrap uppercase">
                       <svg
                         width="12"
                         height="12"
@@ -333,20 +340,20 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
                       </svg>
                       {getTransactionTypeLabel(transactionType, item, t)}
                     </span>
-                  </div>
-                </td>
+                </div>
+              </td>
 
-                <td className="px-4 py-3 align-middle text-left">
-                  <span className="text-xs text-base-content/60 font-medium">
+              <td className="px-4 py-3 align-middle text-left">
+                  <span className="text-xs text-base-content/50 font-medium">
                     {getDisplayTimestamp(item) || t("transaction:tableHeaders.timePlaceholder", "—")}
                   </span>
-                </td>
+              </td>
 
-                <td className="px-4 py-3 rounded-r-lg text-right align-middle">
-                  {transactionType === "Swap" ? renderSwapAmount(item) : renderStandardAmount(item, transactionType)}
-                </td>
+              <td className="px-4 py-3 rounded-r-lg text-right align-middle">
+                {transactionType === "Swap" ? renderSwapAmount(item) : renderStandardAmount(item, transactionType)}
+              </td>
 
-                <td className="px-4 py-3 align-middle text-right">
+              <td className="px-4 py-3 align-middle text-right">
                   <span
                     className={cn(
                       "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold min-w-[90px] justify-center",
@@ -357,41 +364,42 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
                       ? t("transaction:transactionStatus.completed")
                       : getStatusLabel(item.status, t)}
                   </span>
-                </td>
-              </tr>
-            ))}
+              </td>
+            </tr>
+          ))}
           </tbody>
         </table>
+        {transactions.length === 0 && renderEmptyState()}
       </div>
 
-      <div className="sm:hidden flex-1 overflow-y-auto space-y-2 pb-5 px-2">
-        <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/40">
-          <span>
-            {t("transaction:tableHeaders.type")} | {t("transaction:tableHeaders.time")}
-          </span>
-          <span>
-            {t("transaction:tableHeaders.status")} | {t("transaction:tableHeaders.amount")}
-          </span>
-        </div>
+      <div className="sm:hidden flex-1 overflow-y-auto space-y-2">
+        {transactions.length > 0 && (
+          <div
+            className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/50 text-xs">
+            <span>
+              {t("transaction:tableHeaders.type")} | {t("transaction:tableHeaders.time")}
+            </span>
+            <span>
+              {t("transaction:tableHeaders.status")} | {t("transaction:tableHeaders.amount")}
+            </span>
+          </div>
+        )}
 
-        {transactions.map((item, index) => (
+        {transactions.length > 0 && transactions.map((item, index) => (
           <div
             key={item.id ?? `${transactionType}-mobile-${index}`}
             className={cn(
-              "rounded-2xl px-4 py-3 flex flex-col gap-2 cursor-pointer",
-              index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50"
+              "rounded-field px-4 py-3 flex flex-col gap-2 cursor-pointer bg-base-300"
             )}
             onClick={() => onTransactionClick?.(item, { transactionType })}
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex flex-col gap-2 text-left">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase w-fit">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
-                    <circle cx="6" cy="6" r="6" fill="currentColor" />
-                  </svg>
+                <span
+                  className="inline-flex items-center gap-1.5 text-base-content text-xs font-semibold uppercase w-fit">
                   {getTransactionTypeLabel(transactionType, item, t)}
                 </span>
-                <span className="text-xs text-base-content/60 font-medium">
+                <span className="text-xs text-base-content/50 font-semibold">
                   {getDisplayTimestamp(item) || t("transaction:tableHeaders.timePlaceholder", "—")}
                 </span>
               </div>
@@ -399,13 +407,13 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
               <div className="flex flex-col items-end gap-2">
                 <span
                   className={cn(
-                    "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold min-w-[72px] justify-center",
-                    getStatusColor(transactionType === "Referral" || transactionType === "Commission" ? "SUCCESS" : item.status)
+                    "inline-flex items-center px-3 h-4 rounded-field text-xs font-bold justify-center",
+                    getTransactionStatus(transactionType, item.status).cls
                   )}
                 >
                   {transactionType === "Referral" || transactionType === "Commission"
                     ? t("transaction:transactionStatus.completed")
-                    : getStatusLabel(item.status, t)}
+                    : t(getTransactionStatus(transactionType, item.status).trans, String(item.status))}
                 </span>
 
                 {transactionType === "Swap"
@@ -415,6 +423,7 @@ export function TransactionList({ transactions, isLoading, isFetching, transacti
             </div>
           </div>
         ))}
+        {transactions.length === 0 && renderEmptyState()}
       </div>
     </div>
   );

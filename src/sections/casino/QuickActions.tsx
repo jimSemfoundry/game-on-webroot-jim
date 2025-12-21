@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { useState, useCallback } from 'react'
-import { GameShuffleSlider } from '@/components/ui/GameShuffleSlider'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useState, useCallback, useMemo } from 'react'
+import { LuckyCardCarousel } from '@/components/ui/LuckyCardCarousel'
 import Iconify from '@/components/iconify'
 import { m } from 'motion/react'
 import { useNavigate } from '@tanstack/react-router'
+import { FavoriteButton } from '@/components/ui/FavoriteButton'
+import { useLikeGameMutation } from '@/hooks/api/useAuth'
+import { useAuth } from '@/contexts/AuthContext'
+import { toast } from 'sonner'
 
 interface Game {
   id: string
@@ -25,8 +28,12 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
   const [isShuffling, setIsShuffling] = useState(false)
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
   const [selectedGame, setSelectedGame] = useState<Game | null>(null)
+  const [activeGame, setActiveGame] = useState<Game | null>(games[0] || null)
+  const { setStatus, status, isAuthenticated } = useAuth()
+  const { mutate: likeGame } = useLikeGameMutation()
 
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  // const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const isFavoriteDisabled = !isAuthenticated || isShuffling
 
   const handleShuffleClick = useCallback(() => {
     if (games.length === 0) return
@@ -39,6 +46,7 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
   const handleGameSelected = useCallback((game: Game) => {
     // console.log('Selected game:', game)
     setSelectedGame(game)
+    setActiveGame(game)
   }, [])
 
   const handleAnimationComplete = useCallback(() => {
@@ -47,19 +55,82 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
     setIsButtonDisabled(false)
   }, [])
 
+  // 检查当前选中的游戏是否已收藏
+  const currentGame = selectedGame || activeGame
+  const isGameFavorite = useMemo(() => {
+    if (!currentGame?.inner_game_id || !status?.favorites_game) return false
+    const favoritesList = status.favorites_game
+      .split(',')
+      .filter(item => item.trim().length > 0)
+    return favoritesList.includes(currentGame.inner_game_id)
+  }, [currentGame?.inner_game_id, status?.favorites_game])
+
+  // 处理收藏切换
+  const handleToggleFavorite = useCallback(async () => {
+    const gameToToggle = selectedGame || activeGame
+    if (!gameToToggle?.inner_game_id) {
+      toast.error(t('common:noGameSelected', 'No game selected'))
+      return Promise.reject(new Error('No game selected'))
+    }
+
+    return new Promise<void>((resolve, reject) => {
+      likeGame(gameToToggle.inner_game_id!, {
+        onSuccess: (response) => {
+          if (response.code === 0) {
+            // 使用服务器返回的状态作为最终状态
+            const nextIsFavorite = response.data.is_favorite
+
+            // 更新全局收藏状态
+            setStatus((prev) => {
+              if (!prev) return prev
+
+              const favorites = new Set(
+                prev.favorites_game?.split(',').filter(item => item.trim().length > 0)
+              )
+
+              if (nextIsFavorite) {
+                favorites.add(gameToToggle.inner_game_id!)
+              } else {
+                favorites.delete(gameToToggle.inner_game_id!)
+              }
+
+              return {
+                ...prev,
+                favorites_game: Array.from(favorites).join(','),
+              }
+            })
+
+            resolve()
+          } else {
+            toast.error(response.msg || t('common:operationFailed', 'Operation failed'))
+            reject(new Error(response.msg))
+          }
+        },
+        onError: (error) => {
+          toast.error(t('common:operationFailed', 'Operation failed, please try again'))
+          reject(error)
+        }
+      })
+    })
+  }, [selectedGame, activeGame, likeGame, setStatus, t])
+
   return (
     <div className="h-100 sm:h-[465px] w-full relative overflow-hidden z-20">
       {/* Background Image Layer */}
       <div
         className="absolute inset-0 z-0 rounded-box bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/images/illustrations/75a2f479bdb1a69ccf2140854ec9033038e744a5.png)',
-          backgroundPosition: isDesktop ? '0px -100px' : '0px 0px',
-        }}
-      />
-      
+      // style={{
+      //   backgroundImage: 'url(/images/illustrations/75a2f479bdb1a69ccf2140854ec9033038e744a5.png)',
+      //   backgroundPosition: isDesktop ? '0px -100px' : '0px 0px',
+      // }}
+      >
+        <div className="w-[1280px]">
+          <img src="/images/illustrations/quick-actions.png" alt="w-full h-full object-cover" />
+        </div>
+      </div>
+
       {/* Gradient Overlay Layers */}
-      <div
+      {/* <div
         className="absolute inset-0 z-0 rounded-box"
         style={{
           background: 'linear-gradient(90deg, transparent 18.45%, color-mix(in oklch, var(--color-base-300), transparent 60%) 99.82%)',
@@ -82,8 +153,8 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
         style={{
           background: 'linear-gradient(180deg, transparent 0%, color-mix(in oklch, var(--color-base-300), transparent 15%) 59.51%)',
         }}
-      />
-      
+      /> */}
+
       {/* Performance optimizations */}
       <div
         className="absolute inset-0 z-30 rounded-box"
@@ -110,9 +181,8 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
         </span>
         <div className="sm:mt-12 mt-4 hidden sm:block">
           <button
-            className={`w-32 h-12 font-semibold rounded-field cursor-pointer transition-all duration-200 flex items-center gap-2 justify-center ${
-              isButtonDisabled ? 'bg-base-300 text-base-content/50 cursor-not-allowed' : 'bg-primary/20 text-primary hover:bg-primary/30'
-            }`}
+            className={`w-32 h-12 font-semibold rounded-field cursor-pointer transition-all duration-200 flex items-center gap-2 justify-center ${isButtonDisabled ? 'bg-base-300 text-base-content/50 cursor-not-allowed' : 'bg-primary/20 text-primary hover:bg-primary/30'
+              }`}
             onClick={handleShuffleClick}
             disabled={isButtonDisabled || games.length === 0}
           >
@@ -127,20 +197,29 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
       </div>
 
       <div className="flex sm:hidden left-8 right-8 absolute bottom-4 z-50 items-center justify-between">
-        <button className="w-10 h-10 rounded-field cursor-pointer bg-primary/10 text-primary">
-          <Iconify icon="custom:heart" className="w-5 h-5" />
-        </button>
-        {!isButtonDisabled && selectedGame && (
+        {/* 收藏按钮 - 显示当前游戏（选中的或初始中心的），未登录时禁用 */}
+        {currentGame?.inner_game_id ? (
+          <FavoriteButton
+            initialLiked={isGameFavorite}
+            onToggle={handleToggleFavorite}
+            size="md"
+            className={`bg-primary/10 ${isFavoriteDisabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+            disabled={isFavoriteDisabled}
+          />
+        ) : (
+          <div className="w-10 h-10" /> // 占位符保持布局
+        )}
+        {!isButtonDisabled && currentGame && (
           <m.button
             className="btn btn-primary w-30 btn-md"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             onClick={() => {
-              if (selectedGame?.inner_game_id) {
-                const gameId = selectedGame.game_provider 
-                  ? `${selectedGame.game_provider}:${selectedGame.inner_game_id}`
-                  : selectedGame.inner_game_id
+              if (currentGame?.inner_game_id) {
+                const gameId = currentGame.game_provider
+                  ? `${currentGame.game_provider}:${currentGame.inner_game_id}`
+                  : currentGame.inner_game_id
                 navigate({ to: `/games/${gameId}` })
               }
             }}
@@ -149,9 +228,8 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
           </m.button>
         )}
         <button
-          className={`w-10 h-10 rounded-field cursor-pointer transition-all duration-200 ${
-            isButtonDisabled ? 'bg-base-300 text-base-content/50 cursor-not-allowed' : 'bg-primary/10 text-primary'
-          }`}
+          className={`w-10 h-10 rounded-field cursor-pointer transition-all duration-200 ${isButtonDisabled ? 'bg-base-300 text-base-content/50 cursor-not-allowed' : 'bg-primary/10 text-primary'
+            }`}
           onClick={handleShuffleClick}
           disabled={isButtonDisabled || games.length === 0}
         >
@@ -163,9 +241,9 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
         </button>
       </div>
 
-      <div className="absolute top-[62%] sm:top-[50%] left-0 right-0 z-30">
-        <GameShuffleSlider
-          games={games}
+      <div className="absolute bottom-0 left-0 right-0 h-[280px] z-30 sm:top-0 sm:bottom-0 sm:left-[40%] sm:h-auto flex items-center justify-center">
+        <LuckyCardCarousel
+          games={games.slice(0, 15)}
           isShuffling={isShuffling}
           onGameSelected={handleGameSelected}
           onAnimationComplete={handleAnimationComplete}

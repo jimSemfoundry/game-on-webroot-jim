@@ -1,16 +1,14 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { MotionContentBox } from "@/components/modal/UserFinanceModal/c/MotionContentBox.tsx";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useBoundStore } from "@/store";
-import { useNavigate } from "@tanstack/react-router";
 import { useToggle } from "ahooks";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import VerificationInput from "react-verification-input";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const WithdrawPinModal = () => {
   const { t } = useTranslation();
@@ -40,18 +38,17 @@ export const WithdrawPinModal = () => {
       position="modal-middle"
     >
       <MotionContentBox sample show={!user?.pin_setted} content={<NoPinCode onClose={() => set(false)} />} />
-      <MotionContentBox sample show={!!user?.pin_setted} content={<HavePinCode show={status} onClose={() => set(false)} />} />
+      <MotionContentBox sample show={!!user?.pin_setted}
+                        content={<HavePinCode show={status} onClose={() => set(false)} />} />
     </Modal>
   );
 };
 
 // 未设置PIN码，去设置
 const NoPinCode = ({ onClose }: { onClose: () => void }) => {
-  const navigate = useNavigate();
-
   const { t } = useTranslation();
 
-  const { closeUserFinanceModal } = useFinanceModal();
+  const { syncAction, setSyncAction } = useBoundStore();
 
   return (
     <div className="flex flex-col gap-4">
@@ -61,7 +58,7 @@ const NoPinCode = ({ onClose }: { onClose: () => void }) => {
           background: `
         radial-gradient(100% 157.05% at 0% 46.47%, 
         color-mix(in oklch, var(--color-info), transparent 60%) 50%,
-        color-mix(in oklch, var(--color-base-300), transparent 30%)`,
+        color-mix(in oklch, var(--color-base-300), transparent 30%)`
         }}
       >
         <img src="/icons/isometric/38.svg" alt="" />
@@ -71,9 +68,20 @@ const NoPinCode = ({ onClose }: { onClose: () => void }) => {
       <ConfirmBox
         onClick={() => {
           onClose();
-          // FIXME link
-          void navigate({ to: "/profile" });
-          closeUserFinanceModal();
+
+          const ty = syncAction.type;
+
+          /**
+           * 自定义行为 - 来源于用户提款操作但是未设置PIN码
+           * 前提：用户操作提款但是未设置PIN码
+           * PIN码设置成功则立即执行提现订单创建
+           *
+           * @params: ty = syncAction.type -》 用户正在操作什么类型的提款
+           *
+           * OPEN_WITHDRAW_CRYPTO_PIN_MODAL 加密提款
+           * OPEN_WITHDRAW_FIAT_PIN_MODAL   法币提款
+           */
+          setSyncAction("OPEN_SET_WITHDRAWAL_PIN_MODAL", ty);
         }}
       >
         {t("common.confirm")}
@@ -112,13 +120,15 @@ const HavePinCode = ({ show, onClose }: { show: boolean; onClose: () => void }) 
             container: "flex justify-between gap-2 !w-auto",
             character:
               "!cursor-pointer flex items-center justify-center font-sans p-0 input !outline-0 !bg-base-200 !border-2 !border-base-200 !text-xl font-bold justify-center w-full rounded-lg !text-base-content",
-            characterSelected: "!bg-base-200 !border-primary !border-base-200",
+            characterSelected: "!bg-base-200 !border-primary !border-base-200"
             // characterInactive: "!bg-base-300 !border-base-300"
           }}
           inputProps={{ id: "PIN", autoComplete: "off" }}
           placeholder="-"
           value={pin}
-          onChange={setPin}
+          onChange={(v) => {
+            if (v === "" || /^\d+$/.test(v)) setPin(v);
+          }}
         />
         <DisplayContent status={isError}>
           <ErrorMessageBox sample content={t("common.pinMustBeAtLeast6Digits")} show={isError} />
@@ -143,3 +153,5 @@ const HavePinCode = ({ show, onClose }: { show: boolean; onClose: () => void }) 
     </div>
   );
 };
+
+export default WithdrawPinModal;

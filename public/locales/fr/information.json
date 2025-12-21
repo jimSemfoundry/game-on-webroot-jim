@@ -1,38 +1,38 @@
 {
-    "goBack": "Revenir",
-    "tryAgain": "Réessayer",
-    "retry": "Réessayer",
-    "retryConnection": "Réessayer la Connexion",
-    "emptyStateNoContent": {
-        "title": "Rien à Voir pour l'Instant !",
-        "description": "Il semble qu'il n'y ait aucun contenu ici pour le moment. Revenez plus tard ou essayez autre chose."
-    },
-    "failedToLoadPage": {
-        "title": "Quelque Chose S'Est Mal Passé",
-        "description": "Une erreur système est survenue lors du chargement de la page. Veuillez recharger la page ou contacter le support si le problème persiste."
-    },
-    "otherActiveSession": {
-        "title": "Erreur de Session !",
-        "description": "L'accès depuis cet appareil est actuellement indisponible pour des raisons de sécurité. Cela peut résulter d'une autre connexion ou d'un problème système. Veuillez réessayer ou utiliser un autre appareil."
-    },
-    "noInternetConnection": {
-        "title": "Aucune Connexion Internet",
-        "description": "Il semble que vous ne soyez pas connecté à Internet. Vérifiez votre Wi-Fi ou vos données mobiles et réessayez une fois reconnecté."
-    },
-    "pageNotFound": {
-        "title": "Page Introuvable",
-        "description": "Cette page semble ne pas exister ou avoir été déplacée. Vérifiez l'URL ou retournez à l'accueil."
-    },
-    "tooManyRequest": {
-        "title": "Un Instant, Nous Sommes Occupés",
-        "description": "Nos serveurs traitent actuellement un grand nombre de requêtes. Donnez-nous un moment et réessayez."
-    },
-    "underMaintenance": {
-        "title": "Nous Revenons Bientôt !",
-        "description": "Nous effectuons des mises à jour pour garantir une expérience fluide. Revenez bientôt !"
-    },
-    "userRestriction": {
-        "title": "Accès Non Autorisé",
-        "description": "Vous n'avez pas la permission d'accéder à cette page. Vérifiez vos autorisations ou contactez l'assistance pour obtenir de l'aide."
-    }
+  "goBack": "Revenir",
+  "tryAgain": "Réessayer",
+  "retry": "Réessayer",
+  "retryConnection": "Réessayer la Connexion",
+  "emptyStateNoContent": {
+    "title": "Rien ici pour l'instant !",
+    "description": "Il semble qu'il n'y ait pas de contenu ici en ce moment. Revenez plus tard ou essayez autre chose."
+  },
+  "failedToLoadPage": {
+    "title": "Quelque chose a mal tourné",
+    "description": "Il y a eu une erreur système lors du chargement de la page. Veuillez recharger la page ou contacter le support si le problème persiste."
+  },
+  "otherActiveSession": {
+    "title": "Erreur de session !",
+    "description": "L'accès depuis cet appareil est actuellement indisponible pour des raisons de sécurité. Cela peut être dû à une autre connexion ou à un problème système. Veuillez réessayer ou utiliser un autre appareil."
+  },
+  "noInternetConnection": {
+    "title": "Oups ! Vous êtes hors ligne",
+    "description": "Il semble que vous ne soyez pas connecté à Internet. Vérifiez votre Wi-Fi ou vos données mobiles et réessayez une fois que vous êtes de nouveau en ligne."
+  },
+  "pageNotFound": {
+    "title": "Oups ! Cette page est manquante",
+    "description": "Il semble que cette page n'existe pas ou a été déplacée. Essayez de vérifier l'URL ou retournez à l'accueil."
+  },
+  "tooManyRequest": {
+    "title": "Patientez ! Nous sommes un peu occupés",
+    "description": "Il semble que nos serveurs gèrent beaucoup en ce moment. Attendez un moment et réessayez."
+  },
+  "underMaintenance": {
+    "title": "Nous revenons bientôt !",
+    "description": "Nous faisons quelques mises à jour pour que tout fonctionne correctement. Revenez bientôt !"
+  },
+  "userRestriction": {
+    "title": "Oups ! Vous ne pouvez pas accéder à cela",
+    "description": "Il semble que vous n'ayez pas la permission de voir cela. Vérifiez votre accès ou demandez de l'aide."
+  }
 }

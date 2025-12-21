@@ -22,7 +22,7 @@ export const useRolloverDetailMapper = () => {
     t: TFunction;
   }): RolloverDetailViewModel => {
     const currency = record.currency ?? "USD";
-    const amount = Number(record.amount ?? 0);
+    const amount = parseAmount(record.amount) + parseAmount(record.bonus);
     const formattedAmount = formatWithoutConversion(amount, currency, {
       showSymbol: true,
       showCode: true,
@@ -121,6 +121,11 @@ const buildInfoRows = (
   });
 
   return rows;
+};
+
+const parseAmount = (value: unknown): number => {
+  const numeric = typeof value === "string" ? Number(value) : Number(value ?? 0);
+  return Number.isFinite(numeric) ? numeric : 0;
 };
 
 const formatTimestamp = (value: unknown, format: string) => {

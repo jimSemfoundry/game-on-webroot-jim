@@ -1,17 +1,13 @@
 import Iconify from "@/components/iconify";
-import { BonusClaimConfirmationModal } from "@/sections/bonus/shared/double-or-nothing/bonus-claim-confirmation-modal";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useClaimConquestMutation, useConquestsCompleted, useConquestsReward } from "@/hooks/api/useAuth";
-import { useBonusClaimConfirmation } from "@/sections/bonus/shared/use-bonus-claim-confirmation";
 import { m } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { useState, useCallback } from "react";
-import { FastAverageColor } from "fast-average-color";
-import { IDoubledUpProps } from "@/types/double-or-nothing";
-import { DoubledUp } from "../shared/double-or-nothing/DoubledUp";
-import { Nothing } from "../shared/double-or-nothing/Nothing";
-import { authService } from "@/services/authService";
+import { useState, useEffect } from "react";
+import { useBoundStore } from "@/store";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
+import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -23,17 +19,19 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
+const ILLUSTRATION_URL = "/images/illustrations/eizDsf61VZqnUMmvlAedUuwXehab4SDAw0GzPr9aizTmvx0d1SPQqk5XCgrG4lmgPRAruRqgyLxngVvEfUiCsDvW6B3H.svg";
+
 export function BonusConquestsCard() {
   const { t } = useTranslation();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { openTipsModal } = useTipsModal();
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
-
+  const { setSyncAction } = useBoundStore();
   // API数据查询
   const { data: conquestsCompleted } = useConquestsCompleted();
   const { data: conquestsReward } = useConquestsReward();
   const { mutate: claimConquest, isPending: isClaimPending } = useClaimConquestMutation();
-  const { modalState, openClaimConfirmation, closeClaimConfirmation } = useBonusClaimConfirmation();
+  const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
 
   // 解析API数据
   const completedCount = conquestsCompleted?.data?.completed_conquest || 0;
@@ -45,21 +43,11 @@ export function BonusConquestsCard() {
   // 判断是否有可领取的奖励
   const hasClaimableReward = claimableAmount > 0;
 
-  const handleIllustrationLoad = useCallback(async (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    const fac = new FastAverageColor();
+  const { hex } = useVibrantColor(ILLUSTRATION_URL, { colorTypes: ['LightMuted'] });
 
-    try {
-      const color = await fac.getColorAsync(img, {
-        algorithm: 'sqrt',
-        mode: 'precision',
-        ignoredColor: [
-          [255, 255, 255, 255, 50],
-          [0, 0, 0, 255, 150],
-          [20, 20, 20, 255, 120],
-        ],
-      });
-      const accentStop = `color-mix(in oklch, ${color.hex} 40%, transparent)`;
+  useEffect(() => {
+    if (hex) {
+      const accentStop = `color-mix(in oklch, ${hex} 40%, transparent)`;
       setBackground(`
         radial-gradient(
           95.05% 100% at 0% 35.47%,
@@ -68,38 +56,31 @@ export function BonusConquestsCard() {
         ),
         linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
       `);
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn("Failed to derive bonus card color", error);
-      }
-    } finally {
-      fac.destroy();
     }
-  }, []);
+  }, [hex]);
 
-  const [donRecordId, setDonRecordId] = useState<string | null>(null);
-  const [donData, setDonData] = useState<IDoubledUpProps | null>(null);
 
-  const handleButtonClick = () => {
+
+  const handleClaim = () => {
     if (hasClaimableReward) {
-      openClaimConfirmation({
-        bonusType: "Conquests",
-        claimableAmount: claimableAmount,
-        onNormalClaim: () => claimConquest(),
-        onDoubleClaim: () => claimConquest(
-          undefined,
-          {
-            onSuccess: (response: any) => {
-              setDonRecordId(response.data.don_record_id);
-              authService.donDeal(response.data.don_record_id).then((res) => {
-                if (res.code === 0) {
-                  setDonData(res.data);
-                }
+      claimConquest(
+        undefined,
+        {
+          onSuccess: (response) => {
+            if (response.code !== 0) {
+              setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
+                code: response.code,
+                tryAgain: () => handleClaim()
               });
+              return
             }
+            openDoubleOrNothingModal({
+              don_record_id: response?.data?.don_record_id,
+              amount: response?.data?.amount
+            });
           }
-        )
-      });
+        }
+      )
     }
   };
 
@@ -121,10 +102,9 @@ export function BonusConquestsCard() {
       {/* Header */}
       <div className="flex items-center gap-3">
         <img
-          src="/images/illustrations/eizDsf61VZqnUMmvlAedUuwXehab4SDAw0GzPr9aizTmvx0d1SPQqk5XCgrG4lmgPRAruRqgyLxngVvEfUiCsDvW6B3H.svg"
+          src={ILLUSTRATION_URL}
           alt={t("bonus:conquests")}
           className="w-12 h-12"
-          onLoad={handleIllustrationLoad}
           loading="lazy"
           decoding="async"
         />
@@ -187,7 +167,7 @@ export function BonusConquestsCard() {
         <div className="flex items-center gap-2 ml-4 rtl:ml-auto rtl:mr-4">
           <button
             className="btn btn-primary btn-soft btn-md font-semibold px-0 w-20 max-w-20"
-            onClick={handleButtonClick}
+            onClick={handleClaim}
             disabled={isClaimPending}
           >
             {isClaimPending ? (
@@ -201,20 +181,6 @@ export function BonusConquestsCard() {
           </button>
         </div>
       </div>
-
-      {/* Claim Confirmation Modal */}
-
-      <BonusClaimConfirmationModal
-        isOpen={modalState.isOpen}
-        onClose={closeClaimConfirmation}
-        onNormalClaim={modalState.onNormalClaim || (() => { })}
-        onDoubleClaim={modalState.onDoubleClaim || (() => { })}
-        bonusType={modalState.bonusType}
-        claimableAmount={modalState.claimableAmount}
-        isLoading={isClaimPending}
-      />
-      {donData?.is_win === true && <DoubledUp donData={donData} />}
-      {donData?.is_win === false && donRecordId && <Nothing don_record_id={donRecordId} />}
     </div>
   );
 }

@@ -39,3 +39,5 @@ export const WithdrawOkModal = () => {
     </Modal>
   );
 };
+
+export default WithdrawOkModal

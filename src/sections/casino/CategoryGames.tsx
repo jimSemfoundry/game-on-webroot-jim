@@ -70,19 +70,29 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
     } else if (["crash", "plinko", "mines", "scratch", "bingo", "keno"].includes(category)) {
       gameType = "fast";
       secondaryCategory = category;
-    } else if (["hot", "fishing"].includes(category)) {
-      // 这些是 casino 下的二级分类
+    } else if (category === "fishing") {
+      // fishing 是一级分类，没有二级分类
+      gameType = "fishing";
+      secondaryCategory = ""; // 不需要 category
+    } else if (category === "hot") {
+      // hot 是 casino 下的二级分类
       gameType = "casino";
       secondaryCategory = category;
     }
     
     // 导航到 explore 页面
+    const searchParams: any = {
+      type: gameType,
+    };
+    
+    // fishing 不需要 category 参数
+    if (gameType !== "fishing" && secondaryCategory) {
+      searchParams.category = secondaryCategory;
+    }
+    
     navigate({
       to: "/explore",
-      search: {
-        type: gameType,
-        category: secondaryCategory,
-      },
+      search: searchParams,
     });
   }, [category, navigate]);
 
@@ -99,7 +109,7 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
           className="btn btn-sm btn-primary"
           onClick={handleAllClick}
         >
-          All
+          {t("transaction:filters.all")}
         </button>
       </div>
       <div className="relative">
@@ -110,6 +120,7 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
               className="flex flex-col items-center gap-0.5 select-none w-26 sm:w-33"
             >
               <GameImage
+                data={game}
                 game={{
                   inner_game_id: game.inner_game_id,
                   game_provider: game.game_provider,

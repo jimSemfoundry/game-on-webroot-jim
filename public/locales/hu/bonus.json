@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Kérd a bónuszodat a megszokott módon...\nVagy ugorj egy merészet",
+  "double_it": "Duplázd meg!",
+  "no_thanks": "Nem, köszönöm",
+  "double_or_nothing": "Duplázd meg vagy semmi",
+  "come_back_tomorrow": "Gyere vissza holnap",
+  "promo_code": "Promóciós kód",
+  "got_a_code": "Van egy kódod? Tudod, mit kell tenned!",
+  "lifetime_bonus": "Élethosszig tartó bónusz",
+  "claimed": "Igényelt",
+  "starter": "Kezdő",
+  "pack": "Csomag",
+  "achievements_card_description": "Gyűjtsd össze a különleges teljesítmény jutalmakat, amelyek minden lépésedet ünneplik a fejlődésed során!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Mesteri szerencse",
+    "achievement_verify_phone": "Megállíthatatlan energia és erő",
+    "achievement_add_desktop_app": "Mindig elérhető",
+    "achievement_super_spreader": "Oszd meg a játékélményt",
+    "achievement_conquistador": "Szembenézni minden akadállyal",
+    "achievement_game_explorer": "Fedezd fel az új játékvilágokat",
+    "achievement_card_shark": "Dominálj a kártyajátékokban",
+    "achievement_slotmaster": "Mesteri a nyerőgépeknél",
+    "achievement_talkative": "Irányítsd az utat mások számára",
+    "achievement_bet_count": "Mesteri a precíz játékban",
+    "achievement_deposit_count": "Érd el a végső győzelmet",
+    "achievement_wager_count": "Tüzelj át a kihívásokon",
+    "achievement_single_bet": "Legyél legendás",
+    "achievement_single_deposit": "Navigálj a blokklánc hálózatokon",
+    "achievement_single_wager": "Mesteri a pénzügyi stratégiákban",
+    "achievement_single_payout": "Dominálj a kriptovaluta piacon",
+    "achievement_crypto_bro": "Mesteri a kriptovaluta kereskedésben",
+    "achievement_crypto_baron": "Dominálj a kriptovaluta piacon",
+    "achievement_chain_shifter": "Navigálj a blokklánc hálózatokon",
+    "achievement_money_master": "Mesteri a pénzügyi stratégiákban",
+    "achievement_sniper": "Mesteri a precíz játékban",
+    "achievement_champion": "Érd el a végső győzelmet",
+    "achievement_name_of_fame": "Legyél legendás",
+    "achievement_guiding_star": "Irányítsd az utat mások számára",
+    "achievement_face_of_fortune": "Mesteri a szerencse művészetében",
+    "achievement_dynamo": "Megállíthatatlan energia és erő",
+    "achievement_inferno": "Tüzelj át a kihívásokon",
+    "achievement_the_challenger": "Szembenézni minden akadállyal"
+  },
   "bonus": "Bónusz",
   "total_bonus_claimed": "Összes Igényelt Bónusz",
   "details": "Részletek",
   "redeem": "Beváltás",
-    "deposit_bonus": "Befizetési Bónuszok Gyűjteménye",
+  "deposit_bonus": "Befizetési Bónuszok Gyűjteménye",
   "get_up_to": "Szerezz Akár",
   "deposit_now": "Befizetés Most",
   "bonus_ends_in": "Bónusz Lejár",
@@ -26,14 +68,15 @@
   "daily_cashback": "Napi Visszafizetés",
   "bonus_calendar": "Bónusz Naptár",
   "claim_every_8_hours": "Igénylés 8 Óránként",
-    "locked": "Befizetési Bónuszok Gyűjteménye",
+  "locked": "Befizetési Bónuszok Gyűjteménye",
   "next_claim_in": "Következő Igénylés",
   "bonus_pool": "Közelgő Jutalmak",
-   "bonus_calendar_details": "Igényeljen 8 óránként, hogy izgalmas jutalmakat kapjon!",
+  "bonus_calendar_details": "Igényeljen 8 óránként, hogy izgalmas jutalmakat kapjon!",
   "release_schedule": "Kiadási Ütemterv",
   "total_vip_bonus_claimed": "Összes Igényelt VIP Bónusz",
   "your_vip_progress": "Az Ön Exkluzív VIP Előrehaladása",
   "available_at_vip": "Elérhető a VIP {{vip}} Szinten",
+  "vip_progress_description": "Haladj előre! A következő szint {{amount}}-ot nyit meg a bónusz medencédből.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Érje el a VIP 4-es szintet, és nyisson hozzáférést a Szerencse Pörgetéshez – az Ön esélye, hogy minden nap extra jutalmakat nyerjen!",
   "weekly_cashback": "Heti Visszafizetés",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Érje el a VIP 12-es szintet, és nyissa meg a heti visszafizetést, az Ön személyes kapcsolattartóját a nagy játékos akciókhoz!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Szerencse Pörgetés",
   "lucky_number_seven": "Szerencseszám Hetes",
   "expires_in": "Lejár",
+  "expires": "Lejár",
   "go": "Mehet",
   "conquest_just_wager_title": "Csak Tétezz {{amount}}-ra",
   "conquest_just_wager_description": "Tétezz {{amount}} bármely játékban egyetlen nap alatt, hogy megszerezd a {{reward}} összeget a bónusz medencédből még ma!",
@@ -96,131 +140,189 @@
   "back": "Vissza",
   "unlock": "Oldj fel eredményeket, hogy még többet fedezz fel!",
   "sort_by": "Rendezés Alapján:",
+  "claimable": "Igényelhető",
   "achievement_verify_email": {
-    "name": "E-mail Ellenőrzése",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik ellenőrizték e-mail címüket, ezzel biztosítva személyazonosságukat és biztonságos hozzáférést nyerve. Ez a felkészültség és megbízhatóság jele – minden komoly játékos első lépése."
+    "name": "Email ellenőrzése",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik ellenőrizték az email címüket, biztosítva ezzel identitásukat és biztonságos hozzáférést nyerve. Ez a komolyság és megbízhatóság jele - minden komoly játékos első lépése."
   },
   "achievement_verify_phone": {
-    "name": "Telefon Ellenőrzése",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik ellenőrizték telefonszámukat, hogy naprakészek és kapcsolódottak maradjanak. Ez a bizalom, elkötelezettség és a játék lendületéhez való ragaszkodás jele."
+    "name": "Telefon ellenőrzése",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik ellenőrizték a telefonszámukat, hogy tájékozottak és kapcsolatban maradjanak. Ez a bizalom, elkötelezettség és a játék pulzusához való kapcsolódás jele."
   },
   "achievement_add_desktop_app": {
     "name": "Hozzáadás a kezdőképernyőhöz",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik hozzáadták Telegram mini alkalmazásunkat a kezdőképernyőjükhöz. Mindig kéznél van, ez a cselekedet igazi elkötelezettséget mutat – mert az igazi játékosok közel tartják a játékot."
+    "description": "Ezt az elismerést azok a játékosok kapják, akik hozzáadták a Telegram mini alkalmazásunkat a kezdőképernyőjükhöz. Mindig elérhető, ez a lépés a valódi elkötelezettséget mutatja - mert a valódi játékosok közel tartják a játékot."
   },
   "achievement_super_spreader": {
-    "name": "Szuper Ajánló",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik sikeresen ajánlottak <0>{{count}} új felhasználót</0>. Igazi közösségépítők, akik bővítik a kört és új energiát hoznak a játékba. Befolyásuk minden új kapcsolattal nő."
+    "name": "Szuper terjesztő",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik sikeresen ajánlottak <0>{{count}} új felhasználót</0>. Igazi közösségépítők, akik bővítik a kört és új energiát hoznak a játékba. Hatásuk minden kapcsolatukkal nő."
   },
   "achievement_conquistador": {
     "name": "Hódító",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik összesen <0>{{count}} küldetést</0> teljesítettek. Elszántság és győzelemvágy hajtja őket, minden kihívást legyőznek – az út igazi bajnokai."
+    "description": "Ezt az elismerést azok a játékosok kapják, akik összesen <0>{{count}} küldetést</0> teljesítettek. A győzelem iránti eltökéltséggel és szomjúsággal minden kihívást legyőznek - igazi bajnokai az útnak."
   },
   "achievement_game_explorer": {
-    "name": "Játékfelfedező",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik kipróbáltak <0>{{count}} különböző játékot</0>. Kíváncsi és kalandvágyó játékosok, akik bejárják a platformot, mindig új játék- és nyerési módokat keresve."
+    "name": "Játék felfedező",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik kipróbáltak <0>{{count}} különböző játékot</0>. Kíváncsiak és kalandvágyók, akik bejárják a platformot, mindig készen állnak új módokat felfedezni a játékra és a nyerésre."
   },
   "achievement_card_shark": {
-    "name": "Kártyacápa",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik legalább <0>{{amount}}</0> összeget tettek fel kártyajátékokra, bizonyítva rugalmasságukat, stratégiájukat és kockázatvállalási hajlandóságukat. Ezek a nagy téttel játszó játékosok kiérdemelték helyüket az elit között. A kártyák az ő kezükben vannak, és a játék az övék"
+    "name": "Kártya cápa",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> tétet tettek kártyajátékokban, bizonyítva ezzel kitartásukat, stratégiájukat és hajlandóságukat a kockázatok vállalására. Ezek a nagy tétes játékosok megérdemlik a helyüket az elit között. A kártyák a kezükben vannak, és a játék az övék."
   },
   "achievement_slotmaster": {
-    "name": "Nyerőgép Mester",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik legalább <0>{{amount}}</0> összeget tettek fel nyerőgépes játékokra, bizonyítva kitartásukat, izgalomkereső szellemüket és a pörgetés iránti szeretetüket. Ezek az elkötelezett játékosok magabiztosan ölelik át a tárcsákat – a szerencse vezethet, de a mesteri tudás tartja őket játékban."
+    "name": "Nyerőgép mester",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> tétet tettek nyerőgépeken, bizonyítva ezzel kitartásukat, izgalomra való vágyukat és a pörgetés iránti szeretetüket. Ezek a lelkes játékosok magabiztosan ölelik át a tárcsákat - a szerencse vezethet, de a mesteri tudás tartja őket a játékban."
   },
   "achievement_talkative": {
     "name": "Beszédes",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik <0>{{count}} alkalommal</0> megszólaltak a csevegőszobában. Minden üzenet számít – ezzel teszed meg az első lépést, hogy valódi része legyél a beszélgetésnek."
+    "description": "Ezt az elismerést azok a játékosok kapják, akik <0>{{count}} alkalommal</0> megszólaltak a chat szobában. Minden üzenet számít - te vagy az első lépés a valódi beszélgetés részévé válás felé."
   },
   "achievement_bet_count": {
-    "name": "Tétek Száma",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik összesen <0>{{count}} tétet</0> tettek. A szerencse igaz hívei, rendíthetetlen szellemük minden tétjükkel életben tartja a játékot."
+    "name": "Tét szám",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik összesen <0>{{count}} tétet</0> tettek. Igazi hívője a véletlennek, eltökélt szellemük életben tartja a játékot minden tét mellett."
   },
   "achievement_deposit_count": {
-    "name": "Befizetések Száma",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik összesen <0>{{count}} befizetést</0> tettek. Folyamatos kreditekkel és rendíthetetlen elkötelezettséggel megmutatták, hogy nem csupán játékosok – hanem születő mágnások."
+    "name": "Betét szám",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik összesen <0>{{count}} betétet</0> tettek. A folyamatos kreditáramlással és eltökélt elkötelezettséggel megmutatták, hogy nem csak játékosok - ők a jövőbeli nagyágyúk."
   },
   "achievement_change_avatar": {
-    "name": "Avatár Módosítása",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik avatáruk megváltoztatásával személyre szabják profiljukat. Merész lépés a kitűnés és a saját identitás megteremtése felé a játékban."
+    "name": "Avatar megváltoztatása",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik személyre szabják profiljukat az avatarjuk megváltoztatásával. Merész lépés a kiemelkedés és az identitás birtoklása felé a játékban."
   },
   "achievement_set_username": {
-    "name": "Felhasználónév Beállítása",
-    "description": "Megszerezted a neved – most kezdődik a legenda. Ez az eredmény azokat díjazza, akik kialakítják és hivatalossá teszik helyüket."
+    "name": "Felhasználónév beállítása",
+    "description": "Igényelted a neved - most kezdődik a legenda. Ez az elismerés azokat tiszteli, akik kialakítják a helyüket és hivatalossá teszik."
   },
   "achievement_download_mobile_app": {
-    "name": "Mobil Alkalmazás Letöltése",
-    "description": "Ezt a jelvényt azok a játékosok kapják, akik magukkal vitték a játékot. Az alkalmazás letöltése azt mutatja, hogy nem szünetre jöttél – bármikor, bárhol játszani akarsz."
+    "name": "Mobilalkalmazás letöltése",
+    "description": "Ez a jelvény azoknak a játékosoknak jár, akik magukkal vitték a játékot. Az alkalmazás letöltése azt mutatja, hogy nem itt vagy, hogy megállj - itt vagy, hogy bármikor, bárhol játszhass."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Maximális Tét Egy Nap Egy Játékban",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik egyetlen nap alatt legalább <0>{{amount}}</0> összeget tettek fel egy játékra. Azokat díjazza, akik rendíthetetlen koncentrációval, kiszámított stratégiával és merész kockázatvállalással játszanak. Ezek az elit játékosok mesteri szintre emelték választott játékukat – és győzelemre játszanak."
+    "name": "Max Tét egy Napon Egy Játékban",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> tétet tettek egyetlen játékban egy napon. Ez elismeri azokat, akik eltökélt figyelemmel, kiszámított stratégiával és bátorsággal vállalják a merész kockázatokat. Ezek a kiválasztott játékosok mesteri tudásra tettek szert választott játékukban - és nyerni játszanak."
   },
   "achievement_slots_win_count": {
-    "name": "Nyerőgépek Győzelmeinek Száma",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik <0>{{count}} győzelmet</0> értek el nyerőgépes játékokon. Minden pörgetéssel dacolnak az esélyekkel, és győzelemről győzelemre ünnepelnek. A szerencse indíthatja a játékot – de a következetesség teszi őket bajnokká."
+    "name": "Nyerőgépes Győzelmek Száma",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik <0>{{count}} győzelmet</0> szereztek nyerőgépeken. Minden pörgetéssel megcáfolják a valószínűségeket és ünneplik a győzelmet győzelem után. A szerencse indítja a játékot - de a következetesség bajnokká teszi őket."
   },
   "achievement_slots_multiplier": {
-    "name": "Nyerőgépek Szorzója",
-    "description": "Ezt az eredményt azok a játékosok kapják, akik egyetlen nyerőgépes pörgetésben <0>{{count}}x vagy nagyobb szorzóval nyertek</0>. Azokat díjazza, akik a nagyságot hajszolják, átölelik a nagy kockázat izgalmát, és rendkívüli jutalmakat érnek el. Nem hétköznapi játékosok – ők irányítják a tárcsákat és a többiek fölé emelkednek."
+    "name": "Nyerőgépes Szorzó",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik <0>nyereményt szereztek {{count}}x szorzóval</0> vagy többel egyetlen nyerőgép pörgetés során. Ez elismeri azokat, akik a nagyságra törekednek, ölelik a magas kockázat izgalmát, és rendkívüli jutalmakat szereznek. Ezek nem átlagos játékosok - ők irányítják a tárcsákat és felülmúlják a többieket."
+  },
+  "achievement_champion": {
+    "name": "Bajnok",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik <0>10 győzelmet</0> biztosítottak. A Bajnok magasan áll a véletlen arénájában, bizonyítva kitartását körönként. Minden győzelemmel megszilárdítja helyét a szerencsén túli versenyzők között, akik a dicsőségért küzdenek."
+  },
+  "achievement_slot_master": {
+    "name": "Játékgép Mester",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> tétet tettek játékgépeken. A Játékgép Mester magabiztosan és kitartóan pörget, minden tárcsát a szerencse esélyévé alakítva. Stabil kezekkel és félelem nélküli játékkal bizonyítja, hogy az igazi mesterség egy pörgetéssel kezdődik."
+  },
+  "achievement_the_challenger": {
+    "name": "A Kihívó",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>10 érvényes tétet</0> tettek a játék történetük során. A Kihívó minden lehetőségre reagál, eltökéltséggel és a verseny izgalmával hajtva. Merész és kitartó, bizonyítja, hogy az igazi versenyzők nem hátrálnak meg a játéktól — előrelépnek, készen állva, hogy próbára tegyék határaikat és megszerezzék helyüket a bátrak között."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>1 befizetést</0> teljesítettek, legalább <0>{{amount}}</0> összegben egyetlen tranzakcióban. A Dynamo minden újratöltéssel erősebbé válik, bizonyítva következetességét és eltökéltségét a mesterség útján."
+  },
+  "achievement_face_of_fortune": {
+    "name": "A Szerencse Arca",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik először testre szabják avatarjukat. A Szerencse Arca tudja, hogy az identitás hatalom — minden stílus, szimbólum vagy kifejezés választása az egyediség jele. Megjelenésük formálásával bizonyítják, hogy az igazi játékosok nem csak játszanak — nyomot hagynak a játékban."
+  },
+  "achievement_name_of_fame": {
+    "name": "Hírnév Neve",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik először állították be felhasználónevüket. A Hírnév Neve a valódi identitás kezdetét jelzi, átalakítva egy újoncot elismert jelenlétté. Merész és egyedi, bizonyítja, hogy minden legenda egy emlékezetes névvel kezdődik."
+  },
+  "achievement_guiding_star": {
+    "name": "Irányító Csillag",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik hozzáadták a játékot a Kezdőképernyőjükhöz vagy letöltötték az alkalmazást. Az Irányító Csillag tisztán tartja az utat a szerencséhez, egyetlen koppintással világítva meg a visszatérést a játékhoz."
+  },
+  "achievement_highroller": {
+    "name": "Magas Tét",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik összesen legalább <0>{{amount}}</0> tétet tettek a teljes játék történetük során. A Magas Tétek a elkötelezettség és a presztízs jelét viselik, bizonyítva elkötelezettségüket a játék iránt minden pörgetéssel, tétel és körrel. Koronájuk nem csupán szimbólum — ez a kitartás, szenvedély és a szerencse keresésének bizonyítéka."
+  },
+  "achievement_inferno": {
+    "name": "Pokoli Tűz",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik elértek egy <0>20x</0> szorzót bármely játékgépen. A lángok lobogásával a Pokoli Tűz egyetlen tétet átalakít a szerencse tűzviharává."
+  },
+  "achievement_money_maverick": {
+    "name": "Pénz Maverick",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> összegű befizetést végeztek egyetlen tranzakcióban, fiat vagy helyi fizetési átjárókat használva. A Pénz Maverick saját ösvényét járja merész magabiztossággal, a mindennapi készpénzt rendkívüli lehetőségekké alakítva. Félelem nélküli és kalandvágyó, bizonyítja, hogy az igazi maverickek nem csak követik a szabályokat — újradefiniálják azokat."
+  },
+  "achievement_money_master": {
+    "name": "Pénz Mester",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> összegű fiat kifizetést teljesítettek egyetlen tranzakcióban. A Pénz Mester magasan áll a játék és a jutalom kereszteződésénél, átalakítva nyereményeit valós értékké. Stabil kezekkel és pontos időzítéssel bizonyítja, hogy az igazi mesterség nem csupán a játékban rejlik — hanem a jutalmak hazavitelében."
+  },
+  "achievement_crypto_bro": {
+    "name": "Kripto Tesó",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> összegű befizetést végeztek egyetlen tranzakcióban, bármilyen kriptovalutával. A Kripto Maestro úgy kezeli a pénzét, mint egy igazi művész, digitális eszközöket precízen és stílusosan irányítva. Magabiztosan a blokklánc színpadán, ők a játék úttörői, akik bizonyítják, hogy a szerencse a bátraknak kedvez."
+  },
+  "achievement_crypto_baron": {
+    "name": "Kripto Báró",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik legalább <0>{{amount}}</0> összegű kripto kifizetést teljesítettek egyetlen tranzakcióban, bármilyen kriptovalutával. A Blokklánc Báró uralja a digitális eszközök birodalmát, magabiztosan mozgatva a pénzeszközöket a láncon. Minden sikeres kifizetéssel bizonyítja, hogy a szerencse megkereshető, biztosítható és hazavihető a blokkláncon."
+  },
+  "achievement_chain_shifter": {
+    "name": "Lánc Átformáló",
+    "description": "Ezt az elismerést azok a játékosok kapják, akik sikeresen teljesítettek egy <0>kripto csere tranzakciót</0>. A Lánc Átformáló az, aki tudja, hogyan kell magabiztosan mozogni a tokenek között, könnyedén alkalmazkodva a piaci áramlatokhoz. A lendület mesterei, ők a rugalmasságra és átalakulásra építenek, mindig készen állva, hogy váltanak és megragadják a lehetőséget."
   },
   "item": {
-    "conquest_just_wager_on_100": "Hódítás: Tétezz 100-ra",
-    "conquest_just_wager_on_200": "Hódítás: Tétezz 200-ra",
-    "conquest_roulette_master": "Hódítás: Rulett Mester",
-    "conquest_blackjack_master": "Hódítás: Blackjack Mester",
-    "conquest_baccarat_master": "Hódítás: Bakkara Mester",
-    "conquest_gameshow_master": "Hódítás: Játékshow Mester",
-    "conquest_slots_master_10": "Hódítás: Nyerőgép Mester 10",
-    "conquest_gameshow_master_20": "Hódítás: Játékshow Mester 20",
-    "conquest_roulette_master_30": "Hódítás: Rulett Mester 30",
-    "conquest_blackjack_master_40": "Hódítás: Blackjack Mester 40",
-    "conquest_baccarat_master_50": "Hódítás: Bakkara Mester 50",
-    "conquest_big_win": "Hódítás: Nagy Győzelem",
-    "conquest_huge_win": "Hódítás: Hatalmas Győzelem",
-    "conquest_massive_win": "Hódítás: Óriási Győzelem",
-    "achievement_verify_email": "Teljesítmény E-mail megerősítése",
-    "achievement_verify_phone": "Teljesítmény Telefonszám megerősítése",
-    "achievement_add_desktop_app": "Teljesítmény Asztali alkalmazás hozzáadása",
-    "achievement_super_spreader": "Teljesítmény Szuper terjesztő",
-    "achievement_conquistador": "Teljesítmény Hódító",
-    "achievement_game_explorer": "Teljesítmény Játékfelfedező",
-    "achievement_card_shark": "Teljesítmény Kártyacápa",
-    "achievement_slotmaster": "Teljesítmény Nyerőgép mester",
-    "achievement_talkative": "Teljesítmény Beszédes",
-    "achievement_bet_count": "Teljesítmény Fogadások száma",
-    "achievement_deposit_count": "Teljesítmény Befizetések száma",
-    "achievement_change_avatar": "Teljesítmény Avatar csere",
-    "achievement_set_username": "Teljesítmény Felhasználónév beállítása",
-    "achievement_download_mobile_app": "Teljesítmény Mobilalkalmazás letöltése",
-    "achievement_wager_in_a_day_single_game": "Teljesítmény Egy nap alatt egy játékra tett tét",
-    "achievement_slots_win_count": "Teljesítmény Nyerőgépes nyeremények száma",
-    "achievement_slots_multiplier": "Teljesítmény Nyerőgép szorzó",
+    "conquest_just_wager_on_100": "Hódítás Csak Tét 100-ra",
+    "conquest_just_wager_on_200": "Hódítás Csak Tét 200-ra",
+    "conquest_roulette_master": "Hódítás Rulett Mester",
+    "conquest_blackjack_master": "Hódítás Blackjack Mester",
+    "conquest_baccarat_master": "Hódítás Baccarat Mester",
+    "conquest_gameshow_master": "Hódítás Játékshow Mester",
+    "conquest_slots_master_10": "Hódítás Nyerőgép Mester 10",
+    "conquest_gameshow_master_20": "Hódítás Játékshow Mester 20",
+    "conquest_roulette_master_30": "Hódítás Rulett Mester 30",
+    "conquest_blackjack_master_40": "Hódítás Blackjack Mester 40",
+    "conquest_baccarat_master_50": "Hódítás Baccarat Mester 50",
+    "conquest_big_win": "Hódítás Nagy Győzelem",
+    "conquest_huge_win": "Hódítás Óriási Győzelem",
+    "conquest_massive_win": "Hódítás Hatalmas Győzelem",
+    "achievement_verify_email": "Elismerés Email Ellenőrzése",
+    "achievement_verify_phone": "Elismerés Telefon Ellenőrzése",
+    "achievement_add_desktop_app": "Elismerés Asztali Alkalmazás Hozzáadása",
+    "achievement_super_spreader": "Elismerés Szuper Terjesztő",
+    "achievement_conquistador": "Elismerés Hódító",
+    "achievement_game_explorer": "Elismerés Játék Felfedező",
+    "achievement_card_shark": "Elismerés Kártya Cápa",
+    "achievement_slotmaster": "Elismerés Nyerőgép Mester",
+    "achievement_talkative": "Elismerés Beszédes",
+    "achievement_bet_count": "Elismerés Tét Szám",
+    "achievement_deposit_count": "Elismerés Betét Szám",
+    "achievement_change_avatar": "Elismerés Avatar Megváltoztatása",
+    "achievement_set_username": "Elismerés Felhasználónév Beállítása",
+    "achievement_download_mobile_app": "Elismerés Mobilalkalmazás Letöltése",
+    "achievement_wager_in_a_day_single_game": "Elismerés Max Tét egy Napon Egy Játékban",
+    "achievement_slots_win_count": "Elismerés Nyerőgépes Győzelmek Száma",
+    "achievement_slots_multiplier": "Elismerés Nyerőgépes Szorzó",
     "level_up": "Szintlépés",
-    "rakeback": "Rakeback",
-    "cashback": "Visszafizetés",
-    "group": "Jutalék",
+    "rakeback": "Visszatérítés",
+    "cashback": "Készpénzvisszatérítés",
+    "group": "Bizottság",
     "referral": "Ajánlás",
-    "tournament": "Verseny",
+    "tournament": "Torna",
     "conquest_extra_reward": "Hódítás Extra Jutalom",
     "bonus": "Bónusz",
-    "bonus_manual": "Kézi Bónusz",
-    "vip_bonus_lucky_number_seven": "VIP Bónusz Szerencsés Hetes Szám",
-    "rakeback_bonus": "Rakeback Bónusz",
-    "group_bonus": "Csoportos Bónusz",
-    "level_up_bonus": "Szintlépési Bónusz",
+    "bonus_manual": "Manuális Bónusz",
+    "vip_bonus_lucky_number_seven": "VIP Bónusz Szerencsés Szám Hét",
+    "rakeback_bonus": "Visszatérítés Bónusz",
+    "group_bonus": "Csoport Bónusz",
+    "level_up_bonus": "Szintlépés Bónusz",
     "refer_bonus": "Ajánlási Bónusz",
-    "tournament_bonus": "Verseny Bónusz",
+    "tournament_bonus": "Torna Bónusz",
     "vip_bonus_mystery_box": "VIP Bónusz Rejtélyes Doboz"
   },
   "achievements_description": "A VIP {{vip}} szinten feloldva, ezek a jutalmak ünneplik a mérföldköveidet izgalmas meglepetésekkel útközben!",
   "lucky_number_seven_description": "Találd el a szerencsés {{number}}-eseket és nyerj édes bónuszt minden nap!",
-"mystery_box_description": "Nyisd ki a titokzatos dobozodat havonta egyszer meglepetésjutalmakért!",
+  "mystery_box_description": "Nyisd ki a titokzatos dobozodat havonta egyszer meglepetésjutalmakért!",
+  "mystery_box_description2": "Üsd meg a VIP {{vip}}-t, hogy minden hónap 7-én kapj egy Rejtélyes Dobozt!",
   "mystery_box": "Titokzatos Doboz",
   "the_cannon_description": "Egy havi jutalom, amely olyan erős, hogy valódi természetét szigorúan titokban tartják.",
   "achievements_progress_name": {
-    "achievement_verify_email": "E-mail Ellenőrzés",
-    "achievement_verify_phone": "Telefon Ellenőrzés",
+    "achievement_verify_email": "Email Ellenőrzése",
+    "achievement_verify_phone": "Telefon Ellenőrzése",
     "achievement_add_desktop_app": "Asztali Alkalmazás Hozzáadása",
     "achievement_super_spreader": "Szuper Terjesztő",
     "achievement_conquistador": "Hódító",
@@ -246,6 +348,60 @@
   "general_terms_answer_1": "A jutalmakat BUCK/USDT-ben számítják ki és jóváírják, majd a kényelmed érdekében az aktuális árfolyamok alapján jelenítik meg a preferált fiat valutádban. Kérjük, vedd figyelembe, hogy minden átváltás hozzávetőleges, amíg a csere tranzakció be nem fejeződik.",
   "general_terms_answer_2": "A kaszinó fenntartja a jogot, hogy bármikor módosítsa vagy visszavonja az jogosultságot indoklás nélkül. Minden visszaélés vagy csalárd tevékenység kizáráshoz vezet a promócióból.",
   "available": "Elérhető",
-"refresh_in": "Frissítés indul",
-"deposit_bonus_pool": "Befizetési Bónuszok Gyűjteménye"
+  "refresh_in": "Frissítés indul",
+  "deposit_bonus_pool": "Befizetési Bónuszok Gyűjteménye",
+  "dashboard": "Irányítópult",
+  "bonuses": "Bónuszok",
+  "vip_program": "VIP Program",
+  "bonusHub": {
+    "root": "Bónusz Központ",
+    "resetOn": "Visszaállítás {{time}}-kor",
+    "ongoing": "{{count}} Folyamatban",
+    "accrualIn": "Kamat {{time}}-on belül",
+    "nextReleaseIn": "Következő Kiadás {{time}}-on belül"
+  },
+  "freeSpins": "Ingyenes Pörgetések",
+  "freeSpinsBonusDetails": "Az ingyenes pörgetések bónuszai extra játékidőt biztosítanak kiválasztott nyerőgépeken. A szükséges tét megjátszása feloldja az ingyenes pörgetések nyereményeit, amelyek azonnal jóváíródnak a számládon.",
+  "freeSpinsClaimDistributionDescription1": "Az ingyenes pörgetések nyereményei a tét teljesítése után kerülnek jóváírásra a számládon, miután rákattintottál az 'Igénylés' gombra.",
+  "freeSpinsClaimDistributionDescription2": "Kövesd nyomon a haladásodat bármikor a Bónusz Panelben vagy az Ingyenes Pörgetések Történetében.",
+  "freeSpinsExpirationDescription1": "Az ingyenes pörgetéseket a Free Spins panelen megjelenített érvényességi időn belül kell felhasználni. A fel nem használt pörgetések a megadott idő után lejárnak.",
+  "freeSpinsExpirationDescription2": "Az ingyenes pörgetésekből származó nyeremények nem járnak le, amíg fel nem oldják és igénylik.",
+  "freeSpinsGeneralTermsDescription1": "Az ingyenes pörgetések jutalmai BUCK-ban kerülnek kiszámításra és jóváírásra, majd a kényelmesebb fiat valutában jelennek meg. Kérjük, vedd figyelembe, hogy a pénznem átváltások hozzávetőlegesek.",
+  "freeSpinsGeneralTermsDescription2": "A kaszinó fenntartja a jogot, hogy bármikor módosítsa vagy visszavonja a jogosultságot, indoklás nélkül. Bármilyen visszaélés vagy csalárd tevékenység a promócióból való kizárást vonja maga után.",
+  "the_collector": "A Gyűjtő",
+  "collector_description": "Jóváhagyott Jutalmak, Egy Kattintás",
+  "claim_all": "Összes Igénylése",
+  "claimConfirmation": "Igénylés Megerősítése",
+  "readyToClaim": "Készen az Igénylésre",
+  "selectClaimType": "Válaszd ki az igénylés típusát az alábbiakban",
+  "claimableAmount": "Igényelhető Összeg",
+  "normalClaim": "Normál Igénylés",
+  "normalClaimDesc": "Szerezd meg a szokásos jutalom összegedet",
+  "doubleClaim": "Dupla Igénylés",
+  "doubleClaimDesc": "Kockáztasd meg 2x-es jutalomért!",
+  "doubleClaimInfo": "Dupla Igénylés Opció",
+  "doubleClaimRisk": "Magasabb kockázat, magasabb jutalom - megnyerheted a dupláját, vagy mindent elveszíthetsz!",
+  "claimModal": {
+    "title": "Duplázd meg vagy semmi",
+    "primaryDescription": "Kérd a bónuszodat a megszokott módon...",
+    "secondaryDescription": "Vagy ugorj egy merészet <highlight>DUPLÁZD MEG!</highlight>",
+    "doubleAction": "Duplázd meg vagy semmi",
+    "comingSoon": "Duplázd meg vagy semmi funkció hamarosan érkezik!",
+    "approximateBuck": "Körülbelül {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Hétfő",
+  "vip_monday_description": "Egy különleges heti drop, hogy jutalmazza a hűséges játékosokat minden hétfőn",
+  "vip_monday_wager": "Tétezz legalább {{amount}}-ot az előző 7 napban egy rejtélyes dropért minden hétfőn.",
+  "claim_on_monday": "Kérj hétfőn",
+  "vip_monday_title": "VIP \n <0>HÉTFŐ</0>",
+  "bonus_already_claimed": "A bónusz már igénybe lett véve",
+  "wager_requirement_not_met": "A tét követelmény nem teljesült",
+  "not_in_claim_time_range": "Nem az igénylés időtartományában",
+  "monday": "Hétfő",
+  "poolBalance": "Medence Egyenleg",
+  "program": "Program",
+  "races": "Versenyek",
+  "loading_achievements": "Elismerések betöltése...",
+  "no_achievements_available": "Nincs elérhető elismerés",
+  "check_back_later_for_new_achievements": "Kérjük, nézz vissza később új elismerésekért"
 }

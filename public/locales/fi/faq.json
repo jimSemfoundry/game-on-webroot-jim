@@ -1,42 +1,42 @@
 {
   "faqOne": {
     "title": "Kuinka vanha minun täytyy olla rekisteröityäkseni sivustollenne?",
-    "content": "<p class=\"leading-7\">Sinun täytyy olla vähintään {{faqAge}} vuotta vanha tai täysi-ikäinen omalla lainkäyttöalueellasi rekisteröityäksesi. Sinun on myös oltava laillisesti oikeutettu pelaamaan verkkopelejä sinuun sovellettavien lakien mukaisesti. Lisätietoja saat käyttöehdoistamme.</p><p class=\"leading-7\">Pelaaminen voi aiheuttaa riippuvuutta, ja pelaajia kehotetaan harjoittamaan itsehillintää.</p>"
+    "content": "<p class=\"leading-7\">Sinun on oltava vähintään {{faqAge}} vuotta vanha tai täysi-ikäinen lainkäyttöalueellasi rekisteröityäksesi. Sinun on myös oltava laillisesti sallittua pelata verkkopelien mukaan sovellettaviin lakeihin. Lisätietoja varten, lue palveluehtomme.</p><p class=\"leading-7\">Pelaaminen voi olla addiktoivaa, ja pelaajia kehotetaan harjoittamaan itsehillintää.</p>"
   },
   "faqTwo": {
-    "title": "Mitä valuuttoja lompakko tukee?",
-    "content": "<p class=\"leading-7\">Tuemme tärkeimpiä kryptovaluuttoja, kuten {{currency}}</p>"
+    "title": "Mitä valuuttaa lompakko tukee?",
+    "content": "<p class=\"leading-7\">Tuemme suuria kryptovaluuttoja, kuten {{currency}}</p>"
   },
   "faqThree": {
     "title": "Kuinka teen talletuksen?",
-    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Talletus\", valitse haluamasi kryptovaluutta, kopioi lompakon osoite tai skannaa QR-koodi maksua varten.</p>"
+    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Talleta\", valitse haluamasi kryptovaluutta, kopioi lompakon osoite tai skannaa QR-koodi maksua varten.</p>"
   },
   "faqFour": {
-    "title": "Voinko vaihtaa kryptovaluuttojani sivustollanne?",
-    "content": "<p class=\"leading-7\">{{siteName}} tarjoaa vaihto-ominaisuuden, jolla voit turvallisesti ja helposti vaihtaa kryptovaluuttasi muihin kryptovaluuttoihin. Rahanpesuun liittyvien huolien vuoksi kaikilla {{siteName}}-sivustolle talletetuilla kryptovaluutoilla on kuitenkin 1x kierrätysvaatimus, eli sinun täytyy panostaa talletetut varat vähintään kerran ennen kuin voit vaihtaa ne.</p>"
+    "title": "Voinko vaihtaa kryptovaluuttani sivustollanne?",
+    "content": "<p class=\"leading-7\">{{siteName}} tarjoaa vaihto-ominaisuuden, jossa voit turvallisesti ja helposti vaihtaa kryptovaluuttojasi muihin kryptovaluuttoihin. Huomaa kuitenkin, että kolikkojen sekoittamisen huolien vuoksi kaikki {{siteName}}:hin talletetut kryptovaluutat vaativat 1x kierrätysvaatimuksen, mikä tarkoittaa, että sinun on pelattava talletetuilla varoillasi vähintään kerran ennen kuin voit vaihtaa sen.</p>"
   },
   "faqFive": {
     "title": "Kuinka teen noston?",
-    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Nosto\", syötä lompakon osoite, johon haluat nostaa varat, ja summa, jonka haluat nostaa. (Huomaa, että eri lohkoketjujen mukaan voi olla erilaisia maksuja.)</p>"
+    "content": "<p class=\"leading-7\">Siirry profiilisivullesi ja napsauta \"Nosta\", syötä lompakon osoite, johon haluat nostaa, ja summa, jonka haluat nostaa. (Huomaa, että eri lohkoketjujen mukaan voi olla erilaisia maksuja.)</p>"
   },
   "faqSix": {
-    "title": "Mikä on kunkin kryptovaluutan vähimmäisnostosumma?",
-    "content": "<p class=\"leading-7\">Kryptovaluuttojen erilaisen arvon ja kaivosmaksujen vuoksi tarkista nostosivultasi kunkin kryptovaluutan vähimmäisnostosummat.</p>"
+    "title": "Mikä on vähimmäisnostosumma jokaiselle kryptovaluutalle?",
+    "content": "<p class=\"leading-7\">Kryptovaluuttojen erilaisen arvon sekä eri kaivostuottajien maksujen vuoksi tarkista nostosivultasi vähimmäisnostosummat, jotka koskevat kutakin kryptovaluuttaa.</p>"
   },
   "faqSeven": {
     "title": "Kuinka kauan talletus ja nosto kestävät?",
-    "content": "<p class=\"leading-7\">Jokainen lohkoketjun tapahtuma vaatii useita syklejä vahvistukseen.</p><p class=\"leading-7\">Yleisesti ottaen tapahtuma kestää 5–10 minuuttia ennen kuin lohkoketjuverkko vahvistaa sen BTC- ja ETH-ketjuissa ja noin 1–2 minuuttia TRON-, TON- ja SOLANA-ketjuissa.</p><p class=\"leading-7\">Jos kohtaat ongelmia talletuksen tai noston aikana, voit tarkistaa tapahtumasi käyttämällä kyseisen verkon lohkoketjuselainta tai ottaa yhteyttä Live-Tukeen.</p>"
+    "content": "<p class=\"leading-7\">Jokainen transaktio lohkoketjussa vaatii useita syklejä vahvistettavaksi.</p><p class=\"leading-7\">Yleisesti ottaen jokainen transaktio vaatii 5-10 minuuttia ennen kuin se voidaan vahvistaa BTC- ja ETH-lohkoketjussa; ja noin 1-2 minuuttia TRON-, TON- ja SOLANA-lohkoketjussa.</p><p class=\"leading-7\">Jos kohtaat ongelmia talletuksen tai noston aikana, voit tarkistaa transaktiosi kyseisen lohkoketjun selaimella tai ottaa yhteyttä asiakastukeemme.</p>"
   },
   "faqEight": {
-    "title": "Mistä tapahtumavahvistukset tulevat?",
-    "content": "<p class=\"leading-7\">Kaikki vahvistustiedot tulevat lohkoketjusta ja sen louhijoista.</p>"
+    "title": "Mistä transaktiovahvistukset tulevat?",
+    "content": "<p class=\"leading-7\">Kaikki vahvistustiedot tulevat lohkoketjusta ja lohkoketjun kaivostyöläisiltä</p>"
   },
   "faqNine": {
     "title": "Ovatko pelinne reiluja?",
-  "content": "<p class=\"leading-7\">Läpinäkyvyys, luottamus ja reiluus ovat osa {{gameLink}}:n ydinarvoja ja liiketoimintamme perusta. Siksi teemme yhteistyötä vain luotettavien huipputason pelikumppaneiden kanssa tarjotaksemme asiakkaillemme ansaitsemansa laadukkaan kokemuksen.</p><p class=\"leading-7\">Kaikki kumppaneidemme pelit testataan perusteellisesti satunnaisuuden varmistamiseksi riippumattomien tarkastajien toimesta, ja ne on lisensoitu peliviranomaisten toimesta, jotka suorittavat säännöllisiä tarkastuksia satunnaislukugeneraattoreille.</p>"
+    "content": "<p class=\"leading-7\">Läpinäkyvyys, luottamus ja reiluus ovat osa {{gameLink}}:n ydinarvoja ja liiketoimintamme perusta. Tämä on syy siihen, miksi työskentelemme vain luotettavien huipputason pelikumppaneiden kanssa tarjotaksemme asiakkaillemme ansaitsemansa laadukkaan kokemuksen.</p><p class=\"leading-7\">Kaikki kumppaneidemme pelit testataan perusteellisesti satunnaisuuden osalta riippumattomien tarkastajien toimesta, ja ne ovat peliviranomaisten lisensoimia, jotka altistavat ne säännöllisille tarkastuksille satunnaislukugeneraattoristaan.</p>"
   },
   "faqTen": {
-    "title": "Mitä teen, jos peli jumittuu tai yhteys katkeaa?",
-    "content": "<p class=\"leading-7\">Jos kohtaat teknisiä ongelmia, yritä päivittää sivu. Pelintarjoajamme tallentavat pelitilat, ja sinun pitäisi nähdä edellinen pelitilasi, kun muodostat yhteyden uudelleen.</p>"
+    "title": "Mitä minun pitäisi tehdä, jos pelini jumiutuu tai jos katkean yhteydestä?",
+    "content": "<p class=\"leading-7\">Jos kohtaat teknisiä ongelmia, yritä päivittää sivu. Pelitilat tallennetaan palveluntarjoajiemme toimesta, ja sinun pitäisi nähdä edellinen pelitilasi, kun yhdistät uudelleen.</p>"
   }
 }

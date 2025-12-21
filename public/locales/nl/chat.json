@@ -1,7 +1,7 @@
 {
-    "global": "Globaal",
-    "notifications": "Meldingen",
-    "support": "Ondersteuning",
-    "retry": "Opnieuw proberen",
-    "customerServiceChatFailedToLoad": "De chat van de klantenservice kon niet worden geladen"
+  "global": "Globaal",
+  "notifications": "Meldingen",
+  "support": "Ondersteuning",
+  "retry": "Opnieuw proberen",
+  "customerServiceChatFailedToLoad": "De chat van de klantenservice kon niet worden geladen"
 }

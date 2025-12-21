@@ -1,5 +1,14 @@
 import { m } from "motion/react";
-import type { ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { cn } from "@/utils/themeMerger";
 
 export interface SegmentedControlOption {
@@ -15,6 +24,62 @@ interface SegmentedControlProps {
   layoutId?: string;
   orientation?: "horizontal" | "vertical";
   buttonClassName?: string;
+  isActiveClassName?: string;
+}
+
+type HighlightRect = { width: number; height: number; x: number; y: number };
+
+/**
+ * 计算当前选中按钮的几何信息，并返回容器/按钮引用注册器
+ * 这样可以保持动画独立于按钮本身，避免由于外部布局变化造成的掉帧（例如从Casino大厅切换到Sports大厅），让背景动画过渡时更加平滑。
+ */
+function useSegmentedHighlight(
+  value: string,
+  options: SegmentedControlOption[],
+  orientation: "horizontal" | "vertical",
+) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const optionRefs = useRef<Map<string, HTMLButtonElement | null>>(new Map());
+  const [rect, setRect] = useState<HighlightRect | null>(null);
+
+  const measure = useCallback(() => {
+    const container = containerRef.current;
+    const target = optionRefs.current.get(value);
+
+    if (!container || !target) {
+      setRect(null);
+      return;
+    }
+
+    const containerBox = container.getBoundingClientRect();
+    const targetBox = target.getBoundingClientRect();
+
+    setRect({
+      width: targetBox.width,
+      height: targetBox.height,
+      x: targetBox.left - containerBox.left,
+      y: targetBox.top - containerBox.top,
+    });
+  }, [value]);
+
+  useLayoutEffect(() => {
+    measure();
+  }, [measure, options, orientation]);
+
+  useEffect(() => {
+    const handleResize = () => measure();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [measure]);
+
+  const registerOption = useCallback(
+    (optionValue: string) => (node: HTMLButtonElement | null) => {
+      optionRefs.current.set(optionValue, node);
+    },
+    [],
+  );
+
+  return { containerRef, registerOption, rect };
 }
 
 export function SegmentedControl({
@@ -22,46 +87,73 @@ export function SegmentedControl({
   value,
   onChange,
   className,
-  layoutId = "segmented-control",
+  layoutId,
   orientation = "horizontal",
   buttonClassName,
+  isActiveClassName,
 }: SegmentedControlProps) {
   const isVertical = orientation === "vertical";
-  
-  return (
-    <div className={cn(
-      "relative p-1",
-      isVertical ? "flex flex-col w-full space-y-1" : "flex w-full",
-      className
-    )}>
-      {options.map((option) => (
-        <button
-          key={option.value}
-          onClick={() => onChange(option.value)}
-          className={cn(
-            "relative flex items-center justify-center rounded-field transition-colors btn btn-sm md:btn-md bg-transparent border-0",
-            isVertical ? "w-full" : "flex-1",
-            value === option.value
-              ? "text-primary-content"
-              : "text-base-content/70 hover:text-primary",
-            buttonClassName
-          )}
-          style={{ WebkitTapHighlightColor: "transparent" }}
-        >
-          <span className="relative z-10">{option.label}</span>
+  const highlightKey = useId();
+  const resolvedLayoutId = layoutId ?? highlightKey;
+  const { containerRef, registerOption, rect } = useSegmentedHighlight(value, options, orientation);
 
-          {value === option.value && (
-            <m.div
-              layoutId={`${layoutId}-highlight`}
-              className="absolute inset-0 z-0 rounded-field bg-primary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              style={{ transform: "translateZ(0)" }}
-            />
-          )}
-        </button>
-      ))}
+  const buttonBaseClass = useMemo(
+    () =>
+      cn(
+        "relative z-10 flex items-center justify-center rounded-field transition-colors btn btn-sm md:btn-md bg-transparent border-0",
+        isVertical ? "w-full" : "flex-1",
+      ),
+    [isVertical],
+  );
+
+  return (
+    <div
+      ref={containerRef}
+      className={cn("relative p-1", isVertical ? "flex flex-col w-full space-y-1" : "flex w-full", className)}
+    >
+      {rect && (
+        <m.div
+          layoutId={`${resolvedLayoutId}-highlight`}
+          className="absolute z-0 rounded-field bg-primary pointer-events-none"
+          initial={{
+            opacity: 0,
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height,
+          }}
+          animate={{
+            opacity: 1,
+            x: rect.x,
+            y: rect.y,
+            width: rect.width,
+            height: rect.height,
+          }}
+          transition={{ type: "spring", stiffness: 420, damping: 32 }}
+          style={{ top: 0, left: 0, willChange: "transform,width,height" }}
+        />
+      )}
+
+      {options.map((option) => {
+        const isActive = option.value === value;
+        return (
+          <button
+            key={option.value}
+            ref={registerOption(option.value)}
+            onClick={() => onChange(option.value)}
+            className={cn(
+              buttonBaseClass,
+              isActive ? "text-primary-content"
+                : (isActiveClassName ?? "text-base-content/70 hover:text-primary"),
+              buttonClassName,
+            )}
+            style={{ WebkitTapHighlightColor: "transparent" }}
+            type="button"
+          >
+            <span className="relative z-10">{option.label}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }

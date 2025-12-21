@@ -1,6 +1,7 @@
 import { Modal } from "@/components/ui/Modal";
-import { useState, useCallback } from "react";
-import { FastAverageColor } from "fast-average-color";
+import { useState, useEffect } from "react";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
+import { useTranslation } from "react-i18next";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -12,27 +13,20 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
+const ILLUSTRATION_URL = "/images/rewards/redeem-code.png";
+
 export function BonusPromoCodeCard() {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [promoCode, setPromoCode] = useState("");
   const [isRedeeming, setIsRedeeming] = useState(false);
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
 
-  const handleIllustrationLoad = useCallback(async (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.currentTarget;
-    const fac = new FastAverageColor();
+  const { hex } = useVibrantColor(ILLUSTRATION_URL);
 
-    try {
-      const color = await fac.getColorAsync(img, {
-        algorithm: 'sqrt',
-        mode: 'precision',
-        ignoredColor: [
-          [255, 255, 255, 255, 50],
-          [0, 0, 0, 255, 150],
-          [20, 20, 20, 255, 120],
-        ],
-      });
-      const accentStop = `color-mix(in oklch, ${color.hex} 40%, transparent)`;
+  useEffect(() => {
+    if (hex) {
+      const accentStop = `color-mix(in oklch, ${hex} 40%, transparent)`;
       setBackground(`
         radial-gradient(
           95.05% 100% at 0% 35.47%,
@@ -41,14 +35,8 @@ export function BonusPromoCodeCard() {
         ),
         linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
       `);
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn("Failed to derive bonus card color", error);
-      }
-    } finally {
-      fac.destroy();
     }
-  }, []);
+  }, [hex]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -74,20 +62,19 @@ export function BonusPromoCodeCard() {
       }}
     >
       <div className="flex items-center gap-4 h-full">
-        <img 
-          src="/images/rewards/redeem-code.png" 
-          alt="Promo Code" 
-          className="w-15 h-15" 
-          onLoad={handleIllustrationLoad}
+        <img
+          src={ILLUSTRATION_URL}
+          alt="Promo Code"
+          className="w-15 h-15"
           loading="lazy"
           decoding="async"
         />
         <div className="flex flex-col justify-center h-full w-full">
-          <p className="text-sm font-bold sm:text-base">Promo Code</p>
-          <p className="text-xs text-base-content/50">Got a code? You know what to do!</p>
+          <p className="text-sm font-bold sm:text-base">{t("bonus:promo_code")}</p>
+          <p className="text-xs text-base-content/50">{t("bonus:got_a_code")}</p>
         </div>
-        <button className="btn btn-primary btn-soft btn-md flex-1 w-20" onClick={handleOpenModal}>
-          Redeem
+        <button className="btn btn-primary btn-soft btn-md flex-1 w-20 min-w-20" onClick={handleOpenModal}>
+          {t("bonus:redeem")}
         </button>
       </div>
 
@@ -95,7 +82,7 @@ export function BonusPromoCodeCard() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="Redeem Code"
+        title={t("bonus:promo_code")}
         className="bg-base-400 md:w-[480px] max-w-md overflow-hidden !pb-6"
       >
         <div className="flex flex-col items-center gap-6">
@@ -124,7 +111,7 @@ export function BonusPromoCodeCard() {
             </div>
 
             <button className="btn btn-primary btn-lg w-full" onClick={handleRedeem} disabled={!promoCode.trim() || isRedeeming}>
-              {isRedeeming ? <span className="loading loading-spinner loading-sm" /> : "Continue"}
+              {isRedeeming ? <span className="loading loading-spinner loading-sm" /> : t('common:common.continue')}
             </button>
           </div>
         </div>

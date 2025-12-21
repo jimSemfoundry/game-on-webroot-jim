@@ -18,11 +18,15 @@ import { Route as MainTournamentIndexRouteImport } from './routes/_main/tourname
 import { Route as MainSportsIndexRouteImport } from './routes/_main/sports/index'
 import { Route as MainReferralIndexRouteImport } from './routes/_main/referral/index'
 import { Route as MainGamesIndexRouteImport } from './routes/_main/games/index'
+import { Route as MainFinanceIndexRouteImport } from './routes/_main/finance/index'
 import { Route as MainExploreIndexRouteImport } from './routes/_main/explore/index'
 import { Route as MainCasinoIndexRouteImport } from './routes/_main/casino/index'
 import { Route as MainBonusIndexRouteImport } from './routes/_main/bonus/index'
+import { Route as BlankTestIndexRouteImport } from './routes/_blank/test/index'
+import { Route as BlankForgotpasswordIndexRouteImport } from './routes/_blank/forgotpassword/index'
 import { Route as BlankBootingIndexRouteImport } from './routes/_blank/booting/index'
 import { Route as MainTournamentArenaRouteImport } from './routes/_main/tournament/arena'
+import { Route as MainPartnershipsPartnershipIdRouteImport } from './routes/_main/partnerships/$partnershipId'
 import { Route as MainGamesGameIdRouteImport } from './routes/_main/games/$gameId'
 import { Route as MainAuthenticatedProfileRouteImport } from './routes/_main/_authenticated/profile'
 import { Route as MainGamesPlayGameIdRouteImport } from './routes/_main/games/play.$gameId'
@@ -69,6 +73,11 @@ const MainGamesIndexRoute = MainGamesIndexRouteImport.update({
   path: '/games/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainFinanceIndexRoute = MainFinanceIndexRouteImport.update({
+  id: '/finance/',
+  path: '/finance/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainExploreIndexRoute = MainExploreIndexRouteImport.update({
   id: '/explore/',
   path: '/explore/',
@@ -84,6 +93,17 @@ const MainBonusIndexRoute = MainBonusIndexRouteImport.update({
   path: '/bonus/',
   getParentRoute: () => MainRoute,
 } as any)
+const BlankTestIndexRoute = BlankTestIndexRouteImport.update({
+  id: '/test/',
+  path: '/test/',
+  getParentRoute: () => BlankRoute,
+} as any)
+const BlankForgotpasswordIndexRoute =
+  BlankForgotpasswordIndexRouteImport.update({
+    id: '/forgotpassword/',
+    path: '/forgotpassword/',
+    getParentRoute: () => BlankRoute,
+  } as any)
 const BlankBootingIndexRoute = BlankBootingIndexRouteImport.update({
   id: '/booting/',
   path: '/booting/',
@@ -94,6 +114,12 @@ const MainTournamentArenaRoute = MainTournamentArenaRouteImport.update({
   path: '/tournament/arena',
   getParentRoute: () => MainRoute,
 } as any)
+const MainPartnershipsPartnershipIdRoute =
+  MainPartnershipsPartnershipIdRouteImport.update({
+    id: '/partnerships/$partnershipId',
+    path: '/partnerships/$partnershipId',
+    getParentRoute: () => MainRoute,
+  } as any)
 const MainGamesGameIdRoute = MainGamesGameIdRouteImport.update({
   id: '/games/$gameId',
   path: '/games/$gameId',
@@ -115,11 +141,15 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profile': typeof MainAuthenticatedProfileRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
+  '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/tournament/arena': typeof MainTournamentArenaRoute
   '/booting': typeof BlankBootingIndexRoute
+  '/forgotpassword': typeof BlankForgotpasswordIndexRoute
+  '/test': typeof BlankTestIndexRoute
   '/bonus': typeof MainBonusIndexRoute
   '/casino': typeof MainCasinoIndexRoute
   '/explore': typeof MainExploreIndexRoute
+  '/finance': typeof MainFinanceIndexRoute
   '/games': typeof MainGamesIndexRoute
   '/referral': typeof MainReferralIndexRoute
   '/sports': typeof MainSportsIndexRoute
@@ -131,11 +161,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profile': typeof MainAuthenticatedProfileRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
+  '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/tournament/arena': typeof MainTournamentArenaRoute
   '/booting': typeof BlankBootingIndexRoute
+  '/forgotpassword': typeof BlankForgotpasswordIndexRoute
+  '/test': typeof BlankTestIndexRoute
   '/bonus': typeof MainBonusIndexRoute
   '/casino': typeof MainCasinoIndexRoute
   '/explore': typeof MainExploreIndexRoute
+  '/finance': typeof MainFinanceIndexRoute
   '/games': typeof MainGamesIndexRoute
   '/referral': typeof MainReferralIndexRoute
   '/sports': typeof MainSportsIndexRoute
@@ -151,11 +185,15 @@ export interface FileRoutesById {
   '/_main/_authenticated': typeof MainAuthenticatedRouteWithChildren
   '/_main/_authenticated/profile': typeof MainAuthenticatedProfileRoute
   '/_main/games/$gameId': typeof MainGamesGameIdRoute
+  '/_main/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/_main/tournament/arena': typeof MainTournamentArenaRoute
   '/_blank/booting/': typeof BlankBootingIndexRoute
+  '/_blank/forgotpassword/': typeof BlankForgotpasswordIndexRoute
+  '/_blank/test/': typeof BlankTestIndexRoute
   '/_main/bonus/': typeof MainBonusIndexRoute
   '/_main/casino/': typeof MainCasinoIndexRoute
   '/_main/explore/': typeof MainExploreIndexRoute
+  '/_main/finance/': typeof MainFinanceIndexRoute
   '/_main/games/': typeof MainGamesIndexRoute
   '/_main/referral/': typeof MainReferralIndexRoute
   '/_main/sports/': typeof MainSportsIndexRoute
@@ -169,11 +207,15 @@ export interface FileRouteTypes {
     | '/'
     | '/profile'
     | '/games/$gameId'
+    | '/partnerships/$partnershipId'
     | '/tournament/arena'
     | '/booting'
+    | '/forgotpassword'
+    | '/test'
     | '/bonus'
     | '/casino'
     | '/explore'
+    | '/finance'
     | '/games'
     | '/referral'
     | '/sports'
@@ -185,11 +227,15 @@ export interface FileRouteTypes {
     | '/'
     | '/profile'
     | '/games/$gameId'
+    | '/partnerships/$partnershipId'
     | '/tournament/arena'
     | '/booting'
+    | '/forgotpassword'
+    | '/test'
     | '/bonus'
     | '/casino'
     | '/explore'
+    | '/finance'
     | '/games'
     | '/referral'
     | '/sports'
@@ -204,11 +250,15 @@ export interface FileRouteTypes {
     | '/_main/_authenticated'
     | '/_main/_authenticated/profile'
     | '/_main/games/$gameId'
+    | '/_main/partnerships/$partnershipId'
     | '/_main/tournament/arena'
     | '/_blank/booting/'
+    | '/_blank/forgotpassword/'
+    | '/_blank/test/'
     | '/_main/bonus/'
     | '/_main/casino/'
     | '/_main/explore/'
+    | '/_main/finance/'
     | '/_main/games/'
     | '/_main/referral/'
     | '/_main/sports/'
@@ -288,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainGamesIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/finance/': {
+      id: '/_main/finance/'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof MainFinanceIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/explore/': {
       id: '/_main/explore/'
       path: '/explore'
@@ -309,6 +366,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainBonusIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_blank/test/': {
+      id: '/_blank/test/'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof BlankTestIndexRouteImport
+      parentRoute: typeof BlankRoute
+    }
+    '/_blank/forgotpassword/': {
+      id: '/_blank/forgotpassword/'
+      path: '/forgotpassword'
+      fullPath: '/forgotpassword'
+      preLoaderRoute: typeof BlankForgotpasswordIndexRouteImport
+      parentRoute: typeof BlankRoute
+    }
     '/_blank/booting/': {
       id: '/_blank/booting/'
       path: '/booting'
@@ -321,6 +392,13 @@ declare module '@tanstack/react-router' {
       path: '/tournament/arena'
       fullPath: '/tournament/arena'
       preLoaderRoute: typeof MainTournamentArenaRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/partnerships/$partnershipId': {
+      id: '/_main/partnerships/$partnershipId'
+      path: '/partnerships/$partnershipId'
+      fullPath: '/partnerships/$partnershipId'
+      preLoaderRoute: typeof MainPartnershipsPartnershipIdRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/games/$gameId': {
@@ -349,10 +427,14 @@ declare module '@tanstack/react-router' {
 
 interface BlankRouteChildren {
   BlankBootingIndexRoute: typeof BlankBootingIndexRoute
+  BlankForgotpasswordIndexRoute: typeof BlankForgotpasswordIndexRoute
+  BlankTestIndexRoute: typeof BlankTestIndexRoute
 }
 
 const BlankRouteChildren: BlankRouteChildren = {
   BlankBootingIndexRoute: BlankBootingIndexRoute,
+  BlankForgotpasswordIndexRoute: BlankForgotpasswordIndexRoute,
+  BlankTestIndexRoute: BlankTestIndexRoute,
 }
 
 const BlankRouteWithChildren = BlankRoute._addFileChildren(BlankRouteChildren)
@@ -371,10 +453,12 @@ const MainAuthenticatedRouteWithChildren =
 interface MainRouteChildren {
   MainAuthenticatedRoute: typeof MainAuthenticatedRouteWithChildren
   MainGamesGameIdRoute: typeof MainGamesGameIdRoute
+  MainPartnershipsPartnershipIdRoute: typeof MainPartnershipsPartnershipIdRoute
   MainTournamentArenaRoute: typeof MainTournamentArenaRoute
   MainBonusIndexRoute: typeof MainBonusIndexRoute
   MainCasinoIndexRoute: typeof MainCasinoIndexRoute
   MainExploreIndexRoute: typeof MainExploreIndexRoute
+  MainFinanceIndexRoute: typeof MainFinanceIndexRoute
   MainGamesIndexRoute: typeof MainGamesIndexRoute
   MainReferralIndexRoute: typeof MainReferralIndexRoute
   MainSportsIndexRoute: typeof MainSportsIndexRoute
@@ -386,10 +470,12 @@ interface MainRouteChildren {
 const MainRouteChildren: MainRouteChildren = {
   MainAuthenticatedRoute: MainAuthenticatedRouteWithChildren,
   MainGamesGameIdRoute: MainGamesGameIdRoute,
+  MainPartnershipsPartnershipIdRoute: MainPartnershipsPartnershipIdRoute,
   MainTournamentArenaRoute: MainTournamentArenaRoute,
   MainBonusIndexRoute: MainBonusIndexRoute,
   MainCasinoIndexRoute: MainCasinoIndexRoute,
   MainExploreIndexRoute: MainExploreIndexRoute,
+  MainFinanceIndexRoute: MainFinanceIndexRoute,
   MainGamesIndexRoute: MainGamesIndexRoute,
   MainReferralIndexRoute: MainReferralIndexRoute,
   MainSportsIndexRoute: MainSportsIndexRoute,

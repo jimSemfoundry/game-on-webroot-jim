@@ -1,23 +1,25 @@
 import {
-  useSupportedCryptoWithdrawGatewaysFilter,
-  useSupportedSettlementCurrenciesFilter,
+  useSupportedCryptoDepositGatewaysFilter,
+  useSupportedCurrencyV2Filter
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useBoundStore } from "@/store";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
+import { FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const DepositCryptoSelect = () => {
   const { t } = useTranslation();
 
-  const [isCurrencyLoading, originCurrencies, currencies] = useSupportedSettlementCurrenciesFilter("CRYPTO", "DEPOSIT");
+  const [isCurrencyLoading, originCurrencies, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "DEPOSIT");
 
   // from data store, share common data
   const { depositCrypto, setDepositCrypto } = useBoundStore();
 
-  const [isGatewaysLoading, originGateways, networks] = useSupportedCryptoWithdrawGatewaysFilter(depositCrypto.currency?.currency);
+  // 提款的区块链网关列表
+  const [isGatewaysLoading, originGateways, networks] = useSupportedCryptoDepositGatewaysFilter(depositCrypto.currency?.currency);
 
+  // 根据加密货币匹配默认网关
   useEffect(() => {
     if (Array.isArray(originGateways) && originGateways.length > 0) setDepositCrypto({ network: originGateways[0] });
   }, [originGateways]);

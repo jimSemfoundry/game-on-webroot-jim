@@ -30,3 +30,23 @@ export function isAndroid(): boolean {
 export const isMac = (): boolean => {
   return /macintosh|mac os x/.test(navigator.userAgent.toLowerCase());
 };
+
+export function getCookie(name: string) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+}
+
+export const isPwa = (): boolean => {
+  const displayModes = ['fullscreen', 'standalone', 'minimal-ui']
+  const matchesPwa = displayModes.some(
+    displayMode => window.matchMedia('(display-mode: ' + displayMode + ')').matches
+  )
+  return (
+    matchesPwa ||
+    (window.navigator as any).standalone ||
+    document.referrer.includes('android-app://')
+  )
+
+  // return (window.matchMedia('(display-mode: standalone)').matches) || ((window.navigator as any).standalone) || document.referrer.includes('android-app://');
+
+}

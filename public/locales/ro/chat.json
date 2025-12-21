@@ -1,7 +1,7 @@
 {
-    "global": "Global",
-    "notifications": "Notificări",
-    "support": "Suport",
-    "retry": "Reîncearcă",
-    "customerServiceChatFailedToLoad": "Chat-ul pentru asistență clienți nu a putut fi încărcat"
+  "global": "Global",
+  "notifications": "Notificări",
+  "support": "Suport",
+  "retry": "Reîncearcă",
+  "customerServiceChatFailedToLoad": "Chat-ul pentru asistență clienți nu a putut fi încărcat"
 }

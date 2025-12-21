@@ -2,11 +2,12 @@ import Iconify from "@/components/iconify";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { authService } from "@/services/authService";
-import type { ReferralRewardsListResponse } from "@/types/referral";
+import type { ReferralRewardsListResponse, ReferralRewardsRecord } from "@/types/referral";
 import { cn } from "@/utils/cn";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import ReferralRewardsDetailsPage from "./referral-rewards-details";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -16,6 +17,9 @@ export const ReferralRewards = () => {
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const [selectedItem, setSelectedItem] = useState<ReferralRewardsRecord | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { data, isLoading, isFetching } = useQuery<ReferralRewardsListResponse>({
     queryKey: ["referralRewardsList", currentPage, user?.id],
@@ -100,7 +104,7 @@ export const ReferralRewards = () => {
                 alt="No data"
                 className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
               />
-              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.nothingYet")}</div>
+              <div className="text-base-content/50 text-sm font-semibold">{t("common:common.noData")}</div>
             </div>
           </div>
         ) : (
@@ -122,6 +126,10 @@ export const ReferralRewards = () => {
                         "rounded-lg transition-colors cursor-pointer",
                         index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-200 hover:bg-base-300/50"
                       )}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        setIsOpen(true);
+                      }}
                     >
                       <td className="px-4 py-2.5 rounded-l-lg" colSpan={4}>
                         <div className="flex items-center gap-2">
@@ -147,6 +155,7 @@ export const ReferralRewards = () => {
                             showSymbol: false,
                             showCode: true,
                             minimizeDecimals: true,
+                            displayDecimal: 4,
                           }).formatted}
                         </div>
                       </td>
@@ -233,6 +242,7 @@ export const ReferralRewards = () => {
             )}
           </>
         )}
+        <ReferralRewardsDetailsPage item={selectedItem} isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </div>
     </div>
   );

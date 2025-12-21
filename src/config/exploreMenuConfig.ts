@@ -16,31 +16,31 @@ export interface TabConfig {
 export const PRIMARY_MENUS: MenuConfig[] = [
   {
     value: "casino",
-    label: "Casino",
+    label: "explore:hot", // 使用翻译 key
     icon: "custom:casino",
     apiCategory: "casino",
   },
   {
     value: "slots",
-    label: "Slots",
+    label: "explore:slots", // 使用翻译 key
     icon: "custom:slots",
     apiCategory: "slots",
   },
   {
     value: "liveCasino",
-    label: "Live Casino",
+    label: "explore:liveCasino", // 使用翻译 key
     icon: "custom:live-casino",
     apiCategory: "live-casino",
   },
   {
     value: "fast",
-    label: "Fast",
+    label: "explore:fast", // 使用翻译 key
     icon: "custom:fast",
     apiCategory: "fast",
   },
   {
     value: "fishing",
-    label: "Fishing",
+    label: "explore:fishing", // 使用翻译 key
     icon: "custom:fishing",
     apiCategory: "fishing",
   },
@@ -49,51 +49,68 @@ export const PRIMARY_MENUS: MenuConfig[] = [
 // 二级菜单配置 (Tabs) - 映射到 game_category_2
 export const SECONDARY_MENUS: Record<string, TabConfig[]> = {
   casino: [
-    { value: "hot", label: "Hot", icon: "custom:hot" },
-    { value: "slots", label: "Slots", icon: "custom:slots" },
-    { value: "liveCasino", label: "Live", icon: "custom:live-casino" },
-    { value: "fast", label: "Fast", icon: "custom:crash" },
-    { value: "fishing", label: "Fishing", icon: "custom:fishing" },
+    { value: "hot", label: "explore:hot", icon: "custom:hot" },
+    { value: "recent", label: "explore:recents", icon: "custom:recent" },
+    { value: "favorites", label: "explore:favorites", icon: "custom:favorites" },
+    { value: "slots", label: "explore:slots", icon: "custom:slots" },
+    { value: "liveCasino", label: "explore:liveCasino", icon: "custom:live-casino" },
+    { value: "fast", label: "explore:fast", icon: "custom:crash" },
+    { value: "fishing", label: "explore:fishing", icon: "custom:fishing" },
   ],
   slots: [
-    { value: "all", label: "All", icon: "custom:explore" },
-    { value: "hot", label: "Hot", icon: "custom:hot" },
-    { value: "new", label: "New", icon: "custom:new" },
-    { value: "feature-buy", label: "Feature Buy", icon: "custom:feature-buy" },
-    { value: "enhanced-rtp", label: "Enhanced RTP", icon: "custom:enhanced-rtp" },
-    { value: "jackpot", label: "Jackpot", icon: "custom:jackpot" },
-    { value: "megaways", label: "Megaways", icon: "custom:megaways" },
-    { value: "table-game", label: "Table Game", icon: "custom:table-game" },
-    { value: "video-poker", label: "Video Poker", icon: "custom:video-poker" },
-    { value: "arcade", label: "Arcade", icon: "custom:arcade" },
-    { value: "others", label: "Others", icon: "custom:more" },
+    { value: "all", label: "casino:all", icon: "custom:explore" },
+    { value: "hot", label: "explore:hot", icon: "custom:hot" },
+    { value: "new", label: "explore:new", icon: "custom:new" },
+    { value: "feature-buy", label: "explore:featureBuy", icon: "custom:feature-buy" },
+    { value: "enhanced-rtp", label: "explore:enhancedRTP", icon: "custom:enhanced-rtp" },
+    { value: "jackpot", label: "explore:jackpot", icon: "custom:jackpot" },
+    { value: "megaways", label: "explore:megaways", icon: "custom:megaways" },
+    { value: "table-games", label: "explore:tableGames", icon: "custom:table-game" },
+    { value: "video-poker", label: "explore:videoPoker", icon: "custom:video-poker" },
+    { value: "arcade", label: "explore:arcade", icon: "custom:arcade" },
+    { value: "other-slots", label: "explore:others", icon: "custom:more" },
   ],
   liveCasino: [
-    { value: "all", label: "All", icon: "custom:explore" },
-    { value: "hot", label: "Hot", icon: "custom:hot" },
-    { value: "new", label: "New", icon: "custom:new" },
-    { value: "baccarat", label: "Baccarat", icon: "custom:baccarat" },
-    { value: "blackjack", label: "Blackjack", icon: "custom:blackjack" },
-    { value: "roulette", label: "Roulette", icon: "custom:roulette" },
-    { value: "poker", label: "Poker", icon: "custom:poker" },
-    { value: "others", label: "Others", icon: "custom:more" },
+    { value: "all", label: "explore:all", icon: "custom:explore" },
+    { value: "hot", label: "explore:hot", icon: "custom:hot" },
+    { value: "new", label: "explore:new", icon: "custom:new" },
+    { value: "baccarat", label: "explore:baccarat", icon: "custom:baccarat" },
+    { value: "blackjack", label: "explore:blackjack", icon: "custom:blackjack" },
+    { value: "roulette", label: "explore:roulette", icon: "custom:roulette" },
+    { value: "poker", label: "explore:poker", icon: "custom:poker" },
+    { value: "other-live", label: "explore:others", icon: "custom:more" },
   ],
   fast: [
-    { value: "all", label: "All", icon: "custom:explore" },
-    { value: "hot", label: "Hot", icon: "custom:hot" },
-    { value: "new", label: "New", icon: "custom:new" },
-    { value: "crash", label: "Crash", icon: "custom:crash" },
-    { value: "plinko", label: "Plinko", icon: "custom:plinko" },
-    { value: "mines", label: "Mines", icon: "custom:mines" },
-    { value: "scratch", label: "Scratch", icon: "custom:scratch" },
-    { value: "bingo", label: "Bingo", icon: "custom:bingo" },
-    { value: "keno", label: "Keno", icon: "custom:keno" },
-    { value: "others", label: "Others", icon: "custom:more" },
+    { value: "all", label: "explore:all", icon: "custom:explore" },
+    { value: "hot", label: "explore:hot", icon: "custom:hot" },
+    { value: "new", label: "explore:new", icon: "custom:new" },
+    { value: "crash", label: "explore:crash", icon: "custom:crash" },
+    { value: "plinko", label: "explore:plinko", icon: "custom:plinko" },
+    { value: "mines", label: "explore:mines", icon: "custom:mines" },
+    { value: "scratch", label: "explore:scratch", icon: "custom:scratch" },
+    { value: "bingo", label: "explore:bingo", icon: "custom:bingo" },
+    { value: "keno", label: "explore:keno", icon: "custom:keno" },
+    { value: "other-fast", label: "explore:others", icon: "custom:more" },
   ],
+};
+
+// 判断一级菜单是否有二级菜单
+export const hasSecondaryMenu = (primaryValue: string): boolean => {
+  // fishing 没有二级菜单
+  if (primaryValue === "fishing") {
+    return false;
+  }
+  const secondaryMenus = SECONDARY_MENUS[primaryValue];
+  return secondaryMenus && secondaryMenus.length > 0;
 };
 
 // 获取默认的二级菜单值
 export const getDefaultSecondaryValue = (primaryValue: string): string => {
+  // fishing 没有二级菜单，返回空字符串
+  if (primaryValue === "fishing") {
+    return "";
+  }
+
   const secondaryMenus = SECONDARY_MENUS[primaryValue];
   if (!secondaryMenus || secondaryMenus.length === 0) return "";
 
@@ -117,7 +134,7 @@ export const getPrimaryApiCategory = (primaryValue: string): string => {
 // 根据二级菜单值获取API的game_category_2参数
 export const getSecondaryApiCategory = (secondaryValue: string): string => {
   // casino + hot 的默认组合不传参数
-  if (secondaryValue === "hot" || secondaryValue === "new") {
+  if (secondaryValue === "hot" || secondaryValue === "new" || secondaryValue === "recent" || secondaryValue === "favorites") {
     return "";
   }
   // 'all' 表示不限制二级分类

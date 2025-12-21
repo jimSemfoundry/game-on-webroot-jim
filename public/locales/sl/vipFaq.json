@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "KAJ SO BONUSI ZA NAPREDOVANJE?",
-    "content": "<p class=\"leading-7\">Bonus za napredovanje je naš način izkazovanja hvaležnosti zvestim igralcem, ki so z nami od začetka. Ko igralci napredujejo po VIP ravneh, odklenejo večje nagrade za napredovanje.</p>"
+    "title": "Kaj so bonusi za napredovanje?",
+    "content": "<p class=\"leading-7\">Bonus za napredovanje je naš način, da pokažemo hvaležnost zvestim igralcem, ki so z nami od začetka. Ko igralci napredujejo po VIP ravneh, odkrijejo višje nagrade za napredovanje.</p>"
   },
   "faqTwo": {
-    "title": "KAJ JE DNEVNO VRAČILO DENARJA?",
-    "content": "<p class=\"leading-7\">Dnevno vračilo denarja je namenjeno igralcem, ki so utrpeli izgube pri svojem vplačilu. Bonus se izplača dnevno kot odstotek izgubljenega zneska igralca. Odstotek dnevnega vračila denarja se povečuje z vašimi VIP ravnemi, do največ 40 %, kar je najvišje vračilo denarja kjer koli. Upoštevajte, da je ta bonus na voljo samo igralcem z neto izgubo.</p>"
+    "title": "Kaj je dnevni vračilo denarja?",
+    "content": "<p class=\"leading-7\">Dnevno vračilo denarja bo dodeljeno igralcem, ki so utrpeli izgube v primerjavi s svojim depozitom. Ta bonus se izplačuje dnevno kot odstotek izgube igralca. Odstotek dnevnega vračila denarja se bo povečal z vašimi VIP ravnmi, do največ 40% vračila denarja, kar je najvišje vračilo kjerkoli. Upoštevajte, da je ta bonus namenjen samo igralcem, ki so v neto izgubi.</p>"
   },
   "faqThree": {
-    "title": "KAJ SO OSVOJITVE?",
-    "content": "<p class=\"leading-7\">Osvojitve so dnevne naloge, ki jih igralci naključno prejmejo in z njimi zaslužijo dodatne nagrade med igranjem na našem spletnem mestu. Nagrade za osvojitve morate zahtevati v 24 urah pred naslednjim ciklom, sicer potečejo. Nagrade za osvojitve se izplačajo v BUCK/USDT in jih lahko prek naše funkcije zamenjave pretvorite v želeno kriptovaluto.</p>"
+    "title": "Kaj so osvajanja/iskanja?",
+    "content": "<p class=\"leading-7\">Osvajanja so dnevne naloge, ki jih naključno dodelimo igralcem, da zaslužijo dodatne nagrade pri igranju na naši spletni strani. Nagrade za osvajanje je treba zahtevati v 24 urah pred naslednjim ciklom in bi potekle, če jih ne zahtevate. Nagrade za osvajanje se izplačujejo v BUCK/USDT in jih je mogoče pretvoriti v vašo izbrano kriptovaluto preko naše funkcije za zamenjavo.</p>"
   },
   "faqFour": {
-    "title": "KAJ SO TURNIRSKE NAGRADE?",
-    "content": "<p class=\"leading-7\">Turnirske nagrade so priznanja za izjemne dosežke na tekmovanjih. Te nagrade se kopičijo, dokler jih ne zahtevate, in nimajo roka veljavnosti. Turnirske nagrade se izplačajo v BUCK/USDT in jih lahko prek naše funkcije zamenjave pretvorite v želeno kriptovaluto.</p>"
+    "title": "Kaj so nagrade za turnirje?",
+    "content": "<p class=\"leading-7\">Nagrade za turnirje so nagrade, dodeljene za izjemno predstavo na tekmovanjih. Nagrade za turnirje se bodo kopičile, dokler jih ne zahtevate, in nimajo datuma poteka. Nagrade za turnirje se izplačujejo v BUCK/USDT in jih je mogoče pretvoriti v vašo izbrano kriptovaluto preko naše funkcije za zamenjavo.</p>"
   },
   "faqFive": {
-    "title": "KAJ JE SUPER VRAČILO STAVE?",
-    "content": "<p class=\"leading-7\">Super vračilo stave je naš mehanizem za odklepanje bonusov za vplačila. Odstotek vaše stave (do 3 %) se vam vrne vsakič, ko sklenete stavo. Višja kot je vaša VIP raven, višja je stopnja vračila. Odklenjeni BUCK/USDT = stava × 2,5 % × stopnja vračila %</p><p class=\"leading-7\">Stopnja vračila:</p><p class=\"leading-7\">VIP 0–40: 20 %</p><p class=\"leading-7\">VIP 41–60: 32 %</p><p class=\"leading-7\">VIP 61–80: 40 %</p><p class=\"leading-7\">VIP 81–100: 52 %</p><p class=\"leading-7\">VIP 101–125: 60 %</p>"
+    "title": "Kaj je super vračilo denarja?",
+    "content": "<p class=\"leading-7\">Super vračilo denarja je naš mehanizem za odklepanje vaših bonusov za depozit. Odstotek vašega vložka (do 3%) se vam vrne vsakič, ko stavite. Višja kot je vaša VIP raven, višja je stopnja odklepanja. Odklenjeni BUCK/USDT = Vložek x 2.5% x Stopnja odklepanja%</p><p class=\"leading-7\">Stopnja odklepanja:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "KAJ JE OJAČEVALNIK?",
-    "content": "<p class=\"leading-7\">Ojačevalniki podvojijo vaše vračilo stave za eno uro vsakič, ko napoteni igralec opravi vplačilo.</p><p class=\"leading-7\">Povečana stopnja vračila:</p><p class=\"leading-7\">VIP 0–40: 40 %</p><p class=\"leading-7\">VIP 41–60: 72 %</p><p class=\"leading-7\">VIP 61–80: 80 %</p><p class=\"leading-7\">VIP 81–100: 102 %</p><p class=\"leading-7\">VIP 101–125: 120 %</p>"
+    "title": "Kaj je ojačevalec?",
+    "content": "<p class=\"leading-7\">Ojačevalci podvojijo vaše vračilo denarja za eno uro vsakič, ko napotitev opravi depozit.</p><p class=\"leading-7\">Povečana stopnja odklepanja:</p><p class=\"leading-7\">Stopnja odklepanja:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "KAJ JE KOLEDAR BONUSOV?",
-    "content": "<p class=\"leading-7\">Večina bonusov se izplača 50 % na vaše dejansko stanje in 50 % na vaš koledar bonusov. Bonuse na koledarju bonusov lahko zahtevate vsakih 8 ur, če jih ne zahtevate, pa potečejo v 24 urah. Ne pozabite zahtevati bonusov na koledarju vsaj enkrat dnevno, da zagotovite zbiranje vseh vaših nagrad!</p>"
+    "title": "Kaj je koledar bonusov?",
+    "content": "<p class=\"leading-7\">Večina bonusov se izplačuje 50% na vašem realnem ravnotežju in 50% na vašem koledarju bonusov. Bonusi, dodeljeni vašemu koledarju bonusov, se lahko zahtevajo vsakih 8 ur in potečejo v 24 urah, če jih ne zahtevate. Ne pozabite zahtevati bonusov v vašem koledarju bonusov vsaj enkrat na dan, da zagotovite, da so vse vaše nagrade zbrane!</p>"
   },
   "faqEight": {
-    "title": "KAJ JE TEDENSKI BONUS?",
-    "content": "<p class=\"leading-7\">Tedenski bonus je ekskluzivna ugodnost na naši spletni strani, namenjena igralcem z ravnjo VIP 12 ali višjo. Bonus se izplača tedensko in se igralcem z VIP 12 ali višjim samodejno nakaže vsak petek. Višina bonusa je odvisna od zneska, ki ste ga stavili v preteklem tednu, z minimalno zahtevo za stavo {{minWager}} v preteklem tednu.</p>"
+    "title": "Kaj je tedenski bonus?",
+    "content": "<p class=\"leading-7\">Tedenski bonus je ekskluzivna ugodnost na naši spletni strani, namenjena igralcem, ki so VIP12 in višje. Ta bonus se izplačuje tedensko in se samodejno izplačuje vsak petek igralcem na VIP12 in višje. Velikost bonusa je odvisna od zneska, stavljenega v preteklem tednu, z minimalnim zahtevkom za stave {{minWager}} v preteklem tednu.</p>"
   },
   "faqNine": {
-    "title": "KAJ SO DOSEŽKI?",
-    "content": "<p class=\"leading-7\">Dosežki so naš način prepoznavanja vaše dejavnosti na naši platformi. Ko zahtevate bonus za dosežke, se ta izplača na vaš koledar bonusov in ga lahko zahtevate vsakih 8 ur, sicer poteče v 24 urah.</p>"
+    "title": "Kaj so dosežki?",
+    "content": "<p class=\"leading-7\">Dosežki so naš način, da prepoznamo vašo aktivnost na naši platformi. Ko zahtevate svoj bonus za dosežke, se bo ta izplačal na vaš koledar bonusov in ga je mogoče zahtevati vsakih 8 ur ter poteče v 24 urah, če ga ne zahtevate.</p>"
   }
 }

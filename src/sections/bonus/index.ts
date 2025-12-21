@@ -20,6 +20,8 @@ export * from './deposit-bonus';
 export * from './jester';
 export * from './collector';
 export * from './promo-code';
+export * from './Vip-monday';
+export * from './vip-progress';
 
 // Gradient styles
 export { gradientStyles } from './styles';

@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Globálne",
+    "ratesAndRules": "Sadzby a pravidlá",
+    "campaigns": "Kampane",
+    "myReferrals": "Moje odporúčania",
+    "commissions": "Provizie",
+    "rewards": "Odmeny"
+  },
+  "commissionCalculator": "Kalkulačka provízií",
   "telegramReferralLink": "Odkaz na Odporúčanie Telegramu",
-    "network": "Sieť",
+  "network": "Sieť",
   "lifetimeReferralRewards": "Doživotné odmeny za odporúčanie",
   "referrals": "Odporúčania",
   "availableCommissionRewards": "Dostupné provízne odmeny",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Dostupné odmeny za odporúčanie",
   "lockedRewards": "Zamknuté odmeny",
   "assembleYourCrewCashIn": "Zostavte posádku a zarábajte!",
+  "assembleYourCrewCashInDescription1": "Naverbuj svoj tím a získaj {{amount}} za každého priateľa - ako pri lúpeži, ale bez prenasledovania FBI. Navyše, získaj až {{percentage}} províziu z ich stávok. Najlepšia časť? Tvoja provízna sadzba rastie s tebou, keď postupuješ na vyššie úrovne, a dokonca získaš aj od svojich tímových naverbovaných!",
+  "assembleYourCrewCashInDescription2": "Čím väčšia je tvoja sieť, tým väčší je tvoj podiel. Nezáleží na tom, či vyhrajú, prehrajú alebo stávkujú ako maniaci, ty stále hromadíš peniaze. Je čas vybudovať svoju ríšu - začni naverbovať teraz!",
+  "quickShare": "Rýchle zdieľanie",
   "referralRewards": "Odmeny za odporúčanie",
   "commissionRewards": "Provízne odmeny",
   "aboutDescription": "Zverbujte svoju partiu a získajte {{amount}} za každého priateľa – ako pri lúpeži, ale bez naháňačky s políciou. Navyše zarábajte až 50 % províziu z ich stávok. A čo je najlepšie? Vaša provízia rastie s vašou úrovňou VIP a dokonca budete zarábať aj z náborov vašej posádky!\n\nČím väčšia je vaša sieť, tým väčší je váš podiel. Bez ohľadu na to, či vyhrávajú, prehrávajú alebo stávkujú ako šialenci, peniaze sa vám neustále hromadia. Je čas vybudovať impérium – začnite verbovať hneď teraz!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Zdieľať cez sociálne siete",
   "referralTermsConditions": "Podmienky odporúčaní",
   "liveGlobalRewards": "Globálne odmeny v reálnom čase",
+  "liveGlobalCommissions": "Živé globálne provízie",
   "username": "Používateľské meno",
   "friendLevel": "Úroveň priateľa",
   "totalExp": "Celkové EXP",
@@ -105,35 +118,35 @@
   "more": "Viac",
   "faqOne": {
     "title": "Ako funguje systém odporúčaní?",
-    "content": "<p class=\"leading-7\">Keď zdieľate svoj odkaz na odporúčanie s priateľmi a oni sa zaregistrujú na našej stránke, stanú sa vašimi odporúčaniami a vy získate provízie a odmeny za odporúčania hraním v aliancii {{gameLink}}.</p>"
+    "content": "<p class=\"leading-7\">Keď zdieľate svoj odporúčací odkaz so svojimi priateľmi a oni sa zaregistrujú na našej stránke; stanú sa vašimi odporúčaniami a zarobia vám províziu a odmeny za odporúčania hraním na {{gameLink}} Aliancii.</p>"
   },
   "faqTwo": {
-    "title": "Koľko môžem zarobiť na odporúčaniach?",
-    "content": "<p class=\"leading-7\">Môžete získať {{percentage}} z ich stávkovej aktivity ako províziu plus {{amount}} za každého odporúčaného hráča.</p>"
+    "title": "Koľko môžem zarobiť zo svojho odporúčania?",
+    "content": "<p class=\"leading-7\">Môžete zarobiť {{percentage}} z ich stávkovej aktivity ako provízie + {{amount}} za každé odporúčanie.</p>"
   },
   "faqThree": {
     "title": "Čo je odmena {{amount}} USD a ako funguje?",
-    "content": "<p class=\"leading-7\">Existuje odmena {{amount}} USD za každého odporučeného hráča, ktorého privediete do {{gameLink}}. Táto odmena je vyplácaná v {{parts}} častiach, keď váš úroveň odporúčaní stúpne z {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Existuje odmena {{amount}} USD za každé odporúčanie, ktoré privediete na {{gameLink}}. Táto odmena v USD je poskytovaná v {{parts}} častiach, keď sa vaša úroveň odporúčania zvyšuje z {{level}}.</p>"
   },
   "faqFour": {
     "title": "Mám veľké publikum. Ako môžem získať špeciálnu ponuku?",
-    "content": "<p class=\"leading-7\">Ak máte webovú stránku s dobrým návštevnosťou alebo účet na sociálnych sieťach s veľkým publikom, môžete nám poslať email na {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Ak máte webovú stránku s dobrou návštevnosťou alebo účet na sociálnych médiách s veľkým publikom, môžete nám poslať e-mail na {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Koľko partnerských odkazov môžem vytvoriť, ak mám rôzne webové stránky alebo účty na sociálnych sieťach?",
-    "content": "<p class=\"leading-7\">Môžete vytvoriť až {{codes}} jedinečných kódov pre rôzne zdroje návštevnosti.</p>"
+    "title": "Koľko affiliate odkazov môžem vytvoriť, ak mám rôzne webové stránky/sociálne médiá?",
+    "content": "<p class=\"leading-7\">Môžete vytvoriť až {{codes}} jedinečných kódov pre rôzne zdroje návštevnosti</p>"
   },
   "faqSix": {
-    "title": "Môžem vidieť údaje o mojich odporúčaniach?",
-    "content": "<p class=\"leading-7\">Áno, transparentnosť, dôvera a férovosť sú súčasťou základných hodnôt {{gameLink}}. Údaje ako používateľské meno, celkové stávky a získané provízie sú k dispozícii na záložkách \"Moje provízie\" a \"Odměny za odporúčania\".</p>"
+    "title": "Môžem vidieť údaje o svojom odporúčaní?",
+    "content": "<p class=\"leading-7\">Áno, transparentnosť, dôvera a spravodlivosť sú súčasťou základných hodnôt {{gameLink}}. Údaje ako používateľské meno, celková stávka a zarobené provízie sú všetky dostupné v záložke \"Moje provízie\" a \"Odmeny za odporúčania\".</p>"
   },
   "faqSeven": {
-    "title": "Môžem sa podeliť o provízne odmeny so svojimi odporúčanými hráčmi?",
-    "content": "<p class=\"leading-7\">Áno, provízne odmeny môžete zdieľať s vašimi odporúčanými hráčmi kliknutím na „Vytvoriť novú kampaň“ a nastavením rozdelenia provízie na karte „Kampane“.</p>"
+    "title": "Môžem zdieľať odmeny z provízií so svojimi odporúčaniami?",
+    "content": "<p class=\"leading-7\">Áno, môžete zdieľať odmeny z provízií so svojimi odporúčaniami kliknutím na \"vytvoriť novú kampaň\" a nastavením rozdelenia provízií v záložke \"Kampane\".</p>"
   },
   "faqEight": {
-    "title": "Čo je nepriame odporúčanie a čo z neho môžem získať?",
-    "content": "<p class=\"leading-7\">Nepriame odporúčanie je aktívny hráč, ktorý sa pripojí cez pozvánku od jedného z vašich priamych odporúčaných hráčov. Ak je vaša VIP úroveň vyššia ako úroveň vášho priameho odporúčateľa, môžete získať províziu aj z nepriameho odporúčania.</p>"
+    "title": "Čo je nepriamy odporúčací a čo môžem z nich získať?",
+    "content": "<p class=\"leading-7\">Nepriamy odporúčací je aktívny hráč, ktorý prichádza z pozvánkového odkazu jedného z vašich priamych odporúčaní. Ak je vaša VIP úroveň vyššia ako VIP úroveň vášho priameho odporúčania, môžete tiež získať províziu z vášho nepriamého odporúčania.</p>"
   },
   "levelReward": "Odmena za zvýšenie úrovne",
   "groupReward": "Odmena za províziu",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Pre zjednodušenie príkladu predpokladajme, že žltou farbou označení priatelia aktívne stávkujú a zelené percentá pozdĺž prerušovaných čiar predstavujú províziu, ktorú od nich získavate.",
   "referralCommissionsIndirectDescription": "Pre zjednodušenie príkladu predpokladajme, že fialovou farbou označení priatelia aktívne stávkujú. Percentá pozdĺž prerušovaných čiar ukazujú províziu, ktorú získava každý člen v reťazci referencií. \n\n Vpravo vidíme príklad odlúčenia v referenčnom reťazci.",
   "referralCodeMinLength": "Odporúčací kód musí mať aspoň 6 znakov",
-    "vipLevel": "VIP úroveň",
+  "vipLevel": "VIP úroveň",
   "earned": "Získané",
   "directfriend": "Priamy Priateľ",
   "fast": "Rýchly",
   "slots": "Automaty",
   "live-casino": "Živé Kasíno",
   "fishing": "Rybolov",
-  "rewardsUnlocked": "Odmien Odblokované"
+  "rewardsUnlocked": "Odmien Odblokované",
+  "selectGame": "Vyber hru",
+  "selectVipLevel": "Vyber VIP úroveň",
+  "myReferralCommissions": "Moje referralové provízie",
+  "myReferralRewards": "Moje referralové odmeny",
+  "exp": "EXP",
+  "userLevel": "Úroveň používateľa"
 }

@@ -123,7 +123,7 @@ export function AvatarModal({ open, onClose }: { open: boolean, onClose: () => v
           />
 
           <span className={"flex items-center gap-2 text-xs font-bold absolute -bottom-2 left-4"}><Hand
-            className={"w-4 h-4"} />Zoom and Adjust</span>
+            className={"w-4 h-4"} />{t("profile:zoomAndAdjust")}</span>
 
           <div
             className="absolute flex cursor-pointer items-center justify-center w-full h-full top-0 left-0"

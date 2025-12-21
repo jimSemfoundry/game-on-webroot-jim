@@ -9,25 +9,32 @@ import Decimal from "decimal.js";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { FormatAmount } from "sunmoon-working-components";
+import { useNavigate } from "@tanstack/react-router";
+import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 
-export const SwapSend = ({ loading, available }: { loading: boolean; available: string }) => {
+export const SwapSend = ({ open, loading, available }: { open: boolean; loading: boolean; available: string }) => {
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
 
-  const [isCurrencyLoading, origin, currencies] = useSupportedSwapFromCurrenciesFilter();
+  const [l1, origin, currencies] = useSupportedSwapFromCurrenciesFilter();
 
-  const { swapFrom, setSwapFrom } = useBoundStore();
+  // finance 弹窗控制开关
+  const { closeUserFinanceModal } = useFinanceModal();
 
-  const { isLoading: l3, convertCurrency, exchangeRates } = useCurrencyData();
+  const { swapFrom, setSwapFrom, syncAction } = useBoundStore();
+
+  const { isLoading: l2, convertCurrency, exchangeRates } = useCurrencyData();
 
   const exchangeUSD = useMemo(() => {
-    if (l3 || !swapFrom.currency?.currency) return "0.00";
+    if (l2 || !swapFrom.currency?.currency) return "0.00";
     return convertCurrency({
       amount: swapFrom.inAmount,
       fromCurrency: swapFrom.currency.currency,
       toCurrency: "USDT",
-      exchangeRates,
+      exchangeRates
     }).toString();
-  }, [l3, swapFrom, exchangeRates]);
+  }, [l2, swapFrom, exchangeRates]);
 
   const insufficient = useMemo(() => {
     const d_available = Decimal(available);
@@ -36,13 +43,28 @@ export const SwapSend = ({ loading, available }: { loading: boolean; available: 
     return d_in_amount && d_available.lt(swapFrom.inAmount || 0);
   }, [available, swapFrom.inAmount]);
 
+  /**
+   * FIXME:
+   *  1. 进入swap页面，如果buck有值，则默认直接填入max，to那边是当前结算币
+   *  2. 切换swap的来源（From 币），如果有值，则也自动填入max
+   */
   useEffect(() => {
-    if (Array.isArray(origin)) setSwapFrom({ currency: origin[0] });
-  }, [origin]);
+    if (open) setSwapFrom({ inAmount: Decimal(available).gt(0) ? available : "" });
+  }, [open, available]);
 
+  /**
+   * FIXME:
+   *  1. 进入swap页面，如果buck有值，则默认直接填入max，to那边是当前结算币
+   *  2，切换swap的来源（From 币）， 如果有值，则也自动填入max
+   */
   useEffect(() => {
-    if (swapFrom.currency) setSwapFrom({ inAmount: '' });
-  }, [swapFrom.currency]);
+    setSwapFrom({ inAmount: Decimal(available).gt(0) ? available : "" });
+  }, [available]);
+
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
+  useEffect(() => {
+    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setSwapFrom({ inAmount: "" });
+  }, [syncAction]);
 
   return (
     <div className="bg-base-300 p-4 flex items-center justify-between rounded-xl gap-2">
@@ -51,6 +73,7 @@ export const SwapSend = ({ loading, available }: { loading: boolean; available: 
 
         {/* swap send amount control */}
         <NumericFormat
+          wrapCls={"!px-0"}
           className={classNames("!px-0 !text-lg !h-7", { "text-error": insufficient })}
           placeholder="0.00"
           value={swapFrom.inAmount}
@@ -66,7 +89,7 @@ export const SwapSend = ({ loading, available }: { loading: boolean; available: 
 
       <div className="flex-shrink-0 flex flex-col gap-2">
         {/* currency select options */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 justify-end">
           <span
             className="cursor-pointer text-xs font-extrabold underline uppercase"
             onClick={() => {
@@ -84,10 +107,10 @@ export const SwapSend = ({ loading, available }: { loading: boolean; available: 
               setSwapFrom({ currency: origin.find((o: Record<string, any>) => o.currency === v) });
             }}
             placeholder={t("common.selectCurrency")}
-            className="!w-[140px]"
+            className="!w-[160px]"
             buttonClassName="rounded-full !p-2 !bg-base-400"
             showSearch
-            loading={isCurrencyLoading}
+            loading={l1}
           />
         </div>
 
@@ -97,8 +120,13 @@ export const SwapSend = ({ loading, available }: { loading: boolean; available: 
             loading={loading}
             className="bg-base-400 !rounded-full"
             content={
-              <span className="text-base-content/50 text-xs font-semibold">
-                {t("finance:available")}: <FormatAmount amount={available} local decimals={swapFrom.currency?.decimal} />{" "}
+              <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
+                void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) })
+
+                closeUserFinanceModal()
+              }}>
+                {t("finance:available")}: <FormatAmount amount={available} local
+                                                        decimals={swapFrom.currency?.decimal} />{" "}
                 {swapFrom.currency?.currency}
               </span>
             }

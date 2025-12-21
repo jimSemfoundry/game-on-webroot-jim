@@ -24,5 +24,7 @@
   "gameInformation": "Pelin tiedot",
   "totalTips": "Vinkit",
   "result": "Tulos",
-    "myBets": "Minun Vedot"
+  "myBets": "Minun Vedot",
+  "**********": "",
+  "demoPlay": "Demonäyttö"
 }

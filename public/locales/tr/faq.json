@@ -1,42 +1,42 @@
 {
   "faqOne": {
-    "title": "Sitenize kaydolmak için kaç yaşında olmalıyım?",
-    "content": "<p class=\"leading-7\">Kaydolmak için en az {{faqAge}} yaşında veya bulunduğunuz bölgede reşit olma yaşında olmalısınız. Ayrıca, size uygulanan yasalara göre çevrimiçi oyun oynamak için yasal izniniz olmalıdır. Daha fazla bilgi için lütfen hizmet şartlarımızı okuyun.</p><p class=\"leading-7\">Oyun bağımlılık yapabilir; oyuncuların kendilerini kontrol etmeleri önerilir.</p>"
+    "title": "Siteye kaydolmak için kaç yaşında olmam gerekiyor?",
+    "content": "<p class=\"leading-7\">Kaydolmak için en az {{faqAge}} yaşında olmalısınız veya bulunduğunuz yargı alanında reşit olmalısınız. Ayrıca, geçerli yasalarınıza göre çevrimiçi oyun oynamak için yasal olarak izinli olmalısınız. Daha fazla bilgi için lütfen hizmet şartlarımızı okuyun.</p><p class=\"leading-7\">Oyun bağımlılık yapabilir ve oyuncuların öz kontrol göstermeleri önerilir.</p>"
   },
   "faqTwo": {
     "title": "Cüzdan hangi para birimlerini destekliyor?",
-    "content": "<p class=\"leading-7\">{{currency}} gibi başlıca kripto para birimlerini destekliyoruz.</p>"
+    "content": "<p class=\"leading-7\">Ana kripto para birimlerini destekliyoruz, örneğin {{currency}}</p>"
   },
   "faqThree": {
     "title": "Nasıl para yatırırım?",
-    "content": "<p class=\"leading-7\">Profil sayfanıza gidin ve \"Para Yatır\" seçeneğine tıklayın, tercih ettiğiniz kripto para birimini seçin, cüzdan adresini kopyalayın veya ödeme için QR kodunu tarayın.</p>"
+    "content": "<p class=\"leading-7\">Profil sayfanıza gidin ve \"Para Yatır\" butonuna tıklayın, tercih ettiğiniz kripto para birimini seçin, cüzdan adresini kopyalayın veya ödeme için QR kodunu tarayın.</p>"
   },
   "faqFour": {
     "title": "Kripto paralarımı sitenizde takas edebilir miyim?",
-    "content": "<p class=\"leading-7\">{{siteName}}, kripto paralarınızı güvenli ve kolay bir şekilde diğer kripto paralarla takas edebileceğiniz bir takas özelliği sunar. Ancak, para karıştırma endişeleri nedeniyle, {{siteName}}’e yatırılan tüm kripto paralar için 1x çevrim şartı vardır; yani takas yapmadan önce yatırdığınız miktarla en az bir kez bahis yapmalısınız.</p>"
+    "content": "<p class=\"leading-7\">{{siteName}} kripto paralarınızı diğer kripto paralara güvenli ve kolay bir şekilde takas edebileceğiniz bir takas özelliği sunmaktadır. Ancak, madeni para karıştırma endişeleri nedeniyle, {{siteName}}'ye yatırılan tüm kripto paraların 1x çevrim gereksinimi vardır; bu, yatırdığınız fonlarla en az 1 kez bahis yapmanız gerektiği anlamına gelir.</p>"
   },
   "faqFive": {
     "title": "Nasıl para çekerim?",
-    "content": "<p class=\"leading-7\">Profil sayfanıza gidin ve \"Para Çek\" seçeneğine tıklayın, çekmek istediğiniz cüzdanın adresini ve çekmek istediğiniz miktarı girin. (Farklı blok zincirlerine göre değişen ücretler uygulanabileceğini lütfen unutmayın.)</p>"
+    "content": "<p class=\"leading-7\">Profil sayfanıza gidin ve \"Para Çek\" butonuna tıklayın, çekmek istediğiniz cüzdan adresini ve çekmek istediğiniz miktarı girin. (Lütfen farklı blok zincirlerine göre farklı ücretler uygulanabileceğini unutmayın)</p>"
   },
   "faqSix": {
-    "title": "Her kripto para için minimum çekim miktarı nedir?",
-    "content": "<p class=\"leading-7\">Kripto para birimlerinin farklı değerleri ve madencilik ücretleri nedeniyle, her kripto para için minimum çekim miktarlarını para çekme sayfanızdan kontrol edebilirsiniz.</p>"
+    "title": "Her kripto para birimi için minimum çekim miktarı nedir?",
+    "content": "<p class=\"leading-7\">Kripto paranın farklı değerleri ve farklı madencilik ücretleri nedeniyle, lütfen her kripto para birimi için minimum çekim miktarlarını kontrol etmek için çekim sayfanızı kontrol edin.</p>"
   },
   "faqSeven": {
     "title": "Para yatırma ve çekme işlemleri ne kadar sürer?",
-    "content": "<p class=\"leading-7\">Blok zincirindeki her işlem, onaylanması için birkaç döngü gerektirir.</p><p class=\"leading-7\">Genellikle, BTC ve ETH zincirlerinde işlemlerin blok zinciri ağı tarafından onaylanması 5-10 dakika sürer; TRON, TON ve SOLANA zincirlerinde ise yaklaşık 1-2 dakika.</p><p class=\"leading-7\">Para yatırma veya çekme sırasında herhangi bir sorunla karşılaşırsanız, işleminizi ağın ilgili blok zinciri gezgininde kontrol edebilir veya canlı desteğimizle iletişime geçebilirsiniz.</p>"
+    "content": "<p class=\"leading-7\">Blok zincirindeki her işlem onaylanmak için birkaç döngü gerektirir.</p><p class=\"leading-7\">Genel olarak, her işlem BTC ve ETH zinciri için onaylanmadan önce 5-10 dakika, TRON, TON, SOLANA zinciri için ise yaklaşık 1-2 dakika sürer.</p><p class=\"leading-7\">Para yatırma veya çekme sırasında herhangi bir sorunla karşılaşırsanız, işleminizi ilgili blok zinciri gezgini ile kontrol edebilir veya canlı destek ekibimizle iletişime geçebilirsiniz.</p>"
   },
   "faqEight": {
     "title": "İşlem onayları nereden geliyor?",
-    "content": "<p class=\"leading-7\">Tüm onay bilgileri, blok zincirinden ve blok zinciri madencilerinden gelir.</p>"
+    "content": "<p class=\"leading-7\">Tüm onay bilgileri blok zincirinden ve blok zinciri madencilerinden gelmektedir.</p>"
   },
   "faqNine": {
     "title": "Oyunlarınız adil mi?",
-  "content": "<p class=\"leading-7\">Şeffaflık, Güven ve Adalet, {{gameLink}}’in temel değerlerinin bir parçası ve işimizin temelidir. Bu nedenle, müşterilerimize hak ettikleri kaliteli deneyimi sunmak için yalnızca güvenilir üst düzey oyun ortaklarıyla çalışıyoruz.</p><p class=\"leading-7\">Ortaklarımızın tüm oyunları bağımsız denetçiler tarafından rastgelelik açısından titizlikle test edilmekte ve oyun düzenleyicileri tarafından lisanslanmakta olup, Rastgele Sayı Üreteçlerine sık sık denetimler uygulanmaktadır.</p>"
+    "content": "<p class=\"leading-7\">Şeffaflık, Güven ve Adalet, {{gameLink}}'nin temel değerleridir ve işimizin temelini oluşturur. Bu nedenle, müşterilerimize hak ettikleri kaliteli deneyimi sunmak için yalnızca güvenilir üst düzey oyun ortaklarıyla çalışıyoruz.</p><p class=\"leading-7\">Ortaklarımızdan gelen tüm oyunlar, bağımsız denetçiler tarafından rastgelelik açısından titizlikle test edilmekte ve Rastgele Sayı Üreticisi üzerinde sık sık denetimlere tabi olan oyun düzenleyicileri tarafından lisanslanmaktadır.</p>"
   },
   "faqTen": {
-    "title": "Oyunum kilitlenirse veya bağlantım kesilirse ne yapmalıyım?",
-    "content": "<p class=\"leading-7\">Herhangi bir teknik sorunla karşılaşırsanız, lütfen sayfayı yenileyin. Oyun durumları sağlayıcılarımız tarafından kaydedilir ve yeniden bağlandığınızda önceki oyun durumunuzu görebilirsiniz.</p>"
+    "title": "Oyun donarsa veya bağlantım koparsa ne yapmalıyım?",
+    "content": "<p class=\"leading-7\">Herhangi bir teknik sorunla karşılaşırsanız, lütfen sayfayı yenilemeyi deneyin. Oyun durumları sağlayıcılarımız tarafından kaydedilir ve yeniden bağlandığınızda önceki oyun durumunuzu görmelisiniz.</p>"
   }
 }

@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Tarif & Aturan",
+    "campaigns": "Kampanye",
+    "myReferrals": "Referensi Saya",
+    "commissions": "Komisi",
+    "rewards": "Hadiah"
+  },
+  "commissionCalculator": "Kalkulator Komisi",
   "telegramReferralLink": "Tautan Rujukan Telegram",
-    "network": "Koneksi",
+  "network": "Koneksi",
   "lifetimeReferralRewards": "Imbalan Rujukan Seumur Hidup",
   "referrals": "Rujukan",
   "availableCommissionRewards": "Hadiah Komisi yang Tersedia",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Imbalan Rujukan yang Tersedia",
   "lockedRewards": "Hadiah Terkunci",
   "assembleYourCrewCashIn": "Kumpulkan Kru Anda & Dapatkan Uang Tunai!",
+  "assembleYourCrewCashInDescription1": "Rekrut skuad Anda dan dapatkan {{amount}} per teman - seperti perampokan, tetapi tanpa pengejaran FBI. Plus, dapatkan hingga {{percentage}} komisi dari taruhan mereka. Bagian terbaik? Tarif komisi Anda tumbuh bersama Anda saat Anda naik level, dan Anda bahkan akan mendapatkan dari rekrut skuad Anda!",
+  "assembleYourCrewCashInDescription2": "Semakin besar jaringan Anda, semakin besar potongan Anda. Apakah mereka menang, kalah, atau bertaruh seperti orang gila, Anda terus mengumpulkan uang. Saatnya membangun kerajaan Anda - Mulai merekrut sekarang!",
+  "quickShare": "Bagikan Cepat",
   "referralRewards": "Imbalan Rujukan",
   "commissionRewards": "Imbalan Komisi",
   "aboutDescription": "Rekrut skuad Anda dan dapatkan {{amount}} per teman - seperti perampokan, tetapi tanpa pengejaran FBI. Plus, dapatkan hingga 50% komisi dari taruhan mereka. Bagian terbaiknya? Tingkat komisi Anda bertambah seiring Anda naik level, dan Anda bahkan akan mendapat dari perekrutan kru Anda!\n\nSemakin besar jaringan Anda, semakin besar bagian Anda. Menang, kalah, atau bertaruh seperti gila, Anda terus menumpuk uang. Saatnya membangun kerajaan Anda - Mulai merekrut sekarang!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Bagikan Via Media Sosial",
   "referralTermsConditions": "Syarat & Ketentuan Rujukan",
   "liveGlobalRewards": "Hadiah Global Langsung",
+  "liveGlobalCommissions": "Komisi Global Langsung",
   "username": "Nama Pengguna",
   "friendLevel": "Level Teman",
   "totalExp": "Total EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "Rujukan Saya",
   "more": "Lebih Banyak",
   "faqOne": {
-    "title": "Bagaimana sistem rujukan bekerja?",
-    "content": "<p class=\"leading-7\">Saat Anda membagikan tautan referral Anda kepada teman-teman dan mereka mendaftar di situs kami, mereka menjadi referral Anda dan Anda akan mendapatkan komisi serta hadiah referral dengan bermain di Aliansi {{gameLink}}.</p>"
+    "title": "Bagaimana cara kerja sistem referensi?",
+    "content": "<p class=\"leading-7\">Ketika Anda membagikan tautan referensi Anda kepada teman-teman Anda dan mereka mendaftar di situs kami; mereka menjadi referensi Anda dan akan menghasilkan komisi serta hadiah referensi dengan bermain di {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Berapa banyak yang bisa saya dapatkan dari rujukan saya?",
-    "content": "<p class=\"leading-7\">Anda bisa mendapatkan {{percentage}} dari aktivitas taruhan mereka sebagai komisi + {{amount}} per rujukan.</p>"
+    "title": "Berapa banyak yang bisa saya dapatkan dari referensi saya?",
+    "content": "<p class=\"leading-7\">Anda dapat menghasilkan {{percentage}} dari aktivitas taruhan mereka sebagai komisi + {{amount}} per referensi.</p>"
   },
   "faqThree": {
-    "title": "Apa itu imbalan {{amount}} USD dan bagaimana cara kerjanya?",
-    "content": "<p class=\"leading-7\">Ada hadiah sebesar {{amount}} USD untuk setiap referral yang Anda bawa ke {{gameLink}}. Hadiah USD ini diberikan dalam {{parts}} bagian seiring tingkat referral Anda naik dari {{level}}.</p>"
+    "title": "Apa itu hadiah {{amount}} USD dan bagaimana cara kerjanya?",
+    "content": "<p class=\"leading-7\">Ada hadiah {{amount}} USD untuk setiap referensi yang Anda bawa ke {{gameLink}}. Hadiah USD ini diberikan dalam {{parts}} bagian seiring dengan meningkatnya level referensi Anda dari {{level}}.</p>"
   },
   "faqFour": {
-    "title": "Saya punya audiens besar. Bagaimana saya bisa mendapatkan penawaran khusus?",
+    "title": "Saya memiliki audiens besar. Bagaimana saya bisa mendapatkan penawaran khusus?",
     "content": "<p class=\"leading-7\">Jika Anda memiliki situs web dengan lalu lintas yang baik atau akun media sosial dengan audiens besar, Anda dapat mengirim email kepada kami di {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Berapa banyak tautan afiliasi yang bisa saya buat jika saya punya situs web/akun media sosial berbeda?",
-    "content": "<p class=\"leading-7\">Anda bisa membuat hingga {{codes}} kode unik untuk sumber lalu lintas berbeda.</p>"
+    "title": "Berapa banyak tautan afiliasi yang bisa saya buat jika saya memiliki situs web/akun media sosial yang berbeda?",
+    "content": "<p class=\"leading-7\">Anda dapat membuat hingga {{codes}} kode unik untuk sumber lalu lintas yang berbeda</p>"
   },
   "faqSix": {
-    "title": "Bisakah saya melihat data rujukan saya?",
-    "content": "<p class=\"leading-7\">Ya, Transparansi, Kepercayaan, dan Keadilan adalah bagian dari nilai inti {{gameLink}}. Data seperti nama pengguna, total taruhan, dan komisi yang diperoleh semuanya tersedia di tab \"Komisi Saya\" dan \"Hadiah Referral\".</p>"
+    "title": "Bisakah saya melihat data referensi saya?",
+    "content": "<p class=\"leading-7\">Ya, Transparansi, Kepercayaan, dan Keadilan adalah bagian dari nilai-nilai inti {{gameLink}}. Data seperti nama pengguna, total taruhan, dan komisi yang diperoleh semuanya tersedia di tab \"Komisi Saya\" dan \"Hadiah Referensi\".</p>"
   },
   "faqSeven": {
-    "title": "Bisakah saya berbagi imbalan komisi dengan rujukan saya?",
-    "content": "<p class=\"leading-7\">Ya, Anda bisa berbagi imbalan komisi dengan rujukan Anda dengan mengklik \"buat kampanye baru\" dan mengatur pembagian komisi di tab \"Kampanye\".</p>"
+    "title": "Bisakah saya membagikan hadiah komisi dengan referensi saya?",
+    "content": "<p class=\"leading-7\">Ya, Anda dapat membagikan hadiah komisi dengan referensi Anda dengan mengklik \"buat kampanye baru\" dan mengatur pembagian komisi di bawah tab \"Kampanye\".</p>"
   },
   "faqEight": {
-    "title": "Apa itu rujukan tidak langsung dan apa yang bisa saya peroleh dari mereka?",
-    "content": "<p class=\"leading-7\">Rujukan tidak langsung adalah pemain aktif yang masuk dari tautan undangan salah satu rujukan langsung Anda. Jika level VIP Anda lebih tinggi dari level VIP rujukan langsung Anda, Anda juga bisa memperoleh komisi dari rujukan tidak langsung Anda.</p>"
+    "title": "Apa itu referensi tidak langsung dan apa yang bisa saya dapatkan dari mereka?",
+    "content": "<p class=\"leading-7\">Referensi tidak langsung adalah pemain aktif yang datang dari tautan undangan salah satu referensi langsung Anda. Jika level VIP Anda lebih tinggi daripada level VIP referensi langsung Anda, Anda juga dapat menghasilkan komisi yang berasal dari referensi tidak langsung Anda.</p>"
   },
   "levelReward": "hadiah naik level",
   "groupReward": "imbalan komisi",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Untuk menyederhanakan contoh, kita anggap teman yang ditandai kuning sedang aktif bertaruh, dan persentase hijau di sepanjang garis putus-putus mewakili komisi yang Anda terima dari masing-masing teman tersebut.",
   "referralCommissionsIndirectDescription": "Untuk menyederhanakan contoh, mari kita anggap teman yang ditandai ungu sedang aktif bertaruh. Persentase di sepanjang garis putus-putus menunjukkan komisi yang diterima setiap anggota dalam rantai referral. \n\n Di sebelah kanan, kita dapat melihat contoh terjadinya pemutusan dalam rantai referral.",
   "referralCodeMinLength": "Kode referral harus terdiri dari minimal 6 karakter",
-    "vipLevel": "Tingkat VIP",
+  "vipLevel": "Tingkat VIP",
   "earned": "Diperoleh",
   "directfriend": "Teman Langsung",
   "fast": "Cepat",
   "slots": "Slot",
   "live-casino": "Kasino Langsung",
   "fishing": "Memancing",
-  "rewardsUnlocked": "Hadiah Terbuka"
+  "rewardsUnlocked": "Hadiah Terbuka",
+  "selectGame": "Pilih permainan",
+  "selectVipLevel": "Pilih level VIP",
+  "myReferralCommissions": "Komisi Rujukan Saya",
+  "myReferralRewards": "Hadiah Rujukan Saya",
+  "exp": "EXP",
+  "userLevel": "Tingkat Pengguna"
 }

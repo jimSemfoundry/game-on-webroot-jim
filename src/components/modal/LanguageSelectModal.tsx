@@ -69,9 +69,12 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
       isOpen={isOpen}
       onClose={onClose}
       title={headerContent}
-      className="bg-base-400 md:w-[375px] max-w-sm mx-auto overflow-hidden"
+      className={cn(
+        'bg-base-400 md:w-[375px] max-w-sm mx-auto overflow-hidden pb-16',
+        isMobile ? 'h-[90vh] max-h-[90vh]' : 'md:h-[500px] md:max-h-[500px]',
+      )}
     >
-      <div className="flex flex-col max-h-[60vh]">
+      <div className="flex flex-col h-full">
         {/* 固定区域 - 搜索框 */}
         <div className="flex-shrink-0 pb-4">
           <div className="relative">
@@ -90,7 +93,7 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
 
         {/* 可滚动区域 - 只有这个区域会滚动 */}
         <div className="flex-1 min-h-0 overflow-hidden">
-          <div className="bg-base-300 h-full w-full rounded-field overflow-y-auto max-h-[400px] flex flex-col gap-1">
+          <div className="bg-base-300 p-2 h-full w-full rounded-field overflow-y-auto flex flex-col gap-1 pb-2 pr-1">
             {filteredLanguages?.map((lang: any) => (
               <button
                 key={lang.value}
@@ -103,7 +106,6 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
                 onClick={() => !isUpdating && changeLanguage(lang.value)}
                 disabled={isUpdating}
               >
-                <img src={`/icons/flags/languages/${lang.value}.svg`} alt={lang.label} className="w-4 h-4 flex-shrink-0" />
                 <span className="truncate">{lang.label}</span>
               </button>
             ))}

@@ -16,8 +16,8 @@ export function useReferralRewards() {
   const { status } = useAuth();
 
   // 获取基础 API 数据
-  const { data: referralData, isLoading: isLoadingReferral } = useReferralClaim();
-  const { data: groupData, isLoading: isLoadingGroup } = useGroupClaim();
+  const { data: referralData, isLoading: isLoadingReferral, refetch: refetchreferralData } = useReferralClaim();
+  const { data: groupData, isLoading: isLoadingGroup, refetch: refetchGroupData } = useGroupClaim();
 
   // 提取实际数据
   const referralValue = useMemo(() => {
@@ -126,6 +126,9 @@ export function useReferralRewards() {
     // 计算值
     totalRewards,
     networkCount,
+
+    refetchGroupData,
+    refetchreferralData,
 
     // 格式化数据（用于显示）
     formattedTotalRewards,

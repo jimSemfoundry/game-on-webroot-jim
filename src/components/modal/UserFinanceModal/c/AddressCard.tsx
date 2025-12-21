@@ -19,8 +19,6 @@ export const AddressCard = () => {
 
   return (
     <div>
-      <MinAmount />
-
       <Address show={isAuthenticated && address?.code === 0} data={address?.data} />
 
       <Loading show={isAuthenticated && isLoading} />
@@ -42,13 +40,19 @@ const Address = ({ show, data }: { show: boolean; data: Record<string, any> }) =
   return (
     show && (
       <div className="rounded-lg p-4 bg-base-300 font-semibold flex flex-col gap-2">
-        <p className="text-xs text-base-content/50">{t("finance:scan_qr_code_or_copy_address")}</p>
-        <div className="flex items-center gap-2 text-base-content/50">
-          <QRCodeSVG className="w-20 h-20" value={data?.address} />
-          <div className="flex-1">
+        <MinAmount />
+        <div className="flex items-center gap-3 text-base-content/50">
+          <QRCodeSVG className="w-20 h-20" value={data?.address} bgColor={"#aaa"} />
+          <div className="flex flex-col gap-2 flex-1">
+            <p className="text-xs text-base-content/50">{t("finance:scan_qr_code_or_copy_address")}</p>
             <div className={cn("text-xs p-2 bg-base-400 rounded-lg break-all flex items-center gap-1 tracking-tight")}>
               {data?.address}
-              <Copy text={data?.address} />
+              <Copy
+                text={data?.address}
+                className={'w-4 h-4'}
+                copyCls={"btn bg-base-200 btn-sm btn-square text-base-content/50"}
+                copiedCls={"btn bg-secondary btn-sm btn-square text-base-400"}
+              />
             </div>
           </div>
         </div>
@@ -60,7 +64,8 @@ const GotError = ({ show, func }: { show: boolean; func: () => void }) => {
   const { t } = useTranslation();
   return (
     show && (
-      <div className="rounded-lg h-[136px] p-4 bg-base-300 items-center justify-center flex flex-col text-xs font-semibold">
+      <div
+        className="rounded-lg h-[136px] p-4 bg-base-300 items-center justify-center flex flex-col text-xs font-semibold">
         <p className="text-error">{t("finance:failedToGetDepositAddress")}</p>
         <button className="btn btn-xs btn-soft mt-2" onClick={() => func()}>
           {t("finance:retry")}
@@ -73,7 +78,8 @@ const NoAddress = ({ show }: { show: boolean }) => {
   const { t } = useTranslation();
   return (
     show && (
-      <div className="rounded-lg h-[136px] p-4 bg-base-300 items-center justify-center flex flex-col text-xs font-semibold">
+      <div
+        className="rounded-lg h-[136px] p-4 bg-base-300 items-center justify-center flex flex-col text-xs font-semibold">
         <p className="text-base-content/50">{t("finance:noDepositAddressAvailable")}</p>
       </div>
     )
@@ -84,7 +90,8 @@ const GoSignIn = ({ show }: { show: boolean }) => {
     show && (
       <div className="flex flex-col gap-4">
         <div className="rounded-lg p-4 bg-base-300 text-center text-xs text-base-content/50 font-semibold">
-          <Trans i18nKey="finance:pleaseLoginToViewDepositAddress" components={[<u className="text-primary" />, <u />]} />
+          <Trans i18nKey="finance:pleaseLoginToViewDepositAddress"
+                 components={[<u className="text-primary" />, <u />]} />
         </div>
         <SignInToContinue />
       </div>

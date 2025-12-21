@@ -1,4 +1,3 @@
-import { Applied } from "@/components/modal/UserFinanceModal/c/Applied.tsx";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useTipsModal } from "@/contexts/ModalsProvider.tsx";
@@ -11,6 +10,7 @@ import { TFunction } from "i18next";
 import { BadgeAlert } from "lucide-react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { Applied } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 const Bonus = ({ cls, t, type }: { cls?: string; t: TFunction; type: "crypto" | "fiat" }) => {
   const { status } = useAuth();

@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Pangkalahatan",
+    "ratesAndRules": "Mga Rate at Patakaran",
+    "campaigns": "Mga Kampanya",
+    "myReferrals": "Aking Mga Referral",
+    "commissions": "Mga Komisyon",
+    "rewards": "Mga Gantimpala"
+  },
+  "commissionCalculator": "Kalkulador ng Komisyon",
   "telegramReferralLink": "Telegram Referral Link",
-    "network": "Network",
+  "network": "Network",
   "lifetimeReferralRewards": "Panghabambuhay na Referral Rewards",
   "referrals": "Mga Referral",
   "availableCommissionRewards": "Available na Mga Gantimpala ng Komisyon",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Available na Mga Referral Rewards",
   "lockedRewards": "Mga Naka-lock na Gantimpala",
   "assembleYourCrewCashIn": "Ipunin ang Iyong Crew at Mag-Cash In!",
+  "assembleYourCrewCashInDescription1": "Recruitin ang iyong squad at kumita ng {{amount}} bawat kaibigan - parang isang heist, pero walang habulan ng FBI. Bukod dito, kumita ng hanggang {{percentage}} komisyon sa kanilang mga taya. Ang pinakamagandang bahagi? Ang iyong rate ng komisyon ay lumalaki kasabay mo habang ikaw ay umuunlad, at makakakuha ka pa mula sa mga recruit ng iyong crew!",
+  "assembleYourCrewCashInDescription2": "Mas malaki ang iyong network, mas malaki ang iyong bahagi. Kahit manalo sila, matalo, o tumaya ng parang mga baliw, patuloy kang kumikita. Panahon na para bumuo ng iyong imperyo - Simulan na ang pag-recruit ngayon!",
+  "quickShare": "Mabilis na Ibahagi",
   "referralRewards": "Mga Referral Rewards",
   "commissionRewards": "Mga Gantimpala ng Komisyon",
   "aboutDescription": "I-recruit ang iyong squad at makakuha ng {{amount}} bawat kaibigan – tulad ng isang heist, pero walang FBI chase! Dagdag pa, kumita ng hanggang 50% komisyon sa kanilang mga taya. Ang pinakamaganda? Lumalaki ang iyong komisyon rate habang nag-level up ka, at kikita ka rin mula sa mga recruit ng iyong crew!\n\nKung mas malaki ang iyong network, mas malaki ang iyong kita. Manalo man sila, matalo, o tumaya nang todo, patuloy kang nagtatambak ng pera. Oras na para buuin ang iyong eksklusibong imperyo – simulan ang pag-recruit ngayon!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Ibahagi sa Pamamagitan ng Socials",
   "referralTermsConditions": "Mga Tuntunin at Kondisyon ng Referral",
   "liveGlobalRewards": "Live na Global Rewards",
+  "liveGlobalCommissions": "Live na Pandaigdigang Komisyon",
   "username": "Username",
   "friendLevel": "Antas ng Kaibigan",
   "totalExp": "Kabuuang EXP",
@@ -105,35 +118,35 @@
   "more": "Higit Pa",
   "faqOne": {
     "title": "Paano gumagana ang referral system?",
-    "content": "<p class=\"leading-7\">Kapag ibinahagi mo ang iyong referral link sa iyong mga kaibigan at sila ay nag-sign up sa aming site, nagiging referral mo sila at kikita ka ng komisyon at mga gantimpala sa referral sa pamamagitan ng paglalaro sa {{gameLink}} Alyansa.</p>"
+    "content": "<p class=\"leading-7\">Kapag ibinabahagi mo ang iyong referral link sa iyong mga kaibigan at sila ay nag-sign up sa aming site; sila ay nagiging iyong referral at makakakuha ka ng komisyon at mga gantimpala sa referral sa pamamagitan ng paglalaro sa {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Magkano ang maaari kong kikitain mula sa aking referral?",
-    "content": "<p class=\"leading-7\">Maaari kang kumita ng {{percentage}} ng kanilang aktibidad sa pagtaya bilang komisyon + {{amount}} bawat referral.</p>"
+    "title": "Magkano ang maaari kong kitain mula sa aking referral?",
+    "content": "<p class=\"leading-7\">Maaari kang kumita ng {{percentage}} ng kanilang aktibidad sa pagtaya bilang mga komisyon + {{amount}} bawat referral.</p>"
   },
   "faqThree": {
-    "title": "Ano ang {{amount}} USD reward at paano ito gumagana?",
-    "content": "<p class=\"leading-7\">Mayroong {{amount}} USD na gantimpala para sa bawat referral na iyong dinadala sa {{gameLink}}. Ang gantimpalang ito ay ibinibigay sa {{parts}} na bahagi habang tumataas ang iyong referral level mula sa {{level}}.</p>"
+    "title": "Ano ang {{amount}} USD na gantimpala at paano ito gumagana?",
+    "content": "<p class=\"leading-7\">Mayroong {{amount}} USD na gantimpala para sa bawat referral na iyong dinadala sa {{gameLink}}. Ang gantimpalang USD na ito ay ibinibigay sa {{parts}} bahagi habang tumataas ang iyong antas ng referral mula sa {{level}}.</p>"
   },
   "faqFour": {
-    "title": "May malaki akong audience. Paano ako makakakuha ng espesyal na deal?",
-    "content": "<p class=\"leading-7\">Kung mayroon kang website na may magandang traffic o social media account na may malaking audience, maaari kang mag-email sa amin sa {{emailLink}}</p>"
+    "title": "Mayroon akong malaking audience. Paano ako makakakuha ng espesyal na deal?",
+    "content": "<p class=\"leading-7\">Kung mayroon kang website na may magandang trapiko o isang social media account na may malaking audience, maaari mo kaming i-email sa {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Ilang affiliate link ang maaari kong gawin kung may iba’t ibang website o social media account ako?",
-    "content": "<p class=\"leading-7\">Maaari kang lumikha ng hanggang {{codes}} natatanging code para sa iba’t ibang pinagmumulan ng traffic.</p>"
+    "title": "Ilang affiliate links ang maaari kong likhain kung mayroon akong iba't ibang mga website/social media accounts?",
+    "content": "<p class=\"leading-7\">Maaari kang lumikha ng hanggang {{codes}} natatanging mga code para sa iba't ibang pinagkukunan ng trapiko</p>"
   },
   "faqSix": {
     "title": "Maaari ko bang makita ang data ng aking referral?",
-    "content": "<p class=\"leading-7\">Oo, ang Transparency, Tiwala, at Katarungan ay bahagi ng mga pangunahing halaga ng {{gameLink}}. Ang data tulad ng username, total wager, at kinita mong komisyon ay makikita sa tab na \"Aking Komisyon\" at \"Gantimpala sa Referral\".</p>"
+    "content": "<p class=\"leading-7\">Oo, ang Transparency, Trust, at Fairness ay bahagi ng mga pangunahing halaga ng {{gameLink}}. Ang data tulad ng username, kabuuang taya at komisyon na kinita ay lahat ay available sa \"Aking mga Komisyon\" at \"Mga Gantimpala sa Referral\" tab.</p>"
   },
   "faqSeven": {
-    "title": "Maaari ko bang ibahagi ang mga reward ng komisyon sa aking mga referral?",
-    "content": "<p class=\"leading-7\">Oo, maaari mong ibahagi ang mga reward ng komisyon sa iyong mga referral sa pamamagitan ng pag-click sa ‘Lumikha ng Bagong Campaign’ at pagtatakda ng paghati ng komisyon sa ilalim ng tab na ‘Mga Campaign’.</p>"
+    "title": "Maaari ko bang ibahagi ang mga gantimpala ng komisyon sa aking mga referral?",
+    "content": "<p class=\"leading-7\">Oo, maaari mong ibahagi ang mga gantimpala ng komisyon sa iyong mga referral sa pamamagitan ng pag-click sa \"lumikha ng bagong kampanya\" at pagtatakda ng paghahati ng komisyon sa ilalim ng \"Mga Kampanya\" tab.</p>"
   },
   "faqEight": {
-    "title": "Ano ang hindi direktang referral at ano ang maaari kong kikitain mula sa kanila?",
-    "content": "<p class=\"leading-7\">Ang hindi direktang referral ay isang aktibong manlalaro na nagmula sa link ng imbitasyon ng isa sa iyong mga direktang referral. Kung ang iyong antas ng VIP ay mas mataas kaysa sa antas ng VIP ng iyong direktang referral, maaari ka ring makakuha ng komisyon mula sa iyong hindi direktang referral.</p>"
+    "title": "Ano ang isang hindi tuwirang referral at ano ang maaari kong kitain mula sa kanila?",
+    "content": "<p class=\"leading-7\">Ang isang hindi tuwirang referral ay isang aktibong manlalaro na nagmula sa imbitasyon ng isa sa iyong mga direktang referral. Kung ang iyong VIP level ay mas mataas kaysa sa VIP level ng iyong direktang referral, maaari ka ring kumita ng komisyon mula sa iyong hindi tuwirang referral.</p>"
   },
   "levelReward": "Gantimpala sa Pag-level Up",
   "groupReward": "Gantimpala ng Komisyon",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Para gawing simple ang halimbawa, ipagpapalagay natin na ang mga kaibigang may markang dilaw ay aktibong tumataya, at ang mga berdeng porsyento sa kahabaan ng tuldok-tuldok na linya ay ang komisyon na iyong natatanggap mula sa bawat isa sa kanila.",
   "referralCommissionsIndirectDescription": "Para gawing simple ang halimbawa, ipagpapalagay natin na ang mga kaibigang may markang lila ay aktibong tumataya. Ang mga porsyento sa kahabaan ng tuldok-tuldok na linya ay nagpapakita ng komisyon na kinikita ng bawat miyembro sa referral chain. \n\n Sa kanan, makikita natin ang isang halimbawa ng breakaway na nangyayari sa referral chain.",
   "referralCodeMinLength": "Ang referral code ay dapat hindi bababa sa 6 na karakter",
-    "vipLevel": "Antas ng VIP",
+  "vipLevel": "Antas ng VIP",
   "earned": "Kinikita",
   "directfriend": "Ami Direct",
   "fast": "Rapide",
   "slots": "Machines à Sous",
   "live-casino": "Casino en Direct",
   "fishing": "Pêche",
-  "rewardsUnlocked": "Récompenses Débloquées"
+  "rewardsUnlocked": "Récompenses Débloquées",
+  "selectGame": "Pumili ng laro",
+  "selectVipLevel": "Pumili ng antas ng VIP",
+  "myReferralCommissions": "Aking mga Referral Komisyon",
+  "myReferralRewards": "Aking mga Referral Gantimpala",
+  "exp": "EXP",
+  "userLevel": "Antas ng Gumagamit"
 }

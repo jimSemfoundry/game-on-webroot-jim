@@ -1,7 +1,7 @@
 {
-    "global": "Globalen",
-    "notifications": "Obvestila",
-    "support": "Podpora",
-    "retry": "Poskusi znova",
-    "customerServiceChatFailedToLoad": "Klepet s podporo strankam se ni naložil"
+  "global": "Globalen",
+  "notifications": "Obvestila",
+  "support": "Podpora",
+  "retry": "Poskusi znova",
+  "customerServiceChatFailedToLoad": "Klepet s podporo strankam se ni naložil"
 }

@@ -1,38 +1,38 @@
 {
-    "goBack": "Gå tillbaka",
-    "tryAgain": "Försök igen",
-    "retry": "Prova igen",
-    "retryConnection": "Prova anslutningen igen",
-    "emptyStateNoContent": {
-        "title": "Inget här ännu!",
-        "description": "Det ser ut som om det inte finns innehåll här just nu. Kom tillbaka senare eller prova något annat."
-    },
-    "failedToLoadPage": {
-        "title": "Något gick fel",
-        "description": "Ett systemfel uppstod vid inläsning av sidan. Vänligen ladda om sidan eller kontakta supporten om problemet kvarstår."
-    },
-    "otherActiveSession": {
-        "title": "Sessionsfel!",
-        "description": "Åtkomst från den här enheten är inte tillgänglig just nu av säkerhetsskäl. Det kan bero på en annan inloggning eller ett systemfel. Försök igen eller använd en annan enhet."
-    },
-    "noInternetConnection": {
-        "title": "Oops! Du är offline",
-        "description": "Det ser ut som om du inte är ansluten till internet. Kontrollera Wi-Fi eller mobildata och försök igen när du är online."
-    },
-    "pageNotFound": {
-        "title": "Hoppsan! Denna sida saknas",
-        "description": "Det verkar som om den här sidan inte finns eller har flyttats. Kontrollera webbadressen eller gå tillbaka till startsidan."
-    },
-    "tooManyRequest": {
-        "title": "Håll i dig! Vi är ganska upptagna",
-        "description": "Det ser ut som om våra servrar hanterar mycket just nu. Ge det en stund och försök igen."
-    },
-    "underMaintenance": {
-        "title": "Vi kommer strax tillbaka!",
-        "description": "Vi gör några uppdateringar för att hålla allt smidigt. Kom tillbaka snart!"
-    },
-    "userRestriction": {
-        "title": "Oops! Du kan inte komma åt detta",
-        "description": "Det verkar som om du inte har behörighet att visa detta. Kontrollera din åtkomst eller kontakta kundtjänst för hjälp."
-    }
+  "goBack": "Gå tillbaka",
+  "tryAgain": "Försök igen",
+  "retry": "Prova igen",
+  "retryConnection": "Prova anslutningen igen",
+  "emptyStateNoContent": {
+    "title": "Inget Här Än!",
+    "description": "Det verkar som om det inte finns något innehåll här just nu. Kolla tillbaka senare eller prova något annat."
+  },
+  "failedToLoadPage": {
+    "title": "Något Gick Fel",
+    "description": "Det inträffade ett systemfel när sidan skulle laddas. Vänligen ladda om sidan, eller kontakta support om problemet kvarstår."
+  },
+  "otherActiveSession": {
+    "title": "Sessionsfel!",
+    "description": "Åtkomst från denna enhet är för närvarande otillgänglig av säkerhetsskäl. Detta kan bero på en annan inloggning eller ett systemproblem. Vänligen försök igen eller använd en annan enhet."
+  },
+  "noInternetConnection": {
+    "title": "Oj! Du är Offline",
+    "description": "Det verkar som om du inte är ansluten till internet. Kontrollera ditt Wi-Fi eller mobildata och försök igen när du är online."
+  },
+  "pageNotFound": {
+    "title": "Oj! Denna Sida Saknas",
+    "description": "Det verkar som om denna sida inte finns eller har flyttats. Försök att kontrollera URL:en eller gå tillbaka till startsidan."
+  },
+  "tooManyRequest": {
+    "title": "Håll Ut! Vi är Lite Upptagna",
+    "description": "Det verkar som om våra servrar hanterar mycket just nu. Ge det ett ögonblick och försök igen."
+  },
+  "underMaintenance": {
+    "title": "Vi Återkommer Snart!",
+    "description": "Vi gör några uppdateringar för att hålla allt igång smidigt. Kolla tillbaka snart!"
+  },
+  "userRestriction": {
+    "title": "Oj! Du Kan Inte Åtkomst Till Detta",
+    "description": "Det verkar som om du inte har behörighet att se detta. Dubbelkolla din åtkomst eller kontakta för hjälp."
+  }
 }

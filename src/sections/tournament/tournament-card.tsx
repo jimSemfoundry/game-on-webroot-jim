@@ -1,7 +1,10 @@
 import { Countdown } from "@/components/ui/Countdown";
-import { useCurrencyData } from "@/hooks/useCurrency";
 import { useTranslation } from "react-i18next";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
+import { cn } from "@/utils/cn";
+import { getTournamentImage } from "./tournament-visuals";
+import { useTournamentPoolPrize } from "@/hooks/api/useAuth";
+import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 
 export interface TournamentCardData {
   id: string;
@@ -11,39 +14,48 @@ export interface TournamentCardData {
   prizePool: number;
   image: string;
   provider?: string;
+  tournamentId?: number | string;
+  tournamentLevel?: string;
 }
 
 interface TournamentCardProps {
   data: TournamentCardData;
   onClick?: () => void;
+  className?: string;
 }
 
 
-export const TournamentCard = ({ data, onClick }: TournamentCardProps) => {
+export const TournamentCard = ({ data, onClick, className }: TournamentCardProps) => {
   const { t } = useTranslation();
-  const { formatCurrency } = useCurrencyData();
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
+  const { data: livePrize } = useTournamentPoolPrize(data.tournamentId, data.tournamentLevel);
+
+  // 获取适合移动端的图片 (优先使用 provider，降级到 data.image)
+  const mobileImage = data.provider 
+    ? getTournamentImage(data.provider, "mobile")
+    : data.image;
 
   // 使用自定义 hook 提取颜色
-  const { gradient: gradientColor, isReady: isColorReady } = useVibrantColor(data.image, {
+  const { gradient: gradientColor } = useVibrantColor(mobileImage, {
     fallbackGradient: "var(--color-base-300)",
     colorTypes: ['Vibrant', 'Muted', 'DarkVibrant'],
     opacity: 0.5
   });
 
-  const formattedPrize = formatCurrency({
-    currency: "PHP",
-    amount: data.prizePool,
+  const prizePoolValue = livePrize ?? data.prizePool ?? 0;
+
+  const formattedPrize = formatWithConversion(prizePoolValue, "USD", {
     showCode: false,
     showSymbol: true,
   });
 
-  // 如果颜色还没准备好，显示加载状态
-  if (!isColorReady) {
+  // 如果没有图片数据，显示加载状态（骨架屏场景）
+  if (!mobileImage) {
     return (
       <div className="relative flex flex-col rounded-2xl overflow-hidden">
-        <div className="relative h-[200px] sm:h-[240px] w-full overflow-hidden bg-base-300 animate-pulse">
+        <div className="relative h-[200px] sm:h-[240px] w-full overflow-hidden bg-base-300">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-base-content/50 text-sm">Loading...</div>
+            <span className="loading loading-spinner loading-lg text-primary" />
           </div>
         </div>
       </div>
@@ -52,22 +64,28 @@ export const TournamentCard = ({ data, onClick }: TournamentCardProps) => {
 
     return (
     <div
-      className="relative flex flex-col rounded-2xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+      className={cn(
+        "relative flex flex-col rounded-2xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]",
+        className
+      )}
       onClick={onClick}
     >
       {/* Card Background with Gradient */}
       <div
-        className="relative h-[200px] sm:h-[240px] w-full overflow-hidden bg-gradient-to-r from-[#dfe1e4] to-[#dfe1e4]"
+        className="relative h-[200px] sm:h-[240px] w-full overflow-hidden bg-gradient-to-r from-[#dfe1e4] to-[#dfe1e4] transition-all duration-300"
         style={{
           background: gradientColor || "var(--color-base-300)",
         }}
       >
         {/* Character Image - Positioned absolutely */}
         <img
-          src={data.image}
+          src={mobileImage}
           alt={data.title}
-          className="absolute h-full right-0 top-0 object-fill z-10"
+          className="absolute h-full right-0 top-0 object-cover z-10"
+          loading="lazy"
           style={{
+            objectFit: "cover",
+            objectPosition: "right center", // 保持右侧主体可见
             filter: "drop-shadow(-4px 0px 24px rgba(0,0,0,0.3))",
           }}
         />

@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "全球",
+    "ratesAndRules": "費率與規則",
+    "campaigns": "活動",
+    "myReferrals": "我的推薦",
+    "commissions": "佣金",
+    "rewards": "獎勵"
+  },
+  "commissionCalculator": "佣金計算器",
   "telegramReferralLink": "Telegram推薦連結",
   "network": "推薦網絡",
   "lifetimeReferralRewards": "終身推薦獎勵",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "可用的推薦獎勵",
   "lockedRewards": "鎖定獎勵",
   "assembleYourCrewCashIn": "召集你的團隊並套現！",
+  "assembleYourCrewCashInDescription1": "招募你的隊伍，每位朋友可獲得 {{amount}} - 就像搶劫，但沒有FBI追捕。此外，還可從他們的投注中賺取高達 {{percentage}} 的佣金。最棒的是？隨著你的升級，佣金比例也會隨之增長，甚至可以從你的隊伍的推薦中獲得收益！",
+  "assembleYourCrewCashInDescription2": "你的網絡越大，你的分成就越豐厚。無論他們贏、輸，還是瘋狂投注，你都能不斷累積現金。是時候建立你的帝國了 - 現在就開始招募吧！",
+  "quickShare": "快速分享",
   "referralRewards": "推薦獎勵",
   "commissionRewards": "佣金獎勵",
   "aboutDescription": "招募你的團隊，每位好友可獲得 {{amount}} 的獎勵——就像一場搶劫，但無需擔心追捕。此外，還能從他們的投注中賺取高達 50% 的佣金。最棒的是？隨著你的等級提升，佣金率也會增長，你甚至還能從團隊的新成員中賺取佣金！\n\n你的網路越大，收益越豐厚。無論他們贏、輸，還是瘋狂下注，你都能不斷賺取更多現金。是時候建立你的帝國了——現在就開始招募吧！",
@@ -16,6 +28,7 @@
   "shareViaSocials": "透過社交媒體分享",
   "referralTermsConditions": "推薦條款和條件",
   "liveGlobalRewards": "即時全球獎勵",
+  "liveGlobalCommissions": "即時全球佣金",
   "username": "用戶名",
   "friendLevel": "朋友的等級",
   "totalExp": "總 EXP",
@@ -104,36 +117,36 @@
   "myReferrals": "我的推薦",
   "more": "更多",
   "faqOne": {
-    "title": "推薦系統如何運作？",
-    "content": "<p class=\"leading-7\">當您與朋友分享您的推薦連結，且他們在我們網站註冊時，他們就成為您的推薦人，您可以透過他們在 {{gameLink}} 聯盟遊玩賺取佣金及推薦獎勵。</p>"
+    "title": "推薦系統是如何運作的？",
+    "content": "<p class=\"leading-7\">當你與朋友分享你的推薦連結，他們在我們的網站註冊後；他們將成為你的推薦，並通過在 {{gameLink}} 聯盟中遊玩為你賺取佣金和推薦獎勵。</p>"
   },
   "faqTwo": {
-    "title": "我可以從我的推薦中獲得多少收入？",
-    "content": "<p class=\"leading-7\">您可以從他們的投注活動中賺取{{percentage}} 作為佣金 +{{amount}} 每位被推薦人。</p>"
+    "title": "我可以從我的推薦中賺多少？",
+    "content": "<p class=\"leading-7\">你可以賺取他們的投注活動的 {{percentage}} 作為佣金 + 每個推薦 {{amount}}。</p>"
   },
   "faqThree": {
-    "title": "什麼是 {{amount}} 美元獎勵，如何運作？",
-    "content": "<p class=\"leading-7\">您每推薦一位玩家加入 {{gameLink}}，即可獲得 {{amount}} 美元獎勵。隨著您的推薦等級從 {{level}} 升級，此獎勵會分 {{parts}} 部分發放。</p>"
+    "title": "什麼是 {{amount}} 美元獎勵，這是如何運作的？",
+    "content": "<p class=\"leading-7\">每個你帶到 {{gameLink}} 的推薦都有 {{amount}} 美元的獎勵。這個美元獎勵會隨著你的推薦等級從 {{level}} 上升而分為 {{parts}} 部分發放。</p>"
   },
   "faqFour": {
-    "title": "我有很多觀眾。我怎樣才能獲得特別優惠？",
-    "content": "<p class=\"leading-7\">如果您擁有流量良好的網站或擁有大量粉絲的社群媒體帳號，您可以發送電子郵件至 {{emailLink}} 聯繫我們。</p>"
+    "title": "我有一個龐大的觀眾群。我該如何獲得特別優惠？",
+    "content": "<p class=\"leading-7\">如果你有一個流量良好的網站或擁有龐大觀眾的社交媒體帳戶，你可以通過電子郵件聯繫我們 {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "我可以為不同的網站/社交媒體帳戶創建多少個聯盟連結？",
-    "content": "<p class=\"leading-7\">您可以為不同的流量來源創建多達{{codes}} 個獨特的代碼</p>"
+    "title": "如果我有不同的網站/社交媒體帳戶，我可以創建多少個聯盟連結？",
+    "content": "<p class=\"leading-7\">你可以為不同的流量來源創建最多 {{codes}} 個唯一代碼。</p>"
   },
   "faqSix": {
-    "title": "我可以查看被推薦人的數據嗎？",
-    "content": "<p class=\"leading-7\">可以，透明度、信任和公平是 {{gameLink}} 的核心價值之一。用戶名、總投注額和賺取的佣金等資料，均可在「我的佣金」及「推薦獎勵」頁籤中查看。</p>"
+    "title": "我可以查看我的推薦數據嗎？",
+    "content": "<p class=\"leading-7\">是的，透明度、信任和公平是 {{gameLink}} 的核心價值觀。像用戶名、總投注和賺取的佣金等數據都可以在「我的佣金」和「推薦獎勵」標籤中查看。</p>"
   },
   "faqSeven": {
-    "title": "我可以與我的推薦人分享佣金獎勵嗎？",
-    "content": "<p class=\"leading-7\">是的，您可以通過點擊 \"創建新活動 \"並在 \"活動 \"選項卡下設置佣金分成，與您的推薦人分享佣金獎勵。</p>"
+    "title": "我可以與我的推薦分享佣金獎勵嗎？",
+    "content": "<p class=\"leading-7\">是的，你可以通過點擊「創建新活動」並在「活動」標籤下設置佣金分配來與你的推薦分享佣金獎勵。</p>"
   },
   "faqEight": {
-    "title": "什麼是間接推薦，我可以從他們那裡賺取什麼？",
-    "content": "<p class=\"leading-7\">間接推薦是指通過您的直接推薦人的邀請連結進來的活躍玩家。如果您的 VIP 等級高於直接推薦人的 VIP 等級，您也可以從間接推薦人那裡賺取佣金。</p>"
+    "title": "什麼是間接推薦，我可以從中賺取什麼？",
+    "content": "<p class=\"leading-7\">間接推薦是從你的一個直接推薦的邀請連結進入的活躍玩家。如果你的 VIP 等級高於你的直接推薦的 VIP 等級，你也可以從你的間接推薦中賺取佣金。</p>"
   },
   "levelReward": "等級提升獎勵",
   "groupReward": "佣金獎勵",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "為簡化示例，我們假設黃色標記的朋友正在積極投注，虛線旁的綠色百分比表示您從他們每人獲得的佣金。",
   "referralCommissionsIndirectDescription": "為簡化示例，我們假設紫色標記的朋友正在積極投注。虛線旁的百分比表示推薦鏈中每位成員獲得的佣金。\n\n右側我們可以看到推薦鏈中斷裂發生的示例。",
   "referralCodeMinLength": "推薦碼至少需要6個字元",
-    "vipLevel": "VIP 等級",
+  "vipLevel": "VIP 等級",
   "earned": "已獲得",
   "directfriend": "直接朋友",
   "fast": "快速",
   "slots": "角子機",
   "live-casino": "現場賭場",
   "fishing": "釣魚",
-  "rewardsUnlocked": "獎勵已解鎖"
+  "rewardsUnlocked": "獎勵已解鎖",
+  "selectGame": "選擇遊戲",
+  "selectVipLevel": "選擇VIP等級",
+  "myReferralCommissions": "我的推薦佣金",
+  "myReferralRewards": "我的推薦獎勵",
+  "exp": "經驗值",
+  "userLevel": "用戶級別"
 }

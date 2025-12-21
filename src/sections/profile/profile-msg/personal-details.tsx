@@ -22,32 +22,33 @@ export function PersonalDetails() {
 
   const { data } = QueryKycDetail();
 
-  const [status, setStatus] = useState<KycDetail>(  {
+  const [status, setStatus] = useState<KycDetail>({
     id: 0,
     team_id: 0,
     user_id: 0,
-    first_name: '',
-    middle_name: '',
-    last_name: '',
-    birthday: '',
-    country: '',
-    state: '',
-    city: '',
-    address: '',
-    zip_code: '',
+    first_name: "",
+    middle_name: "",
+    last_name: "",
+    birthday: "",
+    country: "",
+    state: "",
+    city: "",
+    address: "",
+    zip_code: "",
     document_type: 0,
-    document_url: '',
+    document_url: "",
     status: 0,
     created_at: 0,
     updated_at: 0,
-    email: '',
-    nickname: '',
-    phone: '',
+    email: "",
+    nickname: "",
+    phone: ""
   });
 
   useEffect(() => {
     if (data) {
-      setStatus((v) => ({ ...v, ...data }));
+      // FIXME: 待确认接口是否生效，目前数据和profile接口是脱节的
+      // setStatus((v) => ({ ...v, ...data }));
     }
   }, [data]);
 
@@ -58,13 +59,44 @@ export function PersonalDetails() {
   // const phone_format_error = useMemo(() => {
   //   return status.phone !== "" && status.country !== "" && !isValidPhoneNumber(status.phone, status.country as Country);
   // }, [status.phone, status.country]);
-
+  /**
+   * {
+   *     "id": 300009,
+   *     "team_id": 0,
+   *     "user_id": 8856753,
+   *     "first_name": "",
+   *     "middle_name": "",
+   *     "last_name": "",
+   *     "birthday": "2000-10-10",
+   *     "country": "",
+   *     "state": "",
+   *     "city": "",
+   *     "address": "",
+   *     "zip_code": 0,
+   *     "document_type": 0,
+   *     "document_url": "",
+   *     "status": 0,
+   *     "created_at": 1761987989,
+   *     "updated_at": 1763561258,
+   *     "version": 0
+   * }
+   */
   const [isResetUsernameValid, setIsResetUsernameValid] = useState(false);
   const [loading, setLoading] = useState(false);
   const handle = () => {
     setLoading(true);
 
-    authService.updateKyc(status).then((res) => {
+    authService.updateKyc({
+      birthday: "2000-10-10",
+      city: "",
+      address: "",
+      country: "",
+      last_name: "",
+      middle_name: "",
+      first_name: "",
+      email: '',
+      phone: ''
+    }).then((res) => {
       if (res.code === 0) {
         void refetch();
         toast.success(t("toast:editSuccess"));
@@ -83,14 +115,14 @@ export function PersonalDetails() {
 
   // Memoize the onChange function to prevent infinite re-renders
   const handleDateChange = useCallback((date: { day: string, month: string, year: string }) => {
-    setStatus((v) => ({ ...v, birthday: date.year + '-' + date.month + '-' + date.day }));
+    setStatus((v) => ({ ...v, birthday: date.year + "-" + date.month + "-" + date.day }));
   }, []);
 
   return (
-    <div className="rounded-field bg-base-200 p-3 w-full flex flex-col gap-4">
-      <div className="flex items-center gap-2">
-        <Iconify icon='custom:recent-top' className='text-primary' />
-        <h3 className="text-sm font-semibold sm:text-lg">Personal details</h3>
+    <div className="rounded-field bg-base-200 p-3 md:p-6 w-full flex flex-col gap-3 md:gap-4">
+      <div className="flex items-center gap-2 md:h-8">
+        <Iconify icon="custom:recent-top" className="text-primary" />
+        <h3 className="text-sm font-semibold sm:text-lg text-base-content/80">Personal details</h3>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
         {/* <div className="flex flex-col gap-2">
@@ -172,7 +204,11 @@ export function PersonalDetails() {
           <h4 className="text-xs font-semibold sm:text-base">Date of Birth</h4>
 
           <div className="flex items-center gap-2">
-            <YearMonthDay onChange={handleDateChange} value={{ day: status?.birthday?.split('-')[2] || '', month: status?.birthday?.split('-')[1] || '', year: status?.birthday?.split('-')[0] || '' }} />
+            <YearMonthDay onChange={handleDateChange} value={{
+              day: status?.birthday?.split("-")[2] || "",
+              month: status?.birthday?.split("-")[1] || "",
+              year: status?.birthday?.split("-")[0] || ""
+            }} />
           </div>
         </div>
 
@@ -186,7 +222,7 @@ export function PersonalDetails() {
                 ...old,
                 phone: value
               }))}
-              onChangeCountryCallingCode={(value) => console.log(value)}
+              // onChangeCountryCallingCode={(value) => console.log(value)}
               onValidationChange={useCallback((isValid: boolean) => setIsResetUsernameValid(isValid), [])}
               ref={useRef<HTMLInputElement>(null)} mode="phone" />
             <ErrorMessageBox
@@ -269,10 +305,10 @@ export function PersonalDetails() {
       </div>
 
       <ConfirmBox
-        className={'btn btn-primary h-10 sm:h-12 w-[139px] self-end'}
+        className={"btn btn-primary h-10 sm:h-12 w-[139px] self-end"}
         loading={loading} onClick={handle}>
         {t("common.save")}
       </ConfirmBox>
     </div>
-  )
+  );
 }

@@ -50,3 +50,49 @@ export interface CountdownTime {
   minutes: number;
   seconds: number;
 }
+
+export interface AchievementStep {
+  id: number
+  achievement_id: number
+  achievement_name: string
+  number: number
+  reward_amount: string
+  reward_currency: string
+  step: number
+  created_at: string
+  updated_at: string
+  version: number
+  finish_number: number
+  total_number: number
+  locked: boolean
+  is_finish: boolean
+  is_claim: boolean
+  reward_achievement_log_id: number
+}
+
+export type IGetMondayVipBonus = {
+  id: number;
+  user_id: number;
+  week_start_time: number;
+  week_end_time: number;
+  current_wager: string;
+  max_wager: string;
+  value: string;
+  claim_start_time: number;
+  claim_end_time: number;
+  claim_time: number;
+  status: number;
+}
+
+export type IVipBonusClaim = {
+  id: number;
+  user_id: number;
+  item: string;
+  value: number;
+  sum: number;
+  locked: string;
+  created_at: number;
+  updated_at: number;
+  expire_at: number;
+  currency: string;
+}

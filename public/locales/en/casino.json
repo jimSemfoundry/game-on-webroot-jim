@@ -11,6 +11,7 @@
   "superSlot": "SUPER SLOT",
   "tournaments": "TOURNAMENTS",
   "daily": "DAILY",
+  "weekly": "WEEKLY",
   "playNow": "PLAY NOW",
   "exclusive": "EXCLUSIVE",
   "vipRewards": "VIP REWARDS",
@@ -77,12 +78,10 @@
   "needHelpChoosingGame": "Feeling Lucky?",
   "scrollThroughAndWeWillMatchYouWithAGame": "Hit shuffle and let the games \n come to you!",
   "shuffle": "Shuffle",
-  "**********": "********************此处开始新增翻译start********************",
   "shuffling": "Shuffling...",
   "selected": "Selected!",
   "readyToShuffle": "Ready to shuffle!",
   "shuffleAgain": "Shuffle Again",
-  "**********": "********************此处开始新增翻译end********************",
   "networks": "Networks",
   "currencies": "Currencies",
   "viewAll": "View all",
@@ -114,10 +113,8 @@
     "sixDescriptionTwo": "PARTNER",
     "sevenDescription": "SUPER SLOT",
     "sevenDescriptionTwo": "TOURNAMENTS \n DAILY",
-    "**********": "********************此处开始新增翻译start********************",
     "beTheFirst": "BE THE FIRST.",
-    "challengeEverything": "CHALLENGE\nEVERYTHING",
-    "**********": "********************此处开始新增翻译end********************"
+    "challengeEverything": "CHALLENGE\nEVERYTHING"
   },
   "playForFun": "Demo Play",
   "weAccept": "We Accept",
@@ -128,5 +125,7 @@
   "select": "Select",
   "inTheBottomBar": "in the bottom bar.",
   "addHomeScreen": "Add to Home Screen",
-  "latestWins": "Latest Wins"
+  "latestWins": "Latest Wins",
+  "spinPlayAndWinAcrossTopCasinoHits": "Spin, play, and win across top casino hits",
+  "scoreBigOnSportsFromAroundTheWorld": "Score big on sports from around the world"
 }

@@ -11,8 +11,8 @@ import { PhoneVerification } from "@/sections/profile/security/PhoneVerification
 import { EmailVerification } from "@/sections/profile/security/EmailVerification.tsx";
 import { Card } from "@/sections/profile/c/Card.tsx";
 import { useState } from "react";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
 import { NavScrollBar } from "@/sections/profile/c/NavScrollBar.tsx";
+import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export function FreeCombination() {
   const isMobile = useMediaQuery("(max-width: 768px)");

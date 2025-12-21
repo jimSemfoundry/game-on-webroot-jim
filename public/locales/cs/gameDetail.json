@@ -10,7 +10,7 @@
   "gameLobbySettingsDescription": "Nastavení herní lobby",
   "launchInFullScreenDescription": "Všechny následující hry se ve výchozím nastavení spustí v režimu celé obrazovky.",
   "betId": "ID Sázky",
-  "bet": "Sázka",
+  "bet": "Sázka: {{amount}}",
   "profit": "Zisk",
   "x": "X",
   "noRecordsFound": "Nebyly nalezeny žádné záznamy",
@@ -24,5 +24,7 @@
   "gameInformation": "Informace o hře",
   "totalTips": "Tipy",
   "result": "Výsledek",
-  "myBets": "Mé Sázky"
+  "myBets": "Mé Sázky",
+  "**********": "",
+  "demoPlay": "Demo Hra"
 }

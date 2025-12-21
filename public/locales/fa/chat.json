@@ -1,7 +1,7 @@
 {
-    "global": "جهانی",
-    "notifications": "اعلان‌ها",
-    "support": "پشتیبانی",
-    "retry": "تلاش مجدد",
-    "customerServiceChatFailedToLoad": "چت خدمات مشتری بارگیری نشد"
+  "global": "جهانی",
+  "notifications": "اعلان‌ها",
+  "support": "پشتیبانی",
+  "retry": "تلاش مجدد",
+  "customerServiceChatFailedToLoad": "چت خدمات مشتری بارگیری نشد"
 }

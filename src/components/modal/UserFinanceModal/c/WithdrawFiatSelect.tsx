@@ -1,15 +1,12 @@
 import {
+  useSupportedCurrencyV2Filter,
   useSupportedFiatWithdrawGatewaysV2,
-  useSupportedSettlementCurrenciesFilter,
-  useUserLatestWithdraw
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useBoundStore } from "@/store";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
 import { WithdrawMethodSelectV1 } from "@/components/modal/UserFinanceModal/c/WithdrawMethodSelectV1.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal";
+import { DisplayContent, FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const WithdrawFiatSelect = () => {
   const { t } = useTranslation();
@@ -17,26 +14,10 @@ export const WithdrawFiatSelect = () => {
   // from data store, share common data
   const { withdrawFiat, setWithdrawFiat } = useBoundStore();
 
-  const [l1, originCurrencies, currencies] = useSupportedSettlementCurrenciesFilter("FIAT", "WITHDRAW");
-
-  // 用户最后一次提现的币种
-  const { data: latestWithdraw, isLoading: l2 } = useUserLatestWithdraw();
+  const [l1, originCurrencies, currencies] = useSupportedCurrencyV2Filter("FIAT", "WITHDRAW");
 
   // 法币是否支持新版的提币操作
   const { data: gatewaysV2 } = useSupportedFiatWithdrawGatewaysV2(withdrawFiat.currency?.currency);
-
-  // initial default selected option
-  useEffect(() => {
-    if (l1 || l2) return;
-    const v = latestWithdraw?.data?.[0];
-    if (originCurrencies.length > 0) {
-      let find = undefined;
-      if (v && v?.network === "FIAT") find = originCurrencies.find((o: {
-        currency: string
-      }) => o?.currency === v?.currency);
-      return setWithdrawFiat({ currency: find || originCurrencies[0] });
-    }
-  }, [l1, l2, originCurrencies, latestWithdraw]);
 
   return (
     <div className="">

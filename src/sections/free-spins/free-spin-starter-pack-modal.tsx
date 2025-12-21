@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { m, AnimatePresence } from "motion/react";
 import { FreeSpinModalProps, ModalState } from './types';
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useTranslation } from "react-i18next";
 
-export function FreeSpinModal({ 
-  isOpen, 
-  onClose, 
-  onContinue, 
+export function FreeSpinModal({
+  isOpen,
+  onClose,
+  onContinue,
   freeSpinData,
   modalState: externalModalState,
   onModalStateChange,
@@ -15,6 +16,8 @@ export function FreeSpinModal({
   onWonAmountChange
 }: FreeSpinModalProps) {
   const isMobile = useMediaQuery("(max-width: 640px)");
+
+  const { t } = useTranslation();
   // const { t } = useTranslation();
   const [internalModalState, setInternalModalState] = useState<ModalState>("closed");
   const [internalWonAmount, setInternalWonAmount] = useState<number>(0);
@@ -58,10 +61,10 @@ export function FreeSpinModal({
   const handleOpenBox = () => {
     setIsAnimating(true);
     updateModalState("opening");
-    
+
     // 设置获得的免费旋转次数
     updateWonAmount(freeSpinsCount);
-    
+
     // 延迟1秒后显示开启状态（与 Mystery Box 一致）
     setTimeout(() => {
       updateModalState("opened");
@@ -94,7 +97,7 @@ export function FreeSpinModal({
               filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
             }}
           >
-            Starter
+            {t("bonus:starter")}
           </h1>
           <h1
             className="text-[70px] font-[Lobster] -mt-12 text-end w-full -mr-5"
@@ -109,7 +112,7 @@ export function FreeSpinModal({
               filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
             }}
           >
-            Pack
+            {t("bonus:pack")}
           </h1>
         </div>
       </div>
@@ -129,10 +132,10 @@ export function FreeSpinModal({
             animate={
               shaking
                 ? {
-                    rotate: [0, -8, 8, -6, 6, -4, 4, 0],
-                    x: [0, -6, 6, -5, 5, -3, 3, 0],
-                    transition: { duration: 0.6, ease: "easeInOut" },
-                  }
+                  rotate: [0, -8, 8, -6, 6, -4, 4, 0],
+                  x: [0, -6, 6, -5, 5, -3, 3, 0],
+                  transition: { duration: 0.6, ease: "easeInOut" },
+                }
                 : undefined
             }
             onAnimationComplete={() => {
@@ -164,10 +167,10 @@ export function FreeSpinModal({
       </div>
 
       {/* Open Box Button */}
-      <button 
-        onClick={handleOpenBox} 
-        disabled={isAnimating} 
-        className="btn btn-primary btn-lg px-16 mb-4 z-10 mt-6 sm:btn-xl"
+      <button
+        onClick={handleOpenBox}
+        disabled={isAnimating}
+        className="btn btn-primary btn-lg px-16 mb-4 z-10 sm:btn-xl"
       >
         {isAnimating ? (
           <span className="loading loading-spinner loading-sm" />
@@ -202,7 +205,7 @@ export function FreeSpinModal({
               filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
             }}
           >
-            You Win
+            {t("bonus:you_win")}
           </h1>
         </div>
       </div>
@@ -240,7 +243,7 @@ export function FreeSpinModal({
           </div>
           {/* Optimized celebration animation - Fewer elements, larger distances */}
           <div className="absolute -inset-20 flex items-center justify-center pointer-events-none z-50 overflow-hidden" style={{ willChange: "transform" }}>
-            
+
             {/* Persistent floating coins for first 3 */}
             {Array.from({ length: 3 }).map((_, i) => {
               const angle = (i * 120); // 3 coins at 120° apart
@@ -248,14 +251,14 @@ export function FreeSpinModal({
               const dx = Math.sin((angle * Math.PI) / 180) * distance;
               const dy = -Math.cos((angle * Math.PI) / 180) * distance - 40;
               const floatDelay = i * 0.3;
-              
+
               return (
                 <m.img
                   key={`coin-float-${i}`}
                   src={coinImages[i]}
                   className="absolute drop-shadow-2xl"
-                  style={{ 
-                    width: '32px', 
+                  style={{
+                    width: '32px',
                     height: '32px',
                     left: `calc(50% + ${dx}px)`,
                     top: `calc(50% + ${dy}px)`,
@@ -275,7 +278,7 @@ export function FreeSpinModal({
                   }}
                   transition={{
                     opacity: { duration: 3.2, times: [0, 0.7, 0.8, 0.9, 1] },
-                    y: { 
+                    y: {
                       delay: 3.2 + floatDelay,
                       duration: 3,
                       repeat: Infinity,
@@ -294,7 +297,7 @@ export function FreeSpinModal({
                 />
               );
             })}
-            
+
             {/* Persistent stars with scale animation */}
             {Array.from({ length: 4 }).map((_, i) => {
               const angles = [45, 135, 225, 315];
@@ -302,14 +305,14 @@ export function FreeSpinModal({
               const distance = 160 + (i % 2) * 40;
               const dx = Math.sin((angle * Math.PI) / 180) * distance;
               const dy = -Math.cos((angle * Math.PI) / 180) * distance - 20;
-              
+
               return (
                 <m.img
                   key={`star-persist-${i}`}
                   src="/images/rewards/mystery-box/star.svg"
                   className="absolute"
-                  style={{ 
-                    width: '24px', 
+                  style={{
+                    width: '24px',
                     height: '24px',
                     left: `calc(50% + ${dx}px)`,
                     top: `calc(50% + ${dy}px)`,
@@ -321,7 +324,7 @@ export function FreeSpinModal({
                   }}
                   transition={{
                     opacity: { duration: 3.5, times: [0, 0.6, 0.7, 0.8, 1] },
-                    scale: { 
+                    scale: {
                       duration: 3.5,
                       times: [0, 0.6, 0.7, 0.8, 0.9, 0.95, 1],
                       repeat: Infinity,
@@ -333,7 +336,7 @@ export function FreeSpinModal({
                 />
               );
             })}
-            
+
             {/* Persistent vectors without animation */}
             {Array.from({ length: 6 }).map((_, i) => {
               const angles = [30, 90, 150, 210, 270, 330];
@@ -343,14 +346,14 @@ export function FreeSpinModal({
               const dy = -Math.cos((angle * Math.PI) / 180) * distance;
               const isVector1 = i % 2 === 0;
               const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
-              
+
               return (
                 <m.img
                   key={`vector-persist-${i}`}
                   src={src}
                   className="absolute"
-                  style={{ 
-                    width: '28px', 
+                  style={{
+                    width: '28px',
                     height: '28px',
                     left: `calc(50% + ${dx}px)`,
                     top: `calc(50% + ${dy}px)`,
@@ -367,7 +370,7 @@ export function FreeSpinModal({
                 />
               );
             })}
-            
+
             {/* Main coin explosion - Reduced count, increased distance */}
             {Array.from({ length: 10 }).map((_, i) => {
               const angle = (i * 36) - 18; // 10 coins spread evenly
@@ -378,18 +381,18 @@ export function FreeSpinModal({
               const size = 36 + Math.random() * 20; // Slightly larger coins
               const rotation = Math.random() * 900 + 360;
               const src = coinImages[i % coinImages.length];
-              
+
               return (
                 <m.img
                   key={`coin-main-${i}`}
                   src={src}
                   className="absolute drop-shadow-2xl"
                   style={{ width: `${size}px`, height: `${size}px` }}
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0.2, 
-                    x: 0, 
-                    y: 20, 
+                  initial={{
+                    opacity: 0,
+                    scale: 0.2,
+                    x: 0,
+                    y: 20,
                     rotate: 0,
                     filter: "brightness(1.3) drop-shadow(0 0 12px rgba(255, 215, 0, 0.8))"
                   }}
@@ -407,8 +410,8 @@ export function FreeSpinModal({
                       i < 3 ? "brightness(1.1) drop-shadow(0 0 4px rgba(255, 215, 0, 0.3))" : "brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0))"
                     ]
                   }}
-                  transition={{ 
-                    duration: 3.2, 
+                  transition={{
+                    duration: 3.2,
                     delay: delay,
                     ease: [0.23, 1, 0.32, 1]
                   }}
@@ -425,23 +428,23 @@ export function FreeSpinModal({
               const delay = 0.1 + Math.random() * 0.1;
               const size = 28 + Math.random() * 16;
               const rotation = Math.random() * 720 + 180;
-              
+
               return (
                 <m.img
                   key={`star-${i}`}
                   src="/images/rewards/mystery-box/star.svg"
                   className="absolute"
-                  style={{ 
-                    width: `${size}px`, 
+                  style={{
+                    width: `${size}px`,
                     height: `${size}px`,
                     filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))"
                   }}
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0.1, 
-                    x: 0, 
-                    y: 15, 
-                    rotate: 0 
+                  initial={{
+                    opacity: 0,
+                    scale: 0.1,
+                    x: 0,
+                    y: 15,
+                    rotate: 0
                   }}
                   animate={{
                     opacity: i < 2 ? [0, 1, 0.8, 0.3] : [0, 1, 0.8, 0], // 保留前2个星星
@@ -450,8 +453,8 @@ export function FreeSpinModal({
                     y: [15, dy * 0.3, dy + 30, dy + 120],
                     rotate: [0, rotation * 0.5, rotation],
                   }}
-                  transition={{ 
-                    duration: 2.8, 
+                  transition={{
+                    duration: 2.8,
                     delay: delay,
                     ease: "easeOut"
                   }}
@@ -470,23 +473,23 @@ export function FreeSpinModal({
               const size = 35 + Math.random() * 25; // Larger ribbons
               const rotation = Math.random() * 360;
               const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
-              
+
               return (
                 <m.img
                   key={`ribbon-${i}`}
                   src={src}
                   className="absolute opacity-90"
-                  style={{ 
-                    width: `${size}px`, 
+                  style={{
+                    width: `${size}px`,
                     height: `${size}px`,
                     filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))"
                   }}
-                  initial={{ 
-                    opacity: 0, 
-                    scale: 0.3, 
-                    x: 0, 
-                    y: 10, 
-                    rotate: rotation 
+                  initial={{
+                    opacity: 0,
+                    scale: 0.3,
+                    x: 0,
+                    y: 10,
+                    rotate: rotation
                   }}
                   animate={{
                     opacity: [0, 0.9, 0.7, 0],
@@ -495,15 +498,15 @@ export function FreeSpinModal({
                     y: [10, dy * 0.4, dy + 80],
                     rotate: [rotation, rotation + 180, rotation + 360],
                   }}
-                  transition={{ 
-                    duration: 2.6, 
+                  transition={{
+                    duration: 2.6,
                     delay: delay,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
                 />
               );
             })}
-            
+
             {/* Sparkling particles - Reduced count, wider spread */}
             {Array.from({ length: 15 }).map((_, i) => {
               const angle = Math.random() * 360;
@@ -512,7 +515,7 @@ export function FreeSpinModal({
               const dy = -Math.cos((angle * Math.PI) / 180) * distance + (Math.random() - 0.5) * 60;
               const delay = Math.random() * 0.3;
               const size = 3 + Math.random() * 4; // Slightly larger particles
-              
+
               return (
                 <m.div
                   key={`spark-${i}`}
@@ -529,22 +532,22 @@ export function FreeSpinModal({
                     x: [0, dx * 0.6, dx * 1.2],
                     y: [0, dy * 0.7, dy + 50],
                   }}
-                  transition={{ 
-                    duration: 2.0, 
+                  transition={{
+                    duration: 2.0,
                     delay: delay,
                     ease: "easeOut"
                   }}
                 />
               );
             })}
-            
+
             {/* Continuous sparkles that appear after explosion */}
             {Array.from({ length: 6 }).map((_, i) => {
               const angle = i * 60;
               const radius = 120;
               const x = Math.sin((angle * Math.PI) / 180) * radius;
               const y = -Math.cos((angle * Math.PI) / 180) * radius - 30;
-              
+
               return (
                 <m.div
                   key={`continuous-spark-${i}`}
@@ -567,7 +570,7 @@ export function FreeSpinModal({
                     }
                   }}
                 >
-                  <div 
+                  <div
                     className="w-2 h-2 bg-gradient-to-r from-yellow-300 to-yellow-100 rounded-full"
                     style={{
                       boxShadow: "0 0 6px rgba(255, 215, 0, 0.8), 0 0 12px rgba(255, 215, 0, 0.4)"
@@ -605,7 +608,7 @@ export function FreeSpinModal({
       )}
 
       {/* Continue Button */}
-      <button 
+      <button
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -617,7 +620,7 @@ export function FreeSpinModal({
         }}
         className="btn btn-success btn-lg px-16 mb-4 z-10 mt-6 sm:btn-xl"
       >
-        Continue
+        {t('common:common.continue')}
       </button>
     </div>
   );

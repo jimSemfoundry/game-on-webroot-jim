@@ -1,9 +1,51 @@
 {
+  "double_or_nothing_description": "Solicită-ți bonusul ca de obicei...\nSau fă un salt îndrăzneț către",
+  "double_it": "Dublează-l!",
+  "no_thanks": "Nu, mulțumesc",
+  "double_or_nothing": "Dublează sau Nimic",
+  "come_back_tomorrow": "Întoarce-te mâine",
+  "promo_code": "Cod Promo",
+  "got_a_code": "Ai un cod? Știi ce ai de făcut!",
+  "lifetime_bonus": "Bonus pe Viață",
+  "claimed": "Solicitat",
+  "starter": "Începător",
+  "pack": "Pachet",
+  "achievements_card_description": "Colectează recompense speciale pentru realizări concepute pentru a sărbători fiecare pas al progresului tău!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Stăpânește arta norocului",
+    "achievement_verify_phone": "Energie și putere de neoprit",
+    "achievement_add_desktop_app": "Întotdeauna la îndemână",
+    "achievement_super_spreader": "Împărtășește experiența de joc",
+    "achievement_conquistador": "Înfruntă fiecare obstacol",
+    "achievement_game_explorer": "Descoperă noi lumi de joc",
+    "achievement_card_shark": "Domina jocurile de cărți",
+    "achievement_slotmaster": "Stăpânul sloturilor",
+    "achievement_talkative": "Deschide calea pentru alții",
+    "achievement_bet_count": "Stăpânește jocurile de precizie",
+    "achievement_deposit_count": "Realizează victoria supremă",
+    "achievement_wager_count": "Arde prin provocări",
+    "achievement_single_bet": "Devino legendar",
+    "achievement_single_deposit": "Navighează rețelele blockchain",
+    "achievement_single_wager": "Stăpânește strategiile financiare",
+    "achievement_single_payout": "Domina piața crypto",
+    "achievement_crypto_bro": "Stăpânește tranzacționarea criptomonedelor",
+    "achievement_crypto_baron": "Domina piața crypto",
+    "achievement_chain_shifter": "Navighează rețelele blockchain",
+    "achievement_money_master": "Stăpânește strategiile financiare",
+    "achievement_sniper": "Stăpânește jocurile de precizie",
+    "achievement_champion": "Realizează victoria supremă",
+    "achievement_name_of_fame": "Devino legendar",
+    "achievement_guiding_star": "Deschide calea pentru alții",
+    "achievement_face_of_fortune": "Stăpânește arta norocului",
+    "achievement_dynamo": "Energie și putere de neoprit",
+    "achievement_inferno": "Arde prin provocări",
+    "achievement_the_challenger": "Înfruntă fiecare obstacol"
+  },
   "bonus": "Bonus",
   "total_bonus_claimed": "Total Bonus Revendicat",
   "details": "Detalii",
   "redeem": "Revendică",
-"deposit_bonus": "Colectie de bonusuri de depunere",
+  "deposit_bonus": "Colectie de bonusuri de depunere",
   "get_up_to": "Obține până la",
   "deposit_now": "Depune Acum",
   "bonus_ends_in": "Bonusul Expiră în",
@@ -26,14 +68,15 @@
   "daily_cashback": "Cashback Zilnic",
   "bonus_calendar": "Calendar Bonus",
   "claim_every_8_hours": "Revendică la fiecare 8 ore",
-"locked": "Colectie de bonusuri de depunere",
+  "locked": "Colectie de bonusuri de depunere",
   "next_claim_in": "Următoarea revendicare în",
   "bonus_pool": "Colectie de recompense viitoare",
-   "bonus_calendar_details": "Revendică la fiecare 8 ore pentru a primi un bonus!",
+  "bonus_calendar_details": "Revendică la fiecare 8 ore pentru a primi un bonus!",
   "release_schedule": "Program de Eliberare",
   "total_vip_bonus_claimed": "Total Bonus VIP Revendicat",
   "your_vip_progress": "Progresul Tău VIP",
   "available_at_vip": "Disponibil la VIP {{vip}}",
+  "vip_progress_description": "Împinge înainte! Nivelul următor deblochează {{amount}} din piscina ta de bonusuri.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Atinge VIP 4 și obține acces la Rotire Norocoasă - șansa ta de a câștiga recompense suplimentare în fiecare zi!",
   "weekly_cashback": "Cashback Săptămânal",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Atinge VIP 12 și deblochează cashback săptămânal, plasa ta personală de siguranță pentru acțiune de mare miză!",
@@ -49,6 +92,7 @@
   "lucky_spin": "Rotire Norocoasă",
   "lucky_number_seven": "Număr Norocos Șapte",
   "expires_in": "Expiră în",
+  "expires": "Expiră",
   "go": "Du-te",
   "conquest_just_wager_title": "Pariază doar pe {{amount}}",
   "conquest_just_wager_description": "Pariază {{amount}} în orice jocuri într-o singură zi pentru a elibera {{reward}} din fondul tău de bonus astăzi!",
@@ -99,131 +143,188 @@
   "claimable": "De revendicat",
   "achievement_verify_email": {
     "name": "Verifică Email",
-    "description": "Această realizare este acordată jucătorilor care și-au verificat adresa de email, securizând identitatea și deblocând accesul sigur. Este un semn al pregătirii și fiabilității — primul pas al fiecărui jucător serios."
+    "description": "Această realizare este acordată jucătorilor care și-au verificat emailul, blocându-și identitatea și deblocând accesul securizat. Este un semn de pregătire și fiabilitate — primul pas al fiecărui jucător serios."
   },
   "achievement_verify_phone": {
     "name": "Verifică Telefon",
-    "description": "Această realizare este acordată jucătorilor care și-au verificat numărul de telefon pentru a rămâne informați și conectați. Semnalează încredere, angajament și dedicare față de pulsul jocului."
+    "description": "Această realizare este acordată jucătorilor care și-au verificat numărul de telefon pentru a rămâne informați și conectați. Semnalează încredere, implicare și angajament față de pulsul jocului."
   },
   "achievement_add_desktop_app": {
-    "name": "Adaugă pe ecranul principal",
-    "description": "Această realizare este acordată jucătorilor care au adăugat aplicația noastră mini Telegram pe ecranul principal. Întotdeauna la îndemână, această acțiune arată o dedicare adevărată – deoarece jucătorii adevărați păstrează jocul aproape."
+    "name": "Adaugă pe Ecranul Principal",
+    "description": "Această realizare este acordată jucătorilor care au adăugat mini aplicația noastră Telegram pe ecranul principal. Întotdeauna la îndemână, această acțiune arată adevărata dedicare - pentru că jucătorii reali își țin jocul aproape."
   },
   "achievement_super_spreader": {
-    "name": "Super Propagator",
-    "description": "Această realizare este acordată jucătorilor care au recomandat cu succes <0>{{count}} utilizatori noi</0>. Adevărați constructori de comunitate, ei extind cercul și aduc energie nouă jocului. Influența lor crește cu fiecare conexiune realizată."
+    "name": "Super Împărtășitor",
+    "description": "Această realizare este acordată jucătorilor care au reușit să recomande <0>{{count}} utilizatori noi</0>. Un adevărat constructor de comunitate, ei extind cercul și aduc o nouă energie în joc. Influența lor crește cu fiecare conexiune pe care o fac."
   },
   "achievement_conquistador": {
-    "name": "Cuceritor",
-    "description": "Această realizare este acordată jucătorilor care au realizat un total de <0>{{count}} misiuni</0>. Mânați de determinare și sete de victorie, ei cuceresc fiecare provocare care le iese în cale — adevărați campioni ai călătoriei."
+    "name": "Conquistador",
+    "description": "Această realizare este acordată jucătorilor care au realizat un total de <0>{{count}} misiuni</0>. Determinați și cu o sete de victorie, ei cuceresc fiecare provocare care le iese în cale — un adevărat campion al călătoriei."
   },
   "achievement_game_explorer": {
     "name": "Explorator de Jocuri",
-    "description": "Această realizare este acordată jucătorilor care au încercat <0>{{count}} jocuri diferite</0>. Curioși și aventuroși, ei explorează platforma, mereu dornici să descopere noi moduri de a juca și a câștiga."
+    "description": "Această realizare este acordată jucătorilor care au încercat <0>{{count}} jocuri diferite</0>. Curioși și aventuroși, ei se aventurează pe platformă, mereu dornici să descopere noi modalități de a juca și câștiga."
   },
   "achievement_card_shark": {
-    "name": "Rechin al Cărților",
-    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe jocuri de cărți, demonstrând reziliență, strategie și dorința de a-și asuma riscuri. Acești jucători cu mize mari și-au câștigat locul printre elită. Cărțile sunt în mâinile lor, iar jocul le aparține."
+    "name": "Rechin de Cărți",
+    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe jocuri de cărți, dovedind reziliența, strategia și disponibilitatea de a-și asuma riscuri. Acești jucători de înaltă miză și-au câștigat locul printre cei de elită. Cărțile sunt în mâinile lor, iar jocul este al lor de comandat."
   },
   "achievement_slotmaster": {
-    "name": "Maestru al Sloturilor",
-    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe jocuri de sloturi, demonstrând perseverență, spirit de aventură și dragoste pentru rotire. Acești jucători dedicați îmbrățișează rolele cu încredere — norocul poate începe jocul, dar măiestria îi ține în joc."
+    "name": "Stăpânul Sloturilor",
+    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe jocuri de sloturi, dovedind perseverența, spiritul de aventură și dragostea pentru rotire. Acești jucători dedicați îmbrățișează rolele cu încredere — norocul poate conduce, dar stăpânirea îi menține în joc."
   },
   "achievement_talkative": {
-    "name": "Vorbăreț",
-    "description": "Această realizare este acordată jucătorilor care au vorbit de <0>{{count}} ori</0> în camera de chat. Fiecare mesaj contează — faci primul pas pentru a deveni o parte adevărată a conversației."
+    "name": "Vorbareț",
+    "description": "Această realizare este acordată jucătorilor care au vorbit <0>{{count}} ori</0> în sala de chat. Fiecare mesaj contează — faci primul pas pentru a deveni o parte adevărată a conversației."
   },
   "achievement_bet_count": {
-    "name": "Număr de Pariuri",
-    "description": "Această realizare este acordată jucătorilor care au plasat un total de <0>{{count}} pariuri</0>. Adevărați credincioși în șansă, spiritul lor neclintit menține jocul viu cu fiecare pariu."
+    "name": "Numărul de Pariuri",
+    "description": "Această realizare este acordată jucătorilor care au plasat un total de <0>{{count}} pariuri</0>. Un adevărat credincios în șansă, spiritul lor neclintit menține jocul viu cu fiecare pariu."
   },
   "achievement_deposit_count": {
-    "name": "Număr de Depuneri",
-    "description": "Această realizare este acordată jucătorilor care au efectuat un total de <0>{{count}} depuneri</0>. Cu un flux constant de credite și angajament neclintit, ei au arătat că nu sunt doar jucători — sunt magnați în devenire."
+    "name": "Numărul de Depozite",
+    "description": "Această realizare este acordată jucătorilor care au făcut un total de <0>{{count}} depozite</0>. Cu un flux constant de credite și un angajament neclintit, au arătat că nu sunt doar jucători — sunt tycooni în devenire."
   },
   "achievement_change_avatar": {
-    "name": "Schimbă Avatar",
-    "description": "Această realizare este acordată jucătorilor care își personalizează profilul schimbând avatarul. Un pas îndrăzneț către a ieși în evidență și a-ți asuma identitatea în joc."
+    "name": "Schimbă Avatarul",
+    "description": "Această realizare este acordată jucătorilor care își personalizează profilul schimbându-și avatarul. Un pas îndrăzneț spre a ieși în evidență și a-ți revendica identitatea în joc."
   },
   "achievement_set_username": {
-    "name": "Setează Nume Utilizator",
-    "description": "Ți-ai revendicat numele — acum legenda începe. Această realizare onorează pe cei care își creează spațiul și îl fac oficial."
+    "name": "Setează Numele de Utilizator",
+    "description": "Ai revendicat numele tău — acum legenda începe. Această realizare onorează pe cei care își creează propriul spațiu și îl fac oficial."
   },
   "achievement_download_mobile_app": {
     "name": "Descarcă Aplicația Mobilă",
-    "description": "Această insignă este pentru jucătorii care au luat jocul cu ei. Descărcarea aplicației arată că nu ești aici să faci pauză — ești aici să joci oricând, oriunde."
+    "description": "Această insignă merge la jucătorii care au luat jocul cu ei. Descărcarea aplicației arată că nu ești aici să te oprești — ești aici să joci oricând, oriunde."
   },
   "achievement_wager_in_a_day_single_game": {
     "name": "Pariu Maxim într-o Zi pe un Singur Joc",
-    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe un singur joc într-o zi. Recunoaște pe cei cu concentrare neclintită, strategie calculată și curajul de a-și asuma riscuri mari. Acești jucători de elită și-au stăpânit jocul ales — și joacă pentru a câștiga."
+    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe un singur joc într-o zi. Recunoaște-i pe cei cu o concentrare neclintită, strategie calculată și curajul de a-și asuma riscuri îndrăznețe. Acești jucători de elită și-au stăpânit jocul preferat — și joacă pentru a câștiga."
   },
   "achievement_slots_win_count": {
-    "name": "Număr de Câștiguri la Sloturi",
-    "description": "Această realizare este acordată jucătorilor care au obținut <0>{{count}} câștiguri</0> la jocurile de sloturi. Cu fiecare rotire, ei înfruntă șansele și sărbătoresc victorie după victorie. Norocul poate începe jocul — dar consistența îi face campioni."
+    "name": "Numărul de Câștiguri la Sloturi",
+    "description": "Această realizare este acordată jucătorilor care au obținut <0>{{count}} câștiguri</0> la jocurile de sloturi. Cu fiecare rotire, ei sfidează șansele și sărbătoresc victorie după victorie. Norocul poate începe jocul — dar consistența îi face campioni."
   },
   "achievement_slots_multiplier": {
-    "name": "Multiplicator la Sloturi",
-    "description": "Această realizare este acordată jucătorilor care au obținut un <0>câștig cu un multiplicator de {{count}}x</0> sau mai mult într-o singură rotire la sloturi. Onorează pe cei care urmăresc măreția, îmbrățișează emoția riscului mare și obțin recompense extraordinare. Aceștia nu sunt jucători obișnuiți — ei domină rolele și se ridică deasupra celorlalți."
+    "name": "Multiplicator Sloturi",
+    "description": "Această realizare este acordată jucătorilor care au obținut o <0>câștig cu un multiplicator de {{count}}x</0> sau mai mult într-o singură rotire de slot. Onorează-i pe cei care urmăresc măreția, îmbrățișează adrenalina riscurilor mari și obțin recompense extraordinare. Aceștia nu sunt jucători obișnuiți — ei comandă rolele și se ridică deasupra celorlalți."
+  },
+  "achievement_champion": {
+    "name": "Campion",
+    "description": "Această realizare este acordată jucătorilor care au obținut <0>10 victorii</0>. Un Campion se ridică mândru în arena șansei, dovedindu-și reziliența rundă după rundă. Cu fiecare victorie, își cimenta locul printre concurenții care se ridică deasupra norocului pentru a revendica gloria."
+  },
+  "achievement_slot_master": {
+    "name": "Maestru al Sloturilor",
+    "description": "Această realizare este acordată jucătorilor care au pariat cel puțin <0>{{amount}}</0> pe jocuri de sloturi. Un Maestru al Sloturilor învârte cu încredere și perseverență, transformând fiecare tambur într-o șansă pentru avere. Cu mâini stabile și joc fără frică, dovedește că adevărata măiestrie se construiește o învârtire la un moment dat."
+  },
+  "achievement_the_challenger": {
+    "name": "Provocatorul",
+    "description": "Această realizare este acordată jucătorilor care au plasat cel puțin <0>10 pariuri valide</0> în istoria lor de joc. Provocatorul se ridică la fiecare oportunitate, condus de determinare și de fiorul competiției. Îndrăzneț și necruțător, dovedește că adevărații concurenți nu se feresc de joc — ei pășesc înainte, pregătiți să-și testeze limitele și să-și revendice locul printre cei neînfricați."
+  },
+  "achievement_dynamo": {
+    "name": "Dynamo",
+    "description": "Această realizare este acordată jucătorilor care au efectuat <0>1 depunere</0> de cel puțin <0>{{amount}}</0> într-o singură tranzacție. Un Dynamo devine mai puternic cu fiecare reîncărcare, dovedindu-și consistența și determinarea pe calea măiestriei."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Fața Norocului",
+    "description": "Această realizare este acordată jucătorilor care și-au personalizat avatarul pentru prima dată. O Față a Norocului știe că identitatea este putere — fiecare alegere de stil, simbol sau expresie este o marcă a individualității. Prin modelarea aspectului lor, ei arată că adevărații jucători nu doar joacă jocul — ei își lasă amprenta asupra acestuia."
+  },
+  "achievement_name_of_fame": {
+    "name": "Numele Celebrității",
+    "description": "Această realizare este acordată jucătorilor care și-au setat numele de utilizator pentru prima dată. Un Nume al Celebrității marchează începutul unei adevărate identități, transformând un nou venit într-o prezență recunoscută. Îndrăzneț și unic, dovedește că fiecare legendă începe cu un nume memorabil."
+  },
+  "achievement_guiding_star": {
+    "name": "Steaua Călăuzitoare",
+    "description": "Această realizare este acordată jucătorilor care au adăugat jocul pe Ecranul lor de Acasă sau au descărcat aplicația. O Stea Călăuzitoare menține calea către avere clară, iluminând drumul înapoi către joc cu o singură atingere."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Această realizare este acordată jucătorilor care au pariat un total de cel puțin <0>{{amount}}</0> în întreaga lor istorie de joc. Highrollerii poartă marca angajamentului și prestigiului, dovedindu-și dedicația față de joc cu fiecare învârtire, pariu și rundă. Coroana lor nu este doar un simbol — este o mărturie a perseverenței, pasiunii și căutării averii."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Această realizare este acordată jucătorilor care au obținut un multiplicator de <0>20x</0> pe orice slot. Cu flăcările arzând, un Inferno transformă un singur pariu într-o furtună de avere."
+  },
+  "achievement_money_maverick": {
+    "name": "Maverick Financiar",
+    "description": "Această realizare este acordată jucătorilor care au efectuat o depunere de cel puțin <0>{{amount}}</0> într-o singură tranzacție, folosind gateway-uri de plată fiat sau locale. Un Maverick Financiar își croiește propriul drum cu încredere îndrăzneață, transformând banii de zi cu zi în oportunități extraordinare. Fără frică și aventuros, dovedește că adevărații mavericks nu doar urmează regulile — ei le redefiniesc."
+  },
+  "achievement_money_master": {
+    "name": "Maestru Financiar",
+    "description": "Această realizare este acordată jucătorilor care au efectuat o retragere fiat de cel puțin <0>{{amount}}</0> într-o singură tranzacție. Un Maestru Financiar stă mândru la răscrucea jocului și recompensei, convertind câștigurile lor în valoare reală. Cu mâini stabile și timp precis, ei arată că adevărata măiestrie nu este doar în joc — este în aducerea recompenselor acasă."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Această realizare este acordată jucătorilor care au efectuat o depunere de cel puțin <0>{{amount}}</0> într-o singură tranzacție, cu orice criptomonedă. Un Crypto Maestro își conduce fondurile ca un adevărat artist, orchestrând activele digitale cu precizie și stil. Încrezător pe scena blockchain-ului, ei sunt pionieri ai jocului care dovedesc că norocul favorizează pe cei îndrăzneți."
+  },
+  "achievement_crypto_baron": {
+    "name": "Baronul Crypto",
+    "description": "Această realizare este acordată jucătorilor care au efectuat o retragere crypto de cel puțin <0>{{amount}}</0> într-o singură tranzacție, cu orice criptomonedă. Un Baron Blockchain conduce domeniul activelor digitale, mutând fonduri pe lanț cu încredere și autoritate. Cu fiecare retragere reușită, ei dovedește că averea poate fi câștigată, asigurată și adusă acasă pe blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Schimbător de Lanț",
+    "description": "Această realizare este acordată jucătorilor care au finalizat cu succes o <0>tranzacție de schimb crypto</0>. Un Schimbător de Lanț este cineva care știe cum să se miște între token-uri cu încredere, adaptându-se cu ușurință la valurile pieței. Maeștri ai momentului, ei prosperă pe flexibilitate și transformare, mereu pregătiți să schimbe vitezele și să profite de oportunitate."
   },
   "item": {
-    "conquest_just_wager_on_100": "Cucerire Pariu Simplu pe 100",
-    "conquest_just_wager_on_200": "Cucerire Pariu Simplu pe 200",
-    "conquest_roulette_master": "Cucerire Maestru Ruletă",
-    "conquest_blackjack_master": "Cucerire Maestru Blackjack",
-    "conquest_baccarat_master": "Cucerire Maestru Baccarat",
-    "conquest_gameshow_master": "Cucerire Maestru Jocuri de Tip Show",
-    "conquest_slots_master_10": "Cucerire Maestru Sloturi 10",
-    "conquest_gameshow_master_20": "Cucerire Maestru Jocuri de Tip Show 20",
-    "conquest_roulette_master_30": "Cucerire Maestru Ruletă 30",
-    "conquest_blackjack_master_40": "Cucerire Maestru Blackjack 40",
-    "conquest_baccarat_master_50": "Cucerire Maestru Baccarat 50",
-    "conquest_big_win": "Cucerire Câștig Mare",
-    "conquest_huge_win": "Cucerire Câștig Uriaș",
-    "conquest_massive_win": "Cucerire Câștig Masiv",
-    "achievement_verify_email": "Achievement Verificare Email",
-    "achievement_verify_phone": "Achievement Verificare Telefon",
-    "achievement_add_desktop_app": "Achievement Adaugă Aplicație Desktop",
-    "achievement_super_spreader": "Achievement Super Răspânditor",
-    "achievement_conquistador": "Achievement Conquistador",
-    "achievement_game_explorer": "Achievement Explorator de Jocuri",
-    "achievement_card_shark": "Achievement Card Shark",
-    "achievement_slotmaster": "Achievement Slotmaster",
-    "achievement_talkative": "Achievement Vorbăreț",
-    "achievement_bet_count": "Achievement Număr Pariuri",
-    "achievement_deposit_count": "Achievement Număr Depuneri",
-    "achievement_change_avatar": "Achievement Schimbă Avatar",
-    "achievement_set_username": "Achievement Setează Nume Utilizator",
-    "achievement_download_mobile_app": "Achievement Descarcă Aplicație Mobilă",
-    "achievement_wager_in_a_day_single_game": "Achievement Pariu într-o Zi Joc Unic",
-    "achievement_slots_win_count": "Achievement Număr Victorii la Sloturi",
-    "achievement_slots_multiplier": "Achievement Multiplicator Sloturi",
-    "level_up": "Nivel Superior",
+    "conquest_just_wager_on_100": "Conquistați Doar Pariu pe 100",
+    "conquest_just_wager_on_200": "Conquistați Doar Pariu pe 200",
+    "conquest_roulette_master": "Conquistați Stăpânul Ruletelor",
+    "conquest_blackjack_master": "Conquistați Stăpânul Blackjack-ului",
+    "conquest_baccarat_master": "Conquistați Stăpânul Baccarat-ului",
+    "conquest_gameshow_master": "Conquistați Stăpânul Jocurilor",
+    "conquest_slots_master_10": "Conquistați Stăpânul Sloturilor 10",
+    "conquest_gameshow_master_20": "Conquistați Stăpânul Jocurilor 20",
+    "conquest_roulette_master_30": "Conquistați Stăpânul Ruletelor 30",
+    "conquest_blackjack_master_40": "Conquistați Stăpânul Blackjack-ului 40",
+    "conquest_baccarat_master_50": "Conquistați Stăpânul Baccarat-ului 50",
+    "conquest_big_win": "Conquistați Câștig Mare",
+    "conquest_huge_win": "Conquistați Câștig Uriaș",
+    "conquest_massive_win": "Conquistați Câștig Masiv",
+    "achievement_verify_email": "Realizare Verificare Email",
+    "achievement_verify_phone": "Realizare Verificare Telefon",
+    "achievement_add_desktop_app": "Realizare Adaugă Aplicația Desktop",
+    "achievement_super_spreader": "Realizare Super Împărtășitor",
+    "achievement_conquistador": "Realizare Conquistador",
+    "achievement_game_explorer": "Realizare Explorator de Jocuri",
+    "achievement_card_shark": "Realizare Rechin de Cărți",
+    "achievement_slotmaster": "Realizare Stăpânul Sloturilor",
+    "achievement_talkative": "Realizare Vorbareț",
+    "achievement_bet_count": "Realizare Numărul de Pariuri",
+    "achievement_deposit_count": "Realizare Numărul de Depozite",
+    "achievement_change_avatar": "Realizare Schimbă Avatarul",
+    "achievement_set_username": "Realizare Setează Numele de Utilizator",
+    "achievement_download_mobile_app": "Realizare Descarcă Aplicația Mobilă",
+    "achievement_wager_in_a_day_single_game": "Realizare Pariu în Ziua Unui Singur Joc",
+    "achievement_slots_win_count": "Realizare Numărul de Câștiguri la Sloturi",
+    "achievement_slots_multiplier": "Realizare Multiplicator Sloturi",
+    "level_up": "Nivel Up",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
     "group": "Comision",
     "referral": "Recomandare",
     "tournament": "Turneu",
-    "conquest_extra_reward": "Recompensă Extra de Conquista",
+    "conquest_extra_reward": "Conquistați Recompensă Extra",
     "bonus": "Bonus",
     "bonus_manual": "Bonus Manual",
-    "vip_bonus_lucky_number_seven": "Bonus VIP Număr Norocos Șapte",
+    "vip_bonus_lucky_number_seven": "Bonus VIP Numărul Norocos Șapte",
     "rakeback_bonus": "Bonus Rakeback",
-    "group_bonus": "Bonus de Grup",
-    "level_up_bonus": "Bonus de Creștere a Nivelului",
-    "refer_bonus": "Bonus de Recomandare",
-    "tournament_bonus": "Bonus de Turneu",
-    "vip_bonus_mystery_box": "Cutie Misterioasă Bonus VIP"
+    "group_bonus": "Bonus Grup",
+    "level_up_bonus": "Bonus Nivel Up",
+    "refer_bonus": "Bonus Recomandare",
+    "tournament_bonus": "Bonus Turneu",
+    "vip_bonus_mystery_box": "Bonus VIP Cutie Misterioasă"
   },
   "achievements_description": "Deblocat la VIP {{vip}}, aceste recompense sărbătoresc realizările tale cu surprize incitante pe parcurs!",
   "lucky_number_seven_description": "Nimeriți Numerele Norocoase {{number}} și câștigați un bonus dulce în fiecare zi!",
-"mystery_box_description": "Deschide cutia ta misterioasă o dată pe lună pentru recompense surpriză!",
+  "mystery_box_description": "Deschide cutia ta misterioasă o dată pe lună pentru recompense surpriză!",
+  "mystery_box_description2": "Apasă VIP {{vip}} pentru a primi o Cutie Misterioasă pe 7 ale fiecărei luni!",
   "mystery_box": "Cutie Misterioasă",
   "the_cannon_description": "O recompensă lunară atât de puternică încât adevărata sa natură rămâne un secret bine păzit.",
   "achievements_progress_name": {
     "achievement_verify_email": "Verifică Email",
     "achievement_verify_phone": "Verifică Telefon",
-    "achievement_add_desktop_app": "Adaugă Aplicație Desktop",
-    "achievement_super_spreader": "Super Răspânditor",
+    "achievement_add_desktop_app": "Adaugă Aplicația Desktop",
+    "achievement_super_spreader": "Super Împărtășitor",
     "achievement_conquistador": "Conquistador",
     "achievement_game_explorer": "Explorator de Jocuri"
   },
@@ -247,6 +348,60 @@
   "general_terms_answer_1": "Recompensele sunt calculate și creditate în BUCK/USDT, apoi afișate în moneda fiat preferată pe baza cursurilor de schimb în timp real pentru comoditate. Reține că toate conversiile sunt aproximative până la finalizarea tranzacției de schimb.",
   "general_terms_answer_2": "Cazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție.",
   "available": "Disponibil",
-"refresh_in": "Reîmprospătare în",
-"deposit_bonus_pool": "Colectie de bonusuri de depunere"
+  "refresh_in": "Reîmprospătare în",
+  "deposit_bonus_pool": "Colectie de bonusuri de depunere",
+  "dashboard": "Tabloul de bord",
+  "bonuses": "Bonusuri",
+  "vip_program": "Program VIP",
+  "bonusHub": {
+    "root": "Hub Bonus",
+    "resetOn": "Resetează Pe {{time}}",
+    "ongoing": "{{count}} În desfășurare",
+    "accrualIn": "Accrual În {{time}}",
+    "nextReleaseIn": "Următoarea Eliberare În {{time}}"
+  },
+  "freeSpins": "Rotiri gratuite",
+  "freeSpinsBonusDetails": "Bonusurile de Rotiri Gratuite te recompensează cu gameplay suplimentar pe titluri de slot selectate. Pariază suma necesară pentru a debloca câștigurile tale din rotirile gratuite, care pot fi apoi creditate instantaneu în soldul contului tău.",
+  "freeSpinsClaimDistributionDescription1": "Câștigurile din rotirile gratuite vor fi creditate în soldul contului tău odată ce cerința de pariu este finalizată și dai clic pe 'Solicită'.",
+  "freeSpinsClaimDistributionDescription2": "Urmărește-ți progresul oricând în Panoul tău de Bonusuri sau în Istoricul Rotirilor Gratuite.",
+  "freeSpinsExpirationDescription1": "Rotirile gratuite trebuie utilizate în perioada de valabilitate afișată în panoul de Rotiri Gratuite. Rotirile neutilizate vor expira după această perioadă.",
+  "freeSpinsExpirationDescription2": "Câștigurile din rotirile gratuite nu vor expira până nu sunt deblocate și solicitate.",
+  "freeSpinsGeneralTermsDescription1": "Recompensele din Rotiri Gratuite sunt calculate și creditate în BUCK, apoi afișate în moneda ta fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative.",
+  "freeSpinsGeneralTermsDescription2": "Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promovare.",
+  "the_collector": "Colecționarul",
+  "collector_description": "Recompense eligibile, Un clic",
+  "claim_all": "Solicită Tot",
+  "claimConfirmation": "Confirmare Solicitare",
+  "readyToClaim": "Pregătit pentru a solicita",
+  "selectClaimType": "Alege tipul tău de solicitare mai jos",
+  "claimableAmount": "Sumă de solicitat",
+  "normalClaim": "Solicitare Normală",
+  "normalClaimDesc": "Obține suma standard a recompensei tale",
+  "doubleClaim": "Solicitare Dublă",
+  "doubleClaimDesc": "Riști pentru 2x recompensa!",
+  "doubleClaimInfo": "Opțiunea de Solicitare Dublă",
+  "doubleClaimRisk": "Riscuri mai mari, recompense mai mari - ai putea câștiga dublu sau pierde tot!",
+  "claimModal": {
+    "title": "Dublează sau Nimic",
+    "primaryDescription": "Solicită-ți bonusul ca de obicei...",
+    "secondaryDescription": "Sau fă un salt îndrăzneț către <highlight>DOUBLE IT!</highlight>",
+    "doubleAction": "Dublează sau Nimic",
+    "comingSoon": "Funcția Dublează sau Nimic va veni în curând!",
+    "approximateBuck": "Aproximativ {{amount}} BANI"
+  },
+  "vip_monday": "Luni VIP",
+  "vip_monday_description": "O picătură specială săptămânală pentru a recompensa jucătorii loiali în fiecare luni",
+  "vip_monday_wager": "Pariază cel puțin {{amount}} în ultimele 7 zile pentru o picătură misterioasă în fiecare luni.",
+  "claim_on_monday": "Revendică luni",
+  "vip_monday_title": "VIP \n <0>LUNI</0>",
+  "bonus_already_claimed": "Bonus deja revendicat",
+  "wager_requirement_not_met": "Cerința de pariu nu a fost îndeplinită",
+  "not_in_claim_time_range": "Nu este în intervalul de timp pentru revendicare",
+  "monday": "Luni",
+  "poolBalance": "Sold Piscină",
+  "program": "Program",
+  "races": "Curse",
+  "loading_achievements": "Se încarcă realizările...",
+  "no_achievements_available": "Nu sunt realizări disponibile",
+  "check_back_later_for_new_achievements": "Verifică mai târziu pentru realizări noi"
 }

@@ -1,7 +1,6 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { WithdrawFiatAmount } from "@/components/modal/UserFinanceModal/c/WithdrawFiatAmount.tsx";
 import { WithdrawFiatFormInit } from "@/components/modal/UserFinanceModal/c/WithdrawFiatFormInit.tsx";
-import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useFiatGatewayWithdrawParams } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
@@ -10,10 +9,10 @@ import md5 from "md5";
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Email, Field } from "@/components/modal/UserFinanceModal/c/WithdrawFiatFormField.tsx";
-import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { ErrorString } from "@/store/type.ts";
-import { FormBox } from "@/components/modal/UserFinanceModal/c/FormBox.tsx";
+import { InnerFieldItem, InnerOptions } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
+import { fn_withdraw_common_status } from "@/components/modal/UserFinanceModal/c/WithdrawCryptoAmount.tsx";
 
 export const WithdrawFiatFormV1 = () => {
   const { t } = useTranslation();
@@ -35,67 +34,80 @@ export const WithdrawFiatFormV1 = () => {
     let nodes: React.ReactNode[] = [];
     if (fields?.data) {
       const transform = fields.data;
+
+      if (open_debug) {
+        console.info("Withdraw Fiat V1 表单项");
+        console.info(transform);
+      }
+
       for (const key in transform) {
         const field = transform[key];
-        if (field.hide || !field.required) continue;
-        if (key === "amount") {
-          amountNode = <WithdrawFiatAmount key="amount" formKey="amount" />;
-          continue;
-        }
-        if (field.label === "email") {
-          nodes.push(<Email />);
-          continue;
-        }
-        if (field.select && field.select.length > 0) {
-          const options = field.select.map((item: Record<string, any>) => ({
-            id: item.value,
-            value: item.value,
-            label: item.key
-          }));
 
+        if (field.hide || !field.required) continue;
+
+        if (key === "amount") {
+          amountNode = <WithdrawFiatAmount key="amount" field={field} formKey="amount" />;
+          continue;
+        }
+
+        if (field.select && field.select.length > 0) {
           selectNode = (
-            <FormBox key={key} label={<RequireItem label={t(`finance:${field.label}`)} />}>
-              <SelectDropdown
-                title={t(`finance:${field.label}`)}
-                height="sm"
-                options={options}
-                value={withdrawFiat.formItem?.[key]}
-                onChange={(v) => setWithdrawFiat({ formItem: { [key]: v } })}
-                placeholder={`${t("finance:select")} ${t(`finance:${field.label}`)}`}
-                buttonClassName="bg-base-300 border-0 hover:bg-base-300/60"
-                showSearch
-              />
-            </FormBox>
+            <InnerOptions
+              key={key}
+              name={key}
+              field={field}
+              onChange={(v) => {
+                setWithdrawFiat({
+                  formItem: v
+                });
+              }} />
           );
           continue;
         }
-        nodes.push(<Field key={key} name={key} field={field} />);
+
+        nodes.push(<InnerFieldItem
+          key={key}
+          name={key}
+          field={field}
+          onChange={(v) => {
+            setWithdrawFiat({
+              formItem: { [key]: v.value },
+              [`${key}_error`]: v[`${key}_error`]
+            });
+          }} />);
       }
     }
+
     return nodes.concat(selectNode, amountNode);
-  }, [fields, withdrawFiat.formItem]);
+  }, [fields]);
 
   // 创建订单
   const createOrder = useCallback(async () => {
+    if (open_debug) {
+      console.info("Withdraw Fiat Order Data V1");
+      console.info({
+        ...withdrawFiat.formItem,
+        pin: syncAction?.data,
+        currency: withdrawFiat.currency?.currency,
+        gateway_id: withdrawFiat.method?.gateway_id
+      });
+      return;
+    }
+
     set(true);
     authService
       .createWithdrawFiatOrder({
         ...withdrawFiat.formItem,
         pin: md5(syncAction?.data),
         currency: withdrawFiat.currency?.currency,
-        gateway_id: withdrawFiat.method?.gateway_id
+        gateway_id: withdrawFiat.method?.gateway_id,
+        pay_bankcode: withdrawFiat.method?.pay_bankcode
       })
       .then((res) => {
-        if (res.code === 0) {
-          setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL");
-        } else if (res.code === 4) {
-          toast.error(t("toast:pinError"));
-        } else {
-          toast.error(t("toast:failedToSubmitWithdrawalRequest"));
-        }
+        fn_withdraw_common_status(() => setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL"), res.code, t);
       })
       .catch(() => {
-        toast.error(t("toast:failedToSubmitWithdrawalRequest"));
+        toast.error(t("toast:failedToCreateWithdrawalOrder"));
         set(false);
       })
       .finally(() => {
@@ -110,7 +122,7 @@ export const WithdrawFiatFormV1 = () => {
 
   // 表单字段是否有额外的错误
   const error2 = useMemo(() => {
-    const keys = Object.keys(withdrawFiat)
+    const keys = Object.keys(withdrawFiat);
     return keys.filter((k) => k.includes("_error")).find((j) => withdrawFiat[j as ErrorString]);
   }, [withdrawFiat]);
 
@@ -119,26 +131,32 @@ export const WithdrawFiatFormV1 = () => {
     if (syncAction.type === "SYNC_WITHDRAW_FIAT_CREATE") void createOrder();
   }, [syncAction]);
 
-  // useEffect(() => {
-  //   console.info("法币提款信息V1");
-  //   console.info(withdrawFiat);
-  // }, [withdrawFiat]);
+  useEffect(() => {
+    if (open_debug) {
+      console.info(error1);
+      console.info(error2);
+      console.info(withdrawFiat);
+    }
+  }, [error1, error2, withdrawFiat]);
 
   return (
     <WithdrawFiatFormInit>
       {/* 表单 */}
       {formItem}
 
-      {/* 提交 */}
-      <ConfirmBox
-        loading={loading}
-        disabled={error1 || !!error2 || withdrawFiat.method?.status === 0}
-        onClick={() => {
-          setSyncAction("OPEN_WITHDRAW_FIAT_PIN_MODAL");
-        }}
-      >
-        {t("finance:continue")}
-      </ConfirmBox>
+      <div>
+        {/* 提交 */}
+        <ConfirmBox
+          loading={loading}
+          disabled={error1 || !!error2 || withdrawFiat.method?.status === 0}
+          onClick={() => {
+            setSyncAction("OPEN_WITHDRAW_FIAT_PIN_MODAL");
+          }}
+        >
+          {t("finance:continue")}
+        </ConfirmBox>
+      </div>
     </WithdrawFiatFormInit>
   );
 };
+

@@ -1,65 +1,92 @@
 import classNames from "classnames";
-import { useRef, useState, useEffect, ReactNode } from "react";
+import { useRef, useState, useEffect, ReactNode, WheelEvent } from "react";
 import Measure, { Rect } from "react-measure";
 import Iconify from "@/components/iconify";
 import { kebabCase } from "lodash-es";
 import { emitter } from "@/store/emitter.ts";
+import { useTranslation } from "react-i18next";
+import { useSearch } from "@tanstack/react-router";
 
 export type TBar =
-  "Dashboard" |
-  "Transactions" |
-  "Rollover" |
-  "BetHistory" |
-  "Bet History" |
-  "Security" |
-  "Profile" |
-  "Legal"
+  "dashboard" |
+  "transactions" |
+  "rollover" |
+  "free-spin" |
+  "bet-history" |
+  "security" |
+  "profile" |
+  "legal"
 
-const Label = ({ name }: { name: TBar }) => {
+const Label = ({ name, translationKey, namespace }: { name: string; translationKey: string; namespace: string }) => {
+  const { t } = useTranslation(namespace);
   return (
     <div
       className="flex items-center gap-2 justify-center rounded-field min-w-[48px] px-2 h-8 sm:h-12 py-1 font-semibold">
       <Iconify icon={`custom:${kebabCase(name.toLowerCase())}`} className="w-3.5 h-3.5" />
-      <span className="text-xs sm:text-base whitespace-nowrap">{name}</span>
+      <span className="text-xs sm:text-base whitespace-nowrap">{t(translationKey)}</span>
     </div>
   );
 };
 
 const items: { value: TBar, label: ReactNode }[] = [
   {
-    value: "Dashboard",
-    label: <Label name="Dashboard" />
+    value: "dashboard",
+    label: <Label name="Dashboard" translationKey="dashboard" namespace="profile" />
   },
   {
-    value: "Transactions",
-    label: <Label name="Transactions" />
+    value: "transactions",
+    label: <Label name="Transactions" translationKey="transactions" namespace="profile" />
   },
   {
-    value: "Rollover",
-    label: <Label name="Rollover" />
+    value: "rollover",
+    label: <Label name="Rollover" translationKey="rollover" namespace="profile" />
   },
   {
-    value: "BetHistory",
-    label: <Label name="Bet History" />
+    value: "free-spin",
+    label: <Label name="Free Spin" translationKey="freeSpins" namespace="bonus" />
   },
   {
-    value: "Security",
-    label: <Label name="Security" />
+    value: "bet-history",
+    label: <Label name="Bet History" translationKey="betHistory" namespace="profile" />
   },
   {
-    value: "Profile",
-    label: <Label name="Profile" />
+    value: "security",
+    label: <Label name="Security" translationKey="common.security" namespace="common" />
   },
   {
-    value: "Legal",
-    label: <Label name="Legal" />
+    value: "profile",
+    label: <Label name="Profile" translationKey="common.profile" namespace="common" />
+  },
+  {
+    value: "legal",
+    label: <Label name="Legal" translationKey="legal" namespace="profile" />
   }
 ];
+
+
+export type ProfileSearch = {
+  tab?: TBar;
+};
 
 export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const [_navIndex, _setNavIndex] = useState<string>("Dashboard");
+  const [_navIndex, _setNavIndex] = useState<TBar>("dashboard");
+
+  const search = useSearch({ from: "/_main/_authenticated/profile" }) as ProfileSearch;
+
+  useEffect(() => {
+    if (search.tab) {
+      const matched = items.find((item) => item.value === search.tab);
+      if (matched) {
+        setNavIndex(search.tab);
+        _setNavIndex(search.tab);
+      } else {
+        setNavIndex("dashboard");
+        _setNavIndex("dashboard");
+      }
+    }
+  }, [search]);
 
   /**
    * 选中则滚动
@@ -78,14 +105,6 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
         behavior: "smooth"
       });
     }
-
-    // 处理该区域的鼠标滚动支持
-    if (container) container.addEventListener("wheel", handleWheel);
-
-    function handleWheel(this: HTMLDivElement, event: WheelEvent) {
-      event.preventDefault();
-      event.deltaY < 0 ? (this.scrollLeft -= 5) : (this.scrollLeft += 5);
-    }
   };
 
   /**
@@ -103,22 +122,39 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
     return () => clearInterval(timer);
   }, [_navIndex]);
 
-  const changeNavTab = (index: string) => {
-    setNavIndex(index as TBar);
+  const changeNavTab = (index: TBar) => {
+    setNavIndex(index);
     _setNavIndex(index);
-  }
-  /**
-   * 共享数据
-   */
+  };
+
+  // 共享数据
   useEffect(() => {
-    const subscription = emitter.addListener("SYNC_TABS_INDEX", (index: string) => {
+    const subscription = emitter.addListener("SYNC_TABS_INDEX", (index: TBar) => {
       changeNavTab(index);
     });
     return () => subscription.remove();
   }, []);
 
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault(); // Prevent the default vertical scrolling
+      element.scrollLeft += e.deltaY as any; // Scroll horizontally
+    };
+
+    element.addEventListener("wheel", handleWheel as any, { passive: false });
+
+    return () => {
+      element.removeEventListener("wheel", handleWheel as any);
+    };
+  }, []);
+
   return (
-    <div ref={ref} className="relative overflow-x-auto hide-scrollbar gap-4 flex overflow-hidden md:mx-0">
+    <div ref={ref}
+         className={classNames("relative overflow-x-auto overflow-y-hidden gap-4 flex md:mx-0 pb-2 hide-scrollbar")}>
       {items.map((item: Record<string, any>) => (
         <Measure offset key={item?.value}>
           {({ measureRef, contentRect }) => (

@@ -1,25 +1,21 @@
+import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useDefaultAdTag } from "@/hooks/api/useAuth";
 import { useVipConfig } from "@/hooks/api/usePublic";
 import { cn } from "@/utils/cn";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useReferralLink } from "@/hooks/useReferralLink.ts";
 
 const ITEMS_PER_PAGE = 17;
 
 export const ReferralRewardsSchedule = () => {
+  const { isAuthenticated } = useAuth();
   const { t } = useTranslation();
-  const { data: adTagData } = useDefaultAdTag();
   const { data: vipConfigData, isLoading } = useVipConfig();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const referralLink = useMemo(() => {
-    if (adTagData?.data?.code) {
-      return `${location.origin}?startapp=${adTagData.data.code}`;
-    }
-    return "";
-  }, [adTagData]);
+  const { referralLink } = useReferralLink()
 
   const filteredVipConfig = useMemo(() => {
     if (!vipConfigData?.data) return [];
@@ -78,7 +74,7 @@ export const ReferralRewardsSchedule = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="bg-base-200 flex flex-col gap-4 rounded-t-2xl p-4 sm:p-6">
+      <div className="bg-base-200 flex flex-col gap-4 rounded-t-field p-4 sm:p-6">
         <div className="flex items-center gap-2">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -103,29 +99,31 @@ export const ReferralRewardsSchedule = () => {
                 <span className="text-primary">{t("referral:crew")}</span>
               </h3>
               <p className="text-xs sm:text-sm text-base-content/70">{t("referral:gatherYourCrewDescription")}</p>
-              <div className="bg-base-300 flex items-center gap-2 rounded-lg px-3 py-2">
-                <div className="flex-1 min-w-0 overflow-hidden">
-                  <div className="text-xs sm:text-sm text-base-content/50 truncate">{referralLink || t("referral:loadingLink")}</div>
+              {isAuthenticated && (
+                <div className="bg-base-300 flex items-center gap-2 rounded-lg px-3 py-2">
+                  <div className="flex-1 min-w-0 overflow-hidden">
+                    <div className="text-xs sm:text-sm text-base-content/50 truncate">{referralLink || t("referral:loadingLink")}</div>
+                  </div>
+                  <button
+                    onClick={handleShare}
+                    className="btn btn-primary btn-sm h-8 min-h-0 px-4 rounded-full text-black font-bold"
+                    disabled={!referralLink}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11.0833 4.66667C12.0958 4.66667 12.9167 3.84583 12.9167 2.83333C12.9167 1.82083 12.0958 1 11.0833 1C10.0708 1 9.25 1.82083 9.25 2.83333C9.25 2.96667 9.26667 3.09417 9.29417 3.21583L5.47083 5.67917C5.11667 5.38583 4.67083 5.20833 4.18333 5.20833C3.17083 5.20833 2.35 6.02917 2.35 7.04167C2.35 8.05417 3.17083 8.875 4.18333 8.875C4.67083 8.875 5.11667 8.6975 5.47083 8.40417L9.29417 10.8675C9.26667 10.9892 9.25 11.1167 9.25 11.25C9.25 12.2625 10.0708 13.0833 11.0833 13.0833C12.0958 13.0833 12.9167 12.2625 12.9167 11.25C12.9167 10.2375 12.0958 9.41667 11.0833 9.41667C10.5958 9.41667 10.15 9.59417 9.79583 9.8875L5.97167 7.42417C5.99917 7.30167 6.01667 7.17417 6.01667 7.04167C6.01667 6.90917 5.99917 6.78167 5.97167 6.65917L9.79583 4.19583C10.15 4.48917 10.5958 4.66667 11.0833 4.66667Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span className="hidden sm:inline">{t("bonus:share")}</span>
+                  </button>
                 </div>
-                <button
-                  onClick={handleShare}
-                  className="btn btn-primary btn-sm h-8 min-h-0 px-4 rounded-full text-black font-bold"
-                  disabled={!referralLink}
-                >
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M11.0833 4.66667C12.0958 4.66667 12.9167 3.84583 12.9167 2.83333C12.9167 1.82083 12.0958 1 11.0833 1C10.0708 1 9.25 1.82083 9.25 2.83333C9.25 2.96667 9.26667 3.09417 9.29417 3.21583L5.47083 5.67917C5.11667 5.38583 4.67083 5.20833 4.18333 5.20833C3.17083 5.20833 2.35 6.02917 2.35 7.04167C2.35 8.05417 3.17083 8.875 4.18333 8.875C4.67083 8.875 5.11667 8.6975 5.47083 8.40417L9.29417 10.8675C9.26667 10.9892 9.25 11.1167 9.25 11.25C9.25 12.2625 10.0708 13.0833 11.0833 13.0833C12.0958 13.0833 12.9167 12.2625 12.9167 11.25C12.9167 10.2375 12.0958 9.41667 11.0833 9.41667C10.5958 9.41667 10.15 9.59417 9.79583 9.8875L5.97167 7.42417C5.99917 7.30167 6.01667 7.17417 6.01667 7.04167C6.01667 6.90917 5.99917 6.78167 5.97167 6.65917L9.79583 4.19583C10.15 4.48917 10.5958 4.66667 11.0833 4.66667Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <span className="hidden sm:inline">{t("bonus:share")}</span>
-                </button>
-              </div>
+              )}
             </div>
           </div>
 
           <div className="flex items-start gap-3 flex-1 bg-base-300 p-4 rounded-field">
-            <div className="flex flex-col gap-2 min-w-0 flex-1 order-1 sm:order-none">
+            <div className="flex flex-col gap-2 min-w-0 flex-1 order-1 sm:order-0">
               <h3 className="text-sm sm:text-base font-bold">
                 <span>{t("referral:crackThe")} </span>
                 <span className="text-primary">{t("referral:vault")}</span>
@@ -135,14 +133,14 @@ export const ReferralRewardsSchedule = () => {
             <img
               src="/images/illustrations/a7639f92ff4e6a20148b23834346d93d2e06ce12.png"
               alt="Crack the Vault"
-              className="w-20 h-20 sm:w-27.5 sm:h-27.5 flex-shrink-0"
+              className="w-20 h-20 sm:w-27.5 sm:h-27.5 shrink-0"
             />
           </div>
         </div>
       </div>
 
-      <div className="bg-base-200 flex flex-col rounded-b-2xl">
-        <div className="bg-base-200 flex flex-col h-[420px] sm:h-[640px]">
+      <div className="bg-base-200 flex flex-col rounded-b-field">
+        <div className="bg-base-200 flex flex-col h-[420px] sm:h-[640px] rounded-b-field pb-3">
           {isLoading ? (
             <div className="flex-1 flex items-center justify-center py-20">
               <span className="loading loading-spinner loading-xl text-primary"></span>
@@ -203,31 +201,48 @@ export const ReferralRewardsSchedule = () => {
                 </table>
               </div>
 
-              <div className="sm:hidden flex-1 overflow-y-auto px-4 pb-4 space-y-2">
-                {paginatedData.map((item: any, index: number) => (
-                  <div key={item.vip} className={cn("rounded-2xl px-4 py-2.5", index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50")}>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <img src={`/images/vip/levels/${item.vip}.png`} alt={`VIP ${item.vip}`} className="w-4 h-4 flex-shrink-0" />
-                        <span className="text-xs font-semibold text-base-content">
-                          {t("referral:vip")} {item.vip}
-                        </span>
-                        <span className="text-xs text-base-content/60">{Math.floor(Number(item.xp)).toLocaleString()}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="text-xs font-bold text-primary">
-                          {
-                            formatWithConversion(item.referral, "USD", {
-                              showSymbol: false,
-                              showCode: true,
-                              minimizeDecimals: true,
-                            }).formatted
-                          }
-                        </span>
+              <div className="sm:hidden flex-1 flex flex-col overflow-y-auto px-4 pb-4">
+                {/* 表头 */}
+                <div className="grid grid-cols-[1fr_0.8fr_1fr] gap-4 px-4 py-3 mb-2">
+                  <span className="text-xs font-semibold text-base-content/50 uppercase">{t("referral:userLevel")}</span>
+                  <span className="text-xs font-semibold text-base-content/50 uppercase text-center">{t("referral:exp")}</span>
+                  <span className="text-xs font-semibold text-base-content/50 uppercase text-right">{t("bonus:rewards")}</span>
+                </div>
+                
+                {/* 表格内容 */}
+                <div className="space-y-2">
+                  {paginatedData.map((item: any, index: number) => (
+                    <div key={item.vip} className={cn("rounded-2xl px-4 py-2.5", index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50")}>
+                      <div className="grid grid-cols-[1fr_0.8fr_1fr] gap-4 items-center">
+                        {/* USER LEVEL */}
+                        <div className="flex items-center gap-2 min-w-0">
+                          <img src={`/images/vip/levels/${item.vip}.png`} alt={`VIP ${item.vip}`} className="w-6 h-6 shrink-0" />
+                          <span className="text-xs font-semibold text-base-content/70">
+                            {t("referral:vip")} {item.vip}
+                          </span>
+                        </div>
+                        
+                        {/* EXP - 居中 */}
+                        <div className="text-center">
+                          <span className="text-xs text-base-content/60">{Math.floor(Number(item.xp)).toLocaleString()}</span>
+                        </div>
+                        
+                        {/* REWARD - 右对齐 */}
+                        <div className="text-right">
+                          <span className="text-xs font-bold text-base-content">
+                            {
+                              formatWithConversion(item.referral, "USD", {
+                                showSymbol: true,
+                                showCode: false,
+                                minimizeDecimals: true,
+                              }).formatted
+                            }
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {totalPages > 1 && (

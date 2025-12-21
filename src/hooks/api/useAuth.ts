@@ -1,13 +1,17 @@
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { authService } from "@/services/authService";
 import type { LoginCredentials } from "@/types/auth";
-import type { CreateAdTagParams, GetReferralListParams } from "@/types/referral";
+import type { CreateAdTagParams, GetReferralListParams, SetDefaultAdTagParams } from "@/types/referral";
 import { clearAuth, hasAuth } from "@/utils/auth";
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { toast } from "sonner";
 import type { KycDetail } from "@/types/profile";
 import type { ITournament } from "@/types/tournament";
+import type { UserGameListParams, UserGameListResponse } from "@/types/game";
+import type { IGetMondayVipBonus } from "@/types/bonus";
+import { useTranslation } from "react-i18next";
+import { rum_sdk_user_log } from "@/utils/helper.ts";
 
 export const AUTH_QUERY_KEYS = {
   currentUser: ["auth", "currentUser"] as const,
@@ -30,6 +34,7 @@ export const AUTH_QUERY_KEYS = {
   userWithdrawWallet: ["auth", "userWithdrawWallet"] as const,
   userFreeGameRecords: ["auth", "userFreeGameRecords"] as const,
   topWageredGames: ["auth", "topWageredGames"] as const,
+  userGameList: ["auth", "userGameList"] as const,
   defaultAdTag: ["auth", "defaultAdTag"] as const,
   userAchievements: ["auth", "userAchievements"] as const,
   myAchievements: ["auth", "myAchievements"] as const,
@@ -41,6 +46,8 @@ export const AUTH_QUERY_KEYS = {
   vipNextLevelData: ["auth", "vipNextLevelData"] as const,
   unreadNotificationCounter: ["auth", "unreadNotificationCounter"] as const,
   kycDetail: ["auth", "kycDetail"] as const,
+  tournamentPoolPrize: ["auth", "tournamentPoolPrize"] as const,
+  notificationMessage: ["auth", "notificationMessage"] as const,
 };
 
 export function useLogin() {
@@ -52,6 +59,16 @@ export function useLogin() {
       console.debug("Login success:", data);
       localStorage.setItem("token", data.data.token);
       localStorage.setItem("username", data.data.username);
+      // Persist user & status for auth header (userid) and cross-tab sync
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+      }
+      if (data.status) {
+        localStorage.setItem("status", JSON.stringify(data.status));
+      }
+
+      // 用户信息上传 rum
+      rum_sdk_user_log(data.data)
 
       queryClient.setQueryData(AUTH_QUERY_KEYS.currentUser, data);
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
@@ -111,7 +128,7 @@ export function useCurrentUser() {
 // 赛事列表（需登录）
 export function useTournamentList() {
   const { user } = useAuth();
-  const query = useQuery<{ data: ITournament[]; code: number}>({
+  const query = useQuery<{ data: ITournament[]; code: number }>({
     queryKey: [...AUTH_QUERY_KEYS.tournamentList, user?.id],
     queryFn: () => authService.getTournamentList(),
     enabled: !!user,
@@ -121,8 +138,54 @@ export function useTournamentList() {
     placeholderData: (prev) => prev,
   });
 
-  const list = query.data?.code === 0 ? query.data?.data : [];
-  return { tournamentList: list, isLoading: query.isLoading };
+  const list = query.data?.code === 0 ? query.data?.data ?? [] : [];
+  const filtered = useMemo(() => {
+    const hiddenProviders = new Set(["newbie", "pp"]);
+    return list.filter((item) => !hiddenProviders.has((item.game_provider || "").toLowerCase()));
+  }, [list]);
+  return { tournamentList: filtered, isLoading: query.isLoading };
+}
+
+export function useTournamentPoolPrize(
+  tournamentId?: number | string,
+  tournamentLevel?: string,
+  options?: {
+    enabled?: boolean;
+    refetchInterval?: number;
+  }
+) {
+  const { enabled: optionEnabled, refetchInterval, ...restOptions } = options ?? {};
+  const enabled = Boolean(tournamentId && tournamentLevel && (optionEnabled ?? true));
+
+  return useQuery<number>({
+    queryKey: [...AUTH_QUERY_KEYS.tournamentPoolPrize, tournamentId, tournamentLevel],
+    queryFn: async () => {
+      const response = await authService.getTournamentPoolPrize({
+        tournament_id: tournamentId!,
+        tournament_level: tournamentLevel!,
+      });
+      return response.data ?? 0;
+    },
+    enabled,
+    refetchInterval: refetchInterval ?? 30 * 1000,
+    ...restOptions,
+  });
+}
+
+export function useUserGameList(params: UserGameListParams, queryOptions?: { enabled?: boolean }) {
+  const { user } = useAuth();
+  const { enabled: optionEnabled, ...restOptions } = queryOptions ?? {};
+  const enabled = !!user && (optionEnabled ?? true);
+
+  return useQuery<UserGameListResponse>({
+    queryKey: [...AUTH_QUERY_KEYS.userGameList, user?.id, params],
+    queryFn: () => authService.getUserGameList(params),
+    enabled,
+    staleTime: 30 * 1000,
+    gcTime: 5 * 60 * 1000,
+    placeholderData: (prev) => prev,
+    ...restOptions,
+  });
 }
 
 // 获取特定网络的加密货币存款地址
@@ -176,8 +239,7 @@ export const useFiatGatewayWithdrawParams = (gateway_id: string, pay_bankcode: s
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.fiatGatewayWithdrawParams, gateway_id, pay_bankcode],
     queryFn: () => authService.getFiatGatewayWithdrawParams(gateway_id, pay_bankcode),
-    enabled: !!user && !!gateway_id && !!pay_bankcode, // 只有当用户已登录、选择了网关且有银行代码时才执行查询
-    retry: 1
+    enabled: !!user && !!gateway_id && !!pay_bankcode
   });
 };
 
@@ -192,7 +254,7 @@ export const useUserBalance = () => {
     },
     enabled: !!user, // 只有当用户已登录时才执行查询
     staleTime: 30 * 1000, // 30秒缓存，余额需要较频繁更新
-    refetchInterval: 60 * 1000 // 每分钟自动刷新一次
+    refetchInterval: 15 * 1000 // 每分钟自动刷新一次
   });
 };
 
@@ -209,14 +271,14 @@ export const useFiatGatewayDepositParams = (gateway_id: string, pay_bankcode: st
 };
 
 // 获取当前用户是否有待领取的Bonus
-export const useClaimBonus = (item: "cashback" | "rakeback" | "tournament") => {
+export const useClaimBonus = (item: "cashback" | "rakeback" | "tournament" | "level_up") => {
   const { user } = useAuth();
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.claimBonus, item],
     queryFn: () => authService.getClaimBonus(item),
     enabled: !!user, // 只有当用户已登录时才执行查询
     staleTime: 30 * 1000, // 30秒缓存
-    refetchInterval: 60 * 1000 // 每分钟自动刷新一次
+    refetchInterval: 15 * 1000 // 每分钟自动刷新一次
   });
 };
 
@@ -253,6 +315,7 @@ export const useUserClaimBonus = () => {
 
 // 领取bonus的mutation
 export const useClaimBonusMutation = (customOnSuccess?: (response: any, variables: any) => void) => {
+  const { t } = useTranslation()
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -272,13 +335,14 @@ export const useClaimBonusMutation = (customOnSuccess?: (response: any, variable
       // 如果是日历奖励，刷新日历数据
       if (variables.item === "calendar") {
         queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.calendarBonus });
-        toast.success("Calendar bonus claimed successfully!");
+        toast.success(t('toast:calendarBonusClaimedSuccessfully'));
       } else {
         if (response.code === 0) {
-          toast.success("Bonus claimed successfully!");
-        } else {
-          toast.error(response.msg || "Failed to claim bonus");
+          toast.success(t('toast:bonusClaimedSuccessfully'));
         }
+        // else {
+        //   toast.error(response.msg || "Failed to claim bonus");
+        // }
       }
 
       // 调用自定义的成功回调
@@ -288,7 +352,7 @@ export const useClaimBonusMutation = (customOnSuccess?: (response: any, variable
     },
     onError: (error: any) => {
       console.error("Failed to claim bonus:", error);
-      toast.error(error.response?.data?.msg || "Failed to claim bonus");
+      toast.error(t('toast:claimBonusFailed'));
     }
   });
 };
@@ -367,7 +431,11 @@ export const useUserFreeGameRecords = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.userFreeGameRecords,
     queryFn: () => authService.getUserFreeGameRecords(),
-    enabled: !!user
+    enabled: !!user,
+    // Return from game pages should always refresh the latest free spin counts
+    refetchOnMount: "always",
+    refetchOnWindowFocus: true,
+    refetchOnReconnect: true,
   });
 };
 
@@ -429,6 +497,43 @@ export const useLaunchGameMutation = () => {
   });
 };
 
+// 试玩游戏启动
+export const useLaunchDemoGameMutation = () => {
+  return useMutation({
+    mutationFn: (params: {
+      inner_game_id: string;
+      game_provider: string;
+      game_currency: string;
+      lang: string;
+      name_key?: string;
+      home_url?: string;
+      close_url?: string;
+      deposit_url?: string;
+      history_url?: string;
+    }) => authService.launchDemoGame(params),
+    onError: (error: any) => {
+      console.error("Failed to launch demo game:", error);
+      toast.error(error.response?.data?.msg || "Failed to launch demo game");
+    }
+  });
+};
+
+// 检查游戏是否支持演示模式
+export const useCheckDemoSupportQuery = (params: {
+  inner_game_id: string;
+  game_provider: string;
+  game_currency?: string;
+  lang?: string;
+  name_key?: string;
+}, enabled: boolean = true) => {
+  return useQuery({
+    queryKey: ['checkDemoSupport', params.inner_game_id, params.game_provider],
+    queryFn: () => authService.checkDemoSupport(params),
+    enabled: enabled && !!params.inner_game_id && !!params.game_provider,
+    staleTime: 5 * 60 * 1000, // 缓存 5 分钟
+  });
+};
+
 export const useGetUserDefaultCurrencyMutation = () => {
   return useMutation({
     mutationFn: (params: {
@@ -441,23 +546,14 @@ export const useGetUserDefaultCurrencyMutation = () => {
 };
 
 export const useLikeGameMutation = () => {
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: (inner_game_id: string) => authService.likeGameV2(inner_game_id),
     onSuccess: (response) => {
       if (response.code === 0) {
-        const action = response.data.action;
-
-        // 显示相应的提示信息
-        if (action === "added") {
-          toast.success("Game added to favorites! ❤️");
-        } else {
-          toast.success("Game removed from favorites");
-        }
-
-        // 可以在这里刷新相关的查询，比如用户收藏列表
-        // queryClient.invalidateQueries({ queryKey: ["favorites"] });
+        // Invalidate user game list to refresh favorites
+        queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.userGameList });
       } else {
         toast.error(response.msg || "Failed to update favorite status");
       }
@@ -470,16 +566,12 @@ export const useLikeGameMutation = () => {
 };
 
 // 获取用户已添加的加密货币提款地址
-export const useUserWithdrawWallet = (network?: string) => {
+export const useUserWithdrawWallet = (network?: string, effect = false) => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: [...AUTH_QUERY_KEYS.userWithdrawWallet, network],
+    queryKey: [...AUTH_QUERY_KEYS.userWithdrawWallet, network, effect],
     queryFn: () => authService.getUserWithdrawWallet(network),
     enabled: !!user && !!network,
-    retry: (failureCount, error: any) => {
-      // 对于401错误（未授权）不重试，其他错误最多重试2次
-      return error?.response?.status !== 401 && failureCount < 2;
-    }
   });
 };
 
@@ -540,8 +632,8 @@ export const useVipNextLevelData = () => {
 export const useUserAchievements = (sort: 'asc' | 'desc' = 'asc') => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: [...AUTH_QUERY_KEYS.userAchievements, sort],
-    queryFn: () => authService.getUserAchievements(sort),
+    queryKey: AUTH_QUERY_KEYS.userAchievements,
+    queryFn: () => authService.getUserAchievementsV2(sort),
     enabled: !!user,
     staleTime: 60 * 1000, // 1分钟缓存
     refetchInterval: 5 * 60 * 1000 // 5分钟自动刷新
@@ -562,7 +654,7 @@ export const useMyAchievements = () => {
       if (!data?.data || !Array.isArray(data.data)) {
         return { achievements: [], inProgress: [], completed: [] }
       }
-      
+
       const achievements = data.data
       const inProgress = achievements.filter((_record: any) => {
         // 这里需要根据具体业务逻辑判断是否完成
@@ -573,7 +665,7 @@ export const useMyAchievements = () => {
         // 完成的成就判断逻辑
         return false // 需要根据实际业务逻辑调整
       })
-      
+
       return {
         achievements,
         inProgress,
@@ -634,17 +726,102 @@ export const useAdTagList = () => {
 
 export const useCreateAdTag = () => {
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   return useMutation({
     mutationFn: (params: CreateAdTagParams) => authService.createAdTag(params),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.adTagList });
-      toast.success("Campaign created successfully!");
+      toast.success(t("referral:campaignCreateSuccess", "Campaign created successfully!"));
     },
     onError: (error: any) => {
       console.error("Failed to create campaign:", error);
-      toast.error(error.response?.data?.msg || error.message || "Failed to create campaign");
+      const rawMessage =
+        error?.response?.data?.data ||
+        error?.response?.data?.msg ||
+        error?.message ||
+        "";
+      const normalized = String(rawMessage).toLowerCase();
+
+      if (normalized.includes("campaign already exists")) {
+        toast.error(t("referral:campaignAlreadyExists", "Campaign already exists"));
+        return;
+      }
+
+      toast.error(rawMessage || t("referral:campaignCreateFailed", "Failed to create campaign"));
     }
+  });
+};
+
+export const useSetDefaultAdTag = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (params: SetDefaultAdTagParams) => authService.setDefaultAdTag(params),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.adTagList });
+      toast.success("Campaign set as default successfully!");
+    },
+    onError: (error: any) => {
+      console.error("Failed to set campaign as default:", error);
+      toast.error(error.response?.data?.msg || error.message || "Failed to set campaign as default");
+    },
+  });
+};
+
+export const QueryKycDetail = () => {
+  const { user } = useAuth();
+  const defaultKycDetail: KycDetail = {
+    id: 0,
+    team_id: 0,
+    user_id: 0,
+    first_name: '',
+    middle_name: '',
+    last_name: '',
+    birthday: '',
+    country: '',
+    state: '',
+    city: '',
+    address: '',
+    zip_code: '',
+    document_type: 0,
+    document_url: '',
+    status: 0,
+    created_at: 0,
+    updated_at: 0,
+    email: '',
+    nickname: '',
+    phone: '',
+  };
+
+  const { data = { data: defaultKycDetail, code: 0 }, refetch } = useQuery<{ data: KycDetail, code: number }>({
+    queryKey: AUTH_QUERY_KEYS.kycDetail,
+    queryFn: () => authService.getKycDetail(),
+    enabled: !!user,
+  });
+  return {
+    data: data && data.code === 0 ? (data?.data ?? defaultKycDetail) : defaultKycDetail,
+    refetch
+  };
+};
+
+export const useNotificationMessage = (params: {
+  read: number
+}) => {
+  const { user } = useAuth()
+  return useInfiniteQuery({
+    queryKey: [...AUTH_QUERY_KEYS.notificationMessage, params.read],
+    queryFn: async ({ pageParam = 0 }) => {
+      return await authService.getNotificationMessage({
+        last_id: pageParam,
+        limit: 30,
+        has_read: params.read,
+      })
+    },
+    initialPageParam: 0,
+    getNextPageParam: (lastPage) => {
+      return !lastPage?.meta?.has_more ? undefined : lastPage?.meta?.next_last_id
+    },
+    enabled: !!user
   });
 };
 
@@ -654,46 +831,92 @@ export const useUnreadNotificationCounter = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.unreadNotificationCounter,
     queryFn: () => authService.getNotificationMessage({
-      read: 0,
+      last_id: 0,
+      limit: 3,
+      has_read: 0,
     }),
     enabled: !!user,
-    refetchInterval: 10_000
+    refetchInterval: 20_000
   });
 };
 
-export const QueryKycDetail = () => {
+/**
+ * 钱包设置中的法币列表
+ */
+export const useWalletSettingsCurrency = () => {
   const { user } = useAuth();
-  const defaultKycDetail: KycDetail = {
-      id: 0,
-      team_id: 0,
-      user_id: 0,
-      first_name: '',
-      middle_name: '',
-      last_name: '',
-      birthday: '',
-      country: '',
-      state: '',
-      city: '',
-      address: '',
-      zip_code: '',
-      document_type: 0,
-      document_url: '',
-      status: 0,
-      created_at: 0,
-      updated_at: 0,
-      email: '',
-      nickname: '',
-      phone: '',
-  };
+  return useQuery({
+    queryKey: ['walletSettingsCurrency'],
+    queryFn: async () => {
+      return authService.getWalletSettingsCurrency();
+    },
+    enabled: !!user,
+    refetchOnMount: true,
+  });
+};
 
-  const { data = { data: defaultKycDetail, code: 0 }, refetch } = useQuery<{ data: KycDetail, code: number }>({
-      queryKey: AUTH_QUERY_KEYS.kycDetail,
-      queryFn: () => authService.getKycDetail(),
-      enabled: !!user,
+export const useBonusClaimCount = () => {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: ['useBonusClaimCount'],
+    queryFn: () => authService.getClaimCount(),
+    enabled: !!user,
+    refetchInterval: 15_000
+  });
+};
+
+export const useMondayVipBonus = () => {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: ['useMondayVipBonus'],
+    queryFn: () => authService.getMondayVipBonus(),
+    enabled: !!user,
+    refetchOnWindowFocus: 'always'
+  });
+};
+
+
+export const useGetMondayVipBonus = () => {
+  const { user } = useAuth();
+  const { data: mondayVipBonus = { data: {} as IGetMondayVipBonus, code: 0 }, refetch } = useQuery<{
+    data: IGetMondayVipBonus;
+    code: number;
+  }>({
+    queryKey: ['getMondayVipBonus'],
+    queryFn: () => authService.getMondayVipBonus(),
+    enabled: !!user,
+    refetchOnMount: true,
   });
 
   return {
-      data: data && data.code === 0 ? data?.data : defaultKycDetail,
-      refetch
+    mondayVipBonus: mondayVipBonus.code === 0 ? mondayVipBonus.data : undefined,
+    refetch,
+  };
+};
+
+export const useBonusSwitch = () => {
+  const { user } = useAuth();
+
+  const { data: switchData = { data: {}, code: 0 }, refetch, isLoading } = useQuery<{ data: { [key: string]: any }; code: number }>({
+    queryKey: ['bonusSwitch'],
+    queryFn: () => authService.bonusSwitch(),
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
+    enabled: !!user,
+  });
+
+  const parsedSwitchData: { [key: string]: any } = switchData?.code === 0 ? switchData?.data ?? {} : {};
+
+  const bonusSwitchData = {
+    ...(parsedSwitchData?.bonus_switch ?? {}),
+    monday_vip_bonus: (parsedSwitchData?.bonus_switch?.monday_vip_bonus ?? 1),// 即使返回null 或者没有也要 1，除非确定返回 0
+  };
+
+  return {
+    switchData: {
+      bonus_switch: bonusSwitchData,
+    },
+    refetch,
+    isLoading,
   };
 };

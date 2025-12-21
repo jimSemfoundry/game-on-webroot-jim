@@ -1,328 +1,325 @@
-import { Modal } from '@/components/ui/Modal'
-import Iconify from '@/components/iconify'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { useEffect, useState, useCallback } from 'react'
-import { cn } from '@/utils/themeMerger'
-import { useTranslation, Trans } from 'react-i18next'
-import { useDisplayCurrencyFormatter } from '@/contexts/DisplayCurrencyContext'
-import { Carousel, useCarousel, CarouselDotButtons } from '@/components/carousel'
-import { FastAverageColor } from 'fast-average-color'
+import { Modal } from "@/components/ui/Modal";
+import Iconify from "@/components/iconify";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMemo, useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { useTranslation, Trans } from "react-i18next";
+import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
+import { Carousel, useCarousel } from "@/components/carousel";
+import { Achievement } from "./bonus-achievements-list";
+import { AchievementStep } from "@/types/bonus";
+import { authService } from "@/services/authService";
+import dayjs from "dayjs";
+import Decimal from "decimal.js";
+import { useQueryClient } from "@tanstack/react-query";
+import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth";
+import { useBoundStore } from "@/store";
+import { TActions } from "@/store/type";
+import { useFinanceModal } from "@/contexts/ModalsProvider";
+import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
+import { toast } from "sonner";
 
-export interface AchievementStep {
-  id: number
-  step: number
-  number: number              // 目标数量
-  reward_amount: string
-  reward_currency: string
-  completed?: boolean         // 该步骤是否已完成
-}
+const DEFAULT_BACKGROUND_GRADIENT = `
+  radial-gradient(162.99% 78.23% at 50.15% 21.77%, rgba(139, 92, 246, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%),
+  var(--color-base-400)
+`;
 
-export interface AchievementDetail {
-  id: string
-  name: string
-  description: string
-  icon: string
-  category: 'gaming' | 'crypto' | 'social' | 'special'
-  currentStep: number         // 用户当前步骤
-  steps: AchievementStep[]    // 所有步骤
-  userProgress?: number       // 用户当前进度值
-}
+const DEFAULT_ACHIEVEMENT_ICON = "/images/illustrations/achievement-champion.png";
+const CASINO_ROUTE = "/casino";
 
 type BonusAchievementsDetailsModalProps = {
   isOpen: boolean
   onClose: () => void
-  achievement: AchievementDetail | null
+  onCloseModal: () => void
+  achievement: Achievement
 }
 
-export const BonusAchievementsDetailsModal = ({ 
-  isOpen, 
-  onClose, 
+let temporary_data: number = -1; // 服务于claim出现非0｜200的错误的时候，需要重试时候的参数留存
+
+export const BonusAchievementsDetailsModal = ({
+  isOpen,
+  onClose,
+  onCloseModal,
   achievement
 }: BonusAchievementsDetailsModalProps) => {
-  const { t } = useTranslation()
-  const isMobile = useMediaQuery('(max-width: 768px)')
-  const { formatWithConversion } = useDisplayCurrencyFormatter()
-  const [iconColor, setIconColor] = useState<string>('')
-  
-  // 使用carousel hooks
+  const { t } = useTranslation();
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const navigate = useNavigate();
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
+  const queryClient = useQueryClient();
+
+  const { setSyncAction } = useBoundStore();
+  const { openUserFinanceModalWithTab } = useFinanceModal();
+
+  const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
+
+  const startIndex = useMemo(() => {
+    return achievement?.steps.findIndex((item: AchievementStep) => {
+      return !(item?.is_finish === true && item?.is_claim === true);
+    }) ?? 0;
+  }, [achievement?.steps]);
+
   const carousel = useCarousel({
     loop: true,
-    startIndex: achievement ? Math.max(0, achievement.currentStep - 1) : 0
-  })
+    startIndex
+  });
 
-  // Handle image load and extract dominant color for background gradient
-  const handleImageLoad = useCallback(async (imgElement: HTMLImageElement) => {
-    try {
-      const fac = new FastAverageColor()
-      const color = await fac.getColorAsync(imgElement)
-      
-      // Create a radial gradient with the extracted color, similar to the reference design
-      // Using 162.99% 78.23% size and positioning like the reference
-      const gradientColor = `
-        radial-gradient(162.99% 78.23% at 50.15% 21.77%, ${color.rgb.replace('rgb', 'rgba').replace(')', ', 0.20)')} 0%, rgba(0, 0, 0, 0.00) 100%),
-        var(--color-base-400)
-      `
-      setIconColor(gradientColor)
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.warn('Failed to extract color for achievement icon:', error)
-      }
-      // Fallback gradient with stronger purple color
-      setIconColor(`
-        radial-gradient(162.99% 78.23% at 50.15% 21.77%, rgba(139, 92, 246, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%),
-        var(--color-base-400)
-      `)
-    }
-  }, [])
+  const hasMultipleSteps = useMemo(() => {
+    return (achievement?.steps?.length ?? 0) > 1;
+  }, [achievement?.steps?.length]);
 
-  useEffect(() => {
-    if (achievement && achievement.steps.length > 0 && carousel.mainApi) {
-      // 默认滚动到用户当前步骤，如果没有则显示第一步
-      const userCurrentIndex = Math.max(0, achievement.currentStep - 1)
-      const targetIndex = Math.min(userCurrentIndex, achievement.steps.length - 1)
-      carousel.mainApi.scrollTo(targetIndex)
-    }
-  }, [achievement, isOpen, carousel.mainApi])
-
-  if (!achievement || achievement.steps.length === 0) return null
-  
-  const hasMultipleSteps = achievement.steps.length > 1
-  
   const handlePrevious = () => {
-    if (!achievement || !carousel.arrows.onClickPrev) return
-    carousel.arrows.onClickPrev()
-  }
+    carousel.arrows.onClickPrev?.();
+  };
 
   const handleNext = () => {
-    if (!achievement || !carousel.arrows.onClickNext) return
-    carousel.arrows.onClickNext()
-  }
+    carousel.arrows.onClickNext?.();
+  };
 
-  // 生成成就描述组件 - 使用翻译系统，支持动态参数和 Trans 组件
-  const getAchievementDescriptionComponent = (achievement: AchievementDetail, currentStep: any) => {
-    // 根据成就key获取翻译描述
-    const achievementKey = achievement.id.toLowerCase()
-    
-    // 准备翻译参数 - 使用当前步骤的number值
-    let translationParams: any = {}
-    
-    // 根据成就类型确定需要的参数
-    if (achievementKey.includes('game_explorer')) {
-      // Game Explorer: 需要 count 参数 - 使用当前步骤的目标数量
-      translationParams = { count: currentStep.number }
-    } else if (achievementKey.includes('super_spreader')) {
-      // Super Spreader: 需要 count 参数 - 使用当前步骤的目标数量
-      translationParams = { count: currentStep.number }
-    } else if (achievementKey.includes('conquistador')) {
-      // Conquistador: 需要 count 参数 - 使用当前步骤的目标数量
-      translationParams = { count: currentStep.number }
-    } else if (achievementKey.includes('card_shark') || achievementKey.includes('slotmaster')) {
-      // Card Shark / Slotmaster: 需要 amount 参数 - 使用当前步骤的目标金额
-      translationParams = { amount: `₱${currentStep.number.toLocaleString()}` }
-    }
-    
-    // 构建翻译key
-    const translationKey = `bonus:${achievementKey}.description`
-    
-    // 检查翻译是否存在
-    const hasTranslation = t(translationKey, { defaultValue: '__NOT_FOUND__' }) !== '__NOT_FOUND__'
-    
-    if (hasTranslation) {
-      // 使用 Trans 组件来处理 <0></0> 标签
-      return (
-        <Trans
-          i18nKey={translationKey}
-          values={translationParams}
-          components={[
-            <span className="font-semibold text-primary" /> // <0></0> 标签的样式
-          ]}
-        />
-      )
-    }
-    
-    // 备用：尝试获取成就进度名称翻译
-    const progressNameKey = `bonus:achievements_progress_name.${achievementKey}`
-    const progressName = t(progressNameKey, { defaultValue: null })
-    
-    if (progressName && progressName !== progressNameKey) {
-      // 如果有进度名称翻译，使用通用描述模板
-      return t('bonus:unlock', { defaultValue: 'Complete tasks to unlock this achievement and earn rewards.' })
-    }
-    
-    // 最后备用：使用原始描述或默认文本
-    return achievement.description || t('bonus:unlock', { defaultValue: 'Complete tasks to unlock this achievement and earn rewards.' })
-  }
+  const formatRewardAmount = (step: AchievementStep) => {
+    return formatWithConversion(
+      parseFloat(step.reward_amount) || 0,
+      step.reward_currency || "BUCK"
+    ).formatted;
+  };
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const doClaim = (reward_achievement_log_id: number) => {
+    temporary_data = reward_achievement_log_id;
+
+    setIsLoading(true);
+    authService.claimAchievementBonus(reward_achievement_log_id).then((response) => {
+      if (response.code === 0 || response.code === 200) {
+        toast.success(t('toast:bonusClaimedSuccessfully'));
+
+         openDoubleOrNothingModal({
+            don_record_id: response?.data?.don_record_id,
+            amount: response?.data?.amount
+          });
+
+        void queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.userAchievements });
+      } else {
+        setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
+          code: response.code,
+          tryAgain: () => temporary_data > -1 && doClaim(temporary_data)
+        });
+        onCloseModal()
+      }
+    }).finally(() => {
+      setIsLoading(false);
+    });
+  };
+
+  const doTask = () => {
+    if (achievement?.modal) {
+      if (achievement.modal === "OPEN_SWAP") {
+        openUserFinanceModalWithTab(`swap_${randomString()}`)
+      } else {
+        setSyncAction(achievement.modal as TActions)
+      }
+      onClose()
+      onCloseModal()
+    }
+    if (achievement?.link) {
+      navigate({ to: achievement?.link || CASINO_ROUTE });
+    }
+  }
 
   return (
-    <Modal
-      position={isMobile ? 'modal-bottom' : 'modal-middle'}
-      isOpen={isOpen}
-      onClose={onClose}
-      hideTitle={true}
-      className="md:w-[500px] max-w-lg mx-auto overflow-hidden"
-    >
-      <div 
-        className="flex flex-col gap-6 -mx-5 -my-4 px-5 py-4"
-        style={{
-          background: iconColor || `
-            radial-gradient(162.99% 78.23% at 50.15% 21.77%, rgba(139, 92, 246, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%),
-            var(--color-base-400)
-          `
-        }}
+    <>
+      <Modal
+        position={isMobile ? "modal-bottom" : "modal-middle"}
+        isOpen={isOpen}
+        onClose={onClose}
+        hideTitle={true}
+        zIndex={1006}
+        className="md:w-[500px] max-w-lg mx-auto overflow-hidden bg-base-400"
       >
-        {/* Header Content */}
-        <div className="flex items-center gap-x-2 h-8 pt-4">
-          <Iconify icon="custom:achievement" className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-          <p className="text-base md:text-xl font-semibold">Achievement Details</p>
-        </div>
-        {/* Carousel Navigation and Achievement Icon */}
-        <div className="flex items-center justify-between px-4 py-6 relative overflow-hidden">
-          {/* Previous Button */}
-          {hasMultipleSteps ? (
-            <button
-              onClick={handlePrevious}
-              disabled={carousel.arrows.disablePrev}
-              className="btn btn-circle btn-ghost btn-sm z-10"
-              aria-label="Previous step"
-            >
-              <Iconify icon="mdi:chevron-left" className="w-6 h-6" />
-            </button>
-          ) : (
-            <div className="w-8 h-8" />
-          )}
-
-          {/* Achievement Icon and Title */}
-          <div className="flex flex-col items-center gap-3 z-10">
-            <div className="w-32 h-32 flex items-center justify-center">
-              <img
-                src={achievement.icon}
-                alt={achievement.name}
-                className="w-full h-full object-contain"
-                onLoad={(e) => handleImageLoad(e.target as HTMLImageElement)}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = '/images/illustrations/achievement-champion.png'
-                }}
-              />
-            </div>
-            
-            {/* Achievement Name */}
-            <h2 className="text-2xl font-bold text-center">
-              {achievement.name}
-            </h2>
+        <div
+          className="flex flex-col -mx-5 -my-4 px-5 py-4"
+          style={{ background: achievement?.bg || DEFAULT_BACKGROUND_GRADIENT }}
+        >
+          {/* Header Content */}
+          <div className="flex items-center h-8 gap-x-2">
+            <Iconify icon="custom:profile-achievements" className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+            <p className="text-base md:text-xl font-semibold">
+              {t("bonus:achievement_details", { defaultValue: "Achievement Details" })}
+            </p>
           </div>
 
-          {/* Next Button */}
-          {hasMultipleSteps ? (
-            <button
-              onClick={handleNext}
-              disabled={carousel.arrows.disableNext}
-              className="btn btn-circle btn-ghost btn-sm z-10"
-              aria-label="Next step"
-            >
-              <Iconify icon="mdi:chevron-right" className="w-6 h-6" />
-            </button>
-          ) : (
-            <div className="w-8 h-8" />
-          )}
-        </div>
+          {/* Carousel Navigation and Achievement Icon */}
+          <div className="flex items-center justify-between px-4 pt-6 relative overflow-hidden">
+            {/* Previous Button */}
+            {hasMultipleSteps ? (
+              <button
+                onClick={handlePrevious}
+                className="btn btn-circle btn-ghost btn-sm z-10"
+                aria-label={t("bonus:previous_step", { defaultValue: "Previous step" })}
+              >
+                <Iconify icon="mdi:chevron-left" className="w-6 h-6" />
+              </button>
+            ) : (
+              <div className="w-8 h-8" />
+            )}
 
-        {/* Steps Carousel */}
-        <div className="h-[360px]">
-          <Carousel carousel={carousel}>
-            {achievement.steps.map((step) => (
-              <div key={step.id} className="px-6 h-full flex flex-col">
-                {/* Step Info */}
-                <div className="text-center mb-6">
-                  <p className="text-base text-base-content/50">
-                    {t("bonus:level")} {step.step} / {achievement.steps.length}
-                  </p>
-                </div>
+            {/* Achievement Icon and Title */}
+            <div className="flex flex-col items-center gap-3 z-10">
+              <div className="w-32 h-32 flex items-center justify-center">
+                <img
+                  src={achievement?.icon}
+                  alt={achievement?.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = DEFAULT_ACHIEVEMENT_ICON;
+                  }}
+                />
+              </div>
+              <h2 className="text-2xl font-bold text-center">
+                {achievement?.name}
+              </h2>
+            </div>
 
-                {/* Progress Bar Section - Fixed height container */}
-                <div className="mb-6 h-[52px] flex flex-col justify-center">
-                  {!step.completed && achievement.userProgress !== undefined ? (
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-base-content/50">Progress</span>
+            {/* Next Button */}
+            {hasMultipleSteps ? (
+              <button
+                onClick={handleNext}
+                className="btn btn-circle btn-ghost btn-sm z-10"
+                aria-label={t("bonus:next_step", { defaultValue: "Next step" })}
+              >
+                <Iconify icon="mdi:chevron-right" className="w-6 h-6" />
+              </button>
+            ) : (
+              <div className="w-8 h-8" />
+            )}
+          </div>
+
+          {/* Steps Carousel */}
+          <div className="">
+            <Carousel carousel={carousel}>
+              {achievement?.steps.map((step: AchievementStep) => {
+                return (
+                  <div key={step.id} className="px-6 h-full flex flex-col gap-3">
+                    {/* Step Level */}
+                    <h2 className="text-sm font-bold text-center">
+                      {t("bonus:level", { defaultValue: "Level" })} {step.step}
+                    </h2>
+
+                    {/* Progress Bar Section */}
+                    {/* <div className="flex flex-col justify-center">
+                    {showProgress ? (
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-base-content/50">
+                            {t('bonus:progress', { defaultValue: 'Progress' })}
+                          </span>
+                          <span className="text-sm text-base-content/50">
+                            {achievement.progress} / {step.number}
+                          </span>
+                        </div>
+                        <div className="w-full bg-base-300 rounded-full h-2">
+                          <div
+                            className="h-2 rounded-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-300"
+                            style={{ width: `${progressPercentage}%` }}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="h-full" />
+                    )}
+                  </div> */}
+                    {step.locked ?
+                      <div className="text-sm font-bold mt-3 leading-7 text-center">{t("bonus:locked")}</div> :
+                      (step.is_finish && step.is_claim) ?
+                        <div
+                          className="text-sm text-primary mt-3 leading-7 text-center font-bold">{t("bonus:achieved_on")} {dayjs.unix(step?.updated_at ? Number(step?.updated_at) : 0).format("D MMM YYYY")}</div> :
+                        <>
+                          <div className="flex justify-between text-sm mt-3">
+                            <span>{t("bonus:progress")}: {(() => {
+                              const percentage = new Decimal(step.finish_number ?? 0).div(step.total_number ?? 1).mul(100);
+                              return percentage.mod(1).isZero() ? percentage.toString() : percentage.mul(100).floor().div(100).toFixed(2);
+                            })()}%</span>
+                            {
+                              step?.achievement_name === "Slotmaster" ?
+                                <span>
+                                  {formatWithConversion(
+                                    step?.finish_number || 0,
+                                    step?.reward_currency || "BUCK"
+                                    , { showCode: false }).formatted}
+                                  {" / "}
+                                  {formatWithConversion(
+                                    step?.total_number || 0,
+                                    step?.reward_currency || "BUCK"
+                                    , { showCode: false }).formatted}
+                                </span> :
+                                <span>{new Decimal(step?.finish_number ?? 0).toString()} {" / "} {step?.total_number ?? 0}</span>
+                            }
+                          </div>
+                          <progress className="progress progress-primary w-full mt-2" value={step?.finish_number ?? 0}
+                            max={step?.total_number ?? 0}></progress>
+                        </>
+                    }
+
+                    {/* Step Reward */}
+                    <div className="h-[20px]">
+                      <div className="flex items-center justify-between">
                         <span className="text-sm text-base-content/50">
-                          {achievement.userProgress} / {step.number}
+                          {t("bonus:achievement_reward", { defaultValue: "Reward" })}
+                        </span>
+                        <span className="text-sm text-primary">
+                          {formatRewardAmount(step)}
                         </span>
                       </div>
-                      <div className="w-full bg-base-300 rounded-full h-2">
-                        <div
-                          className="h-2 rounded-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-300"
-                          style={{
-                            width: `${Math.min((achievement.userProgress / step.number) * 100, 100)}%`
-                          }}
-                        />
+                    </div>
+
+                    {/* Step Description */}
+                    <div className="flex-1 min-h-[80px] flex items-start">
+                      <div className="text-sm text-base-content/50 leading-relaxed">
+                        {/* {getAchievementDescriptionComponent(achievement, step)} */}
+                        {step.locked ?
+                          <div>{t("bonus:unlock")}</div> :
+                          <Trans
+                            i18nKey={`bonus:${achievement.key}.description`}
+                            values={{
+                              count: step?.number,
+                              amount: formatWithConversion(
+                                parseFloat(step?.reward_amount) || 0,
+                                step?.reward_currency || "BUCK"
+                              ).formatted
+                            }}
+                            components={[<span className="font-semibold text-primary" key="highlight" />
+                            ]}
+                          />
+                        }
                       </div>
                     </div>
-                  ) : (
-                    <div className="h-full"></div>
-                  )}
-                </div>
 
-                {/* Step Reward - Fixed height */}
-                <div className="mb-6 h-[20px]">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-base-content/50">{t("bonus:achievement_reward")}</span>
-                    <span className="text-sm text-primary">
-                      {formatWithConversion(
-                        parseFloat(step.reward_amount) || 0, 
-                        step.reward_currency || 'BUCK'
-                      ).formatted}
-                    </span>
+                    {/* Action Button */}
+                    <div className="h-[48px] flex items-end">
+                      {!step.is_claim && step.is_finish &&
+                        <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
+                          disabled={isLoading}
+                          onClick={() => doClaim(step.reward_achievement_log_id)}>{t("bonus:claim")}
+                          {isLoading && <span className="loading loading-spinner loading-xs"></span>}
+                        </button>}
+                      {!step.is_finish && <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
+                        onClick={() => doTask()}>{t(`${achievement.btnText}`)}</button>}
+                      {step.is_finish && step.is_claim && achievement.steps.length === 1 &&
+                        <button className='btn btn-primary w-full btn-md h-[48px] mt-3'
+                          onClick={() => onClose()}>{t('bonus:back')}</button>}
+                      {step.is_finish && step.is_claim && achievement.steps.length > 1 &&
+                        <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
+                          onClick={() => doTask()}>{t(achievement.btnText)}</button>}
+                    </div>
                   </div>
-                </div>
-
-                {/* Step Description - Flexible height with minimum */}
-                <div className="mb-6 flex-1 min-h-[80px] flex items-start">
-                  <div className="text-sm text-base-content/50 leading-relaxed">
-                    {getAchievementDescriptionComponent(achievement, step)}
-                  </div>
-                </div>
-
-                {/* Action Button - Fixed at bottom */}
-                <div className="h-[48px] flex items-end">
-                  <button 
-                    className={cn(
-                      "btn btn-block",
-                      step.completed 
-                        ? "btn-primary btn-soft" 
-                        : "btn-primary"
-                    )}
-                    onClick={() => {
-                      // Navigate to games or claim reward
-                      if (!step.completed) {
-                        // Navigate to games section
-                        window.location.href = '/casino'
-                      } else {
-                        // Claim logic here if needed
-                        onClose()
-                      }
-                    }}
-                  >
-                    {step.completed ? t('bonus:completed') : 'Play Now'}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </Carousel>
-        </div>
-
-        {/* Carousel Dots - only show if multiple steps */}
-        {hasMultipleSteps && (
-          <div className="px-4">
-            <CarouselDotButtons 
-              {...carousel.dots}
-              className="flex items-center justify-center"
-              variant="circular"
-            />
+                );
+              })}
+            </Carousel>
           </div>
-        )}
-      </div>
-    </Modal>
-  )
-}
+        </div>
+      </Modal>
+    </>
+  );
+};

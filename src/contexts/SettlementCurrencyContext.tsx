@@ -31,6 +31,8 @@ import { authService } from "@/services/authService";
 import { getBrowserCurrency } from "@/utils/currency";
 import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
+import { useSupportedSettlementCurrencies } from "@/hooks/api/usePublic.ts";
+import { useSupportedCurrencyV2 } from "@/components/modal/UserFinanceModal/helper.ts";
 
 interface SettlementCurrencyContextType {
   selectedCurrency: string;
@@ -48,8 +50,17 @@ interface SettlementCurrencyProviderProps {
 
 const SETTLEMENT_CURRENCY_STORAGE_KEY = "game-on-settlement-currency";
 
-export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProps> = ({ children, defaultCurrency }) => {
+export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProps> = (
+  {
+    children,
+    defaultCurrency
+  }) => {
   const { user } = useAuth();
+
+  const { data: settlementCurrencies } = useSupportedSettlementCurrencies();
+
+  // FIXME 目的：用户切换结算币的时候，把币种同步到存款页面的默认币种选择
+  const { refetch: refetchCurrencyV2  } = useSupportedCurrencyV2()
 
   // 初始化选择的结算货币
   const [selectedCurrency, setSelectedCurrencyState] = useState<string>(() => {
@@ -83,6 +94,18 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
   const updateSettlementCurrency = async (currency: string): Promise<void> => {
     if (isLoading) return;
 
+    /**
+     * FIXME:
+     *  如果用户切换的“结算币”不在服务端提供的/api/Currency列表里：
+     *  1. 禁止数据提交
+     *  2. 不去设置备用默认值
+     */
+    const whether_currency_was_matched = (settlementCurrencies?.data ?? []).some((c: { currency: string }) => c.currency.toLowerCase() === currency?.toLowerCase());
+    if (!whether_currency_was_matched) {
+      console.info(`The provided currency was not matched: ${currency}`);
+      return
+    }
+
     try {
       setIsLoading(true);
 
@@ -92,6 +115,9 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
       // 如果用户已登录，同步到后端
       if (user) {
         const response = await authService.updateUserSettlementCurrency(currency);
+
+        // FIXME 目的：用户切换结算币的时候，把币种同步到存款页面的默认币种选择
+        void refetchCurrencyV2()
 
         if (response.code !== 0) {
           throw new Error(response.msg || "Failed to update settlement currency");
@@ -119,7 +145,7 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
     selectedCurrency,
     setSelectedCurrency,
     updateSettlementCurrency,
-    isLoading,
+    isLoading
   };
 
   return <SettlementCurrencyContext.Provider value={contextValue}>{children}</SettlementCurrencyContext.Provider>;

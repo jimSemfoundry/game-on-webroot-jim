@@ -1,6 +1,15 @@
 {
+  "tabs": {
+    "global": "Global",
+    "ratesAndRules": "Raten & Regeln",
+    "campaigns": "Kampagnen",
+    "myReferrals": "Meine Empfehlungen",
+    "commissions": "Provisionen",
+    "rewards": "Belohnungen"
+  },
+  "commissionCalculator": "Provisionsrechner",
   "telegramReferralLink": "Telegram-Empfehlungslink",
-    "network": "Netzwerk",
+  "network": "Netzwerk",
   "lifetimeReferralRewards": "Lebenslange Empfehlungsprämien",
   "referrals": "Empfehlungen",
   "availableCommissionRewards": "Verfügbare Kommissionsbelohnungen",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Verfügbare Empfehlungsprämien",
   "lockedRewards": "Gesperrte Belohnungen",
   "assembleYourCrewCashIn": "Stellen Sie Ihre Crew zusammen und kassieren Sie ab!",
+  "assembleYourCrewCashInDescription1": "Rekrutiere dein Team und verdiene {{amount}} pro Freund - wie ein Überfall, aber ohne die FBI-Verfolgung. Außerdem verdienst du bis zu {{percentage}} Provision auf deren Wetten. Das Beste daran? Dein Provisionssatz wächst mit dir, während du aufsteigst, und du verdienst sogar von den Rekruten deines Teams!",
+  "assembleYourCrewCashInDescription2": "Je größer dein Netzwerk, desto dicker dein Anteil. Egal, ob sie gewinnen, verlieren oder wie Wahnsinnige wetten, du sammelst weiterhin Geld. Zeit, dein Imperium aufzubauen - Fang jetzt an zu rekrutieren!",
+  "quickShare": "Schnell teilen",
   "referralRewards": "Empfehlungsprämien",
   "commissionRewards": "Kommissionsbelohnungen",
   "aboutDescription": "Rekrutieren Sie Ihre Gruppe und erzielen Sie {{amount}} pro Freund - wie bei einem Raubüberfall, aber ohne die FBI-Jagd. Außerdem verdienen Sie bis zu 50% Kommission auf ihre Einsätze. Und das Beste daran? Ihr Provisionssatz wächst mit Ihnen, wenn Sie aufsteigen, und Sie verdienen sogar an den Rekruten Ihrer Mannschaft!\n\nJe größer Ihr Netzwerk ist, desto größer ist Ihr Anteil. Egal, ob sie gewinnen, verlieren oder wie die Verrückten wetten, Sie sammeln weiterhin Geld an. Zeit, Ihr Imperium aufzubauen - fangen Sie jetzt an zu rekrutieren!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Über soziale Netzwerke teilen",
   "referralTermsConditions": "Empfehlungsbedingungen & Konditionen",
   "liveGlobalRewards": "Live-Globalbelohnungen",
+  "liveGlobalCommissions": "Live Globale Provisionen",
   "username": "Benutzername",
   "friendLevel": "Level des Freundes",
   "totalExp": "EXP insgesamt",
@@ -104,36 +117,36 @@
   "myReferrals": "Meine Empfehlungen",
   "more": "Mehr",
   "faqOne": {
-    "title": "Wie funktioniert das Empfehlungssystem?",
-    "content": "<p class=\"leading-7\">Wenn Sie Ihren Empfehlungslink mit Ihren Freunden teilen und sie sich auf unserer Seite anmelden, werden sie Ihre Empfehlungen und Sie erhalten Provisionen und Empfehlungsprämien durch das Spielen in der {{gameLink}} Allianz.</p>"
+    "title": "Wie funktioniert das Empfehlungsystem?",
+    "content": "<p class=\"leading-7\">Wenn Sie Ihren Empfehlungslink mit Ihren Freunden teilen und sie sich auf unserer Seite anmelden, werden sie zu Ihrer Empfehlung und verdienen Ihnen Provisionen und Empfehlungsbelohnungen, indem sie im {{gameLink}} Alliance spielen.</p>"
   },
   "faqTwo": {
-    "title": "Wie viel kann ich mit meinen Empfehlungen verdienen?",
-    "content": "<p class=\"leading-7\">Sie können {{percentage}} ihrer Wettaktivitäten als Provisionen verdienen + {{amount}} pro Empfehlung.</p>"
+    "title": "Wie viel kann ich von meiner Empfehlung verdienen?",
+    "content": "<p class=\"leading-7\">Sie können {{percentage}} ihrer Wettaktivität als Provisionen + {{amount}} pro Empfehlung verdienen.</p>"
   },
   "faqThree": {
-    "title": "Was ist die {{amount}} USD-Belohnung und wie funktioniert sie?",
-    "content": "<p class=\"leading-7\">Es gibt eine {{amount}} USD Belohnung für jede Empfehlung, die Sie zu {{gameLink}} bringen. Diese USD-Belohnung wird in {{parts}} Teilen ausgezahlt, wenn Ihr Empfehlungslevel von {{level}} steigt.</p>"
+    "title": "Was ist die {{amount}} USD Belohnung und wie funktioniert sie?",
+    "content": "<p class=\"leading-7\">Es gibt eine {{amount}} USD Belohnung für jede Empfehlung, die Sie zu {{gameLink}} bringen. Diese USD Belohnung wird in {{parts}} Teilen vergeben, während Ihr Empfehlungslevel von {{level}} steigt.</p>"
   },
   "faqFour": {
-    "title": "Ich habe ein großes Publikum. Wie kann ich ein besonderes Angebot bekommen?",
-    "content": "<p class=\"leading-7\">Wenn Sie eine Website mit gutem Traffic oder ein Social-Media-Konto mit großem Publikum haben, können Sie uns unter {{emailLink}} eine E-Mail senden.</p>"
+    "title": "Ich habe ein großes Publikum. Wie kann ich ein spezielles Angebot erhalten?",
+    "content": "<p class=\"leading-7\">Wenn Sie eine Website mit gutem Traffic oder ein Social-Media-Konto mit einem großen Publikum haben, können Sie uns unter {{emailLink}} eine E-Mail senden.</p>"
   },
   "faqFive": {
-    "title": "Wie viele Affiliate-Links kann ich erstellen, wenn ich verschiedene Websites/Social-Media-Konten habe?",
-    "content": "<p class=\"leading-7\">Sie können bis zu {{codes}} einzigartige Codes für verschiedene Verkehrsquellen erstellen.</p>"
+    "title": "Wie viele Affiliate-Links kann ich erstellen, wenn ich verschiedene Websites/ Social-Media-Konten habe?",
+    "content": "<p class=\"leading-7\">Sie können bis zu {{codes}} einzigartige Codes für verschiedene Traffic-Quellen erstellen.</p>"
   },
   "faqSix": {
-    "title": "Kann ich die Daten meiner Empfehlungen sehen?",
-    "content": "<p class=\"leading-7\">Ja, Transparenz, Vertrauen und Fairness sind Teil der Kernwerte von {{gameLink}}. Daten wie Benutzername, Gesamtwetten und verdiente Provisionen sind alle im Bereich \"Meine Provisionen\" und \"Empfehlungsprämien\" verfügbar.</p>"
+    "title": "Kann ich die Daten meiner Empfehlung sehen?",
+    "content": "<p class=\"leading-7\">Ja, Transparenz, Vertrauen und Fairness sind Teil der Kernwerte von {{gameLink}}. Daten wie Benutzername, Gesamteinsatz und verdiente Provisionen sind alle im Tab \"Meine Provisionen\" und \"Empfehlungsbelohnungen\" verfügbar.</p>"
   },
   "faqSeven": {
-    "title": "Kann ich die Provisionen mit meinen Empfehlungen teilen?",
-    "content": "<p class=\"leading-7\">Ja, Sie können die Provisionsbelohnungen mit Ihren Empfehlungen teilen, indem Sie auf \"Neue Kampagne erstellen\" klicken und die Provisionsaufteilung unter dem Reiter \"Kampagnen\" einstellen.</p>"
+    "title": "Kann ich die Provisionsbelohnungen mit meinen Empfehlungen teilen?",
+    "content": "<p class=\"leading-7\">Ja, Sie können die Provisionsbelohnungen mit Ihren Empfehlungen teilen, indem Sie auf \"Neue Kampagne erstellen\" klicken und die Provisionsaufteilung im Tab \"Kampagnen\" festlegen.</p>"
   },
   "faqEight": {
-    "title": "Was ist eine indirekte Empfehlung und was kann ich damit verdienen?",
-    "content": "<p class=\"leading-7\">Eine indirekte Empfehlung ist ein aktiver Spieler, der über den Einladungslink einer Ihrer direkten Empfehlungen hereinkommt. Wenn Ihr VIP-Level höher ist als das VIP-Level Ihrer direkten Empfehlung, können Sie auch für Ihre indirekte Empfehlung eine Provision erhalten.</p>"
+    "title": "Was ist eine indirekte Empfehlung und was kann ich von ihnen verdienen?",
+    "content": "<p class=\"leading-7\">Eine indirekte Empfehlung ist ein aktiver Spieler, der über den Einladungslink eines Ihrer direkten Empfehlungen kommt. Wenn Ihr VIP-Level höher ist als das VIP-Level Ihres direkten Empfehlungsgebers, können Sie auch Provisionen aus Ihrer indirekten Empfehlung verdienen.</p>"
   },
   "levelReward": "Level-Aufstiegsbelohnung",
   "groupReward": "Provisionsbelohnung",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Um das Beispiel zu vereinfachen, nehmen wir an, dass die gelb markierten Freunde aktiv wetten, und die grünen Prozentsätze entlang der gestrichelten Linien die Provision darstellen, die Sie von jedem von ihnen erhalten.",
   "referralCommissionsIndirectDescription": "Um das Beispiel zu vereinfachen, nehmen wir an, dass die lila markierten Freunde aktiv wetten. Die Prozentsätze entlang der gestrichelten Linien zeigen die Provision, die jedes Mitglied in der Empfehlungs-Kette verdient. \n\n Rechts sehen wir ein Beispiel für ein Abspalten in der Empfehlungs-Kette.",
   "referralCodeMinLength": "Der Empfehlungscode muss mindestens 6 Zeichen lang sein",
-    "vipLevel": "VIP-Level",
+  "vipLevel": "VIP-Level",
   "earned": "Verdient",
   "directfriend": "Direkter Freund",
   "fast": "Schnell",
   "slots": "Spielautomaten",
   "live-casino": "Live-Casino",
   "fishing": "Angeln",
-  "rewardsUnlocked": "Belohnungen Freigeschaltet"
+  "rewardsUnlocked": "Belohnungen Freigeschaltet",
+  "selectGame": "Spiel auswählen",
+  "selectVipLevel": "VIP-Stufe auswählen",
+  "myReferralCommissions": "Meine Empfehlungsprovisionen",
+  "myReferralRewards": "Meine Empfehlungsbelohnungen",
+  "exp": "EXP",
+  "userLevel": "Benutzerlevel"
 }

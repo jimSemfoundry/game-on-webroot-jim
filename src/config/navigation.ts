@@ -18,27 +18,27 @@ export interface NavItem {
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     href: "#",
-    label: "Menu",
+    label: "menu:menu",
     icon: "custom:menu",
   },
   {
     href: "/explore",
-    label: "Explore",
+    label: "menu:explore",
     icon: "custom:explore",
   },
   {
     href: "/casino",
-    label: "Casino",
+    label: "menu:casino",
     icon: "custom:casino",
   },
   {
     href: "/sports",
-    label: "Sports",
+    label: "menu:sports",
     icon: "custom:sports",
   },
   {
     href: "/bonus",
-    label: "Bonus",
+    label: "menu:bonus",
     icon: "custom:bonus",
   },
 ];

@@ -46,12 +46,12 @@ export const Countdown = ({
   const calculateTimeRemaining = useCallback((targetTime: number) => {
     const now = Date.now();
     const difference = Math.max(0, targetTime - now);
-    
+
     const seconds = Math.floor(difference / 1000) % 60;
     const minutes = Math.floor(difference / (1000 * 60)) % 60;
     const hours = Math.floor(difference / (1000 * 60 * 60)) % 24;
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    
+
     return { days, hours, minutes, seconds };
   }, []);
 
@@ -59,16 +59,16 @@ export const Countdown = ({
   const updateTimer = useCallback(() => {
     const targetTime = getTargetTime(target);
     const newTime = calculateTimeRemaining(targetTime);
-    const isComplete = newTime.days === 0 && newTime.hours === 0 && 
-                      newTime.minutes === 0 && newTime.seconds === 0;
-    
+    const isComplete = newTime.days === 0 && newTime.hours === 0 &&
+      newTime.minutes === 0 && newTime.seconds === 0;
+
     setTime(newTime);
-    
+
     if (isComplete) {
       onComplete?.();
       return;
     }
-    
+
     timerRef.current = setTimeout(updateTimer, 1000);
   }, [target, getTargetTime, calculateTimeRemaining, onComplete]);
 
@@ -77,9 +77,9 @@ export const Countdown = ({
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
-    
+
     updateTimer();
-    
+
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
@@ -95,19 +95,23 @@ export const Countdown = ({
   }
 
   return (
-    <div className={className || "font-mono text-2xl"}>
+    <div className={className || "font-mono text-2xl flex items-baseline"}>
       <span className="countdown">
-        <span style={{ '--value': time.days } as React.CSSProperties}></span>
-      </span>d{' '}
+        <span style={{ '--value': time.days } as React.CSSProperties}>{time.days}</span>
+      </span>
+      <span className="mr-0.5">d</span>
       <span className="countdown">
-        <span style={{ '--value': time.hours } as React.CSSProperties}></span>
-      </span>h{' '}
+        <span style={{ '--value': time.hours } as React.CSSProperties}>{time.hours}</span>
+      </span>
+      <span className="mr-0.5">h</span>
       <span className="countdown">
-        <span style={{ '--value': time.minutes } as React.CSSProperties}></span>
-      </span>m{' '}
+        <span style={{ '--value': time.minutes } as React.CSSProperties}>{time.minutes}</span>
+      </span>
+      <span className="mr-0.5">m</span>
       <span className="countdown">
-        <span style={{ '--value': time.seconds } as React.CSSProperties}></span>
-      </span>s
+        <span style={{ '--value': time.seconds } as React.CSSProperties}>{time.seconds}</span>
+      </span>
+      <span className="mr-0.5">s</span>
     </div>
   );
 };

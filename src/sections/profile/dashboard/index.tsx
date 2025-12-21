@@ -10,7 +10,7 @@ export function Index() {
 
   return (
     <div className="md:flex gap-4 items-start">
-      <div className={`flex flex-col gap-4 flex-1 pb-5 md:p-0`}>
+      <div className={`flex flex-col gap-4 flex-1 pb-5 md:p-0 overflow-hidden`}>
         <UserStats />
         <Top3Games />
         {isMobile && (<ReferralProgram />)}

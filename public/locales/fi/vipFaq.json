@@ -1,38 +1,38 @@
 {
   "faqOne": {
-    "title": "Mitä Ovat Tasonnousubonukset?",
-    "content": "<p class=\"leading-7\">Tasonnousubonus on tapamme osoittaa arvostusta uskollisille pelaajille, jotka ovat olleet kanssamme alusta asti. Kun pelaajat nousevat VIP-tasoilla, he avaavat suurempia tasonousupalkintoja.</p>"
+    "title": "Mitä ovat tasonnousubonukset?",
+    "content": "<p class=\"leading-7\">Tasonnousubonus on tapa osoittaa arvostusta uskollisille pelaajille, jotka ovat olleet kanssamme alusta asti. Kun pelaajat nousevat VIP-tasoilla, he avaavat korkeampia tasonnousupalkintoja.</p>"
   },
   "faqTwo": {
-    "title": "Mikä On Päivittäinen Cashback?",
-    "content": "<p class=\"leading-7\">Päivittäinen Cashback myönnetään pelaajille, jotka ovat kärsineet tappioita talletussummaansa nähden. Tämä bonus maksetaan päivittäin prosenttiosuutena pelaajan tappioista. Cashback-prosentti kasvaa VIP-tasojen myötä, jopa 40 %:iin, mikä on markkinoiden korkein. Huomaa, että bonus on vain pelaajille, jotka ovat nettotappiolla.</p>"
+    "title": "Mikä on päivittäinen cashback?",
+    "content": "<p class=\"leading-7\">Päivittäinen cashback myönnetään pelaajille, jotka ovat kärsineet tappioita talletusmääräänsä nähden. Tämä bonus myönnetään päivittäin prosenttiosuutena pelaajan tappiomäärästä. Päivittäinen cashback-prosentti kasvaa VIP-tasojesi myötä, enintään 40 % cashbackia, mikä on korkein cashback, joka on saatavilla. Huomaa, että tämä bonus on vain pelaajille, jotka ovat nettotappiolla.</p>"
   },
   "faqThree": {
-    "title": "Mitä Ovat Valloitukset/Tehtävät?",
-    "content": "<p class=\"leading-7\">Valloitukset ovat päivittäisiä tehtäviä, jotka annetaan pelaajille satunnaisesti lisäpalkintojen ansaitsemiseksi pelatessaan sivustollamme. Valloituspalkinnot on lunastettava 24 tunnin kuluessa ennen seuraavaa jaksoa, muuten ne vanhenevat. Palkinnot maksetaan BUCK/USDT:nä ja voidaan muuntaa haluamaksesi kryptovaluutaksi vaihto-toiminnollamme.</p>"
+    "title": "Mitä ovat valloitukset/tehtävät?",
+    "content": "<p class=\"leading-7\">Valloitukset ovat päivittäisiä tehtäviä, jotka annetaan satunnaisesti pelaajille, jotta he voivat ansaita ylimääräisiä palkintoja pelatessaan verkkosivustollamme. Valloittajapalkinnot on vaadittava 24 tunnin kuluessa ennen seuraavaa sykliä, ja ne vanhenevat, jos niitä ei vaadita. Valloittajapalkinnot maksetaan BUCK/USDT:ssä ja ne voidaan muuntaa haluamaasi kryptovaluuttaan vaihtotoimintomme kautta.</p>"
   },
   "faqFour": {
-    "title": "Mitä Ovat Turnauspalkinnot?",
-    "content": "<p class=\"leading-7\">Turnauspalkinnot ovat palkintoja, jotka myönnetään erinomaisesta suorituksesta kilpailuissa. Ne kertyvät lunastettavaksi ilman aikarajaa! Palkinnot maksetaan BUCK/USDT:nä ja voidaan muuntaa haluamaksesi kryptovaluutaksi vaihto-toiminnollamme.</p>"
+    "title": "Mitä ovat turnauspalkinnot?",
+    "content": "<p class=\"leading-7\">Turnauspalkinnot ovat palkintoja, jotka annetaan erinomaisesta suorituksesta kilpailuissa. Turnauspalkinnot kertyvät, kunnes ne vaaditaan, eikä niillä ole vanhenemispäivää. Turnauspalkinnot maksetaan BUCK/USDT:ssä ja ne voidaan muuntaa haluamaasi kryptovaluuttaan vaihtotoimintomme kautta.</p>"
   },
   "faqFive": {
-    "title": "Mikä On Super Rakeback?",
-    "content": "<p class=\"leading-7\">Super Rakeback on mekanismimme talletusbonusten vapauttamiseen. Jopa 3 % panoksestasi palautetaan joka kerta, kun asetat panoksen. Mitä korkeampi VIP-tasosi, sitä suurempi palautusprosentti. Vapautettu BUCK/USDT = Panos x 2,5 % x Palautusprosentti</p><p class=\"leading-7\">Palautusprosentti:</p><p class=\"leading-7\">VIP 0-40: 20 %</p><p class=\"leading-7\">VIP 41-60: 32 %</p><p class=\"leading-7\">VIP 61-80: 40 %</p><p class=\"leading-7\">VIP 81-100: 52 %</p><p class=\"leading-7\">VIP 101-125: 60 %</p>"
+    "title": "Mikä on Super Rakeback?",
+    "content": "<p class=\"leading-7\">Super Rakeback on mekanismimme talletusbonustesi avaamiseksi. Prosenttiosuus panoksestasi (enintään 3 %) palautuu sinulle joka kerta, kun teet vedon. Mitä korkeampi VIP-tasosi on, sitä korkeampi on avausprosentti. Avatut BUCK/USDT = Panos x 2,5 % x Avausprosentti%</p><p class=\"leading-7\">Avausprosentti:</p><p class=\"leading-7\">VIP 0-40: 20%</p><p class=\"leading-7\">VIP 41-60: 32%</p><p class=\"leading-7\">VIP 61-80: 40%</p><p class=\"leading-7\">VIP 81-100: 52%</p><p class=\"leading-7\">VIP 101-125: 60%</p>"
   },
   "faqSix": {
-    "title": "Mikä On Tehostin?",
-    "content": "<p class=\"leading-7\">Tehostimet kaksinkertaistavat Rakebackisi tunniksi aina, kun kutsuystävä tekee talletuksen.</p><p class=\"leading-7\">Tehostettu Palautusprosentti:</p><p class=\"leading-7\">Palautusprosentti:</p><p class=\"leading-7\">VIP 0-40: 40 %</p><p class=\"leading-7\">VIP 41-60: 72 %</p><p class=\"leading-7\">VIP 61-80: 80 %</p><p class=\"leading-7\">VIP 81-100: 102 %</p><p class=\"leading-7\">VIP 101-125: 120 %</p>"
+    "title": "Mikä on Booster?",
+    "content": "<p class=\"leading-7\">Boosterit tuplaavat Rakebackisi tunniksi joka kerta, kun suositus tekee talletuksen.</p><p class=\"leading-7\">Boostattu avausprosentti:</p><p class=\"leading-7\">Avausprosentti:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
-    "title": "Mikä On Bonuskalenteri?",
-    "content": "<p class=\"leading-7\">Useimmat bonukset maksetaan 50 % todelliseen saldoosi ja 50 % bonuskalenteriisi. Bonuskalenterin bonukset voidaan lunastaa 8 tunnin välein, ja ne vanhenevat 24 tunnin kuluessa, jos niitä ei lunasteta. Muista lunastaa bonuskalenterisi bonukset ainakin kerran päivässä, jotta saat kaikki palkintosi!</p>"
+    "title": "Mikä on bonuskalenteri?",
+    "content": "<p class=\"leading-7\">Useimmat bonukset maksetaan 50 % todelliseen saldoosi ja 50 % bonuskalenteriisi. Bonuskalenteriisi maksetut bonukset voidaan vaatia joka 8. tunti ja ne vanhenevat 24 tunnin kuluessa, jos niitä ei vaadita. Muista vaatia bonukset bonuskalenteristasi vähintään kerran päivässä varmistaaksesi, että kaikki palkintosi kerätään!</p>"
   },
   "faqEight": {
-    "title": "Mikä On Viikkobonus?",
-    "content": "<p class=\"leading-7\">Viikkobonus on eksklusiivinen etu sivustollamme VIP 12 ja sitä korkeammille pelaajille. Bonus maksetaan viikoittain automaattisesti joka perjantai VIP 12 tai korkeamman tason pelaajille. Bonuksen suuruus riippuu viime viikon panostuksista, ja minimipanostusvaatimus on {{minWager}} viimeisen viikon aikana.</p>"
+    "title": "Mikä on viikoittainen bonus?",
+    "content": "<p class=\"leading-7\">Viikoittainen bonus on eksklusiivinen etu verkkosivustollamme, joka on suunniteltu pelaajille, jotka ovat VIP12 ja sitä korkeammalla. Tämä bonus myönnetään viikoittain ja maksetaan automaattisesti joka perjantai VIP12 ja sitä korkeammilla pelaajille. Bonuksen koko riippuu edellisen viikon aikana panostetusta määrästä, ja minimipanostusvaatimus on {{minWager}} edellisen viikon aikana.</p>"
   },
   "faqNine": {
-    "title": "Mitä Ovat Saavutukset?",
-    "content": "<p class=\"leading-7\">Saavutukset ovat tapamme palkita aktiivisuutesi alustallamme. Kun lunastat saavutusbonuksen, se maksetaan bonuskalenteriisi ja voidaan lunastaa 8 tunnin välein. Bonukset vanhenevat 24 tunnin kuluessa, jos niitä ei lunasteta.</p>"
+    "title": "Mitä ovat saavutukset?",
+    "content": "<p class=\"leading-7\">Saavutukset ovat tapa, jolla tunnustamme toimintasi alustallamme. Kun vaadit saavutuspalkintosi, se maksetaan bonuskalenteriisi ja sen voi vaatia joka 8. tunti ja se vanhenee 24 tunnin kuluessa, jos sitä ei vaadita.</p>"
   }
 }

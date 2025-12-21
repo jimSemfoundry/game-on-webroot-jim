@@ -24,6 +24,7 @@ type ModalProps = {
   style?: React.CSSProperties;
   zIndex?: number;
   outsideClose?: boolean;
+  classNameModal?: string;
 };
 
 export function Modal({
@@ -39,6 +40,7 @@ export function Modal({
   zIndex = 70,
   style,
   outsideClose = true,
+  classNameModal
 }: ModalProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
   const modalId = `${id}_${Math.random().toString(36).substring(2, 11)}`;
@@ -73,7 +75,10 @@ export function Modal({
   }
 
   const modalContent = (
-    <dialog ref={modalRef} id={modalId} className={cn(`modal z-[${zIndex}]`, position || "modal-bottom sm:modal-middle")} onClose={onClose}>
+    <dialog ref={modalRef} id={modalId}
+      className={cn("modal", position || "modal-bottom sm:modal-middle", classNameModal)}
+      style={{ zIndex }}
+      onClose={onClose}>
       <div className={cn("modal-box px-5 py-4", className)} style={style}>
         {/* 关闭按钮 */}
         <form method="dialog">
@@ -94,7 +99,7 @@ export function Modal({
         )}
 
         {/* 内容 */}
-        <div>{children}</div>
+        <div className="h-full">{children}</div>
       </div>
 
       {/* 背景遮罩 - 点击关闭 */}

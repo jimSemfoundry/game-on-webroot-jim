@@ -1,7 +1,7 @@
 {
-    "global": "Global",
-    "notifications": "Notifikasi",
-    "support": "Dukungan",
-    "retry": "Coba lagi",
-    "customerServiceChatFailedToLoad": "Obrolan layanan pelanggan gagal dimuat"
+  "global": "Global",
+  "notifications": "Notifikasi",
+  "support": "Dukungan",
+  "retry": "Coba lagi",
+  "customerServiceChatFailedToLoad": "Obrolan layanan pelanggan gagal dimuat"
 }

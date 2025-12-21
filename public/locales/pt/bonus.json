@@ -1,4 +1,46 @@
 {
+  "double_or_nothing_description": "Reivindique seu bônus como de costume...\nOu dê um salto ousado para",
+  "double_it": "Dobrar!",
+  "no_thanks": "Não, obrigado",
+  "double_or_nothing": "Dobrar ou Nada",
+  "come_back_tomorrow": "Volte Amanhã",
+  "promo_code": "Código Promocional",
+  "got_a_code": "Tem um código? Você sabe o que fazer!",
+  "lifetime_bonus": "Bônus Vitalício",
+  "claimed": "Reivindicado",
+  "starter": "Iniciante",
+  "pack": "Pacote",
+  "achievements_card_description": "Colete recompensas especiais de conquistas projetadas para celebrar cada passo do seu progresso!",
+  "achievement_short_descriptions": {
+    "achievement_verify_email": "Domine a arte da sorte",
+    "achievement_verify_phone": "Energia e poder imparáveis",
+    "achievement_add_desktop_app": "Sempre ao seu alcance",
+    "achievement_super_spreader": "Compartilhe a experiência de jogo",
+    "achievement_conquistador": "Enfrente cada obstáculo",
+    "achievement_game_explorer": "Descubra novos mundos de jogos",
+    "achievement_card_shark": "Domine os jogos de cartas",
+    "achievement_slotmaster": "Mestre das máquinas caça-níqueis",
+    "achievement_talkative": "Lidere o caminho para os outros",
+    "achievement_bet_count": "Domine o jogo de precisão",
+    "achievement_deposit_count": "Alcance a vitória suprema",
+    "achievement_wager_count": "Supere os desafios",
+    "achievement_single_bet": "Torne-se lendário",
+    "achievement_single_deposit": "Navegue pelas redes blockchain",
+    "achievement_single_wager": "Domine as estratégias financeiras",
+    "achievement_single_payout": "Domine o mercado de criptomoedas",
+    "achievement_crypto_bro": "Domine o comércio de criptomoedas",
+    "achievement_crypto_baron": "Domine o mercado de criptomoedas",
+    "achievement_chain_shifter": "Navegue pelas redes blockchain",
+    "achievement_money_master": "Domine as estratégias financeiras",
+    "achievement_sniper": "Domine o jogo de precisão",
+    "achievement_champion": "Alcance a vitória suprema",
+    "achievement_name_of_fame": "Torne-se lendário",
+    "achievement_guiding_star": "Lidere o caminho para os outros",
+    "achievement_face_of_fortune": "Domine a arte da sorte",
+    "achievement_dynamo": "Energia e poder imparáveis",
+    "achievement_inferno": "Supere os desafios",
+    "achievement_the_challenger": "Enfrente cada obstáculo"
+  },
   "bonus": "Bônus",
   "total_bonus_claimed": "Total de Bônus Resgatados",
   "details": "Detalhes",
@@ -34,6 +76,7 @@
   "total_vip_bonus_claimed": "Total de Bônus VIP Resgatados",
   "your_vip_progress": "Seu Progresso VIP",
   "available_at_vip": "Disponível no VIP {{vip}}",
+  "vip_progress_description": "Avance! O próximo nível desbloqueia {{amount}} do seu pool de bônus.",
   "hit_vip_4_and_gain_access_to_lucky_spin_your_chance_to_win_extra_rewards_every_single_day": "Alcance o VIP 4 e ganhe acesso ao Lucky Spin – sua chance de ganhar recompensas extras todos os dias!",
   "weekly_cashback": "Cashback Semanal",
   "reach_vip_12_and_unlock_weekly_cashback_your_personal_safety_net_for_high_roller_action": "Alcance o VIP 12 e desbloqueie o cashback semanal – sua rede de segurança pessoal para apostas de alto valor!",
@@ -49,8 +92,9 @@
   "lucky_spin": "Lucky Spin",
   "lucky_number_seven": "Número Sete da Sorte",
   "expires_in": "Expira Em",
+  "expires": "Expira",
   "go": "Ir",
-    "conquest_just_wager_title": "Aposte Apenas {{amount}}",
+  "conquest_just_wager_title": "Aposte Apenas {{amount}}",
   "conquest_just_wager_description": "Aposte {{amount}} em qualquer jogo em um único dia para liberar {{reward}} do seu pool de bônus hoje!",
   "conquest_big_win_title": "Grande Vitória",
   "conquest_big_win_description": "Ganhe {{multiple}}x ou mais em qualquer jogo com uma aposta acima de {{min_bet}} para liberar <0>{{reward}}</0> do seu pool de bônus hoje!",
@@ -98,133 +142,190 @@
   "sort_by": "Ordenar Por:",
   "claimable": "Resgatável",
   "achievement_verify_email": {
-    "name": "Verificar E-mail",
-    "description": "Esta realização é concedida aos jogadores que verificaram seu e-mail, confirmando sua identidade e desbloqueando acesso seguro. É o primeiro passo de todo jogador sério, marcando prontidão e confiabilidade."
+    "name": "Verificar Email",
+    "description": "Esta conquista é concedida aos jogadores que verificaram seu email, garantindo sua identidade e desbloqueando acesso seguro. É um sinal de prontidão e confiabilidade — o primeiro passo de todo jogador sério."
   },
   "achievement_verify_phone": {
     "name": "Verificar Telefone",
-    "description": "Esta realização é concedida aos jogadores que verificaram seu número de telefone para se manterem informados e conectados. Isso indica confiança, envolvimento e compromisso com o ritmo do jogo."
+    "description": "Esta conquista é concedida aos jogadores que verificaram seu número de telefone para se manter informados e conectados. Isso sinaliza confiança, engajamento e compromisso com o pulso do jogo."
   },
   "achievement_add_desktop_app": {
     "name": "Adicionar à Tela Inicial",
-    "description": "Esta conquista é concedida aos jogadores que adicionaram nosso miniaplicativo do Telegram à tela inicial. Sempre à mão, essa ação demonstra verdadeira dedicação – porque jogadores de verdade mantêm o jogo por perto."
+    "description": "Esta conquista é concedida aos jogadores que adicionaram nosso mini app do Telegram à sua tela inicial. Sempre ao alcance, essa ação mostra verdadeira dedicação - porque jogadores reais mantêm o jogo por perto."
   },
   "achievement_super_spreader": {
-    "name": "Super Divulgador",
-    "description": "Esta realização é concedida aos jogadores que indicaram com sucesso <0>{{count}} novos usuários</0>. Verdadeiros construtores de comunidade, eles expandem o círculo e trazem nova energia ao jogo. Sua influência cresce a cada conexão."
+    "name": "Super Difusor",
+    "description": "Esta conquista é concedida aos jogadores que referenciaram com sucesso <0>{{count}} novos usuários</0>. Um verdadeiro construtor de comunidade, eles expandem o círculo e trazem nova energia ao jogo. Sua influência cresce a cada conexão que fazem."
   },
   "achievement_conquistador": {
-    "name": "Vencedor",
-    "description": "Esta realização é concedida aos jogadores que completaram um total de <0>{{count}} conquistas</0>. Movidos por determinação e sede de vitória, eles superam todos os desafios — verdadeiros campeões da jornada."
+    "name": "Conquistador",
+    "description": "Esta conquista é concedida aos jogadores que completaram um total de <0>{{count}} missões</0>. Impulsionados pela determinação e sede de vitória, eles conquistam cada desafio que aparece em seu caminho — um verdadeiro campeão da jornada."
   },
   "achievement_game_explorer": {
     "name": "Explorador de Jogos",
-    "description": "Esta realização é concedida aos jogadores que experimentaram {{count}} jogos diferentes. Curiosos e aventureiros, eles exploram a plataforma, sempre ansiosos para descobrir novas maneiras de jogar e ganhar."
+    "description": "Esta conquista é concedida aos jogadores que experimentaram <0>{{count}} jogos diferentes</0>. Curiosos e aventureiros, eles exploram a plataforma, sempre ansiosos para descobrir novas maneiras de jogar e ganhar."
   },
   "achievement_card_shark": {
-    "name": "Card Shark",
-    "description": "Esta realização é concedida aos jogadores que apostaram pelo menos <0>{{amount}}</0> em jogos de cartas, comprovando resiliência, estratégia e disposição para riscos. Esses jogadores de alto risco conquistaram seu lugar entre a elite. As cartas estão em suas mãos, e o jogo é deles para comandar."
+    "name": "Tubarão de Cartas",
+    "description": "Esta conquista é concedida aos jogadores que apostaram pelo menos <0>{{amount}}</0> em jogos de cartas, provando sua resiliência, estratégia e disposição para correr riscos. Esses jogadores de alto risco conquistaram seu lugar entre os elite. As cartas estão em suas mãos, e o jogo é deles para comandar."
   },
   "achievement_slotmaster": {
-    "name": "Slotmaster",
-    "description": "Esta realização é concedida aos jogadores que apostaram pelo menos <0>{{amount}}</0> em jogos de caça-níqueis, provando persistência, espírito aventureiro e amor pelo giro. Esses jogadores dedicados abraçam os rolos com confiança — a sorte pode guiar, mas a maestria os mantém no jogo."
+    "name": "Mestre das Caça-níqueis",
+    "description": "Esta conquista é concedida aos jogadores que apostaram pelo menos <0>{{amount}}</0> em jogos de caça-níqueis, provando sua persistência, espírito aventureiro e amor pela rotação. Esses jogadores dedicados abraçam os rolos com confiança — a sorte pode liderar, mas a maestria os mantém no jogo."
   },
   "achievement_talkative": {
-    "name": "Comunicativo",
-    "description": "Esta realização é concedida aos jogadores que se manifestaram {{count}} vezes na sala de bate-papo. Cada mensagem conta – você está dando o primeiro passo para se tornar parte verdadeira da conversa."
+    "name": "Falante",
+    "description": "Esta conquista é concedida aos jogadores que se manifestaram <0>{{count}} vezes</0> na sala de chat. Cada mensagem conta — você está dando o primeiro passo para se tornar uma verdadeira parte da conversa."
   },
   "achievement_bet_count": {
     "name": "Contagem de Apostas",
-    "description": "Esta realização é concedida aos jogadores que fizeram um total de {{count}} apostas. Um verdadeiro apostador, seu espírito inabalável mantém o jogo vivo a cada aposta."
+    "description": "Esta conquista é concedida aos jogadores que fizeram um total de <0>{{count}} apostas</0>. Um verdadeiro crente na sorte, seu espírito inabalável mantém o jogo vivo a cada aposta."
   },
   "achievement_deposit_count": {
     "name": "Contagem de Depósitos",
-    "description": "Esta realização é concedida aos jogadores que fizeram um total de {{count}} depósitos. Com um fluxo constante de créditos e um compromisso firme, eles mostraram que não são apenas jogadores – são magnatas em formação."
+    "description": "Esta conquista é concedida aos jogadores que fizeram um total de <0>{{count}} depósitos</0>. Com um fluxo constante de créditos e compromisso inabalável, eles mostraram que não são apenas jogadores — são magnatas em formação."
   },
   "achievement_change_avatar": {
     "name": "Mudar Avatar",
-    "description": "Esta realização é concedida aos jogadores que personalizam seu perfil alterando o avatar. Um passo ousado para você se destacar e mostrar sua identidade no jogo."
+    "description": "Esta conquista é concedida aos jogadores que personalizam seu perfil mudando seu avatar. Um passo ousado para se destacar e assumir sua identidade no jogo."
   },
   "achievement_set_username": {
     "name": "Definir Nome de Usuário",
-    "description": "Você já reivindicou seu nome – agora a lenda começa. Esta realização homenageia quem conquista seu espaço e o torna oficial."
+    "description": "Você reivindicou seu nome — agora a lenda começa. Esta conquista honra aqueles que conquistam seu espaço e o tornam oficial."
   },
   "achievement_download_mobile_app": {
-    "name": "Baixar Aplicativo Móvel",
-    "description": "Este emblema é para os jogadores que levam o jogo com eles. Baixar o aplicativo mostra que você não está aqui para parar – está aqui para jogar a qualquer hora, em qualquer lugar."
+    "name": "Baixar App Móvel",
+    "description": "Este emblema vai para os jogadores que levaram o jogo com eles. Baixar o app mostra que você não está aqui para pausar — você está aqui para jogar a qualquer hora, em qualquer lugar."
   },
   "achievement_wager_in_a_day_single_game": {
-    "name": "Aposta Máxima em um Dia de Jogo Único",
-    "description": "Esta realização é concedida aos jogadores que apostaram pelo menos {{amount}} em um único jogo em um dia. Ela reconhece aqueles com foco inabalável, estratégia calculada e coragem para assumir riscos ousados. Esses jogadores de elite dominaram o jogo de sua preferência e jogam para ganhar."
+    "name": "Aposta Máxima em um Dia em um Jogo Único",
+    "description": "Esta conquista é concedida aos jogadores que apostaram pelo menos <0>{{amount}}</0> em um único jogo em um dia. Reconhece aqueles com foco inabalável, estratégia calculada e coragem para correr riscos ousados. Esses jogadores de elite dominaram seu jogo de escolha — e jogam para ganhar."
   },
   "achievement_slots_win_count": {
     "name": "Contagem de Vitórias em Caça-níqueis",
-    "description": "Esta realização é concedida aos jogadores que obtiveram {{count}} vitórias em jogos de caça-níqueis. A cada rodada, eles desafiam as probabilidades e comemoram vitória após vitória. A sorte pode começar o jogo – mas a consistência os torna campeões."
+    "description": "Esta conquista é concedida aos jogadores que garantiram <0>{{count}} vitórias</0> em jogos de caça-níqueis. A cada rotação, eles desafiam as probabilidades e celebram vitória após vitória. A sorte pode iniciar o jogo — mas a consistência os torna campeões."
   },
   "achievement_slots_multiplier": {
     "name": "Multiplicador de Caça-níqueis",
-    "description": "Esta realização é concedida aos jogadores que obtiveram uma vitória com multiplicador de {{count}}x ou mais em uma única rodada de caça-níqueis. Ela homenageia aqueles que buscam a grandeza, abraçam a emoção do alto risco e alcançam recompensas extraordinárias. Esses não são jogadores comuns – eles comandam os rolos e se destacam dos demais."
+    "description": "Esta conquista é concedida aos jogadores que garantiram uma <0>vitória com um multiplicador de {{count}}x</0> ou mais em uma única rotação de caça-níqueis. Honra aqueles que buscam a grandeza, abraçam a emoção de altos riscos e conquistam recompensas extraordinárias. Esses não são jogadores comuns — eles comandam os rolos e se destacam entre os demais."
+  },
+  "achievement_champion": {
+    "name": "Campeão",
+    "description": "Esta conquista é concedida a jogadores que garantiram <0>10 vitórias</0>. Um Campeão se destaca na arena da sorte, provando sua resiliência rodada após rodada. A cada vitória, eles consolidam seu lugar entre os concorrentes que se elevam acima da sorte para reivindicar a glória."
+  },
+  "achievement_slot_master": {
+    "name": "Mestre das Slots",
+    "description": "Esta conquista é concedida a jogadores que apostaram pelo menos <0>{{amount}}</0> em jogos de slot. Um Mestre das Slots gira com confiança e persistência, transformando cada rolo em uma chance de fortuna. Com mãos firmes e jogo destemido, eles provam que o verdadeiro domínio é construído uma rodada de cada vez."
+  },
+  "achievement_the_challenger": {
+    "name": "O Desafiante",
+    "description": "Esta conquista é concedida a jogadores que fizeram pelo menos <0>10 apostas válidas</0> ao longo de sua história de jogo. O Desafiante se levanta a cada oportunidade, impulsionado pela determinação e pela emoção da competição. Ousado e incansável, eles provam que verdadeiros concorrentes não fogem do jogo — eles avançam, prontos para testar seus limites e reivindicar seu lugar entre os destemidos."
+  },
+  "achievement_dynamo": {
+    "name": "Dínamo",
+    "description": "Esta conquista é concedida a jogadores que completaram <0>1 depósito</0> de pelo menos <0>{{amount}}</0> em uma única transação. Um Dínamo se torna mais forte a cada recarga, provando sua consistência e determinação no caminho para o domínio."
+  },
+  "achievement_face_of_fortune": {
+    "name": "Rosto da Fortuna",
+    "description": "Esta conquista é concedida a jogadores que personalizaram seu avatar pela primeira vez. Um Rosto da Fortuna sabe que identidade é poder — cada escolha de estilo, símbolo ou expressão é uma marca de individualidade. Ao moldar sua aparência, eles mostram que verdadeiros jogadores não apenas jogam o jogo — eles deixam sua marca nele."
+  },
+  "achievement_name_of_fame": {
+    "name": "Nome da Fama",
+    "description": "Esta conquista é concedida a jogadores que definiram seu nome de usuário pela primeira vez. Um Nome da Fama marca o início de uma verdadeira identidade, transformando um novato em uma presença reconhecida. Ousado e único, eles provam que toda lenda começa com um nome lembrado."
+  },
+  "achievement_guiding_star": {
+    "name": "Estrela Guia",
+    "description": "Esta conquista é concedida a jogadores que adicionaram o jogo à sua Tela Inicial ou baixaram o aplicativo. Uma Estrela Guia mantém o caminho para a fortuna claro, iluminando o caminho de volta ao jogo com um único toque."
+  },
+  "achievement_highroller": {
+    "name": "Highroller",
+    "description": "Esta conquista é concedida a jogadores que apostaram um total de pelo menos <0>{{amount}}</0> ao longo de toda a sua história de jogo. Highrollers ostentam a marca de compromisso e prestígio, provando sua dedicação ao jogo a cada giro, aposta e rodada. Sua coroa não é apenas um símbolo — é um testemunho de persistência, paixão e a busca pela fortuna."
+  },
+  "achievement_inferno": {
+    "name": "Inferno",
+    "description": "Esta conquista é concedida a jogadores que atingiram um multiplicador de <0>20x</0> em qualquer slot. Com chamas rugindo, um Inferno transforma uma única aposta em uma tempestade de fortuna."
+  },
+  "achievement_money_maverick": {
+    "name": "Maverick do Dinheiro",
+    "description": "Esta conquista é concedida a jogadores que fizeram um depósito de pelo menos <0>{{amount}}</0> em uma única transação, usando gateways de pagamento fiat ou locais. Um Maverick do Dinheiro abre seu próprio caminho com confiança ousada, transformando dinheiro cotidiano em oportunidades extraordinárias. Destemido e aventureiro, eles provam que verdadeiros mavericks não apenas seguem as regras — eles as redefinem."
+  },
+  "achievement_money_master": {
+    "name": "Mestre do Dinheiro",
+    "description": "Esta conquista é concedida a jogadores que completaram um saque fiat de pelo menos <0>{{amount}}</0> em uma única transação. Um Mestre do Dinheiro se destaca na encruzilhada entre jogo e recompensa, convertendo seus ganhos em valor real. Com mãos firmes e tempo preciso, eles mostram que o verdadeiro domínio não está apenas no jogo — está em trazer as recompensas para casa."
+  },
+  "achievement_crypto_bro": {
+    "name": "Crypto Bro",
+    "description": "Esta conquista é concedida a jogadores que fizeram um depósito de pelo menos <0>{{amount}}</0> em uma única transação, com qualquer criptomoeda. Um Maestro Crypto conduz seus fundos como um verdadeiro artista, orquestrando ativos digitais com precisão e estilo. Confiante no palco da blockchain, eles são pioneiros do jogo que provam que a fortuna favorece os ousados."
+  },
+  "achievement_crypto_baron": {
+    "name": "Barão Crypto",
+    "description": "Esta conquista é concedida a jogadores que completaram um saque de criptomoeda de pelo menos <0>{{amount}}</0> em uma única transação, com qualquer criptomoeda. Um Barão da Blockchain governa o reino dos ativos digitais, movendo fundos pela cadeia com confiança e comando. A cada saque bem-sucedido, eles provam que a fortuna pode ser ganha, garantida e levada para casa na blockchain."
+  },
+  "achievement_chain_shifter": {
+    "name": "Mudador de Cadeia",
+    "description": "Esta conquista é concedida a jogadores que completaram com sucesso uma <0>transação de troca de criptomoeda</0>. Um Mudador de Cadeia é alguém que sabe como se mover entre tokens com confiança, adaptando-se às marés do mercado com facilidade. Mestres do momentum, eles prosperam na flexibilidade e transformação, sempre prontos para mudar de marcha e aproveitar a oportunidade."
   },
   "item": {
-    "conquest_just_wager_on_100": "Conquista: Aposte Apenas 100",
-    "conquest_just_wager_on_200": "Conquista: Aposte Apenas 200",
-    "conquest_roulette_master": "Conquista: Mestre da Roleta",
-    "conquest_blackjack_master": "Conquista: Mestre do Blackjack",
-    "conquest_baccarat_master": "Conquista: Mestre do Bacará",
-    "conquest_gameshow_master": "Conquista: Mestre de Gameshow",
-    "conquest_slots_master_10": "Conquista: Slotmaster 10",
-    "conquest_gameshow_master_20": "Conquista: Gameshow Master 20",
-    "conquest_roulette_master_30": "Conquista: Mestre da Roleta 30",
-    "conquest_blackjack_master_40": "Conquista: Mestre do Blackjack 40",
-    "conquest_baccarat_master_50": "Conquista: Mestre do Bacará 50",
-    "conquest_big_win": "Conquista: Grande Vitória",
-    "conquest_huge_win": "Conquista: Vitória Enorme",
-    "conquest_massive_win": "Conquista: Vitória Massiva",
-    "achievement_verify_email": "Conquista Verificar E-mail",
+    "conquest_just_wager_on_100": "Conquista Apenas Aposte em 100",
+    "conquest_just_wager_on_200": "Conquista Apenas Aposte em 200",
+    "conquest_roulette_master": "Conquista Mestre da Roleta",
+    "conquest_blackjack_master": "Conquista Mestre do Blackjack",
+    "conquest_baccarat_master": "Conquista Mestre do Bacará",
+    "conquest_gameshow_master": "Conquista Mestre do Show de Jogos",
+    "conquest_slots_master_10": "Conquista Mestre das Caça-níqueis 10",
+    "conquest_gameshow_master_20": "Conquista Mestre do Show de Jogos 20",
+    "conquest_roulette_master_30": "Conquista Mestre da Roleta 30",
+    "conquest_blackjack_master_40": "Conquista Mestre do Blackjack 40",
+    "conquest_baccarat_master_50": "Conquista Mestre do Bacará 50",
+    "conquest_big_win": "Conquista Grande Vitória",
+    "conquest_huge_win": "Conquista Vitória Enorme",
+    "conquest_massive_win": "Conquista Vitória Massiva",
+    "achievement_verify_email": "Conquista Verificar Email",
     "achievement_verify_phone": "Conquista Verificar Telefone",
-    "achievement_add_desktop_app": "Conquista Adicionar App para Desktop",
-    "achievement_super_spreader": "Conquista Super Divulgador",
-    "achievement_conquistador": "Conquista Vencedor",
+    "achievement_add_desktop_app": "Conquista Adicionar App de Desktop",
+    "achievement_super_spreader": "Conquista Super Difusor",
+    "achievement_conquistador": "Conquista Conquistador",
     "achievement_game_explorer": "Conquista Explorador de Jogos",
-    "achievement_card_shark": "Conquista Card Shark",
-    "achievement_slotmaster": "Conquista Slotmaster",
-    "achievement_talkative": "Conquista Comunicativo",
+    "achievement_card_shark": "Conquista Tubarão de Cartas",
+    "achievement_slotmaster": "Conquista Mestre das Caça-níqueis",
+    "achievement_talkative": "Conquista Falante",
     "achievement_bet_count": "Conquista Contagem de Apostas",
     "achievement_deposit_count": "Conquista Contagem de Depósitos",
     "achievement_change_avatar": "Conquista Mudar Avatar",
     "achievement_set_username": "Conquista Definir Nome de Usuário",
-    "achievement_download_mobile_app": "Conquista Baixar Aplicativo Móvel",
-    "achievement_wager_in_a_day_single_game": "Conquista Aposta Máxima em um Dia de Jogo Único",
+    "achievement_download_mobile_app": "Conquista Baixar App Móvel",
+    "achievement_wager_in_a_day_single_game": "Conquista Aposta em um Dia em um Jogo Único",
     "achievement_slots_win_count": "Conquista Contagem de Vitórias em Caça-níqueis",
     "achievement_slots_multiplier": "Conquista Multiplicador de Caça-níqueis",
-    "level_up": "Subida de Nível",
+    "level_up": "Subir de Nível",
     "rakeback": "Rakeback",
     "cashback": "Cashback",
-    "group": "Grupo",
-    "referral": "Indicação",
+    "group": "Comissão",
+    "referral": "Referência",
     "tournament": "Torneio",
-    "conquest_extra_reward": "Recompensa Extra da Conquista",
+    "conquest_extra_reward": "Conquista Recompensa Extra",
     "bonus": "Bônus",
     "bonus_manual": "Bônus Manual",
     "vip_bonus_lucky_number_seven": "Bônus VIP Número da Sorte Sete",
     "rakeback_bonus": "Bônus de Rakeback",
     "group_bonus": "Bônus de Grupo",
     "level_up_bonus": "Bônus de Subida de Nível",
-    "refer_bonus": "Bônus de Indicação",
+    "refer_bonus": "Bônus de Referência",
     "tournament_bonus": "Bônus de Torneio",
-    "vip_bonus_mystery_box": "Caixa Misteriosa de Bônus VIP"
+    "vip_bonus_mystery_box": "Bônus VIP Caixa Misteriosa"
   },
   "achievements_description": "Desbloqueado no VIP {{vip}}, essas recompensas celebram seus marcos com surpresas emocionantes pelo caminho!",
   "lucky_number_seven_description": "Acerte os Números da Sorte {{number}} e ganhe um bônus incrível todos os dias!",
   "mystery_box_description": "Abra sua Caixa Misteriosa uma vez por mês para recompensas surpresa!",
+  "mystery_box_description2": "Atinga VIP {{vip}} para receber uma Caixa Misteriosa no dia 7 de cada mês!",
   "mystery_box": "Caixa Misteriosa",
   "the_cannon_description": "Uma recompensa mensal tão poderosa que sua verdadeira natureza permanece um segredo bem guardado.",
   "achievements_progress_name": {
-    "achievement_verify_email": "Verificar E-mail",
+    "achievement_verify_email": "Verificar Email",
     "achievement_verify_phone": "Verificar Telefone",
-    "achievement_add_desktop_app": "Adicionar App para Desktop",
-    "achievement_super_spreader": "Super Divulgador",
-    "achievement_conquistador": "Vencedor",
+    "achievement_add_desktop_app": "Adicionar App de Desktop",
+    "achievement_super_spreader": "Super Difusor",
+    "achievement_conquistador": "Conquistador",
     "achievement_game_explorer": "Explorador de Jogos"
   },
   "you_win": "Você ganhou",
@@ -248,5 +349,59 @@
   "general_terms_answer_2": "O cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificar. Qualquer abuso ou atividade fraudulenta resultará em desqualificação da promoção.",
   "available": "Disponível",
   "refresh_in": "Atualiza em",
-  "deposit_bonus_pool": "Pool de Bônus de Depósito"
+  "deposit_bonus_pool": "Pool de Bônus de Depósito",
+  "dashboard": "Painel de Controle",
+  "bonuses": "Bônus",
+  "vip_program": "Programa VIP",
+  "bonusHub": {
+    "root": "Central de Bônus",
+    "resetOn": "Reiniciar em {{time}}",
+    "ongoing": "{{count}} Em Andamento",
+    "accrualIn": "Acúmulo em {{time}}",
+    "nextReleaseIn": "Próxima Liberação em {{time}}"
+  },
+  "freeSpins": "Giros Grátis",
+  "freeSpinsBonusDetails": "Os bônus de Giros Grátis recompensam você com jogabilidade extra em títulos de caça-níqueis selecionados. Apostar o valor necessário desbloqueia seus ganhos de giros grátis, que podem ser instantaneamente creditados em seu saldo.",
+  "freeSpinsClaimDistributionDescription1": "Os ganhos de Giros Grátis serão creditados em seu saldo assim que o requisito de aposta for concluído e você clicar em 'Reivindicar.'",
+  "freeSpinsClaimDistributionDescription2": "Acompanhe seu progresso a qualquer momento em seu Painel de Bônus ou Histórico de Giros Grátis.",
+  "freeSpinsExpirationDescription1": "Os Giros Grátis devem ser usados dentro do período de validade exibido no painel de Giros Grátis. Giros não utilizados expirarão após esse período.",
+  "freeSpinsExpirationDescription2": "Os ganhos dos giros grátis não expirarão até serem desbloqueados e reivindicados.",
+  "freeSpinsGeneralTermsDescription1": "As recompensas de Giros Grátis são calculadas e creditadas em BUCK, e depois exibidas em sua moeda fiduciária preferida para conveniência. Observe que as conversões de moeda são aproximadas.",
+  "freeSpinsGeneralTermsDescription2": "O cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção.",
+  "the_collector": "O Coletor",
+  "collector_description": "Recompensas Elegíveis, Um Clique",
+  "claim_all": "Reivindicar Tudo",
+  "claimConfirmation": "Confirmação de Reivindicação",
+  "readyToClaim": "Pronto para Reivindicar",
+  "selectClaimType": "Escolha seu tipo de reivindicação abaixo",
+  "claimableAmount": "Valor Reivindicável",
+  "normalClaim": "Reivindicação Normal",
+  "normalClaimDesc": "Receba seu valor padrão de recompensa",
+  "doubleClaim": "Reivindicação Dobrada",
+  "doubleClaimDesc": "Arrisque para 2x a recompensa!",
+  "doubleClaimInfo": "Opção de Reivindicação Dobrada",
+  "doubleClaimRisk": "Maior risco, maior recompensa - você pode ganhar o dobro ou perder tudo!",
+  "claimModal": {
+    "title": "Dobrar ou Nada",
+    "primaryDescription": "Reivindique seu bônus como de costume...",
+    "secondaryDescription": "Ou dê um salto ousado para <highlight>DOBRAR!</highlight>",
+    "doubleAction": "Dobrar ou Nada",
+    "comingSoon": "Recurso Dobrar ou Nada em breve!",
+    "approximateBuck": "Aproximadamente {{amount}} BUCK"
+  },
+  "vip_monday": "VIP Segunda-feira",
+  "vip_monday_description": "Um drop semanal especial para recompensar jogadores leais a cada segunda-feira",
+  "vip_monday_wager": "Aposte pelo menos {{amount}} nos 7 dias anteriores para um drop misterioso toda segunda-feira.",
+  "claim_on_monday": "Reivindique na segunda-feira",
+  "vip_monday_title": "VIP \n <0>SEGUNDA-FEIRA</0>",
+  "bonus_already_claimed": "Bônus já reivindicado",
+  "wager_requirement_not_met": "Requisito de aposta não atendido",
+  "not_in_claim_time_range": "Fora do intervalo de tempo para reivindicação",
+  "monday": "Segunda-feira",
+  "poolBalance": "Saldo do Pool",
+  "program": "Programa",
+  "races": "Corridas",
+  "loading_achievements": "Carregando conquistas...",
+  "no_achievements_available": "Nenhuma conquista disponível",
+  "check_back_later_for_new_achievements": "Volte mais tarde para novas conquistas"
 }

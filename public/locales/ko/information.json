@@ -1,38 +1,38 @@
 {
-    "goBack": "뒤로",
-    "tryAgain": "다시 시도",
-    "retry": "재시도",
-    "retryConnection": "연결 재시도",
-    "emptyStateNoContent": {
-        "title": "아직 아무것도 없습니다!",
-        "description": "지금 여기에 콘텐츠가 없는 것 같습니다. 나중에 다시 확인하거나 다른 것을 시도해 보세요."
-    },
-    "failedToLoadPage": {
-        "title": "문제가 발생했습니다",
-        "description": "페이지를 불러오는 중에 시스템 오류가 발생했습니다. 페이지를 새로 고치거나 문제가 지속되면 지원팀에 문의하세요."
-    },
-    "otherActiveSession": {
-        "title": "세션 오류!",
-        "description": "보안상의 이유로 현재 이 디바이스에서 액세스할 수 없습니다. 다른 로그인 또는 시스템 문제 때문일 수 있습니다. 다시 시도하거나 다른 디바이스를 사용해 보세요."
-    },
-    "noInternetConnection": {
-        "title": "앗! 오프라인입니다",
-        "description": "인터넷에 연결되어 있지 않은 것 같습니다. Wi-Fi 또는 모바일 데이터를 확인하고 다시 온라인 상태가 되면 다시 시도하세요."
-    },
-    "pageNotFound": {
-        "title": "앗! 페이지를 찾을 수 없습니다",
-        "description": "이 페이지가 존재하지 않거나 이동된 것 같습니다. URL을 확인하거나 홈으로 돌아가 보세요."
-    },
-    "tooManyRequest": {
-        "title": "잠시만요! 서버가 바쁩니다",
-        "description": "현재 서버가 많은 트래픽을 처리하고 있는 것 같습니다. 잠시 기다렸다가 다시 시도해 보세요."
-    },
-    "underMaintenance": {
-        "title": "곧 돌아올게요!",
-        "description": "원활한 운영을 위해 몇 가지 업데이트를 진행 중입니다. 곧 다시 확인해 주세요!"
-    },
-    "userRestriction": {
-        "title": "앗! 접근 권한이 없습니다",
-        "description": "이 콘텐츠를 볼 권한이 없는 것 같습니다. 액세스 권한을 다시 확인하거나 도움을 요청하세요."
-    }
+  "goBack": "뒤로",
+  "tryAgain": "다시 시도",
+  "retry": "재시도",
+  "retryConnection": "연결 재시도",
+  "emptyStateNoContent": {
+    "title": "아직 아무것도 없습니다!",
+    "description": "현재 여기에 콘텐츠가 없는 것 같습니다. 나중에 다시 확인하거나 다른 것을 시도해 보세요."
+  },
+  "failedToLoadPage": {
+    "title": "문제가 발생했습니다",
+    "description": "페이지를 로드하는 동안 시스템 오류가 발생했습니다. 페이지를 새로 고치거나 문제가 지속되면 지원팀에 문의하세요."
+  },
+  "otherActiveSession": {
+    "title": "세션 오류!",
+    "description": "보안상의 이유로 이 장치에서의 접근이 현재 불가능합니다. 다른 로그인이나 시스템 문제 때문일 수 있습니다. 다시 시도하거나 다른 장치를 사용해 보세요."
+  },
+  "noInternetConnection": {
+    "title": "이런! 오프라인입니다",
+    "description": "인터넷에 연결되어 있지 않은 것 같습니다. Wi-Fi 또는 모바일 데이터를 확인하고 다시 온라인 상태가 되면 다시 시도해 보세요."
+  },
+  "pageNotFound": {
+    "title": "이런! 페이지를 찾을 수 없습니다",
+    "description": "이 페이지는 존재하지 않거나 이동된 것 같습니다. URL을 확인하거나 홈으로 돌아가 보세요."
+  },
+  "tooManyRequest": {
+    "title": "잠시만 기다려 주세요! 조금 바쁩니다",
+    "description": "현재 서버가 많은 요청을 처리하고 있는 것 같습니다. 잠시 기다렸다가 다시 시도해 보세요."
+  },
+  "underMaintenance": {
+    "title": "곧 돌아오겠습니다!",
+    "description": "원활한 운영을 위해 업데이트를 진행하고 있습니다. 곧 다시 확인해 주세요!"
+  },
+  "userRestriction": {
+    "title": "이런! 접근할 수 없습니다",
+    "description": "이 내용을 볼 수 있는 권한이 없는 것 같습니다. 접근 권한을 다시 확인하거나 도움을 요청하세요."
+  }
 }

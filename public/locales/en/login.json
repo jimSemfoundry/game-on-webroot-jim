@@ -25,7 +25,6 @@
   "passwordsDoNotMatch": "Passwords do not match",
   "passwordTooShort": "Password must be at least 6 characters long",
   "passwordResetSuccess": "Password reset successfully",
-  "**********": "********************此处开始新增翻译start********************",
   "signInModal": {
     "promoTitle1": "SOMETHING\nSPECIAL\nAWAITS.",
     "promoTitle2": "HURRY UP!"
@@ -43,5 +42,17 @@
   "resend": "Resend",
   "orLoginDirectlyWith": "Or login directly with",
   "needAnAccountSignUp": "Need an account? Sign Up",
-  "alreadyHaveAnAccount": "Already have an account? Sign In"
+  "alreadyHaveAnAccount": "Already have an account? Sign In",
+  "inputParamError": "Invalid input parameters. Please check your data and try again.",
+  "emailOrMobileTypeError": "Invalid email or mobile number format. Please check and try again.",
+  "usernameOrPasswordError": "Incorrect username or password. Please try again.",
+  "defaultError": "An error occurred. Please try again later.",
+  "inputPinNotExist": "PIN is required. Please enter your PIN.",
+  "emailAlreadyRegistered": "Email already registered",
+  "newPasswordNotMatch": "The two new passwords you entered do not match.",
+  "oldAndNewPasswordAreSame": "The new password is the same as the old one. Please try again.",
+  "invalidVerificationCode": "The verification code is invalid. Please try again.",
+  "code_sms_country_not_supported": "Country not supported",
+  "code_sms_provider_not_available": "SMS provider unavailable",
+  "code_sms_send_failed": "Failed to send SMS"
 }

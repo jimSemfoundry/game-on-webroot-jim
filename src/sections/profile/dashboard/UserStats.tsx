@@ -13,15 +13,15 @@ export function UserStats() {
   return (
     <Card 
       icon={<Iconify icon="custom:stats" className="text-primary" />}
-      title="Stats"
+      title={t("common:common.stats")}
     >
       <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
         <InnerItem
-          amount={formatWithConversion(status?.bet_out || 0, "USDT", { showSymbol: true, showCode: false }).formatted}
+          amount={Number(status?.bet_win_times ?? 0).toLocaleString()}
           title={t("common.totalWins")} />
-        <InnerItem amount={status?.bet_times || 0} title={t("common.totalBets")} />
+        <InnerItem amount={Number(status?.bet_times || 0).toLocaleString()} title={t("common.totalBets")} />
         <InnerItem
-          amount={formatWithConversion(status?.bet_in || 0, "USDT", { showSymbol: true, showCode: false }).formatted}
+          amount={formatWithConversion(status?.bet_in_ori || 0, "USDT", { showSymbol: true, showCode: false }).formatted}
           title={t("common.totalWagered")} className="col-span-2 md:col-span-1" />
       </div>
     </Card>

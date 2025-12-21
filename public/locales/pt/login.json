@@ -13,7 +13,6 @@
   "userAgreementConfirm": "Concordo com o Contrato do Usuário e confirmo que tenho pelo menos 18 anos de idade",
   "marketingPromotions": "Concordo em receber promoções de marketing da {{siteName}}",
   "phoneNumberAlreadyRegistered": "Número de telefone já registrado",
-  "emailAlreadyRegistered": "E-mail já registrado",
   "pleaseLoginToContinue": "Por favor, faça login para continuar.",
   "telegramLoginFailed": "O login no Telegram falhou",
   "resetPassword": "Redefinir senha",
@@ -25,5 +24,24 @@
   "pleaseCheckYourUsername": "Se você forneceu um e-mail ou número de celular válido registrado em nosso sistema, sua senha de uso único (OTP) foi enviada.",
   "passwordsDoNotMatch": "As senhas não coincidem",
   "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
-  "passwordResetSuccess": "Senha redefinida com sucesso"
+  "passwordResetSuccess": "Senha redefinida com sucesso",
+  "**********": "",
+  "signInModal": {
+    "promoTitle1": "ALGO\nESPECIAL\nAGUARDA.",
+    "promoTitle2": "VÁ RÁPIDO!"
+  },
+  "signUpModal": {
+    "promoTitle1": "PACOTE\nDE BOAS-VINDAS ATÉ",
+    "promoTitle2": "1200% DE\nBÔNUS DE DEPÓSITO"
+  },
+  "secureSignIn": "Login Seguro",
+  "secureSignUp": "Cadastro Seguro",
+  "or": "OU",
+  "forgotPasswordDescription": "Insira seus dados. Se encontrarmos uma conta correspondente, enviaremos um código de redefinição.",
+  "recoverPassword": "Recuperar Senha",
+  "dontReceiveCode": "Não recebeu o código?",
+  "resend": "Reenviar",
+  "orLoginDirectlyWith": "Ou faça login diretamente com",
+  "needAnAccountSignUp": "Precisa de uma conta? Cadastre-se",
+  "alreadyHaveAnAccount": "Já tem uma conta? Faça Login"
 }

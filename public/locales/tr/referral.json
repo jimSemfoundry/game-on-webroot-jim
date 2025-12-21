@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Küresel",
+    "ratesAndRules": "Oranlar ve Kurallar",
+    "campaigns": "Kampanyalar",
+    "myReferrals": "Benim Yönlendirmelerim",
+    "commissions": "Komisyonlar",
+    "rewards": "Ödüller"
+  },
+  "commissionCalculator": "Komisyon Hesaplayıcı",
   "telegramReferralLink": "Telegram Tavsiye Bağlantısı",
   "network": "Ağ",
   "lifetimeReferralRewards": "Ömür Boyu Yönlendirme Ödülleri",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Mevcut Yönlendirme Ödülleri",
   "lockedRewards": "Kilitli Ödüller",
   "assembleYourCrewCashIn": "Ekibinizi Kurun ve Kazanç Sağlayın!",
+  "assembleYourCrewCashInDescription1": "Ekibini topla ve her arkadaş için {{amount}} kazan - bir soygun gibi, ama FBI kovalamacası olmadan. Ayrıca, onların bahislerinden {{percentage}} komisyon kazan. En iyi kısım? Komisyon oranın, seviyen yükseldikçe artar ve hatta ekibinin yeni üyelerinden de kazanırsın!",
+  "assembleYourCrewCashInDescription2": "Ağ ne kadar büyükse, payın o kadar büyük. Kazansalar da, kaybetseler de ya da deli gibi bahis yapsalar da, sen nakit biriktirmeye devam edersin. İmparatorluğunu kurma zamanı - Şimdi işe alıma başla!",
+  "quickShare": "Hızlı Paylaş",
   "referralRewards": "Yönlendirme Ödülleri",
   "commissionRewards": "Komisyon Ödülleri",
   "aboutDescription": "Ekibinizi toplayın ve her arkadaş için {{amount}} kazanın - bir soygun gibi, ama FBI takibi olmadan! Ayrıca, bahislerinden %50 kadar komisyon elde edin. En güzel yanı? Seviye atladıkça komisyon oranınız artar ve ekibinizin yönlendirmelerinden de kazanırsınız!\n\nAğınız ne kadar büyükse, payınız o kadar yüksek olur. Kazansınlar, kaybetsinler ya da tutkuyla bahis oynasınlar, siz sürekli kazanırsınız. İmparatorluğunuzu kurma zamanı - Hemen yönlendirmeye başlayın!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Sosyal Medyada Paylaş",
   "referralTermsConditions": "Yönlendirme Şartları ve Koşulları",
   "liveGlobalRewards": "Canlı Küresel Ödüller",
+  "liveGlobalCommissions": "Canlı Küresel Komisyonlar",
   "username": "Kullanıcı Adı",
   "friendLevel": "Arkadaş Seviyesi",
   "totalExp": "Toplam XP",
@@ -105,35 +118,35 @@
   "more": "Daha Fazla",
   "faqOne": {
     "title": "Yönlendirme sistemi nasıl çalışır?",
-    "content": "<p class=\"leading-7\">Referans bağlantınızı arkadaşlarınızla paylaştığınızda ve onlar sitemize kaydolduklarında; onlar sizin referansınız olur ve {{gameLink}} İttifakı’nda oynayarak size komisyon ve referans ödülleri kazandırırlar.</p>"
+    "content": "<p class=\"leading-7\">Yönlendirme linkinizi arkadaşlarınızla paylaştığınızda ve onlar sitemize kaydolduğunda; onlar sizin yönlendirmeniz olur ve {{gameLink}} İttifakı'nda oyun oynayarak size komisyon ve yönlendirme ödülleri kazandırır.</p>"
   },
   "faqTwo": {
     "title": "Yönlendirmemden ne kadar kazanabilirim?",
-    "content": "<p class=\"leading-7\">Bahis etkinliklerinin {{percentage}}’ini komisyon olarak ve her yönlendirme için {{amount}} kazanabilirsiniz.</p>"
+    "content": "<p class=\"leading-7\">Onların bahis faaliyetinin {{percentage}}'sini komisyon olarak + her yönlendirme başına {{amount}} kazanabilirsiniz.</p>"
   },
   "faqThree": {
     "title": "{{amount}} USD ödülü nedir ve nasıl çalışır?",
-    "content": "<p class=\"leading-7\">{{gameLink}}’e getirdiğiniz her referans için {{amount}} USD ödül vardır. Bu USD ödülü, referans seviyeniz {{level}}’den yükseldikçe {{parts}} taksitte verilir.</p>"
+    "content": "<p class=\"leading-7\">{{gameLink}}'e getirdiğiniz her yönlendirme için {{amount}} USD ödül vardır. Bu USD ödülü, yönlendirme seviyeniz {{level}}'den yukarı çıktıkça {{parts}} parça halinde verilir.</p>"
   },
   "faqFour": {
-    "title": "Büyük bir kitlem var. Özel bir anlaşma nasıl yaparım?",
-    "content": "<p class=\"leading-7\">İyi trafiği olan bir web siteniz veya büyük bir kitleye sahip bir sosyal medya hesabınız varsa, {{emailLink}} adresine e-posta gönderebilirsiniz.</p>"
+    "title": "Büyük bir kitlem var. Özel bir anlaşma nasıl alabilirim?",
+    "content": "<p class=\"leading-7\">İyi bir trafiğe sahip bir web siteniz veya büyük bir kitleye sahip bir sosyal medya hesabınız varsa, bize {{emailLink}} adresinden e-posta gönderebilirsiniz.</p>"
   },
   "faqFive": {
-    "title": "Farklı web sitelerim veya sosyal medya hesaplarım varsa kaç yönlendirme bağlantısı oluşturabilirim?",
-    "content": "<p class=\"leading-7\">Farklı trafik kaynakları için {{codes}} adede kadar benzersiz kod oluşturabilirsiniz.</p>"
+    "title": "Farklı web sitelerim/sosyal medya hesaplarım varsa kaç tane ortaklık linki oluşturabilirim?",
+    "content": "<p class=\"leading-7\">Farklı trafik kaynakları için en fazla {{codes}} benzersiz kod oluşturabilirsiniz.</p>"
   },
   "faqSix": {
-    "title": "Yönlendirdiğim kişinin verilerini görebilir miyim?",
-    "content": "<p class=\"leading-7\">Evet, Şeffaflık, Güven ve Adalet {{gameLink}}’in temel değerlerindendir. Kullanıcı adı, toplam bahis ve kazanılan komisyonlar gibi veriler \"Komisyonlarım\" ve \"Referans Ödülleri\" sekmelerinde mevcuttur.</p>"
+    "title": "Yönlendirmemin verilerini görebilir miyim?",
+    "content": "<p class=\"leading-7\">Evet, Şeffaflık, Güven ve Adalet, {{gameLink}}'in temel değerlerindendir. Kullanıcı adı, toplam bahis ve kazanılan komisyon gibi veriler \"Benim Komisyonlarım\" ve \"Yönlendirme Ödülleri\" sekmesinde mevcuttur.</p>"
   },
   "faqSeven": {
     "title": "Komisyon ödüllerini yönlendirmelerimle paylaşabilir miyim?",
-    "content": "<p class=\"leading-7\">Evet, “Yeni Kampanya Oluştur” seçeneğine tıklayarak ve “Kampanyalar” sekmesinde komisyon dağılımını ayarlayarak komisyon ödüllerini yönlendirmelerinizle paylaşabilirsiniz.</p>"
+    "content": "<p class=\"leading-7\">Evet, \"yeni kampanya oluştur\" butonuna tıklayarak ve \"Kampanyalar\" sekmesinde komisyon paylaşımını ayarlayarak komisyon ödüllerini yönlendirmelerinizle paylaşabilirsiniz.</p>"
   },
   "faqEight": {
-    "title": "Dolaylı yönlendirme nedir ve bunlardan ne kazanırım?",
-    "content": "<p class=\"leading-7\">Dolaylı yönlendirme, doğrudan yönlendirmelerinizin davet bağlantısından gelen aktif bir oyuncudur. VIP seviyeniz, doğrudan yönlendirmenizin VIP seviyesinden yüksekse, dolaylı yönlendirmelerinizden de komisyon kazanabilirsiniz.</p>"
+    "title": "Dolaylı yönlendirme nedir ve onlardan ne kazanabilirim?",
+    "content": "<p class=\"leading-7\">Dolaylı yönlendirme, doğrudan yönlendirmelerinizden birinin davet linkiyle gelen aktif bir oyuncudur. Eğer VIP seviyeniz, doğrudan yönlendirmelerinizin VIP seviyesinden yüksekse, dolaylı yönlendirmelerinizden de komisyon kazanabilirsiniz.</p>"
   },
   "levelReward": "Seviye Atlama Ödülü",
   "groupReward": "Komisyon Ödülü",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Örneği basitleştirmek için, sarı ile işaretlenmiş arkadaşların aktif bahis yaptığı varsayılmıştır ve kesik çizgiler üzerindeki yeşil yüzdeler, her birinden aldığınız komisyonu gösterir.",
   "referralCommissionsIndirectDescription": "Örneği basitleştirmek için, mor ile işaretlenmiş arkadaşların aktif bahis yaptığı varsayılmıştır. Kesik çizgiler üzerindeki yüzdeler, referans zincirindeki her üyenin kazandığı komisyonu gösterir. \n\n Sağda, referans zincirinde bir ayrılma örneğini görebiliriz.",
   "referralCodeMinLength": "Yönlendirme kodu en az 6 karakter olmalıdır",
-    "vipLevel": "VIP Seviyesi",
+  "vipLevel": "VIP Seviyesi",
   "earned": "Kazanç",
   "directfriend": "Doğrudan Arkadaş",
   "fast": "Hızlı",
   "slots": "Slotlar",
   "live-casino": "Canlı Casino",
   "fishing": "Balıkçılık",
-  "rewardsUnlocked": "Ödüller Açıldı"
+  "rewardsUnlocked": "Ödüller Açıldı",
+  "selectGame": "Bir oyun seç",
+  "selectVipLevel": "VIP seviyesini seç",
+  "myReferralCommissions": "Benim Yönlendirme Komisyonlarım",
+  "myReferralRewards": "Benim Yönlendirme Ödüllerim",
+  "exp": "EXP",
+  "userLevel": "Kullanıcı Seviyesi"
 }

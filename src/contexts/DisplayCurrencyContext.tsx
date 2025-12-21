@@ -208,6 +208,7 @@ export function useDisplayCurrencyFormatter() {
       showCode?: boolean;
       compact?: boolean;
       minimizeDecimals?: boolean;
+      displayDecimal?: number;
     },
   ) => {
     if (isLoading) {
@@ -235,6 +236,7 @@ export function useDisplayCurrencyFormatter() {
       showCode: options?.showCode ?? true,
       compact: options?.compact ?? false,
       minimizeDecimals: options?.minimizeDecimals ?? true,
+      displayDecimal: options?.displayDecimal,
     });
   };
 
@@ -246,6 +248,7 @@ export function useDisplayCurrencyFormatter() {
       showCode?: boolean;
       compact?: boolean;
       minimizeDecimals?: boolean;
+      displayDecimal?: number;
     },
   ) => {
     if (isLoading) {
@@ -265,6 +268,7 @@ export function useDisplayCurrencyFormatter() {
       showCode: options?.showCode ?? true,
       compact: options?.compact ?? false,
       minimizeDecimals: options?.minimizeDecimals ?? true,
+      displayDecimal: options?.displayDecimal,
     });
   };
 

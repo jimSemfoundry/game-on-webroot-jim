@@ -1,7 +1,9 @@
 import { Modal } from "@/components/ui/Modal";
 import Iconify from "@/components/iconify";
 import { useEffect, useState } from "react";
-import { FastAverageColor } from "fast-average-color";
+import { useVibrantColor } from "@/hooks/useVibrantColor";
+
+const ILLUSTRATION_URL = "/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png";
 
 interface BonusAchievementsLockedModalProps {
   isOpen: boolean;
@@ -10,37 +12,17 @@ interface BonusAchievementsLockedModalProps {
 
 export function BonusAchievementsLockedModal({ isOpen, onClose }: BonusAchievementsLockedModalProps) {
   const [bgColor, setBgColor] = useState<string>("");
-  const fac = new FastAverageColor();
+  const { rgb } = useVibrantColor(ILLUSTRATION_URL);
 
   useEffect(() => {
-    if (isOpen) {
-      // 获取插图的主色调
-      fac.getColorAsync("/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png", {
-        crossOrigin: "anonymous"
-      })
-        .then(color => {
-          // 使用与 BonusAchievementsDetailsModal 相同的渐变样式
-          // radial-gradient(162.99% 78.23% at 50.15% 21.77%, ...
-          const gradientColor = `
-            radial-gradient(162.99% 78.23% at 50.15% 21.77%, ${color.rgb.replace("rgb", "rgba").replace(")", ", 0.20)")} 0%, rgba(0, 0, 0, 0.00) 100%),
-            var(--color-base-400)
-          `;
-          setBgColor(gradientColor);
-        })
-        .catch(e => {
-          console.error("Error getting color:", e);
-          // 如果获取失败，使用默认紫色渐变
-          setBgColor(`
-            radial-gradient(162.99% 78.23% at 50.15% 21.77%, rgba(139, 92, 246, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%),
-            var(--color-base-400)
-          `);
-        });
+    if (isOpen && rgb) {
+      const gradientColor = `
+        radial-gradient(162.99% 78.23% at 50.15% 21.77%, rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%),
+        var(--color-base-400)
+      `;
+      setBgColor(gradientColor);
     }
-
-    return () => {
-      fac.destroy();
-    };
-  }, [isOpen]);
+  }, [isOpen, rgb]);
 
   return (
     <Modal
@@ -69,7 +51,7 @@ export function BonusAchievementsLockedModal({ isOpen, onClose }: BonusAchieveme
           {/* Achievement Badge */}
           <div className="mb-8 relative">
             <img
-              src="/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png"
+              src={ILLUSTRATION_URL}
               alt="Achievement Badge"
               className="w-32 h-32 object-contain relative z-10 -rotate-6"
             />
@@ -80,7 +62,7 @@ export function BonusAchievementsLockedModal({ isOpen, onClose }: BonusAchieveme
 
           {/* Description */}
           <p className="sm:text-base text-sm text-gray-400 mb-10 leading-relaxed max-w-md">
-            Once you hit VIP 2, the journey gets even more exciting - start collecting special achievement 
+            Once you hit VIP 2, the journey gets even more exciting - start collecting special achievement
             rewards designed to celebrate every step of your progress!
           </p>
 

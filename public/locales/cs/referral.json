@@ -1,4 +1,13 @@
 {
+  "tabs": {
+    "global": "Globální",
+    "ratesAndRules": "Sazby a pravidla",
+    "campaigns": "Kampaně",
+    "myReferrals": "Moje doporučení",
+    "commissions": "Provize",
+    "rewards": "Odměny"
+  },
+  "commissionCalculator": "Kalkulátor provizí",
   "telegramReferralLink": "Odkaz na Doporučení Telegramu",
   "network": "Síť",
   "lifetimeReferralRewards": "Odměny za celoživotní doporučení",
@@ -8,6 +17,9 @@
   "availableReferralRewards": "Dostupné odměny za doporučení",
   "lockedRewards": "Uzamčené odměny",
   "assembleYourCrewCashIn": "Shromážděte svou posádku a vydělejte peníze!",
+  "assembleYourCrewCashInDescription1": "Naverbuj svůj tým a získej {{amount}} za každého přítele - jako při loupeži, ale bez pronásledování FBI. Navíc získej až {{percentage}} provizi z jejich sázek. To nejlepší? Tvoje provizní sazba roste s tebou, jak postupuješ na úrovních, a dokonce budeš vydělávat i z rekrutů tvého týmu!",
+  "assembleYourCrewCashInDescription2": "Čím větší je tvoje síť, tím větší je tvůj podíl. Ať už vyhrají, prohrají, nebo sází jako šílenci, ty stále hromadíš peníze. Je čas vybudovat svou říši - začni rekrutovat nyní!",
+  "quickShare": "Rychlé sdílení",
   "referralRewards": "Odměny za doporučení",
   "commissionRewards": "Provizní odměny",
   "aboutDescription": "Nabírejte své družstvo a získejte {{amount}} za každého kamaráda - jako při loupeži, ale bez honičky s FBI. Navíc získejte až 50% comisí z jejich sázkové aktivity. A to nejlepší? Vaše provize roste s vaším postupem na vyšší úroveň, a dokonce budete vydělávat i na rekrutech své party!\n\nČím větší je vaše síť, tím tučnější je váš podíl. Ať už vyhrávají, prohrávají, nebo sázejí jako maniaci, vy stále střádáte peníze. Je čas vybudovat své impérium - začněte s náborem hned teď!",
@@ -16,6 +28,7 @@
   "shareViaSocials": "Sdílení prostřednictvím sociálních sítí",
   "referralTermsConditions": "Podmínky pro doporučování",
   "liveGlobalRewards": "Globální odměny Live",
+  "liveGlobalCommissions": "Živé globální provize",
   "username": "Uživatelské jméno",
   "friendLevel": "Úroveň přítele",
   "totalExp": "EXP celkem",
@@ -104,36 +117,36 @@
   "myReferrals": "Moje doporučení",
   "more": "Více",
   "faqOne": {
-    "title": "Jak funguje systém doporučování?",
-    "content": "<p class=\"leading-7\">Když sdílíte svůj referral odkaz s přáteli a oni se zaregistrují na našem webu, stanou se vašimi doporučenými a vy získáte provize a odměny za doporučení hraním v alianci {{gameLink}}.</p>"
+    "title": "Jak funguje systém doporučení?",
+    "content": "<p class=\"leading-7\">Když sdílíte svůj doporučovací odkaz se svými přáteli a oni se zaregistrují na našich stránkách; stávají se vaším doporučením a vydělávají vám provizi a odměny za doporučení hraním na {{gameLink}} Alliance.</p>"
   },
   "faqTwo": {
-    "title": "Kolik mohu vydělat na svém doporučení?",
-    "content": "<p class=\"leading-7\">Můžete získat {{percentage}} z jejich sázkové aktivity jako provize + {{amount}} za doporučení.</p>"
+    "title": "Kolik mohu vydělat ze svého doporučení?",
+    "content": "<p class=\"leading-7\">Můžete vydělat {{percentage}} z jejich sázení jako provize + {{amount}} za každé doporučení.</p>"
   },
   "faqThree": {
     "title": "Co je odměna {{amount}} USD a jak funguje?",
-    "content": "<p class=\"leading-7\">Existuje odměna {{amount}} USD za každého doporučeného hráče, kterého přivedete do {{gameLink}}. Tato odměna je vyplácena ve {{parts}} částech, jakmile vaše úroveň doporučení vzroste z {{level}}.</p>"
+    "content": "<p class=\"leading-7\">Existuje odměna {{amount}} USD za každé doporučení, které přivedete na {{gameLink}}. Tato odměna USD je rozdělena do {{parts}} částí, jak se vaše úroveň doporučení zvyšuje z {{level}}.</p>"
   },
   "faqFour": {
     "title": "Mám velké publikum. Jak mohu získat speciální nabídku?",
-    "content": "<p class=\"leading-7\">Pokud máte webovou stránku s vysokou návštěvností nebo účet na sociálních sítích s velkým publikem, můžete nám napsat na {{emailLink}}</p>"
+    "content": "<p class=\"leading-7\">Pokud máte webovou stránku s dobrou návštěvností nebo účet na sociálních médiích s velkým publikem, můžete nám napsat na {{emailLink}}</p>"
   },
   "faqFive": {
-    "title": "Kolik partnerských odkazů mohu vytvořit, pokud mám různé webové stránky/účty na sociálních sítích?",
-    "content": "<p class=\"leading-7\">Můžete si vytvořit až {{codes}} jedinečných kódů pro různé zdroje návštěvnosti</p>"
+    "title": "Kolik affiliate odkazů mohu vytvořit, pokud mám různé webové stránky/sociální média?",
+    "content": "<p class=\"leading-7\">Můžete vytvořit až {{codes}} unikátních kódů pro různé zdroje návštěvnosti</p>"
   },
   "faqSix": {
-    "title": "Mohu vidět údaje o svém doporučení?",
-    "content": "<p class=\"leading-7\">Ano, transparentnost, důvěra a férovost jsou součástí základních hodnot {{gameLink}}. Data jako uživatelské jméno, celkové sázky a získané provize jsou dostupná v záložkách \"Moje provize\" a \"Odměny za doporučení\".</p>"
+    "title": "Mohu vidět data svého doporučení?",
+    "content": "<p class=\"leading-7\">Ano, transparentnost, důvěra a spravedlnost jsou součástí základních hodnot {{gameLink}}. Data jako uživatelské jméno, celkové sázky a vydělané provize jsou k dispozici v záložkách \"Moje provize\" a \"Odměny za doporučení\".</p>"
   },
   "faqSeven": {
-    "title": "Mohu sdílet odměny z provizí se svými referenty?",
-    "content": "<p class=\"leading-7\">Ano, odměny z provizí můžete sdílet se svými referály kliknutím na tlačítko \"vytvořit novou kampaň\" a nastavením rozdělení provizí na kartě \"Kampaně\".</p>"
+    "title": "Mohu sdílet odměny z provizí se svými doporučeními?",
+    "content": "<p class=\"leading-7\">Ano, můžete sdílet odměny z provizí se svými doporučeními kliknutím na \"vytvořit novou kampaň\" a nastavením rozdělení provize v záložce \"Kampaně\".</p>"
   },
   "faqEight": {
-    "title": "Co je to nepřímé doporučení a co z něj mohu získat?",
-    "content": "<p class=\"leading-7\">Nepřímé doporučení je aktivní hráč, který přišel na základě pozvánky jednoho z vašich přímých doporučení. Pokud je vaše úroveň VIP vyšší než úroveň VIP vašeho přímého doporučitele, můžete získat provizi i z nepřímého doporučitele.</p>"
+    "title": "Co je nepřímé doporučení a co mohu z něj vydělat?",
+    "content": "<p class=\"leading-7\">Nepřímé doporučení je aktivní hráč, který přichází z pozvánkového odkazu jednoho z vašich přímých doporučení. Pokud je vaše VIP úroveň vyšší než VIP úroveň vašeho přímého doporučení, můžete také vydělat provizi z vašeho nepřímého doporučení.</p>"
   },
   "levelReward": "odměna za zvýšení úrovně",
   "groupReward": "provizní odměna",
@@ -143,12 +156,18 @@
   "referralCommissionsDirectDescription": "Pro zjednodušení příkladu předpokládáme, že žlutě označení přátelé aktivně sázejí a zelená procenta podél čárkovaných čar představují provizi, kterou od každého z nich obdržíte.",
   "referralCommissionsIndirectDescription": "Pro zjednodušení příkladu předpokládejme, že fialově označení přátelé aktivně sázejí. Procenta podél čárkovaných čar ukazují provizi, kterou každý člen v řetězci doporučení získává. \n\n Na pravé straně vidíme příklad odpojení v řetězci doporučení.",
   "referralCodeMinLength": "Kód doporučení musí mít alespoň 6 znaků",
-    "vipLevel": "VIP úroveň",
+  "vipLevel": "VIP úroveň",
   "earned": "Získáno",
   "directfriend": "Přímý Přítel",
   "fast": "Rychlý",
   "slots": "Automaty",
   "live-casino": "Živé Kasino",
   "fishing": "Rybářství",
-  "rewardsUnlocked": "Odemčené Odměny"
+  "rewardsUnlocked": "Odemčené Odměny",
+  "selectGame": "Vyberte hru",
+  "selectVipLevel": "Vyberte VIP úroveň",
+  "myReferralCommissions": "Moje doporučovací provize",
+  "myReferralRewards": "Moje doporučovací odměny",
+  "exp": "ZKUŠENOSTI",
+  "userLevel": "Úroveň uživatele"
 }

@@ -21,8 +21,19 @@ import { BonusLuckyNumberHelpModal } from "@/sections/bonus/lucky-number";
 import { HelpModalMysteryBox } from "@/sections/bonus/mystery-box/bonus-mystery-box-help-modal";
 import { BonusRakebackHelpModal } from "@/sections/bonus/rakeback";
 import { BonusTournamentHelpModal } from "@/sections/bonus/tournament/bonus-tournament-help-modal";
+import { SpecialOffersModal } from "@/sections/bonus/specialOffers/SpecialOffersModal.tsx";
+import { DoubleOrNothingHelpModal } from "@/sections/double-or-nothing/double-or-nothing-help-modal";
+import { LimitedOffersHelpModal } from "@/sections/limited-offer/limited-offers-help-modal";
+import { DoubleOrNothingModal } from "@/sections/double-or-nothing/DoubleOrNothing";
+import type { DoubleOrNothingModalProps } from "@/sections/double-or-nothing/DoubleOrNothing";
+import { ThursdayBounsHelpModal } from "@/sections/crypto-thursday-bonus/thursday-bouns-help-modal";
+import { SundaySuperHelpModal } from "@/sections/sunday-super-bouns/sunday-super-help-modal";
+import { IDoubledUpProps, ICurrentPromoList, ICurrentPromo } from "@/types/double-or-nothing";
+import { DoubledUp } from "@/sections/double-or-nothing/DoubledUp";
+import { Nothing } from "@/sections/double-or-nothing/Nothing";
+import { Boost } from "@/sections/double-or-nothing/Boost";
 
-type TabItemsType = "deposit" | "withdraw" | "swap";
+export type TabItemsType = "deposit" | "withdraw" | "swap" | `deposit_${string}` | `withdraw_${string}` | `swap_${string}`;
 type TipsModalType =
   | "superRakeback"
   | "dailyCashback"
@@ -34,7 +45,11 @@ type TipsModalType =
   | "luckyNumber"
   | "cannon"
   | "jester"
-  | "depositBonus";
+  | "depositBonus"
+  | "doubleOrNothing"
+  | "limitedOffers"
+  | "sundaySuperBouns"
+  | "cryptoThursdayBouns";
 
 type ModalsContextType = {
   // Auth Modals
@@ -53,8 +68,11 @@ type ModalsContextType = {
   openUserFinanceModal: () => void;
   openUserFinanceModalWithTab: (tab: TabItemsType) => void;
   closeUserFinanceModal: () => void;
+  isUserFinanceOpen: boolean;
+  userFinanceInitialTab: TabItemsType;
+  setUserFinanceInitialTab: (tab: TabItemsType) => void;
   // Tips Modals
-  openTipsModal: (type: TipsModalType) => void;
+  openTipsModal: (type: TipsModalType, promo?: ICurrentPromoList) => void;
   closeTipsModal: () => void;
   // Mystery Box Modal
   openMysteryBoxModal: () => void;
@@ -62,6 +80,21 @@ type ModalsContextType = {
   // Theme Modal
   openThemeSwitcherModal: () => void;
   closeThemeSwitcherModal: () => void;
+  // Special Offers Modal
+  openSpecialOffersModal: () => void;
+  closeSpecialOffersModal: () => void;
+
+  openDoubleOrNothingModal: (modalData: DoubleOrNothingModalProps["modalData"]) => void;
+  closeDoubleOrNothingModal: () => void;
+
+  openDoubledUpModal: (donData: IDoubledUpProps) => void;
+  closeDoubledUpModal: () => void;
+
+  openNothingModal: (don_record_id: string) => void;
+  closeNothingModal: () => void;
+
+  openBoostModal: (modalData: any) => void;
+  closeBoostModal: () => void;
 };
 
 const ModalsContext = createContext<ModalsContextType | undefined>(undefined);
@@ -91,6 +124,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
   // Tips Modals
   const { isOpen: isTipsModalOpen, openModal: openTipsModalBase, closeModal: closeTipsModal } = useModal();
   const [currentTipsModal, setCurrentTipsModal] = useState<TipsModalType | null>(null);
+  const [currentPromo, setCurrentPromo] = useState<ICurrentPromoList | null>(null);
 
   // Mystery Box Modal
   const { isOpen: isMysteryBoxOpen, openModal: openMysteryBoxModal, closeModal: closeMysteryBoxModal } = useModal();
@@ -98,9 +132,28 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
   // Theme modal
   const { isOpen: isThemeSwitcherOpen, openModal: openThemeSwitcherModal, closeModal: closeThemeSwitcherModal } = useModal();
 
+  // Special Offers Modal
+  const { isOpen: isSpecialOffersOpen, openModal: openSpecialOffersModal, closeModal: closeSpecialOffersModal } = useModal();
+
+  // Double or Nothing Modal
+  const { isOpen: isDoubleOrNothingOpen, openModal: openDoubleOrNothingBase, closeModal: closeDoubleOrNothingBase } = useModal();
+  const [doubleOrNothingModalData, setDoubleOrNothingModalData] = useState<DoubleOrNothingModalProps["modalData"] | null>(null);
+
+  // Doubled Up Modal
+  const { isOpen: isDoubledUpOpen, openModal: openDoubledUpModal, closeModal: closeDoubledUpModal } = useModal();
+  const [doubledUpModalData, setDoubledUpModalData] = useState<IDoubledUpProps | null>(null);
+
+  // Nothing Modal
+  const { isOpen: isNothingOpen, openModal: openNothingModal, closeModal: closeNothingModal } = useModal();
+  const [nothingModalData, setNothingModalData] = useState<string | null>(null);
+
+  // Boost Modal
+  const { isOpen: isBoostOpen, openModal: openBoostModal, closeModal: closeBoostModal } = useModal();
+  const [boostModalData, setBoostModalData] = useState<ICurrentPromo | null>(null); 
+
   // 监听需要管理sidebar的modal状态
   useEffect(() => {
-    const isAnyTargetModalOpen = isLanguageOpen || isWalletOpen;
+    const isAnyTargetModalOpen = isLanguageOpen || isWalletOpen || isThemeSwitcherOpen;
 
     if (isMobile) {
       if (isAnyTargetModalOpen) {
@@ -117,7 +170,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
         }
       }
     }
-  }, [isLanguageOpen, isWalletOpen, isMobile, isDrawerOpen, closeDrawer, openDrawer, wasSidebarOpenBeforeModal]);
+  }, [isLanguageOpen, isWalletOpen, isThemeSwitcherOpen, isMobile, isDrawerOpen, closeDrawer, openDrawer, wasSidebarOpenBeforeModal]);
 
   const handleOpenBetSlipModal = (order: any) => {
     setBetSlipOrder(order);
@@ -139,14 +192,58 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
     openUserFinanceModal();
   };
 
-  const handleOpenTipsModal = (type: TipsModalType) => {
+  const handleOpenTipsModal = (type: TipsModalType, promo?: ICurrentPromoList) => {
     setCurrentTipsModal(type);
     openTipsModalBase();
+    if (promo) {
+      setCurrentPromo(promo)
+    }
   };
 
   const handleCloseTipsModal = () => {
     closeTipsModal();
     setCurrentTipsModal(null);
+    setCurrentPromo(null);
+  };
+
+  const handleOpenDoubleOrNothingModal = (modalData: DoubleOrNothingModalProps["modalData"]) => {
+    setDoubleOrNothingModalData(modalData);
+    openDoubleOrNothingBase();
+  };
+
+  const handleCloseDoubleOrNothingModal = () => {
+    closeDoubleOrNothingBase();
+    setDoubleOrNothingModalData(null);
+  };
+
+  const handleOpenDoubledUpModal = (donData: IDoubledUpProps) => {
+    openDoubledUpModal();
+    setDoubledUpModalData(donData);
+  };
+
+  const handleCloseDoubledUpModal = () => {
+    closeDoubledUpModal();
+    setDoubledUpModalData(null);
+  };
+
+  const handleOpenNothingModal = (don_record_id: string) => {
+    openNothingModal();
+    setNothingModalData(don_record_id);
+  };
+
+  const handleCloseNothingModal = () => {
+    closeNothingModal();
+    setNothingModalData(null);
+  };
+
+  const handleOpenBoostModal = (modalData: ICurrentPromo) => {
+    openBoostModal();
+    setBoostModalData(modalData);
+  };
+
+  const handleCloseBoostModal = () => {
+    closeBoostModal();
+    setBoostModalData(null);
   };
 
   const value = useMemo(
@@ -162,12 +259,25 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       openUserFinanceModal: handleOpenUserFinanceModal,
       openUserFinanceModalWithTab: handleOpenUserFinanceModalWithTab,
       closeUserFinanceModal,
+      isUserFinanceOpen,
+      userFinanceInitialTab,
+      setUserFinanceInitialTab,
       openTipsModal: handleOpenTipsModal,
       closeTipsModal: handleCloseTipsModal,
       openMysteryBoxModal,
       closeMysteryBoxModal,
       openThemeSwitcherModal,
       closeThemeSwitcherModal,
+      openSpecialOffersModal,
+      closeSpecialOffersModal,
+      openDoubleOrNothingModal: handleOpenDoubleOrNothingModal,
+      closeDoubleOrNothingModal: handleCloseDoubleOrNothingModal,
+      openDoubledUpModal: handleOpenDoubledUpModal,
+      closeDoubledUpModal: handleCloseDoubledUpModal,
+      openNothingModal: handleOpenNothingModal,
+      closeNothingModal: handleCloseNothingModal,
+      openBoostModal: handleOpenBoostModal,
+      closeBoostModal: handleCloseBoostModal,
     }),
     [
       openSignInModal,
@@ -181,12 +291,25 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       handleOpenUserFinanceModal,
       handleOpenUserFinanceModalWithTab,
       closeUserFinanceModal,
+      isUserFinanceOpen,
+      userFinanceInitialTab,
+      setUserFinanceInitialTab,
       handleOpenTipsModal,
       handleCloseTipsModal,
       openMysteryBoxModal,
       closeMysteryBoxModal,
       openThemeSwitcherModal,
       closeThemeSwitcherModal,
+      openSpecialOffersModal,
+      closeSpecialOffersModal,
+      handleOpenDoubleOrNothingModal,
+      handleCloseDoubleOrNothingModal,
+      handleOpenDoubledUpModal,
+      handleCloseDoubledUpModal,
+      handleOpenNothingModal,
+      handleCloseNothingModal,
+      handleOpenBoostModal,
+      handleCloseBoostModal,
     ],
   );
 
@@ -208,7 +331,6 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       <ThemeSwitcherModal isOpen={isThemeSwitcherOpen} onClose={closeThemeSwitcherModal} />
 
       {/* Help Modals */}
-      {/* FIXME: 判断模式会导致动画效果丢失 */}
       {currentTipsModal === "superRakeback" && <BonusRakebackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
       {currentTipsModal === "dailyCashback" && <BonusCashbackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
       {currentTipsModal === "bonusCalendar" && <BonusCalendarHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
@@ -219,10 +341,38 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       {currentTipsModal === "luckyNumber" && <BonusLuckyNumberHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
       {currentTipsModal === "cannon" && <BonusCannonHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
       {currentTipsModal === "jester" && <BonusJesterHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
+      {currentTipsModal === "limitedOffers" && currentPromo && <LimitedOffersHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
+      {currentTipsModal === "doubleOrNothing" && currentPromo && <DoubleOrNothingHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
+      {currentTipsModal === "cryptoThursdayBouns" && currentPromo && <ThursdayBounsHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
+      {currentTipsModal === "sundaySuperBouns" && currentPromo && <SundaySuperHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
+
+
       <BonusDepositHelpModal isOpen={currentTipsModal === "depositBonus"} onClose={handleCloseTipsModal} />
 
       {/* Mystery Box Modal */}
       <MysteryBoxModal isOpen={isMysteryBoxOpen} onClose={closeMysteryBoxModal} />
+
+      {/* Special Offers Modal */}
+      <SpecialOffersModal
+        open={isSpecialOffersOpen}
+        onClose={closeSpecialOffersModal}
+      />
+
+      {/* Double Or Nothing Related pop-ups */}
+      {isDoubleOrNothingOpen && doubleOrNothingModalData && doubleOrNothingModalData?.don_record_id && (
+        <DoubleOrNothingModal open={isDoubleOrNothingOpen} onClose={closeDoubleOrNothingBase} modalData={doubleOrNothingModalData} />
+      )}
+      {isDoubledUpOpen && doubledUpModalData && (
+        <DoubledUp open={isDoubledUpOpen} onClose={closeDoubledUpModal} donData={doubledUpModalData} />
+      )}
+      {isNothingOpen && nothingModalData && (
+        <Nothing open={isNothingOpen} onClose={closeNothingModal} don_record_id={nothingModalData} />
+      )}
+      {isBoostOpen && boostModalData && (
+        <Boost open={isBoostOpen} onClose={closeBoostModal} modalData={boostModalData} />
+      )}
+      {/* Double Or Nothing Related pop-ups */}
+
     </ModalsContext.Provider>
   );
 }
@@ -253,8 +403,22 @@ export const useWalletModal = () => {
 };
 
 export const useFinanceModal = () => {
-  const { openUserFinanceModal, openUserFinanceModalWithTab, closeUserFinanceModal } = useModals();
-  return { openUserFinanceModal, openUserFinanceModalWithTab, closeUserFinanceModal };
+  const {
+    openUserFinanceModal,
+    openUserFinanceModalWithTab,
+    closeUserFinanceModal,
+    isUserFinanceOpen,
+    userFinanceInitialTab,
+    setUserFinanceInitialTab,
+  } = useModals();
+  return {
+    openUserFinanceModal,
+    openUserFinanceModalWithTab,
+    closeUserFinanceModal,
+    isUserFinanceOpen,
+    userFinanceInitialTab,
+    setUserFinanceInitialTab,
+  };
 };
 
 export const useTipsModal = () => {
@@ -270,4 +434,24 @@ export const useMysteryBoxModal = () => {
 export const useThemeSwitcherModal = () => {
   const { openThemeSwitcherModal, closeThemeSwitcherModal } = useModals();
   return { openModal: openThemeSwitcherModal, closeModal: closeThemeSwitcherModal };
+};
+
+export const useDoubleOrNothingModal = () => {
+  const { openDoubleOrNothingModal, closeDoubleOrNothingModal } = useModals();
+  return { openDoubleOrNothingModal, closeDoubleOrNothingModal };
+};
+
+export const useDoubledUpModal = () => {
+  const { openDoubledUpModal, closeDoubledUpModal } = useModals();
+  return { openDoubledUpModal, closeDoubledUpModal };
+};
+
+export const useNothingModal = () => {
+  const { openNothingModal, closeNothingModal } = useModals();
+  return { openNothingModal, closeNothingModal };
+};
+
+export const useBoostModal = () => {
+  const { openBoostModal, closeBoostModal } = useModals();
+  return { openBoostModal, closeBoostModal };
 };
