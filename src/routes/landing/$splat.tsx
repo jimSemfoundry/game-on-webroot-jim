@@ -18,8 +18,6 @@ export const Route = createFileRoute("/landing/$splat")({
       }
     }
 
-    console.log(baseUrl)
-    
     if (!targetUrl) {
       const splat = (params as { splat?: string }).splat || "";
 
@@ -27,7 +25,7 @@ export const Route = createFileRoute("/landing/$splat")({
         targetUrl = splat;
       } else if (baseUrl) {
         const base = baseUrl.replace(/\/$/, "");
-        const path = splat ? `/${splat}` : "";
+        const path = splat ? `/landing/${splat}` : "";
         targetUrl = `${base}${path}${location.search ?? ""}${location.hash ?? ""}`;
       }
     }
