@@ -227,7 +227,7 @@ export function PersonalDetails() {
               ref={useRef<HTMLInputElement>(null)} mode="phone" />
             <ErrorMessageBox
               show={!isResetUsernameValid}
-              content={<>手机号码格式错误</>} />
+              content={<>Invalid phone number format.</>} />
           </div>
         </div>
 

@@ -21,7 +21,19 @@ const ALL_BONUS_TYPES = [
   { key: "tournament", label: "bonus:tournament_reward" },
   { key: "referral", label: "bonus:referral_bonus" },
   { key: "group", label: "bonus:item.group" },
-  { key: "free_spins", label: "bonus:freeSpins" },
+  { key: "free_spin_reward", label: "bonus:item.free_spin_reward" }, // 免费旋转奖金
+  { key: "don_lose", label: "bonus:item.don_lose" }, // 归零
+  { key: "don_win", label: "bonus:item.don_win" }, // 翻倍
+  { key: "monday_vip_bonus", label: "bonus:item.monday_vip_bonus" }, // 周一VIP奖金
+  { key: "BONUS", label: "bonus:item.dollars_bonus" }, // 奖金
+  { key: "special_offer_first_deposit", label: "bonus:item.special_offer_first_deposit" }, // 第一次充值奖励
+  { key: "special_offer_second_deposit", label: "bonus:item.special_offer_second_deposit" }, // 第二次充值奖励
+  { key: "special_offer_don_deposit", label: "bonus:item.special_offer_don_deposit" }, // 恢复奖金
+  { key: "special_offer_thursday", label: "bonus:item.special_offer_thursday" }, // 加密周四奖励
+  { key: "special_offer_sunday", label: "bonus:item.special_offer_sunday" }, // 超级周天奖励
+  // { key: "conquest", label: "bonus:item.conquest_bonus" }, // 征服奖励
+  // { key: "bonus_manual", label: "bonus:item.bonus_manual" }, // 征服奖励
+  // { key: "don", label: "bonus:item.don" } // 征服奖励
 ] as const;
 
 export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
@@ -61,7 +73,7 @@ export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
       isOpen={isOpen}
       onClose={onClose}
       title={t("bonus:bonus_details")}
-      className="bg-base-400 md:w-[600px] max-w-2xl overflow-hidden"
+      className="bg-base-400 md:w-[600px] max-w-2xl hide-scrollbar"
     >
       <div className="flex flex-col gap-4">
         {isLoading ? (
@@ -75,21 +87,21 @@ export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
           </div>
         ) : (
           <div className="flex flex-col">
-            <div className="grid grid-cols-2 gap-4 p-4  rounded-t-box">
-              <p className="text-sm font-semibold text-base-content/50 uppercase">{t("bonus:type")}</p>
-              <p className="text-sm font-semibold text-base-content/50 uppercase text-right">{t("bonus:amount")}</p>
+            <div className="grid grid-cols-2 gap-4 p-2  rounded-t-box">
+              <p className="text-xs font-bold text-base-content/50 uppercase">{t("bonus:type")}</p>
+              <p className="text-xs font-bold text-base-content/50 uppercase text-right">{t("bonus:amount")}</p>
             </div>
             <div className="flex flex-col ">
               {bonusDetails.map((detail, index) => (
                 // 使用显示货币偏好格式化金额（包含 0 值）
                 <div
                   key={detail.type}
-                  className={cn("flex items-center justify-between px-4 rounded-lg hover:bg-base-300/30 transition-colors h-12", index % 2 === 0 && "bg-base-300/50")}
+                  className={cn("flex gap-3 items-center justify-between px-2 rounded-md hover:bg-base-300/30 transition-colors h-8", index % 2 === 0 && "bg-base-300/50")}
                 >
-                  <p className="text-sm font-semibold text-base-content/50 col-span-8">
+                  <p className="text-[11px] font-bold text-base-content/50 col-span-8 truncate">
                     {t(detail.label)}
                   </p>
-                  <p className="text-sm font-semibold text-base-content/50 text-right col-span-4">
+                  <p className="text-xs font-bold text-base-content/50 text-right col-span-4">
                     {formatWithConversion(detail.amount, detail.currency, {
                       showCode: false,
                       minimizeDecimals: true,

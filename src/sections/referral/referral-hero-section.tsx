@@ -59,7 +59,7 @@ export const ReferralHeroSection = ({ onNavigateToMyReferrals }: Props) => {
           <img
             src="/images/illustrations/d929de0cb5c0f7c3aedb8f8e3245846644e68a31.png"
             alt=""
-            className="absolute top-3 -right-2 rtl:-right-auto rtl:-left-2 object-cover w-[170px] object-top h-[158px] sm:hidden"
+            className="absolute top-3 -right-2 rtl:right-auto rtl:left-2 object-cover w-[170px] object-top h-[158px] sm:hidden rtl:rotate-y-180"
           />
         </div>
       </div>
@@ -117,7 +117,7 @@ export const ReferralHeroSection = ({ onNavigateToMyReferrals }: Props) => {
         <img
           src="/images/illustrations/d929de0cb5c0f7c3aedb8f8e3245846644e68a31.png"
           alt=""
-          className="absolute top-3 -right-2 rtl:-right-auto rtl:-left-2 object-cover w-[170px] object-top h-[158px] sm:hidden"
+          className="absolute top-3 -right-2 rtl:right-auto rtl:-left-2 object-cover w-[170px] object-top h-[158px] sm:hidden rtl:rotate-y-180"
         />
       </div>
     </div>

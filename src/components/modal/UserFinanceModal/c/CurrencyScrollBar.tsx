@@ -5,19 +5,18 @@ import {
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { forwardRef, useEffect, useLayoutEffect, useRef, WheelEvent } from "react";
-import Measure, { ContentRect, Rect } from "react-measure";
+import { useEffect, useRef, WheelEvent } from "react";
+import Measure from "react-measure";
 
 export const CurrencyScrollBar = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const [l1, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "DEPOSIT");
 
-  // from data store, share common data
-  const { syncAction } = useBoundStore();
+  const { depositCrypto, setDepositCrypto } = useBoundStore();
 
   // 代币选择滚动
-  const onScroll = (offset?: Rect) => {
+  const onScroll = (offset: { width: number, left: number }) => {
     const container = ref.current;
 
     if (container && offset) {
@@ -33,17 +32,42 @@ export const CurrencyScrollBar = () => {
     }
   };
 
-  /**
-   * 事件通知
-   * 当设置好用户默认的加密货币时候，需要自动滚动到指定代币位置
-   * 该操作是一次性的，后续不能生效
-   */
   useEffect(() => {
-    if (syncAction.type === "SYNC_USER_LATEST_DEPOSIT") {
-      const target = document.getElementById("target");
-      if (target) onScroll({ width: target.getBoundingClientRect().width, left: target.offsetLeft } as any);
-    }
-  }, [syncAction]);
+    const container = ref.current;
+
+    if (!container) return;
+
+    let raf_id = 0;
+    let closed = false;
+
+    const callback = () => {
+      if (closed) return;
+
+      const target = container.querySelector<HTMLElement>("#target") ?? null;
+
+      if (!target) return;
+
+      onScroll({ width: target.getBoundingClientRect().width, left: target.offsetLeft });
+
+      observer.disconnect();
+
+      closed = true;
+    };
+
+    const observer = new MutationObserver(() => {
+      callback();
+    });
+
+    observer.observe(container, { childList: true, subtree: true, attributes: true });
+
+    raf_id = requestAnimationFrame(callback);
+
+    return () => {
+      closed = true;
+      observer.disconnect();
+      if (raf_id) cancelAnimationFrame(raf_id);
+    };
+  }, [l1, depositCrypto.currency?.currency]);
 
   useEffect(() => {
     const element = ref.current;
@@ -70,8 +94,21 @@ export const CurrencyScrollBar = () => {
         content={currencies.map((item: Record<string, any>) => (
           <Measure offset key={item?.id}>
             {({ measureRef, contentRect }) => (
-              <InnerOption ref={measureRef} item={item} data={currencies} onScroll={onScroll}
-                           contentRect={contentRect} />
+              <button
+                ref={measureRef}
+                className={cn(
+                  "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-3 font-sans",
+                  item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
+                )}
+                id={item?.currency === depositCrypto.currency?.currency ? "target" : ""}
+                onClick={() => {
+                  onScroll(contentRect.offset!);
+                  setDepositCrypto({ currency: currencies.find((o: Record<string, any>) => o.currency === item?.currency) });
+                }}
+              >
+                <CurrencyIconPlaceholder currency={item?.currency} />
+                <span className="text-xs">{item?.currency}</span>
+              </button>
             )}
           </Measure>
         ))}
@@ -79,48 +116,3 @@ export const CurrencyScrollBar = () => {
     </div>
   );
 };
-
-const InnerOption = forwardRef<
-  HTMLButtonElement,
-  {
-    data: Record<string, any>[];
-    item: Record<string, any>;
-    onScroll: (v: Rect) => void;
-    contentRect: ContentRect;
-  }
->(({ data, item, onScroll, contentRect }, ref) => {
-  // 只需要初始化的时候执行一次币种选中操作
-  const hasRunOnce = useRef(false);
-
-  const { depositCrypto, setDepositCrypto, setSyncAction } = useBoundStore();
-
-  /**
-   * 当设置好用户默认的加密货币时候，需要自动滚动到指定代币位置
-   * 该操作是一次性的，后续不能生效
-   */
-  useLayoutEffect(() => {
-    if (!hasRunOnce.current && item?.currency === depositCrypto.currency?.currency) {
-      setSyncAction("SYNC_USER_LATEST_DEPOSIT", item);
-
-      hasRunOnce.current = true;
-    }
-  }, [depositCrypto.currency?.currency]);
-
-  return (
-    <button
-      ref={ref}
-      className={cn(
-        "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-3 font-sans",
-        item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
-      )}
-      id={item?.currency === depositCrypto.currency?.currency ? "target" : ""}
-      onClick={() => {
-        onScroll(contentRect.offset!);
-        setDepositCrypto({ currency: data.find((o: Record<string, any>) => o.currency === item?.currency) });
-      }}
-    >
-      <CurrencyIconPlaceholder currency={item?.currency} />
-      <span className="text-xs">{item?.currency}</span>
-    </button>
-  );
-});

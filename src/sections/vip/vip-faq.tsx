@@ -23,11 +23,6 @@ export function VipFAQ() {
       answer: t("vipFaq:faqTwo.content")
     },
     {
-      id: "vip-faq-3",
-      question: t("vipFaq:faqThree.title"),
-      answer: t("vipFaq:faqThree.content"),
-    },
-    {
       id: "vip-faq-4",
       question: t("vipFaq:faqFour.title"),
       answer: t("vipFaq:faqFour.content")
@@ -93,8 +88,7 @@ export const InnerGuardContainer = (
 ) => {
   const { switchData } = useBonusSwitch();
 
-  const is_conquest = useMemo(() => switchData?.bonus_switch?.conquest === 0 && (item?.id === "vip-faq-3" || item?.field === "conquests"), [switchData]);
   const is_achievements = useMemo(() => switchData?.bonus_switch?.achievements === 0 && (item?.id === "vip-faq-3" || item?.field === "achievements"), [switchData]);
 
-  return ((is_conquest || is_achievements) ? null : children);
+  return (is_achievements ? null : children);
 };

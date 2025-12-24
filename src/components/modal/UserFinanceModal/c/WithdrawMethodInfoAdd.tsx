@@ -19,7 +19,6 @@ import {
   ImageWithPlaceholder,
   InnerMaintenance
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 
 interface StateProps {
   selected: Record<string, any> | undefined;
@@ -49,11 +48,6 @@ export const WithdrawMethodInfoAdd = () => {
   // 法币提现用用户添加的快捷信息列表
   const currentWallet = useMemo(() => (Array.isArray(wallets?.data) ? wallets?.data : []), [wallets]);
 
-  // 供应商不可用
-  const error = useMemo(() => {
-    if (withdrawFiatV2.method) return !!withdrawFiatV2.formItem?.amount && withdrawFiatV2.method?.status === 0;
-  }, [withdrawFiatV2]);
-
   // 设置默认选中
   useEffect(() => {
     /**
@@ -72,7 +66,7 @@ export const WithdrawMethodInfoAdd = () => {
 
       setWithdrawFiatV2({ method: currentWallet.find((c: { is_default: number; }) => c.is_default === 1) });
     } else {
-      setWithdrawFiatV2({ method: null });
+      setWithdrawFiatV2({ method: null, formItem: { amount: "" } });
     }
   }, [currentWallet]);
 
@@ -82,7 +76,7 @@ export const WithdrawMethodInfoAdd = () => {
 
   return (
     <div>
-      <p className="pb-2 text-xs text-base-content/50 font-semibold">{t('finance:withdrawalDetails')}</p>
+      <p className="pb-2 text-xs text-base-content/50 font-semibold">{t("finance:withdrawalDetails")}</p>
       <div className="bg-base-300 rounded-lg flex flex-col justify-center">
         {l1 && <Loading className={"h-52"} />}
 
@@ -218,11 +212,6 @@ export const WithdrawMethodInfoAdd = () => {
           </div>
         </DisplayContent>
       </div>
-      <ErrorMessageBox
-        sample
-        content={<span>取款通道 <span className="underline">{withdrawFiatV2.method?.channel_class}</span> 正在维护，请重新选择</span>}
-        show={Boolean(error)}
-        className={"mt-2"} />
     </div>
   );
 };
@@ -243,7 +232,7 @@ const InnerAddAddr = ({ t, onClick, className }: { t: TFunction; onClick: () => 
         <div className="flex flex-col gap-2">
           <p className="text-sm font-semibold">{t("finance:add_withdrawal_address")}</p>
           <p
-            className="text-xs text-base-content/50">{t("finance:kindly_fill_in_your_crypto_withdrawal_address_details")}</p>
+            className="text-xs text-base-content/50">{t("Please fill in your fiat currency withdrawal information.")}</p>
         </div>
       </div>
       <button className="btn btn-square btn-sm btn-soft">
@@ -332,7 +321,8 @@ const InnerAddressList = (
 
   return (
     <>
-      {isFetching && <div className="p-2 text-xs text-center text-base-content/50">提款地址更新中，请稍后 ...</div>}
+      {isFetching &&
+        <div className="p-2 text-xs text-center text-base-content/50">Updating withdrawal address, please wait...</div>}
       {data.map((item) => (
         <InnerAddress
           key={item.id}
@@ -346,10 +336,11 @@ const InnerAddressList = (
 };
 
 const InnerPleaseSelect = ({ extra }: { extra: ReactNode }) => {
+  const { t } = useTranslation();
   return (<div
     className={classNames("relative bg-base-300 flex items-center gap-2 p-4 rounded-field font-semibold cursor-pointer")}>
     <div className="flex-1 flex flex-col gap-2 text-xs">
-      请选择提款方式
+      {t("Please select a withdrawal method.")}
     </div>
     {extra}
   </div>);

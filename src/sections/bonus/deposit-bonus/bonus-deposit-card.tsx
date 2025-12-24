@@ -219,9 +219,6 @@ export function BonusDepositCard() {
             {/* 上层badges组 */}
             <div className="flex items-center justify-between relative z-10 sm:px-8 px-1">
               {bonusStages.map((stage, index) => {
-                // TODO: 等老UI这一块上线后同步代码
-                if (stage.id === 5) return
-
                 return (
                   <div key={index} className="relative">
                     {stage.unlocked && (
@@ -234,7 +231,7 @@ export function BonusDepositCard() {
                     <div className="absolute inset-0 bg-base-400 rounded-selector -z-10"></div>
                     <div
                       className={`
-                    font-semibold text-xs h-7 sm:font-bold sm:badge-lg sm:h-8
+                    font-semibold text-xs h-7 sm:font-bold sm:badge-lg sm:h-8 px-2
                     ${
                         stage.unlocked
                           ? "badge badge-soft"
@@ -255,9 +252,6 @@ export function BonusDepositCard() {
 
         <div className="flex items-center justify-around">
           {bonusStages.map((stage, index) => {
-            // TODO: 等老UI这一块上线后同步代码
-            if (stage.id === 5) return
-
             // 简化底座颜色逻辑：当前解锁的用primary/10，其他用base-300
             const isActive = stage.current;
             const shadowColor = isActive ? "oklch(from var(--color-primary) l c h / 0.1)" : "oklch(from var(--color-base-200) l c h)";
@@ -270,6 +264,7 @@ export function BonusDepositCard() {
                       "/images/illustrations/6c5de6d5987dcf2d6d9a23766fc6e84cb8905f6e.png",
                       "/images/illustrations/d6caa053d94a7f445ed84b0a8ec7020da0cde521.png",
                       "/images/illustrations/1b3144c4560c8db208af436bea293b0fb469752a.png",
+                      "/images/illustrations/c0911b0621d20f615c49bc6388e124de517ec7ed.png",
                       "/images/illustrations/c0911b0621d20f615c49bc6388e124de517ec7ed.png",
                     ][index]
                   }

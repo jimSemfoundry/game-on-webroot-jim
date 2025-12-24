@@ -139,17 +139,17 @@ function ProfilePage() {
           )`
         }}>
         {/* 主要的Hero卡片 - 参考bonus/Hero.tsx */}
-        <div className="flex flex-col gap-2 sm:flex-row sm:gap-10 sm:items-center">
+        <div className="flex flex-col gap-2 sm:flex-row sm:gap-10 sm:items-center -mt-4 mb-4">
           {/* FIXME: roibest 前缀异常 */}
           <img
             src={`${import.meta.env.VITE_PROMOTION_MODEL === "roibest" ? `/${import.meta.env.VITE_FOLDER}` : ""}/images/illustrations/7d9e2a1cab9d27045f7a0364eadc17c01e2b654e.png`}
-            className="absolute right-5 top-0 w-[170px] h-[170px] drop-shadow-[0_4px_40px_rgba(238,216,92,0.30)] z-10 sm:hidden"
+            className="absolute rtl:left-5 rtl:right-auto rtl:rotate-y-180 right-5 top-0 w-[170px] h-[170px] drop-shadow-[0_4px_40px_rgba(238,216,92,0.30)] z-10 sm:hidden"
           />
 
           {/* <img className="w-[170px] h-[170px] shadow-[0px_4px_100px_0px_rgba(238,216,92,0.30)]" src="https://placehold.co/170x170" /> */}
           <div className="avatar">
             <div className="w-12 h-12 sm:w-36 sm:h-36 rounded-full flex items-center justify-center">
-              <img src={user?.avatar || "/images/default-avatar.png"} className="w-full h-full" alt="Avatar" />
+              <img src={user?.avatar || "/images/default-avatar.png"} className="w-full h-full rtl:rotate-y-180" alt="Avatar" />
             </div>
           </div>
 
@@ -160,7 +160,7 @@ function ProfilePage() {
             </div>
             <p
               className="text-2xl sm:text-4xl text-base-content font-bold z-10 capitalize truncate max-w-[62%] sm:max-w-full">{user?.nickname}</p>
-            <div className="font-semibold text-base-content/50 mb-4 sm:mb-0">
+            <div className="font-semibold text-base-content/50 sm:mb-0">
               <div className="inline-flex items-center gap-2 sm:cursor-pointer"
                    onClick={() => emitter.emit("SYNC_TABS_INDEX", "profile")}>
                 <span className="text-sm sm:text-lg text-primary">{t("profile:editProfile")}</span>

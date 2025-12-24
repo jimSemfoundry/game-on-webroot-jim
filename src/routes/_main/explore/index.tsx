@@ -1,30 +1,45 @@
+import { getDefaultSecondaryValue, getPrimaryApiCategory, getSecondaryApiCategory } from "@/config/exploreMenuConfig.ts";
+import { useAuth } from "@/contexts/AuthContext";
+import { useSidebar } from "@/contexts/SidebarContext.tsx";
 import { useUserGameList } from "@/hooks/api/useAuth.ts";
 import { useCasinoGameList } from "@/hooks/api/usePublic.ts";
 import { ExploreGameGrid, ExploreSearchBar, ExploreTabs } from "@/sections/explore";
-import { createFileRoute, useSearch, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { getPrimaryApiCategory, getSecondaryApiCategory, getDefaultSecondaryValue } from "@/config/exploreMenuConfig.ts";
-import { useSidebar } from "@/contexts/SidebarContext.tsx";
-import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/_main/explore/")({
   component: RouteComponent,
   validateSearch: (search: Record<string, unknown>) => {
-    const type = (search.type as string) || 'casino';
-    const result: any = {
+    // 只保留已知的有效参数，过滤掉未知参数（如 rt=fxiq）
+    // 中文注释：部分 PWA 容器会把自己的 query 片段拼进参数值里（例如 category=all?rb=Ftxi），这里做一次兜底清洗。
+    const sanitizeSearchValue = (value: unknown) => {
+      if (typeof value !== "string") return "";
+      return value.split("?")[0]?.split("#")[0] ?? "";
+    };
+
+    const type = sanitizeSearchValue(search.type) || "casino";
+    const result: Record<string, string> = {
       type,
     };
 
     // fishing 不需要 category 参数
-    if (type !== 'fishing' && search.category) {
-      result.category = search.category as string;
+    if (type !== "fishing" && search.category) {
+      const category = sanitizeSearchValue(search.category);
+      if (category) {
+        result.category = category;
+      }
     }
 
-    if (typeof search.providers !== "undefined") {
-      result.providers = search.providers as string;
+    if (typeof search.providers !== "undefined" && search.providers) {
+      const providers = sanitizeSearchValue(search.providers);
+      if (providers) {
+        result.providers = providers;
+      }
     }
 
+    // 显式返回只包含有效参数的对象，确保过滤掉所有未知参数
     return result;
   },
 });
@@ -36,6 +51,42 @@ function RouteComponent() {
   const providers = search.providers;
   const { isMobile } = useSidebar();
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    const navEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    const isReload = navEntry?.type === "reload" || (performance as any)?.navigation?.type === 1;
+    if (!isReload) return;
+
+    if (window.RumSDK?.default) {
+      const ArmsRum = window.RumSDK.default;
+      ArmsRum.sendCustom({
+        type: "ExplorePullToRefresh",
+        name: "ExplorePullToRefresh",
+        properties: {
+          error_msg: `reload|url=${window.location.href}|type=${gameType}|category=${initialCategory ?? ""}|providers=${providers ?? ""}`,
+          error_time: new Date().getTime(),
+          error_user: user?.id,
+          error_country: user?.country,
+          error_version: process.env.VITE_VERSION,
+        },
+      });
+    }
+  }, [gameType, initialCategory, providers, user?.country, user?.id]);
+
+  // 中文注释：Android PWA 下拉刷新/页面卸载时，未完成的请求可能会被取消（ERR_CANCELED）。
+  // 取消不算真正的加载失败，避免误显示错误态。
+  const isRequestCanceled = (err: unknown) => {
+    if (!err) return false;
+    if (axios.isCancel(err)) return true;
+    const anyErr = err as any;
+    return (
+      anyErr?.code === "ERR_CANCELED" ||
+      anyErr?.name === "CanceledError" ||
+      anyErr?.name === "AbortError" ||
+      (typeof anyErr?.message === "string" && anyErr.message.toLowerCase().includes("canceled"))
+    );
+  };
 
   const [value, setValue] = useState(initialCategory || "hot");
   const [sortValue, setSortValue] = useState("popular");
@@ -63,10 +114,9 @@ function RouteComponent() {
 
   const sortParam = useMemo(() => getSortParam(sortValue), [sortValue]);
 
-  const gameLimit = typeof window !== 'undefined' && window.innerWidth >= 768 ? 90 : 30;
+  const gameLimit = typeof window !== "undefined" && window.innerWidth >= 768 ? 90 : 30;
   const providersParam = selectedProviders.length > 0 ? selectedProviders.join(",") : "";
 
-  const { user } = useAuth();
   const { i18n } = useTranslation();
 
   // 将菜单值映射到API参数
@@ -106,7 +156,14 @@ function RouteComponent() {
     data: casinoGameListData,
     isLoading: isCasinoLoading,
     isError: isCasinoError,
-  } = useCasinoGameList(baseParams, { enabled: !isUserTab });
+    error: casinoError,
+  } = useCasinoGameList(baseParams, {
+    enabled: !isUserTab,
+    // 中文注释：Android PWA 下拉刷新可能中断请求；确保重新挂载时会自动再拉一次，避免卡在错误态。
+    refetchOnMount: true,
+    retry: 2,
+    retryDelay: 300,
+  });
 
   const casinoData = !isUserTab ? ((casinoGameListData as any) ?? {}) : {};
 
@@ -114,11 +171,32 @@ function RouteComponent() {
     data: userGameListData,
     isLoading: isUserGameListLoading,
     isError: isUserGameListError,
-  } = useUserGameList(userGameParams, { enabled: isUserTab });
+    error: userGameListError,
+  } = useUserGameList(userGameParams, {
+    enabled: isUserTab,
+    refetchOnMount: true,
+    retry: 2,
+    retryDelay: 300,
+  });
 
   const crossNavigationTabs = useMemo(() => new Set(["casino", "slots", "liveCasino", "fast", "fishing"]), []);
 
   const changeExploreTab = (newValue: string) => {
+    const currentURL = window.location.pathname + window.location.search;
+    if (window.RumSDK?.default) {
+      const ArmsRum = window.RumSDK.default;
+      ArmsRum.sendCustom({
+        type: "DebugExploreURL",
+        name: "DebugExploreURL",
+        properties: {
+          error_msg: `${currentURL}`,
+          error_time: new Date().getTime(),
+          error_user: user?.id,
+          error_country: user?.country,
+          error_version: process.env.VITE_VERSION,
+        },
+      });
+    }
     // 如果当前是 fishing，点击的是一级菜单切换
     if (gameType === "fishing" && crossNavigationTabs.has(newValue)) {
       const targetType = newValue;
@@ -193,7 +271,7 @@ function RouteComponent() {
   // Reset page and games when filters change
   useEffect(() => {
     setCurrentPage(1);
-    if (providers?.includes('all')) {
+    if (providers?.includes("all")) {
       navigate({
         to: "/explore",
         search: {
@@ -201,7 +279,6 @@ function RouteComponent() {
           category: "hot",
           providers: "",
         },
-        replace: true,
       });
     }
   }, [sortValue, value, selectedProviders.length, gameType]);
@@ -256,9 +333,11 @@ function RouteComponent() {
   const displayedGames = isUserTab ? userGames : allGames;
   const userGamesErrorState = isUserTab && (isUserGameListError || (userGameListData !== undefined && userGameListData.code !== 0));
   const isGridLoading = isUserTab ? isUserGameListLoading : isCasinoLoading;
-  const isGridError = isUserTab ? Boolean(userGamesErrorState) : isCasinoError;
+  const isGridError = isUserTab
+    ? Boolean(userGamesErrorState) && !isRequestCanceled(userGameListError)
+    : isCasinoError && !isRequestCanceled(casinoError);
   const hasMoreCasinoGames = !isUserTab && casinoData?.data?.length === gameLimit;
-  const totalCount = isUserTab ? (userGameListData?.count ?? userGames.length) : casinoData?.count ?? 0;
+  const totalCount = isUserTab ? (userGameListData?.count ?? userGames.length) : (casinoData?.count ?? 0);
   const currentCount = displayedGames?.length ?? 0;
   const isLoadingMoreGames = !isUserTab && isCasinoLoading && currentPage > 1;
   const loadMoreHandler = !isUserTab ? handleLoadMore : undefined;

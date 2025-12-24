@@ -3,7 +3,7 @@ import { authService } from "@/services/authService";
 import type { LoginCredentials } from "@/types/auth";
 import type { CreateAdTagParams, GetReferralListParams, SetDefaultAdTagParams } from "@/types/referral";
 import { clearAuth, hasAuth } from "@/utils/auth";
-import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient, type UseQueryOptions } from "@tanstack/react-query";
 import { useEffect, useMemo } from "react";
 import { toast } from "sonner";
 import type { KycDetail } from "@/types/profile";
@@ -86,7 +86,9 @@ export function useLogout() {
   return useMutation({
     mutationFn: () => authService.signOut(),
     onSuccess: () => {
+      localStorage.removeItem("user");
       localStorage.removeItem("token");
+      localStorage.removeItem("status");
       localStorage.removeItem("username");
 
       queryClient.setQueryData(AUTH_QUERY_KEYS.currentUser, null);
@@ -94,7 +96,9 @@ export function useLogout() {
     },
     onError: (error) => {
       console.error("Logout failed:", error);
+      localStorage.removeItem("user");
       localStorage.removeItem("token");
+      localStorage.removeItem("status");
       localStorage.removeItem("username");
       queryClient.clear();
     }
@@ -172,7 +176,10 @@ export function useTournamentPoolPrize(
   });
 }
 
-export function useUserGameList(params: UserGameListParams, queryOptions?: { enabled?: boolean }) {
+export function useUserGameList(
+  params: UserGameListParams,
+  queryOptions?: Omit<UseQueryOptions<UserGameListResponse>, "queryKey" | "queryFn" | "enabled"> & { enabled?: boolean },
+) {
   const { user } = useAuth();
   const { enabled: optionEnabled, ...restOptions } = queryOptions ?? {};
   const enabled = !!user && (optionEnabled ?? true);
@@ -253,7 +260,7 @@ export const useUserBalance = () => {
       return data;
     },
     enabled: !!user, // 只有当用户已登录时才执行查询
-    staleTime: 30 * 1000, // 30秒缓存，余额需要较频繁更新
+    staleTime: 15 * 1000, // 30秒缓存，余额需要较频繁更新
     refetchInterval: 15 * 1000 // 每分钟自动刷新一次
   });
 };
@@ -832,7 +839,7 @@ export const useUnreadNotificationCounter = () => {
     queryKey: AUTH_QUERY_KEYS.unreadNotificationCounter,
     queryFn: () => authService.getNotificationMessage({
       last_id: 0,
-      limit: 3,
+      limit: 1,
       has_read: 0,
     }),
     enabled: !!user,

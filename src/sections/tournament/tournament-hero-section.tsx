@@ -1,6 +1,6 @@
+import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
-import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 
 export const TournamentHeroSection = () => {
   const { t } = useTranslation();
@@ -28,18 +28,11 @@ export const TournamentHeroSection = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full h-full">
           <div className="flex flex-col gap-2 sm:gap-3 z-10 sm:max-w-[48%] h-full pl-4">
             <div className="flex flex-col h-full justify-center">
-
               <h1 className="text-lg sm:text-[40px] font-black  uppercase leading-[1.05]">
-                <h2 className="text-base-content">
-                  {t("tournament:explore", "EXPLORE")}
-                </h2>
-                <span className="text-primary">
-                  {t("tournament:tournaments", "TOURNAMENTS")},
-                </span>
+                <h2 className="text-base-content">{t("tournament:explore", "EXPLORE")}</h2>
+                <span className="text-primary">{t("tournament:tournaments", "TOURNAMENTS")},</span>
                 <br />
-                <span className="text-base-content">
-                  {t("tournament:dropsAndRaces", "DROPS & RACES")}
-                </span>
+                <span className="text-base-content">{t("tournament:dropsAndRaces", "DROPS & RACES")}</span>
               </h1>
             </div>
           </div>
@@ -48,7 +41,7 @@ export const TournamentHeroSection = () => {
           <img
             src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
             alt="Tournament Character"
-            className="hidden sm:block absolute left-[391px] rtl:right-auto rtl:left-[391px] top-0 w-[340px] h-[340px] object-cover object-center drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] z-20 pointer-events-none select-none"
+            className="hidden sm:block absolute left-[391px] rtl:left-auto rtl:right-[391px] top-0 w-[340px] h-[340px] object-cover object-center drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] z-20 pointer-events-none select-none"
             draggable="false"
           />
 
@@ -56,38 +49,26 @@ export const TournamentHeroSection = () => {
           <img
             src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
             alt="Tournament Character"
-            className="sm:hidden absolute -right-1 rtl:-right-auto rtl:-left-4 -bottom-1 w-[207px] h-[207px] object-cover object-top opacity-80 drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] pointer-events-none select-none"
+            className="sm:hidden absolute -right-1 rtl:right-auto rtl:left-1 -bottom-1 w-[207px] h-[207px] object-cover object-top opacity-80 drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] pointer-events-none select-none"
             draggable="false"
           />
 
           {/* Enter the Arena - 桌面端右侧覆盖卡片 */}
-          <div className="hidden sm:block absolute sm:w-[480px] sm:right-10 sm:left-auto sm:top-8 sm:h-[calc(100%-4rem)] sm:bg-base-300 sm:rounded-box shadow-lg overflow-hidden z-10">
+          <div className="hidden sm:block absolute sm:w-[480px] sm:right-10 rtl:sm:right-auto rtl:sm:left-10 sm:top-8 sm:h-[calc(100%-4rem)] sm:bg-base-300 sm:rounded-box shadow-lg overflow-hidden z-10">
             <LiquidGlassEffect className="absolute inset-0 pointer-events-none min-h-full rounded-2xl w-full -z-10 bg-base-300">
               <div className="w-full h-full"></div>
             </LiquidGlassEffect>
             <div className="relative flex h-full w-full flex-col gap-4 rounded-box p-6 sm:p-8 justify-center">
-              <h2 className="text-3xl font-bold text-base-content mb-4">
-                {t("tournament:enterTheArena", "Enter the Arena")}
-              </h2>
+              <h2 className="text-3xl font-bold text-base-content mb-4">{t("tournament:enterTheArena", "Enter the Arena")}</h2>
               <div className="flex flex-col gap-4 text-base text-base-content/50 leading-relaxed">
                 <p>
                   {t(
-                    "tournament:arenaDescription1",
-                    "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here."
+                    "tournament:enterTheArenaDescription1",
+                    "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here.",
                   )}
                 </p>
-                <p>
-                  {t(
-                    "tournament:arenaDescription2",
-                    "Check back often, stack the perks, and never miss a chance to cash in."
-                  )}
-                </p>
-                <p>
-                  {t(
-                    "tournament:arenaDescription3",
-                    "Your next big win could be one click away."
-                  )}
-                </p>
+                <p>{t("tournament:enterTheArenaDescription2", "Check back often, stack the perks, and never miss a chance to cash in.")}</p>
+                <p>{t("tournament:enterTheArenaDescription3", "Your next big win could be one click away.")}</p>
               </div>
             </div>
           </div>
@@ -101,33 +82,20 @@ export const TournamentHeroSection = () => {
         </LiquidGlassEffect>
 
         <div className="w-full h-full p-6 sm:p-8 flex flex-col gap-4 sm:gap-6">
-          <h2 className="text-2xl sm:text-4xl font-bold text-base-content">
-            {t("tournament:enterTheArena", "Enter the Arena")}
-          </h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-base-content">{t("tournament:enterTheArena", "Enter the Arena")}</h2>
 
           <div className="flex flex-col gap-3 sm:gap-4 text-sm sm:text-base text-base-content/50 leading-5">
             <p>
               {t(
-                "tournament:arenaDescription1",
-                "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here."
+                "tournament:enterTheArenaDescription1",
+                "From thrilling tournaments to exclusive promos and bonus drops — everything you need to boost your play is right here.",
               )}
             </p>
-            <p>
-              {t(
-                "tournament:arenaDescription2",
-                "Check back often, stack the perks, and never miss a chance to cash in."
-              )}
-            </p>
-            <p>
-              {t(
-                "tournament:arenaDescription3",
-                "Your next big win could be one click away."
-              )}
-            </p>
+            <p>{t("tournament:enterTheArenaDescription2", "Check back often, stack the perks, and never miss a chance to cash in.")}</p>
+            <p>{t("tournament:enterTheArenaDescription3", "Your next big win could be one click away.")}</p>
           </div>
         </div>
       </div>
     </div>
   );
 };
-

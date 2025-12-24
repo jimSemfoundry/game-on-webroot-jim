@@ -16,6 +16,11 @@ import type { RouterContext } from "./routes/__root";
 import "./styles.css";
 import { initPWAUpdate } from "./utils/pwaUpdate";
 import { useDeferredPromptStore } from './store/deferredPrompt.ts';
+import { isTelegramWebApp } from "./utils/telegramWebApp";
+import { publicService } from "./services/publicService";
+import { useQueryClient } from "@tanstack/react-query";
+import { AUTH_QUERY_KEYS } from "./hooks/api/useAuth";
+import { useEffect } from "react";
 
 // Create a new router instance
 const router = createRouter({
@@ -54,6 +59,47 @@ declare module "@tanstack/react-router" {
  */
 function InnerApp() {
   const auth = useAuth();
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    const tg = window.Telegram?.WebApp;
+    if (!tg?.initData) return;
+    tg.ready?.();
+    tg.expand?.();
+  }, []);
+
+  useEffect(() => {
+    if (!isTelegramWebApp()) return;
+    if (localStorage.getItem("token")) return;
+
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const res = await publicService.loginByTMA({});
+        if (cancelled) return;
+        if (res.code !== 0) return;
+        if (!res?.data?.token || !res?.data?.username) return;
+
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", res.data.username);
+        if (res.user) {
+          localStorage.setItem("user", JSON.stringify(res.user));
+        }
+        if (res.status) {
+          localStorage.setItem("status", JSON.stringify(res.status));
+        }
+
+        queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
+      } catch {
+        // ignore
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [queryClient]);
 
   // 更新 router context 中的 auth 状态
   // 这样在所有路由的 beforeLoad 中都可以访问到最新的认证状态

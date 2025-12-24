@@ -72,7 +72,7 @@ export function PublicProfile() {
 
       <div key={DoNotPushNotifications.value}
            onClick={() => {
-             toast.info("请在浏览器中自主设置“通知权限”");
+             toast.info("Please manage notification permissions in your browser settings.");
            }}
            className={"bg-base-300 px-4 py-3 text-base-content/50 rounded-lg text-sm"}>
         <div className={"flex items-center w-full justify-between gap-4"}>

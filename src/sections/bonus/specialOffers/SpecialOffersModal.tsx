@@ -27,7 +27,7 @@ export const SpecialOffersModal = ({ open, onClose }: { open: boolean, onClose: 
   return (
     <Modal
       className="p-0 bg-base-400 h-full"
-      classNameModal="z-[1000]"
+      zIndex={1006}
       isOpen={open}
       onClose={onClose}
       style={{

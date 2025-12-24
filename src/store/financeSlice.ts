@@ -1,4 +1,4 @@
-import { IFinanceSlice, Store, TActions } from "@/store/type.ts";
+import { IFinanceSlice, IFiat, Store, TActions } from "@/store/type.ts";
 import { StateCreator } from "zustand";
 
 export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (set) => ({
@@ -12,36 +12,34 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     currency: null,
     formItem: null
   },
-  setDepositFiat: (params) =>
+  setDepositFiat: (params: Partial<IFiat>) =>
     set((state) => {
-      const nextFormItem = (params.currency || params.method)
-        ? null
-        : { ...state.depositFiat.formItem, ...params.formItem };
-
-      const nextDepositFiat = {
+      const need_reset_form = Boolean(params.method);
+      console.info("************ setDepositFiat start ************");
+      console.info(params.currency?.currency);
+      console.info(params.method?.display_name);
+      console.info("need_reset_form", need_reset_form);
+      console.info("************ setDepositFiat ended ************");
+      const next_deposit_fiat = {
         ...state.depositFiat,
         ...params,
-        formItem: nextFormItem
+        formItem: need_reset_form
+          ? null
+          : { ...(state.depositFiat.formItem ?? {}), ...(params.formItem ?? {}) }
       };
 
-      const prev = state.depositFiat;
-      const sameFormItem = (() => {
-        if (prev.formItem === nextFormItem) return true;
-        if (!prev.formItem || !nextFormItem) return false;
-        const prevKeys = Object.keys(prev.formItem);
-        const nextKeys = Object.keys(nextFormItem);
-        if (prevKeys.length !== nextKeys.length) return false;
-        for (const k of prevKeys) {
-          if (prev.formItem[k] !== nextFormItem[k]) return false;
-        }
-        return true;
-      })();
-
-      if (prev.method === nextDepositFiat.method && prev.currency === nextDepositFiat.currency && sameFormItem) {
-        return state;
+      // ‼️清除后缀为_error的字段残留，避免影响下一个阶段的数据
+      if (need_reset_form) {
+        Object.keys(next_deposit_fiat).forEach((k) => {
+          if (k.endsWith("_error")) Reflect.deleteProperty(next_deposit_fiat, k);
+        });
       }
 
-      return { depositFiat: nextDepositFiat };
+      return {
+        depositFiat: {
+          ...next_deposit_fiat
+        }
+      };
     }),
 
   // deposit crypto
@@ -62,16 +60,34 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     formItem: null
   },
   setWithdrawFiat: (params) =>
-    set((state) => ({
-      withdrawFiat: {
+    set((state) => {
+      const need_reset_form = Boolean(params.method);
+      console.info("************ setWithdrawFiat store change start ************");
+      console.info(params.currency?.currency);
+      console.info(params.method?.display_name);
+      console.info("need_reset_form", need_reset_form);
+      console.info("************ setWithdrawFiat store change ended ************");
+      const next_withdraw_fiat = {
         ...state.withdrawFiat,
         ...params,
-        formItem:
-          params.currency || params.method
-            ? null
-            : { ...state.withdrawFiat.formItem, ...params.formItem }
+        formItem: need_reset_form
+          ? null
+          : { ...(state.withdrawFiat.formItem ?? {}), ...(params.formItem ?? {}) }
+      };
+
+      // ‼️清除后缀为_error的字段残留，避免影响下一个阶段的数据
+      if (need_reset_form) {
+        Object.keys(next_withdraw_fiat).forEach((k) => {
+          if (k.endsWith("_error")) Reflect.deleteProperty(next_withdraw_fiat, k);
+        });
       }
-    })),
+
+      return {
+        withdrawFiat: {
+          ...next_withdraw_fiat
+        }
+      };
+    }),
 
   // withdraw fiat V2
   // currency 还是依赖于 V1
@@ -81,16 +97,31 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
   },
   setWithdrawFiatV2: (params) =>
     set((state) => {
-      return ({
+      const need_reset_form = Boolean(params.method);
+      console.info("************ setWithdrawFiatV2 store change start ************");
+      console.info(params.method?.channel_class);
+      console.info("need_reset_form", need_reset_form);
+      console.info("************ setWithdrawFiatV2 store change ended ************");
+      const next_withdraw_fiat_v2 = {
+        ...state.withdrawFiatV2,
+        ...params,
+        formItem: need_reset_form
+          ? null
+          : { ...(state.withdrawFiatV2.formItem ?? {}), ...(params.formItem ?? {}) }
+      };
+
+      // ‼️清除后缀为_error的字段残留，避免影响下一个阶段的数据
+      if (need_reset_form) {
+        Object.keys(next_withdraw_fiat_v2).forEach((k) => {
+          if (k.endsWith("_error")) Reflect.deleteProperty(next_withdraw_fiat_v2, k);
+        });
+      }
+
+      return {
         withdrawFiatV2: {
-          ...state.withdrawFiatV2,
-          ...params,
-          formItem:
-            params.method
-              ? null
-              : { ...state.withdrawFiatV2.formItem, ...params.formItem }
+          ...next_withdraw_fiat_v2
         }
-      });
+      };
     }),
 
   // withdraw fiat
@@ -104,7 +135,7 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
   setWithdrawCrypto: (params) => {
     set((state) => {
       const effect = (params.currency || params.network)
-        ? { ...params, comment: "", inputAmount: "" }
+        ? { ...params, comment: "", inputAmount: "", toWallet: "" }
         : { ...state.withdrawCrypto, ...params };
       return ({
         withdrawCrypto: {

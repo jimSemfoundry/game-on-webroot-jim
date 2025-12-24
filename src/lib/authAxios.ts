@@ -9,10 +9,7 @@ const authAxiosInstance = axios.create({
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
-  },
-    params: {
-    _t: Date.now(),
-  },
+  }
 });
 
 authAxiosInstance.interceptors.request.use(
@@ -29,6 +26,12 @@ authAxiosInstance.interceptors.request.use(
       // getAuth可能会抛出错误如果用户未认证
       console.warn("Failed to get auth credentials:", error);
     }
+
+    config.params = {
+      ...(config.params || {}),
+      _t: Date.now(),
+    }
+
     return config;
   },
   (error) => {

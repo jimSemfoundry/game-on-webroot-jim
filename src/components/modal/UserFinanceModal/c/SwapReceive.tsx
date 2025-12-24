@@ -12,11 +12,12 @@ import { EqualApproximately } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { FormatAmount } from "sunmoon-working-components";
+import { emitter } from "@/store/emitter.ts";
 
 export const SwapReceive = () => {
   const { t } = useTranslation();
 
-  const { swapTo, swapFrom, setSwapTo, syncAction } = useBoundStore();
+  const { swapTo, swapFrom, setSwapTo } = useBoundStore();
 
   const [l1, origin, currencies] = useSupportedSwapToCurrenciesFilter(swapFrom.currency);
 
@@ -83,8 +84,12 @@ export const SwapReceive = () => {
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setSwapTo({ outAmount: "" });
-  }, [syncAction]);
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+      setSwapTo({ outAmount: "" });
+    });
+
+    return () => em?.remove()
+  }, []);
 
   return (
     <div className="flex flex-col gap-4">

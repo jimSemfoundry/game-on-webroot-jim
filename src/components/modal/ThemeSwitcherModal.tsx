@@ -3,6 +3,7 @@ import { useTheme } from "@/contexts/ThemeContext.tsx";
 import { useSidebar } from "@/contexts/SidebarContext.tsx";
 import { getThemeNames } from "@/themes/presets.ts";
 import { SwatchBook } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type ThemeSwitcherModalProps = {
   isOpen: boolean
@@ -10,6 +11,8 @@ type ThemeSwitcherModalProps = {
 }
 
 export const ThemeSwitcherModal = ({ isOpen, onClose }: ThemeSwitcherModalProps) => {
+  const { t } = useTranslation();
+
   const { isMobile } = useSidebar();
 
   const { state, switchTheme } = useTheme();
@@ -18,7 +21,7 @@ export const ThemeSwitcherModal = ({ isOpen, onClose }: ThemeSwitcherModalProps)
     <Modal position={isMobile ? "modal-bottom" : "modal-middle"} isOpen={isOpen} onClose={onClose} title={
       <div className="flex items-center gap-x-2 h-8">
         <SwatchBook className="w-5 h-5 text-primary" />
-        <p className="text-base md:text-xl font-semibold">主题设置</p>
+        <p className="text-base md:text-xl font-semibold">{t('theme:theme_settings', 'Theme Settings')}</p>
       </div>
     } className="bg-base-400 md:w-[420px] max-w-sm mx-auto overflow-hidden">
       <div className="flex flex-col max-h-[60vh]">

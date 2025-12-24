@@ -3,14 +3,12 @@ import { useAuthModals } from "@/contexts/ModalsProvider";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { authService } from "@/services/authService";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { AccordionContent, AccordionTrigger } from "@radix-ui/react-accordion";
-import { ChevronDown, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import Iconify from "../iconify";
-import { Accordion, AccordionItem } from "../ui/Accordion";
 import { Modal } from "../ui/Modal";
 import { PasswordInput } from "../ui/PasswordInput";
 import { PhoneEmailInput } from "../ui/PhoneEmailInput";
@@ -19,6 +17,7 @@ import { getCookie } from "@/utils/browser";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper";
 import type { Country } from "react-phone-number-input";
+import { useBaseConfig } from "@/hooks/api/usePublic.ts";
 
 type SignUpModalProps = {
   isOpen: boolean;
@@ -30,14 +29,15 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
   const { openSignInModal } = useAuthModals();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { login } = useAuth();
-  const siteName = import.meta.env.VITE_WEBSITE_NICKNAME || "";
+  // const siteName = import.meta.env.VITE_WEBSITE_NICKNAME || "";
   const { data: countryCodeResponse } = useCountryCodeByIp();
+  const {data: baseConf} = useBaseConfig()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [referralCode, setReferralCode] = useState("");
+  // const [referralCode, setReferralCode] = useState("");
   const [agreeTerms, setAgreeTerms] = useState(true);
-  const [agreeMarketing, setAgreeMarketing] = useState(false);
+  const [agreeMarketing, setAgreeMarketing] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const captchaRef = useRef<HCaptcha>(null);
 
@@ -91,7 +91,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
     try {
       console.log("Executing captcha...");
       if (captchaRef.current) {
-        captchaRef.current.execute();
+        captchaRef.current?.execute();
       }
     } catch (error) {
       console.error("Error executing captcha:", error);
@@ -254,33 +254,33 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
         <PasswordInput value={password} onChange={(value) => setPassword(value)} />
 
         {/* <p className="text-sm text-base-content/50 text-end hover:underline cursor-pointer sm:text-md font-semibold">{t('forgotPassword')}</p> */}
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="group flex items-center justify-end w-full cursor-pointer select-none">
-              <div className="flex items-center gap-2">
-                <p className="text-xs md:text-sm font-semibold text-base-content/50">{t("referral:referralCode")}</p>
-                <ChevronDown
-                  size={16}
-                  className="text-base-content/50 transition-transform duration-300 group-data-[state=open]:rotate-180"
-                />
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="mt-2">
-              <input
-                placeholder={t("referral:referralCode")}
-                value={referralCode}
-                onChange={(e) => setReferralCode(e.target.value)}
-                className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full"
-              />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        {/*<Accordion type="single" collapsible className="w-full">*/}
+        {/*  <AccordionItem value="item-1">*/}
+        {/*    <AccordionTrigger className="group flex items-center justify-end w-full cursor-pointer select-none">*/}
+        {/*      <div className="flex items-center gap-2">*/}
+        {/*        <p className="text-xs md:text-sm font-semibold text-base-content/50">{t("referral:referralCode")}</p>*/}
+        {/*        <ChevronDown*/}
+        {/*          size={16}*/}
+        {/*          className="text-base-content/50 transition-transform duration-300 group-data-[state=open]:rotate-180"*/}
+        {/*        />*/}
+        {/*      </div>*/}
+        {/*    </AccordionTrigger>*/}
+        {/*    <AccordionContent className="mt-2">*/}
+        {/*      <input*/}
+        {/*        placeholder={t("referral:referralCode")}*/}
+        {/*        value={referralCode}*/}
+        {/*        onChange={(e) => setReferralCode(e.target.value)}*/}
+        {/*        className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full"*/}
+        {/*      />*/}
+        {/*    </AccordionContent>*/}
+        {/*  </AccordionItem>*/}
+        {/*</Accordion>*/}
 
-        <div className="flex flex-col gap-y-2 px-3">
+        <div className="flex flex-col gap-y-2 px-3 mt-4">
           <div className="flex items-center gap-4">
             <input
               type="checkbox"
-              className="checkbox checkbox-sm md:checkbox-md checkbox-primary"
+              className="checkbox checkbox-sm md:checkbox-md checkbox-primary rounded-sm"
               checked={agreeTerms}
               onChange={(e) => setAgreeTerms(e.target.checked)}
             ></input>
@@ -290,11 +290,11 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
           <div className="flex items-center gap-4">
             <input
               type="checkbox"
-              className="checkbox checkbox-sm md:checkbox-md checkbox-primary"
+              className="checkbox checkbox-sm md:checkbox-md checkbox-primary rounded-sm"
               checked={agreeMarketing}
               onChange={(e) => setAgreeMarketing(e.target.checked)}
             ></input>
-            <p className="text-xs md:text-sm text-base-content/50">{t("login:marketingPromotions", { siteName })}</p>
+            <p className="text-xs md:text-sm text-base-content/50">{t("login:marketingPromotions", { siteName: `[${baseConf?.data?.h5?.replace(/^https?:\/\//, "")}]` })}</p>
           </div>
         </div>
 

@@ -84,13 +84,13 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
             ) : (
               <p className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
                 <span className="text-base-content block">
-                  ENJOY
+                  {t("bonus:enjoy")}
                 </span>
                 <span className="text-primary block">
-                  EXCLUSIVE
+                  {t("bonus:exclusive")}
                 </span>
                 <span className="text-primary">
-                  REWARDS
+                  {t("bonus:rewards")}
                 </span>
               </p>
             )}
@@ -110,7 +110,7 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
         <img
           src="/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png"
           alt=""
-          className="absolute top-3 -right-2 rtl:-right-auto rtl:-left-2 object-cover w-[233px] object-top h-[158px] sm:hidden"
+          className="absolute top-3 -right-2 rtl:right-auto rtl:-left-2 object-cover w-[233px] object-top h-[158px] sm:hidden rtl:rotate-y-180"
         />
       </div>
 

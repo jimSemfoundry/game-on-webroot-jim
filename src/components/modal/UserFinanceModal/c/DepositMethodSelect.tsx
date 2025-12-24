@@ -92,7 +92,7 @@ export const DepositMethodSelect = (
             </>
           )}
           <InnerMaintenance show={method?.status === 0}
-                            className="top-0 right-0 rounded-tr-lg rounded-bl-lg bg-warning/50" />
+                            className="top-0 right-0 rounded-tr-lg rounded-bl-lg bg-warning/60" />
         </button>
 
         {/*桌面端*/}

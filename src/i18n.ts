@@ -39,6 +39,7 @@ export const supportedLanguages = [
   'tr', // 土耳其语
   'uk', // 乌克兰语
   'vi', // 越南语
+  'ur', // 乌尔都语
   'zh-TW', // 繁体中文
   'zh-CN', // 简体中文
 ];

@@ -141,7 +141,7 @@ export const ChangePasswordModal = () => {
             <DisplayContent status={current_password_length_error}>
               <ErrorMessageBox
                 className="!mt-0"
-                content="请输入 6 - 64 个字符组成的密码"
+                content={t("profile:passwordLengthRequirement", "Please enter a password between 6 and 64 characters.")}
                 show={current_password_length_error} />
             </DisplayContent>
           </div>
@@ -184,7 +184,7 @@ export const ChangePasswordModal = () => {
             <DisplayContent status={new_password_length_error}>
               <ErrorMessageBox
                 className="!mt-0"
-                content="请输入 6 - 64 个字符组成的密码"
+                content={t("profile:passwordLengthRequirement", "Please enter a password between 6 and 64 characters.")}
                 show={new_password_length_error} />
             </DisplayContent>
 

@@ -14,10 +14,12 @@ export const ChatFloatingButton = () => {
 
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const offsetRef = useRef({ x: 0, y: 0 });
+  const startPointRef = useRef({ x: 0, y: 0 });
   const boundsRef = useRef({ minX: 0, minY: 0, maxX: 0, maxY: 0 });
   const hasInitRef = useRef(false);
   const pointerIdRef = useRef<number | null>(null);
   const isDraggingRef = useRef(false);
+  const cleanupGlobalListenersRef = useRef<null | (() => void)>(null);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -58,17 +60,80 @@ export const ChatFloatingButton = () => {
     isDraggingRef.current = false;
 
     pointerIdRef.current = event.pointerId;
-    btnRef.current?.setPointerCapture(event.pointerId);
+
+    try {
+      btnRef.current?.setPointerCapture(event.pointerId);
+    } catch {
+      // no-op
+    }
+
+    startPointRef.current = { x: event.clientX, y: event.clientY };
     offsetRef.current = {
       x: event.clientX - position.x,
       y: event.clientY - position.y
     };
+
+    cleanupGlobalListenersRef.current?.();
+
+    const onWindowPointerMove = (e: globalThis.PointerEvent) => {
+      if (pointerIdRef.current === null) return;
+      if (e.pointerId !== pointerIdRef.current) return;
+
+      const dx = e.clientX - startPointRef.current.x;
+      const dy = e.clientY - startPointRef.current.y;
+      const DRAG_THRESHOLD_PX = 4;
+      if (!isDraggingRef.current && dx * dx + dy * dy < DRAG_THRESHOLD_PX * DRAG_THRESHOLD_PX) {
+        return;
+      }
+
+      isDraggingRef.current = true;
+      const rawX = e.clientX - offsetRef.current.x;
+      const rawY = e.clientY - offsetRef.current.y;
+      const { minX, maxX, minY, maxY } = boundsRef.current;
+
+      setPosition({
+        x: clamp(rawX, minX, maxX),
+        y: clamp(rawY, minY, maxY)
+      });
+    };
+
+    const onWindowPointerUp = (e: globalThis.PointerEvent) => {
+      if (pointerIdRef.current === null) return;
+      if (e.pointerId !== pointerIdRef.current) return;
+
+      try {
+        btnRef.current?.releasePointerCapture(pointerIdRef.current);
+      } catch {
+        // no-op
+      }
+
+      pointerIdRef.current = null;
+      cleanupGlobalListenersRef.current?.();
+      cleanupGlobalListenersRef.current = null;
+    };
+
+    window.addEventListener("pointermove", onWindowPointerMove, { passive: true });
+    window.addEventListener("pointerup", onWindowPointerUp, { passive: true });
+    window.addEventListener("pointercancel", onWindowPointerUp, { passive: true });
+
+    cleanupGlobalListenersRef.current = () => {
+      window.removeEventListener("pointermove", onWindowPointerMove);
+      window.removeEventListener("pointerup", onWindowPointerUp);
+      window.removeEventListener("pointercancel", onWindowPointerUp);
+    };
   };
 
   const handlePointerMove = (event: PointerEvent<HTMLButtonElement>) => {
-    isDraggingRef.current = true;
-
     if (pointerIdRef.current === null) return;
+
+    const dx = event.clientX - startPointRef.current.x;
+    const dy = event.clientY - startPointRef.current.y;
+    const DRAG_THRESHOLD_PX = 4;
+    if (!isDraggingRef.current && dx * dx + dy * dy < DRAG_THRESHOLD_PX * DRAG_THRESHOLD_PX) {
+      return;
+    }
+
+    isDraggingRef.current = true;
     const rawX = event.clientX - offsetRef.current.x;
     const rawY = event.clientY - offsetRef.current.y;
     const { minX, maxX, minY, maxY } = boundsRef.current;
@@ -85,8 +150,14 @@ export const ChatFloatingButton = () => {
     }
 
     if (pointerIdRef.current === null) return;
-    btnRef.current?.releasePointerCapture(pointerIdRef.current);
+    try {
+      btnRef.current?.releasePointerCapture(pointerIdRef.current);
+    } catch {
+      // no-op
+    }
     pointerIdRef.current = null;
+    cleanupGlobalListenersRef.current?.();
+    cleanupGlobalListenersRef.current = null;
   };
 
   // 检查是否在游戏详情页面或 Sports 页面，如果是则隐藏客服按钮
@@ -105,7 +176,7 @@ export const ChatFloatingButton = () => {
         if (isDraggingRef.current) return;
         toggleWidget();
       }}
-      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-md sm:btn-md btn-square z-10000"
+      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-sm btn-square z-10000 border-3 border-secondary" 
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,
@@ -116,7 +187,6 @@ export const ChatFloatingButton = () => {
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
-      onPointerLeave={handlePointerUp}
     >
       <Iconify icon="custom:headphone-2" className="w-5 h-5" />
     </button>,

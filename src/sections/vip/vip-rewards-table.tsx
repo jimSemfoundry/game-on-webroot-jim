@@ -62,15 +62,6 @@ const REWARD_ROWS: VipRewardRow[] = [
     }
   },
   {
-    icon: "/icons/isometric/bronze-cup.svg",
-    label: "vip:conquests",
-    type: "boolean",
-    field: "conquests",
-    getValue: (_config: IVipLevelConfig) => {
-      return true; // Always active based on snippet
-    }
-  },
-  {
     icon: "/icons/isometric/gold-cup.svg",
     label: "vip:achievements",
     type: "boolean",
@@ -313,7 +304,7 @@ export function VipRewardsTable() {
                         onClick={carousel.arrows.onClickPrev}
                         disabled={carousel.arrows.disablePrev}
                       >
-                        <ChevronLeft className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                        <ChevronLeft className="h-3 w-3 sm:h-3.5 sm:w-3.5 rtl:rotate-y-180" />
                       </button>
 
                       <div className="flex flex-col items-center justify-center min-w-0 flex-1">
@@ -334,7 +325,7 @@ export function VipRewardsTable() {
                         onClick={carousel.arrows.onClickNext}
                         disabled={carousel.arrows.disableNext}
                       >
-                        <ChevronRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                        <ChevronRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 rtl:rotate-y-180" />
                       </button>
                     </div>
                   </div>

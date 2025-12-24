@@ -9,7 +9,7 @@ import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import Iconify from "@/components/iconify";
 import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
-import { deposit_bonus_static_info } from "@/sections/bonus/deposit-bonus/helper.ts.ts";
+import { deposit_bonus_static_info } from "@/sections/bonus/deposit-bonus/helper.ts";
 import Decimal from "decimal.js";
 
 interface BonusDepositHelpModalProps {
@@ -139,7 +139,6 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
 
               <div className="flex flex-col gap-2 mb-4">
                 {(bonusConfig?.data ?? []).map((item: Record<string, any>) => {
-                  if (item?.id === 5) return
                   const find = deposit_bonus_static_info(t).find((d) => d.id === item.id);
                   if (find)
                     return (<BonusCard
@@ -147,7 +146,6 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
                       icon={find?.icon}
                       title={find?.title}
                       subTitle={Decimal(item?.bonus_percent || 0).times(100).toFixed(0) + "%"}
-                      desc={t(find?.minAmount ?? "", { value: formatAmount(item?.min_deposit_amount || 0) })}
                     />);
                 })}
               </div>
@@ -176,7 +174,6 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
 
                 <div className="flex flex-col gap-1">
                   {(bonusConfig?.data ?? []).map((item: Record<string, any>) => {
-                    if (item?.id === 5) return
                     const find = deposit_bonus_static_info(t).find((d) => d.id === item.id);
                     if (find)
                       return (

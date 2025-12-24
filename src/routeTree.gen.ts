@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainRouteImport } from './routes/_main'
 import { Route as BlankRouteImport } from './routes/_blank'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LandingSplatRouteImport } from './routes/landing/$splat'
 import { Route as MainAuthenticatedRouteImport } from './routes/_main/_authenticated'
 import { Route as MainVipClubIndexRouteImport } from './routes/_main/vip-club/index'
 import { Route as MainTournamentIndexRouteImport } from './routes/_main/tournament/index'
@@ -42,6 +43,11 @@ const BlankRoute = BlankRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingSplatRoute = LandingSplatRouteImport.update({
+  id: '/landing/$splat',
+  path: '/landing/$splat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MainAuthenticatedRoute = MainAuthenticatedRouteImport.update({
@@ -139,6 +145,7 @@ const MainGamesPlayGameIdRoute = MainGamesPlayGameIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/landing/$splat': typeof LandingSplatRoute
   '/profile': typeof MainAuthenticatedProfileRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
   '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
@@ -159,6 +166,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/landing/$splat': typeof LandingSplatRoute
   '/profile': typeof MainAuthenticatedProfileRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
   '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/_blank': typeof BlankRouteWithChildren
   '/_main': typeof MainRouteWithChildren
   '/_main/_authenticated': typeof MainAuthenticatedRouteWithChildren
+  '/landing/$splat': typeof LandingSplatRoute
   '/_main/_authenticated/profile': typeof MainAuthenticatedProfileRoute
   '/_main/games/$gameId': typeof MainGamesGameIdRoute
   '/_main/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
@@ -205,6 +214,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/landing/$splat'
     | '/profile'
     | '/games/$gameId'
     | '/partnerships/$partnershipId'
@@ -225,6 +235,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/landing/$splat'
     | '/profile'
     | '/games/$gameId'
     | '/partnerships/$partnershipId'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/_blank'
     | '/_main'
     | '/_main/_authenticated'
+    | '/landing/$splat'
     | '/_main/_authenticated/profile'
     | '/_main/games/$gameId'
     | '/_main/partnerships/$partnershipId'
@@ -271,6 +283,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlankRoute: typeof BlankRouteWithChildren
   MainRoute: typeof MainRouteWithChildren
+  LandingSplatRoute: typeof LandingSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -294,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landing/$splat': {
+      id: '/landing/$splat'
+      path: '/landing/$splat'
+      fullPath: '/landing/$splat'
+      preLoaderRoute: typeof LandingSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_main/_authenticated': {
@@ -490,6 +510,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlankRoute: BlankRouteWithChildren,
   MainRoute: MainRouteWithChildren,
+  LandingSplatRoute: LandingSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

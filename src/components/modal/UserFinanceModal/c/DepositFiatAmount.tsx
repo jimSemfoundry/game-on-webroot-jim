@@ -17,11 +17,12 @@ import { useGetPromoByPage } from "@/query/promo";
 import { InnerProviderAmountRangeFormat } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 import { DepositRangeOptions } from "@/components/modal/UserFinanceModal/c/DepositRangeOptions.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 // 默认的数量输入快捷选项
 export const amounts = ["200", "500", "1000", "5000", "10000", "50000"];
 
-export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
+export const DepositFiatAmount = () => {
   const { currentPromo } = useGetPromoByPage();
 
   const { t } = useTranslation();
@@ -81,13 +82,22 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
   }, [depositFiat.currency?.currency, currentPromo, exchangeRates]);
 
   const rangeError = useMemo(() => {
-    const d_amount = Decimal(depositFiat.formItem?.[formKey] || 0);
+    const d_amount = Decimal(depositFiat.formItem?.amount || 0);
     return (d_amount.lt(depositFiat.method?.min) || d_amount.gt(depositFiat.method?.max));
   }, [depositFiat.formItem, depositFiat.method]);
 
   useEffect(() => {
     setDepositFiat({ range_error: rangeError });
   }, [rangeError]);
+
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置错误状态
+  useEffect(() => {
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function () {
+      setDepositFiat({ range_error: false });
+    });
+
+    return () => em?.remove();
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -99,8 +109,8 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
             <p>
               {depositFiat.method
                 ? (<InnerProviderAmountRangeFormat
-                  min={depositFiat.method?.min}
-                  max={depositFiat.method?.max}
+                  min={depositFiat.method?.min || 0}
+                  max={depositFiat.method?.max || 0}
                   currency={depositFiat.currency?.currency} />)
                 : (<>? {depositFiat.currency?.currency}</>)}
             </p>
@@ -117,19 +127,19 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
               <Plus size={10} strokeWidth={5} />
               {
                 currentPromo?.promo_type === 1 && (() => {
-                  if (parseFloat(depositFiat.formItem?.[formKey]) < minAmountValue) {
-                    return '0.00';
+                  if (parseFloat(depositFiat.formItem?.amount) < minAmountValue) {
+                    return "0.00";
                   }
                   if (
-                    currentPromo?.promo_code === 'special_offer_thursday' ||
-                    currentPromo?.promo_code === 'special_offer_sunday'
+                    currentPromo?.promo_code === "special_offer_thursday" ||
+                    currentPromo?.promo_code === "special_offer_sunday"
                   ) {
                     const rawRate = Number(currentPromo?.bonus_rate ?? 0);
                     const rate = Number.isFinite(rawRate) ? rawRate : 0;
 
-                    const parsedAmount = parseFloat(depositFiat.formItem?.[formKey]);
+                    const parsedAmount = parseFloat(depositFiat.formItem?.amount);
                     if (!Number.isFinite(parsedAmount)) {
-                      return '0.00';
+                      return "0.00";
                     }
 
                     const amountValue = Math.min(parsedAmount, maxAmountValue) * rate;
@@ -161,7 +171,7 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
                 !currentPromo && (
                   <FormatAmount
                     unit={getCurrencySymbol(depositFiat.currency?.currency)}
-                    amount={String(Number(depositFiat.formItem?.[formKey]) * bonusPercent)}
+                    amount={String(Number(depositFiat.formItem?.amount) * bonusPercent)}
                     decimals={2}
                     local
                   />
@@ -174,11 +184,11 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
           decimalScale={depositFiat.currency?.decimal}
           placeholder="0.00"
           prefix={getCurrencySymbol(depositFiat.currency?.currency)}
-          value={depositFiat.formItem?.[formKey]}
+          value={depositFiat.formItem?.amount}
           thousandSeparator
           onValueChange={(values) => {
             setDepositFiat({
-              formItem: { [formKey]: values.value }
+              formItem: { amount: values.value }
             });
           }}
         />
@@ -200,8 +210,8 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
         {/* 输入发生错误 - 数值输入范围错误 */}
         <ErrorMessageBox
           sample
-          show={depositFiat.formItem?.[formKey] !== "" && rangeError}
-          content={<>{t("finance:pleaseEnterAnAmountBetween")}
+          show={rangeError}
+          content={<>{t("finance:pleaseEnterAnAmountBetween")}{" "}
             <InnerProviderAmountRangeFormat
               min={depositFiat.method?.min}
               max={depositFiat.method?.max}
@@ -210,18 +220,18 @@ export const DepositFiatAmount = ({ formKey }: { formKey: string }) => {
         />
 
         {/* 数量输入快捷选项 - 无优惠充值活动的时候 */}
-        <InnerDisplayContent show={true}  >
+        <InnerDisplayContent show={true}>
           {
-            !currentPromo && (
+            ((currentPromo?.promo_code === "special_offer_thursday" || currentPromo?.promo_code === "special_offer_sunday") || !currentPromo) && (
               <DepositRangeOptions
-                amount={depositFiat.formItem?.[formKey] || 0}
-                onClick={(amount) => setDepositFiat({ formItem: { [formKey]: amount } })}
+                amount={depositFiat.formItem?.amount || 0}
+                onChange={(amount) => setDepositFiat({ formItem: { amount: amount } })}
                 rangeOptions={depositFiat.method?.recommended ?? amounts}
               />
             )
           }
           {
-            currentPromo && currentPromo?.promo_type === 1 && (
+            currentPromo && currentPromo?.promo_type === 1 && currentPromo?.promo_code !== "special_offer_thursday" && currentPromo?.promo_code !== "special_offer_sunday" && (
               <div className="mt-3">
                 <RangeSliderThr />
               </div>

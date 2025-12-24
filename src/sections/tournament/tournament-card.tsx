@@ -81,7 +81,7 @@ export const TournamentCard = ({ data, onClick, className }: TournamentCardProps
         <img
           src={mobileImage}
           alt={data.title}
-          className="absolute h-full right-0 top-0 object-cover z-10"
+          className="absolute h-full right-0 top-0 object-cover z-10 rtl:left-0 rtl:right-auto"
           loading="lazy"
           style={{
             objectFit: "cover",

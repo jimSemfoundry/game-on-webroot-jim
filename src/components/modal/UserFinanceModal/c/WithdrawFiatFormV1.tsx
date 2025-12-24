@@ -11,16 +11,22 @@ import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { ErrorString } from "@/store/type.ts";
 import { InnerFieldItem, InnerOptions } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
+import { debug_target, open_debug, useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
 import { fn_withdraw_common_status } from "@/components/modal/UserFinanceModal/c/WithdrawCryptoAmount.tsx";
+import { useRumSdkUserLog } from "@/utils/helper.ts";
 
 export const WithdrawFiatFormV1 = () => {
   const { t } = useTranslation();
 
   const [loading, { set }] = useToggle<boolean>(false);
 
+  const { rumCustomLog, rumException } = useRumSdkUserLog();
+
   // from data store, share common data
   const { withdrawFiat, setWithdrawFiat, syncAction, setSyncAction } = useBoundStore();
+
+  // 用户的可提款数量
+  const availableAndLocked = useAvailableBalance(withdrawFiat.currency?.currency);
 
   // 获取取款网关必填字段
   const {
@@ -35,7 +41,7 @@ export const WithdrawFiatFormV1 = () => {
     if (fields?.data) {
       const transform = fields.data;
 
-      if (open_debug) {
+      if (open_debug && debug_target === "WITHDRAW") {
         console.info("Withdraw Fiat V1 表单项");
         console.info(transform);
       }
@@ -83,7 +89,7 @@ export const WithdrawFiatFormV1 = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug) {
+    if (open_debug && debug_target === "WITHDRAW") {
       console.info("Withdraw Fiat Order Data V1");
       console.info({
         ...withdrawFiat.formItem,
@@ -91,24 +97,30 @@ export const WithdrawFiatFormV1 = () => {
         currency: withdrawFiat.currency?.currency,
         gateway_id: withdrawFiat.method?.gateway_id
       });
-      return;
+      // return;
     }
 
     set(true);
+
+    const params = {
+      ...withdrawFiat.formItem,
+      pin: md5(syncAction?.data),
+      currency: withdrawFiat.currency?.currency,
+      gateway_id: withdrawFiat.method?.gateway_id,
+      pay_bankcode: withdrawFiat.method?.pay_bankcode
+    }
+
     authService
-      .createWithdrawFiatOrder({
-        ...withdrawFiat.formItem,
-        pin: md5(syncAction?.data),
-        currency: withdrawFiat.currency?.currency,
-        gateway_id: withdrawFiat.method?.gateway_id,
-        pay_bankcode: withdrawFiat.method?.pay_bankcode
-      })
+      .createWithdrawFiatOrder(params)
       .then((res) => {
         fn_withdraw_common_status(() => setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL"), res.code, t);
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error(t("toast:failedToCreateWithdrawalOrder"));
         set(false);
+
+        // 异常推送
+        rumException(error, params);
       })
       .finally(() => {
         set(false);
@@ -116,14 +128,14 @@ export const WithdrawFiatFormV1 = () => {
   }, [t, syncAction, withdrawFiat]);
 
   // 表单字段是否有错误
-  const error1 = useMemo(() => {
+  const filed_value_null = useMemo(() => {
     if (withdrawFiat.formItem) return Object.values(withdrawFiat.formItem).some((value) => !value);
   }, [withdrawFiat.formItem]);
 
   // 表单字段是否有额外的错误
-  const error2 = useMemo(() => {
+  const filed_value_error = useMemo(() => {
     const keys = Object.keys(withdrawFiat);
-    return keys.filter((k) => k.includes("_error")).find((j) => withdrawFiat[j as ErrorString]);
+    return keys.filter((k) => k.includes("_error")).some((j) => withdrawFiat[j as ErrorString]);
   }, [withdrawFiat]);
 
   // 事件通知
@@ -132,12 +144,17 @@ export const WithdrawFiatFormV1 = () => {
   }, [syncAction]);
 
   useEffect(() => {
-    if (open_debug) {
-      console.info(error1);
-      console.info(error2);
+    if (open_debug && debug_target === "WITHDRAW") {
+      console.info(filed_value_null);
+      console.info(filed_value_error);
       console.info(withdrawFiat);
     }
-  }, [error1, error2, withdrawFiat]);
+  }, [filed_value_null, filed_value_error, withdrawFiat]);
+
+  // 数据推送 - 延迟
+  useEffect(() => {
+    rumCustomLog("withdrawFiatV1", { ...withdrawFiat, available: availableAndLocked.available });
+  }, [rumCustomLog, withdrawFiat]);
 
   return (
     <WithdrawFiatFormInit>
@@ -148,7 +165,7 @@ export const WithdrawFiatFormV1 = () => {
         {/* 提交 */}
         <ConfirmBox
           loading={loading}
-          disabled={error1 || !!error2 || withdrawFiat.method?.status === 0}
+          disabled={filed_value_null || filed_value_error || withdrawFiat.method?.status === 0}
           onClick={() => {
             setSyncAction("OPEN_WITHDRAW_FIAT_PIN_MODAL");
           }}

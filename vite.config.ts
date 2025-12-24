@@ -8,7 +8,7 @@ import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import path, { resolve } from 'node:path'
 import { writeFileSync, readFileSync, existsSync, copyFileSync } from 'node:fs'
 import versionPlugin from './vite-version-plugin';
-
+import mkcert from 'vite-plugin-mkcert';
 
 // const workboxMode = process.env.WORKBOX_MODE === 'production' ? 'production' : 'development';
 
@@ -309,8 +309,6 @@ export default defineConfig(({ mode }) => {
       short_name: env.VITE_WEBSITE_NICKNAME_LEFT || '1ST',
       description: `Enter the world of ${env.VITE_WEBSITE_NICKNAME || '1st.game'} - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill.`,
       theme_color: '#0f1419',
-      scope: '/',
-      start_url: '/main/casino',
       icons: [
         {
           src: `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
@@ -404,6 +402,7 @@ export default defineConfig(({ mode }) => {
         vm: resolve(__dirname, './src/polyfills/vm.js'),
       },
     }),
+    mkcert(),
     TanStackRouterVite({ autoCodeSplitting: true }),
     viteReact(),
     tailwindcss(),
@@ -439,10 +438,6 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       rollupOptions: {
-        input: {
-          main: resolve(__dirname, 'index.html'),
-          landingPage: resolve(__dirname, 'landingPage/index.html'),
-        },
         output: {
           entryFileNames: () => `assets/[name].${timeVersion}.js`,
           chunkFileNames: () => `assets/[name].${timeVersion}.js`,

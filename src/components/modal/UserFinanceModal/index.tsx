@@ -14,10 +14,10 @@ import { Swap as UserSwap } from "./Swap";
 import { Withdraw as UserWithdraw } from "./Withdraw";
 import { SpecialOffersPC } from "@/components/modal/UserFinanceModal/c/SpecialOffers.tsx";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { useBoundStore } from "@/store";
 import FinanceModalManager from "@/components/modal/UserFinanceModal/c/FinanceModalManager.tsx";
 import { TabItemsType, useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useLocation } from "@tanstack/react-router";
+import { emitter } from "@/store/emitter.ts";
 
 type UserFinanceModalProps = {
   isOpen: boolean;
@@ -83,12 +83,13 @@ export const UserFinanceModal = ({ isOpen, onClose, initialTab = "deposit" }: Us
       <Modal
         hideTitle={!isMobile}
         closeButtonClassName={!isMobile ? "hidden" : "w-7.5 h-7.5"}
+        zIndex={1001}
         isOpen={isOpen}
         onClose={onClose}
         title={<InnerModalHeader t={t} />}
         position={isMobile ? "modal-bottom" : "modal-middle"}
         className={`
-        !z-996
+        !z-[1001]
         p-5 bg-base-400 hide-scrollbar md:p-0 md:rounded-lg shadow-lg 
         md:min-w-[648px]
         min-h-[calc(85%)]
@@ -196,12 +197,9 @@ const InnerCustomModalHeader = ({ t, onClose }: { t: TFunction; onClose: () => v
 };
 
 const InnerResetFinanceStatus = ({ status, children }: PropsWithChildren<{ status: boolean }>) => {
-  // from data store, share common data
-  const { setSyncAction } = useBoundStore();
-
   // finance有部分数据的状态重置无法照顾到，需要通知
   useEffect(() => {
-    if (!status) setSyncAction("CLOSE_FINANCE_MODAL");
+    emitter.emit(!status ? "CLOSE_FINANCE_MODAL" : "OPEN_FINANCE_MODAL");
   }, [status]);
 
   return <>{children}</>;

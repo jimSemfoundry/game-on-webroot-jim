@@ -5,74 +5,99 @@ import { useBoundStore } from "@/store";
 import { useToggle } from "ahooks";
 import md5 from "md5";
 import { useCallback, useEffect, useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { ErrorString } from "@/store/type.ts";
-import { WithdrawMethodInfoAdd } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
-import { open_debug, useUserWithdrawFiatInfo } from "@/components/modal/UserFinanceModal/helper.ts";
-import { isEmpty } from "lodash-es";
-import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import {
+  InnerDisplayContent,
+  WithdrawMethodInfoAdd
+} from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import {
+  debug_target,
+  open_debug,
+  useAvailableBalance,
+  useUserWithdrawFiatInfo
+} from "@/components/modal/UserFinanceModal/helper.ts";
+import {
+  DisplayContent
+} from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import { fn_withdraw_common_status } from "@/components/modal/UserFinanceModal/c/WithdrawCryptoAmount.tsx";
+import { useRumSdkUserLog } from "@/utils/helper.ts";
+import { emitter } from "@/store/emitter.ts";
+import { isEmpty } from "lodash-es";
+import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 
 export const WithdrawFiatFormV2 = () => {
   const { t } = useTranslation();
 
   const [loading, { set }] = useToggle<boolean>(false);
 
+  const { rumCustomLog, rumException } = useRumSdkUserLog();
+
   // from data store, share common data
   const { withdrawFiat, withdrawFiatV2, syncAction, setSyncAction, setWithdrawFiatV2 } = useBoundStore();
 
+  // 用户的可提款数量
+  const availableAndLocked = useAvailableBalance(withdrawFiat.currency?.currency);
+
   // 法币提现用用户添加的快捷信息列表
-  const { data: wallets } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
+  const { data: wallets, isLoading: fiatInfoLoading } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
+
+  // 表单字段是否有错误
+  const filed_value_null = useMemo(() => {
+    return isEmpty(withdrawFiatV2.formItem) || Object.values(withdrawFiatV2.formItem).some((value) => !value);
+  }, [withdrawFiatV2.formItem]);
+
+  // 表单字段是否有额外的错误
+  const filed_value_error = useMemo(() => {
+    const keys = Object.keys(withdrawFiatV2);
+    return keys.filter((k) => k.includes("_error")).some((j) => withdrawFiatV2[j as ErrorString]);
+  }, [withdrawFiatV2]);
+
+  // 供应商不可用
+  const provider_error = useMemo(() => {
+    if (withdrawFiatV2.method) return withdrawFiatV2.method?.status === 0;
+    return true
+  }, [withdrawFiatV2.method]);
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug) {
-      console.info("Withdraw Fiat Order Data V2");
+    if (open_debug && debug_target === "WITHDRAW") {
+      console.info("CreateOrder Withdraw Fiat V2");
       console.info({
-        amount: withdrawFiatV2.formItem?.amount,
-        currency: withdrawFiat.currency?.currency,
-        userWithdrawInfoId: withdrawFiatV2.method?.id
-      });
-      return;
-    }
-
-    set(true);
-    authService
-      .createWithdrawFiatOrderV2({
         pin: md5(syncAction?.data),
         amount: withdrawFiatV2.formItem?.amount,
         currency: withdrawFiat.currency?.currency,
         userWithdrawInfoId: withdrawFiatV2.method?.id
-      })
+      });
+      // return;
+    }
+
+    set(true);
+
+    const params = {
+      pin: md5(syncAction?.data),
+      amount: withdrawFiatV2.formItem?.amount,
+      currency: withdrawFiat.currency?.currency,
+      userWithdrawInfoId: withdrawFiatV2.method?.id
+    };
+
+    authService
+      .createWithdrawFiatOrderV2(params)
       .then((res) => {
         fn_withdraw_common_status(() => setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL"), res.code, t);
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error(t("toast:failedToCreateWithdrawalOrder"));
         set(false);
+
+        rumException(error, params);
       })
       .finally(() => {
         set(false);
       });
   }, [t, syncAction, withdrawFiat, withdrawFiatV2]);
-
-  // 表单字段是否有错误
-  const error1 = useMemo(() => {
-    if (withdrawFiatV2.formItem) return Object.values(withdrawFiatV2.formItem).some((value) => !value);
-  }, [withdrawFiatV2.formItem]);
-
-  // 表单字段是否有额外的错误
-  const error2 = useMemo(() => {
-    const keys = Object.keys(withdrawFiatV2);
-    return keys.filter((k) => k.includes("_error")).find((j) => withdrawFiatV2[j as ErrorString]);
-  }, [withdrawFiatV2]);
-
-  // 供应商不可用
-  const error3 = useMemo(() => {
-    if (withdrawFiatV2.method) return !!withdrawFiatV2.formItem?.amount && withdrawFiatV2.method?.status === 0;
-  }, [withdrawFiatV2]);
 
   // 事件通知
   useEffect(() => {
@@ -81,21 +106,46 @@ export const WithdrawFiatFormV2 = () => {
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setWithdrawFiatV2({ formItem: null });
-  }, [syncAction]);
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+      setWithdrawFiatV2({ formItem: null });
+    });
+
+    return () => {
+      em?.remove();
+    };
+  }, []);
 
   useEffect(() => {
-    if (open_debug) {
-      console.info(error1);
-      console.info(error2);
-      console.info(error3);
-      console.info(withdrawFiatV2?.method?.params);
+    if (open_debug && debug_target === "WITHDRAW") {
+      console.info("************ V2 withdrawFiatV2 start ************");
+      console.info(withdrawFiatV2);
+      console.info("************ V2 withdrawFiatV2 ended ************");
     }
-  }, [error1, error2, error3, withdrawFiatV2]);
+  }, [withdrawFiatV2]);
+
+  // 数据推送 - 延迟
+  useEffect(() => {
+    rumCustomLog("withdrawFiatV2", { ...withdrawFiatV2, available: availableAndLocked.available });
+  }, [rumCustomLog, withdrawFiatV2]);
 
   return (
     <div className="flex flex-col gap-4">
       <WithdrawMethodInfoAdd />
+
+      {/* 通道维护不可用 */}
+      <InnerDisplayContent show={!fiatInfoLoading && !!withdrawFiatV2.method && Boolean(provider_error)}>
+        <div className="bg-base-300 rounded-lg p-2">
+          <ErrorMessageBox
+            sample
+            className={"!mt-0"}
+            content={
+              <Trans
+                i18nKey={"finance:channel_under_maintenance"}
+                values={{ channel: withdrawFiatV2.method?.display_name || withdrawFiatV2.method?.channel_class }}
+                components={[<span className="underline" />]} />}
+            show={Boolean(provider_error)} />
+        </div>
+      </InnerDisplayContent>
 
       <DisplayContent
         className="flex flex-col gap-4"
@@ -109,8 +159,8 @@ export const WithdrawFiatFormV2 = () => {
         className="flex flex-col gap-1"
         status={(wallets?.data ?? [])?.length > 0 && !!withdrawFiatV2.method}>
         <ConfirmBox
+          disabled={filed_value_null || filed_value_error || provider_error}
           loading={loading}
-          disabled={isEmpty(withdrawFiatV2.formItem) || error1 || !!error2 || error3}
           onClick={() => {
             setSyncAction("OPEN_WITHDRAW_FIAT_PIN_MODAL");
           }}

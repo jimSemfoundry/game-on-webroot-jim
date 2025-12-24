@@ -1,12 +1,11 @@
-import React, { PropsWithChildren, ReactNode, useEffect, useMemo, useState } from "react";
+import React, { PropsWithChildren, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/utils/cn.ts";
-import { emitter } from "@/store/emitter.ts";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { useBoundStore } from "@/store";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 export const DisplayContent = ({ children, status, className }: PropsWithChildren<{
   status: boolean,
@@ -52,32 +51,17 @@ export const InnerFieldItem = ({ name, field, onChange }: {
 }) => {
   const { t } = useTranslation();
 
-  const { syncAction } = useBoundStore();
-
   const [account, setAccount] = useState<{
-    extra: null | Record<string, any>;
     value: string
     error: boolean
     error_content: Record<string, any> | null
   }>({
-    extra: null,
     value: "",
     error: false,
     error_content: null
   });
 
   const regexp = useMemo(() => {
-    if (account.extra?.type === "withdraw_type") {
-      switch (account.extra?.value) {
-        case "PHONE":
-          return { error: "FIXED_LENGTH", regexp: /^\d{11}$/, len: 11 };
-        case "EMAIL":
-          return { error: "EMAIL", regexp: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ };
-        default:
-          return { error: "REQUIRED_FIELDS", regexp: /^\S+$/ };
-      }
-    }
-
     if (field?.label === "email") {
       return { error: "EMAIL", regexp: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ };
     }
@@ -155,11 +139,19 @@ export const InnerFieldItem = ({ name, field, onChange }: {
           len: field.min_length
         };
       }
+      // 有最短长度要求
+      if (field?.min_length > 0) {
+        return {
+          error: "STRING_MIN_LENGTH",
+          regexp: new RegExp(`^.{${field.min_length},}$`),
+          len: field.min_length
+        };
+      }
       // 特殊字符禁止要求
       if (field?.disabled_char) {
         return {
           error: "STRING_DISABLED_CHAR",
-          regexp: new RegExp(`^[^${field.disabled_char.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")}]*$`),
+          regexp: new RegExp(`^(?!\\s*$)[^${field.disabled_char.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")}]*$`),
           disabled_char: field?.disabled_char
         };
       }
@@ -167,31 +159,43 @@ export const InnerFieldItem = ({ name, field, onChange }: {
 
     // 非空即可
     return { error: "REQUIRED_FIELDS", regexp: /^(?=\s*\S)[\s\S]*$/ };
-  }, [field, account.extra]);
+  }, [field]);
 
+  // 初始化数据
   useEffect(() => {
-    onChange({ value: "", [`${name}_error`]: false });
+    const fun = () => {
+      const base = {
+        error: !regexp.regexp.test(account.value),
+        error_content: !regexp.regexp.test(account.value) ? regexp : null
+      };
+      onChange({ value: "", [`${name}_error`]: !regexp.regexp.test(account.value) });
+      setAccount((old) => ({ ...old, ...base }));
+    };
 
-    emitter.addListener("withdraw_type", function(v: string) {
-      setAccount((old) => ({
-        ...old,
-        extra: { type: "withdraw_type", value: v },
-        value: "",
-        error: false,
-        error_content: null
-      }));
+    const em = emitter.addListener("OPEN_FINANCE_MODAL", function() {
+      fun();
     });
-  }, []);
+
+    fun();
+
+    return () => {
+      em?.remove();
+    };
+  }, [name, regexp]);
 
   // 事件通知 & 重置表单状态
   useEffect(() => {
-    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setAccount({
-      extra: null,
-      value: "",
-      error: false,
-      error_content: null
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+      setAccount({
+        value: "",
+        error: false,
+        error_content: null
+      });
+      onChange({ value: "", [`${name}_error`]: false });
     });
-  }, [syncAction]);
+
+    return () => em?.remove();
+  }, [name, onChange]);
 
   return (
     <div key={name} onClick={(e) => e.stopPropagation()}>
@@ -278,6 +282,11 @@ export const InnerFieldItem = ({ name, field, onChange }: {
         sample
         show={account.error_content?.error === "STRING_LIMIT_LENGTH"}
         content={t("finance:enter_string_limit_length", { limit: account.error_content?.limit })}
+      />
+      <ErrorMessageBox
+        sample
+        show={account.error_content?.error === "STRING_MIN_LENGTH"}
+        content={t("finance:enter_string_min_length", `The length must be at least ${account.error_content?.len}.`, { limit: account.error_content?.len })}
       />
     </div>
   );
@@ -420,4 +429,45 @@ export const InnerLoading = () => {
       <span className="bg-base-200 md:bg-base-400 skeleton flex-1 rounded-lg h-6" />
     </>
   );
+};
+
+export const InnerRangeSlider = ({ max, step, disabled, value, onPointerUp }: {
+  max: number,
+  step: number;
+  value?: string | number,
+  disabled: boolean,
+  onPointerUp: (v: string) => void
+}) => {
+  const valueRef = useRef<string>("0");
+  const slidingRef = useRef(false);
+
+  const [innerValue, setInnerValue] = useState<string>("0");
+
+  useEffect(() => {
+    if (slidingRef.current) return; // 互斥条件，控制权转移
+    const next = String(value || "0");
+    valueRef.current = next;
+    setInnerValue(next);
+  }, [value]);
+
+  return <input
+    type="range"
+    min={0}
+    max={max}
+    step={step}
+    value={innerValue}
+    onPointerDown={() => {
+      slidingRef.current = true;
+    }}
+    onPointerUp={() => {
+      slidingRef.current = false;
+      onPointerUp(valueRef.current);
+    }}
+    onInput={(e) => {
+      const next = e.currentTarget.value;
+      setInnerValue(next);
+      valueRef.current = next;
+    }}
+    disabled={disabled}
+    className="range range-xs w-full mt-6" />;
 };

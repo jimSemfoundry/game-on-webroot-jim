@@ -134,7 +134,7 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                       <div className="flex items-center gap-x-3">
                         <SwatchBook size={20} className="w-5 h-5 shrink-0 opacity-50" />
                         <div className="flex flex-col items-start">
-                          <span className="text-xs text-base-content/50">主题切换</span>
+                          <span className="text-xs text-base-content/50">{t('theme:theme_switching','Theme Switching')}</span>
                           <span className="text-xs font-semibold">
                             {state.currentTheme}
                           </span>

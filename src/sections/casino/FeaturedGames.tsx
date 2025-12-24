@@ -83,6 +83,7 @@ export const FeaturedGames = ({ games, country_code }: FeaturedGamesProps) => {
                   game_name: game.display_game_name,
                   image: game.image
                 }}
+                enabledBanGameList
                 showHoverEffects={true}
                 className="object-fill origin-center"
                 containerClassName="rounded-field"

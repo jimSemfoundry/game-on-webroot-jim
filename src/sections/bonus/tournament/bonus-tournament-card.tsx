@@ -126,7 +126,7 @@ export function BonusTournamentCard() {
         <LazyImage
           src="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
           alt="free spins"
-          className="w-[130px] h-[130px] sm:w-[170px] sm:h-[170px] -rotate-12 absolute right-0 top-0"
+          className="w-[130px] h-[130px] sm:w-[170px] sm:h-[170px] -rotate-12 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
       </ImageColorCard>
     );

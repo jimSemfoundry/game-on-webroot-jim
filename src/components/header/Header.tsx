@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { FastEntry } from "@/components/header/c/FastEntry.tsx";
 import { InternalMessageEntry } from "@/components/header/message-v2/InternalMessageEntry.tsx";
 import { cn } from "@/utils/cn";
+import { isTelegramWebApp } from "@/utils/telegramWebApp";
 import Iconify from "../iconify";
 import Logo from "../Logo";
 // import { BonusHub } from "./BonusHub";
@@ -20,8 +21,10 @@ function AuthSection() {
   const { openSignInModal, openSignUpModal } = useAuthModals();
   const { t } = useTranslation();
 
+  const isTelegram = isTelegramWebApp();
+
   if (isLoading) {
-    return <div className="skeleton h-8 md:h-10 w-24 rounded-lg"></div>;
+    return <div className="skeleton h-8 md:h-10 w-40 bg-base-200/60 rounded-lg"></div>;
   }
 
   return (
@@ -35,12 +38,16 @@ function AuthSection() {
         </div>
       ) : (
         <>
-          <button className="btn btn-ghost md:btn-md btn-sm" onClick={openSignInModal}>
-            {t("login:signIn")}
-          </button>
-          <button className="btn btn-primary md:btn-md btn-sm" onClick={openSignUpModal}>
-            {t("login:signUp")}
-          </button>
+          {!isTelegram && (
+            <>
+              <button className="btn btn-ghost md:btn-md btn-sm" onClick={openSignInModal}>
+                {t("login:signIn")}
+              </button>
+              <button className="btn btn-primary md:btn-md btn-sm" onClick={openSignUpModal}>
+                {t("login:signUp")}
+              </button>
+            </>
+          )}
         </>
       )}
     </div>
@@ -94,7 +101,7 @@ export default function Header() {
           {location.pathname === "/casino" ? (
             <Iconify icon="custom:menu-2" className="w-5 h-5 pointer-events-none" />
           ) : (
-            <ChevronLeft className="w-5 h-5 pointer-events-none" />
+            <ChevronLeft className="w-5 h-5 pointer-events-none rtl:rotate-y-180" />
           )}
         </button>
         <div className="ms-0 md:me-12">

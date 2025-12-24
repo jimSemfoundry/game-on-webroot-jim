@@ -16,6 +16,7 @@ import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { WelcomeSignUp } from "@/components/modal/UserFinanceModal/c/WelcomeSignUpModal.tsx";
 import { getBroadcastChannel } from "@/utils/helper.ts";
+import { isTelegramWebApp } from "@/utils/telegramWebApp";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +33,7 @@ const RouteComponent = memo(function RouteComponent() {
 
   // 处理登录/注册对话框打开
   useEffect(() => {
+    if (isTelegramWebApp()) return;
     if (!isAuthenticated) {
       // 转换为字符串进行比较，以兼容 boolean 和 string 类型
       const shouldOpenLogin = String(search.openLogin) === "true";

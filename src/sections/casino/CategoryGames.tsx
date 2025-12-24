@@ -127,6 +127,7 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
                   game_name: game.display_game_name,
                   image: game.image
                 }}
+                enabledBanGameList
                 showHoverEffects={true}
                 className="object-fill origin-center"
                 containerClassName="rounded-field"

@@ -28,7 +28,7 @@ export const Swap = ({ open }: { open: boolean }) => {
 
   // 可用余额
   const {
-    available,
+    available= '0',
     userBalanceLoading,
     userBalanceExtensionLoading,
     userBalanceRefetch,
@@ -96,21 +96,21 @@ export const Swap = ({ open }: { open: boolean }) => {
 
       {/* 交易按钮状态 - 可交易 */}
       <MessageBox
-        show={new Decimal(Number(swapFrom.inAmount)).gt(0) && new Decimal(available).gte(Number(swapFrom.inAmount))}>
+        show={new Decimal(swapFrom.inAmount || 0).gt(0) && new Decimal(available).gte(Number(swapFrom.inAmount || 0))}>
         <ConfirmBox onClick={createOrder} loading={loading}>
           <p className="font-bold">{t("finance:swap")}</p>
         </ConfirmBox>
       </MessageBox>
 
       {/* 交易按钮状态 - 余额不足 */}
-      <MessageBox show={new Decimal(available).lt(Number(swapFrom.inAmount))}>
+      <MessageBox show={new Decimal(available).lt(swapFrom.inAmount || 0)}>
         <ConfirmBox disabled>
           <span className="text-base-content/50">{t("finance:insufficient_balance")}</span>
         </ConfirmBox>
       </MessageBox>
 
       {/* 交易按钮状态 - 未输入 */}
-      <MessageBox show={new Decimal(Number(swapFrom.inAmount)).lte(0)}>
+      <MessageBox show={new Decimal(swapFrom.inAmount || 0).lte(0)}>
         <ConfirmBox disabled>
           <span className="text-base-content/50">{t("finance:enter_amount")}</span>
         </ConfirmBox>

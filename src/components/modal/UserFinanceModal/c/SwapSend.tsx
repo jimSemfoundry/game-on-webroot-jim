@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { FormatAmount } from "sunmoon-working-components";
 import { useNavigate } from "@tanstack/react-router";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 export const SwapSend = ({ open, loading, available }: { open: boolean; loading: boolean; available: string }) => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
   // finance 弹窗控制开关
   const { closeUserFinanceModal } = useFinanceModal();
 
-  const { swapFrom, setSwapFrom, syncAction } = useBoundStore();
+  const { swapFrom, setSwapFrom } = useBoundStore();
 
   const { isLoading: l2, convertCurrency, exchangeRates } = useCurrencyData();
 
@@ -63,8 +64,12 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    if (syncAction.type && ["CLOSE_FINANCE_MODAL"].includes(syncAction.type)) setSwapFrom({ inAmount: "" });
-  }, [syncAction]);
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+      setSwapFrom({ inAmount: "" });
+    });
+
+    return () => em?.remove()
+  }, []);
 
   return (
     <div className="bg-base-300 p-4 flex items-center justify-between rounded-xl gap-2">
@@ -121,9 +126,9 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
             className="bg-base-400 !rounded-full"
             content={
               <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
-                void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) })
+                void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
 
-                closeUserFinanceModal()
+                closeUserFinanceModal();
               }}>
                 {t("finance:available")}: <FormatAmount amount={available} local
                                                         decimals={swapFrom.currency?.decimal} />{" "}

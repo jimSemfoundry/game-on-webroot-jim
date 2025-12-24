@@ -1,3 +1,6 @@
+import { useCallback, useEffect, useRef } from "react";
+import { debounce } from "lodash-es";
+
 export function rum_sdk_user_log(data: Record<string, any>) {
   if (window.RumSDK?.default) {
     const ArmsRum = window.RumSDK.default;
@@ -59,3 +62,50 @@ export function getBroadcastChannel(): BroadcastChannel | null {
   if (typeof BroadcastChannel === "undefined") return null;
   return new BroadcastChannel("pwa-update");
 }
+
+export const useRumSdkUserLog = () => {
+  const debouncedRef = useRef<ReturnType<typeof debounce> | null>(null);
+
+  const rumCustomLog = useCallback((name: string, payload: any) => {
+    if (!debouncedRef.current) {
+
+      debouncedRef.current = debounce((name: string, payload: any) => {
+        if (window.RumSDK?.default) {
+          const ArmsRum = window.RumSDK.default;
+
+          ArmsRum.sendCustom({
+            name,
+            data: payload,
+            page: location.pathname
+          });
+        }
+      }, 5_000);
+    }
+
+    debouncedRef.current(name, payload);
+  }, []);
+
+  const rumException = useCallback((error: unknown, extra?: Record<string, any>) => {
+    if (window.RumSDK?.default) {
+      const ArmsRum = window.RumSDK.default;
+      const err = error instanceof Error ? error : new Error(String(error));
+      ArmsRum.sendException({
+        message: err.message,
+        stack: err.stack,
+        page: location.pathname,
+        extra
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      debouncedRef.current?.cancel();
+    };
+  }, []);
+
+  return {
+    rumCustomLog,
+    rumException
+  };
+};

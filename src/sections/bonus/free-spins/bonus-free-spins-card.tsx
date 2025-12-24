@@ -184,7 +184,7 @@ export function BonusFreeSpinsCard({
           <span className="text-primary block">{t("bonus:bonus")}</span>
         </p>
         <LazyImage src="/images/illustrations/08fb6136f804423bc7c787dffd61015d6a46771b.png" alt="free spins"
-                   className="w-[150px] h-[150px] sm:w-[185px] sm:h-[185px] -rotate-4 absolute right-0 top-0" />
+                   className="w-[150px] h-[150px] sm:w-[185px] sm:h-[185px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto" />
       </ImageColorCard>
     );
   }

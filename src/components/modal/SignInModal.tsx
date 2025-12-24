@@ -175,7 +175,7 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
 
     try {
       if (resetCaptchaRef.current) {
-        resetCaptchaRef.current.execute();
+        resetCaptchaRef.current?.execute();
       }
     } catch (error) {
       console.error("Error executing captcha:", error);

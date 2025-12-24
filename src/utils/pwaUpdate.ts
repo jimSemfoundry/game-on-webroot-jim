@@ -6,14 +6,22 @@ import { getBroadcastChannel } from "@/utils/helper.ts";
 
 let updateCheckInterval: NodeJS.Timeout | null = null;
 let isRefreshing = false;
+let isInitialized = false;
+let visibilityTimeout: NodeJS.Timeout | null = null;
+
+let onWindowLoad: (() => void) | null = null;
+let onControllerChange: ((this: ServiceWorkerContainer, ev: Event) => any) | null = null;
+let onVisibilityChange: ((this: Document, ev: Event) => any) | null = null;
 
 if (typeof window !== "undefined") {
   (window as any).__WB_DISABLE_DEV_LOGS = true;
 }
 
 export function initPWAUpdate() {
+  if (isInitialized) return;
+  isInitialized = true;
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
+    onWindowLoad = () => {
       navigator.serviceWorker.ready.then((registration) => {
         // 延迟首次检查更新，避免页面加载时立即触发
         setTimeout(() => {
@@ -46,7 +54,7 @@ export function initPWAUpdate() {
 
       // 监听 Service Worker 控制权变更
       let refreshing = false;
-      navigator.serviceWorker.addEventListener("controllerchange", () => {
+      onControllerChange = () => {
         if (refreshing || isRefreshing) return;
 
         // FIXME: 利用 sessionStorage【同标签页内保持】 防止刷新瞬间再次触发
@@ -57,9 +65,15 @@ export function initPWAUpdate() {
         // FIXME: PWA: 拦截到短时间内的重复刷新
         if (lastReload && date_now - parseInt(lastReload) < 10_000) return;
 
+        // 同一次会话（同一 tab）里，只允许提醒一次
+        const pwa_prompt_lock = "pwa_update_prompt_lock";
+        const lastPrompt = sessionStorage.getItem(pwa_prompt_lock);
+        if (lastPrompt) return;
+
         refreshing = true;
         isRefreshing = true;
         sessionStorage.setItem(pwa_reload_lock, date_now.toString());
+        sessionStorage.setItem(pwa_prompt_lock, date_now.toString());
 
         // FIXME:
         //  PWA 应用更新消息，需要用户确认是否更新
@@ -68,11 +82,11 @@ export function initPWAUpdate() {
           const channel = getBroadcastChannel();
           if (channel) channel.postMessage("pwa-update");
         }, 100);
-      });
+      };
+      navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
 
       // 页面可见性变更时检查更新（添加防抖）
-      let visibilityTimeout: NodeJS.Timeout | null = null;
-      document.addEventListener("visibilitychange", () => {
+      onVisibilityChange = () => {
         if (!document.hidden && !isRefreshing) {
           if (visibilityTimeout) {
             clearTimeout(visibilityTimeout);
@@ -86,8 +100,16 @@ export function initPWAUpdate() {
             });
           }, 3000);
         }
-      });
-    });
+      };
+      document.addEventListener("visibilitychange", onVisibilityChange);
+    };
+
+    // 如果 init 在 load 之后调用，直接执行一次即可，避免依赖 load 事件
+    if (document.readyState === "complete") {
+      onWindowLoad();
+    } else {
+      window.addEventListener("load", onWindowLoad);
+    }
   }
 }
 
@@ -96,33 +118,55 @@ export function cleanupPWAUpdate() {
     clearInterval(updateCheckInterval);
     updateCheckInterval = null;
   }
+
+  if (visibilityTimeout) {
+    clearTimeout(visibilityTimeout);
+    visibilityTimeout = null;
+  }
+
+  if (onWindowLoad) {
+    window.removeEventListener("load", onWindowLoad);
+    onWindowLoad = null;
+  }
+
+  if (onControllerChange) {
+    navigator.serviceWorker?.removeEventListener("controllerchange", onControllerChange);
+    onControllerChange = null;
+  }
+
+  if (onVisibilityChange) {
+    document.removeEventListener("visibilitychange", onVisibilityChange);
+    onVisibilityChange = null;
+  }
+
+  isInitialized = false;
 }
 
 // 强制检查更新
-export async function checkForUpdates(): Promise<boolean> {
-  if ("serviceWorker" in navigator) {
-    try {
-      const registration = await navigator.serviceWorker.getRegistration();
-      if (registration) {
-        await registration.update();
-        return true;
-      }
-    } catch (error) {
-      console.error("PWA: Error checking for updates:", error);
-    }
-  }
-  return false;
-}
+// export async function checkForUpdates(): Promise<boolean> {
+//   if ("serviceWorker" in navigator) {
+//     try {
+//       const registration = await navigator.serviceWorker.getRegistration();
+//       if (registration) {
+//         await registration.update();
+//         return true;
+//       }
+//     } catch (error) {
+//       console.error("PWA: Error checking for updates:", error);
+//     }
+//   }
+//   return false;
+// }
 
 // 清除所有缓存（调试用）
-export async function clearAllCaches(): Promise<boolean> {
-  try {
-    const cacheNames = await caches.keys();
-    await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
-    console.log("PWA: All caches cleared");
-    return true;
-  } catch (error) {
-    console.error("PWA: Error clearing caches:", error);
-    return false;
-  }
-}
+// export async function clearAllCaches(): Promise<boolean> {
+//   try {
+//     const cacheNames = await caches.keys();
+//     await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
+//     console.log("PWA: All caches cleared");
+//     return true;
+//   } catch (error) {
+//     console.error("PWA: Error clearing caches:", error);
+//     return false;
+//   }
+// }

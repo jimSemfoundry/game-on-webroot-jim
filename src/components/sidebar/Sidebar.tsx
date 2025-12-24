@@ -11,6 +11,7 @@ import { NAVIGATION_ITEMS, SPORTS_NAVIGATION_ITEMS } from "./config";
 import { SidebarFooter } from "./SidebarFooter";
 import { SidebarHeader } from "./SidebarHeader";
 import { SidebarItem } from "./SidebarItem";
+import { toUrlSearchParams } from "@/utils/urlSearchParams";
 
 function DesktopSidebar() {
   const { mode, toggleMode, activeTab } = useSidebar();
@@ -78,7 +79,7 @@ function DesktopSidebar() {
                         if (location.pathname !== itemPathname) return false;
 
                         const itemParams = new URLSearchParams(itemSearch);
-                        const currentParams = new URLSearchParams(location.search);
+                        const currentParams = toUrlSearchParams(location.search);
 
                         for (const [key, value] of itemParams.entries()) {
                           if (!currentParams.has(key)) {
@@ -156,7 +157,7 @@ function MobileDrawer() {
                             if (location.pathname !== itemPathname) return false;
 
                             const itemParams = new URLSearchParams(itemSearch);
-                            const currentParams = new URLSearchParams(location.search);
+                            const currentParams = toUrlSearchParams(location.search);
 
                             for (const [key, value] of itemParams.entries()) {
                               if (!currentParams.has(key)) {

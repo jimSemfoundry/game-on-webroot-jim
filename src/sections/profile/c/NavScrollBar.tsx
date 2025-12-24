@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useRef, useState, useEffect, ReactNode, WheelEvent } from "react";
-import Measure, { Rect } from "react-measure";
+import Measure from "react-measure";
 import Iconify from "@/components/iconify";
 import { kebabCase } from "lodash-es";
 import { emitter } from "@/store/emitter.ts";
@@ -91,7 +91,7 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
   /**
    * 选中则滚动
    */
-  const onScroll = (offset?: Rect) => {
+  const onScroll = (offset: { width: number, left: number }) => {
     const container = ref.current;
 
     if (container && offset) {
@@ -111,15 +111,40 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
    * 滚动到目标
    */
   useEffect(() => {
-    const timer = setInterval(() => {
-      const target = document.getElementById("target");
-      if (target) {
-        onScroll({ width: target.getBoundingClientRect().width, left: target.offsetLeft } as any);
-        clearInterval(timer);
-      }
-    }, 200);
+    const container = ref.current;
 
-    return () => clearInterval(timer);
+    if (!container) return;
+
+    let raf_id = 0;
+    let closed = false;
+
+    const callback = () => {
+      if (closed) return;
+
+      const target = container.querySelector<HTMLElement>("#target") ?? null;
+
+      if (!target) return;
+
+      onScroll({ width: target.getBoundingClientRect().width, left: target.offsetLeft });
+
+      observer.disconnect();
+
+      closed = true;
+    };
+
+    const observer = new MutationObserver(() => {
+      callback();
+    });
+
+    observer.observe(container, { childList: true, subtree: true, attributes: true });
+
+    raf_id = requestAnimationFrame(callback);
+
+    return () => {
+      closed = true;
+      observer.disconnect();
+      if (raf_id) cancelAnimationFrame(raf_id);
+    };
   }, [_navIndex]);
 
   const changeNavTab = (index: TBar) => {

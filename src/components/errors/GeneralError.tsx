@@ -6,7 +6,6 @@ import { cn } from "@/utils/themeMerger";
 import Header from "../header/Header";
 import { Sidebar } from "../sidebar/Sidebar";
 import { ChatwootWrapper } from "../ui/ChatwootFloatingButton";
-import { LimitedOffer } from "@/sections/limited-offer/LimitedOffer"; 
 import { useTranslation } from "react-i18next";
 
 interface GeneralErrorProps {
@@ -82,7 +81,6 @@ export function GeneralError({ error }: GeneralErrorProps) {
                 <ChatwootWrapper />
                 {/* Free Spin Global Container */}
                 <FreeSpinContainer />
-                <LimitedOffer /> 
             </div>
         </MotionLazy>
     );

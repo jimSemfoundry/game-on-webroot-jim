@@ -64,7 +64,23 @@ function useSegmentedHighlight(
 
   useLayoutEffect(() => {
     measure();
+
+    const raf1 = requestAnimationFrame(() => {
+      measure();
+      requestAnimationFrame(measure);
+    });
+
+    return () => cancelAnimationFrame(raf1);
   }, [measure, options, orientation]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || typeof ResizeObserver === "undefined") return;
+
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(container);
+    return () => ro.disconnect();
+  }, [measure]);
 
   useEffect(() => {
     const handleResize = () => measure();

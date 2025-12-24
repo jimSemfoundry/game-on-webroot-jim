@@ -5,7 +5,6 @@ import { useBoundStore } from "@/store";
 import {
   useDepositCryptoCurrencySelectedFirstTime,
   useDepositFiatCurrencySelectedFirstTime,
-  useDepositTokenTypesSelectedFirstTime
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useGetPromoByPage } from "@/query/promo.tsx";
@@ -14,7 +13,6 @@ import { useEffect } from "react";
 
 export const Deposit = () => {
   // initial default selected option
-  useDepositTokenTypesSelectedFirstTime();
   useDepositFiatCurrencySelectedFirstTime();
   useDepositCryptoCurrencySelectedFirstTime()
 

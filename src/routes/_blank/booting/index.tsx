@@ -118,7 +118,7 @@ export function RouteComponent() {
   }, [search, i18n.language, urlParams]);
 
   const facebookAuth = useCallback(async () => {
-    const parsedParams = parseURLParamsToJson(search);
+    const parsedParams = urlParams;
 
     // link携带的必要参数 state（经过 atob 处理）
     if (!parsedParams?.state) return;

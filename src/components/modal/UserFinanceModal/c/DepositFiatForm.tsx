@@ -9,20 +9,21 @@ import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
 import { useToggle } from "ahooks";
 import React, { useCallback, useEffect, useMemo } from "react";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { ErrorString } from "@/store/type.ts";
-import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import Decimal from "decimal.js";
 import { InnerFieldItem, InnerOptions } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
-import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import { debug_target, open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useRumSdkUserLog } from "@/utils/helper.ts";
+import { isEmpty } from "lodash-es";
 
 export const DepositFiatForm = () => {
 
   const { t } = useTranslation();
 
   const [loading, { set }] = useToggle<boolean>(false);
+
+  const { rumCustomLog, rumException } = useRumSdkUserLog();
 
   // from data store, share common data
   const { depositFiat, setDepositFiat, syncAction, setSyncAction } = useBoundStore();
@@ -37,6 +38,8 @@ export const DepositFiatForm = () => {
     const transform = fields.data;
     for (const key in transform) {
       const field = transform[key];
+
+      if (!field.required) continue;
 
       if (field.bind || field.hide) {
         const value = handleBindOrHideFormItemDefaultValue(field, depositFiat.method);
@@ -53,7 +56,7 @@ export const DepositFiatForm = () => {
     if (fields?.data) {
       const transform = fields.data;
 
-      if (open_debug) {
+      if (open_debug && debug_target === "DEPOSIT") {
         console.info("Deposit Fiat 表单项");
         console.info(transform);
       }
@@ -64,7 +67,7 @@ export const DepositFiatForm = () => {
         if (field.hide || !field.required) continue;
 
         if (key === "amount") {
-          amountNode = <DepositFiatAmount key="amount" formKey="amount" />;
+          amountNode = <DepositFiatAmount key="amount" />;
           continue;
         }
 
@@ -102,25 +105,28 @@ export const DepositFiatForm = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug) {
-      console.info("Deposit Fiat Order Data");
+    if (open_debug && debug_target === "DEPOSIT") {
+      console.info("Create Deposit Fiat Order Data");
       console.info({
         ...depositFiat.formItem,
         gateway_id: depositFiat.method?.gateway_id,
         return_url: location.origin,
         pay_bankcode: depositFiat.method?.pay_bankcode
       });
-      return;
+      // return;
     }
 
     set(true);
+
+    const params = {
+      ...depositFiat.formItem,
+      gateway_id: depositFiat.method?.gateway_id,
+      return_url: location.origin,
+      pay_bankcode: depositFiat.method?.pay_bankcode
+    };
+
     authService
-      .createFiatDepositOrder({
-        ...depositFiat.formItem,
-        gateway_id: depositFiat.method?.gateway_id,
-        return_url: location.origin,
-        pay_bankcode: depositFiat.method?.pay_bankcode
-      })
+      .createFiatDepositOrder(params)
       .then(({ code, data }) => {
         if (code === 0) {
           if (data.payment_url) {
@@ -132,9 +138,12 @@ export const DepositFiatForm = () => {
           toast.error(t("toast:failedToCreateDepositOrder"));
         }
       })
-      .catch(() => {
+      .catch((error) => {
         toast.error(t("toast:failedToCreateDepositOrder"));
         set(false);
+
+        // 异常推送
+        rumException(error, params);
       })
       .finally(() => {
         set(false);
@@ -142,71 +151,50 @@ export const DepositFiatForm = () => {
   }, [t, depositFiat]);
 
   // 表单字段是否有错误
-  const error1 = useMemo(() => {
-    if (depositFiat.formItem) return Object.values(depositFiat.formItem).some((value) => !value);
+  const filed_value_null = useMemo(() => {
+    return isEmpty(depositFiat.formItem) || Object.values(depositFiat.formItem).some((value) => !value);
   }, [depositFiat.formItem]);
 
   // 表单字段是否有额外的错误
-  const error2 = useMemo(() => {
+  const filed_value_error = useMemo(() => {
     const keys = Object.keys(depositFiat);
-    return keys.filter((k) => k.includes("_error")).find((j) => depositFiat[j as ErrorString]);
+    return keys.filter((k) => k.includes("_error")).some((j) => depositFiat[j as ErrorString]);
   }, [depositFiat]);
 
-  // 供应商不可用错误1
-  const error3 = useMemo(() => {
-    if (depositFiat.method) return Decimal(depositFiat.formItem?.amount || 0).gt(0) && depositFiat.method?.status === 0;
-  }, [depositFiat.formItem, depositFiat.method]);
-
-  // 供应商不可用错误2
-  const error4 = useMemo(() => {
-    if (depositFiat.method) return Decimal(depositFiat.formItem?.amount || 0).gt(0) && !depositFiat.method?.active;
-  }, [depositFiat.formItem, depositFiat.method]);
+  // 供应商不可用错误
+  const provider_error = useMemo(() => {
+    if (depositFiat.method) return depositFiat.method?.status === 0;
+  }, [depositFiat.method]);
 
   // 事件通知
   useEffect(() => {
     if (syncAction.type === "SYNC_DEPOSIT_FIAT_CREATE") void createOrder();
   }, [syncAction]);
 
+  // debug console
   useEffect(() => {
-    if (open_debug) {
-      console.info(error1);
-      console.info(error2);
-      console.info(error3);
-      console.info(error4);
+    if (open_debug && debug_target === "DEPOSIT") {
+      console.info("************ depositFiat start ************");
       console.info(depositFiat);
+      console.info("************ depositFiat ended ************");
     }
-  }, [error1, error2, error3, error4, depositFiat]);
+  }, [depositFiat]);
+
+  // 数据推送 - 延迟
+  useEffect(() => {
+    rumCustomLog("depositFiat", depositFiat);
+  }, [rumCustomLog, depositFiat]);
 
   return (
     <DepositFiatFormInit>
       {/* 表单 */}
       {formItem}
 
-      <InnerDisplayContent show={Boolean(error3) || Boolean(error4)}>
-        <div className="bg-base-300 rounded-lg p-2">
-          <ErrorMessageBox
-            sample
-            content={<Trans
-              i18nKey={"finance:channel_under_maintenance"}
-              values={{ channel: depositFiat.method?.display_name }}
-              components={[<span className="underline font-bold" />]} />}
-            show={Boolean(error3) && !Boolean(error4)} />
-
-          <ErrorMessageBox
-            sample
-            content={<Trans
-              i18nKey={"finance:channel_not_activated"}
-              values={{ channel: depositFiat.method?.display_name }}
-              components={[<span className="underline font-bold" />]} />}
-            show={Boolean(error4)} />
-        </div>
-      </InnerDisplayContent>
-
       <div>
         {/* 提交 Fiat 存款 */}
         <ConfirmBox
           loading={loading}
-          disabled={error1 || !!error2 || error3 || error4}
+          disabled={filed_value_null || filed_value_error || provider_error}
           onClick={() => {
             setSyncAction("OPEN_DEPOSIT_FIAT_VIEW_MODAL");
           }}

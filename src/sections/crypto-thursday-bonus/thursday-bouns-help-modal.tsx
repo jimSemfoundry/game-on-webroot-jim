@@ -65,6 +65,49 @@ const BackgroundSVG = () => (
   </svg>
 );
 
+const getUpToBonusAmountText = ({
+  currentPromo,
+  depositType,
+  depositFiat,
+  depositCrypto,
+  exchangeRates,
+  convertCurrency,
+  formatCurrency,
+}: any) => {
+  const rawRate = Number(currentPromo?.bonus_rate ?? 0);
+  const rate = Number.isFinite(rawRate) ? rawRate : 0;
+
+  const value =
+    convertCurrency({
+      amount: currentPromo?.max_deposit,
+      fromCurrency: "USDT",
+      toCurrency:
+        depositType === "fiat"
+          ? depositFiat?.currency?.currency
+          : depositCrypto?.currency?.currency,
+      exchangeRates,
+    }) || 0;
+
+  const valueNum = depositType === "fiat" ? Math.ceil(value) : value;
+  const amountValue = valueNum * rate;
+
+  // if (Number.isInteger(amountValue)) {
+  //   return amountValue.toString();
+  // }
+
+  // const amountValueNum = Math.trunc(amountValue * 100) / 100;
+
+  // return depositType === "fiat"
+  //   ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${amountValueNum}`
+  //   :
+  return formatCurrency({
+    amount: amountValue,
+    currency: depositType === "fiat" ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+    showSymbol: true,
+    showCode: false,
+  }).formatted;
+};
+
 interface DoubleOrNothingHelpModalProps {
   currentPromo: ICurrentPromoList;
   open: boolean;
@@ -79,10 +122,10 @@ export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOr
   const { selectedCurrency, formatWithoutConversion } = useDisplayCurrencyFormatter();
 
   // Memoize currency calculations
-  const currentCurrency = useMemo(
-    () => depositType === 'fiat' ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
-    [depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency]
-  );
+  // const currentCurrency = useMemo(
+  //   () => depositType === 'fiat' ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+  //   [depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency]
+  // );
 
   const formattedMaxAmount = useMemo(() => {
     const value = convertCurrency({
@@ -106,40 +149,40 @@ export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOr
       ).formatted;
   }, [depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency, convertCurrency, exchangeRates, getCurrencySymbol, formatWithoutConversion]);
 
-  const formattedAmountValue = useMemo(() => {
-    const rawRate = Number(currentPromo?.bonus_rate ?? 0);
-    const rate = Number.isFinite(rawRate) ? rawRate : 0;
+  // const formattedAmountValue = useMemo(() => {
+  //   const rawRate = Number(currentPromo?.bonus_rate ?? 0);
+  //   const rate = Number.isFinite(rawRate) ? rawRate : 0;
 
-    const convertAmount = convertCurrency({
-      amount: 10,
-      fromCurrency: 'USDT',
-      toCurrency: currentCurrency,
-      exchangeRates: exchangeRates,
-    }) || 0;
+  //   const convertAmount = convertCurrency({
+  //     amount: 10,
+  //     fromCurrency: 'USDT',
+  //     toCurrency: currentCurrency,
+  //     exchangeRates: exchangeRates,
+  //   }) || 0;
 
-    const fiatvalue = convertCurrency({
-      amount: 10,
-      fromCurrency: 'USDT',
-      toCurrency: depositFiat?.currency?.currency,
-      exchangeRates: exchangeRates,
-    }) || 0;
+  //   const fiatvalue = convertCurrency({
+  //     amount: 10,
+  //     fromCurrency: 'USDT',
+  //     toCurrency: depositFiat?.currency?.currency,
+  //     exchangeRates: exchangeRates,
+  //   }) || 0;
 
-    const valueNum = depositType === 'fiat' ? Math.ceil(fiatvalue || 0) : convertAmount || 0;
+  //   const valueNum = depositType === 'fiat' ? Math.ceil(fiatvalue || 0) : convertAmount || 0;
 
-    if (!Number.isFinite(valueNum)) {
-      return '0.00';
-    }
+  //   if (!Number.isFinite(valueNum)) {
+  //     return '0.00';
+  //   }
 
-    const amountValue = valueNum * rate;
+  //   const amountValue = valueNum * rate;
 
-    return formatCurrency({
-      currency: currentCurrency,
-      amount: amountValue,
-      showCode: false,
-      showSymbol: true,
-    }).formatted;
+  //   return formatCurrency({
+  //     currency: currentCurrency,
+  //     amount: amountValue,
+  //     showCode: false,
+  //     showSymbol: true,
+  //   }).formatted;
 
-  }, [currentCurrency, convertCurrency, exchangeRates, formatCurrency]);
+  // }, [currentCurrency, convertCurrency, exchangeRates, formatCurrency]);
 
   return (
     <Modal
@@ -162,13 +205,33 @@ export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOr
                 <BackgroundSVG />
               </div>
               <div className="relative px-8 h-full">
-                <div className="flex flex-col justify-center items-start relative z-10 gap-3 h-full">
+                <div className="flex flex-col justify-center items-start relative z-10 gap-1 h-full">
                   <p className="text-lg text-base text-white font-bold whitespace-pre-line leading-5 text-left">
                     {t('bonus:thursday_bonus')}
                   </p>
-                  <button className="btn btn-primary min-w-[151px] h-[38px] p-2 my-1 whitespace-pre-line text-left leading-4 font-bold text-[14px]">
-                    {t('bonus:cash_bonus_low', { value: getCashBonusText({ bonus_rate: currentPromo?.bonus_rate }) })}
-                  </button>
+                  <div className="flex flex-col items-start ">
+                    <button className="btn btn-primary min-w-[151px] h-[32px] p-1 my-1 whitespace-pre-line text-left leading-4 font-bold text-[14px]">
+                      {t('bonus:cash_bonus_low', { value: getCashBonusText({ bonus_rate: currentPromo?.bonus_rate }) })}
+                    </button>
+                    <div className="flex items-center gap-1 mb-1.5">
+                      <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+                        {t('casino:upTo')} {
+                          getUpToBonusAmountText({
+                            currentPromo,
+                            depositType,
+                            depositFiat,
+                            depositCrypto,
+                            exchangeRates,
+                            convertCurrency,
+                            formatCurrency,
+                          })
+                        }
+                      </button>
+                      <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+                        1x
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <img
                   src="/images/bonus/crypto-pc.png"
@@ -217,14 +280,26 @@ export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOr
               </p>
               <div className="flex gap-2.5 justify-between">
                 <div className="py-3 bg-base-300 rounded-field px-4 flex-1">
-                  <p className="text-xs text-base-content/50 mb-1 font-semibold">{t('bonus:deposit')}</p>
-                  <p className="text-lg font-bold text-primary">{formattedMaxAmount}</p>
+                  <p className="text-xs text-base-content/50 mb-1 font-semibold">{t('popup:minimum_deposit')}</p>
+                  <p className="text-lg font-bold text-primary">{t('popup:none')}</p>
                 </div>
                 <div className="py-3 bg-base-300 rounded-field px-4 flex-1">
                   <p className="text-xs text-base-content/50 mb-1 font-semibold">
-                    {t('popup:cash_bonus')}
+                    {t('popup:bonus_limit')}
                   </p>
-                  <p className="text-lg font-bold text-primary">{formattedAmountValue}</p>
+                  <p className="text-lg font-bold text-primary">
+                    {
+                      getUpToBonusAmountText({
+                        currentPromo,
+                        depositType,
+                        depositFiat,
+                        depositCrypto,
+                        exchangeRates,
+                        convertCurrency,
+                        formatCurrency,
+                      })
+                    }
+                  </p>
                 </div>
               </div>
               {/* Release Frequency 区块 */}

@@ -58,7 +58,7 @@ export const WithdrawAddressAdd = () => {
       setWithdrawCrypto({ toWallet: currentWallet[0]?.address });
     } else {
       setStatus((old) => ({ ...old, selected: undefined }));
-      setWithdrawCrypto({ toWallet: "" });
+      setWithdrawCrypto({ toWallet: "", inputAmount: "" });
     }
   }, [currentWallet]);
 

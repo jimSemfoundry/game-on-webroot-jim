@@ -161,7 +161,7 @@ export function BonusRakebackCard() {
         <LazyImage
           src="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
           alt="free spins"
-          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0"
+          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
       </ImageColorCard>
     );

@@ -1,14 +1,12 @@
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { perRangeOptions, useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
-import { MotionContentBox } from "@/components/modal/UserFinanceModal/c/MotionContentBox.tsx";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
-import { WithdrawRangeOptions } from "@/components/modal/UserFinanceModal/c/WithdrawRangeOptions.tsx";
 import { useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
 import Decimal from "decimal.js";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Trans, useTranslation } from "react-i18next";
+import {  useTranslation } from "react-i18next";
 import { FormatAmount } from "sunmoon-working-components";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import {
@@ -16,8 +14,9 @@ import {
   InnerProviderAmountRangeFormat
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useNavigate } from "@tanstack/react-router";
-import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import { emitter } from "@/store/emitter.ts";
+import { WithdrawRangeOptions } from "@/components/modal/UserFinanceModal/c/WithdrawRangeOptions.tsx";
 
 export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
   version?: "V1" | "V2",
@@ -26,12 +25,10 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
 }) => {
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
+  // FIXME: 目的 -> 用户触发了数量输入则使快捷选项失效
+  const [withdrawRangeOptionsReset, setWithdrawRangeOptionsReset] = useState<number>(0);
 
-  const [option, selected] = useState<{
-    label: string;
-    value: number;
-  } | null>(null);
+  const { t } = useTranslation();
 
   // finance 弹窗控制开关
   const { closeUserFinanceModal } = useFinanceModal();
@@ -51,79 +48,49 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
 
   // 小于最小提款数量限制错误
   const lessThanMinimum = useMemo(() => {
-    return Decimal(availableAndLocked.available).lt(source.method?.min ?? 0);
+    return Decimal(availableAndLocked.available || 0).lt(source.method?.min ?? 0);
   }, [source.method, availableAndLocked.available]);
 
   // 计算快捷选项对应的提款 amount
   const calcWithdrawAmount = useCallback(
-    (option: Record<string, any>) => {
+    (value: number) => {
       const min = source.method?.min ?? 0;
       const max = source.method?.max ?? 0;
-      const balance = Decimal(availableAndLocked.available);
-      switch (option?.label) {
-        case "Min":
+      const balance = Decimal(availableAndLocked.available ?? 0);
+      const final_max = balance.gt(max) ? Decimal(max) : balance;
+
+      switch (value) {
+        case 0:
           operate({ formItem: { [formKey]: balance.lt(min) ? 0 : min } });
           break;
-        case "25%":
-          const de_25 = Decimal(balance).mul(0.25);
+        case 0.25:
+          const de_25 = balance.mul(0.25);
           let de_25_final_value = de_25.toString();
           if (de_25.lt(min)) de_25_final_value = min;
-          if (de_25.gt(max)) de_25_final_value = max;
+          if (de_25.gt(final_max)) de_25_final_value = final_max.toString();
           operate({ formItem: { [formKey]: de_25_final_value } });
           break;
-        case "50%":
-          const de_50 = Decimal(balance).mul(0.5);
+        case 0.5:
+          const de_50 = balance.mul(0.5);
           let de_50_final_value = de_50.toString();
           if (de_50.lt(min)) de_50_final_value = min;
-          if (de_50.gt(max)) de_50_final_value = max;
+          if (de_50.gt(final_max)) de_50_final_value = final_max.toString();
           operate({ formItem: { [formKey]: de_50_final_value } });
           break;
-        case "Max":
-          const de_100 = Decimal(balance);
+        case 1:
+          const de_100 = balance;
           let de_100_final_value = de_100.toString();
-          if (de_100.gt(max)) de_100_final_value = max;
+          if (de_100.gt(final_max)) de_100_final_value = final_max.toString();
           operate({ formItem: { [formKey]: de_100_final_value } });
           break;
       }
     },
-    [availableAndLocked.available, source.method, operate]
-  );
-
-  // 根据输入的值判断快捷选项激活
-  const calcWithdrawOption = useCallback(
-    (amount: string) => {
-      const d_min = source.method?.min ?? 0;
-      const d_amount = Decimal(amount || 0);
-      const d_balance = Decimal(availableAndLocked.available);
-      if (d_amount.eq(d_min)) {
-        const find = perRangeOptions.find((o) => o.value === 0);
-        selected(find!);
-        return;
-      }
-      if (d_amount.eq(d_balance.toDP(withdrawFiat.currency?.display_decimal, Decimal.ROUND_DOWN))) {
-        const find = perRangeOptions.find((o) => o.value === 1);
-        selected(find!);
-        return;
-      }
-      if (d_amount.eq(d_balance.mul(0.25).toDP(withdrawFiat.currency?.display_decimal, Decimal.ROUND_DOWN)) && d_amount.gte(d_min)
-      ) {
-        const find = perRangeOptions.find((o) => o.value === 0.25);
-        selected(find!);
-        return;
-      }
-      if (d_amount.eq(d_balance.mul(0.5).toDP(withdrawFiat.currency?.display_decimal, Decimal.ROUND_DOWN)) && d_amount.gte(d_min)) {
-        const find = perRangeOptions.find((o) => o.value === 0.5);
-        selected(find!);
-        return;
-      }
-      selected(null);
-    },
-    [availableAndLocked.available, source.method, withdrawFiat.currency]
+    [availableAndLocked.available, source.method]
   );
 
   // 计算手续费
   const withdrawalFee = useMemo(() => {
-    return Decimal(source.formItem?.[formKey] || 0)
+    return Decimal(source.formItem?.amount || 0)
       .times(source.method?.fee_rate || 0)
       .plus(source.method?.fee_fix || 0)
       .toString();
@@ -132,7 +99,7 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
   // total withdraw amount 显示控制
   const totalWithdrawAmountControl = useMemo(() => {
     const max = source.method?.max ?? 0;
-    const d_amount = Decimal(source.formItem?.[formKey] || 0);
+    const d_amount = Decimal(source.formItem?.amount || 0);
     return Decimal.min(d_amount, max);
   }, [source.formItem, source.method]);
 
@@ -144,57 +111,81 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
 
   // 用户提款输入值: 0 / ""
   const amountError = useMemo(() => {
-    const d_amount = source.formItem?.[formKey]
-    return !d_amount
+    const d_amount = source.formItem?.amount;
+    return !d_amount;
   }, [source.formItem]);
 
   // 提款范围错误提示
   const rangeError = useMemo(() => {
-    const d_amount = Decimal(source.formItem?.[formKey] || 0);
+    const d_amount = Decimal(source.formItem?.amount || 0);
     return (
-      !!source.formItem?.[formKey] && (d_amount.lt(source.method?.min ?? 0) || d_amount.gt(source.method?.max ?? 0))
+      d_amount.lt(source.method?.min ?? 0) || d_amount.gt(source.method?.max ?? 0)
     );
   }, [source.formItem, source.method]);
 
   // 提款输入值倍数错误提示，有些通道要求x的倍数数值才能提款
   const multipleError = useMemo(() => {
-    const d_amount = Decimal(source.formItem?.[formKey] || 0);
-    return !(d_amount.mod(field?.multiple || 1).eq(0));
+    return false;
+    // if (!field?.multiple) return false;
+    // const d_amount = Decimal(source.formItem?.amount || 0);
+    // return !(d_amount.mod(field?.multiple || 1).eq(0));
   }, [source.formItem, field?.multiple]);
 
   // 输入的提款数量大于余额
   const insufficient = useMemo(() => {
-    const d_amount = Decimal(source.formItem?.[formKey] || 0);
-    return !!source.formItem?.[formKey] && d_amount.gt(availableAndLocked.available);
+    const d_amount = Decimal(source.formItem?.amount || 0);
+    return d_amount.gt(0) && d_amount.gt(availableAndLocked.available || 0);
   }, [source.formItem, availableAndLocked]);
-
-  // 通道维护
-  const method_bad_status = useMemo(() => {
-    if (source.method) return Decimal(source.formItem?.amount || 0).gt(0) && source.method?.status === 0;
-  }, [source.formItem, source.method]);
-
-  // 通道未激活
-  const method_is_unactive = useMemo(() => {
-    if (source.method) return Decimal(source.formItem?.amount || 0).gt(0) && source.method?.active === false;
-  }, [source.formItem, source.method]);
 
   useEffect(() => {
     operate({
       range_error: rangeError,
       amount_error: amountError,
       balance_error: insufficient,
-      multiple_error: multipleError,
+      // multiple_error: multipleError,
       less_than_minimum_error: lessThanMinimum
     });
   }, [operate, rangeError, amountError, insufficient, multipleError, lessThanMinimum]);
 
   // 事件通知 & 重置表单状态
   useEffect(() => {
-    if (syncAction.type && ["CLOSE_FINANCE_MODAL", "OPEN_WITHDRAW_ORDER_OK_MODAL"].includes(syncAction.type)) {
-      selected(null);
-      operate({ formItem: { [formKey]: "" } });
+    const events = ["CLOSE_FINANCE_MODAL"];
+    const subs = events.map((eventName) =>
+      emitter.addListener(eventName, () => {
+        operate({
+          formItem: { amount: "" },
+          range_error: false,
+          amount_error: false,
+          balance_error: false,
+          multiple_error: false,
+          less_than_minimum_error: false
+        });
+      })
+    );
+
+    return () => {
+      subs.forEach((sub) => sub.remove());
+    };
+  }, [formKey, operate]);
+
+  // FIXME：未来优化掉 用 emitter
+  useEffect(() => {
+    if (syncAction.type === "OPEN_WITHDRAW_ORDER_OK_MODAL") {
+      operate({
+        formItem: { amount: "" },
+        range_error: false,
+        amount_error: false,
+        balance_error: false,
+        multiple_error: false,
+        less_than_minimum_error: false
+      });
     }
   }, [syncAction]);
+
+  // FIXME: 目的 -> 切换供应商时候需要重置快捷按钮状态
+  useEffect(() => {
+    if (source.method?.id) setWithdrawRangeOptionsReset((v) => v + 1);
+  }, [source.method?.id]);
 
   return (
     <>
@@ -216,11 +207,13 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
 
         <NumericFormat
           placeholder="0.00"
-          value={source.formItem?.[formKey]}
+          value={source.formItem?.amount || ""}
           thousandSeparator
           onValueChange={(values) => {
-            operate({ formItem: { [formKey]: values.value } });
-            calcWithdrawOption(values.value);
+            operate({ formItem: { amount: values.value } });
+          }}
+          onFocus={() => {
+            setWithdrawRangeOptionsReset((v) => v + 1);
           }}
           disabled={lessThanMinimum}
           decimalScale={withdrawFiat.currency?.display_decimal}
@@ -230,12 +223,13 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
         <ErrorMessageBox sample show={lessThanMinimum}
                          content={t("finance:theBalanceDoesNotReachTheMinimumWithdrawalLimit")} />
         {/* 余额不足 */}
-        <ErrorMessageBox sample show={insufficient} content={t("finance:insufficient_balance")} />
+        <ErrorMessageBox sample show={insufficient}
+                         content={t("finance:insufficient_balance")} />
 
         {/* 范围错误 */}
         <ErrorMessageBox
           sample
-          show={rangeError && !insufficient}
+          show={rangeError && !insufficient && !lessThanMinimum}
           content={<span>
             {t("finance:pleaseEnterAnAmountBetween")}{" "}
             <InnerProviderAmountRangeFormat
@@ -250,19 +244,12 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
                          content={t("finance:multiple_error", { multiple: field?.multiple })} />
 
         {/* 数量输入快捷选项 */}
-        <MotionContentBox
-          show={!lessThanMinimum}
-          sample
-          content={
-            <WithdrawRangeOptions
-              onClick={(v) => {
-                selected(v);
-                calcWithdrawAmount(v);
-              }}
-              selected={option!}
-              disabled={isGatewaysLoading || lessThanMinimum}
-            />
-          }
+        <WithdrawRangeOptions
+          key={withdrawRangeOptionsReset}
+          onChange={(v) => {
+            calcWithdrawAmount(v);
+          }}
+          disabled={isGatewaysLoading || lessThanMinimum || source.method?.status === 0}
         />
       </div>
 
@@ -270,7 +257,7 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
         <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
           void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
 
-          closeUserFinanceModal()
+          closeUserFinanceModal();
         }}>
           {t("finance:available")}:{" "}
           <FormatAmount amount={availableAndLocked.available} local
@@ -280,36 +267,13 @@ export const WithdrawFiatAmount = ({ version = "V1", field, formKey }: {
         <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
           void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
 
-          closeUserFinanceModal()
+          closeUserFinanceModal();
         }}>
           {t("finance:locked")}: <FormatAmount amount={availableAndLocked.locked} local
                                                decimals={withdrawFiat.currency?.display_decimal} />{" "}
           {withdrawFiat.currency?.currency}
         </span>
       </div>
-
-      <InnerDisplayContent show={Boolean(method_bad_status) || Boolean(method_is_unactive)}>
-        <div className="bg-base-300 rounded-lg p-2">
-          {/* 通道在维护 */}
-          <ErrorMessageBox
-            sample
-            content={
-              <Trans
-                i18nKey={"finance:channel_under_maintenance"}
-                values={{ channel: withdrawFiat.method?.display_name }}
-                components={[<span className="underline" />]} />}
-            show={Boolean(method_bad_status) && !Boolean(method_is_unactive)} />
-
-          {/* 通道未激活 */}
-          <ErrorMessageBox
-            sample
-            content={<Trans
-              i18nKey={"finance:channel_not_activated"}
-              values={{ channel: withdrawFiat.method?.display_name }}
-              components={[<span className="underline" />]} />}
-            show={Boolean(method_is_unactive)} />
-        </div>
-      </InnerDisplayContent>
 
       <div className="bg-base-300 p-4 rounded-xl">
         <div className="flex items-center justify-between text-primary/80">

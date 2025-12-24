@@ -90,6 +90,7 @@ export default function WelcomeSignUpModal() {
               type="checkbox"
               checked={radio}
               className="checkbox checkbox-xs border checkbox-primary"
+              onChange={() => null}
             />
             {/*{t("casino:notRemainToday")}*/}
             Do Not Remind Me Again Today

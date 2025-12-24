@@ -135,7 +135,7 @@ export const BonusAchievementsDetailsModal = ({
         onClose={onClose}
         hideTitle={true}
         zIndex={1006}
-        className="md:w-[500px] max-w-lg mx-auto overflow-hidden bg-base-400"
+        className="md:w-[500px] max-w-lg mx-auto overflow-scroll bg-base-400"
       >
         <div
           className="flex flex-col -mx-5 -my-4 px-5 py-4"

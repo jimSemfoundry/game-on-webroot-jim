@@ -254,7 +254,7 @@ export const authService = {
    * 获取用户bonus 领取详细记录
    */
   async getUserClaimBonus(): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.get("/Claim/bonusDetails");
+    const response = await authAxiosInstance.get("/Claim/bonusDetailsV2");
     return response.data;
   },
 

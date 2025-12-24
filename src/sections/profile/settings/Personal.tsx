@@ -237,7 +237,7 @@ export function Personal({ className }: { className?: string }) {
             />
             <ErrorMessageBox
               show={phone_format_error}
-              content={<>手机号码格式错误</>} />
+              content={<>Invalid phone number format.</>} />
           </fieldset>
 
           {/* Personal Details - Country */}

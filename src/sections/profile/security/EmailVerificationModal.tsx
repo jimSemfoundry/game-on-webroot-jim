@@ -296,9 +296,10 @@ function matchResponseCodeErrorForEmail(code: number): string {
     case 402:
       return "common.emailHasBeenUsed";
     case 409:
-    case 1003:
     case 60001:
       return "common.emailAlreadyBound";
+    case 1003:
+      return "common.tooManyRequests";
     default:
       return "common.emailSendError";
   }

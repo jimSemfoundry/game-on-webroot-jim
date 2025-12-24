@@ -1,5 +1,7 @@
 import publicAxiosInstance from "@/lib/publicAxios";
 import type { ApiResponse } from "@/types/auth";
+import { getTelegramInitData } from "@/utils/telegramWebApp";
+import type { WebPushSubscriptionPayload } from "@/utils/pushSubscription";
 
 export const publicService = {
   async getBaseConfig(): Promise<ApiResponse<any>> {
@@ -245,6 +247,19 @@ export const publicService = {
     return response.data;
   },
 
+  async loginByTMA(data: Record<string, any> = {}): Promise<ApiResponse<any>> {
+    const telegramInitData = getTelegramInitData();
+    const tmaToken = telegramInitData || (import.meta.env.VITE_TMA_TOKEN as string | undefined) || "";
+
+    const response = await publicAxiosInstance.post<ApiResponse<any>>("/Authentication/loginByTMA", data, {
+      headers: {
+        Authorization: `tma ${tmaToken}`
+      }
+    });
+
+    return response.data;
+  },
+
   async getSocialList(): Promise<any> {
     const response = await publicAxiosInstance.get("/Authentication/getSocialList");
     return response.data;
@@ -252,6 +267,11 @@ export const publicService = {
 
   async refreshFcmToken(fcm_token: string): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.post("/user/refreshFcmToken", { fcm_token });
+    return response.data;
+  },
+
+  async saveWebPushSubscription(subscription: WebPushSubscriptionPayload): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.post("/push/subscribe", subscription);
     return response.data;
   },
 

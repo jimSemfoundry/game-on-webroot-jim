@@ -37,7 +37,7 @@ export function Modal({
   closeButtonClassName,
   id = "modal",
   position = "",
-  zIndex = 70,
+  zIndex = 1001,
   style,
   outsideClose = true,
   classNameModal

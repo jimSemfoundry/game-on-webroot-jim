@@ -6,14 +6,13 @@ import { LazyImage } from "@/components/ui/LazyImage";
 import { Select, SelectOption } from "@/components/ui/Select";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useTipsModal } from "@/contexts/ModalsProvider";
+import { useDoubleOrNothingModal, useTipsModal } from "@/contexts/ModalsProvider";
 import { useClaimBonus, useClaimBonusMutation } from "@/hooks/api/useAuth";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
-import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useBoundStore } from "@/store";
 import dayjs from "dayjs";
-import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
+import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -53,15 +52,18 @@ export function BonusCashbackCard() {
 
   // 处理cashback选项
   const cashbackOptions = useMemo<CashbackOption[]>(() => {
-    if (!claimData?.data?.items) return [];
+    const rawItems = (claimData as any)?.data?.data ?? (claimData as any)?.data?.items;
+    if (!rawItems) return [];
 
-    return claimData.data.items
-      .filter((item: any) => parseFloat(item.value) > 0)
+    const items = Array.isArray(rawItems) ? rawItems : [rawItems];
+
+    return items
+      .filter((item: any) => item && item.currency)
       .map((item: any) => ({
         label: item.currency,
         value: item.currency,
         amount: item.value,
-        currency: item.currency
+        currency: item.currency,
       }));
   }, [claimData]);
 
@@ -79,8 +81,10 @@ export function BonusCashbackCard() {
   };
 
   const currentCashbackItem = useMemo(() => {
-    if (!claimData?.data?.items) return null;
-    return claimData.data.items.find((item: any) => item.currency === selectedCurrency);
+    const rawItems = (claimData as any)?.data?.data ?? (claimData as any)?.data?.items;
+    if (!rawItems) return null;
+    const items = Array.isArray(rawItems) ? rawItems : [rawItems];
+    return items.find((item: any) => item.currency === selectedCurrency);
   }, [claimData, selectedCurrency]);
 
   useEffect(() => {
@@ -97,7 +101,6 @@ export function BonusCashbackCard() {
     }
   }, [hex]);
 
-
   const handleClaim = () => {
     if (currentCashbackItem?.currency) {
       claimBonus(
@@ -107,16 +110,16 @@ export function BonusCashbackCard() {
             if (response.code !== 0) {
               setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
                 code: response.code,
-                tryAgain: () => handleClaim()
+                tryAgain: () => handleClaim(),
               });
               return;
             }
             openDoubleOrNothingModal({
               don_record_id: response?.data?.don_record_id,
-              amount: response?.data?.amount
+              amount: response?.data?.amount,
             });
-          }
-        }
+          },
+        },
       );
     }
   };
@@ -131,9 +134,12 @@ export function BonusCashbackCard() {
     return (
       <div className="flex items-center gap-2 w-full">
         <CurrencyIcon currency={cashbackOpt.currency} className="w-4 h-4" />
-        <span className="flex-1">{cashbackOpt.currency}</span>
+        {/* <span className="flex-1">{cashbackOpt.currency}</span> */}
         <span className="text-xs text-base-content/70">
-          {formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency).formatted}
+          {
+            formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency, { showCode: false, minimizeDecimals: true })
+              .formatted
+          }
         </span>
       </div>
     );
@@ -145,8 +151,7 @@ export function BonusCashbackCard() {
     return (
       <div className="flex items-center gap-2">
         <CurrencyIcon currency={cashbackOpt.currency} className="w-4 h-4" />
-        <span
-          className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency).formatted}</span>
+        <span className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency,{ showCode: false, minimizeDecimals: true }).formatted}</span>
       </div>
     );
   };
@@ -156,7 +161,7 @@ export function BonusCashbackCard() {
       <div
         className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
         style={{
-          background: DEFAULT_GRADIENT
+          background: DEFAULT_GRADIENT,
         }}
       >
         <div className="skeleton w-6 h-6 absolute right-4 rtl:right-auto rtl:left-4 top-4 rounded-btn"></div>
@@ -203,7 +208,7 @@ export function BonusCashbackCard() {
         <LazyImage
           src="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
           alt="free spins"
-          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0"
+          className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
       </ImageColorCard>
     );
@@ -213,16 +218,14 @@ export function BonusCashbackCard() {
     <div
       className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
       style={{
-        background
+        background,
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4"
-              onClick={handleOpenTips}>
+      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
         <Iconify icon="custom:info" className="text-base-content/50" />
       </button>
       <div className="flex items-center gap-2 h-15">
-        <img src={ILLUSTRATION_URL} alt={t("bonus:daily_cashback")} className="w-15 h-15" loading="lazy"
-             decoding="async" />
+        <img src={ILLUSTRATION_URL} alt={t("bonus:daily_cashback")} className="w-15 h-15" loading="lazy" decoding="async" />
         <div className="flex flex-col justify-between h-full w-full">
           <p className="text-sm font-bold sm:text-base">{t("bonus:daily_cashback")}</p>
           <div className="flex items-center gap-1 w-full">

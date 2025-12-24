@@ -3,6 +3,7 @@ import i18n from "@/i18n.ts";
 import { useCallback, useMemo } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { useSocialList } from "@/components/socialLogin/helper.ts";
+import { toUrlSearchParams } from "@/utils/urlSearchParams";
 
 export default function SocialLogin() {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ export default function SocialLogin() {
     const model = import.meta.env.VITE_PROMOTION_MODEL;
     const appid = import.meta.env.VITE_FOLDER;
 
-    const startapp = new URLSearchParams(search).get("startapp");
+    const startapp = toUrlSearchParams(search).get("startapp");
 
     // For RoiBest
     if (appid && model === "roibest") {

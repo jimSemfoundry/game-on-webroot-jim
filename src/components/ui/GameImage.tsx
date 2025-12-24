@@ -36,6 +36,7 @@ interface GameImageProps {
   lazy?: boolean;
   data: Record<string, any>;
   hideLock?: boolean
+  enabledBanGameList?: boolean
 }
 
 export function GameImage(
@@ -59,7 +60,8 @@ export function GameImage(
     disableNavigation = false,
     onClick,
     lazy = true,
-    hideLock = false
+    hideLock = false,
+    enabledBanGameList = false
   }: GameImageProps) {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -230,7 +232,7 @@ export function GameImage(
       )}
 
       {/* 游戏可用状态 */}
-      {!hideLock && <GameAvailabilityStatus data={data} />}
+      {!hideLock && <GameAvailabilityStatus data={data} enabledBanGameList={enabledBanGameList} />}
     </div>
   );
 }

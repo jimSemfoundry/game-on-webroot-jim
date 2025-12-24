@@ -5,11 +5,22 @@ const publicAxiosInstance = axios.create({
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
-  },
-  params: {
-    _t: Date.now(),
-  },
+  }
 });
+
+publicAxiosInstance.interceptors.request.use(
+  (config) => {
+    config.params = {
+      ...(config.params || {}),
+      _t: Date.now(),
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 // Only basic response interceptor for error handling
 publicAxiosInstance.interceptors.response.use(

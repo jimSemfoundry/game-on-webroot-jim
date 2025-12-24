@@ -1,11 +1,8 @@
 import { Modal } from "@/components/ui/Modal";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
-
 import { authService } from "@/services/authService";
-
 import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -25,6 +22,7 @@ export const LimitedOffer = () => {
   const { openUserFinanceModalWithTab } = useFinanceModal();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
+  const hasCheckedPromoRef = useRef(false);
 
   // Get the current user's selected currency
   // const currentCurrency = useMemo(() => {
@@ -44,19 +42,21 @@ export const LimitedOffer = () => {
   }
 
   useEffect(() => {
-    if (user) {
-      authService.checkDetailPromo().then((resCheck) => {
-        if (resCheck.code === 51005) {
-          authService.getCurrentPromo().then((res) => {
-            if (res.data) {
-              setCurrentPromo(res.data);
-              setOpen(true);
-            }
-          })
-        }
-      });
-    }
-  }, []);
+    if (!user) return;
+    if (hasCheckedPromoRef.current) return;
+    hasCheckedPromoRef.current = true;
+
+    authService.checkDetailPromo().then((resCheck) => {
+      if (resCheck.code === 51005) {
+        authService.getCurrentPromo().then((res) => {
+          if (res.data) {
+            setCurrentPromo(res.data);
+            setOpen(true);
+          }
+        })
+      }
+    });
+  }, [user]);
 
   return (
     <Modal

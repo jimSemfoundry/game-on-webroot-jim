@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { WithdrawMethodSelectV2 } from "@/components/modal/UserFinanceModal/c/WithdrawMethodSelectV2.tsx";
 import {
+  debug_target,
   open_debug,
   useSupportedFiatWithdrawGatewaysV2,
   useUserWithdrawFiatInfo
@@ -57,21 +58,121 @@ export const WithdrawMethodInfoAddModal = () => {
   // 法币提现用用户添加的快捷信息列表
   const { refetch } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
 
+  // 附加的隐藏的必要的字段，不在表单出现
+  useEffect(() => {
+    if (!status.provider?.params) return;
+
+    const transform = parser(status.provider?.params);
+    for (const key in transform) {
+      const field = transform[key];
+
+      if (!field.required) continue;
+
+      if (field.bind || field.hide) {
+        const value = handleBindOrHideFormItemDefaultValue(field, status.provider);
+        setStatus((old) => ({
+          ...old,
+          formItem: { ...old.formItem, [key]: value || "" }
+        }));
+      }
+    }
+  }, [status.provider?.params]);
+
+  // 重置数据状态，避免脏数据
+  useEffect(() => {
+    if (status.provider?.id) {
+      const next_status = { ...status, formItem: null };
+      Object.keys(next_status).forEach((k) => {
+        if (k.endsWith("_error")) Reflect.deleteProperty(next_status, k);
+      });
+      setStatus(next_status);
+    }
+  }, [status.provider?.id]);
+
+  // 表单初始化
+  const formItem = useMemo(() => {
+    if (!status.provider) return;
+
+    const transform = parser(status.provider?.params);
+
+    if (open_debug && debug_target === "WITHDRAW") {
+      console.info("Withdraw Fiat V2 表单项");
+      console.info(transform);
+    }
+
+    let selectNode: React.ReactNode = null;
+    let nodes: React.ReactNode[] = [];
+
+    if (transform) {
+      for (const key in transform) {
+        const field = transform[key];
+
+        if (field.hide || !field.required) continue;
+
+        if (key === "amount") continue;
+
+        if (field.select && field.select.length > 0) {
+          selectNode = (<InnerOptions
+            key={`${key}_${status.provider?.id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
+            name={key}
+            field={field}
+            onChange={(v) => {
+              setStatus((old) => ({
+                ...old,
+                formItem: { ...old.formItem, ...v }
+              }));
+            }} />);
+          continue;
+        }
+
+        nodes.push(<InnerFieldItem
+          key={`${key}_${status.provider?.id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
+          name={key}
+          field={field}
+          onChange={(v) => {
+            setStatus((old) => {
+              return ({
+                ...old,
+                formItem: { ...old.formItem, [key]: v.value },
+                [`${key}_error`]: v[`${key}_error`]
+              })
+            });
+          }} />);
+      }
+    }
+
+    return nodes.concat(selectNode);
+  }, [status.provider]);
+
+  // 表单字段是否有错误
+  const filed_value_match = useMemo(() => {
+    if (!status.formItem || !status.provider) return true;
+    if (status.formItem && status.provider) return Object.values(params(status.provider, status.formItem)).some((value) => !value);
+  }, [status.formItem, status.provider]);
+
+  // 表单字段是否有额外的错误
+  const filed_value_null = useMemo(() => {
+    const keys = Object.keys(status);
+    return keys.filter((k) => k.includes("_error")).some((j) => status[j as ErrorString]);
+  }, [status]);
+
   // 添加提款快捷信息
   const submit = useCallback(() => {
     const final_params = params(status.provider, status.formItem);
 
-    if (open_debug) {
+    if (open_debug && debug_target === "WITHDRAW") {
       console.info("Withdraw Fiat Fast Data");
       console.info({
         ...final_params,
         currency: withdrawFiat.currency?.currency,
         channel_class: status.provider?.channel_class
       });
-      return;
+      console.info(status);
+      // return;
     }
 
     setStatus((v) => ({ ...v, loading: true }));
+
     authService
       .addUserWithdrawInfo({
         ...final_params,
@@ -95,83 +196,7 @@ export const WithdrawMethodInfoAddModal = () => {
       .finally(() => {
         setStatus((v) => ({ ...v, loading: false }));
       });
-  }, [status]);
-
-  // 附加的隐藏的必要的字段，不在表单出现
-  useEffect(() => {
-    if (!status.provider?.params) return;
-
-    const transform = parser(status.provider?.params);
-    for (const key in transform) {
-      const field = transform[key];
-
-      if (field.bind || field.hide) {
-        const value = handleBindOrHideFormItemDefaultValue(field, status.provider);
-        setStatus((old) => ({
-          ...old,
-          formItem: { ...old.formItem, [key]: value || "" }
-        }));
-      }
-    }
-  }, [status.provider]);
-
-  const formItem = useMemo(() => {
-    if (!status.provider) return;
-
-    const transform = parser(status.provider?.params);
-
-    // console.info("Withdraw Fiat V2 表单项");
-    // console.info(transform);
-
-    let selectNode: React.ReactNode = null;
-    let nodes: React.ReactNode[] = [];
-    if (transform) {
-      for (const key in transform) {
-        const field = transform[key];
-
-        if (field.hide || !field.required) continue;
-
-        if (key === "amount") continue;
-
-        if (field.select && field.select.length > 0) {
-          selectNode = (<InnerOptions
-            key={key}
-            name={key}
-            field={field}
-            onChange={(v) => {
-              setStatus((old) => ({
-                ...old,
-                formItem: { ...old.formItem, ...v }
-              }));
-            }} />);
-          continue;
-        }
-        nodes.push(<InnerFieldItem
-          key={key}
-          name={key}
-          field={field}
-          onChange={(v) => {
-            setStatus((old) => ({
-              ...old,
-              formItem: { ...old.formItem, [key]: v.value },
-              [`${key}_error`]: v[`${key}_error`]
-            }));
-          }} />);
-      }
-    }
-    return nodes.concat(selectNode);
-  }, [status.provider]);
-
-  // 表单字段是否有错误
-  const error1 = useMemo(() => {
-    if (status.formItem && status.provider) return Object.values(params(status.provider, status.formItem)).some((value) => !value);
-  }, [status.formItem, status.provider]);
-
-  // 表单字段是否有额外的错误
-  const error2 = useMemo(() => {
-    const keys = Object.keys(status);
-    return keys.filter((k) => k.includes("_error")).find((j) => status[j as ErrorString]);
-  }, [status]);
+  }, [status, filed_value_match, filed_value_null]);
 
   // 事件通知
   useEffect(() => {
@@ -180,12 +205,19 @@ export const WithdrawMethodInfoAddModal = () => {
     }
   }, [syncAction]);
 
+  // 设置默认通道
   useEffect(() => {
     if (status.showModal && Array.isArray(gatewaysV2?.data)) setStatus((old) => ({
       ...old,
       provider: gatewaysV2?.data?.[0]
     }));
   }, [gatewaysV2, status.showModal]);
+
+  useEffect(() => {
+    console.info("status", status);
+    console.info("filed_value_null", filed_value_null);
+    console.info("filed_value_match", filed_value_match);
+  }, [filed_value_match, filed_value_null, status]);
 
   return (
     <Modal
@@ -197,7 +229,7 @@ export const WithdrawMethodInfoAddModal = () => {
       isOpen={status.showModal}
       onClose={() => setStatus(initSelected)}
       position="modal-middle"
-      className="bg-base-400 md:max-w-[400px] shadow-lg hide-scrollbar"
+      className="bg-base-400 md:max-w-[400px] shadow-lg hide-scrollbar h-[75vh] max-h-[75vh]"
     >
       <div className="flex flex-col gap-4">
         <FormBox label={t("finance:withdrawCurrency")}>
@@ -219,10 +251,10 @@ export const WithdrawMethodInfoAddModal = () => {
         {formItem}
 
         <p className="text-base-content/50 font-semibold leading-4 text-xs">
-          {t('finance:ensure_all_withdrawal')}
+          {t("finance:ensure_all_withdrawal")}
         </p>
 
-        <ConfirmBox disabled={!status.formItem || error1 || !!error2} onClick={submit} loading={status.loading}>
+        <ConfirmBox onClick={submit} loading={status.loading}>
           {t("finance:save")}
         </ConfirmBox>
       </div>
@@ -298,7 +330,6 @@ const InnerOptions = ({ name, field, onChange }: {
   useEffect(() => {
     onChange({ [name]: memoOptions[0].value });
     setStatus((old) => ({ ...old, option: memoOptions[0] }));
-    emitter.emit(name, memoOptions[0].value);
   }, [memoOptions]);
 
   return (
@@ -309,7 +340,7 @@ const InnerOptions = ({ name, field, onChange }: {
           set(!show);
           !show && setStatus((o) => ({ ...o, search: "" }));
         }}>
-        <span className="text-sm font-semibold">{status.option?.label}</span>
+        <span className="text-sm font-semibold truncate">{status.option?.label}</span>
         <ChevronDown
           className={cn("w-4 h-4 md:transition-transform md:duration-200 text-base-content/50", show ? "md:rotate-180" : "")}
         />
@@ -357,7 +388,7 @@ const InnerOptions = ({ name, field, onChange }: {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
-                  style={{ marginTop: 'env(safe-area-inset-top)' }}
+                  style={{ marginTop: "env(safe-area-inset-top)" }}
                   className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
                 >
                   <p className="flex items-center justify-center relative text-lg font-semibold h-10">

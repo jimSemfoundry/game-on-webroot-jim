@@ -669,8 +669,8 @@ const GameDetail = () => {
           {/* Main Game Hero Section - shows when not playing or not in mobile fullscreen */}
           {!isPlayingGame && !isMobileFullscreen && (
             <div className="relative z-10 container mx-auto sm:p-12 sm:bg-base-200/50 rounded-box"
-                 style={{
-                   backgroundImage: `repeating-linear-gradient(-45deg,
+              style={{
+                backgroundImage: `repeating-linear-gradient(-45deg,
                       oklch(from var(--color-base-100) l c h / 0.2) 0px,
                     oklch(from var(--color-base-100) l c h / 0.2) 6px,
                     oklch(from var(--color-base-300) l c h / 0.3) 6px,
@@ -678,7 +678,7 @@ const GameDetail = () => {
                     oklch(from var(--color-base-100) l c h / 0.2) 12px,
                     oklch(from var(--color-base-100) l c h / 0.2) 18px
                   )`
-                 }}
+              }}
             >
               {/* Desktop Layout */}
               <div className="hidden sm:flex items-center sm:gap-8">
@@ -691,7 +691,7 @@ const GameDetail = () => {
                     <div className="badge badge-xl bg-base-200 text-sm font-semibold">{game?.provider_name}</div>
                     {isAuthenticated && game?.inner_game_id && (
                       <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
-                                      className="bg-base-200" />
+                        className="bg-base-200" />
                     )}
                   </div>
                   <h1 className="text-4xl font-bold text-base-content">{game?.display_game_name}</h1>
@@ -763,7 +763,7 @@ const GameDetail = () => {
                     /* 未登录用户 - Demo Play 按钮（点击弹出登录框） */
                     <div className="text-start w-full">
                       <button className="btn btn-primary btn-soft btn-lg w-full gap-3 text-lg font-bold"
-                              onClick={handleDemoPlay}>
+                        onClick={handleDemoPlay}>
                         <Iconify icon="custom:play" width={24} height={24} />
                         {t("gameDetail:demoPlay", "Demo Play")}
                       </button>
@@ -783,7 +783,7 @@ const GameDetail = () => {
                     {isAuthenticated && game?.inner_game_id && (
                       <div className="flex gap-2 justify-center items-center">
                         <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
-                                        className="bg-base-200" />
+                          className="bg-base-200" />
                         <button className="btn btn-square btn-sm" onClick={() => setIsSettingsOpen(true)}>
                           <Iconify icon="custom:setting-2" className="text-base-content/50 w-4 h-4" />
                         </button>
@@ -866,7 +866,7 @@ const GameDetail = () => {
                       /* 未登录用户 - Demo Play 按钮（点击弹出登录框） */
                       <div className="flex items-center justify-center h-full">
                         <button className="btn btn-primary btn-soft btn-md w-full gap-2 font-bold"
-                                onClick={handleDemoPlay}>
+                          onClick={handleDemoPlay}>
                           <Iconify icon="custom:play" className="w-4 h-4" />
                           {t("gameDetail:demoPlay", "Demo Play")}
                         </button>
@@ -925,7 +925,7 @@ const GameDetail = () => {
           {/* Featured Games and other sections - always show */}
           {casinoHomeGameList && casinoHomeGameList.home_data.hot_game && (
             <FeaturedGames games={casinoHomeGameList.home_data.hot_game}
-                           country_code={casinoHomeGameList.country_code} />
+              country_code={casinoHomeGameList.country_code} />
           )}
 
           <GameProviders />
@@ -946,7 +946,7 @@ const GameDetail = () => {
                   value={activeSection}
                   onChange={(value) => setActiveSection(value as SectionKey)}
                   isActiveClassName="text-base-content"
-                  // className="bg-base-200 rounded-field w-full sm:w-[280px]"
+                // className="bg-base-200 rounded-field w-full sm:w-[280px]"
                 />
               ) : (
                 <Select
@@ -980,7 +980,7 @@ const GameDetail = () => {
           <AlliancePartnerships />
         </div>
       </div>
-      <LimitedOffer />
+      {!isPlayingGame && <LimitedOffer />}
     </div>
   );
 };

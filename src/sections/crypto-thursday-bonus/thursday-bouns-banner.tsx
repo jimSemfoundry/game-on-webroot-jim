@@ -8,37 +8,37 @@ import { useRTLContext } from "@/contexts/RTLContext";
 import { useTipsModal } from "@/contexts/ModalsProvider.tsx";
 
 
-const getDepositAmountText = ({
-  amount,
-  depositType,
-  depositFiat,
-  depositCrypto,
-  exchangeRates,
-  convertCurrency,
-  getCurrencySymbol,
-  formatCurrency,
-}: any) => {
-  const value =
-    convertCurrency({
-      amount,
-      fromCurrency: "USDT",
-      toCurrency:
-        depositType === "fiat"
-          ? depositFiat?.currency?.currency
-          : depositCrypto?.currency?.currency,
-      exchangeRates,
-    }) || 0;
+// const getDepositAmountText = ({
+//   amount,
+//   depositType,
+//   depositFiat,
+//   depositCrypto,
+//   exchangeRates,
+//   convertCurrency,
+//   getCurrencySymbol,
+//   formatCurrency,
+// }: any) => {
+//   const value =
+//     convertCurrency({
+//       amount,
+//       fromCurrency: "USDT",
+//       toCurrency:
+//         depositType === "fiat"
+//           ? depositFiat?.currency?.currency
+//           : depositCrypto?.currency?.currency,
+//       exchangeRates,
+//     }) || 0;
 
-  const valueNum = Math.ceil(value || 0);
+//   const valueNum = Math.ceil(value || 0);
 
-  return depositType === "fiat"
-    ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${valueNum}`
-    : formatCurrency({
-      amount: value,
-      currency: depositCrypto?.currency?.currency,
-      showSymbol: true,
-    }).formatted;
-};
+//   return depositType === "fiat"
+//     ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${valueNum}`
+//     : formatCurrency({
+//       amount: value,
+//       currency: depositCrypto?.currency?.currency,
+//       showSymbol: true,
+//     }).formatted;
+// };
 
 const getCashBonusText = ({
   bonus_rate,
@@ -47,10 +47,53 @@ const getCashBonusText = ({
   return (Number.isFinite(rate) ? rate : 0) * 100;
 };
 
+const getUpToBonusAmountText = ({
+  currentPromo,
+  depositType,
+  depositFiat,
+  depositCrypto,
+  exchangeRates,
+  convertCurrency,
+  formatCurrency,
+}: any) => {
+  const rawRate = Number(currentPromo?.bonus_rate ?? 0);
+  const rate = Number.isFinite(rawRate) ? rawRate : 0;
+
+  const value =
+    convertCurrency({
+      amount: currentPromo?.max_deposit,
+      fromCurrency: "USDT",
+      toCurrency:
+        depositType === "fiat"
+          ? depositFiat?.currency?.currency
+          : depositCrypto?.currency?.currency,
+      exchangeRates,
+    }) || 0;
+
+  const valueNum = depositType === "fiat" ? Math.ceil(value) : value;
+  const amountValue = valueNum * rate;
+
+  // if (Number.isInteger(amountValue)) {
+  //   return amountValue.toString();
+  // }
+
+  // const amountValueNum = Math.trunc(amountValue * 100) / 100;
+
+  // return depositType === "fiat"
+  //   ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${amountValueNum}`
+  //   :
+  return formatCurrency({
+    amount: amountValue,
+    currency: depositType === "fiat" ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+    showSymbol: true,
+    showCode: false,
+  }).formatted;
+};
+
 export const ThursdaySuperBounsBanner = ({ currentPromo }: { currentPromo: ICurrentPromoList }) => {
 
   const { t } = useTranslation();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
   const { isRTL } = useRTLContext();
   const { openTipsModal } = useTipsModal();
@@ -104,7 +147,7 @@ export const ThursdaySuperBounsBanner = ({ currentPromo }: { currentPromo: ICurr
               }}
             />
           </div>
-          <button className="btn btn-primary min-w-[151px] h-[42px] p-2 my-1 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
+          {/* <button className="btn btn-primary min-w-[151px] h-[42px] p-2 my-1 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
             {t('bonus:super_deposit_bonus',
               {
                 amount: getDepositAmountText({
@@ -121,7 +164,33 @@ export const ThursdaySuperBounsBanner = ({ currentPromo }: { currentPromo: ICurr
                   bonus_rate: currentPromo?.bonus_rate,
                 }),
               })}
+          </button> */}
+          <button className="btn btn-primary min-w-[151px] h-auto p-1 my-0.5 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
+            {t('bonus:cash_bonus_low',
+              {
+                value: getCashBonusText({
+                  bonus_rate: currentPromo?.bonus_rate,
+                }),
+              })}
           </button>
+          <div className="flex items-center gap-1">
+            <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+              {t('casino:upTo')} {
+                getUpToBonusAmountText({
+                  currentPromo,
+                  depositType,
+                  depositFiat,
+                  depositCrypto,
+                  exchangeRates,
+                  convertCurrency,
+                  formatCurrency,
+                })
+              }
+            </button>
+            <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+              1x
+            </button>
+          </div>
           <div className='text-primary font-semibold text-sm leading-5 flex items-center gap-1'>
             <div>{t('bonus:expires_in')}</div> <CountdownTimerThree expireTime={currentPromo?.expired_at} />
           </div>
@@ -140,7 +209,7 @@ export const ThursdaySuperBounsBanner = ({ currentPromo }: { currentPromo: ICurr
 export const ThursdaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any }) => {
 
   const { t } = useTranslation();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
   const { isRTL } = useRTLContext();
   return (
@@ -189,10 +258,28 @@ export const ThursdaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any
           <div className="flex items-center gap-4 mb-2">
             <p className="text-lg test-base text-white font-bold whitespace-pre-line leading-5">{t('bonus:thursday_bonus')}</p>
           </div>
-          <div className='text-primary font-semibold text-sm leading-5 flex items-center gap-1 mb-4 flex-wrap'>
+          <div className='text-primary font-semibold text-sm leading-5 flex items-center gap-1 flex-wrap'>
             <div>{t('bonus:expires_in')}</div> <CountdownTimerThree expireTime={currentPromo?.expired_at} />
           </div>
-          <button className="btn btn-primary max-w-[155px] p-2 h-auto m-0 my-1 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
+          <div className="flex items-center gap-1 mb-1.5">
+            <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+              {t('casino:upTo')} {
+                getUpToBonusAmountText({
+                  currentPromo,
+                  depositType,
+                  depositFiat,
+                  depositCrypto,
+                  exchangeRates,
+                  convertCurrency,
+                  formatCurrency,
+                })
+              }
+            </button>
+            <button className="btn btn-primary btn-soft p-1.5 text-xs h-auto flex font-bold">
+              1x
+            </button>
+          </div>
+          {/* <button className="btn btn-primary max-w-[155px] p-2 h-auto m-0 my-1 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
             {t('bonus:super_deposit_bonus',
               {
                 amount: getDepositAmountText({
@@ -206,6 +293,14 @@ export const ThursdaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any
                   formatCurrency,
                 }),
                 bonus_rate: getCashBonusText({
+                  bonus_rate: currentPromo?.bonus_rate,
+                }),
+              })}
+          </button> */}
+          <button className="btn btn-primary min-w-[151px] h-[32px] p-1 my-0.5 whitespace-pre-line text-left leading-4 font-bold text-ml text-[14px]">
+            {t('bonus:cash_bonus_low',
+              {
+                value: getCashBonusText({
                   bonus_rate: currentPromo?.bonus_rate,
                 }),
               })}

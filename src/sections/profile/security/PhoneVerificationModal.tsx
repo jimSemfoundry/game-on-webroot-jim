@@ -320,7 +320,7 @@ function matchResponseCodeErrorForPhone(code: number): string {
     case 60001:
       return "common.mobileAlreadyBound";
     case 1003:
-      return "您的操作过于频繁，请稍后再试！";
+      return "Too many requests. Please try again later.";
     default:
       return "common.phoneSendError";
   }

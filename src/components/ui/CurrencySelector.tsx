@@ -281,32 +281,19 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       className={`gap-1 flex items-center flex-1 text-base-content/50 md:text-md font-semibold text-sm hover:text-base-content/70 transition-colors cursor-pointer ${className}`}
       onClick={handleCurrencySwitchClick}
     >
-      <CurrencyIcon currency={selectedCurrency} className="w-6 h-6" />
-      <SmallLoading className={'!min-w-15'} loading={isBalanceLoading || isCurrencyLoading} content={showBalance ? (
-        <div className="flex flex-col text-left min-w-0">
-          {(() => {
-            // const selectedCurrencyData = currencies.find((c: any) => c.currency === selectedCurrency);
-            // const isCrypto = selectedCurrencyData?.currency_type === "CRYPTO";
-            const displayAmount = formatDisplayCurrencyAmount(currentBalance, selectedCurrency);
-
-            if (displayAmount) {
-              return (
-                <>
-                  <span
-                    className="text-base-content truncate tracking-tighter">{displayAmount}</span>
-                  {/* <span className="text-xs text-base-content/50 truncate">{formatAmount(currentBalance, selectedCurrency)}</span> */}
-                </>
-              );
-            } else {
-              return <span className="truncate">{formatAmount(currentBalance, selectedCurrency)}</span>;
-            }
-          })()}
-        </div>
-      ) : (
-        <span className="text-sm font-medium">{selectedCurrency}</span>
-      )}>
+      <CurrencyIcon currency={selectedCurrency} className="w-5 h-5" />
+      <SmallLoading
+        className={"!min-w-15"}
+        loading={isBalanceLoading || isCurrencyLoading}
+        content={
+          <InnerGuideDeposits
+            amount={formatDisplayCurrencyAmount(currentBalance, selectedCurrency) || formatAmount(currentBalance, selectedCurrency)}
+            currency={selectedCurrency}
+            balances={userBalanceData}
+            showBalance={showBalance}
+          />
+        }>
       </SmallLoading>
-
       <ChevronDown
         strokeWidth={3}
         className={`w-3 h-3 ltr:ml-auto rtl:mr-auto transition-transform ${dropdownOpen ? "rotate-180" : ""} flex-shrink-0`}
@@ -328,7 +315,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
    *    2. 等到法币充值完成之后再返回如何更新 🤔
    *      - 此时返回 - 页面会自动刷新 /api/profile数据更新 此时 deposit_times = 1
    */
-  // 用户 /profile 数据更新
+    // 用户 /profile 数据更新
   const { refetch: refetchProfile } = useCurrentUser();
 
   // 用户余额数据 - 定时更新
@@ -355,7 +342,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
 
   return (
     <>
-      <div className="relative z-1000" ref={dropdownRef}>
+      <div className="relative z-[1002]" ref={dropdownRef}>
         {trigger ? (
           <div onClick={handleCurrencySwitchClick}>{trigger}</div>
         ) : (
@@ -365,7 +352,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
         {/* Desktop Dropdown */}
         {dropdownOpen && !isLoading && !isCurrencyLoading && (
           <div
-            className="absolute p-3 top-full right-0 mt-2 bg-base-400 rounded-lg shadow-xl z-1000 min-w-[420px] min-h-[514px] overflow-hidden">
+            className="absolute p-3 top-full right-0 mt-2 bg-base-400 rounded-lg shadow-xl z-[1002] min-w-[420px] min-h-[514px] overflow-hidden">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Iconify icon="custom:wallet" className="w-5 h-5 text-primary" />
@@ -441,6 +428,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       {/* Mobile Modal */}
       <Modal
         isOpen={modalOpen}
+        zIndex={1002}
         onClose={() => {
           setModalOpen(false);
           setSearchTerm("");
@@ -538,4 +526,19 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       />
     </>
   );
+};
+
+const InnerGuideDeposits = ({ amount, currency, balances, showBalance }: {
+  amount: string,
+  currency: string,
+  balances: Record<string, any>,
+  showBalance: boolean
+}) => {
+  const is_all_zero = useMemo(() => {
+    if (balances.length === 0) return true;
+    return balances.every((b: { balance: string }) => Number(b.balance) === 0);
+  }, [balances]);
+  return !is_all_zero && <div className="font-sans text-xs font-bold tracking-tighter text-base-content">
+    {showBalance ? amount : currency}
+  </div>;
 };
