@@ -4,7 +4,7 @@ export const Route = createFileRoute("/landing/$splat")({
   validateSearch: (search: Record<string, unknown>) => ({
     url: (search.url as string) || undefined,
   }),
-  beforeLoad: ({ params, search, location }) => {
+  beforeLoad: ({ params, search }) => {
     const baseUrl = 'https://jim.playweb.vip'
       // typeof window !== "undefined" ? window.location.origin : undefined;
 
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/landing/$splat")({
       } else if (baseUrl) {
         const base = baseUrl.replace(/\/$/, "");
         const path = splat ? `/landing/${splat}` : "";
-        targetUrl = `${base}${path}${location.search ?? ""}${location.hash ?? ""}`;
+        targetUrl = `${base}${path}`;
       }
     }
 
