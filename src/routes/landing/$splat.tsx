@@ -5,8 +5,8 @@ export const Route = createFileRoute("/landing/$splat")({
     url: (search.url as string) || undefined,
   }),
   beforeLoad: ({ params, search, location }) => {
-    const baseUrl =
-      typeof window !== "undefined" ? window.location.origin : undefined;
+    const baseUrl = 'https://jim.playweb.vip'
+      // typeof window !== "undefined" ? window.location.origin : undefined;
 
     let targetUrl: string | undefined;
 
