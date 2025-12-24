@@ -18,6 +18,8 @@ export const Route = createFileRoute("/landing/$splat")({
       }
     }
 
+    console.log(baseUrl)
+    
     if (!targetUrl) {
       const splat = (params as { splat?: string }).splat || "";
 
