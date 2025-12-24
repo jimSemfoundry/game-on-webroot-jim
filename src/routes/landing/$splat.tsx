@@ -21,6 +21,10 @@ export const Route = createFileRoute("/landing/$splat")({
     if (!targetUrl) {
       const splat = (params as { splat?: string }).splat || "";
 
+      if (splat === "index.html") {
+        return;
+      }
+
       if (/^https?:\/\//i.test(splat)) {
         targetUrl = splat;
       } else if (baseUrl) {
@@ -32,6 +36,15 @@ export const Route = createFileRoute("/landing/$splat")({
 
     if (!targetUrl) {
       return;
+    }
+
+    try {
+      const resolvedTarget = new URL(targetUrl, window.location.href).href;
+      if (resolvedTarget === window.location.href) {
+        return;
+      }
+    } catch {
+      // ignore URL parsing errors and fall back to replace
     }
 
     window.location.replace(targetUrl);
