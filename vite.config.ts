@@ -298,6 +298,7 @@ export default defineConfig(({ mode }) => {
     registerType: 'autoUpdate',
     workbox: {
       navigateFallback: 'index.html',
+      navigateFallbackDenylist: [/^\/landing\//],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     },
