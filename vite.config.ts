@@ -291,9 +291,8 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const baseFolder = env.VITE_FOLDER;
   const isRoibest = env.VITE_PROMOTION_MODEL === 'roibest';
-  const myRoibest = env.VITE_PROMOTION_MODEL === 'myroibest';
+  const isMyRoibest = env.VITE_PROMOTION_MODEL === 'myRoibest';
   const baseUrl = isRoibest && env.NODE_ENV !== 'development' ? `/${baseFolder}/` : '/';
-
 
   const pwaOptions: Partial<VitePWAOptions> = {
     registerType: 'autoUpdate',
@@ -421,7 +420,7 @@ export default defineConfig(({ mode }) => {
   ]
 
   // 根据环境条件添加PWA插件
-  if (!isRoibest || !myRoibest) {
+  if (!isRoibest && !isMyRoibest) {
     plugins.push(VitePWA(pwaOptions));
   }
 
