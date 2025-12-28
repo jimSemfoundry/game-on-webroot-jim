@@ -54,7 +54,7 @@ export function GeneralError({ error }: GeneralErrorProps) {
                         )}
                     >
                         <img
-                            src="/images/error-states/1.svg"
+                            src={"/images/error-states/1.svg"}
                             alt="Something went wrong"
                             className="w-full max-w-[280px] h-auto mb-8"
                         />
