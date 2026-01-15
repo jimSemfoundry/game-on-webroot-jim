@@ -299,6 +299,12 @@ export default defineConfig(({ mode }) => {
     workbox: {
       navigateFallback: 'index.html',
       navigateFallbackDenylist: [/^\/landing\//],
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }: { url: URL }) => url.pathname.startsWith('/landing/'),
+          handler: 'NetworkOnly',
+        },
+      ],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     },
@@ -306,8 +312,11 @@ export default defineConfig(({ mode }) => {
       enabled: true,
     },
     manifest: {
+      id: "/pwa-main",
       name: env.VITE_WEBSITE_NICKNAME || '1st.game',
       short_name: env.VITE_WEBSITE_NICKNAME_LEFT || '1ST',
+      scope: "/",
+      start_url: "/main",
       description: `Enter the world of ${env.VITE_WEBSITE_NICKNAME || '1st.game'} - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill.`,
       theme_color: '#0f1419',
       icons: [
