@@ -31,7 +31,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
   const { login } = useAuth();
   // const siteName = import.meta.env.VITE_WEBSITE_NICKNAME || "";
   const { data: countryCodeResponse } = useCountryCodeByIp();
-  const {data: baseConf} = useBaseConfig()
+  const { data: baseConf } = useBaseConfig()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -145,6 +145,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
         ...device
       } : {
         ...data,
+        ad_param: ad_param,
         fbp: getCookie('_fbp') || '',
         fbc: getCookie('_fbc') || '',
         pixel_id: import.meta.env.VITE_FACEBOOK_PIXEL_ID || '',
