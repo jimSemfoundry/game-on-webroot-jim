@@ -299,12 +299,6 @@ export default defineConfig(({ mode }) => {
     workbox: {
       navigateFallback: 'index.html',
       navigateFallbackDenylist: [/^\/landing\//],
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }: { url: URL }) => url.pathname.startsWith('/landing/'),
-          handler: 'NetworkOnly',
-        },
-      ],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
     },
