@@ -297,6 +297,7 @@ export default defineConfig(({ mode }) => {
   const pwaOptions: Partial<VitePWAOptions> = {
     registerType: 'autoUpdate',
     workbox: {
+      cacheId: env.VITE_WEBSITE_NICKNAME || '1st.game',
       navigateFallback: 'index.html',
       navigateFallbackDenylist: [/^\/landing\//],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
