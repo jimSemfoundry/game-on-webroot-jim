@@ -13,7 +13,7 @@ interface TournamentBannerProps {
 }
 
 export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: TournamentBannerProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
 
   const mapTournamentToCard = (item: ITournament): TournamentCardData => {
     const provider = (item.game_provider || "").toLowerCase();

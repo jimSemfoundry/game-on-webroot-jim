@@ -1,8 +1,6 @@
 import { Modal } from "@/components/ui/Modal";
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef, useState } from "react";
 import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
-import { authService } from "@/services/authService";
 import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -11,73 +9,60 @@ import { X } from "lucide-react";
 import { useCurrencyData } from "@/hooks/useCurrency";
 import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useSupportedCurrencyV2Filter } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useGetPromoByPage } from "@/query/promo.tsx";
 
-export const LimitedOffer = () => {
-  const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
+// TODO: 满足条件时候会自动弹出
+export const LimitedOffer = (
+  {
+    open,
+    data,
+    onClose
+  }: {
+    open: boolean;
+    data: any;
+    onClose: () => void;
+  }) => {
+  const { t } = useTranslation("gameDetail");
 
-  const [currentPromo, setCurrentPromo] = useState<any>(null);
   const { user } = useAuth();
-  // const { data: currencies } = useSupportedCurrencies();
-  const { openUserFinanceModalWithTab } = useFinanceModal();
-  const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
-  const hasCheckedPromoRef = useRef(false);
 
-  // Get the current user's selected currency
-  // const currentCurrency = useMemo(() => {
-  //   if (!currencies || !user?.currency_fiat) return null;
-  //   const found = currencies.find((c) => c.currency === user.currency_fiat);
-  //   return found || null;
-  // }, [currencies, user?.currency_fiat]);
+  const { openUserFinanceModalWithTab } = useFinanceModal();
+
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
+
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
+
+  const { refetch: rfetchPromotion } = useGetPromoByPage(open);
 
   const [, , currencies] = useSupportedCurrencyV2Filter("FIAT", "DEPOSIT");
 
   const MathCeilFun = (amount: number, currency: string) => {
-    const currencyData = currencies.find((c: { value: string }) => c.value.toLowerCase() === currency.toLowerCase())
+    const currencyData = currencies.find((c: { value: string }) => c.value.toLowerCase() === currency.toLowerCase());
     if (currencyData) {
-      return Math.ceil(amount)
+      return Math.ceil(amount);
     }
-    return amount
-  }
-
-  useEffect(() => {
-    if (!user) return;
-    if (hasCheckedPromoRef.current) return;
-    hasCheckedPromoRef.current = true;
-
-    authService.checkDetailPromo().then((resCheck) => {
-      if (resCheck.code === 51005) {
-        authService.getCurrentPromo().then((res) => {
-          if (res.data) {
-            setCurrentPromo(res.data);
-            setOpen(true);
-          }
-        })
-      }
-    });
-  }, [user]);
+    return amount;
+  };
 
   return (
     <Modal
       isOpen={open}
-      onClose={() => setOpen(false)}
+      onClose={onClose}
       className="bg-transparent"
       hideTitle
       closeButtonClassName="hidden"
       position="modal-middle"
     >
       <div className="relative h-[446px] max-w-[351px] pt-[90px] mx-auto">
-        <img src="/images/special-offer/specialOffer.png" alt="" className="w-[180px] h-[180px] absolute top-0 left-[50%] translate-x-[-50%] z-[1]" />
+        <img src="/images/special-offer/specialOffer.png" alt=""
+             className="w-[180px] h-[180px] absolute top-0 left-[50%] translate-x-[-50%] z-[1]" />
         <div className="h-[356px] w-full flex flex-col items-center justify-center rounded-2xl pt-[90px] relative"
-          style={{
-            background: 'color(display-p3 0.027 0.043 0.063)',
-          }}>
+             style={{
+               background: "color(display-p3 0.027 0.043 0.063)"
+             }}>
           <div
             className={`absolute top-4 right-4`}
-            onClick={() => {
-              setOpen(false);
-            }}
+            onClick={onClose}
           >
             {/* <div className='bg-base-200 rounded-lg flex items-center justify-center w-6 h-6'>
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,40 +73,42 @@ export const LimitedOffer = () => {
             <button
               type="button"
               className={cn("btn btn-sm btn-square absolute top-4 right-5 rtl:left-4 rtl:right-auto")}
-              onClick={() => {
-                setOpen(false);
-              }}
+              onClick={onClose}
             >
               <X size={16} />
             </button>
           </div>
-          <p className="text-2xl font-bold text-white">{t('gameDetail:limitedOffer')}</p>
-          <p className="text-base font-semibold test-sm pt-1 text-base-content/80">{t('gameDetail:deposit', {
+          <p className="text-2xl font-bold text-white">{t("gameDetail:limitedOffer")}</p>
+          <p className="text-base font-semibold test-sm pt-1 text-base-content/80">{t("gameDetail:deposit", {
             value: `${(() => {
               const value = convertCurrency({
-                amount: currentPromo?.min_amount || 0,
-                fromCurrency: 'USDT',
-                toCurrency: user?.currency_fiat || 'USDT',
-                exchangeRates: exchangeRates,
+                amount: data?.min_amount || 0,
+                fromCurrency: "USDT",
+                toCurrency: user?.currency_fiat || "USDT",
+                exchangeRates: exchangeRates
               }) || 0;
 
               return formatCurrency({
-                currency: user?.currency_fiat || 'USDT',
-                amount: MathCeilFun(value, user?.currency_fiat || 'USD'),
+                currency: user?.currency_fiat || "USDT",
+                amount: MathCeilFun(value, user?.currency_fiat || "USD"),
                 showCode: false,
-                showSymbol: true,
-              }).formatted
+                showSymbol: true
+              }).formatted;
             })()
-              }`
+            }`
           })
           }</p>
-          <p className="text-primary text-2xl font-bold leading-5 pt-4">{t('gameDetail:get', {
-            value: `${formatWithConversion(currentPromo?.bonus_amount, "USDT", { showSymbol: true, showCode: false }).formatted}`
+          <p className="text-primary text-2xl font-bold leading-5 pt-4">{t("gameDetail:get", {
+            value: `${formatWithConversion(data?.bonus_amount, "USDT", {
+              showSymbol: true,
+              showCode: false
+            }).formatted}`
           })}</p>
-          <p className="text-white font-bold leading-5 pt-6 test-sm">{t('gameDetail:instantCashBonus')} </p>
-          <div className="text-base font-semibold test-sm pt-1 text-base-content/80 pt-1 flex items-center justify-center gap-1">
-            <p>{t('gameDetail:expires')}</p>
-            {CountdownTimerThree({ expireTime: currentPromo?.expired_at })}
+          <p className="text-white font-bold leading-5 pt-6 test-sm">{t("gameDetail:instantCashBonus")} </p>
+          <div
+            className="text-base font-semibold test-sm pt-1 text-base-content/80 pt-1 flex items-center justify-center gap-1">
+            <p>{t("gameDetail:expires")}</p>
+            {CountdownTimerThree({ expireTime: data?.expired_at })}
             {/* <div className="flex items-center justify-center gap-1 font-semibold">
               <div>
                 <span className="countdown ">
@@ -143,14 +130,17 @@ export const LimitedOffer = () => {
               </div>
             </div> */}
           </div>
-          <button className="btn btn-primary h-12 w-50 mt-[10px]" onClick={() => {
+          <button className="btn btn-primary mt-[10px]" onClick={() => {
+            void rfetchPromotion();
             openUserFinanceModalWithTab(`deposit_${randomString()}`);
-            setOpen(false);
+            onClose();
           }}
-          >{t('gameDetail:depositNow')}</button>
+          >{t("gameDetail:depositNow")}</button>
         </div>
       </div>
 
     </Modal>
   );
 };
+
+export default LimitedOffer;

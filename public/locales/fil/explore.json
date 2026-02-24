@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Ice Hockey",
   "basketball": "Basketball",
+  "cricket": "Cricket",
+  "eSoccer": "eSoccer",
   "volleyball": "Bolleyball",
   "hot": "Mainit",
   "all": "Lahat",
@@ -69,5 +71,6 @@
   "live-casino": "Live Casino",
   "sports": "Palakasan",
   "lotteries": "Loteriya",
-  "gamesYouShouldTry": "Mga Laro na Dapat Mong Subukan"
+  "gamesYouShouldTry": "Mga Laro na Dapat Mong Subukan",
+  "bonus": "Bonus"
 }

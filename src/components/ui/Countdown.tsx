@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import clsx from "clsx";
 
 export interface CountdownProps {
   /** Target timestamp (in seconds or milliseconds) or Date object */
@@ -95,23 +96,39 @@ export const Countdown = ({
   }
 
   return (
-    <div className={className || "font-mono text-2xl flex items-baseline"}>
-      <span className="countdown">
-        <span style={{ '--value': time.days } as React.CSSProperties}>{time.days}</span>
+    <div className={clsx("font-mono text-2xl flex items-baseline gap-x-1 rtl:flex-row-reverse", className)}>
+      <span className="flex items-baseline gap-x-0.5 rtl:flex-row-reverse">
+        <span className="countdown overflow-hidden">
+          {/*<span style={{ '--value': time.days } as React.CSSProperties}>*/}
+            {time.days}
+          {/*</span>*/}
+        </span>
+        <span>d</span>
       </span>
-      <span className="mr-0.5">d</span>
-      <span className="countdown">
-        <span style={{ '--value': time.hours } as React.CSSProperties}>{time.hours}</span>
+      <span className="flex items-baseline gap-x-0.5 rtl:flex-row-reverse">
+        <span className="countdown overflow-hidden">
+          {/*<span style={{ '--value': time.hours } as React.CSSProperties}>*/}
+            {time.hours}
+          {/*</span>*/}
+        </span>
+        <span>h</span>
       </span>
-      <span className="mr-0.5">h</span>
-      <span className="countdown">
-        <span style={{ '--value': time.minutes } as React.CSSProperties}>{time.minutes}</span>
+      <span className="flex items-baseline gap-x-0.5 rtl:flex-row-reverse">
+        <span className="countdown overflow-hidden">
+          {/*<span style={{ '--value': time.minutes } as React.CSSProperties}>*/}
+            {time.minutes}
+          {/*</span>*/}
+        </span>
+        <span>m</span>
       </span>
-      <span className="mr-0.5">m</span>
-      <span className="countdown">
-        <span style={{ '--value': time.seconds } as React.CSSProperties}>{time.seconds}</span>
+      <span className="flex items-baseline gap-x-0.5 rtl:flex-row-reverse">
+        <span className="countdown overflow-hidden">
+          {/*<span style={{ '--value': time.seconds } as React.CSSProperties}>*/}
+            {time.seconds}
+          {/*</span>*/}
+        </span>
+        <span>s</span>
       </span>
-      <span className="mr-0.5">s</span>
     </div>
   );
 };

@@ -8,12 +8,13 @@ import { InnerBonusLabel } from "@/components/Dock.tsx";
 type SidebarItemProps = {
   icon?: string
   label?: string
-  path?: string
+  to?: string
+  search?: Record<string, string | undefined>
   isActive?: boolean
   isMini?: boolean
 }
 
-const SidebarItemComponent = ({ icon, label, path, isActive, isMini }: SidebarItemProps) => {
+const SidebarItemComponent = ({ icon, label, to, search, isActive, isMini }: SidebarItemProps) => {
   const { isMobile, closeDrawer } = useSidebar()
 
   // Memoize className computation to avoid recalculation on every render
@@ -30,10 +31,12 @@ const SidebarItemComponent = ({ icon, label, path, isActive, isMini }: SidebarIt
     }
   }, [isMobile, closeDrawer])
 
+  // 构建Link的props
   return (
     <li className={'relative'}>
       <Link
-        to={path ?? ''}
+        to={to ?? ""}
+        search={search ? () => search : undefined}
         className={linkClassName}
         onClick={handleClick}
       >
@@ -42,7 +45,7 @@ const SidebarItemComponent = ({ icon, label, path, isActive, isMini }: SidebarIt
         {!isMini && (
           <m.span layout className="text-sm font-semibold whitespace-nowrap overflow-hidden">
             {label ?? ''}
-            <InnerBonusLabel label={path ?? ''} className={'static ml-1 h-4 w-4 rounded-sm'} />
+            <InnerBonusLabel label={to ?? ''} className={'static ml-1 h-4 w-6 rounded-sm'} />
           </m.span>
         )}
 

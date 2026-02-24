@@ -76,12 +76,39 @@
   "dashboard": "Tablero",
   "transactions": "Transacciones",
   "rollover": "Rollover",
-  "betHistory": "Historial de apuestas",
+  "betHistory": {
+    "empty": "No se encontró historial de apuestas",
+    "title": "Historial de apuestas",
+    "headers": {
+      "game": "Juego",
+      "date": "Fecha",
+      "betId": "ID de apuesta",
+      "betIn": "Apuesta",
+      "betOut": "Ganancia",
+      "account": "Cuenta",
+      "amount": "Cantidad",
+      "provider": "Proveedor",
+      "match": "Partido",
+      "tournament": "Torneo"
+    }
+  },
   "settings": "Configuraciones",
   "legal": "Legal",
   "nickname": "Apodo",
   "zoomAndAdjust": "Acercar y Ajustar",
   "systemLanguage": "Idioma del Sistema",
   "editProfile": "Editar Perfil",
-  "inviteAndGetRewarded": "Invita y Recibe Recompensas"
+  "inviteAndGetRewarded": "Invita y Recibe Recompensas",
+  "emailAddress": "Dirección de Correo Electrónico",
+  "codeSent": "Ingresa el Código Que Enviamos",
+  "codeSentTo": "Se ha enviado un código a",
+  "notReceiveCode": "¿No recibiste el código?",
+  "verificationSuccess": "Verificación Exitosa",
+  "spinHistory": {
+    "statusFilterLabel": "Estado"
+  },
+  "phone_number_has_been_verified": "Tu número de teléfono ha sido verificado. Ya puedes continuar.",
+  "email_address_has_been_verified": "Tu dirección de correo electrónico ha sido verificada. Ya puedes continuar.",
+  "setNewPassword": "Establecer nueva contraseña",
+  "passwordLengthRequirement": "Por favor ingrese una contraseña entre 6 y 64 caracteres."
 }

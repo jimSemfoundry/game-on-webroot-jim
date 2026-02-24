@@ -1,6 +1,7 @@
-import { Carousel, useCarousel } from "@/components/carousel";
 import Iconify from "@/components/iconify";
+import { GameCarousel } from "@/components/ui/GameCarousel";
 import { GameImage } from "@/components/ui/GameImage";
+import { isMobile } from "@/utils/browser";
 import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "@tanstack/react-router";
@@ -19,18 +20,6 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
   const categoryKey = category.replace(/-([a-z])/g, (_, letter) =>
     letter.toUpperCase(),
   );
-
-  const carousel = useCarousel({
-    slidesToShow: "auto",
-    startIndex: 0, // 从第一个开始
-    dragFree: true,
-    slideSpacing: "8px",
-    align: "start",
-    loop: true, // 保持循环功能
-    containScroll: "trimSnaps", // 防止滚动超出边界
-    inViewThreshold: 0.5, // 提高可见性阈值
-    skipSnaps: false, // 确保精确对齐
-  });
 
   // 使用 useCallback 优化错误处理函数
   const handleImageError = useCallback((gameId: string) => {
@@ -96,28 +85,24 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
     });
   }, [category, navigate]);
 
+  const lazyOnMobile = isMobile();
+
   return (
-    <div className="flex flex-col gap-2 w-full animate-fade-in">
-      <div className="flex justify-between items-center px-1">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={handleAllClick}>
-          <Iconify icon={`custom:${category}`} />
-          <p className="text-md sm:text-lg font-semibold">
-            {t(`explore:${categoryKey}`)}
-          </p>
-        </div>
-        <button 
-          className="btn btn-sm btn-primary"
-          onClick={handleAllClick}
-        >
-          {t("transaction:filters.all")}
-        </button>
-      </div>
-      <div className="relative">
-        <Carousel carousel={carousel}>
+    <GameCarousel className="gap-2 animate-fade-in">
+      <GameCarousel.Header onTitleClick={handleAllClick} onAllClick={handleAllClick} allLabel={t("transaction:filters.all")}>
+        <Iconify icon={`custom:${category}`} />
+        <p className="text-md sm:text-lg font-semibold">
+          {t(`explore:${categoryKey}`)}
+        </p>
+      </GameCarousel.Header>
+      <GameCarousel.Content>
+        <GameCarousel.Track>
           {validGames.map((game: any) => (
-            <div
+            <GameCarousel.Item
               key={game.id}
-              className="flex flex-col items-center gap-0.5 select-none w-26 sm:w-33"
+              className="flex flex-col items-center w-32 sm:w-36"
+              lazy={lazyOnMobile}
+              placeholder={<div className="w-full aspect-[3/4] rounded-field bg-base-200" />}
             >
               <GameImage
                 data={game}
@@ -129,16 +114,16 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
                 }}
                 enabledBanGameList
                 showHoverEffects={true}
+                lazy={!lazyOnMobile}
                 className="object-fill origin-center"
                 containerClassName="rounded-field"
                 onError={() => handleImageError(game.id)}
               />
-            </div>
+            </GameCarousel.Item>
           ))}
-        </Carousel>
-        {/* 轮播图的遮罩层 */}
-        <div className="absolute w-18 sm:w-36 rtl:left-0 ltr:right-0 top-0 bottom-0 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-transparent to-base-300 z-20 pointer-events-none" />
-      </div>
-    </div>
+        </GameCarousel.Track>
+        <GameCarousel.Fade />
+      </GameCarousel.Content>
+    </GameCarousel>
   );
 };

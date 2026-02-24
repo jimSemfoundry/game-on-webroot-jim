@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Ilmaiskierrospalkinnot",
   "common": {
     "close": "Sulje",
     "copy": "Kopioi",
@@ -12,7 +13,8 @@
     "swap": "Vaihda",
     "swapFrom": "Vaihda Lähteestä",
     "swapTo": "Vaihda Kohteeseen",
-    "noCommissionRecords": "Ei komissiotietoja löytynyt"
+    "noCommissionRecords": "Ei komissiotietoja löytynyt",
+    "createdOn": "Luotu"
   },
   "tabs": {
     "transactionHistory": "Tapahtumahistoria",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Nostoverkko",
     "blockchainWaiting": "Odottaa blockchain-vahvistusta.",
     "blockchainFailed": "Blockchain-tapahtuma epäonnistui.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Olemme vastaanottaneet pyyntösi.<br/>Tarkistaaksesi tilan, tarkista Tapahtumat Profiilissasi."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Yhteensä Vaadittu Panostus",
     "wagerCompleted": "Panostus Suoritettu",
     "pendingWagerRequired": "Odottaa Panostusvaatimus",
-    "unlockedFunds": "Avaamaton Rahat"
-  }
+    "unlockedFunds": "Avatut varat",
+    "rolloverMul": "Panoskerroin"
+  },
+  "assistance": "Tarkista tietosi ja yritä uudelleen tai ota yhteyttä asiakaspalveluun saadaksesi apua"
 }

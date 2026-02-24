@@ -76,12 +76,39 @@
   "dashboard": "डैशबोर्ड",
   "transactions": "लेनदेन",
   "rollover": "रोलओवर",
-  "betHistory": "बेट इतिहास",
+  "betHistory": {
+    "empty": "कोई बेट इतिहास नहीं मिला",
+    "title": "बेट इतिहास",
+    "headers": {
+      "game": "गेम",
+      "date": "तारीख",
+      "betId": "बेट आईडी",
+      "betIn": "बेट",
+      "betOut": "जीत",
+      "account": "खाता",
+      "amount": "राशि",
+      "provider": "प्रदाता",
+      "match": "मैच",
+      "tournament": "टूर्नामेंट"
+    }
+  },
   "settings": "सेटिंग्स",
   "legal": "कानूनी",
   "nickname": "उपनाम",
   "zoomAndAdjust": "जूम और समायोजित करें",
   "systemLanguage": "सिस्टम भाषा",
   "editProfile": "प्रोफ़ाइल संपादित करें",
-  "inviteAndGetRewarded": "निमंत्रण दें और पुरस्कार प्राप्त करें"
+  "inviteAndGetRewarded": "निमंत्रण दें और पुरस्कार प्राप्त करें",
+  "emailAddress": "ईमेल पता",
+  "codeSent": "हमने जो कोड भेजा है उसे दर्ज करें",
+  "codeSentTo": "एक कोड भेजा गया है",
+  "notReceiveCode": "कोड नहीं मिला?",
+  "verificationSuccess": "सत्यापन सफल",
+  "spinHistory": {
+    "statusFilterLabel": "स्थिति"
+  },
+  "phone_number_has_been_verified": "आपका फोन नंबर सत्यापित हो गया है। आप आगे बढ़ सकते हैं।",
+  "email_address_has_been_verified": "आपका ईमेल पता सत्यापित हो गया है। आप आगे बढ़ सकते हैं।",
+  "setNewPassword": "नया पासवर्ड सेट करें",
+  "passwordLengthRequirement": "कृपया 6 से 64 अक्षरों के बीच एक पासवर्ड दर्ज करें।"
 }

@@ -6,19 +6,21 @@ import { CategoryGames } from "@/sections/casino/CategoryGames.tsx";
 import { Footer } from "@/sections/casino/Footer.tsx";
 import { GameProviders } from "@/sections/casino/GameProviders.tsx";
 import HeroBanner from "@/sections/casino/hero-banner";
-import { LiveBets } from "@/sections/casino/LiveBets.tsx";
+import { LiveBets } from "@/sections/casino/live-bets";
 import { PromotionalSection } from "@/sections/casino/PromotionalSection.tsx";
 import { QuickActions } from "@/sections/casino/QuickActions.tsx";
+import { LazySection } from "@/components/ui/LazySection";
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { memo, useEffect } from "react";
 import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { WelcomeSignUp } from "@/components/modal/UserFinanceModal/c/WelcomeSignUpModal.tsx";
 import { getBroadcastChannel } from "@/utils/helper.ts";
 import { isTelegramWebApp } from "@/utils/telegramWebApp";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { BonusWalletActivityActivationCheck } from "@/sections/casino/BonusWalletActivityActivationCheck.tsx";
+import { LimitOfferPromoCheck } from "@/sections/casino/LimitOfferPromoCheck.tsx";
 
 const RouteComponent = memo(function RouteComponent() {
   const { t } = useTranslation();
@@ -28,6 +30,7 @@ const RouteComponent = memo(function RouteComponent() {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const search = useSearch({ from: "/_main/casino/" });
+  const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
 
   const { data: casinoHomeGameList } = casinoHomeGameListResponse ?? {};
 
@@ -101,6 +104,11 @@ const RouteComponent = memo(function RouteComponent() {
     if (toast_id) toast.dismiss(toast_id);
 
     if (channel) channel.onmessage = () => {
+      // 防止重复提示
+      const pwa_prompt_lock = "pwa_update_prompt_lock";
+      const last_prompt = sessionStorage.getItem(pwa_prompt_lock);
+      if (last_prompt) return;
+
       toast_id = toast.info(t("common.newVersionDiscovered", "We have an update!"), {
         description: t("common.refreshToLatestVersionImmediately", "Reload the page to enjoy a new gaming experience."),
         duration: Infinity,
@@ -108,7 +116,12 @@ const RouteComponent = memo(function RouteComponent() {
           label: t("common.pressToUpdate", "Refresh"),
           onClick: () => {
             toast.dismiss(toast_id);
-            window.location.reload();
+            // 标记已提示，避免重复
+            sessionStorage.setItem(pwa_prompt_lock, Date.now().toString());
+            // 延迟刷新，确保 toast 完全关闭
+            setTimeout(() => {
+              window.location.reload();
+            }, 300);
           }
         },
         richColors: false
@@ -119,30 +132,51 @@ const RouteComponent = memo(function RouteComponent() {
     return () => channel?.close();
   }, []);
 
-  if (!casinoHomeGameList) return null;
+  // if (!casinoHomeGameList) return null;
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 px-5 py-3 w-full">
-      <HeroBanner />
-      <RecentBigWins />
-      {casinoHomeGameList && (
-        <FeaturedGames games={casinoHomeGameList?.home_data?.hot_game || []}
-                       country_code={casinoHomeGameList?.country_code} />
-      )}
-
-      {casinoHomeGameList &&
-        casinoHomeGameList?.home_data?.game_category?.map((c: any, i: number) => (
-          <CategoryGames key={`${c.category}-${i}`} games={c.games} category={c.category} />
-        ))}
-      <GameProviders />
-      <QuickActions games={casinoHomeGameList?.home_data?.hot_game || []} />
-      <PromotionalSection />
-      <LiveBets />
-      <AcceptCurrencies />
-      <AlliancePartnerships />
-      <Footer />
-      <WelcomeSignUp />
-    </div>
+    <BonusWalletActivityActivationCheck>
+      <LimitOfferPromoCheck>
+        <div className="flex flex-col gap-4 sm:gap-6 px-5 py-3 w-full">
+          <LazySection>
+            <HeroBanner />
+          </LazySection>
+          <LazySection>
+            <RecentBigWins />
+          </LazySection>
+          <LazySection>
+            <PromotionalSection />
+          </LazySection>
+          <FeaturedGames
+            games={casinoHomeGameList?.home_data?.hot_game || []}
+            country_code={casinoHomeGameList?.country_code}
+          />
+          {(casinoHomeGameList?.home_data?.game_category ?? [])?.map((c: any) => (
+            <CategoryGames key={c.category} games={c.games} category={c.category} />
+          ))}
+          <LazySection>
+            <GameProviders />
+          </LazySection>
+          <LazySection>
+            <QuickActions games={casinoHomeGameList?.home_data?.hot_game || []} />
+          </LazySection>
+          <LazySection>
+            <LiveBets />
+          </LazySection>
+          <LazySection>
+            <AcceptCurrencies />
+          </LazySection>
+          {!shouldHideAlliancePartnerships && (
+            <LazySection>
+              <AlliancePartnerships />
+            </LazySection>
+          )}
+          <LazySection>
+            <Footer />
+          </LazySection>
+        </div>
+      </LimitOfferPromoCheck>
+    </BonusWalletActivityActivationCheck>
   );
 });
 

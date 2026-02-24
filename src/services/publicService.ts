@@ -1,9 +1,20 @@
 import publicAxiosInstance from "@/lib/publicAxios";
 import type { ApiResponse } from "@/types/auth";
 import { getTelegramInitData } from "@/utils/telegramWebApp";
-import type { WebPushSubscriptionPayload } from "@/utils/pushSubscription";
 
 export const publicService = {
+  async getAggregationConfig(lang?: string): Promise<ApiResponse<any>> {
+    const params: Record<string, string> = {
+      group: "exchange_rate"
+    };
+
+    if (lang) {
+      params.lang = lang;
+    }
+
+    const response = await publicAxiosInstance.get<ApiResponse<any>>("/TelegramBot/baseUrlAgg", { params });
+    return response.data;
+  },
   async getBaseConfig(): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.get<ApiResponse<any>>("/TelegramBot/baseUrl");
     return response.data;
@@ -95,7 +106,7 @@ export const publicService = {
    * 获取Casino游戏提供商列表
    */
   async getGameProviders(): Promise<ApiResponse<any>> {
-    const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameProvider/getProviders");
+    const response = await publicAxiosInstance.get<ApiResponse<any>>("/GameProvider/getProvidersV1");
 
     if (response.data.code !== 0) {
       throw new Error(response.data.msg || "Failed to get game providers");
@@ -249,8 +260,7 @@ export const publicService = {
 
   async loginByTMA(data: Record<string, any> = {}): Promise<ApiResponse<any>> {
     const telegramInitData = getTelegramInitData();
-    const tmaToken = telegramInitData || (import.meta.env.VITE_TMA_TOKEN as string | undefined) || "";
-
+    const tmaToken = telegramInitData;
     const response = await publicAxiosInstance.post<ApiResponse<any>>("/Authentication/loginByTMA", data, {
       headers: {
         Authorization: `tma ${tmaToken}`
@@ -267,11 +277,6 @@ export const publicService = {
 
   async refreshFcmToken(fcm_token: string): Promise<ApiResponse<any>> {
     const response = await publicAxiosInstance.post("/user/refreshFcmToken", { fcm_token });
-    return response.data;
-  },
-
-  async saveWebPushSubscription(subscription: WebPushSubscriptionPayload): Promise<ApiResponse<any>> {
-    const response = await publicAxiosInstance.post("/push/subscribe", subscription);
     return response.data;
   },
 

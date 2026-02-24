@@ -4,7 +4,7 @@ import { SwapSend } from "@/components/modal/UserFinanceModal/c/SwapSend.tsx";
 import { WarningCard } from "@/components/modal/UserFinanceModal/c/WarningCard.tsx";
 import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import Decimal from "decimal.js";
 import { ArrowDownUpIcon } from "lucide-react";
 import { ReactNode, useCallback } from "react";
@@ -70,7 +70,7 @@ export const Swap = ({ open }: { open: boolean }) => {
 
       toast.success(
         <div className="flex flex-col font-semibold">
-          <span className="font-bold">{t("common.submissionSuccessful")}</span>
+          <span className="font-bold">{t("common:common.submissionSuccessful")}</span>
           <span className="">{t("toast:swapOrderCreatedSuccessfully")}</span>
         </div>
       );

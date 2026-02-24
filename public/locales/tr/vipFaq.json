@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Haftalık Bonus Nedir?",
-    "content": "<p class=\"leading-7\">Haftalık Bonus, VIP12 ve üzeri oyuncular için tasarlanmış özel bir avantajdır. Bu bonus haftalık olarak verilir ve VIP12 ve üzerindeki oyunculara her Cuma otomatik olarak ödenir. Bonusun büyüklüğü, son hafta içinde yapılan bahis miktarına bağlıdır ve son hafta içinde en az {{minWager}} bahis yapma gerekliliği vardır.</p>"
+    "content": "<p class=\"leading-7\">Haftalık Bonus, VIP2 ve üzeri oyuncular için tasarlanmış özel bir avantajdır. Bonus haftalık olarak Pazartesi günleri verilir ve bir sonraki haftalık bonus çıktığında süresi dolar. Bonusun büyüklüğü, son hafta içinde yapılan bahis miktarına bağlıdır ve son hafta içinde en az {{minWager}} etkili bahis yapma gerekliliği vardır.</p>"
   },
   "faqNine": {
     "title": "Başarılar Nedir?",

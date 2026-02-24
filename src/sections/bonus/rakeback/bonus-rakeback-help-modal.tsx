@@ -13,7 +13,7 @@ interface BonusRakebackHelpModalProps {
 const ILLUSTRATION_URL = "/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png";
 
 export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['popup', 'bonus']);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient:
@@ -43,7 +43,7 @@ export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMod
 
         {/* Main content card */}
         <div className="bg-base-400 rounded-box relative">
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 
@@ -85,11 +85,14 @@ export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMod
 
               <p className="mt-4 text-base-content/50 text-xs">
                 
-                <Trans
-                  i18nKey={'popup:rakeback.minimumClaimAmount'}
-                  components={[<span className="text-primary" />]}
-                  values={{ money: formatWithConversion(1, "USD", { showCode: false }).formatted }}
-                />
+                  <Trans
+                    i18nKey={'popup:rakeback.minimumClaimAmount'}
+                    components={[<span className="text-primary" />]}
+                    values={{
+                      money: formatWithConversion(1, "USD", { showCode: false }).formatted,
+                      value: formatWithConversion(1, "USD", { showCode: false }).formatted,
+                    }}
+                  />
                 {/* {t("popup:missions.minimumClaimAmount", { money: formatWithConversion(0.1, "USD", { showCode: false }).formatted })} */}
               </p>
 

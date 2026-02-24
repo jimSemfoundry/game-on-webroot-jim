@@ -28,14 +28,16 @@ function VipFeatureCardItem({
   title,
   description,
   isUnlocked,
+  link,
 }: {
   illustration: string;
   vipLevel: number;
   title: string;
   description: string;
   isUnlocked: boolean;
+  link?: string;
 }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const isMobile = useMediaQuery("(max-width: 640px)");
   const defaultGradient = isMobile ? MOBILE_DEFAULT_GRADIENT : DESKTOP_DEFAULT_GRADIENT;
 
@@ -93,7 +95,7 @@ function VipFeatureCardItem({
 
       {isUnlocked ? (
         <Link
-          to="/bonus"
+          to={link || "/bonus"}
           className="btn btn-primary btn-sm sm:btn-md shrink-0 sm:w-full sm:mt-auto"
         >
           <span>{t("bonus:go")}</span>
@@ -101,7 +103,7 @@ function VipFeatureCardItem({
       ) : (
         <button type="button" className="btn btn-primary btn-soft btn-sm sm:btn-md pointer-events-none shrink-0 sm:w-full sm:mt-auto" aria-disabled="true">
           <Iconify icon="mingcute:lock-fill" width={16} height={16} />
-          <span>{t("bonus:vip")} {vipLevel}</span>
+          <span className="uppercase">{t("bonus:vip")} {vipLevel}</span>
         </button>
       )}
     </article>
@@ -114,13 +116,14 @@ const FEATURE_CARDS = [
     vipLevel: 2,
     titleKey: "bonus:achievements",
     descriptionKey: "bonus:achievements_card_description",
+    link: "/bonus?tab=achievements",
   },
   {
     illustration: "/images/illustrations/a0460e0b128df2ab73ba3a735212bd9d95c841b1.png",
-    vipLevel: 4,
+    vipLevel: 5,
     titleKey: "bonus:mystery_box",
     descriptionKey: "bonus:mystery_box_description2",
-    descriptionParams: { vip: 4 },
+    descriptionParams: { vip: 5 },
   },
   {
     illustration: "/images/illustrations/isometric2.svg",
@@ -173,6 +176,7 @@ export function VipFeatureCards() {
             title={t(card.titleKey)}
             description={t(card.descriptionKey, card.descriptionParams)}
             isUnlocked={currentVipLevel >= card.vipLevel}
+            link={card.link}
           />
         ))}
       </div>

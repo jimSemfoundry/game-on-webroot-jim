@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Gratis Spin Belønninger",
   "common": {
     "close": "Luk",
     "copy": "Kopier",
@@ -12,7 +13,8 @@
     "swap": "Byt",
     "swapFrom": "Byt Fra",
     "swapTo": "Byt Til",
-    "noCommissionRecords": "Ingen kommissionsposter fundet"
+    "noCommissionRecords": "Ingen kommissionsposter fundet",
+    "createdOn": "Oprettet"
   },
   "tabs": {
     "transactionHistory": "Transaktionshistorik",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Udbetalingsnetværk",
     "blockchainWaiting": "Venter på blockchain-bekræftelse.",
     "blockchainFailed": "Blockchain-transaktionen fejlede.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Vi har modtaget din anmodning.<br/>For at se status, tjek Transaktioner i din Profil."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Samlet Væddemål Krævet",
     "wagerCompleted": "Væddemål Fuldført",
     "pendingWagerRequired": "Afventende Væddemål Krævet",
-    "unlockedFunds": "Frigivne Midler"
-  }
+    "unlockedFunds": "Ulåste midler",
+    "rolloverMul": "Indsatsmultiplikator"
+  },
+  "assistance": "Kontroller venligst dine oplysninger og prøv igen eller kontakt kundeservice for hjælp"
 }

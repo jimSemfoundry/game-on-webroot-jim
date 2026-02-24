@@ -76,12 +76,39 @@
   "dashboard": "Hlavní panel",
   "transactions": "Transakce",
   "rollover": "Převrácení",
-  "betHistory": "Historie sázek",
+  "betHistory": {
+    "empty": "Nebyla nalezena žádná historie sázek",
+    "title": "Historie sázek",
+    "headers": {
+      "game": "Hra",
+      "date": "Datum",
+      "betId": "ID sázky",
+      "betIn": "Sázka",
+      "betOut": "Výhra",
+      "account": "Účet",
+      "amount": "Částka",
+      "provider": "Poskytovatel",
+      "match": "Zápas",
+      "tournament": "Turnaj"
+    }
+  },
   "settings": "Nastavení",
   "legal": "Právní",
   "nickname": "Přezdívka",
   "zoomAndAdjust": "Přiblížit a upravit",
   "systemLanguage": "Systémový jazyk",
   "editProfile": "Upravit profil",
-  "inviteAndGetRewarded": "Pozvěte a získejte odměnu"
+  "inviteAndGetRewarded": "Pozvěte a získejte odměnu",
+  "emailAddress": "E-mailová adresa",
+  "codeSent": "Zadejte kód, který jsme poslali",
+  "codeSentTo": "Kód byl odeslán na",
+  "notReceiveCode": "Nedostali jste kód?",
+  "verificationSuccess": "Ověření úspěšné",
+  "spinHistory": {
+    "statusFilterLabel": "Stav"
+  },
+  "phone_number_has_been_verified": "Vaše telefonní číslo bylo ověřeno. Můžete pokračovat.",
+  "email_address_has_been_verified": "Vaše e-mailová adresa byla ověřena. Můžete pokračovat.",
+  "setNewPassword": "Nastavit nové heslo",
+  "passwordLengthRequirement": "Zadejte heslo o délce 6 až 64 znaků."
 }

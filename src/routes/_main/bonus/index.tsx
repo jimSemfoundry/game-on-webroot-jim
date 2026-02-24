@@ -7,7 +7,7 @@ import {
   // BonusCannonCard,
   // BonusCollectorCard,
   // BonusConquestsSection,
-  BonusCashbackCard, BonusConquestsSection,
+  BonusConquestsSection,
   BonusDepositCard,
   BonusFreeSpinsCard,
   // BonusJesterCard,
@@ -20,10 +20,11 @@ import {
   MysteryBoxCard,
   Tabs
 } from "@/sections/bonus";
+import { BonusCashbackCard } from "@/sections/bonus/cashback/bonus-cashback-card.tsx";
 import { BonusTournamentCard } from "@/sections/bonus/tournament/bonus-tournament-card.tsx";
 import { AlliancePartnerships } from "@/sections/casino/AlliancePartnerships.tsx";
 import { Footer } from "@/sections/casino/Footer.tsx";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { VIP_REQUIREMENTS } from "@/sections/bonus/shared/config";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -31,15 +32,22 @@ import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/Withd
 
 export const Route = createFileRoute("/_main/bonus/")({
   component: RouteComponent,
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      tab: (search.tab as string) || undefined,
+    };
+  },
 });
 
 function RouteComponent() {
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
   const [value, setValue] = useState("dashboard");
-  const { switchData } = useBonusSwitch();
+  const { switchData, isLoading: bonusSwitchLoading } = useBonusSwitch();
   const { status } = useAuth();
   const navigate = useNavigate();
+  const search = useSearch({ from: "/_main/bonus/" });
+  const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
 
   const unlockedVipBonuses = useMemo(() => {
     if (!status?.vip) return 0;
@@ -92,7 +100,7 @@ function RouteComponent() {
         <BonusCollectorCard />
       </div> */}
 
-      <Tabs value={value} onChange={setValue} className="gap-2 bg-base-300 px-5 sm:px-0" />
+      <Tabs value={value} onChange={setValue} className="gap-2 bg-base-300 px-5 sm:px-0" urlTab={search.tab} />
 
       <div className="px-5 sm:px-0">
         {value === "dashboard" && (
@@ -169,7 +177,7 @@ function RouteComponent() {
               </>
             )}
 
-            <InnerDisplayContent show={isAuthenticated && switchData?.bonus_switch?.conquest !== 0}>
+            <InnerDisplayContent show={isAuthenticated && !bonusSwitchLoading && switchData?.bonus_switch?.conquest !== 0}>
               {/* Conquests Section - now displayed directly in dashboard */}
               <div className="flex items-center gap-2">
                 <Iconify icon="custom:target" width={20} height={20} className="text-primary" />
@@ -212,9 +220,11 @@ function RouteComponent() {
           </div>
         )}
       </div>
-      <div className="sm:block hidden">
-        <AlliancePartnerships />
-      </div>
+      {!shouldHideAlliancePartnerships && (
+        <div className="sm:block hidden">
+          <AlliancePartnerships />
+        </div>
+      )}
       <div className="sm:block hidden">
         <Footer />
       </div>

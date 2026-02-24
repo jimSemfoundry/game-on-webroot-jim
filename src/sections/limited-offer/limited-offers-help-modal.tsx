@@ -60,18 +60,18 @@ const BackgroundSVG = () => (
   </svg>
 );
 
-interface LimitedOffersHelpModalProps { 
+interface LimitedOffersHelpModalProps {
   currentPromo: ICurrentPromoList;
   open: boolean;
   onClose: () => void;
 }
 
-export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: LimitedOffersHelpModalProps) => { 
-  const { t } = useTranslation();
+export const LimitedOffersHelpModal = ({ currentPromo, open, onClose }: LimitedOffersHelpModalProps) => {
+  const { t } = useTranslation('popup');
   const { isRTL } = useRTLContext();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
-  const { selectedCurrency, formatWithoutConversion } = useDisplayCurrencyFormatter();
+  const { selectedCurrency } = useDisplayCurrencyFormatter();
 
   // Memoize currency calculations
   const currentCurrency = useMemo(
@@ -83,23 +83,22 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
     const value = convertCurrency({
       amount: currentPromo?.min_amount,
       fromCurrency: 'USDT',
-      toCurrency: depositFiat?.currency?.currency,
+      toCurrency:
+        depositType === "fiat"
+          ? depositFiat?.currency?.currency
+          : depositCrypto?.currency?.currency,
       exchangeRates: exchangeRates,
     }) || 0;
 
-    const valueNum = Math.ceil(value || 0);
+    const valueNum = depositType === "fiat" ? Math.ceil(value) : value;
 
-    return depositType === 'fiat'
-      ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${valueNum}`
-      : formatWithoutConversion(
-          currentPromo?.min_amount,
-          depositCrypto?.currency?.currency,
-          {
-            showSymbol: true,
-            minimizeDecimals: true,
-          }
-        ).formatted;
-  }, [currentPromo?.min_amount, depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency, convertCurrency, exchangeRates, getCurrencySymbol, formatWithoutConversion]);
+    return formatCurrency({
+      amount: valueNum,
+      currency: depositType === "fiat" ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+      showSymbol: true,
+      showCode: false,
+    }).formatted;
+  }, [currentPromo?.min_amount, depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency, convertCurrency, formatCurrency]);
 
   const formattedBonusAmount = useMemo(() => {
     const value = convertCurrency({
@@ -123,6 +122,7 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
       isOpen={open}
       onClose={onClose}
       position="modal-middle"
+      zIndex={1006}
       className="bg-transparent md:w-[500px] max-w-lg p-0"
     >
       <div className="flex flex-col gap-1">
@@ -130,7 +130,7 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
         <div className="rounded-box text-center relative overflow-hidden h-[138px] flex items-center">
           <div className="relative z-10 flex items-center h-full justify-between w-full">
             <div className="w-full h-full rounded-lg relative overflow-hidden bg-base-400">
-              <div 
+              <div
                 className="absolute inset-0 w-full h-full"
                 style={{ transform: isRTL ? "scaleX(-1)" : "none" }}
               >
@@ -142,15 +142,15 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
                     {t('bonus:recovery_bonus_title')}
                   </p>
                   <button className="btn btn-primary min-w-[151px] h-[38px] p-2 my-1 whitespace-pre-line text-left leading-4 font-bold text-[14px]">
-                    {t('popup:cash_bonus_btn', { value: '15%' })}
+                    {t('popup:cash_bonus_btn', { value: '' })}
                   </button>
                 </div>
-                <img 
-                  src="/images/double-nothing/recoveryBonus.png" 
+                <img
+                  src="/images/special-offer/specialOffer.png"
                   alt="Recovery Bonus"
-                  className="w-[146px] h-[146px] absolute top-[-3px]"
+                  className="w-[152px] h-[152px] absolute top-[1px]"
                   style={{
-                    [isRTL ? "left" : "right"]: "3px",
+                    [isRTL ? "left" : "right"]: "-7px",
                     transform: isRTL ? "scaleX(-1)" : "none",
                   }}
                 />
@@ -162,9 +162,9 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
         {/* 下方独立的主卡片 - 包含close按钮 */}
         <div className="bg-base-400 rounded-box relative" style={{ background: 'rgba(7, 11, 16, 1)' }}>
           {/* Close按钮 - 位于右上角 */}
-          <button 
-            onClick={onClose} 
-            className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
             aria-label="Close"
           >
             <CloseIcon />
@@ -179,18 +179,18 @@ export const LimitedOffersHelpModal  = ({ currentPromo, open, onClose }: Limited
 
             <div className="max-h-[400px] overflow-y-auto pb-12 flex flex-col gap-4">
               {/* 描述文本 */}
-              <p className="text-xs text-base-content/50 leading-5">
-                <Trans
-                  i18nKey={'popup:doubleOrNothing.offer_details_desc'}
-                  components={[<span className="text-primary" />]}
-                  values={{
-                    value: '15%',
-                    amount: formattedMinAmount,
-                    cash_bonus: formattedBonusAmount,
-                  }}
-                />
+              {/*<p className="text-xs text-base-content/50 leading-5">*/}
+              {/*  <Trans*/}
+              {/*    i18nKey={'popup:doubleOrNothing.offer_details_desc'}*/}
+              {/*    components={[<span className="text-primary" />]}*/}
+              {/*    values={{*/}
+              {/*      value: '15%',*/}
+              {/*      amount: formattedMinAmount,*/}
+              {/*      cash_bonus: formattedBonusAmount,*/}
+              {/*    }}*/}
+              {/*  />*/}
 
-              </p>
+              {/*</p>*/}
               <div className="flex gap-2.5 justify-between">
                 <div className="py-3 bg-base-300 rounded-field px-4 flex-1">
                   <p className="text-xs text-base-content/50 mb-1 font-semibold">{t('bonus:deposit')}</p>

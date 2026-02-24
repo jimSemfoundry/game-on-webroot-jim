@@ -26,7 +26,7 @@ interface TournamentCardProps {
 
 
 export const TournamentCard = ({ data, onClick, className }: TournamentCardProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { data: livePrize } = useTournamentPoolPrize(data.tournamentId, data.tournamentLevel);
 

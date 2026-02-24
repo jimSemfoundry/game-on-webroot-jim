@@ -1,9 +1,10 @@
-import classNames from "classnames";
+import { clsx } from "clsx";
 import { ReactNode } from "react";
 
 export const ErrorMessageBox = (
   {
     show,
+    sample,
     content,
     className
   }: {
@@ -14,7 +15,10 @@ export const ErrorMessageBox = (
   }) => {
   return (
     <div
-      className={classNames("mt-1 text-error/55 text-[11px] font-extrabold font-sans", className, show ? "block" : "hidden")}>
+      className={clsx("w-full text-warning text-[11px] font-semibold", className,
+        show ? "block" : "hidden",
+        sample ? "whitespace-normal static mt-1 tracking-tighter leading-tight" : "truncate absolute",
+      )}>
       {content}
     </div>
   );

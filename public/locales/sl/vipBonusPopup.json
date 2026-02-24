@@ -5,11 +5,11 @@
     "achievements": "Dosežki",
     "achievementDescription": "Nagrade za dosežke so nagrade, podeljene za dosego novih mejnikov in premagovanje izzivov. Praznujemo vaš napredek in uspeh ter odklepamo zabavne presenečenja, ko dosegate nove dosežke!",
     "claimDistribution": "Porazdelitev zahtevkov",
-    "claimDistributionDescription": "Nagrade se dodajo vašemu bonusnemu koledarju za 3 dni po zahtevku.",
+    "claimDistributionDescription": "Vaše nagrade se takoj pridobijo in so na voljo za izplačilo iz vašega depozitnega <0>bonusnega sklada</0>, ko uveljavite novo nagrado za dosežek.",
     "expiration": "Potek",
-    "expirationDescription": "Brez - Nagrade se samodejno pošljejo v koledar.",
+    "expirationDescription": "Brez – zahtevki so na voljo, dokler je stanje Bonus Pool dovolj veliko.",
     "generalTerms": "Splošni pogoji",
-    "generalTermsDescription": "Nagrade se izračunajo in pripišejo v BUCK/USDT, nato pa se prikažejo v vaši želeni fiat valuti za udobje. Upoštevajte, da so pretvorbe valut približne.\n\nKasino si pridržuje pravico, da kadarkoli spremeni ali prekliče upravičenost, brez obveznosti, da to utemelji. Vsaka zloraba ali goljufiva dejavnost bo privedla do diskvalifikacije iz promocije."
+    "generalTermsDescription": "Nagrade se izračunajo in knjižijo v USDT, nato pa so zaradi udobja prikazane v vaši izbrani fiat valuti. Upoštevajte, da so menjalni tečaji približni.\n\nKazino si pridržuje pravico, da kadar koli spremeni ali prekliče upravičenost brez obveznosti pojasnila. Vsaka zloraba ali goljufiva dejavnost bo privedla do diskvalifikacije iz promocije."
   },
   "luckyNumberSeven": {
     "title": "Srečna številka \n Sedem",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Najmanjši znesek zahtevka je {{money}}",
     "expiration": "Potek",
-    "expirationDescription": "Vaša Misterija Škatla mora biti zahtevana v 7 dneh od podelitve. Nezahtevane nagrade bodo potekle po tem obdobju.",
+    "expirationDescription": "Vaša Misterija Škatla mora biti zahtevana v 3 dneh od podelitve. Nezahtevane nagrade bodo potekle po tem obdobju.",
     "generalTerms": "Splošni pogoji",
     "generalTermsDescription": "Nagrade se izračunajo in pripišejo na podlagi prvega pologa uporabnika ali v USDT, če polog ni opravljen, pod pogojem, da je potreben 1x rollover. Zneski so prikazani v vaši želeni fiat valuti; pretvorbe so približne.\n\n Kasino si pridržuje pravico, da kadarkoli spremeni ali prekliče upravičenost brez predhodnega obvestila. Vsaka zloraba ali goljufija bo privedla do diskvalifikacije."
   },

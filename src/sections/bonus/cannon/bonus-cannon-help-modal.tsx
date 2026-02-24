@@ -8,7 +8,7 @@ interface BonusCannonHelpModalProps {
 }
 
 export const BonusCannonHelpModal = ({ isOpen, onClose }: BonusCannonHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
 
   const headerContent = (
     <div className="flex items-center gap-2">

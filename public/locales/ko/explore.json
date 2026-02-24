@@ -7,6 +7,8 @@
   "baseball": "야구",
   "iceHockey": "아이스하키",
   "basketball": "농구",
+  "cricket": "크리켓",
+  "eSoccer": "e축구",
   "volleyball": "배구",
   "hot": "인기",
   "all": "모두",
@@ -69,5 +71,6 @@
   "live-casino": "라이브 카지노",
   "sports": "스포츠",
   "lotteries": "복권",
-  "gamesYouShouldTry": "추천 게임"
+  "gamesYouShouldTry": "추천 게임",
+  "bonus": "Bonus"
 }

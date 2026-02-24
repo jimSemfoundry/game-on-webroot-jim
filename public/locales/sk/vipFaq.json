@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Čo je týždenný bonus?",
-    "content": "<p class=\"leading-7\">Týždenný bonus je exkluzívna výhoda na našej stránke určená pre hráčov, ktorí sú VIP12 a vyššie. Tento bonus sa vydáva týždenne a automaticky sa vypláca každý piatok hráčom na VIP12 a vyššie. Veľkosť bonusu závisí od sumy stávok za posledný týždeň, s minimálnym požiadavkom na stávku {{minWager}} za posledný týždeň.</p>"
+    "content": "<p class=\"leading-7\">Týždenný bonus je exkluzívna výhoda na našej stránke určená pre hráčov, ktorí sú VIP2 a vyššie. Bonus sa vydáva týždenne v pondelok a vyprší, keď vyjde ďalší týždenný bonus. Veľkosť bonusu závisí od sumy stávok za posledný týždeň, s minimálnym efektívnym požiadavkom na stávku {{minWager}} za posledný týždeň.</p>"
   },
   "faqNine": {
     "title": "Čo sú úspechy?",

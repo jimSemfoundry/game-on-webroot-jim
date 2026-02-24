@@ -5,11 +5,11 @@
     "achievements": "Mga Nagtagumpay",
     "achievementDescription": "Ang mga Gantimpala ng Nagtagumpay ay mga gantimpala na ibinibigay para sa pag-abot ng mga bagong layunin at pagtagumpay sa mga hamon. Ipinagdiriwang nila ang iyong pag-unlad at tagumpay, na nagbubukas ng mga masayang sorpresa habang nakakamit mo ang mga bagong tagumpay sa daan!",
     "claimDistribution": "Pamamahagi ng Pag-angkin",
-    "claimDistributionDescription": "Ang mga gantimpala ay idinadagdag sa iyong bonus calendar sa loob ng 3 araw matapos ang pag-angkin.",
+    "claimDistributionDescription": "Ang iyong mga reward ay agad na nailalaan at maaaring i-claim mula sa iyong deposit <0>bonus pool</0> tuwing mag-claim ka ng bagong achievement reward.",
     "expiration": "Pagtatapos",
-    "expirationDescription": "Wala - Ang mga gantimpala ay awtomatikong ipinapadala sa kalendaryo.",
+    "expirationDescription": "Wala - Available ang claims hangga't sapat ang balanse ng iyong Bonus Pool.",
     "generalTerms": "Pangkalahatang Mga Tuntunin",
-    "generalTermsDescription": "Ang mga gantimpala ay kinakalkula at ibinibigay sa BUCK/USDT, pagkatapos ay ipinapakita sa iyong ginustong fiat currency para sa kaginhawaan. Pakitandaan, ang mga conversion ng currency ay tinatayang.\n\nAng casino ay may karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyon na ipaliwanag. Anumang pang-aabuso o mapanlinlang na aktibidad ay magreresulta sa pagkaka-disqualify mula sa promosyon."
+    "generalTermsDescription": "Ang mga reward ay kinakalkula at ikinakredit sa USDT, pagkatapos ay ipinapakita sa iyong napiling fiat currency para sa kaginhawahan. Pakitandaan na tinatayang halaga lamang ang currency conversions.\n\nMay karapatan ang casino na baguhin o bawiin ang pagiging kwalipikado anumang oras nang walang obligasyong magpaliwanag. Anumang pang-aabuso o mapanlinlang na aktibidad ay magreresulta sa diskwalipikasyon sa promosyon."
   },
   "luckyNumberSeven": {
     "title": "Masuwerteng Numero \n Pito",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Ang minimum na halaga ng pag-angkin ay {{money}}",
     "expiration": "Pagtatapos",
-    "expirationDescription": "Ang iyong Mystery Box ay dapat na maangkin sa loob ng 7 araw mula nang ito ay ipagkaloob. Ang mga hindi naangking gantimpala ay mag-eexpire pagkatapos ng panahong ito.",
+    "expirationDescription": "Ang iyong Mystery Box ay dapat na maangkin sa loob ng 3 araw mula nang ito ay ipagkaloob. Ang mga hindi naangking gantimpala ay mag-eexpire pagkatapos ng panahong ito.",
     "generalTerms": "Pangkalahatang Mga Tuntunin",
     "generalTermsDescription": "Ang mga gantimpala ay kinakalkula at ibinibigay batay sa unang deposito ng gumagamit o sa USDT kung walang deposito na ginawa, na napapailalim sa 1x rollover na kinakailangan. Ang mga halaga ay ipinapakita sa iyong ginustong fiat currency; ang mga conversion ay tinatayang.\n\nAng casino ay may karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras nang walang abiso. Anumang pang-aabuso o pandaraya ay magreresulta sa pagkaka-disqualify."
   },

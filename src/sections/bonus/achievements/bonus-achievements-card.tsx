@@ -1,11 +1,13 @@
 import Iconify from "@/components/iconify";
+import { useAuth } from "@/contexts/AuthContext";
 import { useTipsModal } from "@/contexts/ModalsProvider";
+import { useUserAchievements } from "@/hooks/api/useAuth";
 import { Trans, useTranslation } from "react-i18next";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { VipButton } from "../shared/VipButton";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { useNavigate } from "@tanstack/react-router";
+import { BonusAchievementsModal } from "./bonus-achievements-modal";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const ILLUSTRATION_URL = "/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png";
@@ -27,7 +29,21 @@ export function BonusAchievementsCard() {
   const { t } = useTranslation();
   const { openTipsModal } = useTipsModal();
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const navigate = useNavigate();
+  const [showAchievementsModal, setShowAchievementsModal] = useState(false);
+
+  const { isInitialized } = useAuth();
+  const { data: achievementsData, isLoading: isAchievementsLoading } = useUserAchievements("asc");
+
+  const isClaimable = useMemo(() => {
+    if (!isInitialized || isAchievementsLoading) return false;
+    if (!achievementsData?.data || !Array.isArray(achievementsData.data)) return false;
+
+    return achievementsData.data.some((achievement: any) => {
+      const steps = achievement?.achievementStep;
+      if (!Array.isArray(steps)) return false;
+      return steps.some((step: any) => step?.is_finish === true && step?.is_claim !== true);
+    });
+  }, [achievementsData?.data, isAchievementsLoading, isInitialized]);
 
   // const requiredVipLevel = 0;
 
@@ -49,12 +65,12 @@ export function BonusAchievementsCard() {
   };
 
   const handleButtonClick = () => {
-    navigate({ to: "/explore"});
+    setShowAchievementsModal(true);
   };
 
   return (
     <div
-      className="relative flex w-full items-center gap-4 overflow-hidden rounded-field border border-base-200/60 bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] sm:flex-col sm:items-center sm:gap-3 sm:p-5"
+      className={`relative flex w-full items-center gap-4 overflow-hidden rounded-field border ${isClaimable ? "border-warning" : "border-base-200/60"} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] sm:flex-col sm:items-center sm:gap-3 sm:p-5`}
       style={{
         background,
       }}
@@ -85,6 +101,11 @@ export function BonusAchievementsCard() {
           <VipButton requiredLevel={0} onClick={handleButtonClick}/>
         </div>
       </div>
+
+      <BonusAchievementsModal
+        isOpen={showAchievementsModal}
+        onClose={() => setShowAchievementsModal(false)}
+      />
     </div>
   );
 }

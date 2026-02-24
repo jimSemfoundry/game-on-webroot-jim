@@ -57,6 +57,7 @@ export interface BetHistoryPagination {
   page_size?: number;
   next_page?: number;
   last_id?: number | string;
+  next_last_id?: number | string;
 }
 
 export interface BetHistoryFilterOption {

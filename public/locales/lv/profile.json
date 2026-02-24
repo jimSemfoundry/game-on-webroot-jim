@@ -76,12 +76,39 @@
   "dashboard": "Vadības panelis",
   "transactions": "Transakcijas",
   "rollover": "Rollover",
-  "betHistory": "Likmju vēsture",
+  "betHistory": {
+    "empty": "Nav atrasta likmju vēsture",
+    "title": "Likmju vēsture",
+    "headers": {
+      "game": "Spēle",
+      "date": "Datums",
+      "betId": "Likmes ID",
+      "betIn": "Likme",
+      "betOut": "Uzvara",
+      "account": "Konts",
+      "amount": "Summa",
+      "provider": "Piegādātājs",
+      "match": "Mačs",
+      "tournament": "Turnīrs"
+    }
+  },
   "settings": "Iestatījumi",
   "legal": "Juridiskais",
   "nickname": "Segvārds",
   "zoomAndAdjust": "Tuvināt un pielāgot",
   "systemLanguage": "Sistēmas valoda",
   "editProfile": "Rediģēt profilu",
-  "inviteAndGetRewarded": "Aiciniet un saņemiet atlīdzību"
+  "inviteAndGetRewarded": "Aiciniet un saņemiet atlīdzību",
+  "emailAddress": "E-pasta",
+  "codeSent": "Ievadiet kodu, ko mēs nosūtījām",
+  "codeSentTo": "Kods ir nosūtīts uz",
+  "notReceiveCode": "Nesaņēmāt kodu?",
+  "verificationSuccess": "Verifikācija veiksmīga",
+  "spinHistory": {
+    "statusFilterLabel": "Statuss"
+  },
+  "phone_number_has_been_verified": "Jūsu tālruņa numurs ir apstiprināts. Varat turpināt.",
+  "email_address_has_been_verified": "Tava e-pasta adrese ir apstiprināta. Vari turpināt.",
+  "setNewPassword": "Iestatīt jaunu paroli",
+  "passwordLengthRequirement": "Lūdzu ievadiet paroli no 6 līdz 64 rakstzīmēm."
 }

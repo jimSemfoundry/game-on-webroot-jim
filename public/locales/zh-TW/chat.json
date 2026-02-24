@@ -3,5 +3,8 @@
   "notifications": "通知",
   "support": "支援",
   "retry": "重試",
-  "customerServiceChatFailedToLoad": "客戶服務聊天無法載入"
+  "customerServiceChatFailedToLoad": "客戶服務聊天無法載入",
+  "read": "閱讀",
+  "unread": "未閱讀",
+  "customerService": "客服"
 }

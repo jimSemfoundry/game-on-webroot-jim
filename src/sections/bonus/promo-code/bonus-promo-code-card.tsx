@@ -16,7 +16,7 @@ const DEFAULT_GRADIENT = `
 const ILLUSTRATION_URL = "/images/rewards/redeem-code.png";
 
 export function BonusPromoCodeCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [promoCode, setPromoCode] = useState("");
   const [isRedeeming, setIsRedeeming] = useState(false);

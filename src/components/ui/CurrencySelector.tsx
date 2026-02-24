@@ -15,6 +15,7 @@ import { emitter } from "@/store/emitter.ts";
 import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import Decimal from "decimal.js";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
+import { BonusWallet } from "@/sections/dollars/bonus-wallet.tsx";
 
 interface CurrencySelectorProps {
   selectedCurrency: string;
@@ -53,7 +54,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
   const { formatWithoutConversion, formatWithConversion, isLoading: isCurrencyLoading } = useDisplayCurrencyFormatter();
   const { data: currenciesData, isLoading } = useSupportedSettlementCurrencies();
   const currencies = currenciesData?.data || [];
-  const { data: userBalanceData, isLoading: isBalanceLoading } = useUserBalance();
+  const { data: userBalanceData = [], isLoading: isBalanceLoading } = useUserBalance();
   const userBalances = userBalanceData || [];
 
   // Get current display currency info
@@ -115,14 +116,26 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     };
   }, [userBalances]);
 
+  const settlementCurrencyDisplayDecimalByCode = useMemo(() => {
+    const map = new Map<string, number>();
+    currencies.forEach((c: any) => {
+      if (typeof c?.currency === "string" && typeof c?.display_decimal === "number") {
+        map.set(c.currency, c.display_decimal);
+      }
+    });
+    return map;
+  }, [currencies]);
+
   // Format amount display
   const formatAmount = (amount: number, currency: string) => {
     if (isCurrencyLoading) return "...";
+    const displayDecimal = settlementCurrencyDisplayDecimalByCode.get(currency);
     return formatWithoutConversion(amount, currency, {
       showSymbol: true,
       showCode: false,
       compact: false,
-      minimizeDecimals: true
+      minimizeDecimals: true,
+      displayDecimal
     }).formatted;
   };
 
@@ -134,7 +147,9 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     return formatWithConversion(amount, fromCurrency, {
       showSymbol: true,
       showCode: false,
-      compact: false
+      compact: false,
+      minimizeDecimals: true,
+      displayDecimal: currentDisplayCurrencyData?.display_decimal
     }).formatted;
   };
 
@@ -158,10 +173,11 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     const fiatCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "FIAT");
     const cryptoCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "CRYPTO");
     const rewardsCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "REWARDS");
+    const bonusCurrencies = filteredCurrencies.filter((c: any) => c.currency === "BONUS");
 
     const groups = {
       FIAT: fiatCurrencies,
-      CRYPTO: [...rewardsCurrencies, ...cryptoCurrencies],
+      CRYPTO: [...bonusCurrencies, ...rewardsCurrencies, ...cryptoCurrencies],
       REWARDS: []
     };
 
@@ -193,11 +209,21 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
             {groupTitle}
           </div>
         )}
+
         <div className={`space-y-1 rounded-field p-3 bg-base-300 ${!isDesktop && showGroupHeader ? "mt-1" : ""}`}>
           {currencies.map((currency: any) => {
             const balance = getUserBalanceByCurrency(currency.currency);
             const displayAmount = formatDisplayCurrencyAmount(balance, currency.currency);
             const isRewards = currency.currency_type === "REWARDS";
+
+            // TODO: 彩金钱包活动支持
+            if (currency.currency === "BONUS") {
+              return <BonusWallet
+                key={currency.currency}
+                currency={currency}
+                selected={selectedCurrency}
+                onSelect={handleCurrencySelect} />;
+            }
 
             return (
               <div
@@ -223,7 +249,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
                   {isRewards && (
                     <div className="flex items-center gap-2">
                       <button
-                        className="btn btn-primary btn-soft btn-xs px-3 mx-2"
+                        className="btn btn-primary rounded-md btn-soft btn-xs px-2 mx-2"
                         onClick={(e) => {
                           e.stopPropagation();
                           if (modalOpen) setModalOpen(false);
@@ -233,7 +259,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
                           emitter.emit("SWAP", currency.currency);
                         }}
                       >
-                        SWAP
+                        {t("finance:swap")}
                       </button>
                       <button
                         className="btn btn-ghost btn-square btn-xs"
@@ -249,7 +275,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
 
                   {/* Amount display */}
                   {showBalance && (
-                    <div className="text-right">
+                    <div className="text-right rtl:text-left">
                       {displayAmount ? (
                         <div className="flex flex-col">
                           <span className="text-sm font-semibold text-base-content">{displayAmount}</span>
@@ -278,12 +304,12 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
   // Default trigger button
   const defaultTrigger = (
     <button
-      className={`gap-1 flex items-center flex-1 text-base-content/50 md:text-md font-semibold text-sm hover:text-base-content/70 transition-colors cursor-pointer ${className}`}
+      className={`h-10 gap-1 flex items-center flex-1 text-base-content/50 md:text-md font-semibold text-sm hover:text-base-content/70 transition-colors cursor-pointer ${className}`}
       onClick={handleCurrencySwitchClick}
     >
-      <CurrencyIcon currency={selectedCurrency} className="w-5 h-5" />
+      <CurrencyIcon currency={selectedCurrency} className="w-6 h-6" />
       <SmallLoading
-        className={"!min-w-15"}
+        className={"!min-w-12 h-5"}
         loading={isBalanceLoading || isCurrencyLoading}
         content={
           <InnerGuideDeposits
@@ -296,7 +322,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       </SmallLoading>
       <ChevronDown
         strokeWidth={3}
-        className={`w-3 h-3 ltr:ml-auto rtl:mr-auto transition-transform ${dropdownOpen ? "rotate-180" : ""} flex-shrink-0`}
+        className={`mr-1 rtl:ml-1 w-3 h-3 ltr:ml-auto rtl:mr-auto transition-transform ${dropdownOpen ? "rotate-180" : ""} flex-shrink-0`}
       />
     </button>
   );
@@ -336,9 +362,10 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       localStorage.setItem(`${user?.id}-balance-hidden`, "true");
 
       // 用户 /profile数据更新
-      void refetchProfile();
+      // TODO 特例: 当结算币为BONUS的时候,会有充值X币种,X转换为BONUS余额的过程,我们不希望在结算币为BONUS期间因为充值导致币种变更
+      if (selectedCurrency !== "BONUS") void refetchProfile();
     }
-  }, [user?.id, balances, status?.deposit_times]);
+  }, [user?.id, balances, status?.deposit_times, selectedCurrency]);
 
   return (
     <>
@@ -352,7 +379,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
         {/* Desktop Dropdown */}
         {dropdownOpen && !isLoading && !isCurrencyLoading && (
           <div
-            className="absolute p-3 top-full right-0 mt-2 bg-base-400 rounded-lg shadow-xl z-[1002] min-w-[420px] min-h-[514px] overflow-hidden">
+            className="absolute p-3 top-full ltr:right-0 rtl:left-0 mt-2 bg-base-400 rounded-lg shadow-xl z-[1002] min-w-[420px] min-h-[514px] overflow-hidden">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Iconify icon="custom:wallet" className="w-5 h-5 text-primary" />
@@ -520,10 +547,10 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
       </Modal>
 
       {/* BUCK Info Modal */}
-      <HelpModalBuckInfo
+      {buckInfoOpen && <HelpModalBuckInfo
         isOpen={buckInfoOpen}
         onClose={() => setBuckInfoOpen(false)}
-      />
+      />}
     </>
   );
 };
@@ -538,7 +565,7 @@ const InnerGuideDeposits = ({ amount, currency, balances, showBalance }: {
     if (balances.length === 0) return true;
     return balances.every((b: { balance: string }) => Number(b.balance) === 0);
   }, [balances]);
-  return !is_all_zero && <div className="font-sans text-xs font-bold tracking-tighter text-base-content">
+  return !is_all_zero && <div className="text-[13px] font-bold tracking-tighter text-base-content/60">
     {showBalance ? amount : currency}
   </div>;
 };

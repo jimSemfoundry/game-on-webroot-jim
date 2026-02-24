@@ -76,12 +76,39 @@
   "dashboard": "Nadzorna plošča",
   "transactions": "Transakcije",
   "rollover": "Preverjanje",
-  "betHistory": "Zgodovina stav",
+  "betHistory": {
+    "empty": "Zgodovine stav ni mogoče najti",
+    "title": "Zgodovina stav",
+    "headers": {
+      "game": "Igra",
+      "date": "Datum",
+      "betId": "ID stave",
+      "betIn": "Stava",
+      "betOut": "Dobitek",
+      "account": "Račun",
+      "amount": "Znesek",
+      "provider": "Ponudnik",
+      "match": "Tekma",
+      "tournament": "Turnir"
+    }
+  },
   "settings": "Nastavitve",
   "legal": "Pravno",
   "nickname": "Vzdevek",
   "zoomAndAdjust": "Povečaj in prilagodi",
   "systemLanguage": "Sistemščina",
   "editProfile": "Uredi profil",
-  "inviteAndGetRewarded": "Povabi in prejmi nagrado"
+  "inviteAndGetRewarded": "Povabi in prejmi nagrado",
+  "emailAddress": "E-poštni naslov",
+  "codeSent": "Vnesite kodo, ki smo jo poslali",
+  "codeSentTo": "Koda je bila poslana na",
+  "notReceiveCode": "Niste prejeli kode?",
+  "verificationSuccess": "Uspešna potrditev",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Vaša telefonska številka je bila potrjena. Lahko nadaljujete.",
+  "email_address_has_been_verified": "Vaš e-poštni naslov je bil potrjen. Lahko nadaljujete.",
+  "setNewPassword": "Nastavi novo geslo",
+  "passwordLengthRequirement": "Prosimo, vnesite geslo med 6 in 64 znaki."
 }

@@ -1,7 +1,7 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
@@ -34,7 +34,7 @@ export const WithdrawOkModal = () => {
           </p>
         </div>
 
-        <ConfirmBox onClick={() => set(false)}>{t("common.close")}</ConfirmBox>
+        <ConfirmBox onClick={() => set(false)}>{t("common:common.close")}</ConfirmBox>
       </div>
     </Modal>
   );

@@ -3,11 +3,12 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import path, { resolve } from 'node:path'
 import { writeFileSync, readFileSync, existsSync, copyFileSync } from 'node:fs'
-import versionPlugin from './vite-version-plugin';
+import versionPlugin, { manualChunksFun } from "./vite-version-plugin";
 import mkcert from 'vite-plugin-mkcert';
 
 // const workboxMode = process.env.WORKBOX_MODE === 'production' ? 'production' : 'development';
@@ -293,35 +294,72 @@ export default defineConfig(({ mode }) => {
   const isRoibest = env.VITE_PROMOTION_MODEL === 'roibest';
   const isLanding = env.VITE_PROMOTION_MODEL === 'landing';
   const baseUrl = isRoibest && env.NODE_ENV !== 'development' ? `/${baseFolder}/` : '/';
+  const isProdBuild = mode === 'production';
+  const normalizeAssetBaseUrl = (value?: string) => (value ? value.replace(/\/+$/, "") : "");
+  const normalizeHtmlBaseUrl = (value?: string) => (value ? `${value.replace(/\/+$/, "")}/` : undefined);
+  const faviconBaseUrl = normalizeAssetBaseUrl(env.VITE_FAVICON_BASE_URL);
+  const faviconAssetPrefix = faviconBaseUrl ? `${faviconBaseUrl}/` : "";
+  const pwaThemeColor = env.VITE_PWA_THEME_COLOR || '#0f1419';
+  const pwaBackgroundColor = env.VITE_PWA_BACKGROUND_COLOR || '#0f1419';
+  const pwaName = env.VITE_PWA_NAME || env.VITE_WEBSITE_NICKNAME || '1st.game';
+  const pwaShortName = env.VITE_PWA_SHORT_NAME || env.VITE_WEBSITE_NICKNAME_LEFT || '1ST';
+  const pwaDescription = env.VITE_PWA_DESCRIPTION || env.VITE_SEO_DESCRIPTION || `Enter the world of ${env.VITE_WEBSITE_NICKNAME || '1st.game'} - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill.`;
 
   const pwaOptions: Partial<VitePWAOptions> = {
     registerType: 'autoUpdate',
     workbox: {
-      cacheId: env.VITE_WEBSITE_NICKNAME || '1st.game',
+      // 自动清理过期缓存（解决新旧版本共存报错的关键）
+      cleanupOutdatedCaches: true,
       navigateFallback: 'index.html',
-      navigateFallbackDenylist: [/^\/landing\//],
+      navigateFallbackDenylist: [/^\/landing\//, /^\/api/],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+      // 确保导航总是尝试最新的网络请求
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.mode === 'navigate',
+          handler: 'NetworkFirst', // 优先从网络获取最新的 index.html，失败（离线）才用缓存
+          options: {
+            cacheName: 'pages-cache',
+            expiration: { maxEntries: 1 }
+          }
+        }
+      ]
     },
     devOptions: {
       enabled: true,
     },
     manifest: {
       id: "/pwa-main",
-      name: env.VITE_WEBSITE_NICKNAME || '1st.game',
-      short_name: env.VITE_WEBSITE_NICKNAME_LEFT || '1ST',
-      description: `Enter the world of ${env.VITE_WEBSITE_NICKNAME || '1st.game'} - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill.`,
-      theme_color: '#0f1419',
+      name: pwaName,
+      short_name: pwaShortName,
+      description: pwaDescription,
+      theme_color: pwaThemeColor,
+      background_color: pwaBackgroundColor,
       icons: [
+        {
+          src: `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "any",
+        },
         {
           src: `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
           sizes: "192x192",
           type: "image/png",
+          purpose: "maskable",
         },
         {
           src: `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
           sizes: "512x512",
           type: "image/png",
+          purpose: "any",
+        },
+        {
+          src: `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable",
         }
       ],
     },
@@ -406,7 +444,10 @@ export default defineConfig(({ mode }) => {
       },
     }),
     mkcert(),
-    TanStackRouterVite({ autoCodeSplitting: true }),
+    TanStackRouterVite({ 
+      autoCodeSplitting: true,
+      routeFileIgnorePattern: '.*\\.test\\.(ts|tsx)$'
+    }),
     viteReact(),
     tailwindcss(),
     ...(isRoibest ? [staticPathPlugin()!] : []),
@@ -417,8 +458,34 @@ export default defineConfig(({ mode }) => {
       nameBlock: env.VITE_WEBSITE_NAME_BLOCK || '1st.game',
       nickname: env.VITE_WEBSITE_NICKNAME || '1st.game',
       websiteUrl: env.VITE_WEBSITE_URL || 'https://1st.game',
-      theme: env.VITE_THEME || '1stgame'
+      theme: env.VITE_THEME || '1stgame',
+      alibabaRumId: env.VITE_ALIBABA_RUM_ID,
+      themeConfig: env.VITE_THEME_CONFIG,
+      logoBaseUrl: normalizeHtmlBaseUrl(env.VITE_LOGO_BASE_URL),
+      faviconBaseUrl: normalizeHtmlBaseUrl(env.VITE_FAVICON_BASE_URL),
+      baseUrl,
+      logoLoaderUrl: env.VITE_LOGO_LOADER_URL,
+      faviconPngUrl: env.VITE_FAVICON_PNG_URL,
+      faviconSvgUrl: env.VITE_FAVICON_SVG_URL,
+      faviconIcoUrl: env.VITE_FAVICON_ICO_URL,
+      faviconAppleUrl: env.VITE_FAVICON_APPLE_URL,
+      seoTitle: env.VITE_SEO_TITLE,
+      seoDescription: env.VITE_SEO_DESCRIPTION,
+      seoOgTitle: env.VITE_SEO_OG_TITLE,
+      seoOgDescription: env.VITE_SEO_OG_DESCRIPTION,
+      seoOgImage: env.VITE_SEO_OG_IMAGE,
+      seoOgImageWidth: env.VITE_SEO_OG_IMAGE_WIDTH,
+      seoOgImageHeight: env.VITE_SEO_OG_IMAGE_HEIGHT,
+      seoOgSiteName: env.VITE_SEO_OG_SITE_NAME,
+      pwaThemeColor: env.VITE_PWA_THEME_COLOR,
+      pwaStatusBarStyle: env.VITE_PWA_STATUS_BAR_STYLE,
     }),
+    ...(env.VITE_ENABLED_VISUALIZER === 'true' ? [visualizer({
+      filename: 'stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    })] : [])
   ]
 
   // 根据环境条件添加PWA插件
@@ -432,6 +499,9 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       host: "0.0.0.0",
+      hmr: {
+        overlay: false, // 禁用开发服务器的错误遮罩层
+      }
     },
     resolve: {
       alias: {
@@ -440,6 +510,20 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
+      minify: 'terser',
+      terserOptions: isProdBuild
+        ? {
+            compress: {
+              drop_console: true,
+              drop_debugger: true,
+            },
+          }
+        : undefined,
+      modulePreload: {
+        polyfill: true,
+      },
+      cssCodeSplit: true,
+      maxParallelFileOps: 5,
       rollupOptions: {
         output: {
           entryFileNames: () => `assets/[name].${timeVersion}.js`,
@@ -455,8 +539,14 @@ export default defineConfig(({ mode }) => {
             }
             return `assets/[name].${timeVersion}.[ext]`;
           },
+          manualChunks(id: string | string[]) {
+            return manualChunksFun(id)
+          },
         },
       },
+      // 体积控制优化
+      chunkSizeWarningLimit: 200, // 降低警告阈值
+      reportCompressedSize: true,
     },
   } as any
 })

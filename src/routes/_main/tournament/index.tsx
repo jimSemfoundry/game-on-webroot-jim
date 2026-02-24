@@ -31,6 +31,7 @@ export const Route = createFileRoute("/_main/tournament/")({
 function RouteComponent() {
   const { t } = useTranslation();
   const { tournamentList } = useTournamentList();
+  const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
 
   return (
     <div className="flex flex-col gap-3 pb-26">
@@ -55,9 +56,11 @@ function RouteComponent() {
         <TournamentList />
       </div>
 
-      <div className="sm:block hidden">
-        <AlliancePartnerships />
-      </div>
+      {!shouldHideAlliancePartnerships && (
+        <div className="sm:block hidden">
+          <AlliancePartnerships />
+        </div>
+      )}
       <div className="sm:block hidden">
         <Footer />
       </div>

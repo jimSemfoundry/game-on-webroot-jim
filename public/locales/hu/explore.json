@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Jégkorong",
   "basketball": "Kosárlabda",
+  "cricket": "Krikett",
+  "eSoccer": "eFoci",
   "volleyball": "Röplabda",
   "hot": "Népszerű Játékok",
   "all": "Összes",
@@ -69,5 +71,6 @@
   "live-casino": "Élő kaszinó",
   "sports": "Sportok",
   "lotteries": "Lottók",
-  "gamesYouShouldTry": "Játékok, Amiket Ki Kell Próbálnod"
+  "gamesYouShouldTry": "Játékok, Amiket Ki Kell Próbálnod",
+  "bonus": "Bonus"
 }

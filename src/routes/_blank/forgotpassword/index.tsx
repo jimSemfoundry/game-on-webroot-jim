@@ -1,15 +1,15 @@
-import { useTranslation } from "react-i18next";
 import { useCallback, useMemo, useState } from "react";
 import { createFileRoute, useLocation, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 import { publicService } from "@/services/publicService.ts";
 import { parseURLParamsToJson } from "@/components/socialLogin/helper.ts";
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ChevronLeft, Eye, EyeOff, ShieldPlus } from "lucide-react";
-import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import classNames from "classnames";
+import clsx from "clsx";
+import { getLogoFullUrl } from "@/utils/assetPaths";
 
 interface IStatus {
   current_password: string,
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/_blank/forgotpassword/")({
 export function RouteComponent() {
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { search } = useLocation();
 
@@ -62,7 +62,16 @@ export function RouteComponent() {
       .then((res) => {
         if (res.code === 0) {
           toast.success(t("login:passwordResetSuccess"));
-          void navigate({ to: "/casino", search: { openLogin: "true", openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
+          void navigate({
+            to: "/casino",
+            search: {
+              openLogin: "true",
+              openSignUp: undefined,
+              redirect: undefined,
+              startapp: undefined,
+              openFinance: undefined
+            }
+          });
         } else {
           toast.error(t(matchResponseCodeError(res.code)));
         }
@@ -86,17 +95,17 @@ export function RouteComponent() {
   return (
     <div className={"md:w-[420px] md:m-auto flex items-center justify-center h-screen w-screen p-5"}>
       <div className="bg-base-200 flex flex-col gap-4 w-full rounded-2xl p-5 py-8 items-center">
-        <img src={`/logos/${import.meta.env.VITE_THEME}/logo-full.svg`} alt="" />
+        <img src={getLogoFullUrl(import.meta.env.VITE_THEME ?? "1stgame")} alt="" />
         <div className="flex flex-col gap-5 font-semibold w-full mt-3">
-          <label className={'flex items-center gap-1'}><ShieldPlus className={'w-4 h-4 text-primary'} strokeWidth={3} />{t("login:resetPassword")}</label>
+          <label className={"flex items-center gap-1"}><ShieldPlus className={"w-4 h-4 text-primary"}
+                                                                   strokeWidth={3} />{t("login:resetPassword")}</label>
 
           {/* 输入新密码 */}
-          <div className="flex flex-col gap-1 relative">
+          <div className="relative">
             <label className="text-xs font-bold">{t("login:newPassword")}</label>
-            <div className={"relative flex items-center"}>
+            <div className={"relative flex items-center "}>
               <input
                 type={status.current_password_view ? "text" : "password"}
-                placeholder="New Password"
                 value={status.current_password}
                 onChange={(e) => setStatus((old) => ({
                   ...old,
@@ -111,24 +120,21 @@ export function RouteComponent() {
                 }));
               }} />
             </div>
+
             {/* 当前密码 - 密码长度不在范围 - 错误 */}
-            <DisplayContent className={"absolute -bottom-4.5"} status={current_password_length_error}>
-              <ErrorMessageBox
-                sample
-                className="!mt-0"
-                content="Please enter a password consisting of 6 to 64 characters."
-                show={current_password_length_error} />
-            </DisplayContent>
+            <ErrorMessageBox
+              sample
+              content={t('profile:passwordLengthRequirement')}
+              show={current_password_length_error} />
           </div>
 
           {/* 确认新密码 */}
-          <div className="flex flex-col gap-1 relative">
+          <div className="relative">
             <label className="text-xs font-bold">{t("login:confirmPassword")}</label>
 
-            <div className={"relative flex items-center"}>
+            <div className={"relative flex items-center "}>
               <input
                 type={status.confirm_password_view ? "text" : "password"}
-                placeholder="Re-Enter New Password"
                 value={status.confirm_password}
                 onChange={(e) => setStatus((old) => ({
                   ...old,
@@ -143,14 +149,12 @@ export function RouteComponent() {
                 }));
               }} />
             </div>
+
             {/* 两次输入的密码不一致 - 错误 */}
-            <DisplayContent className={"absolute -bottom-4.5"} status={confirm_password_match_error}>
-              <ErrorMessageBox
-                sample
-                className="!mt-0"
-                content={t("profile:passwordDoNotMatch")}
-                show={confirm_password_match_error} />
-            </DisplayContent>
+            <ErrorMessageBox
+              sample
+              content={t("profile:passwordDoNotMatch")}
+              show={confirm_password_match_error} />
           </div>
 
           <ConfirmBox
@@ -159,17 +163,23 @@ export function RouteComponent() {
               if (input_null_error || confirm_password_match_error || current_password_length_error) return;
               void handle();
             }}
-            className={classNames("btn-primary", { "bg-base-300 border-none text-base-content/50": input_null_error || confirm_password_match_error || current_password_length_error })}
+            className={clsx("btn-primary", { "bg-base-300 border-none text-base-content/50": input_null_error || confirm_password_match_error || current_password_length_error })}
           >
-            {t("common.confirm")}
+            {t("common:common.confirm")}
           </ConfirmBox>
 
           <div className={"text-xs text-base-content/50 text-center flex items-center justify-center"}>
             <button className={"btn btn-soft btn-primary btn-sm"} onClick={() => navigate({
               to: "/casino",
-              search: { openLogin: String(true), openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined }
+              search: {
+                openLogin: String(true),
+                openSignUp: undefined,
+                redirect: undefined,
+                startapp: undefined,
+                openFinance: undefined
+              }
             })}><ChevronLeft
-                className={"w-3 h-3"} strokeWidth={4} />{t("login:backToSignIn")}</button>
+              className={"w-3 h-3"} strokeWidth={4} />{t("login:backToSignIn")}</button>
           </div>
         </div>
       </div>
@@ -184,7 +194,7 @@ const InnerPasswordView = ({ onClick }: { onClick: (view: boolean) => void }) =>
     onClick(!view);
   }}>
     {view
-      ? <Eye className={classNames("w-4 h-4 text-primary")} />
-      : <EyeOff className={classNames("w-4 h-4 text-base-content/50")} />}
+      ? <Eye className={clsx("w-4 h-4 text-primary")} />
+      : <EyeOff className={clsx("w-4 h-4 text-base-content/50")} />}
   </div>);
 };

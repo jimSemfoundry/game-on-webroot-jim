@@ -11,7 +11,7 @@ import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx
 import { AvatarModal } from "./AvatarModal.tsx";
 
 export function ProfileAvatar() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { user } = useAuth();
 
@@ -43,7 +43,9 @@ export function ProfileAvatar() {
         } else {
           toast.error(t("toast:editError"));
         }
-      })
+      }).catch((error) => {
+      console.info(error);
+    })
       .finally(() => {
         setStatus((v) => ({ ...v, loading: false }));
       });
@@ -56,7 +58,7 @@ export function ProfileAvatar() {
 
   return (
     <Card
-      className="md:p-6 md:gap-4 md:mx-0 md:max-w-80" title={t("common.profile")}
+      className="md:p-6 md:gap-4 md:mx-0 md:max-w-80" title={t("common:common.profile")}
       icon={<Iconify icon="custom:user" className="text-primary" />}>
       <div className="flex w-full flex-col items-center gap-3">
         {/* 头像编辑 */}
@@ -70,9 +72,9 @@ export function ProfileAvatar() {
         </div>
 
         {/* 昵称编辑 */}
-        <div className="flex w-full flex-col gap-2 font-semibold text-base-content/50">
+        <div className="flex w-full flex-col gap-3 font-semibold text-base-content/50">
           <fieldset className="fieldset">
-            <h4 className="text-sm">Nickname</h4>
+            <h4 className="text-sm">{t('profile:nickname')}</h4>
             <div className="relative">
               <input
                 type="text"
@@ -85,14 +87,13 @@ export function ProfileAvatar() {
                 minLength={6}
               />
               <ErrorMessageBox
+                sample
                 show={nickname_error}
-                content={<>
-                  {t("profile:nicknameIsRequired")}<br/>Can only contain letters, numbers, and underscores, and cannot start with a number
-                </>} />
+                content={t("profile:nicknameIsRequired")} />
             </div>
           </fieldset>
 
-          <p className="relative text-xs">{t("common.usernameDescription")}</p>
+          <p className="relative text-xs">{t("common:common.usernameDescription")}</p>
         </div>
 
         <ConfirmBox
@@ -101,7 +102,7 @@ export function ProfileAvatar() {
             nickname_error ||
             user?.nickname === status.nickname}
           loading={status.loading} onClick={handle}>
-          {t("common.save")}
+          {t("common:common.save")}
         </ConfirmBox>
 
         <AvatarModal open={status.showAvatar} onClose={() => setStatus((v) => ({ ...v, showAvatar: false }))} />

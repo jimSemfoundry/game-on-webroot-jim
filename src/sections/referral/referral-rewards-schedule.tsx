@@ -10,7 +10,7 @@ const ITEMS_PER_PAGE = 17;
 
 export const ReferralRewardsSchedule = () => {
   const { isAuthenticated } = useAuth();
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'bonus']);
   const { data: vipConfigData, isLoading } = useVipConfig();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
@@ -157,9 +157,9 @@ export const ReferralRewardsSchedule = () => {
                 <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
                   <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                     <tr>
-                      <th className="px-4 py-3 text-left">{t("referral:friendLevel")}</th>
-                      <th className="px-4 py-3 text-left">{t("referral:totalExp")}</th>
-                      <th className="px-4 py-3 text-right">{t("referral:unlockedAmount")}</th>
+                      <th className="px-4 py-3 text-left rtl:text-right">{t("referral:friendLevel")}</th>
+                      <th className="px-4 py-3 text-left rtl:text-right">{t("referral:totalExp")}</th>
+                      <th className="px-4 py-3 text-right rtl:text-left">{t("referral:unlockedAmount")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -171,27 +171,30 @@ export const ReferralRewardsSchedule = () => {
                           index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-200 hover:bg-base-300/50",
                         )}
                       >
-                        <td className="px-4 py-2.5 rounded-l-lg">
-                          <div className="flex items-center gap-2">
+                        <td className="px-4 py-2.5 rounded-l-lg rtl:rounded-l-none rtl:rounded-r-lg min-w-0">
+                          <div className="flex items-center gap-2 min-w-0">
                             <img src={`/images/vip/levels/${item.vip}.png`} alt={`VIP ${item.vip}`} className="w-5 h-5 flex-shrink-0" />
-                            <span className="text-sm font-semibold text-base-content/50">
+                            <span className="text-sm font-semibold text-base-content/50 truncate max-w-full sm:hidden">
                               {t("referral:vip")} {item.vip}
                             </span>
+                            <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full" data-tip={`${t("referral:vip")} ${item.vip}`}>
+                              <span className="text-sm font-semibold text-base-content/50 truncate max-w-full block">
+                                {t("referral:vip")} {item.vip}
+                              </span>
+                            </div>
                           </div>
                         </td>
-                        <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium">
+                        <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium" dir="ltr">
                           {Math.floor(Number(item.xp)).toLocaleString()}
                         </td>
-                        <td className="px-4 py-2.5 text-right rounded-r-lg">
-                          <div className="flex items-center justify-end gap-2">
-                            <span className="text-sm font-bold text-primary">
-                              {
-                                formatWithConversion(item.referral, "USD", {
-                                  showSymbol: false,
-                                  showCode: true,
-                                  minimizeDecimals: true,
-                                }).formatted
-                              }
+                        <td className="px-4 py-2.5 text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
+                          <div className="flex items-center justify-end gap-2 rtl:justify-start rtl:flex-row-reverse">
+                            <span className="text-sm font-bold text-primary" dir="ltr">
+                              {formatWithConversion(item.referral, "USD", {
+                                showSymbol: false,
+                                showCode: true,
+                                minimizeDecimals: true,
+                              }).formatted}
                             </span>
                           </div>
                         </td>

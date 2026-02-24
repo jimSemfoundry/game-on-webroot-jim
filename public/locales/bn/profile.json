@@ -76,12 +76,39 @@
   "dashboard": "ড্যাশবোর্ড",
   "transactions": "লেনদেন",
   "rollover": "রোলওভার",
-  "betHistory": "বেট ইতিহাস",
+  "betHistory": {
+    "empty": "কোনো বেট ইতিহাস পাওয়া যায়নি",
+    "title": "বেট ইতিহাস",
+    "headers": {
+      "game": "গেম",
+      "date": "তারিখ",
+      "betId": "বেট আইডি",
+      "betIn": "বেট",
+      "betOut": "জয়",
+      "account": "অ্যাকাউন্ট",
+      "amount": "পরিমাণ",
+      "provider": "প্রদাতা",
+      "match": "ম্যাচ",
+      "tournament": "টুর্নামেন্ট"
+    }
+  },
   "settings": "সেটিংস",
   "legal": "আইনগত",
   "nickname": "ডাকনাম",
   "zoomAndAdjust": "জুম এবং সামঞ্জস্য করুন",
   "systemLanguage": "সিস্টেম ভাষা",
   "editProfile": "প্রোফাইল সম্পাদনা করুন",
-  "inviteAndGetRewarded": "আমন্ত্রণ করুন এবং পুরস্কৃত হন"
+  "inviteAndGetRewarded": "আমন্ত্রণ করুন এবং পুরস্কৃত হন",
+  "emailAddress": "ইমেইল ঠিকানা",
+  "codeSent": "আমরা পাঠানো কোডটি প্রবেশ করুন",
+  "codeSentTo": "একটি কোড পাঠানো হয়েছে",
+  "notReceiveCode": "কোডটি পাননি?",
+  "verificationSuccess": "যাচাই সফল",
+  "spinHistory": {
+    "statusFilterLabel": "অবস্থা"
+  },
+  "phone_number_has_been_verified": "আপনার ফোন নম্বর যাচাই করা হয়েছে। আপনি এগিয়ে যেতে পারেন।",
+  "email_address_has_been_verified": "আপনার ইমেইল ঠিকানা যাচাই করা হয়েছে। আপনি এগিয়ে যেতে পারেন।",
+  "setNewPassword": "নতুন পাসওয়ার্ড সেট করুন",
+  "passwordLengthRequirement": "অনুগ্রহ করে 6 থেকে 64 অক্ষরের মধ্যে একটি পাসওয়ার্ড লিখুন।"
 }

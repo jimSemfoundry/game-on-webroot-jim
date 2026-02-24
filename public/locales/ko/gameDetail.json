@@ -25,6 +25,14 @@
   "totalTips": "팁",
   "result": "결과",
   "myBets": "내 베팅",
-  "**********": "",
-  "demoPlay": "데모 플레이"
+  "demoPlay": "데모 플레이",
+  "limitedOffer": "한정 제공",
+  "deposit": "입금 {{value}}",
+  "get": "받기 {{value}}",
+  "instantCashBonus": "즉시 현금 보너스",
+  "expires": "만료",
+  "depositNow": "지금 입금",
+  "free_spins": "무료 스핀",
+  "play_with_balance_in": "잔액으로 플레이하기",
+  "the_selected_currency_will_be_displayed_in": "선택한 통화는 다음에 표시됩니다"
 }

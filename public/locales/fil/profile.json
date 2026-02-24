@@ -83,5 +83,17 @@
   "zoomAndAdjust": "Palakihin at Ayusin",
   "systemLanguage": "Wika ng Sistema",
   "editProfile": "I-edit ang Profile",
-  "inviteAndGetRewarded": "Mag-imbita at Makakuha ng Gantimpala"
+  "inviteAndGetRewarded": "Mag-imbita at Makakuha ng Gantimpala",
+  "emailAddress": "Email Address",
+  "codeSent": "Ilagay ang Code na Ipinadala Namin",
+  "codeSentTo": "Isang code ang ipinadala sa",
+  "notReceiveCode": "Hindi natanggap ang code?",
+  "verificationSuccess": "Tagumpay sa Beripikasyon",
+  "spinHistory": {
+    "statusFilterLabel": "Katayuan"
+  },
+  "phone_number_has_been_verified": "Na-verify na ang phone number mo. Maaari ka nang magpatuloy.",
+  "email_address_has_been_verified": "Na-verify na ang email address mo. Maaari ka nang magpatuloy.",
+  "setNewPassword": "Itakda ang Bagong Password",
+  "passwordLengthRequirement": "Mangyaring maglagay ng password na 6 hanggang 64 karakter."
 }

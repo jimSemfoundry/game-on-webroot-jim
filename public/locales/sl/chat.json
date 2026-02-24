@@ -3,5 +3,8 @@
   "notifications": "Obvestila",
   "support": "Podpora",
   "retry": "Poskusi znova",
-  "customerServiceChatFailedToLoad": "Klepet s podporo strankam se ni naložil"
+  "customerServiceChatFailedToLoad": "Klepet s podporo strankam se ni naložil",
+  "read": "Prebrano",
+  "unread": "Neprebrano",
+  "customerService": "Podpora strankam"
 }

@@ -76,12 +76,39 @@
   "dashboard": "Πίνακας ελέγχου",
   "transactions": "Συναλλαγές",
   "rollover": "Ανατροπή",
-  "betHistory": "Ιστορικό στοιχημάτων",
+  "betHistory": {
+    "empty": "Δεν βρέθηκε ιστορικό στοιχημάτων",
+    "title": "Ιστορικό στοιχημάτων",
+    "headers": {
+      "game": "Παιχνίδι",
+      "date": "Ημερομηνία",
+      "betId": "ID στοιχήματος",
+      "betIn": "Στοίχημα",
+      "betOut": "Κέρδος",
+      "account": "Λογαριασμός",
+      "amount": "Ποσό",
+      "provider": "Πάροχος",
+      "match": "Αγώνας",
+      "tournament": "Τουρνουά"
+    }
+  },
   "settings": "Ρυθμίσεις",
   "legal": "Νομικά",
   "nickname": "Ψευδώνυμο",
   "zoomAndAdjust": "Ζουμ και Ρύθμιση",
   "systemLanguage": "Γλώσσα Συστήματος",
   "editProfile": "Επεξεργασία Προφίλ",
-  "inviteAndGetRewarded": "Προσκάλεσε και Κέρδισε Ανταμοιβές"
+  "inviteAndGetRewarded": "Προσκάλεσε και Κέρδισε Ανταμοιβές",
+  "emailAddress": "Διεύθυνση Email",
+  "codeSent": "Εισάγετε τον Κωδικό που Στείλαμε",
+  "codeSentTo": "Ένας κωδικός έχει σταλεί στο",
+  "notReceiveCode": "Δεν λάβατε τον κωδικό;",
+  "verificationSuccess": "Επιτυχία Επαλήθευσης",
+  "spinHistory": {
+    "statusFilterLabel": "Κατάσταση"
+  },
+  "phone_number_has_been_verified": "Ο αριθμός τηλεφώνου σας έχει επαληθευτεί. Μπορείτε να συνεχίσετε.",
+  "email_address_has_been_verified": "Η διεύθυνση email σας επαληθεύτηκε. Μπορείτε να συνεχίσετε.",
+  "setNewPassword": "Ορισμός νέου κωδικού πρόσβασης",
+  "passwordLengthRequirement": "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης μεταξύ 6 και 64 χαρακτήρων."
 }

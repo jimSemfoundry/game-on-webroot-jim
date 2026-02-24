@@ -25,6 +25,14 @@
   "totalTips": "টিপস",
   "result": "ফলাফল",
   "myBets": "আমার বেটস",
-  "**********": "",
-  "demoPlay": "ডেমো প্লে"
+  "demoPlay": "ডেমো প্লে",
+  "limitedOffer": "সীমিত অফার",
+  "deposit": "জমা {{value}}",
+  "get": "পাওয়া {{value}}",
+  "instantCashBonus": "তাত্ক্ষণিক নগদ বোনাস",
+  "expires": "মেয়াদ শেষ হচ্ছে",
+  "depositNow": "এখন জমা দিন",
+  "free_spins": "ফ্রি স্পিন",
+  "play_with_balance_in": "ব্যালেন্সে খেলুন",
+  "the_selected_currency_will_be_displayed_in": "নির্বাচিত মুদ্রাটি প্রদর্শিত হবে"
 }

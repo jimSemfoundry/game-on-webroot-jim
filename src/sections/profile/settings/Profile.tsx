@@ -11,7 +11,7 @@ import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx
 import { AvatarModal } from "@/sections/profile/settings/AvatarModal.tsx";
 
 export function Profile() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { user } = useAuth();
 
@@ -43,7 +43,9 @@ export function Profile() {
         } else {
           toast.error(t("toast:editError"));
         }
-      })
+      }).catch((error) => {
+      console.info(error);
+    })
       .finally(() => {
         setStatus((v) => ({ ...v, loading: false }));
       });
@@ -56,7 +58,7 @@ export function Profile() {
 
   return (
     <Card
-      className="md:p-6 md:gap-4 mx-5 md:mx-0 md:max-w-80" title={t("common.profile")}
+      className="md:p-6 md:gap-4 mx-5 md:mx-0 md:max-w-80" title={t("common:common.profile")}
       icon={<Iconify icon="custom:user" className="text-primary" />}>
       <div className="flex w-full flex-col items-center gap-3">
         {/* 头像编辑 */}
@@ -92,7 +94,7 @@ export function Profile() {
             </div>
           </fieldset>
 
-          <p className="relative text-xs">{t("common.usernameDescription")}</p>
+          <p className="relative text-xs">{t("common:common.usernameDescription")}</p>
         </div>
 
         <ConfirmBox
@@ -101,7 +103,7 @@ export function Profile() {
             nickname_error ||
             user?.nickname === status.nickname}
           loading={status.loading} onClick={handle}>
-          {t("common.save")}
+          {t("common:common.save")}
         </ConfirmBox>
 
         <AvatarModal open={status.showAvatar} onClose={() => setStatus((v) => ({ ...v, showAvatar: false }))} />

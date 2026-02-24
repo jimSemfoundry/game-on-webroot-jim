@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Recompense pentru Rotiri Gratuite",
   "common": {
     "close": "Închide",
     "copy": "Copiază",
@@ -12,7 +13,8 @@
     "swap": "Schimbă",
     "swapFrom": "Schimbă Din",
     "swapTo": "Schimbă Către",
-    "noCommissionRecords": "Nu au fost găsite înregistrări de comision"
+    "noCommissionRecords": "Nu au fost găsite înregistrări de comision",
+    "createdOn": "Creat la"
   },
   "tabs": {
     "transactionHistory": "Istoricul Tranzacțiilor",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Rețea de Retragere",
     "blockchainWaiting": "Așteptând confirmarea blockchain.",
     "blockchainFailed": "Tranzacția blockchain a eșuat.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Am primit cererea ta.<br/>Pentru a vizualiza statusul, verifică Tranzacțiile din Profilul tău."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Total Pariu Necesare",
     "wagerCompleted": "Pariul Finalizat",
     "pendingWagerRequired": "Cerința de Pariu în Așteptare",
-    "unlockedFunds": "Fonduri Deblocate"
-  }
+    "unlockedFunds": "Fonduri deblocate",
+    "rolloverMul": "Multiplicator pariu"
+  },
+  "assistance": "Vă rugăm să verificați detaliile și să încercați din nou sau să contactați serviciul clienți pentru asistență"
 }

@@ -7,6 +7,8 @@
   "baseball": "Μπέιζμπολ",
   "iceHockey": "Χόκεϊ επί πάγου",
   "basketball": "Καλάθι",
+  "cricket": "Κρίκετ",
+  "eSoccer": "ηΠοδόσφαιρο",
   "volleyball": "Βόλεϊ",
   "hot": "Δημοφιλές",
   "all": "Όλα",
@@ -69,5 +71,6 @@
   "live-casino": "Ζωντανό Καζίνο",
   "sports": "Αθλητισμός",
   "lotteries": "Λαχεία",
-  "gamesYouShouldTry": "Παιχνίδια που Πρέπει να Δοκιμάσετε"
+  "gamesYouShouldTry": "Παιχνίδια που Πρέπει να Δοκιμάσετε",
+  "bonus": "Bonus"
 }

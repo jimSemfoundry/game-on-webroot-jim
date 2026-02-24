@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "免費旋轉獎勵",
   "common": {
     "close": "關閉",
     "copy": "複製",
@@ -12,12 +13,13 @@
     "swap": "交換",
     "swapFrom": "交換從",
     "swapTo": "交換到",
-    "noCommissionRecords": "未找到佣金記錄"
+    "noCommissionRecords": "未找到佣金記錄",
+    "createdOn": "建立時間"
   },
   "tabs": {
     "transactionHistory": "交易歷史",
     "betHistory": "投注歷史",
-    "rollover": "滾存"
+    "rollover": "投注要求"
   },
   "filters": {
     "all": "所有",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "提款網絡",
     "blockchainWaiting": "等待區塊鏈確認。",
     "blockchainFailed": "區塊鏈交易失敗。",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "我們已收到您的請求。<br/>要查看狀態，請檢查您個人資料中的交易。"
   },
   "betHistory": {
@@ -141,11 +142,13 @@
     "wagerRequirement": "投注要求",
     "remainingWager": "剩餘投注",
     "expireTime": "過期時間",
-    "rolloverType": "滾存類型",
-    "rolloverTimes": "滾存次數",
+    "rolloverType": "投注類型",
+    "rolloverTimes": "投注次數",
     "totalWagerRequired": "所需總投注",
     "wagerCompleted": "投注已完成",
     "pendingWagerRequired": "待處理投注要求",
-    "unlockedFunds": "解鎖資金"
-  }
+    "unlockedFunds": "解鎖資金",
+    "rolloverMul": "投注倍數"
+  },
+  "assistance": "請檢查您的詳細資訊並重試，或聯繫客服尋求協助"
 }

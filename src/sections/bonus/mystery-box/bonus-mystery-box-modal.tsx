@@ -1,14 +1,15 @@
 import { Modal } from "@/components/ui/Modal";
 import React, { useState } from "react";
 import { AnimatePresence, m as motion } from "motion/react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
-import { toast } from 'sonner';
+import { toast } from "sonner";
 import { useHasMysteryBox } from "@/query/bouns";
 import { useBoundStore } from "@/store";
 import { useClaimBonusMutation } from "@/hooks/api/useAuth";
 import { IVipBonusClaim } from "@/types/bonus";
+import { useEarliestPendingRecord } from "@/query/free-spins.tsx";
 
 interface MysteryBoxModalProps {
   isOpen: boolean;
@@ -19,9 +20,10 @@ type ModalState = "closed" | "opening" | "opened";
 
 export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
   const [modalState, setModalState] = useState<ModalState>("closed");
-  const { t } = useTranslation();
-  const { formatWithConversion } = useDisplayCurrencyFormatter();
+  const { t } = useTranslation('bonus');
+  const { formatWithoutConversion } = useDisplayCurrencyFormatter();
   const claimBonusMutation = useClaimBonusMutation();
+  const { refetch: refetchEarliestPendingRecord } = useEarliestPendingRecord()
 
   // Assets for burst animation
   const coinImages = [
@@ -30,7 +32,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
     "/images/rewards/mystery-box/coin-3.png",
     "/images/rewards/mystery-box/coin-4.png",
     "/images/rewards/mystery-box/coin-5.png",
-    "/images/rewards/mystery-box/coin-6.png",
+    "/images/rewards/mystery-box/coin-6.png"
   ];
 
 
@@ -68,13 +70,13 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
         refetch();
       } else {
         if (res.code === 4001) {
-          toast.error(t('bonus:not_in_claim_time_range'));
+          toast.error(t("bonus:not_in_claim_time_range"));
         } else if (res.code === 4002) {
-          toast.error(t('bonus:bonus_already_claimed'));
+          toast.error(t("bonus:bonus_already_claimed"));
         } else if (res.code === 4003) {
-          toast.error(t('bonus:wager_requirement_not_met'));
+          toast.error(t("bonus:wager_requirement_not_met"));
         } else {
-          toast.error(t('bonus:claim_failed'));
+          toast.error(t("bonus:claim_failed"));
         }
         setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
           code: res.code,
@@ -83,7 +85,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
       }
     }).finally(() => {
       setIsLoading(false);
-    })
+    });
   };
 
   // Render closed box state
@@ -92,7 +94,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
       className="flex flex-col items-center sm:h-[600px] relative overflow-hidden"
       style={{
         transform: "translateZ(0)", // 启用硬件加速
-        backfaceVisibility: "hidden", // 减少重绘
+        backfaceVisibility: "hidden" // 减少重绘
       }}
     >
 
@@ -109,10 +111,10 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               WebkitTextFillColor: "transparent",
               color: "transparent",
 
-              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
+              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)"
             }}
           >
-            {t('bonus:mystery')}
+            {t("bonus:mystery")}
           </h1>
           <h1
             className="text-[70px] font-[Lobster] -mt-10 text-right w-full"
@@ -124,10 +126,10 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               WebkitTextFillColor: "transparent",
               color: "transparent",
 
-              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
+              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)"
             }}
           >
-            {t('bonus:box')}
+            {t("bonus:box")}
           </h1>
         </div>
       </div>
@@ -142,14 +144,14 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
             className="object-contain z-40 m-4 w-[238px]"
             style={{
               filter: "drop-shadow(0 0 8px rgba(139, 92, 246, 0.6)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3))",
-              transform: "translateZ(0)", // 启用硬件加速
+              transform: "translateZ(0)" // 启用硬件加速
             }}
             animate={
               shaking
                 ? {
                   rotate: [0, -8, 8, -6, 6, -4, 4, 0],
                   x: [0, -6, 6, -5, 5, -3, 3, 0],
-                  transition: { duration: 0.6, ease: "easeInOut" },
+                  transition: { duration: 0.6, ease: "easeInOut" }
                 }
                 : undefined
             }
@@ -160,23 +162,23 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
             }}
           />
 
-          <motion.img
-            src="/images/rewards/mystery-box/light.svg"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover -z-10 opacity-15 w-[400px]"
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 20, // 减慢动画速度以提高性能
-              repeatType: "loop",
-              ease: "linear",
-            }}
-            style={{
-              willChange: "transform", // 优化动画性能
-              transform: "translateZ(0)", // 启用硬件加速
-            }}
-          />
+          {/*<motion.img*/}
+          {/*  src="/images/rewards/mystery-box/light.svg"*/}
+          {/*  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover -z-10 opacity-15 w-[400px]"*/}
+          {/*  animate={{*/}
+          {/*    rotate: 360*/}
+          {/*  }}*/}
+          {/*  transition={{*/}
+          {/*    repeat: Infinity,*/}
+          {/*    duration: 20, // 减慢动画速度以提高性能*/}
+          {/*    repeatType: "loop",*/}
+          {/*    ease: "linear"*/}
+          {/*  }}*/}
+          {/*  style={{*/}
+          {/*    willChange: "transform", // 优化动画性能*/}
+          {/*    transform: "translateZ(0)" // 启用硬件加速*/}
+          {/*  }}*/}
+          {/*/>*/}
         </div>
       </div>
 
@@ -196,7 +198,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
       className="flex flex-col items-center sm:h-[600px] relative overflow-hidden"
       style={{
         transform: "translateZ(0)", // 启用硬件加速
-        backfaceVisibility: "hidden", // 减少重绘
+        backfaceVisibility: "hidden" // 减少重绘
       }}
     >
       {/* Title */}
@@ -212,7 +214,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               WebkitTextFillColor: "transparent",
               color: "transparent",
 
-              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)",
+              filter: "drop-shadow(0 4px 0 #AB1EE6) drop-shadow(0 4px 7px #6F00CB)"
             }}
           >
             {t("bonus:you_win")}
@@ -229,7 +231,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               alt="Mystery Box"
               className="object-contain z-40 m-4 w-[214px] absolute top-12"
               style={{
-                filter: "drop-shadow(0 0 8px rgba(139, 92, 246, 0.6)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3))",
+                filter: "drop-shadow(0 0 8px rgba(139, 92, 246, 0.6)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3))"
               }}
             />
             <motion.img
@@ -237,63 +239,65 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               animate={{
                 rotate: 16,
                 y: -80,
-                x: 60,
+                x: 60
               }}
               transition={{
                 duration: 1,
-                ease: "easeInOut",
+                ease: "easeInOut"
               }}
               src="/images/rewards/mystery-box/box-open-in.svg"
               alt="Mystery Box"
               className="object-contain z-40 m-4 w-[176px] absolute top-2 -rotate-11 left-1/2 -translate-x-[calc(50%+5px)]"
               style={{
-                filter: "drop-shadow(0 0 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3))",
+                filter: "drop-shadow(0 0 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.3))"
               }}
             />
             <motion.img
               key="light-2"
               src="/images/rewards/mystery-box/light-2.png"
               className="absolute top-18 left-[calc(50%-8px)] -translate-y-1/2 object-cover w-[400px] z-300 opacity-0"
-              style={{ transform: 'translateX(calc(50% * -0.85))' }}
+              style={{ transform: "translateX(calc(50% * -0.85))" }}
               initial={{
-                opacity: 0,
+                opacity: 0
               }}
               animate={{
-                opacity: 1,
+                opacity: 1
               }}
               transition={{
                 duration: 1,
-                ease: "easeInOut",
+                ease: "easeInOut"
               }}
             />
           </div>
           <motion.div
             className="absolute w-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-0 z-400"
             initial={{
-              opacity: 0,
+              opacity: 0
             }}
             animate={{
-              opacity: 1,
+              opacity: 1
             }}
             transition={{
               duration: 2,
-              ease: "easeInOut",
+              ease: "easeInOut"
             }}
           >
             <div className="flex flex-col items-center justify-center -mt-8">
-              <CurrencyIcon currency={data?.currency ?? 'BUCK'} className="h-8 w-8" />
-              <h2 className='font-bold text-2xl'
-                style={{ color: "rgba(67, 57, 95, 1)" }}
-              >
-                {formatWithConversion(data?.value ?? 0, data?.currency ?? 'BUCK', {
+              {!data?.free_spin_record_id && <CurrencyIcon currency={data?.claim?.currency ?? "BUCK"} className="h-8 w-8" />}
+              <h2 className="font-bold text-2xl"
+                  style={{ color: "rgba(67, 57, 95, 1)" }}>
+                {!data?.free_spin_record_id && formatWithoutConversion(data?.claim?.value ?? 0, data?.claim?.currency ?? "BUCK", {
                   showSymbol: false,
-                  showCode: false,
+                  showCode: false
                 }).formatted}
+                {data?.free_spin_record_id &&
+                  <div className={"text-center text-3xl font-bold text-base-300"}>50<br />{t("casino:freeSpins")}</div>}
               </h2>
             </div>
           </motion.div>
           {/* Optimized celebration animation - Fewer elements, larger distances */}
-          <div className="absolute -inset-20 flex items-center justify-center pointer-events-none z-50" style={{ willChange: "transform" }}>
+          <div className="absolute -inset-20 flex items-center justify-center pointer-events-none z-50"
+               style={{ willChange: "transform" }}>
 
             {/* Persistent floating coins for first 3 */}
             {Array.from({ length: 3 }).map((_, i) => {
@@ -309,10 +313,10 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                   src={coinImages[i]}
                   className="absolute drop-shadow-2xl"
                   style={{
-                    width: '32px',
-                    height: '32px',
+                    width: "32px",
+                    height: "32px",
                     left: `calc(50% + ${dx}px)`,
-                    top: `calc(50% + ${dy}px)`,
+                    top: `calc(50% + ${dy}px)`
                   }}
                   initial={{ opacity: 0 }}
                   animate={{
@@ -324,7 +328,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                       "brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0))",
                       "brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0))",
                       "brightness(1) drop-shadow(0 0 0px rgba(255, 215, 0, 0))",
-                      "brightness(1.2) drop-shadow(0 0 6px rgba(255, 215, 0, 0.5))",
+                      "brightness(1.2) drop-shadow(0 0 6px rgba(255, 215, 0, 0.5))"
                     ]
                   }}
                   transition={{
@@ -363,15 +367,15 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                   src="/images/rewards/mystery-box/star.svg"
                   className="absolute"
                   style={{
-                    width: '24px',
-                    height: '24px',
+                    width: "24px",
+                    height: "24px",
                     left: `calc(50% + ${dx}px)`,
-                    top: `calc(50% + ${dy}px)`,
+                    top: `calc(50% + ${dy}px)`
                   }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{
                     opacity: [0, 0, 0, 0, 1],
-                    scale: [0, 0, 0, 0, 1, 1.3, 1],
+                    scale: [0, 0, 0, 0, 1, 1.3, 1]
                   }}
                   transition={{
                     opacity: { duration: 3.5, times: [0, 0.6, 0.7, 0.8, 1] },
@@ -382,7 +386,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                       repeatDelay: 0,
                       repeatType: "reverse",
                       ease: "easeInOut"
-                    },
+                    }
                   }}
                 />
               );
@@ -396,7 +400,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               const dx = Math.sin((angle * Math.PI) / 180) * distance;
               const dy = -Math.cos((angle * Math.PI) / 180) * distance;
               const isVector1 = i % 2 === 0;
-              const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
+              const src = isVector1 ? "/images/rewards/mystery-box/vector1.png" : "/images/rewards/mystery-box/vector2.png";
 
               return (
                 <motion.img
@@ -404,19 +408,19 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                   src={src}
                   className="absolute"
                   style={{
-                    width: '28px',
-                    height: '28px',
+                    width: "28px",
+                    height: "28px",
                     left: `calc(50% + ${dx}px)`,
-                    top: `calc(50% + ${dy}px)`,
+                    top: `calc(50% + ${dy}px)`
                   }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{
                     opacity: [0, 0, 0, 0, 1],
-                    scale: [0, 0, 0, 0, 1],
+                    scale: [0, 0, 0, 0, 1]
                   }}
                   transition={{
                     opacity: { duration: 3.2, times: [0, 0.5, 0.6, 0.7, 1] },
-                    scale: { duration: 3.2, times: [0, 0.5, 0.6, 0.7, 1] },
+                    scale: { duration: 3.2, times: [0, 0.5, 0.6, 0.7, 1] }
                   }}
                 />
               );
@@ -445,7 +449,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                     x: 0,
                     y: 10,
                     rotate: 0,
-                    filter: "brightness(1.3) drop-shadow(0 0 10px rgba(255, 215, 0, 0.7))",
+                    filter: "brightness(1.3) drop-shadow(0 0 10px rgba(255, 215, 0, 0.7))"
                   }}
                   animate={{
                     // 前 3 个币：最后还留一点，不完全消失
@@ -453,13 +457,13 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                     scale: [0.4, 1.1, 0.9],
                     x: [0, dx],
                     y: [10, dy + 60],
-                    rotate: [0, rotation],
+                    rotate: [0, rotation]
                     // 不再对 filter 做多段 keyframe，保持 initial/animate 之间的平滑过渡即可
                   }}
                   transition={{
                     duration: 3.2,
                     delay: delay,
-                    ease: 'easeOut',
+                    ease: "easeOut"
                   }}
                 />
               );
@@ -497,7 +501,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                     scale: [0.1, 1.4, 1.1, 0.7],
                     x: [0, dx * 0.4, dx * 0.9, dx * 1.5],
                     y: [15, dy * 0.3, dy + 30, dy + 120],
-                    rotate: [0, rotation * 0.5, rotation],
+                    rotate: [0, rotation * 0.5, rotation]
                   }}
                   transition={{
                     duration: 2.8,
@@ -518,7 +522,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
               const delay = 0.05 + Math.random() * 0.08;
               const size = 35 + Math.random() * 25; // Larger ribbons
               const rotation = Math.random() * 360;
-              const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
+              const src = isVector1 ? "/images/rewards/mystery-box/vector1.png" : "/images/rewards/mystery-box/vector2.png";
 
               return (
                 <motion.img
@@ -541,7 +545,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                     opacity: [0, 0.9, 0.7, 0],
                     scale: [0.3, 1.1, 0.9, 0.5],
                     x: [0, dx * 0.5, dx * 1.3],
-                    y: [10, dy * 0.4, dy + 80],
+                    y: [10, dy * 0.4, dy + 80]
                     // rotate: [rotation, rotation + 180, rotation + 360],
                   }}
                   transition={{
@@ -576,7 +580,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                     opacity: [0, 1, 0.8, 0],
                     scale: [0, 2.5, 1.8, 0],
                     x: [0, dx * 0.6, dx * 1.2],
-                    y: [0, dy * 0.7, dy + 50],
+                    y: [0, dy * 0.7, dy + 50]
                   }}
                   transition={{
                     duration: 2.0,
@@ -600,11 +604,11 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
                   className="absolute"
                   style={{
                     left: `calc(50% + ${x}px)`,
-                    top: `calc(50% + ${y}px)`,
+                    top: `calc(50% + ${y}px)`
                   }}
                   initial={{ opacity: 0 }}
                   animate={{
-                    opacity: [0, 0, 0, 0, 0.6, 0.3, 0.6],
+                    opacity: [0, 0, 0, 0, 0.6, 0.3, 0.6]
                   }}
                   transition={{
                     opacity: {
@@ -647,17 +651,17 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
             src="/images/rewards/mystery-box/light.svg"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover -z-10 opacity-15 w-[400px]"
             animate={{
-              rotate: 360,
+              rotate: 360
             }}
             transition={{
               repeat: Infinity,
               duration: 20, // 减慢动画速度以提高性能
               repeatType: "loop",
-              ease: "linear",
+              ease: "linear"
             }}
             style={{
               willChange: "transform", // 优化动画性能
-              transform: "translateZ(0)", // 启用硬件加速
+              transform: "translateZ(0)" // 启用硬件加速
             }}
           />
         </div>
@@ -665,10 +669,13 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
 
       {/* Claim Button */}
       <button
-        onClick={onClose}
+        onClick={() => {
+          onClose()
+          void refetchEarliestPendingRecord()
+        }}
         className="btn btn-primary btn-lg px-16 mb-4 z-10 mt-6 sm:btn-xl"
       >
-        {t('bonus:continue')}
+        {t("bonus:continue")}
       </button>
     </div>
   );
@@ -725,7 +732,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
         "/images/rewards/mystery-box/light.png",
         "/images/rewards/mystery-box/box-open-body.png",
         "/images/rewards/mystery-box/light-2.png",
-        "/images/rewards/mystery-box/box-open-in.png",
+        "/images/rewards/mystery-box/box-open-in.png"
       ];
 
       preloadImages.forEach((src) => {
@@ -746,7 +753,7 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
       style={{
         background: "linear-gradient(175.38deg, color(display-p3 0.227 0.200 0.337) -1.75%, color(display-p3 0.118 0.106 0.204) 54.33%)",
         borderRadius: "12px",
-        boxShadow: "0 4px 250px 1000px rgba(0, 0, 0, 0.50)",
+        boxShadow: "0 4px 250px 1000px rgba(0, 0, 0, 0.50)"
       }}
     >
       <div className="relative overflow-hidden">
@@ -754,5 +761,5 @@ export function MysteryBoxModal({ isOpen, onClose }: MysteryBoxModalProps) {
         {renderContent(mysteryBoxData)}
       </div>
     </Modal>
-  )
+  );
 }

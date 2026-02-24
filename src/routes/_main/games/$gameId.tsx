@@ -11,6 +11,7 @@ import { useDisplayCurrency, useDisplayCurrencyFormatter } from "@/contexts/Disp
 import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
 import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext";
 import {
+  AUTH_QUERY_KEYS,
   useCheckDemoSupportQuery,
   useGetUserDefaultCurrencyMutation,
   useLaunchDemoGameMutation,
@@ -18,6 +19,7 @@ import {
   useLikeGameMutation,
   useUserBalance
 } from "@/hooks/api/useAuth.ts";
+
 import { useCasinoHomeGameList } from "@/hooks/api/usePublic.ts";
 import { useIsMobileDevice } from "@/hooks/useIsMobileDevice";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -26,21 +28,24 @@ import { AlliancePartnerships } from "@/sections/casino/AlliancePartnerships.tsx
 import { CategoryGames } from "@/sections/casino/CategoryGames.tsx";
 import { GameMyBets } from "@/sections/casino/GameMyBets";
 import { GameProviders } from "@/sections/casino/GameProviders.tsx";
-import { LimitedOffer } from "@/sections/limited-offer/LimitedOffer";
 import { GameProviderTournaments } from "@/sections/tournament";
 import { publicService } from "@/services/publicService.ts";
 import { useBoundStore } from "@/store";
 import { createFileRoute } from "@tanstack/react-router";
-import { ChevronDown, ChevronLeft, X } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { ChevronDown, Maximize, Minimize, X } from "lucide-react";
+import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import {
   fn_ban_regions,
   fn_ban_support_settlement_currencies, fn_regions,
-  fn_support_settlement_currencies
+  fn_support_settlement_currencies, getPathInROIBEST
 } from "@/utils/helper";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
+import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
+import clsx from "clsx";
+import { LimitOfferPromoCheck } from "@/sections/casino/LimitOfferPromoCheck.tsx";
+import { useQueryClient } from "@tanstack/react-query";
 
 type SectionKey = "tournament" | "bets";
 
@@ -51,7 +56,9 @@ const GameDetail = () => {
   const searchParams = Route.useSearch();
   const isFreeSpinsMode = searchParams?.freeSpins === "true";
   const searchCurrency = typeof searchParams?.currency === "string" ? searchParams.currency.trim() : "";
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(["common", "menu", "gameDetail", "bonus"]);
+  const [gameInfoTransLoaded, setGameInfoTransLoaded] = useState(false);
+
   const { gameIsFullScreen, setGameIsFullScreen, setHeaderBackAction } = useBoundStore();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -62,6 +69,8 @@ const GameDetail = () => {
     launchData: string;
     launchType: "url" | "html";
   } | null>(null);
+  const desktopGameContainerRef = useRef<HTMLDivElement>(null);
+  const [isDesktopFullscreen, setIsDesktopFullscreen] = useState(false);
   const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
   const [gameCurrency, setGameCurrency] = useState<string>(searchCurrency || "PHP");
   const { selectedCurrency: settlementCurrency, updateSettlementCurrency } = useSettlementCurrency();
@@ -84,6 +93,9 @@ const GameDetail = () => {
   // 基于设备类型的检测，不受横屏影响，用于游戏播放状态判断
   const isMobileDevice = useIsMobileDevice();
   const [activeSection, setActiveSection] = useState<SectionKey>("bets");
+  const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
+
+  const queryClient = useQueryClient();
 
   // 根据IP获取地区
   const { data: country } = useCountryCodeByIp();
@@ -165,8 +177,7 @@ const GameDetail = () => {
       {
         value: "tournament",
         label: (
-          <div className="flex items-center gap-2 whitespace-nowrap">
-            <Iconify icon="custom:tournament" className="w-4 h-4 sm:w-5 sm:h-5" />
+          <div className="text-xs flex items-center gap-2 whitespace-nowrap">
             {t("menu:tournaments", "Tournaments")}
           </div>
         )
@@ -174,8 +185,7 @@ const GameDetail = () => {
       {
         value: "bets",
         label: (
-          <div className="flex items-center gap-2 whitespace-nowrap">
-            <Iconify icon="custom:profile-achievements" className="w-4 h-4 sm:w-5 sm:h-5" />
+          <div className="text-xs flex items-center gap-2 whitespace-nowrap">
             {t("gameDetail:myBets", "My Bets")}
           </div>
         )
@@ -307,15 +317,15 @@ const GameDetail = () => {
           onSuccess: (currencyResponse) => {
             if (currencyResponse.code === 0) {
               const gameCurrencyValue = currencyResponse.data?.default_currency || game.default_currency || user.currency || "USDT";
-              setGameCurrency(searchCurrency || gameCurrencyValue);
+              setGameCurrency(gameCurrencyValue || searchCurrency);
             }
           },
           onError: (error) => {
             console.error("Failed to get game currency:", error);
             // 使用fallback值
             setGameCurrency(searchCurrency || game.default_currency || user.currency || "USDT");
-          },
-        },
+          }
+        }
       );
     }
   }, [game?.inner_game_id, user, displayCurrency, searchCurrency]);
@@ -356,70 +366,57 @@ const GameDetail = () => {
     }
 
     // 首先获取用户对该游戏的默认货币
-    // 首先获取用户对该游戏的默认货币
-    getUserDefaultCurrency(
-      { inner_game_id: game.inner_game_id },
-      {
-        onSuccess: (currencyResponse) => {
-          if (currencyResponse.code === 0) {
-            // 获取到默认货币后，启动游戏
-            const gameCurrencyValue = currencyResponse.data?.default_currency || game.default_currency || user.currency || "USDT";
-            setGameCurrency(gameCurrencyValue);
+    const origin = window.location.origin;
+    const launchParams = {
+      inner_game_id: game.inner_game_id,
+      game_provider: game.game_provider,
+      game_currency: gameCurrency,
+      lang: "EN", // 可以根据需要动态设置
+      home_url: `${origin}/casino`,
+      deposit_url: `${origin}/finance/deposit`,
+      close_url: `${origin}/casino`
+    };
 
-            const origin = window.location.origin;
-            const launchParams = {
-              inner_game_id: game.inner_game_id,
-              game_provider: game.game_provider,
-              game_currency: gameCurrencyValue,
-              lang: "EN", // 可以根据需要动态设置
-              home_url: `${origin}/casino`,
-              deposit_url: `${origin}/finance/deposit`,
-              close_url: `${origin}/casino`
-            };
-
-            launchGame(launchParams, {
-              onSuccess: (response) => {
-                if (response.code === 0 && response.data) {
-                  console.log("[Game Launch] Success:", {
-                    launchType: response.launch_type,
-                    dataLength: response.data?.length,
-                    isMobile,
-                    willBeFullscreen: gameIsFullScreen && isMobile
-                  });
-                  setGameData({
-                    launchData: response.data,
-                    launchType: response.launch_type
-                  });
-                  setIsPlayingGame(true);
-                  // 只在移动设备应用全屏设置（使用 isMobileDevice 避免横屏时切换）
-                  if (gameIsFullScreen && isMobileDevice) {
-                    setIsMobileFullscreen(true);
-                  }
-                } else {
-                  toast.error(response.msg || "Failed to launch game");
-                }
-              },
-              onError: (error) => {
-                toast.error("Failed to launch game");
-                console.error("Game launch error:", error);
-              }
-            });
-          } else {
-            toast.error("Failed to get game currency");
+    launchGame(launchParams, {
+      onSuccess: (response) => {
+        if (response.code === 0 && response.data) {
+          // console.log("[Game Launch] Success:", {
+          //   launchType: response.launch_type,
+          //   dataLength: response.data?.length,
+          //   isMobile,
+          //   willBeFullscreen: gameIsFullScreen && isMobile
+          // });
+          setGameData({
+            launchData: response.data,
+            launchType: response.launch_type
+          });
+          setIsPlayingGame(true);
+          setIsDesktopFullscreen(false);
+          // 只在移动设备应用全屏设置（使用 isMobileDevice 避免横屏时切换）
+          if (gameIsFullScreen && isMobileDevice) {
+            setIsMobileFullscreen(true);
           }
-        },
-        onError: (error) => {
-          toast.error("Failed to get game currency");
-          console.error("Get currency error:", error);
+        } else {
+          toast.error(response.msg || "Failed to launch game");
         }
+      },
+      onError: (error) => {
+        toast.error("Failed to launch game");
+        console.error("Game launch error:", error);
       }
-    );
+    });
   };
 
   const handleCloseGame = useCallback(() => {
+    if (document.fullscreenElement && document.fullscreenElement === desktopGameContainerRef.current) {
+      document.exitFullscreen().catch(() => undefined);
+    }
+    setIsDesktopFullscreen(false);
     setIsPlayingGame(false);
     setGameData(null);
     setIsMobileFullscreen(false);
+
+    void queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.checkDetailPromo });
 
     if (isFreeSpinsMode) {
       navigate({
@@ -450,6 +447,34 @@ const GameDetail = () => {
     toast.error("Game failed to load");
     handleCloseGame();
   };
+
+  const handleToggleDesktopFullscreen = useCallback(async () => {
+    const el = desktopGameContainerRef.current;
+    if (!el) return;
+
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+        return;
+      }
+
+      await el.requestFullscreen();
+    } catch (error) {
+      console.error("Failed to toggle fullscreen:", error);
+      toast.error(t("common:operationFailed", "Operation failed"));
+    }
+  }, [t]);
+
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      setIsDesktopFullscreen(document.fullscreenElement === desktopGameContainerRef.current);
+    };
+
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", onFullscreenChange);
+    };
+  }, []);
 
   const handleDemoPlay = () => {
     // Demo Play 也需要登录
@@ -506,7 +531,7 @@ const GameDetail = () => {
 
     return (
       <div
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 backdrop-blur-sm"
         onClick={() => setIsSettingsOpen(false)}
       >
         <div className="bg-base-300 w-[90%] max-w-md rounded-box p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
@@ -533,6 +558,37 @@ const GameDetail = () => {
       </div>
     );
   };
+
+  /**
+   * TODO
+   *  拆分游戏信息的翻译文件按需加载
+   *  之前的文件体积过大,加载时间长,维护困难
+   */
+  useEffect(() => {
+    const provider = game?.game_provider;
+    if (!provider) return;
+
+    const namespace = `game_${provider}`;
+
+    // 检查是否已经加载过
+    if (i18n.hasResourceBundle(i18n.language, namespace)) {
+      setGameInfoTransLoaded(false);
+      return;
+    }
+
+    setGameInfoTransLoaded(true);
+
+    fetch(`${getPathInROIBEST()}/locales/${i18n.language}/games/${namespace}.json?v=${import.meta.env.VITE_VERSION}`)
+      .then(res => res.ok ? res.json() : Promise.reject())
+      .then(data => {
+        i18n.addResourceBundle(i18n.language, namespace, data, true, true);
+        setGameInfoTransLoaded(false);
+      })
+      .catch(error => {
+        console.error(`Failed to load ${namespace}:`, error);
+        setGameInfoTransLoaded(false);
+      });
+  }, [i18n.language, game?.game_provider]);
 
   if (isLoading) {
     return (
@@ -569,7 +625,7 @@ const GameDetail = () => {
     return (
       <div
         className="fixed inset-x-0 bottom-0 z-999 bg-base-200"
-        style={{ top: "calc(env(safe-area-inset-top) + 3rem)" }}
+        style={{ top: "calc(var(--safe-area-inset-top) + 3rem)" }}
       >
         <div className="h-[calc(100%)] w-full">
           {/* Loading状态 */}
@@ -602,75 +658,124 @@ const GameDetail = () => {
   }
 
   return (
-    <div className="min-h-screen relative">
-      <GameSettingsDialog />
-      {/** Overlay Blur Image */}
-      <div className="absolute inset-0 bg-base-200/50 rounded-box blur-xs w-full h-[260px] sm:hidden">
-        <img src={game?.image} alt={game?.display_game_name} className="w-full h-full object-cover " />
-        {/** Gradient mask */}
-        <div className="absolute inset-0 bg-gradient-to-b from-base-300/60 to-base-300"></div>
-      </div>
-      <div className="sm:pb-12 px-5 py-4">
-        {/* Hero Header with Game Background */}
-        <div className="relative overflow-hidden flex flex-col gap-6">
-          {/* Game iframe section - Desktop embedded mode (排除移动设备) */}
-          {isPlayingGame && gameData && !isMobileFullscreen && !isMobileDevice && (
-            <>
-              {/* 桌面端：带控制栏和容器 */}
-              <div className="container mx-auto relative">
-                <div className="bg-base-200 rounded-box overflow-hidden">
-                  {/* 游戏控制栏 */}
-                  <div className="flex items-center justify-between px-4 py-3 bg-base-200">
-                    <div className="flex items-center gap-3">
-                      <button onClick={handleCloseGame} className="btn btn-sm btn-ghost gap-2">
-                        <ChevronLeft className="w-4 h-4" />
-                        {t("bonus:back", "Back")}
-                      </button>
-                      {isFreeSpinsMode && (
-                        <div className="badge badge-primary badge-sm gap-1">
-                          <Iconify icon="custom:gift" className="w-3 h-3" />
-                          {t("gameDetail:free_spins", "Free Spins")}
+    <LimitOfferPromoCheck>
+      <div className="min-h-screen relative">
+        <GameSettingsDialog />
+        {/** Overlay Blur Image */}
+        <div className="absolute inset-0 bg-base-200/50 rounded-box blur-xs w-full h-[260px] sm:hidden">
+          <img src={game?.image} alt={game?.display_game_name} className="w-full h-full object-cover " />
+          {/** Gradient mask */}
+          <div className="absolute inset-0 bg-linear-to-b from-base-300/60 to-base-300"></div>
+        </div>
+        <div className="sm:pb-12 px-5 py-4">
+          {/* Hero Header with Game Background */}
+          <div
+            className={clsx(
+              "relative flex flex-col gap-6",
+              isPlayingGame && gameData && !isMobileFullscreen && !isMobileDevice ? "overflow-visible" : "overflow-hidden"
+            )}
+          >
+            {/* Game iframe section - Desktop embedded mode (排除移动设备) */}
+            {isPlayingGame && gameData && !isMobileFullscreen && !isMobileDevice && (
+              <>
+                {/* 桌面端：带控制栏和容器 */}
+                <div className="container mx-auto relative">
+                  <div
+                    ref={desktopGameContainerRef}
+                    className={clsx(
+                      "bg-base-200 rounded-box overflow-visible flex flex-col",
+                      isDesktopFullscreen && "bg-black",
+                      isDesktopFullscreen
+                        ? "h-dvh"
+                        : "h-[min(calc(100dvh-3rem-env(safe-area-inset-top)-2rem),1000px)]",
+                      !isDesktopFullscreen && "md:h-[min(calc(100dvh-4.5rem-env(safe-area-inset-top)-2rem),1000px)]"
+                    )}
+                  >
+                    {/* 游戏控制栏 */}
+                    <div className="flex items-center justify-between px-4 py-3 bg-base-200 rounded-t-box">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="tooltip tooltip-bottom before:text-[11px] before:font-bold"
+                          data-tip={
+                            isDesktopFullscreen
+                              ? t("common:common.exitFullscreen", "Exit Fullscreen")
+                              : t("common:common.fullscreen", "Fullscreen")
+                          }
+                        >
+                          <button
+                            onClick={handleToggleDesktopFullscreen}
+                            className="btn btn-sm btn-ghost btn-square"
+                            aria-label={
+                              isDesktopFullscreen
+                                ? t("common:common.exitFullscreen", "Exit Fullscreen")
+                                : t("common:common.fullscreen", "Fullscreen")
+                            }
+                            title={
+                              isDesktopFullscreen
+                                ? t("common:common.exitFullscreen", "Exit Fullscreen")
+                                : t("common:common.fullscreen", "Fullscreen")
+                            }
+                          >
+                            {isDesktopFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+                          </button>
                         </div>
-                      )}
-                    </div>
-                    <h2 className="text-lg font-bold -translate-x-1/2">{game?.display_game_name}</h2>
-                    <div />
-                  </div>
-
-                  {/* Loading状态 */}
-                  {(isLoadingCurrency || isLaunchingGame || isLaunchingDemoGame) && (
-                    <div className="flex items-center justify-center h-[600px]">
-                      <div className="flex flex-col items-center gap-4">
-                        <span className="loading loading-spinner loading-xl text-primary" />
-                        <p
-                          className="text-lg font-medium">{isLoadingCurrency ? "Getting game currency..." : "Loading Game..."}</p>
+                        {isFreeSpinsMode && (
+                          <div className="badge badge-primary badge-sm gap-1">
+                            <Iconify icon="custom:gift" className="w-3 h-3" />
+                            {t("gameDetail:free_spins", "Free Spins")}
+                          </div>
+                        )}
+                      </div>
+                      <h2 className="text-lg font-bold -translate-x-1/2">{game?.display_game_name}</h2>
+                      <div
+                        className="tooltip tooltip-bottom before:text-[11px] before:font-bold"
+                        data-tip={t("common:common.close", "Close")}
+                      >
+                        <button
+                          onClick={handleCloseGame}
+                          className="btn btn-sm btn-ghost btn-square"
+                          aria-label={t("common:common.close", "Close")}
+                          title={t("common:common.close", "Close")}
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
                       </div>
                     </div>
-                  )}
 
-                  {/* 游戏iframe区域 */}
-                  {!isLoadingCurrency && !isLaunchingGame && !isLaunchingDemoGame && (
-                    <div className="h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden bg-base-200">
-                      <GameIframe
-                        launchData={gameData.launchData}
-                        launchType={gameData.launchType}
-                        isFullScreen={false}
-                        onError={handleGameError}
-                        onClose={handleCloseGame}
-                        gameName={game?.display_game_name}
-                      />
-                    </div>
-                  )}
+                    {/* Loading状态 */}
+                    {(isLoadingCurrency || isLaunchingGame || isLaunchingDemoGame) && (
+                      <div className="flex items-center justify-center flex-1">
+                        <div className="flex flex-col items-center gap-4">
+                          <span className="loading loading-spinner loading-xl text-primary" />
+                          <p
+                            className="text-lg font-medium">{isLoadingCurrency ? "Getting game currency..." : "Loading Game..."}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* 游戏iframe区域 */}
+                    {!isLoadingCurrency && !isLaunchingGame && !isLaunchingDemoGame && (
+                      <div className="flex-1 min-h-0 overflow-hidden bg-base-200 rounded-b-box">
+                        <GameIframe
+                          launchData={gameData.launchData}
+                          launchType={gameData.launchType}
+                          isFullScreen={false}
+                          onError={handleGameError}
+                          onClose={handleCloseGame}
+                          gameName={game?.display_game_name}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
+              </>
+            )}
 
-          {/* Main Game Hero Section - shows when not playing or not in mobile fullscreen */}
-          {!isPlayingGame && !isMobileFullscreen && (
-            <div className="relative z-10 container mx-auto sm:p-12 sm:bg-base-200/50 rounded-box"
-              style={{
-                backgroundImage: `repeating-linear-gradient(-45deg,
+            {/* Main Game Hero Section - shows when not playing or not in mobile fullscreen */}
+            {!isPlayingGame && !isMobileFullscreen && (
+              <div className="relative z-10 container mx-auto sm:p-12 sm:bg-base-200/50 rounded-field"
+                   style={{
+                     backgroundImage: `repeating-linear-gradient(-45deg,
                       oklch(from var(--color-base-100) l c h / 0.2) 0px,
                     oklch(from var(--color-base-100) l c h / 0.2) 6px,
                     oklch(from var(--color-base-300) l c h / 0.3) 6px,
@@ -678,165 +783,61 @@ const GameDetail = () => {
                     oklch(from var(--color-base-100) l c h / 0.2) 12px,
                     oklch(from var(--color-base-100) l c h / 0.2) 18px
                   )`
-              }}
-            >
-              {/* Desktop Layout */}
-              <div className="hidden sm:flex items-center sm:gap-8">
-                <div className="aspect-3/4 w-[140px] sm:w-[160px] rounded-box overflow-hidden">
-                  <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
-                </div>
-
-                <div className="flex-col sm:gap-3 hidden sm:flex max-w-96">
-                  <div className="flex items-center gap-2">
-                    <div className="badge badge-xl bg-base-200 text-sm font-semibold">{game?.provider_name}</div>
-                    {isAuthenticated && game?.inner_game_id && (
-                      <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
-                        className="bg-base-200" />
-                    )}
+                   }}
+              >
+                {/* Desktop Layout */}
+                <div className="hidden sm:flex items-center sm:gap-8">
+                  <div className="aspect-3/4 w-[140px] sm:w-[160px] rounded-box overflow-hidden">
+                    <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
                   </div>
-                  <h1 className="text-4xl font-bold text-base-content">{game?.display_game_name}</h1>
-                  <div className="flex flex-wrap gap-2">
-                    {game?.tags?.split(",").map((tag: string, index: number) => (
-                      <div key={index} className="badge badge-soft badge-primary badge-lg">
-                        {tag}
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="hidden sm:flex flex-col gap-4 ml-12 w-[200px] items-center">
-                  {isAuthenticated ? (
-                    /* Play with Balance In - Authenticated Users */
-                    <div className="text-start">
-                      <h3
-                        className="text-xs text-base-content/70 mb-1 font-semibold">{t("gameDetail:play_with_balance_in", "Play with Balance In")}</h3>
-                      {/* User Balance Button with CurrencySelector */}
-                      <div className="mb-4 bg-base-300 rounded-field h-10 flex items-center w-full">
-                        <div className=" flex-1 px-2">
-                          <CurrencySelector
-                            selectedCurrency={settlementCurrency}
-                            onCurrencySelect={handleCurrencySelect}
-                            showBalance={true}
-                            className="w-full"
-                          />
-                        </div>
-                      </div>
-                      {/* Game Currency */}
-                      <div className="mb-4 text-center flex items-center gap-2 h-17">
-                        <p
-                          className="text-xs text-base-content/60 mb-2 text-start"> {t("gameDetail:the_selected_currency_will_be_displayed_in", "The selected currency will be displayed in")}:</p>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg btn btn-soft">
-                          <CurrencyIcon currency={gameCurrency} className="w-4 h-4" />
-                          <span className="font-semibold">{gameCurrency}</span>
-                        </div>
-                      </div>
-                      {/* Play Button */}
-                      <button
-                        className="btn btn-primary btn-lg w-full gap-3 text-lg font-bold"
-                        onClick={handlePlayNow}
-                        disabled={
-                          is_regional_access_prohibited ||
-                          is_currency_settlement_prohibited ||
-                          isLoadingCurrency ||
-                          isLaunchingGame ||
-                          isLaunchingDemoGame ||
-                          (settlementBalanceAmount !== undefined && settlementBalanceAmount <= 0)
-                        }
-                      >
-                        <Iconify icon="custom:play" width={24} height={24} />
-                        {t("gameDetail:play", "Play")}
-                      </button>
-                      {/* Demo Play Button - 仅在支持时显示 */}
-                      {isDemoSupported && (
-                        <button
-                          className="btn btn-primary btn-soft btn-lg w-full gap-3 text-lg font-bold mt-3"
-                          onClick={handleDemoPlay}
-                          disabled={is_regional_access_prohibited ||
-                            is_currency_settlement_prohibited || isLoadingCurrency || isLaunchingGame || isLaunchingDemoGame}
-                        >
-                          <Iconify icon="custom:play" width={24} height={24} />
-                          {t("gameDetail:demoPlay", "Demo Play")}
-                        </button>
+                  <div className="flex-col sm:gap-3 hidden sm:flex max-w-96">
+                    <div className="flex items-center gap-2">
+                      <InnerBadge value={game?.provider_name} className={"badge-xl !bg-base-400"} />
+                      <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} className={"badge-xl"} />
+                      {isAuthenticated && game?.inner_game_id && (
+                        <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
+                                        className="bg-base-200" />
                       )}
                     </div>
-                  ) : (
-                    /* 未登录用户 - Demo Play 按钮（点击弹出登录框） */
-                    <div className="text-start w-full">
-                      <button className="btn btn-primary btn-soft btn-lg w-full gap-3 text-lg font-bold"
-                        onClick={handleDemoPlay}>
-                        <Iconify icon="custom:play" width={24} height={24} />
-                        {t("gameDetail:demoPlay", "Demo Play")}
-                      </button>
+                    <h1 className="text-4xl font-bold text-base-content">{game?.display_game_name}</h1>
+                    <div className="flex flex-wrap gap-2">
+                      <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} className={"badge-xl"} />
+                      <InnerBadge extra={<Iconify icon="custom:max-win" />} value={game?.max_win}
+                                  className={"badge-xl"} />
+                      <InnerBadge value={game?.tags?.split(",") || []} className={"badge-xl"} />
                     </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Mobile Layout - Image and Play Section Side by Side */}
-              <div className="sm:hidden flex flex-col gap-4">
-                <div className="flex gap-4">
-                  {/* Game Image - Mobile */}
-                  <div className="flex items-center flex-col gap-3">
-                    <div className="aspect-3/4 w-[140px] rounded-box overflow-hidden shrink-0">
-                      <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
-                    </div>
-                    {isAuthenticated && game?.inner_game_id && (
-                      <div className="flex gap-2 justify-center items-center">
-                        <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
-                          className="bg-base-200" />
-                        <button className="btn btn-square btn-sm" onClick={() => setIsSettingsOpen(true)}>
-                          <Iconify icon="custom:setting-2" className="text-base-content/50 w-4 h-4" />
-                        </button>
-                      </div>
-                    )}
                   </div>
 
-                  {/* Play with Balance In - Mobile Right Side */}
-                  <div className="flex-1">
+                  <div className="hidden sm:flex flex-col gap-4 ml-12 w-[250px] items-center">
                     {isAuthenticated ? (
-                      /* Authenticated User - Full Controls */
-                      <>
-                        <h3 className="text-xs sm:text-sm font-semibold text-base-content/60 mb-1 text-start px-1">Play
-                          with Balance In</h3>
-                        {/* Currency Selector */}
-                        <div className="mb-3">
-                          <CurrencySelector
-                            selectedCurrency={settlementCurrency}
-                            onCurrencySelect={handleCurrencySelect}
-                            className="w-full"
-                            trigger={
-                              <button
-                                className="btn btn-md sm:btn-lg bg-base-300 text-base-content border-0 w-full flex items-center gap-3">
-                                <div className="flex items-center gap-2 min-w-0">
-                                  <CurrencyIcon currency={settlementCurrency} className="w-5 h-5" />
-                                </div>
-                                <div className="flex-1 text-center">
-                                  {isBalanceDisplayLoading ? (
-                                    <span className="loading loading-dots loading-xs" />
-                                  ) : (
-                                    <span
-                                      className="text-xs font-semibold text-base-content">{settlementBalanceDisplay ?? "0"}</span>
-                                  )}
-                                </div>
-                                <ChevronDown className="w-4 h-4 flex-shrink-0" />
-                              </button>
-                            }
-                          />
+                      /* Play with Balance In - Authenticated Users */
+                      <div className="text-start">
+                        <h3
+                          className="text-xs text-base-content/70 mb-1 font-semibold">{t("gameDetail:play_with_balance_in", "Play with Balance In")}</h3>
+                        {/* User Balance Button with CurrencySelector */}
+                        <div className="mb-4 bg-base-300 rounded-field h-10 flex items-center w-full">
+                          <div className=" flex-1 px-2">
+                            <CurrencySelector
+                              selectedCurrency={settlementCurrency}
+                              onCurrencySelect={handleCurrencySelect}
+                              showBalance={true}
+                              className="w-full"
+                            />
+                          </div>
                         </div>
-                        {/* Game Currency Display */}
-                        <div className="mb-3 flex items-center">
+                        {/* Game Currency */}
+                        <div className="mb-4 text-center flex items-center gap-2 h-17 font-semibold">
                           <p
-                            className="text-xs text-base-content/60 mb-1.5"> {t("gameDetail:theSelectedCurrencyWillBeDisplayedIn", "The selected currency will be displayed in")}:</p>
-                          <div
-                            className="flex items-center justify-center gap-2 badge badge-soft badge-primary badge-lg">
-                            <CurrencyIcon currency={gameCurrency} className="w-4 h-4" />
-                            <span className="font-semibold text-xs">{gameCurrency}</span>
+                            className="text-xs text-base-content/60 text-start"> {t("gameDetail:the_selected_currency_will_be_displayed_in", "The selected currency will be displayed in")}:</p>
+                          <div className="inline-flex items-center gap-2 p-2 rounded-lg btn btn-soft">
+                            <CurrencyIcon currency={gameCurrency} className="w-5 h-5" />
+                            <span className="font-semibold">{gameCurrency}</span>
                           </div>
                         </div>
                         {/* Play Button */}
-
                         <button
-                          className="btn btn-primary btn-md w-full gap-2 font-bold mb-3"
+                          className="btn btn-primary btn-lg w-full gap-3 text-lg font-bold"
                           onClick={handlePlayNow}
                           disabled={
                             is_regional_access_prohibited ||
@@ -847,13 +848,13 @@ const GameDetail = () => {
                             (settlementBalanceAmount !== undefined && settlementBalanceAmount <= 0)
                           }
                         >
-                          <Iconify icon="custom:play" className="w-4 h-4" />
+                          <Iconify icon="custom:play" width={24} height={24} />
                           {t("gameDetail:play", "Play")}
                         </button>
                         {/* Demo Play Button - 仅在支持时显示 */}
                         {isDemoSupported && (
                           <button
-                            className="btn btn-ghost btn-md w-full gap-2 font-bold text-base-content/50"
+                            className="btn btn-primary btn-outline btn-lg w-full gap-3 text-lg font-bold mt-3"
                             onClick={handleDemoPlay}
                             disabled={is_regional_access_prohibited ||
                               is_currency_settlement_prohibited || isLoadingCurrency || isLaunchingGame || isLaunchingDemoGame}
@@ -861,127 +862,216 @@ const GameDetail = () => {
                             {t("gameDetail:demoPlay", "Demo Play")}
                           </button>
                         )}
-                      </>
+                      </div>
                     ) : (
                       /* 未登录用户 - Demo Play 按钮（点击弹出登录框） */
-                      <div className="flex items-center justify-center h-full">
-                        <button className="btn btn-primary btn-soft btn-md w-full gap-2 font-bold"
-                          onClick={handleDemoPlay}>
-                          <Iconify icon="custom:play" className="w-4 h-4" />
+                      <div className="text-start w-full">
+                        <button className="btn btn-primary btn-outline btn-lg w-full gap-3 text-lg font-bold"
+                                onClick={handleDemoPlay}>
                           {t("gameDetail:demoPlay", "Demo Play")}
                         </button>
                       </div>
                     )}
                   </div>
                 </div>
-              </div>
 
-              {/* Game Info and Tags - Mobile */}
-              <div className="sm:hidden mt-4">
-                <div className="flex justify-between items-center mb-2">
-                  <div className="badge badge-sm border-none font-semibold">{game?.provider_name}</div>
-                  {game?.rtp && (
-                    <div className="badge border-none badge-soft badge-sm font-semibold">
-                      <Iconify icon="custom:rtp" />
-                      {game?.rtp}
+                {/* Mobile Layout - Image and Play Section Side by Side */}
+                <div className="sm:hidden flex flex-col gap-4">
+                  <div className="flex gap-4">
+                    {/* Game Image - Mobile */}
+                    <div className="flex items-center flex-col gap-3">
+                      <div className="aspect-3/4 w-[140px] shrink-0">
+                        <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
+                      </div>
+                      {isAuthenticated && game?.inner_game_id && (
+                        <div className="flex gap-2 justify-center items-center">
+                          <FavoriteButton initialLiked={isGameFavorite} onToggle={handleToggleFavorite} size="sm"
+                                          className="bg-base-200" />
+                          <button className="btn btn-square btn-sm" onClick={() => setIsSettingsOpen(true)}>
+                            <Iconify icon="custom:setting-2" className="text-base-content/50 w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  )}
+
+                    {/* Play with Balance In - Mobile Right Side */}
+                    <div className="flex-1">
+                      {isAuthenticated ? (
+                        /* Authenticated User - Full Controls */
+                        <>
+                          <h3
+                            className="text-xs sm:text-sm font-semibold text-base-content/60 mb-1 text-start px-1">Play
+                            with Balance In</h3>
+                          {/* Currency Selector */}
+                          <div className="mb-3">
+                            <CurrencySelector
+                              selectedCurrency={settlementCurrency}
+                              onCurrencySelect={handleCurrencySelect}
+                              className="w-full"
+                              trigger={
+                                <button
+                                  className="btn btn-md sm:btn-lg bg-base-300 text-base-content border-0 w-full flex items-center gap-3">
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <CurrencyIcon currency={settlementCurrency} className="w-5 h-5" />
+                                  </div>
+                                  <div className="flex-1 text-center">
+                                    {isBalanceDisplayLoading ? (
+                                      <span className="loading loading-dots loading-xs" />
+                                    ) : (
+                                      <span
+                                        className="text-xs font-semibold text-base-content">{settlementBalanceDisplay ?? "0"}</span>
+                                    )}
+                                  </div>
+                                  <ChevronDown className="w-4 h-4 flex-shrink-0" />
+                                </button>
+                              }
+                            />
+                          </div>
+                          {/* Game Currency Display */}
+                          <div className="mb-3 flex items-center font-semibold justify-between">
+                            <p
+                              className="text-xs text-base-content/60"> {t("gameDetail:theSelectedCurrencyWillBeDisplayedIn", "The selected currency will be displayed in")}:</p>
+                            <div
+                              className="flex items-center justify-center gap-2 badge badge-soft badge-lg min-w-18 px-2">
+                              <CurrencyIcon currency={gameCurrency} className="w-5 h-5" />
+                              <span className="font-semibold text-xs">{gameCurrency}</span>
+                            </div>
+                          </div>
+                          {/* Play Button */}
+
+                          <button
+                            className="btn btn-primary btn-md w-full gap-2 font-bold mb-3"
+                            onClick={handlePlayNow}
+                            disabled={
+                              is_regional_access_prohibited ||
+                              is_currency_settlement_prohibited ||
+                              isLoadingCurrency ||
+                              isLaunchingGame ||
+                              isLaunchingDemoGame ||
+                              (settlementBalanceAmount !== undefined && settlementBalanceAmount <= 0)
+                            }
+                          >
+                            <Iconify icon="custom:play" className="w-4 h-4" />
+                            {t("gameDetail:play", "Play")}
+                          </button>
+                          {/* Demo Play Button - 仅在支持时显示 */}
+                          {isDemoSupported && (
+                            <button
+                              className="btn btn-primary btn-outline btn-md w-full gap-2 font-bold text-primary"
+                              onClick={handleDemoPlay}
+                              disabled={is_regional_access_prohibited ||
+                                is_currency_settlement_prohibited || isLoadingCurrency || isLaunchingGame || isLaunchingDemoGame}
+                            >
+                              {t("gameDetail:demoPlay", "Demo Play")}
+                            </button>
+                          )}
+                        </>
+                      ) : (
+                        /* 未登录用户 - Demo Play 按钮（点击弹出登录框） */
+                        <div className="flex items-center justify-center h-full">
+                          <button className="btn btn-primary btn-outline btn-md w-full gap-2 font-bold text-primary"
+                                  onClick={handleDemoPlay}>
+                            <Iconify icon="custom:play" className="w-4 h-4" />
+                            {t("gameDetail:demoPlay", "Demo Play")}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
-                <p className="text-xl font-bold mb-3">{game?.display_game_name}</p>
+                {/* Game Info and Tags - Mobile */}
+                <div className="sm:hidden mt-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <InnerBadge value={game?.provider_name} className={"!bg-base-400"} />
+                    <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} />
+                  </div>
 
-                <div className="flex gap-2 flex-wrap">
-                  {game?.rtp && (
-                    <div className="badge badge-soft badge-sm badge-primary font-semibold">
-                      <Iconify icon="custom:rtp" />
-                      {game?.rtp}
-                    </div>
-                  )}
-                  {game?.max_win && (
-                    <div className="badge badge-soft badge-sm badge-primary font-semibold">
-                      <Iconify icon="custom:max-win" />
-                      {game?.max_win}
-                    </div>
-                  )}
-                  {game?.tags?.split(",").map((tag: string, index: number) => (
-                    <div key={index} className="badge badge-soft badge-sm badge-primary font-semibold">
-                      {tag}
-                    </div>
-                  ))}
+                  <p className="text-xl font-bold mb-3">{game?.display_game_name}</p>
+
+                  <div className="flex gap-2 flex-wrap">
+                    <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} />
+                    <InnerBadge extra={<Iconify icon="custom:max-win" />} value={game?.max_win} />
+                    <InnerBadge value={game?.tags?.split(",") || []} />
+                  </div>
+                </div>
+
+                {/* Game Description */}
+                <div className="xl:col-span-6 space-y-2 sm:space-y-4 mt-4 sm:mt-8 font-semibold">
+                  <h3
+                    className="sm:text-lg text-base text-base-content/90">{t("gameDetail:gameInformation")}</h3>
+                  <SmallLoading loading={gameInfoTransLoaded} className={"bg-base-content/2 h-10"} content={<p
+                    className="text-base-content/50 text-xs sm:text-base leading-relaxed">
+                    {t(`game_${game?.game_provider}:${game?.game_provider}_${game?.inner_game_id}`)}
+                  </p>} />
                 </div>
               </div>
+            )}
 
-              {/* Game Description */}
-              <div className="xl:col-span-6 space-y-3 sm:space-y-6 mt-4 sm:mt-8">
-                <h3
-                  className="sm:text-lg text-base font-semibold text-base-content/90">{t("gameDetail:gameInformation")}</h3>
-                <p className="text-base-content/50 text-xs sm:text-base leading-relaxed">
-                  {t(`game_info:${game.game_provider}_${game.inner_game_id}`)}
-                </p>
-              </div>
-            </div>
-          )}
+            {/* Featured Games and other sections - always show */}
+            {casinoHomeGameList && casinoHomeGameList.home_data.hot_game && (
+              <FeaturedGames games={casinoHomeGameList.home_data.hot_game}
+                             country_code={casinoHomeGameList.country_code} />
+            )}
 
-          {/* Featured Games and other sections - always show */}
-          {casinoHomeGameList && casinoHomeGameList.home_data.hot_game && (
-            <FeaturedGames games={casinoHomeGameList.home_data.hot_game}
-              country_code={casinoHomeGameList.country_code} />
-          )}
+            <GameProviders />
 
-          <GameProviders />
+            {isAuthenticated && (
+              <>
+                <div className="container mx-auto px-0 flex flex-row justify-between items-center w-full">
+                  <div className="flex items-center gap-2 px-3">
+                    <div className="inline-grid *:[grid-area:1/1]">
+                      <div className="status status-primary animate-ping"></div>
+                      <div className="status status-primary"></div>
+                    </div>
+                    <p className="text-md sm:text-lg font-bold">{t("gameDetail:activity", "Activity")}</p>
+                  </div>
 
-          <div className="container mx-auto px-0 flex flex-row justify-between items-center w-full">
-            <div className="flex items-center gap-2 px-3">
-              <div className="inline-grid *:[grid-area:1/1]">
-                <div className="status status-primary animate-ping"></div>
-                <div className="status status-primary"></div>
-              </div>
-              <p className="text-md sm:text-lg font-bold">{t("gameDetail:activity", "Activity")}</p>
-            </div>
+                  <div className="sm:w-auto sm:min-w-[240px]">
+                    {isDesktopControls ? (
+                      <SegmentedControl
+                        options={segmentOptions}
+                        value={activeSection}
+                        onChange={(value) => setActiveSection(value as SectionKey)}
+                        isActiveClassName="text-base-content"
+                        // className="bg-base-200 rounded-field w-full sm:w-[280px]"
+                      />
+                    ) : (
+                      <Select
+                        options={selectOptions}
+                        showCheckIcon={false}
+                        value={activeSection}
+                        onChange={(value) => setActiveSection(String(value) as SectionKey)}
+                        variant="base"
+                        size={isMobile ? "sm" : "md"}
+                        className="bg-base-200 min-w-36 rounded-field"
+                        renderValue={(option) => option.label}
+                      />
+                    )}
+                  </div>
+                </div>
 
-            <div className="sm:w-auto sm:min-w-[240px]">
-              {isDesktopControls ? (
-                <SegmentedControl
-                  options={segmentOptions}
-                  value={activeSection}
-                  onChange={(value) => setActiveSection(value as SectionKey)}
-                  isActiveClassName="text-base-content"
-                // className="bg-base-200 rounded-field w-full sm:w-[280px]"
-                />
-              ) : (
-                <Select
-                  options={selectOptions}
-                  showCheckIcon={false}
-                  value={activeSection}
-                  onChange={(value) => setActiveSection(String(value) as SectionKey)}
-                  variant="base"
-                  size={isMobile ? "sm" : "md"}
-                  className="bg-base-200 min-w-44 rounded-field"
-                  renderValue={(option) => option.label}
-                />
-              )}
-            </div>
+                {activeSection === "tournament" && !isHiddenTournamentProvider ? (
+                  <GameProviderTournaments provider={game?.game_provider} withContainer={false} showHeading={false} />
+                ) : activeSection === "bets" ? (
+                  <div className="container mx-auto px-0 mb-6">
+                    <GameMyBets game_id={game?.inner_game_id} />
+                  </div>
+                ) : null}
+              </>
+            )}
+
+            {casinoHomeGameList &&
+              casinoHomeGameList.home_data.game_category &&
+              casinoHomeGameList.home_data.game_category.map((c: any, i: number) => (
+                <CategoryGames key={`${c.category}-${i}`} games={c.games} category={c.category} />
+              ))}
+
+            {!shouldHideAlliancePartnerships && <AlliancePartnerships />}
           </div>
-
-          {activeSection === "tournament" && !isHiddenTournamentProvider ? (
-            <GameProviderTournaments provider={game?.game_provider} withContainer={false} showHeading={false} />
-          ) : activeSection === "bets" ? (
-            <div className="container mx-auto px-0 mb-6">
-              <GameMyBets game_id={game?.inner_game_id} />
-            </div>
-          ) : null}
-
-          {casinoHomeGameList &&
-            casinoHomeGameList.home_data.game_category &&
-            casinoHomeGameList.home_data.game_category.map((c: any, i: number) => (
-              <CategoryGames key={`${c.category}-${i}`} games={c.games} category={c.category} />
-            ))}
-
-          <AlliancePartnerships />
         </div>
       </div>
-      {!isPlayingGame && <LimitedOffer />}
-    </div>
+    </LimitOfferPromoCheck>
   );
 };
 
@@ -991,7 +1081,7 @@ export const Route = createFileRoute("/_main/games/$gameId")({
   validateSearch: (search: Record<string, unknown>): { freeSpins?: string; currency?: string } => {
     return {
       freeSpins: (search.freeSpins as string) || undefined,
-      currency: typeof search.currency === "string" ? search.currency : undefined,
+      currency: typeof search.currency === "string" ? search.currency : undefined
     };
   }
   // Optional: Add loader for data fetching
@@ -1009,3 +1099,24 @@ export const Route = createFileRoute("/_main/games/$gameId")({
   //   return <div>Loading game details...</div>
   // }
 });
+
+// const na_sets = new Set<string>(["na", "n/a"]);
+const InnerBadge = ({ extra, value, className }: {
+  extra?: ReactNode,
+  value: any,
+  className?: string
+}) => {
+  return (
+    value !== undefined && value !== null && value !== "" && (
+      Array.isArray(value)
+        ? value.map((tag: string, index: number) => (
+          <div key={index} className={clsx("badge badge-soft badge-lg font-bold text-xs md:!text-sm", className)}>
+            {tag}
+          </div>))
+        : <div className={clsx("badge badge-soft badge-lg font-bold text-xs md:!text-sm", className)}>
+          {extra}
+          {value}
+        </div>
+    )
+  );
+};

@@ -10,19 +10,15 @@ import { emitter } from "@/store/emitter.ts";
 export const WithdrawCrypto = () => {
   const { t } = useTranslation();
 
-  const { setWithdrawCrypto } = useBoundStore();
+  const { resetWithdrawCrypto } = useBoundStore();
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
     const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
-      setWithdrawCrypto({
-        comment: "",
-        toWallet: "",
-        inputAmount: ""
-      });
+      resetWithdrawCrypto();
     });
 
-    return () => em?.remove()
+    return () => em?.remove();
   }, []);
 
   return (

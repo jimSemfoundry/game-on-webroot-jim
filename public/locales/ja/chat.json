@@ -3,5 +3,8 @@
   "notifications": "通知",
   "support": "サポート",
   "retry": "再試行",
-  "customerServiceChatFailedToLoad": "カスタマーサービスのチャットが読み込めませんでした"
+  "customerServiceChatFailedToLoad": "カスタマーサービスのチャットが読み込めませんでした",
+  "read": "読む",
+  "unread": "未読",
+  "customerService": "カスタマーサービス"
 }

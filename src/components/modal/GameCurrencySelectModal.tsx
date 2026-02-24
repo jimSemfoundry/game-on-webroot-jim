@@ -75,22 +75,22 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
           // 同时刷新余额数据，因为余额显示可能依赖货币设置
           await queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.userBalance })
 
-          toast.success(t('common:currencyUpdated'))
+          toast.success(t('common:gameCurrencyUpdated'))
         } catch (error) {
           console.error('Failed to update currency on server:', error)
-          toast.error(t('common:currencyUpdatedFailed'))
+          toast.error(t('common:gameCurrencyUpdatedFailed'))
           // 如果后端更新失败，不回滚本地状态，因为用户可能只想本地切换
         }
       } else {
         // 未登录用户只更新本地状态
-        toast.success(t('common:currencyUpdated'))
+        toast.success(t('common:gameCurrencyUpdated'))
       }
 
       // 关闭模态框
       onClose()
     } catch (error) {
       console.error('Failed to update currency:', error)
-      toast.error(t('common:currencyUpdatedFailed'))
+      toast.error(t('common:gameCurrencyUpdatedFailed'))
     } finally {
       setIsUpdating(false)
     }
@@ -104,8 +104,9 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
   )
 
   return (
-    <Modal position={isMobile ? 'modal-bottom' : 'modal-middle'} isOpen={isOpen} onClose={onClose} title={headerContent} className="bg-base-400 md:w-[420px] max-w-sm mx-auto overflow-hidden h-[75vh] max-h-[75vh] md:max-h-[500px]">
-      <div className="flex flex-col max-h-[60vh]">
+    <Modal position={isMobile ? 'modal-bottom' : 'modal-middle'} isOpen={isOpen} onClose={onClose} title={headerContent}
+           className="bg-base-400 md:w-[420px] max-w-sm mx-auto overflow-hidden h-[75vh] max-h-[75vh] md:max-h-[500px]">
+      <div className="flex flex-col">
         {/* 固定区域 - 描述和搜索框 */}
         <div className="flex-shrink-0 pb-4">
           <p className="text-xs sm:text-sm text-base-content/50">
@@ -132,7 +133,7 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
               <div className="loading loading-spinner loading-md"></div>
             </div>
           ) : (
-            <ul className="menu menu-md bg-base-300 h-full w-full rounded-field overflow-y-auto max-h-[400px] flex-col flex-nowrap gap-1">
+            <ul className="menu menu-md bg-base-300 h-full w-full rounded-field overflow-y-auto max-h-[calc(75vh-170px-max(var(--safe-area-inset-bottom),16px))] md:max-h-[310px] flex-col flex-nowrap gap-1">
               {filteredCurrencies.map(currency => {
                 // 获取当前选中的货币（优先用户设置，其次CurrencyContext选择）
                 const currentCurrency = user?.currency_fiat || selectedCurrency
@@ -142,8 +143,9 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
                   <li key={currency.currency}>
                     <a
                       className={cn(
-                        'text-sm md:text-base font-semibold flex items-center gap-x-3 h-10 sm:h-12 cursor-pointer',
-                        isSelected ? 'text-primary bg-primary/10' : 'text-base-content/50',
+                        'text-sm md:text-base font-semibold flex items-center gap-x-3 h-10 sm:h-12 cursor-pointer rounded-lg transition-colors',
+                        'hover:bg-base-200 active:bg-base-100',
+                        isSelected ? 'text-primary bg-primary/10' : 'text-base-content/50 hover:text-base-content',
                         isUpdating && 'opacity-50 cursor-not-allowed',
                       )}
                       onClick={() => !isUpdating && handleCurrencySelect(currency.currency)}

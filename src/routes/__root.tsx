@@ -22,7 +22,7 @@ export interface RouterContext {
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <AppProviders>
-      <Toaster position="top-center" richColors style={{ marginTop: "env(safe-area-inset-top)" }} />
+      <Toaster position="top-center" richColors style={{ marginTop: "var(--safe-area-inset-top)" }} />
       <Outlet />
     </AppProviders>
   ),

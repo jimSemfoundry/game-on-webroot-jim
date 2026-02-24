@@ -110,7 +110,7 @@ export function getAuthErrorMessageKey(errorCode: number): string {
     case AUTH_ERROR_CODES.TOO_MANY_REQUESTS_CODE:
       return 'Too many requests';
     default:
-      return 'common.serverError';
+      return 'common:common.serverError';
   }
 }
 

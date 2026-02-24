@@ -35,7 +35,7 @@ export function SmoothTabs({
   className,
   layoutId = "smooth-tabs",
   orientation = "horizontal",
-  activeColor = "bg-primary !opacity-[1]",
+  activeColor = "bg-primary/5 !opacity-[1]",
   size = "md",
 }: SmoothTabsProps) {
   const isVertical = orientation === "vertical";
@@ -81,7 +81,7 @@ export function SmoothTabs({
               sizeClass,
               isVertical ? "w-full" : "flex-1",
               isSelected
-                ? "text-primary-content"
+                ? "text-primary"
                 : "text-base-content/70 hover:text-primary"
             )}
           >

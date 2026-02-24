@@ -5,11 +5,11 @@
     "achievements": "업적",
     "achievementDescription": "업적 보상은 새로운 이정표에 도달하고 도전을 정복하기 위해 주어지는 보상입니다. 이는 여러분의 진행과 성공을 축하하며, 새로운 업적을 달성할 때마다 재미있는 놀라움을 열어줍니다!",
     "claimDistribution": "보상 분배",
-    "claimDistributionDescription": "보상은 청구 후 3일 동안 귀하의 보너스 캘린더에 추가됩니다.",
+    "claimDistributionDescription": "새로운 업적 보상을 받을 때마다 보상이 즉시 확정되며, 입금 <0>보너스 풀</0>에서 바로 청구할 수 있습니다.",
     "expiration": "만료",
-    "expirationDescription": "없음 - 보상은 자동으로 캘린더로 전송됩니다.",
+    "expirationDescription": "없음 - 보너스 풀 잔액이 충분한 동안 언제든지 청구 가능합니다.",
     "generalTerms": "일반 약관",
-    "generalTermsDescription": "보상은 BUCK/USDT로 계산되고 적립된 후, 편의를 위해 귀하가 선호하는 법정 통화로 표시됩니다. 환율 변환은 대략적입니다.\n\n카지노는 언제든지 자격을 수정하거나 취소할 권리를 보유하며, 정당한 이유 없이 이를 수행할 수 있습니다. 모든 남용 또는 사기 행위는 프로모션에서 실격 처리됩니다."
+    "generalTermsDescription": "보상은 USDT로 계산 및 지급되며, 편의를 위해 선호하는 법정화폐로 표시됩니다. 환율 변환은 근사치입니다.\n\n카지노는 사유를 밝히지 않고 언제든지 자격을 변경 또는 철회할 권리를 보유합니다. 부정 행위나 악용이 발견될 경우 프로모션 대상에서 제외됩니다."
   },
   "luckyNumberSeven": {
     "title": "행운의 숫자 \n 일곱",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "최소 청구 금액은 {{money}}입니다.",
     "expiration": "만료",
-    "expirationDescription": "신비한 상자는 수여된 후 7일 이내에 청구해야 합니다. 청구되지 않은 보상은 이 기간 후에 만료됩니다.",
+    "expirationDescription": "신비한 상자는 수여된 후 3일 이내에 청구해야 합니다. 청구되지 않은 보상은 이 기간 후에 만료됩니다.",
     "generalTerms": "일반 약관",
     "generalTermsDescription": "보상은 사용자의 첫 입금 또는 입금이 없을 경우 USDT를 기준으로 계산되며, 1배 롤오버가 필요합니다. 금액은 귀하가 선호하는 법정 통화로 표시되며, 환율 변환은 대략적입니다.\n\n카지노는 사전 통지 없이 언제든지 자격을 수정하거나 취소할 권리를 보유합니다. 모든 남용 또는 사기는 실격 처리됩니다."
   },

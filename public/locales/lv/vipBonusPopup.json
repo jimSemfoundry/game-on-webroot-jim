@@ -5,11 +5,11 @@
     "achievements": "Sasniegumi",
     "achievementDescription": "Sasniegumu balvas ir atlīdzības, kas tiek piešķirtas par jaunu sasniegumu un izaicinājumu pārvarēšanu. Tās svin jūsu progresu un panākumus, atverot jautrus pārsteigumus, kad jūs sasniedzat jaunus mērķus!",
     "claimDistribution": "Pieprasījuma sadale",
-    "claimDistributionDescription": "Atlīdzības tiek pievienotas jūsu bonusu kalendāram uz 3 dienām pēc pieprasīšanas.",
+    "claimDistributionDescription": "Jūsu atlīdzības tiek nekavējoties piešķirtas un ir pieejamas saņemšanai no jūsu depozīta <0>bonusu fonda</0> katru reizi, kad saņemat jaunu sasniegumu atlīdzību.",
     "expiration": "Derīguma termiņš",
-    "expirationDescription": "Nav - atlīdzības automātiski tiek nosūtītas uz kalendāru.",
+    "expirationDescription": "Nav – pieprasījumi ir pieejami, kamēr Bonus Pool bilance ir pietiekama.",
     "generalTerms": "Vispārīgie noteikumi",
-    "generalTermsDescription": "Atlīdzības tiek aprēķinātas un piešķirtas BUCK/USDT, pēc tam parādītas jūsu izvēlētajā fiat valūtā ērtībai. Lūdzu, ņemiet vērā, ka valūtas konversijas ir aptuvenas.\n\nKazino patur tiesības mainīt vai atcelt tiesības uz atlīdzību jebkurā laikā, bez pienākuma pamatojumam. Jebkura ļaunprātīga izmantošana vai krāpnieciskas darbības novedīs pie diskvalifikācijas no akcijas."
+    "generalTermsDescription": "Atlīdzības tiek aprēķinātas un ieskaitītas USDT, pēc tam ērtībai parādītas jūsu vēlamajā fiat valūtā. Ņemiet vērā, ka valūtas konvertācijas ir aptuvenas.\n\nKazino patur tiesības jebkurā laikā mainīt vai atcelt tiesības bez pienākuma to pamatot. Jebkāda ļaunprātīga izmantošana vai krāpšana novedīs pie diskvalifikācijas no akcijas."
   },
   "luckyNumberSeven": {
     "title": "Laimīgais numurs \n Septiņi",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimālā pieprasījuma summa ir {{money}}",
     "expiration": "Derīguma termiņš",
-    "expirationDescription": "Jūsu Mistērijas kastei jābūt pieprasītai 7 dienu laikā pēc piešķiršanas. Nepieprasītās atlīdzības beigsies pēc šī perioda.",
+    "expirationDescription": "Jūsu Mistērijas kastei jābūt pieprasītai 3 dienu laikā pēc piešķiršanas. Nepieprasītās atlīdzības beigsies pēc šī perioda.",
     "generalTerms": "Vispārīgie noteikumi",
     "generalTermsDescription": "Atlīdzības tiek aprēķinātas un piešķirtas, pamatojoties uz lietotāja pirmo depozītu vai USDT, ja depozīts nav veikts, ar 1x apgrozījuma prasību. Summa tiek parādīta jūsu izvēlētajā fiat valūtā; konversijas ir aptuvenas.\n\nKazino patur tiesības mainīt vai atcelt tiesības uz atlīdzību jebkurā laikā bez brīdinājuma. Jebkura ļaunprātīga izmantošana vai krāpšana novedīs pie diskvalifikācijas."
   },

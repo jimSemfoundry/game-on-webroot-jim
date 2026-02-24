@@ -76,12 +76,39 @@
   "dashboard": "แดชบอร์ด",
   "transactions": "ธุรกรรม",
   "rollover": "การหมุนเวียน",
-  "betHistory": "ประวัติการเดิมพัน",
+  "betHistory": {
+    "empty": "ไม่พบประวัติการเดิมพัน",
+    "title": "ประวัติการเดิมพัน",
+    "headers": {
+      "game": "เกม",
+      "date": "วันที่",
+      "betId": "ID การเดิมพัน",
+      "betIn": "ยอดเดิมพัน",
+      "betOut": "ยอดจ่าย",
+      "account": "บัญชี",
+      "amount": "จำนวน",
+      "provider": "ผู้ให้บริการ",
+      "match": "การแข่งขัน",
+      "tournament": "ทัวร์นาเมนต์"
+    }
+  },
   "settings": "การตั้งค่า",
   "legal": "กฎหมาย",
   "nickname": "ชื่อเล่น",
   "zoomAndAdjust": "ซูมและปรับ",
   "systemLanguage": "ภาษาของระบบ",
   "editProfile": "แก้ไขโปรไฟล์",
-  "inviteAndGetRewarded": "เชิญเพื่อนและรับรางวัล"
+  "inviteAndGetRewarded": "เชิญเพื่อนและรับรางวัล",
+  "emailAddress": "ที่อยู่อีเมล",
+  "codeSent": "กรอกโค้ดที่เราส่งไป",
+  "codeSentTo": "มีการส่งโค้ดไปยัง",
+  "notReceiveCode": "ไม่ได้รับโค้ดใช่ไหม?",
+  "verificationSuccess": "การตรวจสอบสำเร็จ",
+  "spinHistory": {
+    "statusFilterLabel": "สถานะ"
+  },
+  "phone_number_has_been_verified": "หมายเลขโทรศัพท์ของคุณได้รับการยืนยันแล้ว คุณสามารถดำเนินการต่อได้",
+  "email_address_has_been_verified": "อีเมลของคุณได้รับการยืนยันแล้ว คุณสามารถดำเนินการต่อได้",
+  "setNewPassword": "ตั้งรหัสผ่านใหม่",
+  "passwordLengthRequirement": "กรุณาใส่รหัสผ่านระหว่าง 6 ถึง 64 ตัวอักษร"
 }

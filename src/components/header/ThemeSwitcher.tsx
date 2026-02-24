@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 export default function ThemeSwitcher() {
   const { state, switchTheme } = useTheme();
   const { isMobile } = useSidebar()
-  const { t } = useTranslation()
+  const { t } = useTranslation('common')
   const handleThemeChange = (themeName: string) => {
     switchTheme(themeName);
   };
@@ -24,7 +24,7 @@ export default function ThemeSwitcher() {
         className="dropdown-content p-2 mt-2 shadow-2xl bg-base-200 rounded-box w-48 max-h-96 overflow-y-auto"
       >
         <li className="menu-title">
-          <span className="text-sm font-semibold">{t('common.settings')}</span>
+          <span className="text-sm font-semibold">{t('common:common.settings')}</span>
         </li>
         <div className="divider my-1"></div>
         {availableThemes.map((themeName) => {

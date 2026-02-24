@@ -3,17 +3,18 @@ import { useUserWithdrawWallet } from "@/hooks/api/useAuth.ts";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { useClickAway } from "ahooks";
-import classNames from "classnames";
+import { useToggle } from "@/hooks/useToggle";
+import clsx from "clsx";
 import { TFunction } from "i18next";
-import { ChevronLeft, ChevronsUpDown, Plus } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronsUpDown, Plus, Trash2 } from "lucide-react";
+import { AnimatePresence } from "motion/react";
+import { LazyMotion, domMax, m } from "motion/react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-// import { authService } from "@/services/authService.ts";
-// import { toast } from "sonner";
+import { authService } from "@/services/authService.ts";
+import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 
 interface StateProps {
   selected: Record<string, any> | undefined;
@@ -27,7 +28,7 @@ const initState = {
 
 export const WithdrawAddressAdd = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const ref = useRef<HTMLDivElement>(null);
+
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<StateProps>(initState);
@@ -41,10 +42,6 @@ export const WithdrawAddressAdd = () => {
   const currentWallet = useMemo(() => {
     return (wallets?.data ?? []).filter((o: { network: string }) => o.network === withdrawCrypto.network?.network);
   }, [wallets, withdrawCrypto.network]);
-
-  useClickAway(() => {
-    setStatus((v) => ({ ...v, create: false }));
-  }, [ref]);
 
   /**
    * FIXME:
@@ -81,7 +78,7 @@ export const WithdrawAddressAdd = () => {
         </DisplayContent>
 
         {/* 操作现有地址的入口和窗口 */}
-        <DisplayContent status={!l1 && wallets?.data?.length > 0 && currentWallet.length > 0}>
+        <InnerDisplayContent show={!l1 && wallets?.data?.length > 0 && currentWallet.length > 0 && !!status.selected}>
           <div className="relative">
             {/* 当前正在使用的钱包地址 */}
             <Address
@@ -102,49 +99,51 @@ export const WithdrawAddressAdd = () => {
             />
 
             {/*桌面端*/}
-            {!isMobile && (
-              <AnimatePresence>
-                {status.create && (
-                  <motion.div
-                    className="bg-base-300 absolute z-1 mt-1 w-full rounded-lg shadow-xs overflow-hidden shadow-lg"
-                    exit={{ height: 0 }}
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    transition={{ duration: 0.1 }}
-                  >
-                    <div className="h-2 bg-base-300 sticky top-0" />
-                    <div
-                      className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
-                      <p className="h-5 text-xs font-semibold">{t("finance:withdrawalAddress")}</p>
-                      <AddressList
-                        data={currentWallet}
-                        selected={status.selected}
-                        onSelect={(v: Record<string, any>) => {
-                          setStatus((old) => ({ ...old, selected: v, create: false }));
-                          setWithdrawCrypto({ toWallet: v?.address });
-                        }}
-                      />
-                      <AddAddr
-                        t={t}
-                        className="p-0"
-                        onClick={() => {
-                          setStatus((old) => ({ ...old, create: false }));
-                          setSyncAction("OPEN_WITHDRAW_ADDRESS_ADD_MODAL");
-                        }}
-                      />
-                    </div>
-                    <div className="h-2 bg-base-300 sticky bottom-0" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            )}
+
+              {!isMobile && (
+                <LazyMotion features={domMax}>
+                <AnimatePresence>
+                  {status.create && (
+                    <m.div
+                      className="bg-base-300 absolute z-1 mt-1 w-full rounded-lg shadow-xs overflow-hidden shadow-lg"
+                      exit={{ height: 0 }}
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      <div className="h-2 bg-base-300 sticky top-0" />
+                      <div
+                        className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
+                        <p className="h-5 text-xs font-semibold">{t("finance:withdrawalAddress")}</p>
+                        <AddressList
+                          data={currentWallet}
+                          selected={status.selected}
+                          onSelect={(v: Record<string, any>) => {
+                            setStatus((old) => ({ ...old, selected: v, create: false }));
+                            setWithdrawCrypto({ toWallet: v?.address });
+                          }}
+                        />
+                        <AddAddr
+                          t={t}
+                          className="p-0"
+                          onClick={() => {
+                            setStatus((old) => ({ ...old, create: false }));
+                            setSyncAction("OPEN_WITHDRAW_ADDRESS_ADD_MODAL");
+                          }}
+                        />
+                      </div>
+                      <div className="h-2 bg-base-300 sticky bottom-0" />
+                    </m.div>
+                  )}
+                </AnimatePresence></LazyMotion>
+              )}
 
             {/* 移动端 */}
             {isMobile &&
               createPortal(
-                <AnimatePresence>
+                <LazyMotion features={domMax}>
                   {status.create && (
-                    <motion.div
+                    <m.div
                       exit={{ opacity: 0 }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -183,13 +182,13 @@ export const WithdrawAddressAdd = () => {
                           }}
                         />
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
-                </AnimatePresence>,
+                </LazyMotion>,
                 document.body
               )}
           </div>
-        </DisplayContent>
+        </InnerDisplayContent>
       </div>
     </div>
   );
@@ -206,7 +205,7 @@ const AddAddr = ({ t, onClick, className }: { t: TFunction; onClick: () => void;
       )}
     >
       <div className="flex items-center gap-4 font-semibold">
-        <img src="/icons/isometric/8.svg" className="h-12 w-12" alt="" />
+        <img src="/icons/isometric/deposit.png" className="h-12 w-12" alt="" />
         <div className="flex flex-col gap-2">
           <p className="text-sm font-semibold">{t("finance:add_withdrawal_address")}</p>
           <p
@@ -224,6 +223,7 @@ const Address = ({
                    data,
                    edit,
                    extra,
+                   trash,
                    className,
                    selected,
                    onClick
@@ -231,48 +231,39 @@ const Address = ({
   data: Record<string, any>;
   selected?: Record<string, any>;
   edit?: boolean;
+  trash?: boolean;
   extra?: ReactNode;
   className?: string;
   onClick?: (v: Record<string, any>) => void;
 }) => {
-  // const [loading, { set }] = useToggle<boolean>(false);
+  const [loading, { set }] = useToggle<boolean>(false);
 
   // from data store, share common data
-  // const { withdrawCrypto } = useBoundStore();
+  const { withdrawCrypto } = useBoundStore();
 
   // 用户钱包地址列表
-  // const { refetch } = useUserWithdrawWallet(withdrawCrypto.network?.network);
-
-  // 删除钱包地址
-  // const submit = async () => {
-  //   set(true);
-  //   authService.deleteUserWithdrawWallet(data?.id)
-  //     .then((res) => {
-  //       if (res.code === 0) {
-  //         void refetch(); // 更新用户钱包地址列表
-  //       }
-  //     })
-  //     .catch(() => {
-  //       set(false);
-  //     })
-  //     .finally(() => {
-  //       set(false);
-  //     });
-  // };
+  const { refetch } = useUserWithdrawWallet(withdrawCrypto.network?.network);
 
   return (
     <div
-      className={classNames("bg-base-200 flex items-center gap-2 p-3 rounded-field font-semibold cursor-pointer", className)}
+      className={clsx("bg-base-200 flex items-center gap-2 p-3 rounded-field font-semibold cursor-pointer", className)}
       onClick={() => onClick?.(data)}
     >
       {edit && <input type="radio" checked={selected?.id === data?.id} className="radio radio-sm radio-primary" />}
-      <img src={`/icons/currency/${data?.network?.toLowerCase()}.svg`} className="h-6 w-6" alt="" />
+      <img src={`/icons/currency/${data?.network?.toLowerCase()}.png`} className="h-6 w-6" alt="" />
       <div className="flex-1 flex flex-col gap-2">
         <p className="text-sm">{data?.name}</p>
         <p className="text-xs text-base-content/50 break-all">{data?.address}</p>
         <span className="badge badge-neutral text-xs rounded-sm px-1.5">{data?.id}</span>
       </div>
-      {/*{edit && (<Trash2 className="text-base-content/50 w-4 h-4 cursor-pointer" onClick={submit} />)}*/}
+      {trash && ((loading) ? <span className="loading loading-spin loading-xs" /> : (
+        <Trash2 className="text-base-content/50 w-4 h-4 cursor-pointer" onClick={async (e) => {
+          e.stopPropagation();
+          set(true);
+          await authService.deleteUserWithdrawWallet(data?.network, data?.address);
+          void refetch();
+          set(false);
+        }} />))}
       {extra}
     </div>
   );
@@ -287,10 +278,22 @@ const AddressList = ({
   selected?: Record<string, any>;
   onSelect: (v: Record<string, any>) => void;
 }) => {
+  const { t } = useTranslation();
+
+  // from data store, share common data
+  const { withdrawCrypto } = useBoundStore();
+
+  // 用户钱包地址列表
+  const { isFetching } = useUserWithdrawWallet(withdrawCrypto.network?.network);
+
   return (
     <>
+      {isFetching &&
+        <div className="text-[11px] font-bold text-center text-base-content/50">
+          {t("finance:updating_withdrawal_address", "Updating withdrawal address, please wait...")}
+        </div>}
       {data.map((item) => (
-        <Address key={item.id} data={item} edit selected={selected} onClick={onSelect} />
+        <Address key={item.id} data={item} edit trash selected={selected} onClick={onSelect} />
       ))}
     </>
   );

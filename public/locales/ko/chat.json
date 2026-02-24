@@ -3,5 +3,8 @@
   "notifications": "알림",
   "support": "지원",
   "retry": "다시 시도",
-  "customerServiceChatFailedToLoad": "고객 서비스 채팅을 로드하지 못했습니다"
+  "customerServiceChatFailedToLoad": "고객 서비스 채팅을 로드하지 못했습니다",
+  "read": "읽음",
+  "unread": "읽지 않음",
+  "customerService": "고객 서비스"
 }

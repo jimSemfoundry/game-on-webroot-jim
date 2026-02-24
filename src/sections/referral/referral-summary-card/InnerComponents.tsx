@@ -3,7 +3,7 @@ import Copy from "@/components/ui/Copy.tsx";
 import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { ReferralShareModal } from "@/sections/referral/referral-share-modal.tsx";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useReferralLink } from "@/hooks/useReferralLink.ts";
 export const InnerNotAuthenticated = () => {
@@ -38,17 +38,43 @@ export const InnerNotAuthenticated = () => {
 };
 
 export const InnerReferralShareLink = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const { t } = useTranslation();
 
   const { referralLink } = useReferralLink()
 
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el && document.documentElement.dir === 'rtl') {
+      el.scrollLeft = -el.scrollWidth;
+    }
+
+    // 监听 dir 属性变化
+    const observer = new MutationObserver(() => {
+      if (el && document.documentElement.dir === 'rtl') {
+        el.scrollLeft = -el.scrollWidth;
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['dir']
+    });
+
+    return () => observer.disconnect();
+  }, [referralLink]);
+
   return (
     <>
       <div className="w-full flex flex-row items-center sm:h-12 gap-2 sm:gap-3">
-        <div className="rounded-field flex-1 min-w-0 h-8 sm:h-full bg-base-400 flex items-center pl-2 pr-1 sm:px-4 gap-2 sm:gap-3">
-          <div className="flex-1 min-w-0 overflow-x-auto hide-scrollbar">
+        <div className="rounded-field flex-1 min-w-0 h-8 sm:h-full bg-base-400 flex items-center pl-1 pr-1 sm:px-4 gap-1 sm:gap-3">
+          <div
+            className="flex-1 min-w-0 overflow-x-auto hide-scrollbar"
+            ref={scrollRef}
+          >
             <span className="text-base-content/50 text-xs sm:text-base font-semibold whitespace-nowrap">
               {referralLink || t("referral:loadingLink", "Loading link...")}
             </span>

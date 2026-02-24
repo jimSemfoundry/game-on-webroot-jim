@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Mikä on viikoittainen bonus?",
-    "content": "<p class=\"leading-7\">Viikoittainen bonus on eksklusiivinen etu verkkosivustollamme, joka on suunniteltu pelaajille, jotka ovat VIP12 ja sitä korkeammalla. Tämä bonus myönnetään viikoittain ja maksetaan automaattisesti joka perjantai VIP12 ja sitä korkeammilla pelaajille. Bonuksen koko riippuu edellisen viikon aikana panostetusta määrästä, ja minimipanostusvaatimus on {{minWager}} edellisen viikon aikana.</p>"
+    "content": "<p class=\"leading-7\">Viikoittainen bonus on eksklusiivinen etu verkkosivustollamme, joka on suunniteltu pelaajille, jotka ovat VIP2 ja sitä korkeammalla. Bonus myönnetään viikoittain maanantaisin ja vanhenee, kun seuraava viikoittainen bonus julkaistaan. Bonuksen koko riippuu edellisen viikon aikana panostetusta määrästä, ja tehokas minimipanostusvaatimus on {{minWager}} edellisen viikon aikana.</p>"
   },
   "faqNine": {
     "title": "Mitä ovat saavutukset?",

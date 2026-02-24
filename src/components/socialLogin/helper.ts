@@ -19,10 +19,18 @@ export function getAdvertisementParams() {
     }
   }
 
+  let pixelIdFromAdParam = "";
+  try {
+    const normalized = ad_param.startsWith("?") ? ad_param.slice(1) : ad_param;
+    pixelIdFromAdParam = new URLSearchParams(normalized).get("pixel_id") || "";
+  } catch {
+    pixelIdFromAdParam = "";
+  }
+
   return {
     fbp: cookie("_fbp") || "",
     fbc: cookie("_fbc") || "",
-    pixel_id: import.meta.env.VITE_FACEBOOK_PIXEL_ID || "",
+    pixel_id: pixelIdFromAdParam || import.meta.env.VITE_FACEBOOK_PIXEL_ID || "",
     ad_param
   };
 }
@@ -40,10 +48,10 @@ export const auth_themes = {
   google: `linear-gradient(135deg,#4285f4 0%, #ea4335 25%,#fbbc04 50%,#34a853 75%,#4285f4 100%)`
 };
 
-export const useSocialList = () => {
+export const useSocialList = (enabled?: boolean) => {
   return useQuery({
-    queryKey: ['socialList'],
+    queryKey: ["socialList"],
     queryFn: () => publicService.getSocialList(),
-    gcTime: 0
+    enabled
   });
 };

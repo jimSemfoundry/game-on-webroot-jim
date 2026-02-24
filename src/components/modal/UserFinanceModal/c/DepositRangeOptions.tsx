@@ -51,13 +51,14 @@ export const DepositRangeOptions = (
   }, [amount]);
 
   return (
-    <div className="mt-2 grid grid-cols-3 gap-2">
+    <div className="mt-0 grid grid-cols-3 gap-2">
       {computedOptions.map(({ value, isDisabled, isSelected }) => (
         <button
           key={value}
           className={cn(
             `btn btn-sm bg-base-300 text-base-content/50 border-0 rounded-sm`,
-            isSelected && "btn-outline btn-primary border-1 text-primary"
+            isSelected && "btn-outline btn-primary border-1 text-primary",
+            isDisabled && "opacity-50",
           )}
           onClick={() => {
             setValue(value);

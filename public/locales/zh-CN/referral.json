@@ -7,6 +7,9 @@
     "commissions": "佣金",
     "rewards": "奖励"
   },
+  "campaignAlreadyExists": "活动已存在",
+  "campaignCreateSuccess": "活动创建成功！",
+  "campaignCreateFailed": "创建活动失败",
   "commissionCalculator": "佣金计算器",
   "telegramReferralLink": "Telegram推荐链接",
   "network": "推荐网络",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "我的推荐佣金",
   "myReferralRewards": "我的推荐奖励",
   "exp": "经验值",
-  "userLevel": "用户等级"
+  "userLevel": "用户等级",
+  "extraReferralBonus": {
+    "slogan": "额外<0>推荐</0><0>奖金</0>",
+    "title": "邀请朋友并在他们首次存款时获得额外奖励。您推荐的第一位加入、存款并游戏的玩家，您将根据他们的初始存款金额获得10%的额外推荐奖金。",
+    "bonusCalculatedTitle": "奖金如何计算？",
+    "bonusCalculatedDesc": "您的额外推荐奖金是您朋友首次存款的10%。如果您朋友的首次存款金额为<0>{{depositAmount}}</0>，您将获得价值<0>{{bonusAmount}}</0>的奖励。",
+    "claimDistributionTitle": "索赔分配",
+    "claimDistributionDesc": "您只需联系客户服务在线聊天，并告知他们您希望使用您的推荐信息来索取奖励。",
+    "expirationTitle": "过期",
+    "expirationDesc": "奖金必须在您朋友首次存款后的7 x 24小时（7天）内索取；之后将无法重新发放。",
+    "generalTermsTitle": "一般条款",
+    "generalTermsDesc1": "奖励以 <0>BUCK/USDT</0> 计算并记入，然后以您首选的法定货币显示以方便使用。请注意，货币转换是近似值。您每推荐一位朋友可以获得的最高奖金相当于 {{bonusAmount}}，并且每个用户 ID 只能领取一次奖金。您的推荐人必须至少下注其首次存款金额的 4 倍，您才能领取奖金。",
+    "generalTermsDesc2": "赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈行为，包括但不限于重复或匹配玩家数据、存款欺诈、匹配IP地址、安全投注或投资风格行为，将导致取消促销资格和相关奖金的取消。赌场对本促销的所有决定都是最终的，无法提出异议。"
+  },
+  "referral_program_disabled": "推荐\n计划\n<0>已停用</0>",
+  "programAccessUpdate": "计划访问更新",
+  "referralProgramPrivileges": "在对您的账户及参与情况进行审核后，您的推荐计划权限已被撤销。我们发现存在不符合推荐计划条款、条件或预期用途的行为。这可能包括可疑的推荐模式、未授权的推广方式、滥用激励，或试图规避公平使用准则等。",
+  "referralRewardsPrivileges": "因此，您生成新的推荐奖励、分享推荐链接或从推荐中获得收益的权限已被停用。与推荐计划相关的待发放或未来奖励将依据我们的政策被扣留并取消。<0>您账户的其他所有功能仍保持完整，不会受到此次变更影响</0>。",
+  "understandDisappointing": "我们理解这可能令人失望。如果您认为该决定有误，或希望了解更多详情，请携带任何相关信息联系支持团队，我们将对您的情况进行复核。"
 }

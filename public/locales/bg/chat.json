@@ -3,5 +3,8 @@
   "notifications": "Известия",
   "support": "Поддръжка",
   "retry": "Опитай отново",
-  "customerServiceChatFailedToLoad": "Чатът за обслужване на клиенти не успя да се зареди"
+  "customerServiceChatFailedToLoad": "Чатът за обслужване на клиенти не успя да се зареди",
+  "read": "Прочетено",
+  "unread": "Непрочетено",
+  "customerService": "Обслужване на клиенти"
 }

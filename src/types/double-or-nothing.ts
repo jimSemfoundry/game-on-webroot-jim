@@ -25,4 +25,6 @@ export interface ICurrentPromoList {
   total_deposit: string;
   bonus_rate: number;
   max_deposit: string;
+  fiat_bonus_rate: number;
+  crypto_bonus_rate: number;
 }

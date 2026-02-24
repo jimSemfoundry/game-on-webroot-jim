@@ -76,12 +76,39 @@
   "dashboard": "Tableau de bord",
   "transactions": "Transactions",
   "rollover": "Mise en jeu",
-  "betHistory": "Historique des paris",
+  "betHistory": {
+    "empty": "Aucun historique de paris trouvé",
+    "title": "Historique des paris",
+    "headers": {
+      "game": "Jeu",
+      "date": "Date",
+      "betId": "ID de pari",
+      "betIn": "Mise",
+      "betOut": "Gain",
+      "account": "Compte",
+      "amount": "Montant",
+      "provider": "Fournisseur",
+      "match": "Match",
+      "tournament": "Tournoi"
+    }
+  },
   "settings": "Paramètres",
   "legal": "Légal",
   "nickname": "Surnom",
   "zoomAndAdjust": "Zoomer et Ajuster",
   "systemLanguage": "Langue du système",
   "editProfile": "Modifier le profil",
-  "inviteAndGetRewarded": "Invitez et soyez récompensé"
+  "inviteAndGetRewarded": "Invitez et soyez récompensé",
+  "emailAddress": "Adresse e-mail",
+  "codeSent": "Entrez le code que nous avons envoyé",
+  "codeSentTo": "Un code a été envoyé à",
+  "notReceiveCode": "Vous n'avez pas reçu le code ?",
+  "verificationSuccess": "Vérification réussie",
+  "spinHistory": {
+    "statusFilterLabel": "Statut"
+  },
+  "phone_number_has_been_verified": "Votre numéro de téléphone a été vérifié. Vous pouvez continuer.",
+  "email_address_has_been_verified": "Votre adresse e-mail a été vérifiée. Vous pouvez continuer.",
+  "setNewPassword": "Définir un nouveau mot de passe",
+  "passwordLengthRequirement": "Veuillez saisir un mot de passe entre 6 et 64 caractères."
 }

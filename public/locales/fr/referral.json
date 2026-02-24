@@ -7,6 +7,9 @@
     "commissions": "Commissions",
     "rewards": "Récompenses"
   },
+  "campaignAlreadyExists": "La campagne existe déjà",
+  "campaignCreateSuccess": "Campagne créée avec succès !",
+  "campaignCreateFailed": "Échec de la création de la campagne",
   "commissionCalculator": "Calculateur de Commission",
   "telegramReferralLink": "Lien de Parrainage Telegram",
   "network": "Réseau",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mes Commissions de Parrainage",
   "myReferralRewards": "Mes Récompenses de Parrainage",
   "exp": "EXP",
-  "userLevel": "Niveau d'Utilisateur"
+  "userLevel": "Niveau d'Utilisateur",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Invitez un ami et obtenez des récompenses supplémentaires lorsqu'il effectue son premier dépôt. Pour chaque joueur que vous parrainez et qui rejoint, dépose et joue, vous recevrez un Bonus de Parrainage Extra de 10 % basé sur le montant de son dépôt initial.",
+    "bonusCalculatedTitle": "Comment le Bonus est-il Calculé ?",
+    "bonusCalculatedDesc": "Votre Bonus de Parrainage Extra est calculé comme 10 % du premier dépôt de votre ami. Si le premier dépôt de votre ami est équivalent à <0>{{depositAmount}}</0>, vous recevrez une récompense d'une valeur de <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribution des Réclamations",
+    "claimDistributionDesc": "Tout ce que vous avez à faire est de contacter le Service Client par Chat en Direct et de les informer que vous souhaitez réclamer la récompense avec les informations de votre Parrain.",
+    "expirationTitle": "Expiration",
+    "expirationDesc": "Le bonus doit être réclamé dans les 7 x 24 heures (7 jours) suivant le dépôt initial de votre ami ; après cela, il ne peut pas être réémis.",
+    "generalTermsTitle": "Conditions Générales",
+    "generalTermsDesc1": "Les récompenses sont calculées et créditées en <0>BUCK/USDT</0>, puis affichées dans votre devise fiat préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives. Le bonus maximum que vous pouvez recevoir par ami référé est l'équivalent de {{bonusAmount}}, et le bonus peut être réclamé une fois par identifiant utilisateur. Votre parrainé doit miser au moins 4 fois le montant de son premier dépôt avant que vous puissiez réclamer votre bonus.",
+    "generalTermsDesc2": "Le casino se réserve le droit de modifier ou de révoquer l'éligibilité à tout moment, sans obligation de justification. Tout abus ou activité frauduleuse – y compris, mais sans s'y limiter, les données de joueurs en double ou correspondantes, la fraude au dépôt, les adresses IP correspondantes, les paris de sécurité ou un comportement de type investissement – entraînera une disqualification de la promotion et l'annulation de tout bonus associé. Toutes les décisions prises par le casino concernant cette promotion sont finales et ne peuvent pas être contestées."
+  },
+  "referral_program_disabled": "PROGRAMME\nDE PARRAINAGE\n<0>DÉSACTIVÉ</0>",
+  "programAccessUpdate": "Mise à jour de l’accès au programme",
+  "referralProgramPrivileges": "Vos privilèges de programme de parrainage ont été révoqués suite à l’examen de votre compte et de votre participation au programme. Nous avons identifié une activité qui ne respecte pas les conditions, les règles ou l’usage prévu de notre programme de parrainage. Cela peut inclure des schémas de parrainage suspects, des méthodes promotionnelles non autorisées, l’abus d’incitations ou des tentatives de contournement des règles d’usage équitable.",
+  "referralRewardsPrivileges": "Par conséquent, votre capacité à générer de nouvelles récompenses de parrainage, à partager des liens de parrainage ou à recevoir des avantages liés aux parrainages a été désactivée. Les récompenses en attente ou futures associées au programme de parrainage seront retenues et annulées conformément à nos politiques. <0>Toutes les autres fonctionnalités de votre compte restent intactes et ne sont pas affectées par ce changement</0>.",
+  "understandDisappointing": "Nous comprenons que cela puisse être décevant. Si vous pensez que cette décision est une erreur ou si vous souhaitez plus de détails, veuillez contacter notre équipe d’assistance avec toute information pertinente, et nous examinerons votre cas."
 }

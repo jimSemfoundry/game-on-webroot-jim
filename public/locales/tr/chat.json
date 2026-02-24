@@ -3,5 +3,8 @@
   "notifications": "Bildirimler",
   "support": "Destek",
   "retry": "Tekrar dene",
-  "customerServiceChatFailedToLoad": "Müşteri hizmetleri sohbeti yüklenemedi"
+  "customerServiceChatFailedToLoad": "Müşteri hizmetleri sohbeti yüklenemedi",
+  "read": "Oku",
+  "unread": "Okunmamış",
+  "customerService": "Müşteri hizmetleri"
 }

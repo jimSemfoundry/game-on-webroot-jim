@@ -1,60 +1,39 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import InnerBannerItem from "@/sections/casino/hero-banner/InnerBannerItem.tsx";
-import "swiper/swiper-bundle.css";
+import { InnerBannerItem } from "@/sections/casino/hero-banner/InnerBannerItem.tsx";
 import { Carousel, CarouselDotButtons, useCarousel } from "@/components/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useQuery } from "@tanstack/react-query";
+import { useBannerContentList } from "@/sections/casino/hero-banner/helper.ts";
+import { VIPMondayBannerItem } from "@/sections/casino/hero-banner/VIPMondayBannerItem.tsx";
+import { ThursdayBannerItem } from "@/sections/casino/hero-banner/ThursdayBannerItem.tsx";
+import { SundayBannerItem } from "@/sections/casino/hero-banner/SundayBannerItem.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { publicService } from "@/services/publicService.ts";
-import { useMemo } from "react";
-
-export type IBannerContent = {
-  id: string;
-  sort: string;
-  name: string;
-  banner_type: string;
-  banner_content: {
-    value: number
-    percent: number
-    background_image_list: {
-      pc_image: string;
-      mobile_image: string;
-      image_link: string;
-    }[];
-    float_image_list: {
-      image_link: string;
-      pc_image: string;
-      mobile_image: string;
-    }[];
-    button_list: {
-      button_text: string;
-      button_link: string;
-    }[];
-    text_list: {
-      text: string;
-      text_link: string;
-    }[];
-  };
-  extra_data: Record<string, any>
-}
-
-interface IBannerContentQuery {
-  data: IBannerContent[],
-  code: number
-}
-
-const initBannerContentQuery = {data: [] as IBannerContent[], code: 0}
+import { Trans, useTranslation } from "react-i18next";
+import GoogleAuth from "@/components/socialLogin/GoogleAuth.tsx";
+import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
+import SocialLogin from "@/components/socialLogin";
+import { DepositSunday } from "@/sections/casino/hero-banner/template/DepositSunday.tsx";
+import { DepositThursday } from "@/sections/casino/hero-banner/template/DepositThursday.tsx";
+import { BonusWallet } from "@/sections/casino/hero-banner/template/BonusWallet.tsx";
+import { VIPMondayBonus } from "@/sections/casino/hero-banner/template/VIPMondayBonus.tsx";
+import { BeTheFirst } from "@/sections/casino/hero-banner/template/BeTheFirst.tsx";
+import { Welcome } from "@/sections/casino/hero-banner/template/Welcome.tsx";
+import { Referral } from "@/sections/casino/hero-banner/template/Referral.tsx";
+import { Regional } from "@/sections/casino/hero-banner/template/Regional.tsx";
+import { VIPRewards } from "@/sections/casino/hero-banner/template/VIPRewards.tsx";
+import { BettingPartner } from "@/sections/casino/hero-banner/template/BettingPartner.tsx";
+import { SlotsTournament } from "@/sections/casino/hero-banner/template/SlotsTournament.tsx";
+import { FirstReferralBonus } from "@/sections/casino/hero-banner/template/FirstReferralBonus.tsx";
+import { VIPMonday } from "@/sections/casino/hero-banner/template/VIPMonday.tsx";
+import { DollarsBonusBannerItem } from "@/sections/dollars/bonus-banner-content.tsx";
 
 const Index = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 460px)");
 
-  const { user } = useAuth()
+  const { user, isLoading: userLoading } = useAuth();
 
-  const {data = initBannerContentQuery, isLoading} = useQuery<IBannerContentQuery>({
-    queryKey: ['bannerContentList', user?.id],
-    queryFn: () => publicService.getBannerContentList(user?.id),
-    refetchOnMount: true
-  });
+  const { data, isLoading: bannerLoading } = useBannerContentList();
+
+  const banners = (data?.data ?? []);
 
   const carousel = useCarousel(
     {
@@ -70,25 +49,145 @@ const Index = () => {
     [Autoplay({ delay: 4_000 })]
   );
 
-  const banners = useMemo(() => {
-    return (data?.data ?? []).filter((item: IBannerContent) => item?.name !== '1st_game_bonus_wallet')
-  }, [data])
-
   return (
-    <div className="select-none text-lg sm:text-xl leading-5.5 sm:leading-6 font-black relative">
-      {isLoading && <div className={"skeleton bg-base-400 h-[209px] sm:h-[258px] rounded-box"} />}
-      {!isLoading && banners.length > 0 && <>
+    <div className="select-none text-lg leading-5 font-black relative h-[209px] bg-base-400 rounded-xl overflow-hidden">
+      {bannerLoading || userLoading || !user && <InnerDefaultBanner />}
+      {!bannerLoading && banners.length > 0 && <>
         <Carousel carousel={carousel}>
-          {banners.map((item: Record<string, any>) =>
-            <InnerBannerItem
-              key={item?.id}
-              type={item?.name}
-              data={item}
-              content={item?.banner_content} />
+          {banners.map((item: Record<string, any>) => {
+
+              if (item?.name?.endsWith("_v2")) {
+                if (item?.name?.endsWith("_sunday_v2")) {
+                  return <DepositSunday
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_thursday_v2")) {
+                  return <DepositThursday
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_bonus_wallet_v2")) {
+                  return <BonusWallet
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_vip_monday_v2")) {
+                  return <VIPMonday
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_monday_vip_bonus_v2")) {
+                  return <VIPMondayBonus
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_be_the_first_v2")) {
+                  return <BeTheFirst
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_welcome_v2")) {
+                  return <Welcome
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_referral_v2")) {
+                  return <Referral
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_regional_v2")) {
+                  return <Regional
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_exclusive_vip_rewards_v2")) {
+                  return <VIPRewards
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_betting_partner_v2")) {
+                  return <BettingPartner
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_slots_tournament_v2")) {
+                  return <SlotsTournament
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_first_referral_bonus_v2")) {
+                  return <FirstReferralBonus
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_vip_monday_v2")) {
+                  return <VIPMonday
+                    key={item?.id}
+                    content={item?.banner_content}
+                  />;
+                }
+              } else {
+                if (item?.name?.endsWith("_sunday")) {
+                  return <SundayBannerItem
+                    key={item?.id} type={item?.name} data={item}
+                    content={item?.banner_content} />;
+                }
+
+                if (item?.name?.endsWith("_thursday")) {
+                  return <ThursdayBannerItem
+                    key={item?.id} type={item?.name} data={item}
+                    content={item?.banner_content} />;
+                }
+
+                if (item?.name?.endsWith("_bonus_wallet")) {
+                  return <DollarsBonusBannerItem key={item?.id} data={item} content={item?.banner_content} />;
+                }
+
+                if (item?.name?.endsWith("_monday_vip_bonus")) {
+                  return <VIPMondayBannerItem
+                    key={item?.id} type={item?.name} data={item}
+                    content={item?.banner_content} />;
+                }
+
+                return (<InnerBannerItem
+                  key={item?.id}
+                  type={item?.name}
+                  data={item}
+                  content={item?.banner_content} />);
+              }
+            }
           )}
         </Carousel>
         <CarouselDotButtons
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 sm:hidden"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 sm:hidden h-5"
           scrollSnaps={carousel.dots.scrollSnaps}
           selectedIndex={carousel.dots.selectedIndex}
           onClickDot={carousel.dots.onClickDot}
@@ -99,3 +198,67 @@ const Index = () => {
 };
 
 export default Index;
+
+
+export const images_static = "https://images.1st.game/banner/public/images/casino/banner";
+
+const InnerDefaultBanner = () => {
+  const { t } = useTranslation(["banner", "login"]);
+
+  const { openSignInModal, openSignUpModal } = useAuthModals();
+
+  const desktopImageUrl = import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_DESKTOP_URL
+    || `${images_static}/single-suarez.png?w=343&auto=format,compress&q=60`;
+  const mobileImageUrl = import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_MOBILE_URL
+    || `${images_static}/single-suarez-small1.png?w=209&auto=format,compress&q=80`;
+
+  return <div className={"h-full flex justify-between banner-background"}>
+    <div className="z-1">
+      <div className={"h-full pl-5 md:pl-10 py-5 md:py-10 flex flex-col items-start justify-between"}>
+        <div className={"text-base lg:text-lg xl:text-xl leading-5 max-w-[76%] break-word"}>
+          <p><Trans i18nKey={"banner:BE_THE_FIRST"} /></p>
+          <p className={"text-primary"}><Trans i18nKey={"banner:CHALLENGE_EVERYTHING"} /></p>
+        </div>
+        <div className={"banner-desktop-only"}>
+          <div className={"flex gap-2 rounded"}>
+            <button className={"btn btn-primary font-bold"} onClick={openSignUpModal}>{t("login:signUp")}</button>
+            <button className={"btn bg-base-200 font-bold"}
+                    onClick={openSignInModal}>{t("login:signIn")}</button>
+            <SocialLogin title={t("login:or")} className={"flex flex-row !gap-2"} />
+          </div>
+        </div>
+        <div className={"banner-mobile-only"}>
+          <GoogleAuth />
+        </div>
+      </div>
+    </div>
+    <picture className="min-w-[209px] absolute right-0 rtl:left-0 rtl:right-auto rtl:sm:ml-6">
+      <source
+        media="(min-width: 461px)"
+        srcSet={desktopImageUrl}
+      />
+      <img
+        src={mobileImageUrl}
+        alt=""
+        className="object-cover h-full w-auto"
+        fetchPriority="high"
+      />
+    </picture>
+  </div>;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

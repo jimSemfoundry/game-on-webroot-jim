@@ -25,6 +25,14 @@
   "totalTips": "เคล็ดลับ",
   "result": "ผลลัพธ์",
   "myBets": "เดิมพันของฉัน",
-  "**********": "",
-  "demoPlay": "เล่นเดโม"
+  "demoPlay": "เล่นเดโม",
+  "limitedOffer": "ข้อเสนอจำกัด",
+  "deposit": "ฝาก {{value}}",
+  "get": "รับ {{value}}",
+  "instantCashBonus": "โบนัสเงินสดทันที",
+  "expires": "หมดอายุ",
+  "depositNow": "ฝากตอนนี้",
+  "free_spins": "หมุนฟรี",
+  "play_with_balance_in": "เล่นด้วยยอดเงินใน",
+  "the_selected_currency_will_be_displayed_in": "สกุลเงินที่เลือกจะแสดงใน"
 }

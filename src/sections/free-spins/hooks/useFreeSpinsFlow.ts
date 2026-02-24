@@ -37,8 +37,16 @@ export const useFreeSpinsFlow = (
     setIsStarterPackOpen(true);
   }, []);
 
+  const hideStarterPack = useCallback(() => {
+    setIsStarterPackOpen(false);
+  }, []);
+
   const showGameSelection = useCallback(() => {
     setIsGameSelectionOpen(true);
+  }, []);
+
+  const hideGameSelection = useCallback(() => {
+    setIsGameSelectionOpen(false);
   }, []);
 
   const showExitConfirmation = useCallback(() => {
@@ -98,7 +106,9 @@ export const useFreeSpinsFlow = (
     
     // 状态转换函数
     showStarterPack,
+    hideStarterPack,
     showGameSelection,
+    hideGameSelection,
     showExitConfirmation,
     hideExitConfirmation,
     closeAll,

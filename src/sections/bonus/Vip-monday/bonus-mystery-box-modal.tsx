@@ -21,7 +21,7 @@ type ModalState = "closed" | "opening" | "opened";
 export function MysteryBoxModal({ isOpen, onClose, id }: MysteryBoxModalProps) {
   const [modalState, setModalState] = useState<ModalState>("closed");
   const { t } = useTranslation();
-  const { formatWithConversion } = useDisplayCurrencyFormatter();
+  const { formatWithoutConversion } = useDisplayCurrencyFormatter();
 
   // Assets for burst animation
   const coinImages = [
@@ -289,7 +289,7 @@ export function MysteryBoxModal({ isOpen, onClose, id }: MysteryBoxModalProps) {
               <h2 className='font-bold text-2xl'
                 style={{ color: "rgba(67, 57, 95, 1)" }}
               >
-                {formatWithConversion(data?.bonus_amount ?? 0, data?.currency ?? 'BUCK', {
+                {formatWithoutConversion(data?.bonus_amount ?? 0, data?.currency ?? 'BUCK', {
                   showSymbol: false,
                   showCode: false,
                 }).formatted}
@@ -400,7 +400,7 @@ export function MysteryBoxModal({ isOpen, onClose, id }: MysteryBoxModalProps) {
               const dx = Math.sin((angle * Math.PI) / 180) * distance;
               const dy = -Math.cos((angle * Math.PI) / 180) * distance;
               const isVector1 = i % 2 === 0;
-              const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
+              const src = isVector1 ? "/images/rewards/mystery-box/vector1.png" : "/images/rewards/mystery-box/vector2.png";
 
               return (
                 <motion.img
@@ -522,7 +522,7 @@ export function MysteryBoxModal({ isOpen, onClose, id }: MysteryBoxModalProps) {
               const delay = 0.05 + Math.random() * 0.08;
               const size = 35 + Math.random() * 25; // Larger ribbons
               const rotation = Math.random() * 360;
-              const src = isVector1 ? "/images/rewards/mystery-box/vector1.svg" : "/images/rewards/mystery-box/vector2.svg";
+              const src = isVector1 ? "/images/rewards/mystery-box/vector1.png" : "/images/rewards/mystery-box/vector2.png";
 
               return (
                 <motion.img

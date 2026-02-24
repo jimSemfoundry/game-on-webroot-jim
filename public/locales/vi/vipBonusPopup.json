@@ -5,11 +5,11 @@
     "achievements": "Thành Tựu",
     "achievementDescription": "Giải thưởng Thành Tựu là phần thưởng được trao cho việc đạt được các cột mốc mới và chinh phục thử thách. Chúng kỷ niệm sự tiến bộ và thành công của bạn, mở khóa những bất ngờ thú vị khi bạn đạt được những thành tích mới trên đường đi!",
     "claimDistribution": "Phân Phối Giải Thưởng",
-    "claimDistributionDescription": "Phần thưởng được thêm vào lịch thưởng của bạn trong 3 ngày sau khi yêu cầu.",
+    "claimDistributionDescription": "Phần thưởng của bạn được ghi nhận ngay lập tức và có thể yêu cầu từ <0>quỹ thưởng tiền gửi</0> mỗi khi bạn nhận phần thưởng thành tích mới.",
     "expiration": "Hết Hạn",
-    "expirationDescription": "Không - Phần thưởng sẽ tự động được gửi đến lịch.",
+    "expirationDescription": "Không có - Bạn có thể nhận thưởng miễn là số dư Quỹ Thưởng còn đủ.",
     "generalTerms": "Điều Khoản Chung",
-    "generalTermsDescription": "Phần thưởng được tính toán và ghi có bằng BUCK/USDT, sau đó được hiển thị bằng loại tiền tệ fiat mà bạn ưa thích để thuận tiện. Xin lưu ý, việc chuyển đổi tiền tệ là ước tính.\n\nSòng bạc có quyền sửa đổi hoặc thu hồi quyền đủ điều kiện bất cứ lúc nào, mà không có nghĩa vụ phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi."
+    "generalTermsDescription": "Phần thưởng được tính và ghi có bằng USDT, sau đó hiển thị theo tiền pháp định bạn chọn để thuận tiện. Lưu ý, tỷ giá quy đổi chỉ mang tính ước lượng.\n\nSòng bạc có quyền sửa đổi hoặc thu hồi tư cách bất kỳ lúc nào mà không cần giải thích. Mọi hành vi lạm dụng hoặc gian lận sẽ dẫn đến bị loại khỏi chương trình."
   },
   "luckyNumberSeven": {
     "title": "Số May Mắn \n Bảy",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Số tiền yêu cầu tối thiểu là {{money}}",
     "expiration": "Hết Hạn",
-    "expirationDescription": "Hộp Bí Ẩn của bạn phải được yêu cầu trong vòng 7 ngày kể từ khi được trao. Các phần thưởng chưa yêu cầu sẽ hết hạn sau thời gian này.",
+    "expirationDescription": "Hộp Bí Ẩn của bạn phải được yêu cầu trong vòng 3 ngày kể từ khi được trao. Các phần thưởng chưa yêu cầu sẽ hết hạn sau thời gian này.",
     "generalTerms": "Điều Khoản Chung",
     "generalTermsDescription": "Phần thưởng được tính toán và ghi có dựa trên khoản tiền gửi đầu tiên của người dùng hoặc bằng USDT nếu không có khoản tiền gửi nào được thực hiện, yêu cầu 1x vòng quay. Số tiền được hiển thị bằng loại tiền tệ fiat mà bạn ưa thích; việc chuyển đổi là ước tính.\n\nSòng bạc có quyền sửa đổi hoặc thu hồi quyền đủ điều kiện bất cứ lúc nào mà không cần thông báo. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại."
   },

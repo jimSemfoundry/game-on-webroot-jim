@@ -76,12 +76,39 @@
   "dashboard": "대시보드",
   "transactions": "거래 내역",
   "rollover": "롤오버",
-  "betHistory": "베팅 내역",
+  "betHistory": {
+    "empty": "베팅 내역을 찾을 수 없습니다",
+    "title": "베팅 내역",
+    "headers": {
+      "game": "게임",
+      "date": "날짜",
+      "betId": "베팅 ID",
+      "betIn": "베팅 금액",
+      "betOut": "지급 금액",
+      "account": "계정",
+      "amount": "금액",
+      "provider": "제공업체",
+      "match": "경기",
+      "tournament": "토너먼트"
+    }
+  },
   "settings": "설정",
   "legal": "법적 고지",
   "nickname": "닉네임",
   "zoomAndAdjust": "확대 및 조정",
   "systemLanguage": "시스템 언어",
   "editProfile": "프로필 수정",
-  "inviteAndGetRewarded": "초대하고 보상 받기"
+  "inviteAndGetRewarded": "초대하고 보상 받기",
+  "emailAddress": "이메일 주소",
+  "codeSent": "우리가 보낸 코드를 입력하세요",
+  "codeSentTo": "코드가 전송되었습니다",
+  "notReceiveCode": "코드를 받지 못하셨나요?",
+  "verificationSuccess": "인증 성공",
+  "spinHistory": {
+    "statusFilterLabel": "상태"
+  },
+  "phone_number_has_been_verified": "휴대폰 번호가 인증되었습니다. 계속 진행할 수 있습니다.",
+  "email_address_has_been_verified": "이메일 주소가 인증되었습니다. 계속 진행할 준비가 완료되었습니다.",
+  "setNewPassword": "새 비밀번호 설정",
+  "passwordLengthRequirement": "6자에서 64자 사이의 비밀번호를 입력해주세요."
 }

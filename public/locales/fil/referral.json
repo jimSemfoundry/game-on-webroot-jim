@@ -7,6 +7,9 @@
     "commissions": "Mga Komisyon",
     "rewards": "Mga Gantimpala"
   },
+  "campaignAlreadyExists": "Umiiral na ang kampanya",
+  "campaignCreateSuccess": "Matagumpay na nalikha ang kampanya!",
+  "campaignCreateFailed": "Nabigong likhain ang kampanya",
   "commissionCalculator": "Kalkulador ng Komisyon",
   "telegramReferralLink": "Telegram Referral Link",
   "network": "Network",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Aking mga Referral Komisyon",
   "myReferralRewards": "Aking mga Referral Gantimpala",
   "exp": "EXP",
-  "userLevel": "Antas ng Gumagamit"
+  "userLevel": "Antas ng Gumagamit",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Mag-imbita ng kaibigan at makakuha ng dagdag na gantimpala kapag sila ay gumawa ng kanilang unang deposito. Para sa unang manlalaro na iyong nirefer na sumali, magdeposito, at maglaro, makakatanggap ka ng 10% Extra Referral Bonus batay sa kanilang paunang halaga ng deposito.",
+    "bonusCalculatedTitle": "Paano Kinakalkula ang Bonus?",
+    "bonusCalculatedDesc": "Ang iyong Extra Referral Bonus ay kinakalkula bilang 10% ng unang deposito ng iyong kaibigan. Kung ang unang deposito ng iyong kaibigan ay katumbas ng <0>{{depositAmount}}</0>, makakatanggap ka ng gantimpalang nagkakahalaga ng <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Pamamahagi ng Pag-claim",
+    "claimDistributionDesc": "Ang kailangan mo lang gawin ay makipag-ugnayan sa Customer Service Live Chat at ipaalam sa kanila na nais mong i-claim ang gantimpala gamit ang impormasyon ng iyong Referral.",
+    "expirationTitle": "Pag-expire",
+    "expirationDesc": "Ang bonus ay dapat i-claim sa loob ng 7 x 24 na oras (7 araw) pagkatapos ng paunang deposito ng iyong kaibigan; pagkatapos nito, hindi na ito maibabalik.",
+    "generalTermsTitle": "Pangkalahatang Mga Tuntunin",
+    "generalTermsDesc1": "Ang mga gantimpala ay kinakalkula at ipinagkakaloob sa <0>BUCK/USDT</0>, at pagkatapos ay ipinapakita sa iyong ginustong fiat currency para sa kaginhawaan. Pakitandaan, ang mga conversion ng currency ay tinatayang. Ang pinakamataas na bonus na maaari mong matanggap bawat inirefer na kaibigan ay katumbas ng {{bonusAmount}}, at ang bonus ay maaaring i-claim isang beses bawat User ID. Ang iyong inirefer ay dapat magpusta ng hindi bababa sa 4 na beses ng kanilang unang halaga ng deposito bago mo ma-claim ang iyong bonus.",
+    "generalTermsDesc2": "Ang casino ay may karapatang baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyong ipaliwanag. Anumang pang-aabuso o mapanlinlang na aktibidad – kabilang ngunit hindi limitado sa duplicate o tumutugmang data ng manlalaro, pandaraya sa deposito, tumutugmang IP address, mga ligtas na taya, o pamumuhunan na estilo ng pag-uugali – ay magreresulta sa diskwalipikasyon mula sa promosyon at pagkansela ng anumang kaugnay na mga bonus. Ang lahat ng desisyon na ginawa ng casino tungkol sa promosyon na ito ay pinal at hindi maaaring kuwestyunin."
+  },
+  "referral_program_disabled": "REFERRAL\nPROGRAM\n<0>NAKA-DISABLE</0>",
+  "programAccessUpdate": "Update sa Access ng Program",
+  "referralProgramPrivileges": "Binawi ang iyong mga pribilehiyo sa referral program matapos ang pagsusuri sa iyong account at paglahok sa programa. Natukoy namin ang aktibidad na hindi sumusunod sa mga tuntunin, kondisyon, o nilalayong paggamit ng aming referral program. Maaaring kabilang dito ang kahina-hinalang referral patterns, hindi awtorisadong paraan ng promosyon, maling paggamit ng incentives, o mga pagtatangkang iwasan ang fair-use guidelines.",
+  "referralRewardsPrivileges": "Dahil dito, na-disable ang kakayahan mong gumawa ng bagong referral rewards, magbahagi ng referral links, o tumanggap ng benepisyo mula sa referrals. Ang mga pending o future rewards na kaugnay ng referral program ay iho-hold at ika-cancel alinsunod sa aming mga polisiya. <0>Lahat ng iba pang functionality ng iyong account ay mananatiling buo at hindi maaapektuhan ng pagbabagong ito</0>.",
+  "understandDisappointing": "Nauunawaan naming maaaring nakakadismaya ito. Kung naniniwala kang may pagkakamali sa desisyong ito o nais mo ng higit pang detalye, mangyaring makipag-ugnayan sa aming support team kasama ang anumang kaugnay na impormasyon at rerepasuhin namin ang iyong kaso."
 }

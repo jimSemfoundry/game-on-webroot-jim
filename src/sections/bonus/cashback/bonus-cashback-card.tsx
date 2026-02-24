@@ -33,7 +33,7 @@ interface CashbackOption extends SelectOption {
 const ILLUSTRATION_URL = "/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png";
 
 export function BonusCashbackCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { isInitialized, isAuthenticated } = useAuth();
   const { openTipsModal } = useTipsModal();
@@ -214,9 +214,12 @@ export function BonusCashbackCard() {
     );
   }
 
+  // 可领取状态
+  const isClaimable = currentCashbackItem?.value && parseFloat(currentCashbackItem?.value || "0") > 0;
+
   return (
     <div
-      className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
+      className={`flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
       style={{
         background,
       }}
@@ -266,7 +269,7 @@ export function BonusCashbackCard() {
         )}
 
         <button
-          className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
+          className="btn btn-primary btn-md px-0 w-20 max-w-20"
           onClick={handleClaim}
           disabled={isClaimPending || !currentCashbackItem?.value || parseFloat(currentCashbackItem?.value || "0") <= 0}
         >

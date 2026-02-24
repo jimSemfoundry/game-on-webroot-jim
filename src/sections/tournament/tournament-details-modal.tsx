@@ -17,7 +17,7 @@ type TournamentDetailsModalProps = {
 };
 
 export function TournamentDetailsModal({ isOpen, onClose, tournament, children }: TournamentDetailsModalProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [isRulesExpanded, setIsRulesExpanded] = useState(false);
 

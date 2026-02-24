@@ -76,12 +76,39 @@
   "dashboard": "Irányítópult",
   "transactions": "Tranzakciók",
   "rollover": "Forgatás",
-  "betHistory": "Fogadási előzmények",
+  "betHistory": {
+    "empty": "Nem található fogadási előzmény",
+    "title": "Fogadási előzmények",
+    "headers": {
+      "game": "Játék",
+      "date": "Dátum",
+      "betId": "Fogadás ID",
+      "betIn": "Fogadás",
+      "betOut": "Nyeremény",
+      "account": "Fiók",
+      "amount": "Összeg",
+      "provider": "Szolgáltató",
+      "match": "Mérkőzés",
+      "tournament": "Bajnokság"
+    }
+  },
   "settings": "Beállítások",
   "legal": "Jogi",
   "nickname": "Becenév",
   "zoomAndAdjust": "Nagyítás és Beállítás",
   "systemLanguage": "Rendszer Nyelve",
   "editProfile": "Profil szerkesztése",
-  "inviteAndGetRewarded": "Hívd meg és kapj jutalmat"
+  "inviteAndGetRewarded": "Hívd meg és kapj jutalmat",
+  "emailAddress": "Email cím",
+  "codeSent": "Írd be a küldött kódot",
+  "codeSentTo": "A kódot elküldtük ide",
+  "notReceiveCode": "Nem kaptad meg a kódot?",
+  "verificationSuccess": "Ellenőrzés sikeres",
+  "spinHistory": {
+    "statusFilterLabel": "Állapot"
+  },
+  "phone_number_has_been_verified": "A telefonszámod ellenőrizve lett. Folytathatod.",
+  "email_address_has_been_verified": "Az e-mail-címed ellenőrizve lett. Folytathatod.",
+  "setNewPassword": "Új jelszó beállítása",
+  "passwordLengthRequirement": "Kérem, adjon meg egy 6 és 64 karakter közötti jelszót."
 }

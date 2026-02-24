@@ -99,7 +99,7 @@ type LevelDescriptor = {
 };
 
 export function VipRewardsTable() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('vip');
   const { status } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { data: vipConfigResponse, isLoading } = useVipConfig();

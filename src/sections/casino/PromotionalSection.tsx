@@ -1,99 +1,98 @@
 import { useNavigate } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
+import { ReactNode } from "react";
 
 export const PromotionalSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   return (
-    <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-12 sm:gap-4 min-h-[120px] sm:min-h-[180px] lg:min-h-[223px]">
-      <div className="p-4 sm:px-6 sm:py-7 w-full rounded-box bg-base-200 relative overflow-hidden flex flex-col justify-between lg:col-span-5">
-        <div className="flex flex-col gap-2 sm:gap-4 z-10 relative">
-          <p className="font-bold text-base sm:text-lg lg:text-2xl">{t("common:common.casino")}</p>
-          <p className="hidden sm:block text-base-content/50 font-semibold text-sm lg:text-lg max-w-[200px] leading-5">
-            {t("casino:spinPlayAndWinAcrossTopCasinoHits")}
-          </p>
-        </div>
-        <button
-          className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative"
-          onClick={() => navigate({ to: "/explore", search: { type: "casino", category: "hot" } })}
-        >
-          <span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>
-          <ChevronRight className="rtl:rotate-y-180 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-        </button>
+    <div
+      className="flex sm:gap-4 min-h-[130px] sm:min-h-[160px] gap-2 sm:gap-4">
+      <InnerWrapper onClick={() => navigate({ to: "/explore", search: { type: "casino", category: "hot" } })}>
+        <InnerSlogan title={t("common:common.casino")} subTitle={t("casino:spinPlayAndWinAcrossTopCasinoHits")} />
+        <InnerNavLink onClick={() => navigate({ to: "/explore", search: { type: "casino", category: "hot" } })} />
         {/* Main illustration - responsive sizing */}
-        <img
-          className="absolute bottom-1 ltr:right-4 rtl:left-4 rtl:rotate-y-180 
-                     w-24 h-24 
-                     sm:w-24 sm:h-24 sm:bottom-2 sm:ltr:right-6 sm:rtl:left-6
-                     lg:w-[120px] lg:h-[120px] lg:bottom-4 lg:ltr:right-8 lg:rtl:left-8
-                     xl:w-[160px] xl:h-[160px] 
-                     2xl:w-[200px] 2xl:h-[200px] 2xl:ltr:right-7 2xl:rtl:left-7 2xl:top-1/2 2xl:-translate-y-1/2
-                     object-contain"
-          src="/images/illustrations/cce800b328960b4d0614d4fbda9078b8911a370a.png"
-          alt="casino"
-        />
+        <InnerPicture name="casino" />
         {/* Background grid mask - full coverage */}
-        <img
-          src="/images/illustrations/grid-mask.svg"
-          alt=""
-          className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-20 object-cover"
-        />
-      </div>
-      <div className="p-4 sm:px-6 sm:py-7 w-full rounded-box bg-base-200 relative overflow-hidden flex flex-col justify-between lg:col-span-5">
-        <div className="flex flex-col gap-2 sm:gap-4 z-10 relative">
-          <p className="font-bold text-base sm:text-lg lg:text-2xl">{t("common:common.sports")}</p>
-          <p className="hidden sm:block text-base-content/50 font-semibold text-sm lg:text-lg max-w-[230px] leading-5">
-            {t("casino:scoreBigOnSportsFromAroundTheWorld")}
-          </p>
-        </div>
-        <button
-          className="btn btn-primary btn-square btn-sm sm:btn-md lg:btn-lg sm:w-24 lg:w-32 z-10 relative"
-          onClick={() => navigate({ to: "/sports", search: { category: undefined, sport: undefined } })}
-        >
-          <span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>
-          <ChevronRight className="rtl:rotate-y-180 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-        </button>
+        <InnerBgMask />
+      </InnerWrapper>
+      <InnerWrapper onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })}>
+        <InnerSlogan title={t("common:common.sports")} subTitle={t("casino:scoreBigOnSportsFromAroundTheWorld")} />
+        <InnerNavLink onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })} />
         {/* Main illustration - responsive sizing */}
-        <img
-          className="absolute bottom-1 ltr:right-4 rtl:left-4 rtl:rotate-y-180 
-                     w-24 h-24 
-                     sm:w-24 sm:h-24 sm:bottom-2 sm:ltr:right-6 sm:rtl:left-6
-                     lg:w-[120px] lg:h-[120px] lg:bottom-4 lg:ltr:right-8 lg:rtl:left-8
-                     xl:w-[160px] xl:h-[160px] 
-                     2xl:w-[200px] 2xl:h-[200px] 2xl:ltr:right-7 2xl:rtl:left-7 2xl:top-1/2 2xl:-translate-y-1/2
-                     object-contain"
-          src="/images/illustrations/cd689e97d9aa3b284b79c1b84a25a3a141f929c8.png"
-          alt="sports"
-        />
+        <InnerPicture name="sport" />
         {/* Background grid mask - full coverage */}
-        <img
-          src="/images/illustrations/grid-mask.svg"
-          alt=""
-          className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-20 object-cover"
-        />
-      </div>
+        <InnerBgMask />
+      </InnerWrapper>
 
-      <div className="hidden lg:flex lg:col-span-2 bg-primary/10 relative rounded-box py-4 lg:py-7 flex-col justify-between items-center overflow-hidden min-h-full">
-        <p className="font-bold text-base lg:text-xl xl:text-2xl text-center px-2 z-10 relative">{t("bonus:bonusHub.root")}</p>
-        <button
-          className="btn btn-primary btn-sm lg:btn-md xl:btn-lg z-20 w-10/12 max-w-32 text-xs lg:text-sm"
-          onClick={() => navigate({ to: "/bonus" })}
-        >
-          Claim
-        </button>
-        {/* Responsive bonus illustration */}
-        <img
-          src="/images/illustrations/b64b4fb56de8b136b8c6835d3b0cfd761f66bc9c.png"
-          alt=""
-          className="absolute bottom-0 left-1/2 -translate-x-1/2
-                     w-20 h-20
-                     lg:w-24 lg:h-24
-                     xl:w-32 xl:h-32
-                     2xl:w-[170px] 2xl:h-[170px]
-                     object-contain"
-        />
-      </div>
+      {/*<InnerWrapper onClick={() => navigate({ to: "/bonus", search: { tab: undefined } })}>*/}
+      {/*  <p className="font-bold text-base lg:text-xl xl:text-2xl text-center px-2 z-10 relative">{t("bonus:bonusHub.root")}</p>*/}
+      {/*  <button*/}
+      {/*    className="btn btn-primary btn-sm lg:btn-md xl:btn-lg z-20 w-10/12 max-w-32 text-xs lg:text-sm"*/}
+      {/*    onClick={() => navigate({ to: "/bonus", search: { tab: undefined } })}*/}
+      {/*  >*/}
+      {/*    Claim*/}
+      {/*  </button>*/}
+      {/*  /!* Responsive bonus illustration *!/*/}
+      {/*  <InnerPicture name="promotion" />*/}
+      {/*  <InnerBgMask />*/}
+      {/*</InnerWrapper>*/}
     </div>
   );
+};
+
+const InnerBgMask = () => {
+  return <img
+    src="/images/illustrations/mask1.png"
+    alt=""
+    loading={"lazy"}
+    className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-20 object-cover"
+  />;
+};
+
+
+const InnerSlogan = ({ title, subTitle }: { title: string, subTitle: string }) => {
+  return (
+    <div className="flex flex-col gap-2 z-10 relative">
+      <p className="font-extrabold text-sm sm:text-base">{title}</p>
+      {subTitle && <p className="hidden sm:block text-base-content/50 font-bold text-sm max-w-[320px] leading-4">
+        {subTitle}
+      </p>}
+    </div>
+  );
+};
+
+const InnerWrapper = ({ onClick, children, className }: {
+  onClick: () => void,
+  children: ReactNode,
+  className?: string
+}) => {
+  return (<div
+    onClick={onClick}
+    className={clsx("cursor-pointer hover:bg-base-200/50 transition-colors p-4 sm:p-6 w-full rounded-xl bg-base-200 relative overflow-hidden flex flex-col justify-between gap-4", className)}>
+    {children}
+  </div>);
+};
+
+const InnerPicture = ({ name }: { name: string }) => {
+  return <img
+    className="absolute bottom-1 ltr:right-4 rtl:left-4 rtl:rotate-y-180
+                     w-24 h-24
+                     sm:w-30 sm:h-30 sm:ltr:right-6 sm:rtl:left-6 sm:top-1/2 sm:-translate-y-1/2
+                     object-contain"
+    src={`/images/illustrations/${name}.png`}
+    alt={name}
+  />;
+};
+
+const InnerNavLink = ({onClick}:{onClick:() => void}) => {
+  return <button
+    className="btn btn-primary btn-square btn-soft btn-sm z-10 relative"
+    onClick={onClick}
+  >
+    {/*<span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>*/}
+    <ChevronRight className="rtl:rotate-y-180 w-4 h-4" strokeWidth={3} />
+  </button>
 };

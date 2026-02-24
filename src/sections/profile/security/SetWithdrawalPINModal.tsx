@@ -2,20 +2,19 @@ import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { authService } from "@/services/authService.ts";
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { MotionContentBox } from "@/components/modal/UserFinanceModal/c/MotionContentBox.tsx";
-import { useBoundStore } from "@/store";
 import { toast } from "sonner";
 import { InnerImg } from "@/sections/profile/security/ChangePassword.tsx";
 import { ChevronLeft } from "lucide-react";
-import VerificationInput from "react-verification-input";
+import { OTPInput } from 'input-otp'
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import md5 from "md5";
-import { useQueryClient } from "@tanstack/react-query";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { TActions } from "@/store/type.ts";
+import { emitter } from "@/store/emitter.ts";
+import { useCurrentUser } from "@/hooks/api/useAuth";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -23,7 +22,6 @@ interface IStatus {
   confirm_pin: string,
   success: boolean
   bind_pin_loading: boolean
-  show_modal: boolean
 }
 
 const initStatus: IStatus = {
@@ -31,18 +29,25 @@ const initStatus: IStatus = {
   new_pin: "",
   confirm_pin: "",
   success: false,
-  bind_pin_loading: false,
-  show_modal: false
+  bind_pin_loading: false
 };
 
-export const SetWithdrawalPINModal = () => {
-  const queryClient = useQueryClient();
+export const SetWithdrawalPINModal = (
+  {
+    open,
+    data,
+    onClose
+  }: {
+    open: boolean;
+    data: any
+    onClose: () => void;
+  }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const { t } = useTranslation();
 
   const { user } = useAuth();
-
-  const { syncAction, setSyncAction } = useBoundStore();
+  const { refetch: refetchUser } = useCurrentUser();
 
   const [status, setStatus] = useState<IStatus>(initStatus);
 
@@ -67,46 +72,40 @@ export const SetWithdrawalPINModal = () => {
       .then((res) => {
         if (res.code === 0) {
           setStatus((old) => ({ ...old, step: "STEP3", opt_code: "" }));
-
-          void queryClient.refetchQueries({ queryKey: ["auth", "currentUser"] });
-
-          // 自定义行为 - 来源于用户提款操作但是未设置PIN码
-          user_todo_withdraw_but_unset_pin_code(setSyncAction, status.confirm_pin, syncAction?.data);
+          // 刷新用户信息以更新 pin_setted 状态
+          refetchUser();
         } else {
-          toast.error(matchResponseCodeError(res.code));
+          toast.error(t(matchResponseCodeError(res.code)));
         }
-      })
+      }).catch((error) => {
+      console.info(error);
+    })
       .finally(() => {
-        setStatus((old) => ({ ...old, show_modal: false, bind_pin_loading: false }));
+        setStatus((old) => ({ ...old, bind_pin_loading: false }));
       });
   };
 
   /**
-   * 事件通知，唤起对应弹窗
-   */
-  useEffect(() => {
-    if (syncAction.type === "OPEN_SET_WITHDRAWAL_PIN_MODAL") {
-      setStatus((v) => ({ ...v, ...initStatus, show_modal: true }));
-    }
-  }, [syncAction]);
-
-  /**
    * 到STEP2输入验证码步骤时默focus输入框
    */
-  useLayoutEffect(() => {
-    const timer1 = setInterval(() => {
-      const dom = document.getElementById("NEW_PIN_CODE");
-      if (status.step === "STEP1") dom?.click();
-      if (dom) clearInterval(timer1);
-    }, 500);
+  // useLayoutEffect(() => {
+  //   const timer1 = setInterval(() => {
+  //     const dom = document.getElementById("NEW_PIN_CODE");
+  //     if (status.step === "STEP1") dom?.click();
+  //     clearInterval(timer1);
+  //   }, 500);
 
-    const timer2 = setInterval(() => {
-      const dom = document.getElementById("CONFIRM_PIN_CODE");
-      if (status.step === "STEP2") dom?.click();
-      if (dom) clearInterval(timer2);
-    }, 500);
+  //   const timer2 = setInterval(() => {
+  //     const dom = document.getElementById("CONFIRM_PIN_CODE");
+  //     if (status.step === "STEP2") dom?.click();
+  //     clearInterval(timer2);
+  //   }, 500);
 
-  }, [status.step]);
+  //   return () => {
+  //     clearInterval(timer1);
+  //     clearInterval(timer2);
+  //   };
+  // }, [status.step]);
 
   return (
     <Modal
@@ -121,10 +120,8 @@ export const SetWithdrawalPINModal = () => {
           </p>
         </div>
       }
-      isOpen={status.show_modal}
-      onClose={() => {
-        setStatus((v) => ({ ...v, show_modal: false }));
-      }}
+      isOpen={open}
+      onClose={onClose}
       position="modal-middle"
       className="bg-base-400 md:max-w-[420px] shadow-lg"
     >
@@ -133,19 +130,25 @@ export const SetWithdrawalPINModal = () => {
         <div className="flex flex-col gap-6 items-center">
           <InnerImg name="security-verification-lock" className="md:w-auto md:h-auto w-25 h-25" />
 
-          <div className="flex flex-col gap-2 w-full">
+          <div className="relative flex flex-col gap-2 w-full">
             {/* 输入PIN码 */}
-            <VerificationInput
-              classNames={{
-                container: "!h-17 flex justify-between gap-2 !w-auto",
-                character:
-                  "!h-17 !cursor-pointer flex items-center justify-center p-0 input !outline-0 !bg-base-200 !border-1 !border-base-200 !text-lg font-extrabold justify-center w-full rounded-lg !text-base-content",
-                characterSelected: "!bg-base-200 !border-primary !border-base-200",
-                characterInactive: "!bg-base-300 !border-base-300 !text-base-content/10",
-                characterFilled: "!bg-base-200 !border-base-200"
-              }}
-              inputProps={{ id: "NEW_PIN_CODE", autoComplete: "off" }}
-              placeholder="0"
+            <OTPInput
+              ref={inputRef}
+              autoFocus
+              maxLength={6}
+              inputMode='numeric'
+              containerClassName="group flex items-center has-[:disabled]:opacity-50"
+              render={({ slots }) => (
+                <div className="flex gap-2 justify-between flex-1">
+                  {slots.map((slot, idx) => (
+                    <div key={idx} className="flex-1 min-w-10 min-h-12 rounded-md flex items-center justify-center bg-base-200 text-2xl font-extrabold font-sans">
+                      {slot.char}
+                      {slot.hasFakeCaret && <div className="w-px h-4 bg-primary animate-caret-blink" />}
+                    </div>
+                  ))}
+                </div>
+              )}
+              placeholder="-"
               value={status.new_pin}
               onChange={(v) => {
                 if (v === "" || /^\d+$/.test(v))
@@ -157,12 +160,10 @@ export const SetWithdrawalPINModal = () => {
             />
 
             {/* PIN - 格式 - 错误 */}
-            <DisplayContent status={new_pin_code_error}>
-              <ErrorMessageBox
-                className="!mt-0"
-                content={t("common.pinMustBeAtLeast6Digits")}
-                show={new_pin_code_error} />
-            </DisplayContent>
+            <ErrorMessageBox
+              sample
+              content={t("common.pinMustBeAtLeast6Digits")}
+              show={new_pin_code_error} />
           </div>
 
           <div className="w-full">
@@ -176,7 +177,7 @@ export const SetWithdrawalPINModal = () => {
             </ConfirmBox>
             <DisplayContent status={!!status.new_pin && !new_pin_code_error}>
               <div
-                className={"text-xs font-semibold text-primary text-center mt-4"}>{t("common.confirmCodeEntered")}</div>
+                className={"text-[11px] font-semibold text-warning text-center mt-4"}>{t("common.confirmCodeEntered")}</div>
             </DisplayContent>
           </div>
         </div>
@@ -184,33 +185,44 @@ export const SetWithdrawalPINModal = () => {
 
       {/* re-enter withdrawal pin form */}
       <DisplayContent status={status.step === "STEP2"}>
-        <div className="flex flex-col gap-6 items-center">
+        <div className="relative flex flex-col gap-6 items-center">
           <InnerImg name="security-verification-lock" className="md:w-auto md:h-auto w-25 h-25" />
 
           <div className="flex flex-col gap-2 w-full">
             {/* 输入PIN码 */}
-            <VerificationInput
-              classNames={{
-                container: "!h-17 flex justify-between gap-2 !w-auto",
-                character:
-                  "!h-17 !cursor-pointer flex items-center justify-center p-0 input !outline-0 !bg-base-200 !border-1 !border-base-200 !text-lg font-extrabold justify-center w-full rounded-lg !text-base-content",
-                characterSelected: "!bg-base-200 !border-primary !border-base-200",
-                characterInactive: "!bg-base-300 !border-base-300 !text-base-content/10",
-                characterFilled: "!bg-base-200 !border-base-200"
-              }}
-              inputProps={{ id: "CONFIRM_PIN_CODE", autoComplete: "off" }}
-              placeholder="0"
+            <OTPInput
+              ref={inputRef}
+              autoFocus
+              maxLength={6}
+              inputMode='numeric'
+              containerClassName="group flex items-center has-[:disabled]:opacity-50"
+              render={({ slots }) => (
+                <div className="flex gap-2 justify-between flex-1">
+                  {slots.map((slot, idx) => (
+                    <div key={idx} className="flex-1 min-w-10 min-h-12 rounded-md flex items-center justify-center bg-base-200 text-2xl font-extrabold font-sans">
+                      {slot.char}
+                      {slot.hasFakeCaret && <div className="w-px h-4 bg-primary animate-caret-blink" />}
+                    </div>
+                  ))}
+                </div>
+              )}
+              placeholder="-"
               value={status.confirm_pin}
-              onChange={(v) => setStatus((old) => ({
-                ...old,
-                confirm_pin: v
-              }))}
+              onChange={(v) => {
+                if (v === "" || /^\d+$/.test(v))
+                  setStatus((old) => ({
+                    ...old,
+                    confirm_pin: v
+                  }));
+              }}
             />
-
+            {/* PIN - 格式 - 错误 */}
+            <ErrorMessageBox
+              sample
+              content={t("common.pinMustBeAtLeast6Digits")}
+              show={confirm_pin_code_error} />
             {/* PIN码 - 不一致 - 错误 */}
-            <DisplayContent status={repeat_pin_code_error}>
-              <ErrorMessageBox content={t("common.ensureSameEntered")} show={repeat_pin_code_error} />
-            </DisplayContent>
+            <ErrorMessageBox sample content={t("common.ensureSameEntered")} show={repeat_pin_code_error} />
           </div>
 
           {/* confirm */}
@@ -218,7 +230,7 @@ export const SetWithdrawalPINModal = () => {
             disabled={!status.new_pin || !status.confirm_pin || confirm_pin_code_error || new_pin_code_error || repeat_pin_code_error}
             onClick={bindPinCode}
             loading={status.bind_pin_loading}>
-            Continue
+            {t("common:common.continue")}
           </ConfirmBox>
         </div>
       </DisplayContent>
@@ -226,6 +238,7 @@ export const SetWithdrawalPINModal = () => {
       {/* withdrawal pin verification success */}
       <DisplayContent status={status.step === "STEP3"}>
         <MotionContentBox
+          sample
           show={status.step === "STEP3"}
           content={<div className="flex flex-col gap-6 items-center font-semibold">
             <InnerImg name="security-verification-ok" className="md:w-30 md:h-30 w-25 h-25" />
@@ -238,11 +251,11 @@ export const SetWithdrawalPINModal = () => {
               </p>
             </div>
             <ConfirmBox onClick={() => {
-              setStatus((old) => ({
-                ...old,
-                show_modal: false
-              }));
-            }}>{t("common.close")}</ConfirmBox>
+              onClose();
+
+              // TODO: 自定义行为 - 来源于用户提款操作但是未设置PIN码，设置之后立即触发提款操作
+              user_todo_withdraw_but_unset_pin_code(status.confirm_pin, data);
+            }}>{t("common:common.close")}</ConfirmBox>
           </div>} />
       </DisplayContent>
     </Modal>
@@ -256,8 +269,8 @@ export default SetWithdrawalPINModal;
  * 前提：用户操作提款但是未设置PIN码
  * PIN码设置成功则立即执行提现订单创建
  */
-function user_todo_withdraw_but_unset_pin_code(action: (v: TActions, data: any) => void, pin: string, type: string) {
-  if (type === "OPEN_WITHDRAW_FIAT_PIN_MODAL") action("SYNC_WITHDRAW_FIAT_CREATE", pin);
-  if (type === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL") action("SYNC_WITHDRAW_CRYPTO_CREATE", pin);
+function user_todo_withdraw_but_unset_pin_code(pin: string, data?: string) {
+  if (data === "OPEN_WITHDRAW_FIAT_PIN_MODAL") emitter.emit("SYNC_WITHDRAW_FIAT_CREATE", pin);
+  if (data === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL") emitter.emit("SYNC_WITHDRAW_CRYPTO_CREATE", pin);
 }
 

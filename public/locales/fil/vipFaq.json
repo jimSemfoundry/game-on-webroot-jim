@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Ano ang Weekly Bonus?",
-    "content": "<p class=\"leading-7\">Ang Weekly Bonus ay isang eksklusibong benepisyo sa aming website na dinisenyo para sa mga manlalaro na VIP12 at pataas. Ang bonus na ito ay ibinibigay lingguhan at awtomatikong ibinabayad tuwing Biyernes sa mga manlalaro sa VIP12 at pataas. Ang laki ng bonus ay nakadepende sa halaga ng taya sa nakaraang linggo, na may minimum na kinakailangan na taya na {{minWager}} sa nakaraang linggo.</p>"
+    "content": "<p class=\"leading-7\">Ang Weekly Bonus ay isang eksklusibong benepisyo sa aming website na dinisenyo para sa mga manlalaro na VIP2 at pataas. Ang bonus ay ibinibigay lingguhan tuwing Lunes at mawawalan ng bisa kapag lumabas ang susunod na weekly bonus. Ang laki ng bonus ay nakadepende sa halaga ng taya sa nakaraang linggo, na may minimum na kinakailangan na epektibong taya na {{minWager}} sa nakaraang linggo.</p>"
   },
   "faqNine": {
     "title": "Ano ang Achievements?",

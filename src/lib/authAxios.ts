@@ -1,6 +1,7 @@
 import { clearAuth, getAuth } from "@/utils/auth";
 import axios from "axios";
- 
+import { setTraceIdHeader } from "./trace";
+
 // Authenticated axios instance - includes custom auth headers
 // Uses getAuth() to generate authentication parameters for each request
 // For public APIs that don't require authentication, use publicAxios instead
@@ -9,6 +10,8 @@ const authAxiosInstance = axios.create({
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
   }
 });
 
@@ -28,9 +31,14 @@ authAxiosInstance.interceptors.request.use(
     }
 
     config.params = {
-      ...(config.params || {}),
-      _t: Date.now(),
+      ...(config.params || {})
     }
+    
+    // 每次请求生成新的 trace ID
+    config.headers['X-Trace-Id'] = `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
+
+    // 每次请求生成新的 trace ID
+    setTraceIdHeader(config);
 
     return config;
   },
@@ -46,6 +54,11 @@ authAxiosInstance.interceptors.response.use(
       console.debug("✅ Auth request successful:", response.config.url);
     }
 
+    if (response?.data?.code === 401) {
+      // If we can't get auth, it means token is invalid, clear it
+      clearAuth(`❌ Auth request failed:${response.config.url}`);
+    }
+
     return response;
   },
   async (error) => {
@@ -58,40 +71,8 @@ authAxiosInstance.interceptors.response.use(
 
     // Handle 401 unauthorized errors
     if (error.response?.status === 401) {
-      // Initialize retry count for this specific request
-      originalRequest._retryCount = originalRequest._retryCount || 0;
-      originalRequest._retryCount++;
-
-      console.warn(`⚠️ 401 error detected, retry count: ${originalRequest._retryCount} for ${originalRequest.url}`);
-
-      // If this specific request has failed 3 times, clear auth
-      if (originalRequest._retryCount >= 3) {
-        clearAuth(`multiple_401_errors:${originalRequest.url}:${originalRequest._retryCount}`);
-
-        // Don't retry anymore
-        return Promise.reject(error);
-      }
-
-      // Try to regenerate auth params and retry
-      try {
-        console.log("Attempting to regenerate auth for retry...");
-        const auth = getAuth();
-        if (auth) {
-          console.log("Auth regenerated successfully, retrying request");
-          originalRequest.headers.auth = JSON.stringify(auth);
-          // Retry the request
-          return authAxiosInstance(originalRequest);
-        } else {
-          console.warn("getAuth() returned null/undefined");
-        }
-      } catch (authError) {
-        if (process.env.NODE_ENV === "development") {
-          console.error("Failed to regenerate auth for retry:", authError);
-        }
-
-        // If we can't get auth, it means token is invalid, clear it
-        clearAuth(`auth_generation_failed:${originalRequest.url}`);
-      }
+      clearAuth(`http_401:${originalRequest?.url}`);
+      return Promise.reject(error);
     }
 
     return Promise.reject(error);

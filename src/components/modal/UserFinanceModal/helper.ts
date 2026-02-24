@@ -7,14 +7,10 @@ import {
 import { useEffect, useMemo, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { authService } from "@/services/authService.ts";
-import { toHex } from "tron-format-address";
-import { ethers } from "ethers";
-import { address as tonAddress } from "@ton/core";
-import { PublicKey } from "@solana/web3.js";
 import Decimal from "decimal.js";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useBoundStore } from "@/store";
-import { orderBy } from "lodash-es";
+import { orderBy } from "es-toolkit";
 import { emitter } from "@/store/emitter.ts";
 import { useCurrencyExchangeRate } from "@/hooks/api/usePublic.ts";
 
@@ -35,7 +31,7 @@ export const useSupportedSwapFromCurrenciesFilter = () => {
         id: item.currency,
         value: item.currency,
         label: item.display_name,
-        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.svg`,
+        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.png`,
         is_default: item.is_default
       }))
     ]; // 返回 [原始数据, 处理后的数据]
@@ -66,7 +62,7 @@ export const useSupportedSwapToCurrenciesFilter = (currency: Record<string, any>
         id: item.currency,
         value: item.currency,
         label: item.display_name,
-        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.svg`,
+        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.png`,
         is_default: item.is_default
       }))
     ]; // 返回 [原始数据, 处理后的数据]
@@ -86,7 +82,7 @@ export const useSupportedCryptoDepositGatewaysFilter = (currency: string) => {
         value: item.network,
         label: item.network,
         disabled: item.can_withdraw !== 1,
-        icon: item.icon || `/icons/currency/${item.network.toLowerCase()}.svg`
+        icon: item.icon || `/icons/currency/${item.network.toLowerCase()}.png`
       }))
     ];
   }, [data]);
@@ -105,39 +101,48 @@ export const useSupportedCryptoWithdrawGatewaysFilter = (currency: string) => {
         value: item.network,
         label: item.network,
         disabled: item.can_withdraw !== 1,
-        icon: item.icon || `/icons/currency/${item.network.toLowerCase()}.svg`
+        icon: item.icon || `/icons/currency/${item.network.toLowerCase()}.png`
       }))
     ];
   }, [data]);
 };
 
 export const validateAddress = (network: string, address: string) => {
-  try {
-    if (network === "TRON") {
-      // TBH2CfmW4XEqiwA1HKRRTnYDsvHiiadfVf
-      return toHex(address);
-    }
-
-    if (network === "TON") {
-      // Ef9P69sU4AgSWniwHUGts1BYTIyYPVlUCN-2Vb1BmeRxW1sl
-      return tonAddress(address);
-    }
-
-    if (network === "BSC" || network === "ETH") {
-      // 0x058476C57de3Ea691b3EDA45542B38d6886004ba
-      return ethers.isAddress(address);
-    }
-
-    if (network === "SOL") {
-      // 5DHQhk6CocPX14Ww9A797VoLcfxP3DfMbvWc44PeLm5W
-      return new PublicKey(address);
-    }
-
-    return /^[a-zA-Z0-9]{20,}$/.test(address);
-  } catch (error) {
-    console.info(error);
-    return false;
+  if (network === "TRON") {
+    // 不做 Base58Check 校验和，仅做常见格式判断
+    return /^T[1-9A-HJ-NP-Za-km-z]{33}$/.test(address);
   }
+
+  if (network === "TON") {
+    // 1) 用户友好地址（base64url，常见 48 位）
+    if (/^[A-Za-z0-9\-_]{48}$/.test(address)) return true;
+
+    // 2) 原始形式：workchain:hex（例如 0:... 或 -1:...，hash 64 hex）
+    return /^-?\d+:[0-9a-fA-F]{64}$/.test(address);
+  }
+
+  if (network === "BSC" || network === "ETH") {
+    return /^0x[a-fA-F0-9]{40}$/.test(address);
+  }
+
+  if (network === "SOL") {
+    if (!(/^[1-9A-HJ-NP-Za-km-z]+$/.test(address))) return false;
+    // Solana 公钥 base58 长度通常在 32~44 之间（宽松判断）
+    return address.length >= 32 && address.length <= 44;
+  }
+
+  if (network === "BTC") {
+    // Legacy Base58（不做 Base58Check 校验和）
+    // 1... / 3... 常见长度 26-35
+    if (/^[13][1-9A-HJ-NP-Za-km-z]{25,34}$/.test(address)) return true;
+
+    // Bech32（不做 bech32 checksum 校验）
+    // 允许 bc1 + 11~71 位（实际有更具体长度规则，这里做宽松格式判断）
+    // 只允许小写（bech32 标准一般用全小写/全大写，这里按常见全小写处理）
+    return /^bc1[ac-hj-np-z02-9]{11,71}$/.test(address);
+  }
+
+  return /^[a-zA-Z0-9]{20,}$/.test(address);
 };
 
 export const perRangeOptions = [
@@ -169,6 +174,7 @@ export const useAvailableBalance = (currency: string) => {
     isLoading: userBalanceLoading,
     refetch: userBalanceRefetch
   } = useUserBalance();
+
   const {
     data: userBalanceExtension,
     isLoading: userBalanceExtensionLoading,
@@ -180,7 +186,7 @@ export const useAvailableBalance = (currency: string) => {
 
     if (!balance) return {
       locked: "0.00",
-      available: open_debug ? "100000000000" : "0.00",
+      available: open_debug ? "200" : "0.00",
       userBalanceLoading,
       userBalanceExtensionLoading,
       userBalanceRefetch,
@@ -198,7 +204,7 @@ export const useAvailableBalance = (currency: string) => {
 
     return {
       locked: lockedBalance.toFixed(18, Decimal.ROUND_UP),
-      available: open_debug ? "100000000000" : availableAmount.toFixed(18, Decimal.ROUND_DOWN),
+      available: open_debug ? "200" : availableAmount.toFixed(18, Decimal.ROUND_DOWN),
       userBalanceLoading,
       userBalanceExtensionLoading,
       userBalanceRefetch,
@@ -221,11 +227,6 @@ export const useAllAvailableBalance = () => {
     isLoading: userBalanceLoading
   } = useUserBalance();
 
-  const {
-    data: userBalanceExtension,
-    isLoading: userBalanceExtensionLoading
-  } = useUserBalanceExtension();
-
   const { data: exchangeRate } = useCurrencyExchangeRate();
 
   return useMemo(() => {
@@ -233,23 +234,17 @@ export const useAllAvailableBalance = () => {
       const token = currency?.currency;
       const balance = currency?.balance || 0;
       const exchange = exchangeRate?.data?.[token] ?? 0;
-      const extensionBalance = (userBalanceExtension ?? [])?.find((b: Record<string, any>) => b?.currency === token);
       const totalBalance = new Decimal(balance);
-      const withdrawAble = extensionBalance ? new Decimal(extensionBalance?.withdraw_able || 0) : new Decimal(0);
-      const lockedBalance = extensionBalance ? new Decimal(extensionBalance?.locked_balance || 0) : new Decimal(0);
+      const equivalentU = totalBalance.times(exchange).toNumber(); // ⚠️orderBy排序要基于数字不是字符串
 
-      const calculatedAvailable = totalBalance.minus(lockedBalance);
-      const availableAmount = Decimal.max(calculatedAvailable, withdrawAble);
-      const equivalentU = availableAmount.times(exchange).toNumber(); // ⚠️orderBy排序要基于数字不是字符串
-
-      return { token, balance: availableAmount.toString(), equivalentU };
+      return { token, balance: totalBalance.toString(), equivalentU };
     });
 
     return {
-      balances: orderBy(output, ["equivalentU"], ["desc"]),
-      isLoading: userBalanceLoading || userBalanceExtensionLoading
+      balances: orderBy(output, ["equivalentU"], ["desc"]) as { token: string, balance: string, equivalentU: number }[],
+      isLoading: userBalanceLoading
     };
-  }, [userBalance, exchangeRate, userBalanceExtension]);
+  }, [userBalance, exchangeRate]);
 };
 
 /**
@@ -308,7 +303,6 @@ export const useSupportedCurrencyV2 = () => {
       return authService.getSupportedCurrencyV2();
     },
     enabled: !!user,
-    staleTime: 5 * 60 * 1000, // 影响自动 refetch 的触发与频率
     refetchOnMount: false,
     refetchOnWindowFocus: false
   });
@@ -340,7 +334,7 @@ export const useSupportedCurrencyV2Filter = (
         id: item.currency,
         value: item.currency,
         label: item.display_name,
-        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.svg`,
+        icon: item.icon || `/icons/currency/${item.currency.toLowerCase()}.png`,
         is_default: item.is_default
       }))
     ]; // 返回 [原始数据, 处理后的数据]
@@ -366,7 +360,10 @@ export const useDepositCryptoCurrencySelectedFirstTime = () => {
   // initial default selected option
   useEffect(() => {
     if (originCurrencies.length > 0) {
-      const find = originCurrencies.find((o: { is_default: number, currency_type: string }) => o?.is_default && o?.currency_type === 'CRYPTO');
+      const find = originCurrencies.find((o: {
+        is_default: number,
+        currency_type: string
+      }) => o?.is_default && o?.currency_type === "CRYPTO");
       setDepositType(find ? "crypto" : "fiat");
       setDepositCrypto({ currency: find || originCurrencies[0] });
     }
@@ -385,7 +382,8 @@ export const useDepositCryptoCurrencySelectedFirstTime = () => {
  */
 export const useDepositFiatCurrencySelectedFirstTime = () => {
   // from data store, share common data
-  const { setDepositFiat, setDepositType } = useBoundStore();
+  const setDepositFiat = useBoundStore((state) => state.setDepositFiat);
+  const setDepositType = useBoundStore((state) => state.setDepositType);
 
   // 支持存款的法币列表
   const [, originCurrencies] = useSupportedCurrencyV2Filter("FIAT", "DEPOSIT");
@@ -395,7 +393,7 @@ export const useDepositFiatCurrencySelectedFirstTime = () => {
       const find = originCurrencies.find((o: {
         is_default: number,
         currency_type: string
-      }) => o?.is_default && o?.currency_type === 'FIAT') ?? originCurrencies[0];
+      }) => o?.is_default && o?.currency_type === "FIAT") ?? originCurrencies[0];
       setDepositType(find ? "fiat" : "crypto");
       setDepositFiat({ currency: find });
     }
@@ -484,7 +482,7 @@ export const useWithdrawSelectedFirstTime = () => {
 
         const target_currency = balances.find((b) => which_currency_set.has(b?.token));
 
-        if (target_currency?.equivalentU > 0) {
+        if (target_currency && target_currency?.equivalentU > 0) {
           the_chosen_one = can_withdraw_currencies.find((o: {
             currency: string
           }) => o?.currency === target_currency?.token) ?? current_settlement_currency;
@@ -583,5 +581,9 @@ export function randomString() {
   return `${timestamp}-${random}`;
 }
 
+// TODO: special_offer_thursday 只针对周四加密货币
+export const not_fiat_currency_deposit_activity_set = new Set(["special_offer_thursday"]);
+
 export const open_debug = false;
+
 export const debug_target: "DEPOSIT" | "WITHDRAW" | "SWAP" = "WITHDRAW";

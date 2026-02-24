@@ -5,11 +5,11 @@
     "achievements": "Leistungen",
     "achievementDescription": "Leistungsabzeichen sind Belohnungen, die für das Erreichen neuer Meilensteine und das Überwinden von Herausforderungen vergeben werden. Sie feiern deinen Fortschritt und Erfolg und schalten lustige Überraschungen frei, während du neue Leistungen auf dem Weg erreichst!",
     "claimDistribution": "Anspruchsverteilung",
-    "claimDistributionDescription": "Belohnungen werden für 3 Tage nach der Beanspruchung deinem Bonuskalender hinzugefügt.",
+    "claimDistributionDescription": "Deine Belohnungen werden sofort fällig und stehen zur Einlösung aus deinem Einzahlungs-<0>Bonuspool</0> bereit, wenn du eine neue Erfolgsprämie beanspruchst.",
     "expiration": "Ablauf",
-    "expirationDescription": "Keine - Belohnungen werden automatisch an den Kalender gesendet.",
+    "expirationDescription": "Keine – Ansprüche sind verfügbar, solange dein Bonuspool-Guthaben ausreichend ist.",
     "generalTerms": "Allgemeine Bedingungen",
-    "generalTermsDescription": "Belohnungen werden in BUCK/USDT berechnet und gutgeschrieben und dann in deiner bevorzugten Fiat-Währung zur Vereinfachung angezeigt. Bitte beachte, dass Währungsumrechnungen ungefähr sind.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit zu ändern oder zu widerrufen, ohne die Verpflichtung zur Rechtfertigung. Missbrauch oder betrügerische Aktivitäten führen zur Disqualifikation von der Aktion."
+    "generalTermsDescription": "Belohnungen werden in USDT berechnet und gutgeschrieben und anschließend zur Bequemlichkeit in deiner bevorzugten Fiat-Währung angezeigt. Bitte beachte, dass Währungsumrechnungen nur ungefähr sind.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Begründung zu ändern oder zu widerrufen. Missbrauch oder betrügerische Aktivitäten führen zur Disqualifikation von der Aktion."
   },
   "luckyNumberSeven": {
     "title": "Glückszahl \n Sieben",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Der Mindestanspruchsbetrag beträgt {{money}}",
     "expiration": "Ablauf",
-    "expirationDescription": "Deine Überraschungsbox muss innerhalb von 7 Tagen nach der Vergabe beansprucht werden. Nicht beanspruchte Belohnungen verfallen nach diesem Zeitraum.",
+    "expirationDescription": "Deine Überraschungsbox muss innerhalb von 3 Tagen nach der Vergabe beansprucht werden. Nicht beanspruchte Belohnungen verfallen nach diesem Zeitraum.",
     "generalTerms": "Allgemeine Bedingungen",
     "generalTermsDescription": "Belohnungen werden basierend auf der ersten Einzahlung des Nutzers oder in USDT, wenn keine Einzahlung erfolgt, unter Berücksichtigung eines erforderlichen 1x-Umsatzes berechnet und gutgeschrieben. Beträge werden in deiner bevorzugten Fiat-Währung angezeigt; Umrechnungen sind ungefähr.\n\nDas Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Vorankündigung zu ändern oder zu widerrufen. Missbrauch oder Betrug führen zur Disqualifikation."
   },

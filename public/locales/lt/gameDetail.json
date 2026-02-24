@@ -25,6 +25,14 @@
   "totalTips": "Patarimai",
   "result": "Rezultatas",
   "myBets": "Mano statymai",
-  "**********": "",
-  "demoPlay": "Demonstruoti žaidimą"
+  "demoPlay": "Demonstruoti žaidimą",
+  "limitedOffer": "Ribota Pasiūlymas",
+  "deposit": "Įnešti {{value}}",
+  "get": "Gauti {{value}}",
+  "instantCashBonus": "Momentinis Pinigų Premija",
+  "expires": "Galioja iki",
+  "depositNow": "Įnešti Dabar",
+  "free_spins": "Nemokami Sukimai",
+  "play_with_balance_in": "Žaisti su Balansu",
+  "the_selected_currency_will_be_displayed_in": "Pasirinkta valiuta bus rodoma"
 }

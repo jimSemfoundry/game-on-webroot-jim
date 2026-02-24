@@ -25,6 +25,14 @@
   "totalTips": "Mẹo",
   "result": "Kết quả",
   "myBets": "Các cược của tôi",
-  "**********": "",
-  "demoPlay": "Chơi Demo"
+  "demoPlay": "Chơi Demo",
+  "limitedOffer": "Ưu Đãi Có Hạn",
+  "deposit": "Nạp {{value}}",
+  "get": "Nhận {{value}}",
+  "instantCashBonus": "Tiền Thưởng Ngay Lập Tức",
+  "expires": "Hết Hạn",
+  "depositNow": "Nạp Ngay",
+  "free_spins": "Vòng Quay Miễn Phí",
+  "play_with_balance_in": "Chơi Với Số Dư Trong",
+  "the_selected_currency_will_be_displayed_in": "Đơn vị tiền tệ đã chọn sẽ được hiển thị trong"
 }

@@ -73,15 +73,42 @@
   "changePhone": "更改电话",
   "updateAccountAndPassword": "更新账户和密码",
   "confirm_new_password": "确认新密码",
-  "dashboard": "仪表板",
+  "dashboard": "总览",
   "transactions": "交易",
-  "rollover": "滚动",
-  "betHistory": "投注历史",
+  "rollover": "投注要求",
+  "betHistory": {
+    "empty": "未找到投注历史",
+    "title": "投注历史",
+    "headers": {
+      "game": "游戏",
+      "date": "日期",
+      "betId": "投注ID",
+      "betIn": "投注金额",
+      "betOut": "派彩金额",
+      "account": "账户",
+      "amount": "金额",
+      "provider": "提供商",
+      "match": "比赛",
+      "tournament": "锦标赛"
+    }
+  },
   "settings": "设置",
   "legal": "法律",
   "nickname": "昵称",
   "zoomAndAdjust": "缩放和调整",
   "systemLanguage": "系统语言",
   "editProfile": "编辑个人资料",
-  "inviteAndGetRewarded": "邀请并获得奖励"
+  "inviteAndGetRewarded": "邀请并获得奖励",
+  "emailAddress": "电子邮件地址",
+  "codeSent": "输入我们发送的代码",
+  "codeSentTo": "代码已发送至",
+  "notReceiveCode": "没有收到代码？",
+  "verificationSuccess": "验证成功",
+  "spinHistory": {
+    "statusFilterLabel": "状态"
+  },
+  "phone_number_has_been_verified": "您的手机号已验证成功，可以继续操作。",
+  "email_address_has_been_verified": "你的邮箱地址已验证成功。现在可以继续了。",
+  "setNewPassword": "设置新密码",
+  "passwordLengthRequirement": "请输入6到64个字符之间的密码。"
 }

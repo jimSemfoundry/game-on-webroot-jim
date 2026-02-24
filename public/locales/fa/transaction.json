@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "جوایز چرخش رایگان",
   "common": {
     "close": "بستن",
     "copy": "کپی",
@@ -12,7 +13,8 @@
     "swap": "تعویض",
     "swapFrom": "تعویض از",
     "swapTo": "تعویض به",
-    "noCommissionRecords": "هیچ رکورد کمیسیونی پیدا نشد"
+    "noCommissionRecords": "هیچ رکورد کمیسیونی پیدا نشد",
+    "createdOn": "ایجاد شده در"
   },
   "tabs": {
     "transactionHistory": "تاریخچه تراکنش",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "شبکه برداشت",
     "blockchainWaiting": "در انتظار تأیید بلاکچین.",
     "blockchainFailed": "تراکنش بلاکچین ناموفق بود.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "درخواست شما دریافت شد.<br/>برای مشاهده وضعیت، تراکنش‌ها را در پروفایل خود بررسی کنید."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "کل شرط مورد نیاز",
     "wagerCompleted": "شرط تکمیل شده",
     "pendingWagerRequired": "شرط در حال انتظار مورد نیاز",
-    "unlockedFunds": "دارایی‌های آزاد شده"
-  }
+    "unlockedFunds": "وجوه باز شده",
+    "rolloverMul": "ضریب شرط‌بندی"
+  },
+  "assistance": "لطفاً جزئیات خود را بررسی کنید و دوباره تلاش کنید یا برای کمک با خدمات مشتری تماس بگیرید"
 }

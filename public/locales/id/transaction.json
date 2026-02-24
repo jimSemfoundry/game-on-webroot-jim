@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Hadiah Putaran Gratis",
   "common": {
     "close": "Tutup",
     "copy": "Salin",
@@ -12,7 +13,8 @@
     "swap": "Tukar",
     "swapFrom": "Tukar Dari",
     "swapTo": "Tukar Kepada",
-    "noCommissionRecords": "Tidak ada catatan komisi yang ditemukan"
+    "noCommissionRecords": "Tidak ada catatan komisi yang ditemukan",
+    "createdOn": "Dibuat pada"
   },
   "tabs": {
     "transactionHistory": "Riwayat Transaksi",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Jaringan Penarikan",
     "blockchainWaiting": "Menunggu konfirmasi blockchain.",
     "blockchainFailed": "Transaksi blockchain gagal.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Kami telah menerima permintaan Anda.<br/>Untuk melihat statusnya, periksa Transaksi di Profil Anda."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Total Taruhan yang Diperlukan",
     "wagerCompleted": "Taruhan Selesai",
     "pendingWagerRequired": "Taruhan Tertunda yang Diperlukan",
-    "unlockedFunds": "Dana yang Dibuka"
-  }
+    "unlockedFunds": "Dana yang Dibuka",
+    "rolloverMul": "Pengali Taruhan"
+  },
+  "assistance": "Silakan periksa detail Anda dan coba lagi atau hubungi layanan pelanggan untuk bantuan"
 }

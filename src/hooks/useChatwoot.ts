@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 // TODO: 为了测试chatwoot自定义样式，暂时写死了hideMessageBubble, baseUrl, websiteToken 并没有从context拿
 interface ChatwootConfig {
   websiteToken: string;
+  enabled?: boolean;
   baseUrl?: string;
   hideMessageBubble?: boolean;
   darkMode?: "auto" | "light" | "dark";
@@ -16,6 +17,7 @@ export const useChatwoot = (config: ChatwootConfig) => {
   const scriptLoaded = useRef(false);
 
   useEffect(() => {
+    if (!config.enabled) return;
     // 如果没有websiteToken或已经初始化过，则不初始化
     if (!config.websiteToken || isInitialized) return;
 
@@ -74,7 +76,7 @@ export const useChatwoot = (config: ChatwootConfig) => {
         setIsInitialized(false);
       }
     };
-  }, [config.websiteToken, config.baseUrl, isInitialized]);
+  }, [config.enabled, config.websiteToken, config.baseUrl, isInitialized]);
 
   // 提供一些有用的方法
   const toggleWidget = () => {

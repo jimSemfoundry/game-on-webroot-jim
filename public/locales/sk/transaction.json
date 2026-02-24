@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Odmeny za voľné otočky",
   "common": {
     "close": "Zavrieť",
     "copy": "Kopírovať",
@@ -12,7 +13,8 @@
     "swap": "Vymeniť",
     "swapFrom": "Vymeniť Z",
     "swapTo": "Vymeniť Do",
-    "noCommissionRecords": "Nenašli sa žiadne záznamy o províziách"
+    "noCommissionRecords": "Nenašli sa žiadne záznamy o províziách",
+    "createdOn": "Vytvorené"
   },
   "tabs": {
     "transactionHistory": "História transakcií",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Sieť výberu",
     "blockchainWaiting": "Čaká sa na potvrdenie blockchainu.",
     "blockchainFailed": "Blockchainová transakcia zlyhala.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Vaša žiadosť bola prijatá.<br/>Ak chcete zobraziť stav, skontrolujte transakcie vo svojom profile."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Celková požiadavka na stávku",
     "wagerCompleted": "Stávka dokončená",
     "pendingWagerRequired": "Požiadavka na čakajúcu stávku",
-    "unlockedFunds": "Odomknuté prostriedky"
-  }
+    "unlockedFunds": "Odomknuté prostriedky",
+    "rolloverMul": "Násobiteľ stávky"
+  },
+  "assistance": "Skontrolujte svoje údaje a skúste to znova alebo kontaktujte zákaznícky servis pre pomoc"
 }

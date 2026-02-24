@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Lední hokej",
   "basketball": "Basketbal",
+  "cricket": "Kriket",
+  "eSoccer": "eFotbal",
   "volleyball": "Volejbal",
   "hot": "Žhavé",
   "all": "Vše",
@@ -69,5 +71,6 @@
   "live-casino": "Živé kasino",
   "sports": "Sporty",
   "lotteries": "Loterie",
-  "gamesYouShouldTry": "Hry, které byste měli vyzkoušet"
+  "gamesYouShouldTry": "Hry, které byste měli vyzkoušet",
+  "bonus": "Bonus"
 }

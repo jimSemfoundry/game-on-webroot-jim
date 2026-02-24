@@ -225,7 +225,7 @@ export function AvatarModal({ open, onClose }: { open: boolean, onClose: () => v
         </div>
         <div>
           <ConfirmBox disabled={loading || isDisabled} loading={loading} onClick={saveAvatar}>
-            {t("common.save")}
+            {t("common:common.save")}
           </ConfirmBox>
         </div>
       </div>

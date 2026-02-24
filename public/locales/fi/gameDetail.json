@@ -25,6 +25,14 @@
   "totalTips": "Vinkit",
   "result": "Tulos",
   "myBets": "Minun Vedot",
-  "**********": "",
-  "demoPlay": "Demonäyttö"
+  "demoPlay": "Demonäyttö",
+  "limitedOffer": "Rajoitettu tarjous",
+  "deposit": "Talleta {{value}}",
+  "get": "Hanki {{value}}",
+  "instantCashBonus": "Välitön käteispalkkio",
+  "expires": "Vanhenee",
+  "depositNow": "Talleta nyt",
+  "free_spins": "Ilmaiskierrokset",
+  "play_with_balance_in": "Pelaa saldolla",
+  "the_selected_currency_will_be_displayed_in": "Valittu valuutta näytetään"
 }

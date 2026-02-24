@@ -7,6 +7,9 @@
     "commissions": "Komisjonid",
     "rewards": "Preemiad"
   },
+  "campaignAlreadyExists": "Kampaania eksisteerib juba",
+  "campaignCreateSuccess": "Kampaania loodud edukalt!",
+  "campaignCreateFailed": "Kampaania loomine ebaõnnestus",
   "commissionCalculator": "Komisjonikalkulaator",
   "telegramReferralLink": "Telegrami Soovituslink",
   "network": "Võrk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Minu soovitustasud",
   "myReferralRewards": "Minu soovituspreemiad",
   "exp": "KOGEMUS",
-  "userLevel": "Kasutaja tase"
+  "userLevel": "Kasutaja tase",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>SOOVITUS</0><0>BONUS</0>",
+    "title": "Kutsu sõber ja saa lisatasu, kui nad teevad oma esimese sissemakse. Esimese mängija, keda soovitad, kes liitub, sissemakse teeb ja mängib, saad 10% Ekstra Soovituse Boonus oma sõbra esialgse sissemakse summa põhjal.",
+    "bonusCalculatedTitle": "Kuidas Boonus Arvutatakse?",
+    "bonusCalculatedDesc": "Sinu Ekstra Soovituse Boonus arvutatakse 10% sinu sõbra esimesest sissemakset. Kui sinu sõbra esimene sissemakse on <0>{{depositAmount}}</0>, saad tasu väärtuses <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Tasu Jaotamine",
+    "claimDistributionDesc": "Kõik, mida pead tegema, on võtta ühendust Klienditeeninduse Reaalajas Vestlusega ja teavitada neid, et soovid nõuda tasu oma Soovituse Teabe alusel.",
+    "expirationTitle": "Aegumine",
+    "expirationDesc": "Boonus tuleb nõuda 7 x 24 tunni (7 päeva) jooksul pärast sinu sõbra esialgset sissemakset; pärast seda ei saa seda uuesti välja anda.",
+    "generalTermsTitle": "Üldtingimused",
+    "generalTermsDesc1": "Auhinnad arvutatakse ja kantakse üle <0>BUCK/USDT</0>, seejärel kuvatakse need teie mugavuse huvides soovitud fiat-valuutas. Palun pange tähele, et valuutavahetused on ligikaudsed. Maksimaalne boonus, mida saate iga soovitatud sõbra eest, on {{bonusAmount}} väärtuses, ja boonus on võimalik nõuda üks kord iga kasutaja ID kohta. Teie soovitus peab panustama vähemalt 4 korda oma esimese sissemakse summa enne, kui saate oma boonust nõuda.",
+    "generalTermsDesc2": "Kasiinol on õigus igal ajal muuta või tühistada õigust, ilma et oleks kohustus põhjendada. Iga väärkasutamine või petturlik tegevus – sealhulgas, kuid mitte ainult, duplikaat või vastav mängijate andmed, sissemaksepettus, vastavad IP-aadressid, ohutused või investeerimisstiilis käitumine – toob kaasa kampaaniast diskvalifitseerimise ja seotud boonuste tühistamise. Kõik kasiino otsused seoses selle kampaaniaga on lõplikud ja neid ei saa vaidlustada."
+  },
+  "referral_program_disabled": "SOOVITUS\nPROGRAMM\n<0>KEELATUD</0>",
+  "programAccessUpdate": "Programmi ligipääsu uuendus",
+  "referralProgramPrivileges": "Sinu soovitusprogrammi privileegid on pärast sinu konto ja programmis osalemise ülevaatamist tühistatud. Tuvastasime tegevuse, mis ei vasta meie soovitusprogrammi tingimustele või ettenähtud kasutusele. See võib hõlmata kahtlaseid soovitusmustreid, volitamata turundusmeetodeid, stiimulite väärkasutust või katseid õiglase kasutuse juhistest mööda hiilida.",
+  "referralRewardsPrivileges": "Selle tulemusena on sinu võimalus luua uusi soovituspreemiaid, jagada soovituslinke või saada soovitustest kasu keelatud. Soovitusprogrammiga seotud ootel või tulevased preemiad peetakse kinni ja tühistatakse vastavalt meie poliitikatele. <0>Kõik teised sinu konto funktsioonid jäävad alles ja see muudatus neid ei mõjuta</0>.",
+  "understandDisappointing": "Mõistame, et see võib olla pettumust valmistav. Kui arvad, et otsus on ekslik või soovid lisateavet, võta palun ühendust meie tugitiimiga ning esita asjakohane info — vaatame sinu juhtumi üle."
 }

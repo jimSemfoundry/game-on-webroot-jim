@@ -3,5 +3,8 @@
   "notifications": "Meldingen",
   "support": "Ondersteuning",
   "retry": "Opnieuw proberen",
-  "customerServiceChatFailedToLoad": "De chat van de klantenservice kon niet worden geladen"
+  "customerServiceChatFailedToLoad": "De chat van de klantenservice kon niet worden geladen",
+  "read": "Lezen",
+  "unread": "Ongelezen",
+  "customerService": "Klantenservice"
 }

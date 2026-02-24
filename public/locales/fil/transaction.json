@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Mga Gantimpala sa Libreng Spin",
   "common": {
     "close": "Isara",
     "copy": "Kopyahin",
@@ -12,7 +13,8 @@
     "swap": "Palitan",
     "swapFrom": "Palitan Mula",
     "swapTo": "Palitan Sa",
-    "noCommissionRecords": "Walang natagpuang rekord ng komisyon"
+    "noCommissionRecords": "Walang natagpuang rekord ng komisyon",
+    "createdOn": "Nilikha noong"
   },
   "tabs": {
     "transactionHistory": "Kasaysayan ng Transaksyon",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Network ng Pag-withdraw",
     "blockchainWaiting": "Naghihintay ng kumpirmasyon ng blockchain.",
     "blockchainFailed": "Nabigo ang transaksyon ng blockchain.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Natanggap namin ang iyong kahilingan.<br/>Upang tingnan ang katayuan, suriin ang Mga Transaksyon sa iyong Profile."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Kabuuang Kailangan ng Taya",
     "wagerCompleted": "Taya Kumpleto",
     "pendingWagerRequired": "Kailangan ng Naghihintay na Taya",
-    "unlockedFunds": "Na-unlock na Pondo"
-  }
+    "unlockedFunds": "Na-unlock na Pondo",
+    "rolloverMul": "Multiplier ng Taya"
+  },
+  "assistance": "Pakisuri ang iyong mga detalye at subukang muli o makipag-ugnayan sa customer service para sa tulong"
 }

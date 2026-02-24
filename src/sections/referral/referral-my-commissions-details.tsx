@@ -68,7 +68,7 @@ export default function ReferralMyCommissionsDetails({ item, isOpen, onClose }: 
         </ul>
       </div>
     }>
-      <div className="flex flex-col gap-3 p-3">
+      <div className="flex flex-col gap-3">
         {loading ? (
           <div className="flex h-[180px] items-center justify-center">
             <span className="loading loading-spinner loading-xl text-primary" />
@@ -76,7 +76,7 @@ export default function ReferralMyCommissionsDetails({ item, isOpen, onClose }: 
         ) : (
           <>
 
-            <div className="bg-base-100 rounded-xl p-3">
+            <div className="bg-base-100 rounded-xl">
               <div className="flex flex-col gap-1 py-2">
                 <div className="flex h-6 items-center justify-between px-4">
                   <div className="text-sm">{t('referral:username')}</div>

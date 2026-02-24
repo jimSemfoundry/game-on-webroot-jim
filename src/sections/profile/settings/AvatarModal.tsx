@@ -13,7 +13,7 @@ import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx
 export function AvatarModal({ open, onClose }: { open: boolean, onClose: () => void }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const [selectedAvatar, setSelectedAvatar] = useState<number>(0);
   const [customAvatarUrl, setCustomAvatarUrl] = useState<string | null>(null);
 
@@ -90,7 +90,9 @@ export function AvatarModal({ open, onClose }: { open: boolean, onClose: () => v
                     setLoading(false);
                   });
               }
-            })
+            }).catch((error) => {
+            console.info(error);
+          })
             .finally(() => {
               setLoading(false);
             });
@@ -227,7 +229,7 @@ export function AvatarModal({ open, onClose }: { open: boolean, onClose: () => v
         </div>
         <div>
           <ConfirmBox disabled={loading || isDisabled} loading={loading} onClick={saveAvatar}>
-            {t("common.save")}
+            {t("common:common.save")}
           </ConfirmBox>
         </div>
       </div>

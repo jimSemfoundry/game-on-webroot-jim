@@ -1,6 +1,7 @@
 import i18n from "@/i18n";
 import authAxiosInstance from "@/lib/authAxios";
 import publicAxiosInstance from "@/lib/publicAxios";
+
 import type { ApiResponse, LoginCredentials, LoginResponse } from "@/types/auth";
 import type { BetHistoryQueryParams } from "@/types/bet-history";
 import type {
@@ -412,12 +413,12 @@ export const authService = {
   },
 
   async getUserBetHistory(params: BetHistoryQueryParams): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV3", params);
+    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV4", params);
     return response.data;
   },
 
   async getUserSportsBetHistory(params: BetHistoryQueryParams): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV3", params);
+    const response = await authAxiosInstance.post("/GameOrder/getBetHistoryV4", params);
     return response.data;
   },
 
@@ -448,8 +449,8 @@ export const authService = {
   },
 
   // 删除数字货币钱包收款地址
-  async deleteUserWithdrawWallet(id: string): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/UserWithdrawWallet/delete", { id });
+  async deleteUserWithdrawWallet(network: string, address: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/UserWithdrawWallet/delete?network=${network}&address=${address}`);
     return response.data;
   },
 
@@ -570,6 +571,11 @@ export const authService = {
     return response.data;
   },
 
+  async setTmaPassword(params: { username: string; password: string }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/Personal/setTmaPassword", params);
+    return response.data;
+  },
+
   /**
    * 获取最早的待处理Free Spin记录
    */
@@ -606,6 +612,7 @@ export const authService = {
    * 启用Free Spin记录
    */
   async enableFreeSpinRecord(data: any): Promise<ApiResponse<any>> {
+    // const response = await authAxiosInstance.post("/FreeSpin/enableRecordV1", data);
     const response = await authAxiosInstance.post("/FreeSpin/enableRecord", data);
     return response.data;
   },
@@ -960,8 +967,63 @@ export const authService = {
     return response.data;
   },
 
-  async getBanGameList() {
-    const response = await authAxiosInstance.post('/GameList/getBanGameList');
+  async getBanGameList(currency: string) {
+    const response = await authAxiosInstance.get(`/GameList/getBanGameList?currency=${currency}`);
+    return response.data;
+  },
+
+
+  // 获取彩金账户信息
+  async getBonusWallet(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/index`);
+    return response.data;
+  },
+
+  // 激活彩金账户
+  async activeBonusWallet(id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/setClaimStatus?id=${id}`);
+    return response.data;
+  },
+
+  // 提取彩金账户收益
+  async claimBonusWallet(id: string, currency: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/claim?id=${id}&claim_currency=${currency}`);
+    return response.data;
+  },
+
+  // 彩金币种失效的时候用户应该设置为哪个结算币
+  async getCurrencyOtherThanBonusCoin(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/Currency/userDefaultCurrency");
+    return response.data;
+  },
+
+  // 选择彩金类型
+  async userActiveBonusWallet(bonus: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/welcomeBonus?bonus_wallet_name=${bonus}`);
+    return response.data;
+  },
+
+  // 彩金类型列表
+  async getBonusConfigList(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/BonusWallet/configList");
+    return response.data;
+  },
+
+  // 用户放弃彩金
+  async userAbandonBonus(id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/abandonBonus?id=${id}`);
+    return response.data;
+  },
+
+  // 用户彩金操作记录
+  async userBonusLatestHistory(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/latestHistoryData`);
+    return response.data;
+  },
+
+  // 用户今日首冲次数
+  async getTodayDepositCount(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/Promo/getUtcTodayDepositCount`);
     return response.data;
   }
 };

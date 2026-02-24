@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
-import classNames from "classnames";
+import clsx from "clsx";
 import { m, AnimatePresence } from "motion/react";
 
 type LegalProps = {
@@ -21,7 +21,7 @@ export const Container = ({ text }: LegalProps) => {
         className="flex items-center justify-between p-4 cursor-pointer gap-2"
         onClick={() => setIsOpen(!isOpen)}>
         <div className="font-bold text-sm md:text-md flex-1">{text?.title}</div>
-        <ChevronRight className={classNames("w-3 h-3 md:w-4 md:h-4", { "rotate-90": isOpen })} strokeWidth={4} />
+        <ChevronRight className={clsx("w-3 h-3 md:w-4 md:h-4", { "rotate-90": isOpen })} strokeWidth={4} />
       </div>
 
       <AnimatePresence>

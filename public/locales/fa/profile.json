@@ -76,12 +76,39 @@
   "dashboard": "داشبورد",
   "transactions": "تراکنش‌ها",
   "rollover": "چرخش",
-  "betHistory": "تاریخچه شرط‌بندی",
+  "betHistory": {
+    "empty": "تاریخچه شرط‌بندی یافت نشد",
+    "title": "تاریخچه شرط‌بندی",
+    "headers": {
+      "game": "بازی",
+      "date": "تاریخ",
+      "betId": "ID شرط",
+      "betIn": "شرط",
+      "betOut": "برد",
+      "account": "حساب",
+      "amount": "مبلغ",
+      "provider": "ارائه‌دهنده",
+      "match": "مسابقه",
+      "tournament": "تورنمنت"
+    }
+  },
   "settings": "تنظیمات",
   "legal": "قانونی",
   "nickname": "نام مستعار",
   "zoomAndAdjust": "زوم و تنظیم",
   "systemLanguage": "زبان سیستم",
   "editProfile": "ویرایش پروفایل",
-  "inviteAndGetRewarded": "دعوت کنید و پاداش بگیرید"
+  "inviteAndGetRewarded": "دعوت کنید و پاداش بگیرید",
+  "emailAddress": "آدرس ایمیل",
+  "codeSent": "کد ارسال شده را وارد کنید",
+  "codeSentTo": "کدی به آدرس ارسال شده است",
+  "notReceiveCode": "کد را دریافت نکردید؟",
+  "verificationSuccess": "تأیید موفقیت آمیز",
+  "spinHistory": {
+    "statusFilterLabel": "وضعیت"
+  },
+  "phone_number_has_been_verified": "شماره تلفن شما تأیید شد. می‌توانید ادامه دهید.",
+  "email_address_has_been_verified": "آدرس ایمیل شما تأیید شد. می‌توانید ادامه دهید.",
+  "setNewPassword": "تنظیم رمز عبور جدید",
+  "passwordLengthRequirement": "لطفاً رمز عبوری بین 6 تا 64 کاراکتر وارد کنید."
 }

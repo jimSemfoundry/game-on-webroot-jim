@@ -3,6 +3,8 @@ import { cn } from "@/utils/cn";
 import Iconify from "@/components/iconify";
 import { useNavigate } from "@tanstack/react-router";
 import { GameAvailabilityStatus } from "@/components/GameAvailabilityStatus.tsx";
+import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
+import { getImgCompressParams, getNetworkType } from "@/utils/helper.ts";
 
 // Game object interface
 interface Game {
@@ -35,8 +37,9 @@ interface GameImageProps {
   onClick?: () => void;
   lazy?: boolean;
   data: Record<string, any>;
-  hideLock?: boolean
-  enabledBanGameList?: boolean
+  sample?: boolean
+  hideLock?: boolean;
+  enabledBanGameList?: boolean;
 }
 
 export function GameImage(
@@ -61,7 +64,8 @@ export function GameImage(
     onClick,
     lazy = true,
     hideLock = false,
-    enabledBanGameList = false
+    enabledBanGameList = false,
+    sample = false,
   }: GameImageProps) {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,6 +78,9 @@ export function GameImage(
   const imageSrc = game?.image || game?.imageUrl || src || "/images/game-placeholder.jpg";
   const imageAlt = game?.game_name || game?.title || alt || "Game";
   const displayName = game?.game_name || game?.title || gameName;
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const enableHoverEffects = showHoverEffects && !isMobile;
 
   // Create unique gameId for navigation
   const navigationGameId = game
@@ -100,10 +107,10 @@ export function GameImage(
     const separator = hasQueryParams ? "&" : "?";
 
     if (isLowQuality) {
-      return `${baseUrl}${separator}w=120&auto=format,compress&blur=90&cs=tinysrgb`;
+      return `${baseUrl}${separator}w=50&auto=format,compress&blur=90&cs=tinysrgb`;
     }
 
-    return `${baseUrl}${separator}${getImgixParams()}`;
+    return getImgCompressParams(baseUrl);
   };
 
   const lowQualityUrl = getProcessedImageUrl(imageSrc, true);
@@ -168,18 +175,18 @@ export function GameImage(
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full overflow-hidden rounded-field bg-base-300",
+        "relative w-full overflow-hidden rounded-field bg-base-300 border-2 border-base-200",
         // 3:4 aspect ratio using padding-bottom trick
         "aspect-[3/4]",
         showHoverEffects && "group",
         isClickable && "cursor-pointer",
-        containerClassName
+        containerClassName,
       )}
       onClick={isClickable ? handleClick : undefined}
     >
       {imageSrc && !hasError ? (
         <>
-          {isVisible && showLowQuality && (
+          {isVisible && showLowQuality && getNetworkType() === '3g' && (
             <img
               src={lowQualityUrl}
               alt={imageAlt}
@@ -194,8 +201,8 @@ export function GameImage(
               alt={imageAlt}
               loading="lazy"
               className={cn(
-                "absolute inset-0 h-full w-full object-fill transition-opacity duration-500",
-                showHoverEffects && "group-hover:brightness-50",
+                "absolute inset-0 h-full w-full object-fill transition-all duration-500",
+                enableHoverEffects && "origin-top group-hover:brightness-50 group-hover:scale-108 duration-150",
                 className,
                 isHighQualityLoaded ? "opacity-100" : "opacity-0"
               )}
@@ -206,20 +213,20 @@ export function GameImage(
         <div className="absolute inset-0 h-full w-full bg-base-200" />
       )}
 
-      {showHoverEffects && displayName && (
+      {enableHoverEffects && displayName && (
         <p
           className={cn(
-            "text-base-content absolute top-4 leading-3.5 font-semibold w-full text-center opacity-0 group-hover:opacity-100 transition-all duration-300",
+            "tracking-tighter text-base-content absolute top-4 leading-3.5 font-bold w-full text-center opacity-0 group-hover:opacity-100 transition-all duration-300",
             displayName.length > 30
               ? "tracking-normal text-[10px]"
-              : "text-xs sm:text-sm break-words"
+              : "text-xs sm:text-sm wrap-break-word"
           )}
         >
           {displayName}
         </p>
       )}
 
-      {showHoverEffects && (
+      {enableHoverEffects && (
         <div
           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
           <div className="bg-white/30 w-14 h-14 rounded-full flex items-center justify-center">
@@ -232,25 +239,7 @@ export function GameImage(
       )}
 
       {/* 游戏可用状态 */}
-      {!hideLock && <GameAvailabilityStatus data={data} enabledBanGameList={enabledBanGameList} />}
+      {!hideLock && <GameAvailabilityStatus data={data} sample={sample} enabledBanGameList={enabledBanGameList} />}
     </div>
   );
-}
-
-export function getNetworkType(): "4g" | "3g" | "slow-2g" | "2g" {
-  if ("connection" in navigator) return (navigator as any)?.connection?.effectiveType ?? "4g";
-  return "4g";
-}
-
-function getImgixParams() {
-  const network = getNetworkType();
-  let params = "";
-  if (network === "slow-2g" || network === "2g") {
-    params = "w=70&auto=format,compress&dpr=1&q=80";
-  } else if (network === "3g") {
-    params = "w=100&auto=format,compress&dpr=1.25&q=80";
-  } else {
-    params = "w=200&auto=format,compress&dpr=1.5&q=80";
-  }
-  return params;
 }

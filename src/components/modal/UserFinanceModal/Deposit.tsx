@@ -1,34 +1,26 @@
-import { DepositCrypto } from "@/components/modal/UserFinanceModal/c/DepositCrypto.tsx";
-import { DepositFiat } from "@/components/modal/UserFinanceModal/c/DepositFiat.tsx";
 import { DepositType } from "@/components/modal/UserFinanceModal/c/DepositType.tsx";
 import { useBoundStore } from "@/store";
 import {
   useDepositCryptoCurrencySelectedFirstTime,
-  useDepositFiatCurrencySelectedFirstTime,
+  useDepositFiatCurrencySelectedFirstTime
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { useGetPromoByPage } from "@/query/promo.tsx";
-import { useFinanceModal } from "@/contexts/ModalsProvider";
-import { useEffect } from "react";
+import { DepositPromotion } from "@/components/modal/UserFinanceModal/c/DepositPromotion.tsx";
+import { lazy } from "react";
+
+// 懒加载部分Tab组件
+const DepositFiat = lazy(() => import("./c/DepositFiat").then(module => ({ default: module.DepositFiat })));
+const DepositCrypto = lazy(() => import("./c/DepositCrypto").then(module => ({ default: module.DepositCrypto })));
 
 export const Deposit = () => {
   // initial default selected option
   useDepositFiatCurrencySelectedFirstTime();
-  useDepositCryptoCurrencySelectedFirstTime()
+  useDepositCryptoCurrencySelectedFirstTime();
 
   const { depositType } = useBoundStore();
 
-  const { refetch } = useGetPromoByPage();
-  const { isUserFinanceOpen } = useFinanceModal();
-
-  useEffect(() => {
-    if (isUserFinanceOpen) {
-      refetch();
-    }
-  }, [isUserFinanceOpen]);
-
   return (
-    <>
+    <DepositPromotion>
       <DepositType />
 
       <DisplayContent status={depositType === "crypto"}>
@@ -38,6 +30,6 @@ export const Deposit = () => {
       <DisplayContent status={depositType === "fiat"}>
         <DepositFiat />
       </DisplayContent>
-    </>
+    </DepositPromotion>
   );
 };

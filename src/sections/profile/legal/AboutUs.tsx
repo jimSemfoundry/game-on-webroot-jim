@@ -38,7 +38,7 @@ const content = (t: TFunction) => [
 ];
 
 export default function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('aboutUs');
   return (
     <div>
       {content(t).map((item) => (

@@ -7,6 +7,9 @@
     "commissions": "Comisioane",
     "rewards": "Recompense"
   },
+  "campaignAlreadyExists": "Campania există deja",
+  "campaignCreateSuccess": "Campania a fost creată cu succes!",
+  "campaignCreateFailed": "Crearea campaniei a eșuat",
   "commissionCalculator": "Calculator de Comisioane",
   "telegramReferralLink": "Link de Recomandare Telegram",
   "network": "Rețea",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Comisioanele Mele de Recomandare",
   "myReferralRewards": "Recompensele Mele de Recomandare",
   "exp": "EXP",
-  "userLevel": "Nivelul Utilizatorului"
+  "userLevel": "Nivelul Utilizatorului",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Invită un prieten și primește recompense suplimentare când acesta face prima depunere. Pentru primul jucător pe care îl recomanzi, care se alătură, depune și joacă, vei primi un Bonus Suplimentar de Recomandare de 10% bazat pe suma inițială a depunerii sale.",
+    "bonusCalculatedTitle": "Cum este calculat Bonusul?",
+    "bonusCalculatedDesc": "Bonusul tău Suplimentar de Recomandare este calculat ca 10% din prima depunere a prietenului tău. Dacă prima depunere a prietenului tău este echivalentă cu <0>{{depositAmount}}</0>, vei primi o recompensă în valoare de <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribuția Recompenselor",
+    "claimDistributionDesc": "Tot ce trebuie să faci este să contactezi Serviciul Clienți prin Chat Live și să îi informezi că dorești să revendici recompensa cu informațiile referitor la Recomandarea ta.",
+    "expirationTitle": "Expirare",
+    "expirationDesc": "Bonusul trebuie revendicat în termen de 7 x 24 ore (7 zile) după prima depunere a prietenului tău; după aceea, nu poate fi reemis.",
+    "generalTermsTitle": "Termeni Generali",
+    "generalTermsDesc1": "Recompensele sunt calculate și creditate în <0>BUCK/USDT</0>, apoi afișate în moneda fiat preferată pentru comoditate. Vă rugăm să rețineți că conversiile valutare sunt aproximative. Bonusul maxim pe care îl puteți primi pentru fiecare prieten recomandat este echivalentul a {{bonusAmount}}, iar bonusul poate fi revendicat o singură dată per ID de utilizator. Prietenul dvs. trebuie să parieze de cel puțin 4 ori suma primei sale depuneri înainte de a putea revendica bonusul.",
+    "generalTermsDesc2": "Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă – inclusiv, dar fără a se limita la, date de jucător duplicate sau corespunzătoare, fraudă de depunere, adrese IP corespunzătoare, pariuri de siguranță sau comportament de tip investiție – va duce la descalificarea din promovare și anularea oricăror bonusuri aferente. Toate deciziile luate de casino cu privire la această promovare sunt finale și nu pot fi contestate."
+  },
+  "referral_program_disabled": "PROGRAM\nDE RECOMANDĂRI\n<0>DEZACTIVAT</0>",
+  "programAccessUpdate": "Actualizare acces program",
+  "referralProgramPrivileges": "Privilegiile tale din programul de recomandări au fost revocate în urma unei revizuiri a contului tău și a participării tale la program. Am identificat activitate care nu respectă termenii, condițiile sau utilizarea intenționată a programului nostru de recomandări. Aceasta poate include tipare suspecte de recomandări, metode promoționale neautorizate, utilizarea abuzivă a stimulentelor sau încercări de a ocoli regulile de utilizare echitabilă.",
+  "referralRewardsPrivileges": "Ca urmare, capacitatea ta de a genera noi recompense de recomandare, de a partaja linkuri de recomandare sau de a primi beneficii din recomandări a fost dezactivată. Recompensele în așteptare sau viitoare asociate programului de recomandări vor fi reținute și anulate în conformitate cu politicile noastre. <0>Toate celelalte funcționalități ale contului tău rămân intacte și nu sunt afectate de această schimbare</0>.",
+  "understandDisappointing": "Înțelegem că acest lucru poate fi dezamăgitor. Dacă crezi că această decizie este o eroare sau dorești mai multe detalii, te rugăm să contactezi echipa noastră de suport cu orice informații relevante, iar noi îți vom revizui cazul."
 }

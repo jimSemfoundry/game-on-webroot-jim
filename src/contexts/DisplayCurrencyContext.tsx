@@ -42,6 +42,7 @@ import { authService } from "@/services/authService";
 import type { Currency } from "@/types/currency";
 import { getDisplayCurrency } from "@/utils/currency";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import Decimal from "decimal.js";
 
 interface DisplayCurrencyContextType {
   // 当前选择的显示货币
@@ -237,6 +238,7 @@ export function useDisplayCurrencyFormatter() {
       compact: options?.compact ?? false,
       minimizeDecimals: options?.minimizeDecimals ?? true,
       displayDecimal: options?.displayDecimal,
+      roundingMode: Decimal.ROUND_DOWN,
     });
   };
 
@@ -269,6 +271,7 @@ export function useDisplayCurrencyFormatter() {
       compact: options?.compact ?? false,
       minimizeDecimals: options?.minimizeDecimals ?? true,
       displayDecimal: options?.displayDecimal,
+      roundingMode: Decimal.ROUND_DOWN,
     });
   };
 

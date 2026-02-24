@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Hochei pe gheață",
   "basketball": "Baschet",
+  "cricket": "Crichet",
+  "eSoccer": "eFotbal",
   "volleyball": "Volei",
   "hot": "În tendință",
   "all": "Toate",
@@ -69,5 +71,6 @@
   "live-casino": "Cazinou live",
   "sports": "Sporturi",
   "lotteries": "Loterii",
-  "gamesYouShouldTry": "Jocuri pe care ar trebui să le încerci"
+  "gamesYouShouldTry": "Jocuri pe care ar trebui să le încerci",
+  "bonus": "Bonus"
 }

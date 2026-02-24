@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Cos'è il Bonus Settimanale?",
-    "content": "<p class=\"leading-7\">Il Bonus Settimanale è un vantaggio esclusivo sul nostro sito web progettato per i giocatori che sono VIP12 e oltre. Questo bonus viene emesso settimanalmente e pagato automaticamente ogni venerdì ai giocatori di VIP12 e superiori. L'importo del bonus dipende dall'importo scommesso nell'ultima settimana, con un requisito di scommessa minima di {{minWager}} nell'ultima settimana.</p>"
+    "content": "<p class=\"leading-7\">Il Bonus Settimanale è un vantaggio esclusivo sul nostro sito web progettato per i giocatori che sono VIP2 e oltre. Il bonus viene emesso settimanalmente il lunedì e scade quando esce il prossimo bonus settimanale. L'importo del bonus dipende dall'importo scommesso nell'ultima settimana, con un requisito di scommessa minima effettiva di {{minWager}} nell'ultima settimana.</p>"
   },
   "faqNine": {
     "title": "Cosa sono i Risultati?",

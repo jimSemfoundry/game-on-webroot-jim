@@ -1,19 +1,26 @@
-import { TableVirtuoso } from 'react-virtuoso';
-import { BannerList } from './BannerList';
-import { useQueryClient } from '@tanstack/react-query';
+import { TableVirtuoso } from "react-virtuoso";
+import { BannerList } from "./BannerList";
+import { useQueryClient } from "@tanstack/react-query";
 import { useGetPromoByPage } from "@/query/promo";
-import { authService } from '@/services/authService';
+import { authService } from "@/services/authService";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 
 export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
   const queryClient = useQueryClient();
-  const { data, isFetching } = useGetPromoByPage();
+
+  const { t } = useTranslation();
+
+  const { isUserFinanceOpen } = useFinanceModal()
+  const { data, isFetching } = useGetPromoByPage(isUserFinanceOpen);
 
   const choicePromoFun = (id: string) => {
     authService.choicePromo({ promo_record_id: id }).then((res: any) => {
       if (res.code === 0) {
         onClose();
-        queryClient.resetQueries({ queryKey: ['PromoByPage'] });
-        queryClient.invalidateQueries({ queryKey: ['getPromoByPage'] });
+        queryClient.resetQueries({ queryKey: ["PromoByPage"] });
+        queryClient.invalidateQueries({ queryKey: ["getPromoByPage"] });
 
         // 获取当前查询缓存的数据
         // const queryData = queryClient.getQueryData(['PromoByPage']) as any;
@@ -43,37 +50,8 @@ export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
         // }
 
       }
-    })
+    });
   };
-
-  // const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery({
-  //   queryKey: ['PromoByPage'],
-  //   queryFn: ({ pageParam }) =>
-  //     getPromoByPageV2({
-  //       limit: 20,
-  //       // created_at: pageParam,
-  //       page: Number(pageParam),
-  //     }),
-  //   initialPageParam: 1,
-  //   getNextPageParam: (lastPage) => {
-  //     return lastPage.code === 0 && lastPage.totalPages > lastPage.page
-  //       ? lastPage.page + 1
-  //       : undefined;
-  //     // return lastPage.data?.length > 0 ? lastPage.data[lastPage.data.length - 1].created_at : undefined;
-  //   },
-  //   enabled: !!user && isOpen,
-  //   refetchOnMount: true,
-  // });
-
-
-
-  // const allItems = data?.pages.flatMap((page) => page.data || []) || [];
-
-  // const TableComponents = {
-  //   Table: (props: any) => <table className="table-md border-base-300 table border-t border-b" {...props} />,
-  //   TableBody: (props: any) => <tbody className="bg-base-200 text-sm">{props.children}</tbody>,
-  //   TableRow: (props: any) => <tr className="border-base-300 h-11 border-t border-b">{...props}</tr>,
-  // };
 
   const TableComponents = {
     Table: (props: any) => (
@@ -90,35 +68,51 @@ export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
       />
     ),
     TableRow: (props: any) => <tr className="h-11 p-0" {...props} />,
+    EmptyPlaceholder: () => (
+      <tbody>
+      <tr className={"text-xs text-base-content/50 text-center bg-base-300 rounded-lg mt-0.5"}>
+        <td className={'p-8 rounded-lg'}>{t("common:common.noData")}</td>
+      </tr>
+      </tbody>
+    ) as any
   };
 
-  // Flatten the data from infinite query pages
+  const tableData = useMemo(
+    () => (isFetching ? Array.from({ length: 10 }) : data || []),
+    [isFetching, data]
+  );
 
   return (
     <div className=" relative flex-1 h-full w-full overflow-hidden p-0 ">
       <TableVirtuoso
         style={{
-          height: '100%',
+          height: "100%"
         }}
+        className={"hide-scrollbar"}
         components={TableComponents}
         // endReached={() => (isFetching || !hasNextPage ? undefined : fetchNextPage())}
-        data={data || []}
-        itemContent={(_, item) => (
-          <td className="p-0 align-top !p-0" style={{ padding: 0 }}>
-            <div
-              className={`border rounded-lg mb-3 ${item.is_default === 1 ? 'border-primary' : 'border-transparent'}`}
-              onClick={() => choicePromoFun(item.id)}
-            >
-              <BannerList currentPromo={item} />
-            </div>
-          </td>
-        )}
+        data={tableData}
+        itemContent={(_, item) => {
+          if (isFetching) {
+            return (
+              <td>
+                <div className="skeleton h-10 bg-base-300 rounded-lg" />
+              </td>
+            );
+          }
+
+          return (
+            <td className="p-0 align-top !p-0" style={{ padding: 0 }}>
+              <div
+                className={`border rounded-lg mb-3 ${item.is_default === 1 ? "border-primary" : "border-transparent"}`}
+                onClick={() => choicePromoFun(item.id)}
+              >
+                <BannerList currentPromo={item} />
+              </div>
+            </td>
+          );
+        }}
       />
-      {isFetching && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="loading loading-spinner loading-xl text-primary"></span>
-        </div>
-      )}
     </div>
   );
 };

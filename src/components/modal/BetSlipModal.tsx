@@ -28,7 +28,8 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
         ? `${order.game_provider}:${order.inner_game_id}`
         : order.inner_game_id
       
-      navigate({ to: `/games/${gameId}` })
+      void navigate({ to: '/games/$gameId', params: { gameId }, search: {} })
+
       onClose()
     }
   }
@@ -63,11 +64,11 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
           <div className="flex items-center gap-4">
             <CurrencyIcon currency={order?.real_currency} className="w-5 h-5 sm:w-6 sm:h-6" />
             <p className="text-base-content font-bold text-2xl sm:text-4xl">
-              {formatWithoutConversion(order?.real_win_amount, order?.real_currency, { compact: true, showCode: false }).formatted}
+              {formatWithoutConversion(order?.real_win_amount, order?.real_currency, { compact: false, showCode: false, minimizeDecimals: true }).formatted}
             </p>
           </div>
           <p className="font-semibold sm:text-base text-sm text-base-content/50">
-            {formatWithConversion(order?.real_win_amount, order?.real_currency, { compact: true, showCode: false }).formatted}
+            {formatWithConversion(order?.real_win_amount, order?.real_currency, { compact: false, showCode: false, minimizeDecimals: true }).formatted}
           </p>
         </div>
 
@@ -75,7 +76,7 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
           <div className="bg-base-300 rounded-field p-4 flex flex-col">
             <p className="font-semibold text-base-content/50">{t('casino:betAmount')}</p>
             <p className="font-bold sm:text-lg text-base">
-              {formatWithoutConversion(order?.real_bet_amount, order?.real_currency, { compact: true, showCode: false }).formatted}
+              {formatWithoutConversion(order?.real_bet_amount, order?.real_currency, { compact: false, showCode: false, minimizeDecimals: true }).formatted}
             </p>
           </div>
 

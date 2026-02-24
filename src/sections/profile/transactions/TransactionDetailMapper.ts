@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import type { TFunction } from "i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import type { Transaction, TransactionType } from "./types";
+import { getTransactionStatus } from "@/sections/profile/transactions/helper.ts";
 
 export type TransactionDetailViewModel = {
   amountLabel: string;
@@ -38,7 +39,6 @@ export const useTransactionDetailMapper = () => {
     const amountLabel = decorateAmountLabel(formattedAmount, amountValue, transactionType);
     const infoRows = buildInfoRows(transaction, transactionType, t);
     const timeline = buildTimeline(transaction, transactionType, t);
-
     return {
       amountLabel,
       currency,
@@ -143,7 +143,7 @@ const buildInfoRows = (
 
   rows.push({
     label: t("transaction:tableHeaders.status"),
-    value: getStatusLabel(transaction.status, t),
+    value: t(getTransactionStatus(transactionType, transaction.status).trans),
   });
 
   const typeLabel = getTypeLabel(transactionType, transaction, t);
@@ -175,14 +175,14 @@ const buildInfoRows = (
     if (method) {
       rows.push({
         label: t("transaction:details.paymentMethod", "Payment Method"),
-        value: method,
+        value: t(`transaction:transactionTypes.${method}`, method),
       });
     }
   }
 
   const createdAt = formatTimestamp(transaction.created_at ?? transaction.createdAt, DATE_FORMAT);
   if (createdAt) {
-    rows.push({ label: t("transaction:details.createdOn", "Created On"), value: createdAt });
+    rows.push({ label: t("transaction:common.createdOn", "Created On"), value: createdAt });
   }
 
   return rows;
@@ -287,8 +287,8 @@ const buildWithdrawStatusDescription = (status: string | undefined, updatedAt: s
     return updatedAt ? `${t("transaction:details.lastUpdate")}: ${updatedAt}` : undefined;
   }
   if (status === "PROCESSING") {
-    const updateInfo = updatedAt ? ` ${t("transaction:details.updateAt")} ${updatedAt}` : "";
-    return `${t("transaction:details.withdrawProcessingHint")}${updateInfo}`;
+    const updateInfo = updatedAt ? ` ${t("transaction:details.createdAt")} ${updatedAt}` : "";
+    return `${t("transaction:details.withdrawProcessing")}${updateInfo}`;
   }
   if (status === "FAILED") {
     return isFiat ? t("transaction:details.withdrawOrderFailed") : t("transaction:details.blockchainFailed");
@@ -369,7 +369,7 @@ const normalizeStatus = (rawStatus: unknown): "SUCCESS" | "PROCESSING" | "FAILED
   return "UNKNOWN";
 };
 
-const getStatusLabel = (status: unknown, t: TFunction) => {
+export const getStatusLabel = (status: unknown, t: TFunction) => {
   switch (normalizeStatus(status)) {
     case "SUCCESS":
       return t("transaction:transactionStatus.success");

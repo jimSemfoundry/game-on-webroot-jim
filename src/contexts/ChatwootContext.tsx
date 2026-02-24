@@ -36,11 +36,13 @@ export function ChatwootProvider({
   baseUrl = "https://app.openchats.online",
 }: ChatwootProviderProps) {
   const { user, status } = useAuth();
+  const [enabled, setEnabled] = useState(false);
   const [websiteToken, setWebsiteToken] = useState<string>("");
   const [inboxUserId, setInboxUserId] = useState<string>(""); // 动态获取的secret
   const [isTokenLoading, setIsTokenLoading] = useState(false);
   const [visible, setVisible] = useState(true);
   const attributesSetRef = useRef(false);
+  const pendingToggleRef = useRef(false);
   const { i18n } = useTranslation();
   const { data: chatwootInboxIdResponse } = useChatwootInboxId();
   const { inbox_id, inbox_user_id } = chatwootInboxIdResponse?.data ?? {};
@@ -48,6 +50,7 @@ export function ChatwootProvider({
   // 获取动态token
   useEffect(() => {
     const fetchChatwootToken = async () => {
+      if (!enabled) return;
       if (isTokenLoading || websiteToken) return;
 
       setIsTokenLoading(true);
@@ -70,7 +73,7 @@ export function ChatwootProvider({
     };
 
     fetchChatwootToken();
-  }, [user?.id, fallbackToken, isTokenLoading, websiteToken]);
+  }, [enabled, user?.id, fallbackToken, isTokenLoading, websiteToken]);
 
   const {
     toggleWidget: sdkToggleWidget,
@@ -82,6 +85,7 @@ export function ChatwootProvider({
     setConversationCustomAttributes,
   } = useChatwoot({
     websiteToken,
+    enabled,
     baseUrl,
     hideMessageBubble: true,
     darkMode: "auto",
@@ -89,6 +93,13 @@ export function ChatwootProvider({
     useBrowserLanguage: false,
     locale: user?.language_code || i18n.language,
   });
+
+  useEffect(() => {
+    if (pendingToggleRef.current && isInitialized) {
+      pendingToggleRef.current = false;
+      sdkToggleWidget();
+    }
+  }, [isInitialized, sdkToggleWidget]);
 
   // 当用户信息变化时，仅更新Chatwoot中的用户信息（contact）
   useEffect(() => {
@@ -171,6 +182,15 @@ export function ChatwootProvider({
   }, [isInitialized, user, status, setCustomAttributes, setConversationCustomAttributes]);
 
   const toggleWidget = () => {
+    if (!enabled) {
+      pendingToggleRef.current = true;
+      setEnabled(true);
+      return;
+    }
+    if (!isInitialized) {
+      pendingToggleRef.current = true;
+      return;
+    }
     sdkToggleWidget();
   };
 

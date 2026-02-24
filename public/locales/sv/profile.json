@@ -76,12 +76,39 @@
   "dashboard": "Instrumentpanel",
   "transactions": "Transaktioner",
   "rollover": "Rollover",
-  "betHistory": "Spelhistorik",
+  "betHistory": {
+    "empty": "Ingen spelhistorik hittades",
+    "title": "Spelhistorik",
+    "headers": {
+      "game": "Spel",
+      "date": "Datum",
+      "betId": "Spel ID",
+      "betIn": "Insats",
+      "betOut": "Vinst",
+      "account": "Konto",
+      "amount": "Belopp",
+      "provider": "Leverantör",
+      "match": "Match",
+      "tournament": "Turnering"
+    }
+  },
   "settings": "Inställningar",
   "legal": "Juridisk",
   "nickname": "Smeknamn",
   "zoomAndAdjust": "Zooma och Justera",
   "systemLanguage": "Systemspråk",
   "editProfile": "Redigera profil",
-  "inviteAndGetRewarded": "Bjud in och få belöningar"
+  "inviteAndGetRewarded": "Bjud in och få belöningar",
+  "emailAddress": "E-postadress",
+  "codeSent": "Ange koden vi skickade",
+  "codeSentTo": "En kod har skickats till",
+  "notReceiveCode": "Fick du inte koden?",
+  "verificationSuccess": "Verifiering lyckades",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Ditt telefonnummer har verifierats. Du kan fortsätta.",
+  "email_address_has_been_verified": "Din e-postadress har verifierats. Du kan fortsätta.",
+  "setNewPassword": "Ange nytt lösenord",
+  "passwordLengthRequirement": "Ange ett lösenord mellan 6 och 64 tecken."
 }

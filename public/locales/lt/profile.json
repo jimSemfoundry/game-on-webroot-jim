@@ -76,12 +76,39 @@
   "dashboard": "Valdymo pultas",
   "transactions": "Sandoriai",
   "rollover": "Perkėlimas",
-  "betHistory": "Apskaita",
+  "betHistory": {
+    "empty": "Statymų istorijos nerasta",
+    "title": "Statymų istorija",
+    "headers": {
+      "game": "Žaidimas",
+      "date": "Data",
+      "betId": "Statymo ID",
+      "betIn": "Statymas",
+      "betOut": "Laimėjimas",
+      "account": "Paskyra",
+      "amount": "Suma",
+      "provider": "Tiekėjas",
+      "match": "Mačas",
+      "tournament": "Turnyras"
+    }
+  },
   "settings": "Nustatymai",
   "legal": "Teisiniai",
   "nickname": "Slapyvardis",
   "zoomAndAdjust": "Priartinti ir Koreguoti",
   "systemLanguage": "Sistemos Kalba",
   "editProfile": "Redaguoti profilį",
-  "inviteAndGetRewarded": "Kviečiame ir gaukite atlygį"
+  "inviteAndGetRewarded": "Kviečiame ir gaukite atlygį",
+  "emailAddress": "El. pašto adresas",
+  "codeSent": "Įveskite kodą, kurį išsiuntėme",
+  "codeSentTo": "Kodas buvo išsiųstas į",
+  "notReceiveCode": "Negavote kodo?",
+  "verificationSuccess": "Patvirtinimas sėkmingas",
+  "spinHistory": {
+    "statusFilterLabel": "Būsena"
+  },
+  "phone_number_has_been_verified": "Jūsų telefono numeris patvirtintas. Galite tęsti.",
+  "email_address_has_been_verified": "Tavo el. pašto adresas patvirtintas. Gali tęsti.",
+  "setNewPassword": "Nustatyti naują slaptažodį",
+  "passwordLengthRequirement": "Įveskite slaptažodį, kuris turi 6-64 simbolių."
 }

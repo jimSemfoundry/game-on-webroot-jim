@@ -17,7 +17,7 @@ interface SpinHistoryListProps {
 }
 
 export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatStatus }: SpinHistoryListProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const cancelFreeSpinRecord = useCancelFreeSpinRecord();
   const [cancelTarget, setCancelTarget] = useState<IFreeSpinBonus | null>(null);
@@ -80,8 +80,17 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
 
   if (isEmpty) {
     return (
-      <div className="text-center text-base-content/50 py-10">
-        {t("profile:noSpinHistory", "No spins history yet")}
+      <div className="bg-base-300 rounded-field flex items-center justify-center py-20">
+        <div className="flex flex-col items-center gap-4">
+          <img
+            src="/images/illustrations/no-data.svg"
+            alt={t("common:common.noData", "No data")}
+            className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
+          />
+          <div className="text-base-content/50 text-sm font-semibold">
+            {t("common:common.noData", "No data")}
+          </div>
+        </div>
       </div>
     );
   }
@@ -100,11 +109,11 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
           </colgroup>
           <thead className="sticky top-0 z-10 text-[11px] font-semibold uppercase text-base-content/60 tracking-wide">
             <tr>
-              <th className="px-4 py-3 text-left">{t("bonus:freeSpins", "Free Spin")}</th>
-              <th className="px-4 py-3 text-left">{t("bonus:bonusWins", "Bonus Amount")}</th>
-              <th className="px-4 py-3 text-left">{t("bonus:progress", "Progress")}</th>
-              <th className="px-4 py-3 text-left">{t("bonus:goal", "Goal")}</th>
-              <th className="px-4 py-3 text-right">{t("common:status", "State")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:freeSpins", "Free Spin")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:bonusWins", "Bonus Amount")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:progress", "Progress")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:goal", "Goal")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("common:status", "State")}</th>
             </tr>
           </thead>
           <tbody>
@@ -122,13 +131,13 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
                   key={item?.id ?? item?.free_spin_code}
                   className="rounded-lg transition-colors border border-transparent bg-base-300/80 hover:bg-base-300"
                 >
-                  <td className="px-4 py-4 rounded-l-lg align-middle">
+                  <td className="px-4 py-4 rounded-l-lg align-middle rtl:rounded-l-none rtl:rounded-r-lg">
                     <span className="text-sm font-semibold text-base-content">
                       {t("bonus:freeSpin", "Free Spin")} {item?.free_spin_code || item?.template_key || `#${item?.id ?? "-"}`}
                     </span>
                   </td>
                   <td className="px-4 py-4 align-middle">
-                    <span className="text-lg font-bold text-success">{maxWinFormatted}</span>
+                    <span className="text-lg font-bold text-success" dir="ltr">{maxWinFormatted}</span>
                   </td>
                   <td className="px-4 py-4 align-middle">
                     {showProgress ? (
@@ -153,10 +162,10 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
                     )}
                   </td>
                   <td className="px-4 py-4 align-middle">
-                    <span className="text-sm font-semibold text-base-content">{turnoverDisplay}</span>
+                    <span className="text-sm font-semibold text-base-content" dir="ltr">{turnoverDisplay}</span>
                   </td>
-                  <td className="px-4 py-4 rounded-r-lg align-middle text-right">
-                    <div className="flex items-center gap-2 justify-end">
+                  <td className="px-4 py-4 rounded-r-lg align-middle text-right rtl:text-left rtl:rounded-r-none rtl:rounded-l-lg">
+                    <div className="flex items-center gap-2 justify-end rtl:justify-start rtl:flex-row-reverse">
                       <span
                         className={cn(
                           "inline-flex items-center px-2 py-1 rounded-full text-[11px] font-semibold min-w-[80px] justify-center border",

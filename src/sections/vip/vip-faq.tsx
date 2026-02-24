@@ -9,7 +9,7 @@ import { ReactNode, useMemo } from "react";
 import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
 
 export function VipFAQ() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['vipFaq', 'vip']);
 
   const faqItems = [
     {
@@ -40,7 +40,7 @@ export function VipFAQ() {
     {
       id: "vip-faq-7",
       question: t("vipFaq:faqEight.title"),
-      answer: t("vipFaq:faqEight.content", { minWager: "$1000" })
+      answer: t("vipFaq:faqEight.content", { minWager: "$300" })
     },
     {
       id: "vip-faq-8",

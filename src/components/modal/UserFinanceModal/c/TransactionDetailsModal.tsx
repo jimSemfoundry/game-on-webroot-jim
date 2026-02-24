@@ -11,7 +11,7 @@ import Copy from "@/components/ui/Copy.tsx";
 import { CurrencyIcon } from "@/components/ui/CurrencyIcon.tsx";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import dayjs from "dayjs";
 import { TFunction } from "i18next";
 import { Plus } from "lucide-react";
@@ -106,7 +106,7 @@ export const TransactionDetailsModal = () => {
 
         <CopyOrderID t={t} id={"175414778924129323"} />
 
-        <button className={`btn btn-primary btn-lg text-sm font-bold`}>{t("common.close")}</button>
+        <button className={`btn btn-primary btn-lg text-sm font-bold`}>{t("common:common.close")}</button>
       </div>
     </Modal>
   );

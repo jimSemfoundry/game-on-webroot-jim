@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Mi az a Heti Bónusz?",
-    "content": "<p class=\"leading-7\">A heti bónusz egy exkluzív juttatás a weboldalunkon, amelyet a VIP12 és annál magasabb szintű játékosok számára terveztek. Ez a bónusz hetente kerül kiadásra, és automatikusan kifizetésre kerül minden pénteken a VIP12 és annál magasabb szintű játékosoknak. A bónusz mértéke a múlt héten tett tétek összegétől függ, a minimum tét követelmény {{minWager}} a múlt héten.</p>"
+    "content": "<p class=\"leading-7\">A heti bónusz egy exkluzív juttatás a weboldalunkon, amelyet a VIP2 és annál magasabb szintű játékosok számára terveztek. A bónusz hetente hétfőn kerül kiadásra, és lejár, amikor a következő heti bónusz megjelenik. A bónusz mértéke a múlt héten tett tétek összegétől függ, a minimum hatékony tét követelmény {{minWager}} a múlt héten.</p>"
   },
   "faqNine": {
     "title": "Mik azok az Eredmények?",

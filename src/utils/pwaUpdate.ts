@@ -63,12 +63,12 @@ export function initPWAUpdate() {
         const date_now = Date.now();
 
         // FIXME: PWA: 拦截到短时间内的重复刷新
-        if (lastReload && date_now - parseInt(lastReload) < 10_000) return;
+        if (lastReload && date_now - parseInt(lastReload) < 15_000) return;
 
         // 同一次会话（同一 tab）里，只允许提醒一次
         const pwa_prompt_lock = "pwa_update_prompt_lock";
         const lastPrompt = sessionStorage.getItem(pwa_prompt_lock);
-        if (lastPrompt) return;
+        if (lastPrompt && date_now - parseInt(lastPrompt) < 30_000) return;
 
         refreshing = true;
         isRefreshing = true;
@@ -81,7 +81,7 @@ export function initPWAUpdate() {
         setTimeout(() => {
           const channel = getBroadcastChannel();
           if (channel) channel.postMessage("pwa-update");
-        }, 100);
+        }, 200);
       };
       navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
 

@@ -4,7 +4,7 @@ import type { LoginCredentials } from "@/types/auth";
 import type { CreateAdTagParams, GetReferralListParams, SetDefaultAdTagParams } from "@/types/referral";
 import { clearAuth, hasAuth } from "@/utils/auth";
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient, type UseQueryOptions } from "@tanstack/react-query";
-import { useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { toast } from "sonner";
 import type { KycDetail } from "@/types/profile";
 import type { ITournament } from "@/types/tournament";
@@ -12,6 +12,11 @@ import type { UserGameListParams, UserGameListResponse } from "@/types/game";
 import type { IGetMondayVipBonus } from "@/types/bonus";
 import { useTranslation } from "react-i18next";
 import { rum_sdk_user_log } from "@/utils/helper.ts";
+import { useBaseConfig } from "@/hooks/api/usePublic.ts";
+import { useBonusWallet } from "@/query/dollars.ts";
+import { useMqttService } from "@/contexts/mqtt";
+import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext.tsx";
+import { useLocation } from "@tanstack/react-router";
 
 export const AUTH_QUERY_KEYS = {
   currentUser: ["auth", "currentUser"] as const,
@@ -48,6 +53,10 @@ export const AUTH_QUERY_KEYS = {
   kycDetail: ["auth", "kycDetail"] as const,
   tournamentPoolPrize: ["auth", "tournamentPoolPrize"] as const,
   notificationMessage: ["auth", "notificationMessage"] as const,
+  bonusConfigList: ["auth", "bonusConfigList"] as const,
+  userBonusLatestHistory: ["auth", "userBonusLatestHistory"] as const,
+  checkDetailPromo: ["auth", "checkDetailPromo"] as const,
+  todayDepositCount: ["auth", "todayDepositCount"] as const
 };
 
 export function useLogin() {
@@ -68,7 +77,7 @@ export function useLogin() {
       }
 
       // 用户信息上传 rum
-      rum_sdk_user_log(data.data)
+      rum_sdk_user_log(data.user);
 
       queryClient.setQueryData(AUTH_QUERY_KEYS.currentUser, data);
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
@@ -135,11 +144,11 @@ export function useTournamentList() {
   const query = useQuery<{ data: ITournament[]; code: number }>({
     queryKey: [...AUTH_QUERY_KEYS.tournamentList, user?.id],
     queryFn: () => authService.getTournamentList(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     refetchOnMount: true,
     staleTime: 30 * 1000,
     gcTime: 5 * 60 * 1000,
-    placeholderData: (prev) => prev,
+    placeholderData: (prev) => prev
   });
 
   const list = query.data?.code === 0 ? query.data?.data ?? [] : [];
@@ -166,19 +175,21 @@ export function useTournamentPoolPrize(
     queryFn: async () => {
       const response = await authService.getTournamentPoolPrize({
         tournament_id: tournamentId!,
-        tournament_level: tournamentLevel!,
+        tournament_level: tournamentLevel!
       });
       return response.data ?? 0;
     },
     enabled,
     refetchInterval: refetchInterval ?? 30 * 1000,
-    ...restOptions,
+    ...restOptions
   });
 }
 
 export function useUserGameList(
   params: UserGameListParams,
-  queryOptions?: Omit<UseQueryOptions<UserGameListResponse>, "queryKey" | "queryFn" | "enabled"> & { enabled?: boolean },
+  queryOptions?: Omit<UseQueryOptions<UserGameListResponse>, "queryKey" | "queryFn" | "enabled"> & {
+    enabled?: boolean
+  }
 ) {
   const { user } = useAuth();
   const { enabled: optionEnabled, ...restOptions } = queryOptions ?? {};
@@ -191,7 +202,7 @@ export function useUserGameList(
     staleTime: 30 * 1000,
     gcTime: 5 * 60 * 1000,
     placeholderData: (prev) => prev,
-    ...restOptions,
+    ...restOptions
   });
 }
 
@@ -201,7 +212,7 @@ export const useCryptoDepositAddress = (network: string) => {
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.cryptoDepositAddress, network],
     queryFn: () => authService.getCryptoDepositAddress(network),
-    enabled: !!user && !!network // 只有当用户已登录并且提供了网络参数时才执行查询
+    enabled: !!user && !!network && hasAuth() // 只有当用户已登录并且提供了网络参数时才执行查询
   });
 };
 
@@ -213,7 +224,7 @@ export const useSupportedCryptoWithdrawGateways = (currency: string) => {
     queryFn: async () => {
       return authService.getSupportedCryptoWithdrawGateways(currency);
     },
-    enabled: !!currency && !!user
+    enabled: !!currency && !!user && hasAuth()
   });
 };
 
@@ -224,19 +235,19 @@ export const useSupportedCryptoDepositGateways = (currency: string) => {
     queryFn: async () => {
       return authService.getSupportedCryptoDepositGateways(currency);
     },
-    enabled: !!currency && !!user
+    enabled: !!currency && !!user && hasAuth()
   });
 };
 
 // 获取支持法币存款的网关
 export const useSupportedFiatDepositGateways = (currency: string) => {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated } = useAuth();
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.supportedFiatDepositGateways, currency],
     queryFn: async () => {
       return authService.getSupportedFiatDepositGateways(currency);
     },
-    enabled: !!currency && isAuthenticated
+    enabled: !!currency && isAuthenticated && hasAuth()
   });
 };
 
@@ -246,7 +257,7 @@ export const useFiatGatewayWithdrawParams = (gateway_id: string, pay_bankcode: s
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.fiatGatewayWithdrawParams, gateway_id, pay_bankcode],
     queryFn: () => authService.getFiatGatewayWithdrawParams(gateway_id, pay_bankcode),
-    enabled: !!user && !!gateway_id && !!pay_bankcode
+    enabled: !!user && !!gateway_id && !!pay_bankcode && hasAuth()
   });
 };
 
@@ -259,7 +270,7 @@ export const useUserBalance = () => {
       const { data } = await authService.getUserBalance();
       return data;
     },
-    enabled: !!user, // 只有当用户已登录时才执行查询
+    enabled: !!user && hasAuth(), // 只有当用户已登录时才执行查询
     staleTime: 15 * 1000, // 30秒缓存，余额需要较频繁更新
     refetchInterval: 15 * 1000 // 每分钟自动刷新一次
   });
@@ -272,7 +283,7 @@ export const useFiatGatewayDepositParams = (gateway_id: string, pay_bankcode: st
     queryFn: async () => {
       return authService.getFiatGatewayDepositParams(gateway_id, pay_bankcode);
     },
-    enabled: !!user && !!gateway_id && !!pay_bankcode,
+    enabled: !!user && !!gateway_id && !!pay_bankcode && hasAuth(),
     retry: 1
   });
 };
@@ -283,9 +294,8 @@ export const useClaimBonus = (item: "cashback" | "rakeback" | "tournament" | "le
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.claimBonus, item],
     queryFn: () => authService.getClaimBonus(item),
-    enabled: !!user, // 只有当用户已登录时才执行查询
-    staleTime: 30 * 1000, // 30秒缓存
-    refetchInterval: 15 * 1000 // 每分钟自动刷新一次
+    enabled: !!user && hasAuth(), // 只有当用户已登录时才执行查询
+    refetchInterval: 15 * 1000
   });
 };
 
@@ -300,7 +310,8 @@ export const useUserBalanceExtension = () => {
       const { data } = await authService.getUserBalanceExtension();
       return data;
     },
-    enabled: !!user
+    enabled: !!user && hasAuth(),
+    refetchInterval: 15 * 1000
   });
 };
 
@@ -310,7 +321,7 @@ export const useUserClaimBonus = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.userClaimBonus,
     queryFn: () => authService.getUserClaimBonus(),
-    enabled: !!user, // 只有当用户已登录时才执行查询
+    enabled: !!user && hasAuth(), // 只有当用户已登录时才执行查询
     staleTime: 30 * 1000, // 30秒缓存
     refetchInterval: 60 * 1000, // 每分钟自动刷新一次
     retry: (failureCount, error: any) => {
@@ -322,7 +333,7 @@ export const useUserClaimBonus = () => {
 
 // 领取bonus的mutation
 export const useClaimBonusMutation = (customOnSuccess?: (response: any, variables: any) => void) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation("toast");
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -342,10 +353,10 @@ export const useClaimBonusMutation = (customOnSuccess?: (response: any, variable
       // 如果是日历奖励，刷新日历数据
       if (variables.item === "calendar") {
         queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.calendarBonus });
-        toast.success(t('toast:calendarBonusClaimedSuccessfully'));
+        toast.success(t("toast:calendarBonusClaimedSuccessfully"));
       } else {
         if (response.code === 0) {
-          toast.success(t('toast:bonusClaimedSuccessfully'));
+          toast.success(t("toast:bonusClaimedSuccessfully"));
         }
         // else {
         //   toast.error(response.msg || "Failed to claim bonus");
@@ -359,7 +370,7 @@ export const useClaimBonusMutation = (customOnSuccess?: (response: any, variable
     },
     onError: (error: any) => {
       console.error("Failed to claim bonus:", error);
-      toast.error(t('toast:claimBonusFailed'));
+      toast.error(t("toast:claimBonusFailed"));
     }
   });
 };
@@ -370,7 +381,7 @@ export const useConquestsCompleted = () => {
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.conquests, "completed"],
     queryFn: () => authService.getConquestsCompleted(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     staleTime: 30 * 1000,
     refetchInterval: 60 * 1000,
     retry: (failureCount, error: any) => {
@@ -384,7 +395,7 @@ export const useConquestsReward = () => {
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.conquests, "reward"],
     queryFn: () => authService.getConquestsReward(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     staleTime: 30 * 1000,
     refetchInterval: 60 * 1000,
     retry: (failureCount, error: any) => {
@@ -423,7 +434,7 @@ export const useCalendarBonus = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.calendarBonus,
     queryFn: () => authService.getCalendarBonus(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     staleTime: 30 * 1000,
     refetchInterval: 60 * 1000,
     retry: (failureCount, error: any) => {
@@ -438,11 +449,12 @@ export const useUserFreeGameRecords = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.userFreeGameRecords,
     queryFn: () => authService.getUserFreeGameRecords(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     // Return from game pages should always refresh the latest free spin counts
     refetchOnMount: "always",
     refetchOnWindowFocus: true,
     refetchOnReconnect: true,
+    refetchInterval: 8_000
   });
 };
 
@@ -534,10 +546,10 @@ export const useCheckDemoSupportQuery = (params: {
   name_key?: string;
 }, enabled: boolean = true) => {
   return useQuery({
-    queryKey: ['checkDemoSupport', params.inner_game_id, params.game_provider],
+    queryKey: ["checkDemoSupport", params.inner_game_id, params.game_provider],
     queryFn: () => authService.checkDemoSupport(params),
-    enabled: enabled && !!params.inner_game_id && !!params.game_provider,
-    staleTime: 5 * 60 * 1000, // 缓存 5 分钟
+    enabled: enabled && !!params.inner_game_id && !!params.game_provider && hasAuth(),
+    staleTime: 5 * 60 * 1000 // 缓存 5 分钟
   });
 };
 
@@ -578,7 +590,7 @@ export const useUserWithdrawWallet = (network?: string, effect = false) => {
   return useQuery({
     queryKey: [...AUTH_QUERY_KEYS.userWithdrawWallet, network, effect],
     queryFn: () => authService.getUserWithdrawWallet(network),
-    enabled: !!user && !!network,
+    enabled: !!user && !!network && hasAuth()
   });
 };
 
@@ -588,7 +600,7 @@ export const useConquestList = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.conquestList,
     queryFn: () => authService.getConquestList(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     retry: (failureCount, error: any) => {
       // 对于401错误（未授权）不重试，其他错误最多重试2次
       return error?.response?.status !== 401 && failureCount < 2;
@@ -602,7 +614,7 @@ export const useTopWageredGames = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.topWageredGames,
     queryFn: () => authService.getTopWageredGames(),
-    enabled: !!user
+    enabled: !!user && hasAuth()
   });
 };
 
@@ -612,7 +624,7 @@ export const useDefaultAdTag = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.defaultAdTag,
     queryFn: () => authService.getDefaultAdTag(),
-    enabled: !!user
+    enabled: !!user && hasAuth()
   });
 };
 
@@ -622,7 +634,7 @@ export const useVipConfigList = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.vipConfigList,
     queryFn: () => authService.getVipConfig(),
-    enabled: !!user
+    enabled: !!user && hasAuth()
   });
 };
 
@@ -631,17 +643,17 @@ export const useVipNextLevelData = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.vipNextLevelData,
     queryFn: () => authService.getVipConfig(status?.vip ? status?.vip + 1 : 1),
-    enabled: !!status,
+    enabled: !!status && hasAuth()
   });
 };
 
 // 获取用户的成就列表
-export const useUserAchievements = (sort: 'asc' | 'desc' = 'asc') => {
+export const useUserAchievements = (sort: "asc" | "desc" = "asc") => {
   const { user } = useAuth();
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.userAchievements,
     queryFn: () => authService.getUserAchievementsV2(sort),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     staleTime: 60 * 1000, // 1分钟缓存
     refetchInterval: 5 * 60 * 1000 // 5分钟自动刷新
   });
@@ -653,31 +665,31 @@ export const useMyAchievements = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.myAchievements,
     queryFn: () => authService.getMyAchievements(),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     staleTime: 60 * 1000, // 1分钟缓存
     refetchInterval: 2 * 60 * 1000, // 2分钟自动刷新
     select: (data) => {
       // 处理数据，返回更友好的格式
       if (!data?.data || !Array.isArray(data.data)) {
-        return { achievements: [], inProgress: [], completed: [] }
+        return { achievements: [], inProgress: [], completed: [] };
       }
 
-      const achievements = data.data
+      const achievements = data.data;
       const inProgress = achievements.filter((_record: any) => {
         // 这里需要根据具体业务逻辑判断是否完成
         // 暂时认为所有记录都是进行中的
-        return true
-      })
+        return true;
+      });
       const completed = achievements.filter((_record: any) => {
         // 完成的成就判断逻辑
-        return false // 需要根据实际业务逻辑调整
-      })
+        return false; // 需要根据实际业务逻辑调整
+      });
 
       return {
         achievements,
         inProgress,
         completed
-      }
+      };
     }
   });
 };
@@ -688,8 +700,8 @@ export const useReferralClaim = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.referralClaim,
     queryFn: () => authService.getClaimBonus("referral"),
-    enabled: !!user,
-    staleTime: 30 * 1000,
+    enabled: !!user && hasAuth(),
+    staleTime: 30 * 1000
   });
 };
 
@@ -699,25 +711,25 @@ export const useGroupClaim = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.groupClaim,
     queryFn: () => authService.getClaimBonus("group"),
-    enabled: !!user,
-    staleTime: 30 * 1000,
+    enabled: !!user && hasAuth(),
+    staleTime: 30 * 1000
   });
 };
 
-export const useReferralList = (params: Omit<GetReferralListParams, 'last_id'>) => {
+export const useReferralList = (params: Omit<GetReferralListParams, "last_id">) => {
   const { user } = useAuth();
   return useInfiniteQuery({
     queryKey: [...AUTH_QUERY_KEYS.referralList, params],
     queryFn: ({ pageParam }) =>
       authService.getReferralList({
         ...params,
-        last_id: pageParam,
+        last_id: pageParam
       }),
-    initialPageParam: '',
+    initialPageParam: "",
     getNextPageParam: (lastPage) =>
       lastPage.data?.length > 0 ? lastPage.data[lastPage.data.length - 1].id : undefined,
-    enabled: !!user,
-    staleTime: 30 * 1000,
+    enabled: !!user && hasAuth(),
+    staleTime: 30 * 1000
   });
 };
 
@@ -726,14 +738,14 @@ export const useAdTagList = () => {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.adTagList,
     queryFn: () => authService.getAdTagList(),
-    enabled: !!user,
-    staleTime: 30 * 1000,
+    enabled: !!user && hasAuth(),
+    staleTime: 30 * 1000
   });
 };
 
 export const useCreateAdTag = () => {
   const queryClient = useQueryClient();
-  const { t } = useTranslation();
+  const { t } = useTranslation("referral");
 
   return useMutation({
     mutationFn: (params: CreateAdTagParams) => authService.createAdTag(params),
@@ -771,7 +783,7 @@ export const useSetDefaultAdTag = () => {
     onError: (error: any) => {
       console.error("Failed to set campaign as default:", error);
       toast.error(error.response?.data?.msg || error.message || "Failed to set campaign as default");
-    },
+    }
   });
 };
 
@@ -781,29 +793,29 @@ export const QueryKycDetail = () => {
     id: 0,
     team_id: 0,
     user_id: 0,
-    first_name: '',
-    middle_name: '',
-    last_name: '',
-    birthday: '',
-    country: '',
-    state: '',
-    city: '',
-    address: '',
-    zip_code: '',
+    first_name: "",
+    middle_name: "",
+    last_name: "",
+    birthday: "",
+    country: "",
+    state: "",
+    city: "",
+    address: "",
+    zip_code: "",
     document_type: 0,
-    document_url: '',
+    document_url: "",
     status: 0,
     created_at: 0,
     updated_at: 0,
-    email: '',
-    nickname: '',
-    phone: '',
+    email: "",
+    nickname: "",
+    phone: ""
   };
 
   const { data = { data: defaultKycDetail, code: 0 }, refetch } = useQuery<{ data: KycDetail, code: number }>({
     queryKey: AUTH_QUERY_KEYS.kycDetail,
     queryFn: () => authService.getKycDetail(),
-    enabled: !!user,
+    enabled: !!user && hasAuth()
   });
   return {
     data: data && data.code === 0 ? (data?.data ?? defaultKycDetail) : defaultKycDetail,
@@ -813,36 +825,36 @@ export const QueryKycDetail = () => {
 
 export const useNotificationMessage = (params: {
   read: number
-}) => {
-  const { user } = useAuth()
+}, enabled?: boolean) => {
+  const { user } = useAuth();
   return useInfiniteQuery({
     queryKey: [...AUTH_QUERY_KEYS.notificationMessage, params.read],
     queryFn: async ({ pageParam = 0 }) => {
       return await authService.getNotificationMessage({
         last_id: pageParam,
         limit: 30,
-        has_read: params.read,
-      })
+        has_read: params.read
+      });
     },
     initialPageParam: 0,
     getNextPageParam: (lastPage) => {
-      return !lastPage?.meta?.has_more ? undefined : lastPage?.meta?.next_last_id
+      return !lastPage?.meta?.has_more ? undefined : lastPage?.meta?.next_last_id;
     },
-    enabled: !!user
+    enabled: !!user && enabled && hasAuth()
   });
 };
 
 // 未读取的站内信
 export const useUnreadNotificationCounter = () => {
-  const { user } = useAuth()
+  const { user } = useAuth();
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.unreadNotificationCounter,
     queryFn: () => authService.getNotificationMessage({
       last_id: 0,
       limit: 1,
-      has_read: 0,
+      has_read: 0
     }),
-    enabled: !!user,
+    enabled: !!user && hasAuth(),
     refetchInterval: 20_000
   });
 };
@@ -853,32 +865,32 @@ export const useUnreadNotificationCounter = () => {
 export const useWalletSettingsCurrency = () => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ['walletSettingsCurrency'],
+    queryKey: ["walletSettingsCurrency"],
     queryFn: async () => {
       return authService.getWalletSettingsCurrency();
     },
-    enabled: !!user,
-    refetchOnMount: true,
+    enabled: !!user && hasAuth(),
+    refetchOnMount: true
   });
 };
 
 export const useBonusClaimCount = () => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ['useBonusClaimCount'],
+    queryKey: ["useBonusClaimCount"],
     queryFn: () => authService.getClaimCount(),
-    enabled: !!user,
-    refetchInterval: 15_000
+    enabled: !!user && hasAuth(),
+    refetchInterval: 20_000
   });
 };
 
 export const useMondayVipBonus = () => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ['useMondayVipBonus'],
+    queryKey: ["useMondayVipBonus"],
     queryFn: () => authService.getMondayVipBonus(),
-    enabled: !!user,
-    refetchOnWindowFocus: 'always'
+    enabled: !!user && hasAuth(),
+    refetchOnWindowFocus: "always"
   });
 };
 
@@ -889,41 +901,242 @@ export const useGetMondayVipBonus = () => {
     data: IGetMondayVipBonus;
     code: number;
   }>({
-    queryKey: ['getMondayVipBonus'],
+    queryKey: ["getMondayVipBonus"],
     queryFn: () => authService.getMondayVipBonus(),
-    enabled: !!user,
-    refetchOnMount: true,
+    enabled: !!user && hasAuth(),
+    refetchOnMount: true
   });
 
   return {
     mondayVipBonus: mondayVipBonus.code === 0 ? mondayVipBonus.data : undefined,
-    refetch,
+    refetch
   };
 };
 
 export const useBonusSwitch = () => {
   const { user } = useAuth();
 
-  const { data: switchData = { data: {}, code: 0 }, refetch, isLoading } = useQuery<{ data: { [key: string]: any }; code: number }>({
-    queryKey: ['bonusSwitch'],
+  const { data: switchData = { data: {}, code: 0 }, refetch, isLoading } = useQuery<{
+    data: { [key: string]: any };
+    code: number
+  }>({
+    queryKey: ["bonusSwitch"],
     queryFn: () => authService.bonusSwitch(),
     refetchOnMount: true,
     refetchOnWindowFocus: true,
-    enabled: !!user,
+    enabled: !!user && hasAuth()
   });
 
   const parsedSwitchData: { [key: string]: any } = switchData?.code === 0 ? switchData?.data ?? {} : {};
 
   const bonusSwitchData = {
     ...(parsedSwitchData?.bonus_switch ?? {}),
-    monday_vip_bonus: (parsedSwitchData?.bonus_switch?.monday_vip_bonus ?? 1),// 即使返回null 或者没有也要 1，除非确定返回 0
+    monday_vip_bonus: (parsedSwitchData?.bonus_switch?.monday_vip_bonus ?? 1)// 即使返回null 或者没有也要 1，除非确定返回 0
   };
 
   return {
     switchData: {
-      bonus_switch: bonusSwitchData,
+      bonus_switch: bonusSwitchData
     },
     refetch,
-    isLoading,
+    isLoading
   };
 };
+
+export const useBonusWalletCurrencySwitch = () => {
+  // 订阅暂停标记：当满足阈值并执行切换后，避免在同一路由下重复订阅/重复触发
+  const isSubscriptionPausedRef = useRef(false);
+
+  const { user } = useAuth();
+
+  const { updateSettlementCurrency } = useSettlementCurrency();
+
+  const { client, connected, subscribe, unsubscribe } = useMqttService();
+
+  // 获取当前路由信息
+  const location = useLocation();
+
+  // 基础配置数据
+  const { data: baseConfig } = useBaseConfig();
+
+  // 彩金钱包数据
+  const { data: bonusWallet } = useBonusWallet();
+
+  // 彩金钱包的总开关是否开启
+  const slot_bonus_wallet = baseConfig?.data?.bonus_switch?.slot_bonus_wallet !== 0;
+
+  /**
+   * 切换彩金币种为普通结算币种
+   */
+  const handle = useCallback(async () => {
+    // 检查当前路由是否在游戏页面，如果是则禁止执行
+    const currentPath = location.pathname;
+
+    // 如果路由包含 /main/games/，则不执行切换逻辑, 因为可能在游戏中
+    if (currentPath.includes("/games/")) {
+      return;
+    }
+
+    try {
+      const data = await authService.getCurrencyOtherThanBonusCoin();
+      if (data?.data?.currency) {
+        console.info(`Switch the invalid bonus currency to = ${data?.data?.currency}`);
+        void updateSettlementCurrency(data?.data?.currency);
+      }
+    } catch (error) {
+      console.info(error);
+    }
+  }, [location.pathname, updateSettlementCurrency]);
+
+  // 重新拉起订阅：路由变化（离开/进入页面）时重置暂停标记，允许下次进入后再次订阅
+  useEffect(() => {
+    isSubscriptionPausedRef.current = false;
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const isMqttConnected = Boolean(connected && client);
+    const isUserAuthenticated = Boolean(user?.id && hasAuth());
+    const isBonusWalletEnabled = slot_bonus_wallet;
+
+    /**
+     * {
+     *     "user_id": 3606186783,
+     *     "currency": "BONUS",
+     *     "bonus_wallet_name": "free_bonus",
+     *     "extra_data": {
+     *         "type": "free_bonus",
+     *         "bonus_value": "2",
+     *         "claim_max_value": "5",
+     *         "claim_min_value": "2",
+     *         "wager_require_multiplier": "25"
+     *     },
+     *     "init_amount": 2,
+     *     "amount": 2,
+     *     "wager_require": 50,
+     *     "claim_min": 2,
+     *     "claim_max": 5,
+     *     "expired_at": 1773074580,
+     *     "status": 1,
+     *     "handle_status": 1,
+     *     "created_at": 1770482580,
+     *     "updated_at": 1770482580,
+     *     "last_notify_at": 1770482580,
+     *     "id": 59
+     * }
+     */
+
+    if (
+      !isMqttConnected ||
+      !isUserAuthenticated ||
+      !isBonusWalletEnabled ||
+      isSubscriptionPausedRef.current
+    ) {
+      return;
+    }
+
+    let didUnsubscribe = false;
+    const balanceTopic = `user/${user!.id}/balance_detail`;
+    const balanceTopic1 = `user/${user!.id}/bonus_wallet`;
+
+    subscribe(balanceTopic);
+    subscribe(balanceTopic1);
+
+    const messageHandler = (_topic: string, message: any) => {
+      if (_topic === balanceTopic1) {
+        const msgStr = message?.toString?.() ?? String(message);
+        console.info(JSON.parse(msgStr));
+      }
+      if (_topic !== balanceTopic) return;
+
+      const msgStr = message?.toString?.() ?? String(message);
+
+      try {
+        const data = JSON.parse(msgStr);
+        const changes = data?.changes ?? [];
+
+        const balance = changes.find((c: { currency: string }) => c.currency === "BONUS");
+
+        console.info("balance = ", balance?.balance_after);
+
+        // 彩金币种切换临界条件 -》余额 <= 0.1USDT
+        const shouldUnsubscribe = Number(balance?.balance_after ?? 0) <= 0.1;
+
+        console.info("shouldUnsubscribe = ", shouldUnsubscribe);
+
+        if (shouldUnsubscribe) {
+          isSubscriptionPausedRef.current = true;
+
+          didUnsubscribe = true;
+
+          unsubscribe(balanceTopic);
+
+          // 仅移除当前 hook 注册的 messageHandler，避免重复监听导致多次触发
+          client!.off("message", messageHandler);
+
+          void handle();
+        }
+      } catch {
+        console.warn("Non-JSON format:", msgStr);
+      }
+    };
+
+    client!.on("message", messageHandler);
+
+    return () => {
+      /**
+       * 目的:
+       *  1. 避免重复执行逻辑 - 每条消息触发多次 handle()
+       *  2. 避免内存泄漏 - handler 函数持有闭包引用，无法被 GC
+       *  3. 避免性能下降 - 大量无用的 handler 被调用
+       */
+      client!.off("message", messageHandler);
+
+      if (!didUnsubscribe) {
+        unsubscribe(balanceTopic);
+      }
+    };
+  }, [bonusWallet?.data?.length, client, connected, handle, slot_bonus_wallet, user?.id]);
+
+  return {
+    switchBonusCurrencyToOther: handle
+  };
+};
+
+/**
+ * 彩金活动配置列表
+ */
+export function useBonusConfigList() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.bonusConfigList,
+    queryFn: () => authService.getBonusConfigList(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+export function useUserBonusLatestHistory() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.userBonusLatestHistory,
+    queryFn: () => authService.userBonusLatestHistory(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+export function useCheckDetailPromo() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.checkDetailPromo,
+    queryFn: () => authService.checkDetailPromo(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+export function useTodayDepositCount() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.todayDepositCount,
+    queryFn: () => authService.getTodayDepositCount(),
+    enabled: hasAuth() && !!user
+  });
+}

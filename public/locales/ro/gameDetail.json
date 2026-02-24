@@ -25,6 +25,14 @@
   "totalTips": "Sfaturi",
   "result": "Rezultat",
   "myBets": "Pariurile Mele",
-  "**********": "",
-  "demoPlay": "Joc Demo"
+  "demoPlay": "Joc Demo",
+  "limitedOffer": "Ofertă Limitată",
+  "deposit": "Depozitează {{value}}",
+  "get": "Obține {{value}}",
+  "instantCashBonus": "Bonus Instant de Numerar",
+  "expires": "Expiră",
+  "depositNow": "Depozitează Acum",
+  "free_spins": "Rotiri Gratuite",
+  "play_with_balance_in": "Joacă cu Soldul În",
+  "the_selected_currency_will_be_displayed_in": "Moneda selectată va fi afișată în"
 }

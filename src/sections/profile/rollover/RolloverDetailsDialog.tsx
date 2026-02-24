@@ -1,7 +1,6 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
-import { CountryIcon } from "@/components/ui/CountryIcon";
 import type { RolloverDetailViewModel } from "./RolloverDetailMapper";
 import { useTranslation } from "react-i18next";
 
@@ -11,12 +10,7 @@ type RolloverDetailsDialogProps = {
   detail: RolloverDetailViewModel | null;
 };
 
-const fiatCurrencies = new Set(["PHP", "USD", "EUR", "GBP", "CNY", "JPY", "KRW"]);
-
 const getCurrencyIcon = (currency: string) => {
-  if (fiatCurrencies.has(currency)) {
-    return <CountryIcon code={currency} className="h-10 w-10" />;
-  }
   return <CurrencyIcon currency={currency} className="h-10 w-10" />;
 };
 
@@ -51,7 +45,7 @@ export function RolloverDetailsDialog({ isOpen, onClose, detail }: RolloverDetai
         </div>
 
         <button type="button" className="btn btn-primary btn-lg font-semibold" onClick={onClose}>
-          {t("common.close", "Close")}
+          {t("common:common.close", "Close")}
         </button>
       </div>
     </Modal>

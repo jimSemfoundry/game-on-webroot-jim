@@ -7,6 +7,9 @@
     "commissions": "Comissões",
     "rewards": "Recompensas"
   },
+  "campaignAlreadyExists": "A campanha já existe",
+  "campaignCreateSuccess": "Campanha criada com sucesso!",
+  "campaignCreateFailed": "Falha ao criar a campanha",
   "commissionCalculator": "Calculadora de Comissões",
   "telegramReferralLink": "Link de Referência do Telegram",
   "network": "Rede",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Minhas Comissões de Referência",
   "myReferralRewards": "Minhas Recompensas de Referência",
   "exp": "EXP",
-  "userLevel": "Nível do Usuário"
+  "userLevel": "Nível do Usuário",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Convide um amigo e ganhe recompensas extras quando ele fizer o primeiro depósito. Para o primeiro jogador que você indicar que se juntar, depositar e jogar, você receberá um bônus extra de 10% com base no valor do depósito inicial dele.",
+    "bonusCalculatedTitle": "Como o Bônus é Calculado?",
+    "bonusCalculatedDesc": "Seu Bônus Extra de Indicação é calculado como 10% do primeiro depósito do seu amigo. Se o primeiro depósito do seu amigo for equivalente a <0>{{depositAmount}}</0>, você receberá uma recompensa no valor de <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribuição da Recompensa",
+    "claimDistributionDesc": "Tudo o que você precisa fazer é entrar em contato com o Atendimento ao Cliente pelo Chat ao Vivo e informar que deseja reivindicar a recompensa com as informações do seu indicado.",
+    "expirationTitle": "Validade",
+    "expirationDesc": "O bônus deve ser reivindicado dentro de 7 x 24 horas (7 dias) após o depósito inicial do seu amigo; após isso, não poderá ser reemitido.",
+    "generalTermsTitle": "Termos Gerais",
+    "generalTermsDesc1": "As recompensas são calculadas e creditadas em <0>BUCK/USDT</0>, e depois exibidas na sua moeda fiduciária preferida para conveniência. Por favor, note que as conversões de moeda são aproximadas. O bônus máximo que você pode receber por amigo indicado é o equivalente a {{bonusAmount}}, e o bônus pode ser reivindicado uma vez por ID de Usuário. Seu indicado deve apostar pelo menos 4 vezes o valor do seu primeiro depósito antes que você possa reivindicar seu bônus.",
+    "generalTermsDesc2": "O cassino se reserva o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta – incluindo, mas não se limitando a, dados de jogadores duplicados ou correspondentes, fraude de depósito, endereços IP correspondentes, apostas de segurança ou comportamento de estilo de investimento – levará à desqualificação da promoção e cancelamento de quaisquer bônus relacionados. Todas as decisões tomadas pelo cassino em relação a esta promoção são finais e não podem ser contestadas."
+  },
+  "referral_program_disabled": "PROGRAMA\nDE INDICAÇÕES\n<0>DESATIVADO</0>",
+  "programAccessUpdate": "Atualização de acesso ao programa",
+  "referralProgramPrivileges": "Seus privilégios do programa de indicações foram revogados após uma análise da sua conta e da sua participação no programa. Identificamos atividade que não está em conformidade com os termos, condições ou uso pretendido do nosso programa de indicações. Isso pode incluir padrões de indicação suspeitos, métodos promocionais não autorizados, uso indevido de incentivos ou tentativas de contornar as diretrizes de uso justo.",
+  "referralRewardsPrivileges": "Como resultado, sua capacidade de gerar novas recompensas de indicação, compartilhar links de indicação ou receber benefícios de indicações foi desativada. Recompensas pendentes ou futuras associadas ao programa de indicações serão retidas e canceladas de acordo com nossas políticas. <0>Todas as demais funcionalidades da sua conta permanecem intactas e não são afetadas por essa mudança</0>.",
+  "understandDisappointing": "Entendemos que isso pode ser decepcionante. Se você acredita que essa decisão é um erro ou gostaria de mais detalhes, entre em contato com nossa equipe de suporte com quaisquer informações relevantes, e analisaremos o seu caso."
 }

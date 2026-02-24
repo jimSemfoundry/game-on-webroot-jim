@@ -5,11 +5,11 @@
     "achievements": "Úspěchy",
     "achievementDescription": "Ocenění za úspěchy jsou odměny udělované za dosažení nových milníků a překonání výzev. Oslavují váš pokrok a úspěch, odemykají zábavná překvapení, když dosáhnete nových výkonů na cestě!",
     "claimDistribution": "Distribuce odměn",
-    "claimDistributionDescription": "Odměny jsou přidány do vašeho bonusového kalendáře na 3 dny po uplatnění.",
+    "claimDistributionDescription": "Vaše odměny se okamžitě připisují a jsou k dispozici k vyzvednutí z vašeho vkladového <0>bonusového fondu</0> pokaždé, když si vyzvednete novou odměnu za úspěch.",
     "expiration": "Vypršení platnosti",
-    "expirationDescription": "Žádné - Odměny jsou automaticky odeslány do kalendáře.",
+    "expirationDescription": "Žádná – nároky jsou dostupné, dokud je zůstatek Bonus Pool dostatečný.",
     "generalTerms": "Obecné podmínky",
-    "generalTermsDescription": "Odměny jsou vypočítány a připsány v BUCK/USDT, poté zobrazeny ve vaší preferované fiat měně pro pohodlí. Vezměte prosím na vědomí, že měnové konverze jsou přibližné.\n\nCasino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost, aniž by bylo povinno to zdůvodnit. Jakékoli zneužití nebo podvodná činnost povede k diskvalifikaci z akce."
+    "generalTermsDescription": "Odměny se počítají a připisují v USDT a poté se pro pohodlí zobrazují ve vaší preferované fiat měně. Upozorňujeme, že měnové konverze jsou orientační.\n\nKasino si vyhrazuje právo kdykoli změnit nebo zrušit způsobilost bez povinnosti ji odůvodňovat. Jakékoli zneužití nebo podvodné jednání povede k diskvalifikaci z promoce."
   },
   "luckyNumberSeven": {
     "title": "Šťastné číslo \n Sedm",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimální částka pro uplatnění je {{money}}",
     "expiration": "Vypršení platnosti",
-    "expirationDescription": "Vaše Tajemná krabice musí být uplatněna do 7 dnů od udělení. Neuplatněné odměny vyprší po této době.",
+    "expirationDescription": "Vaše Tajemná krabice musí být uplatněna do 3 dnů od udělení. Neuplatněné odměny vyprší po této době.",
     "generalTerms": "Obecné podmínky",
     "generalTermsDescription": "Odměny jsou vypočítány a připsány na základě prvního vkladu uživatele nebo v USDT, pokud nebyl proveden žádný vklad, s požadavkem na 1x protočení. Částky jsou zobrazeny ve vaší preferované fiat měně; konverze jsou přibližné.\n\nCasino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost bez předchozího upozornění. Jakékoli zneužití nebo podvod povede k diskvalifikaci."
   },

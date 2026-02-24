@@ -7,6 +7,8 @@
   "baseball": "Beisbolas",
   "iceHockey": "Ledo ritulys",
   "basketball": "Krepšinis",
+  "cricket": "Kriketas",
+  "eSoccer": "eFutbolas",
   "volleyball": "Tinklinis",
   "hot": "Populiaru",
   "all": "Visi",
@@ -69,5 +71,6 @@
   "live-casino": "Gyvas kazino",
   "sports": "Sportas",
   "lotteries": "Loterijos",
-  "gamesYouShouldTry": "Žaidimai, Kuriuos Turėtumėte Išbandyti"
+  "gamesYouShouldTry": "Žaidimai, Kuriuos Turėtumėte Išbandyti",
+  "bonus": "Bonus"
 }

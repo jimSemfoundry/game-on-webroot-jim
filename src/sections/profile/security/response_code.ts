@@ -81,8 +81,8 @@ export function matchResponseCodeError(code: number): string {
     case AUTH_ERROR_CODES.CODE_SMS_INVALID_MOBILE_FORMAT:
       return "login:phoneError";
     case AUTH_ERROR_CODES.TOO_MANY_REQUESTS_CODE:
-      return "common.tooManyRequests";
+      return "common:common.tooManyRequests";
     default:
-      return "common.serverError";
+      return "common:common.serverError";
   }
 }

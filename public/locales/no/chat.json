@@ -3,5 +3,8 @@
   "notifications": "Varsler",
   "support": "Støtte",
   "retry": "Prøv igjen",
-  "customerServiceChatFailedToLoad": "Kundeservicechatten kunne ikke lastes"
+  "customerServiceChatFailedToLoad": "Kundeservicechatten kunne ikke lastes",
+  "read": "Les",
+  "unread": "Ulest",
+  "customerService": "Kundeservice"
 }

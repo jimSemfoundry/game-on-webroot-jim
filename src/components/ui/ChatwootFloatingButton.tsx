@@ -2,8 +2,9 @@ import { useChatwootContext } from "@/contexts/ChatwootContext";
 import Iconify from "../iconify";
 import { useLocation } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
-import { PointerEvent, useLayoutEffect, useRef, useState } from "react";
+import { PointerEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
@@ -54,6 +55,15 @@ export const ChatFloatingButton = () => {
     const resizeObserver = new ResizeObserver(updateBounds);
     resizeObserver.observe(document.documentElement);
     return () => resizeObserver.disconnect();
+  }, []);
+
+  // 收到外部通知激活chat
+  useEffect(() => {
+    const em =  emitter.addListener("OPEN_CHAT", () => {
+      toggleWidget();
+    });
+
+    return () => em?.remove();
   }, []);
 
   const handlePointerDown = (event: PointerEvent<HTMLButtonElement>) => {
@@ -176,7 +186,7 @@ export const ChatFloatingButton = () => {
         if (isDraggingRef.current) return;
         toggleWidget();
       }}
-      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-sm btn-square z-10000 border-3 border-secondary" 
+      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-sm btn-square z-10000 border-3 border-secondary"
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,

@@ -7,6 +7,8 @@
   "baseball": "Honkbal",
   "iceHockey": "IJshockey",
   "basketball": "Basketbal",
+  "cricket": "Cricket",
+  "eSoccer": "eVoetbal",
   "volleyball": "Volleybal",
   "hot": "Populair",
   "all": "Alles",
@@ -69,5 +71,6 @@
   "live-casino": "Live Casino",
   "sports": "Sport",
   "lotteries": "Loterijen",
-  "gamesYouShouldTry": "Spellen die je zou moeten proberen"
+  "gamesYouShouldTry": "Spellen die je zou moeten proberen",
+  "bonus": "Bonus"
 }

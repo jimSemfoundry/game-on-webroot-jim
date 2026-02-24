@@ -30,6 +30,8 @@ import { Route as MainTournamentArenaRouteImport } from './routes/_main/tourname
 import { Route as MainPartnershipsPartnershipIdRouteImport } from './routes/_main/partnerships/$partnershipId'
 import { Route as MainGamesGameIdRouteImport } from './routes/_main/games/$gameId'
 import { Route as MainAuthenticatedProfileRouteImport } from './routes/_main/_authenticated/profile'
+import { Route as MainDollarsSportsIndexRouteImport } from './routes/_main/dollars/sports/index'
+import { Route as MainDollarsBonusIndexRouteImport } from './routes/_main/dollars/bonus/index'
 import { Route as MainGamesPlayGameIdRouteImport } from './routes/_main/games/play.$gameId'
 
 const MainRoute = MainRouteImport.update({
@@ -137,6 +139,16 @@ const MainAuthenticatedProfileRoute =
     path: '/profile',
     getParentRoute: () => MainAuthenticatedRoute,
   } as any)
+const MainDollarsSportsIndexRoute = MainDollarsSportsIndexRouteImport.update({
+  id: '/dollars/sports/',
+  path: '/dollars/sports/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainDollarsBonusIndexRoute = MainDollarsBonusIndexRouteImport.update({
+  id: '/dollars/bonus/',
+  path: '/dollars/bonus/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainGamesPlayGameIdRoute = MainGamesPlayGameIdRouteImport.update({
   id: '/games/play/$gameId',
   path: '/games/play/$gameId',
@@ -163,6 +175,8 @@ export interface FileRoutesByFullPath {
   '/tournament': typeof MainTournamentIndexRoute
   '/vip-club': typeof MainVipClubIndexRoute
   '/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/dollars/bonus': typeof MainDollarsBonusIndexRoute
+  '/dollars/sports': typeof MainDollarsSportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -184,6 +198,8 @@ export interface FileRoutesByTo {
   '/tournament': typeof MainTournamentIndexRoute
   '/vip-club': typeof MainVipClubIndexRoute
   '/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/dollars/bonus': typeof MainDollarsBonusIndexRoute
+  '/dollars/sports': typeof MainDollarsSportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -209,6 +225,8 @@ export interface FileRoutesById {
   '/_main/tournament/': typeof MainTournamentIndexRoute
   '/_main/vip-club/': typeof MainVipClubIndexRoute
   '/_main/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/_main/dollars/bonus/': typeof MainDollarsBonusIndexRoute
+  '/_main/dollars/sports/': typeof MainDollarsSportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -232,6 +250,8 @@ export interface FileRouteTypes {
     | '/tournament'
     | '/vip-club'
     | '/games/play/$gameId'
+    | '/dollars/bonus'
+    | '/dollars/sports'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -253,6 +273,8 @@ export interface FileRouteTypes {
     | '/tournament'
     | '/vip-club'
     | '/games/play/$gameId'
+    | '/dollars/bonus'
+    | '/dollars/sports'
   id:
     | '__root__'
     | '/'
@@ -277,6 +299,8 @@ export interface FileRouteTypes {
     | '/_main/tournament/'
     | '/_main/vip-club/'
     | '/_main/games/play/$gameId'
+    | '/_main/dollars/bonus/'
+    | '/_main/dollars/sports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -435,6 +459,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainAuthenticatedProfileRouteImport
       parentRoute: typeof MainAuthenticatedRoute
     }
+    '/_main/dollars/sports/': {
+      id: '/_main/dollars/sports/'
+      path: '/dollars/sports'
+      fullPath: '/dollars/sports'
+      preLoaderRoute: typeof MainDollarsSportsIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/dollars/bonus/': {
+      id: '/_main/dollars/bonus/'
+      path: '/dollars/bonus'
+      fullPath: '/dollars/bonus'
+      preLoaderRoute: typeof MainDollarsBonusIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/games/play/$gameId': {
       id: '/_main/games/play/$gameId'
       path: '/games/play/$gameId'
@@ -485,6 +523,8 @@ interface MainRouteChildren {
   MainTournamentIndexRoute: typeof MainTournamentIndexRoute
   MainVipClubIndexRoute: typeof MainVipClubIndexRoute
   MainGamesPlayGameIdRoute: typeof MainGamesPlayGameIdRoute
+  MainDollarsBonusIndexRoute: typeof MainDollarsBonusIndexRoute
+  MainDollarsSportsIndexRoute: typeof MainDollarsSportsIndexRoute
 }
 
 const MainRouteChildren: MainRouteChildren = {
@@ -502,6 +542,8 @@ const MainRouteChildren: MainRouteChildren = {
   MainTournamentIndexRoute: MainTournamentIndexRoute,
   MainVipClubIndexRoute: MainVipClubIndexRoute,
   MainGamesPlayGameIdRoute: MainGamesPlayGameIdRoute,
+  MainDollarsBonusIndexRoute: MainDollarsBonusIndexRoute,
+  MainDollarsSportsIndexRoute: MainDollarsSportsIndexRoute,
 }
 
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)

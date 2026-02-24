@@ -6,7 +6,7 @@
 
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { BadgeAlert } from "lucide-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";

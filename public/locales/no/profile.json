@@ -76,12 +76,39 @@
   "dashboard": "Kontrollpanel",
   "transactions": "Transaksjoner",
   "rollover": "Rollover",
-  "betHistory": "Spillhistorikk",
+  "betHistory": {
+    "empty": "Ingen spillhistorikk funnet",
+    "title": "Spillhistorikk",
+    "headers": {
+      "game": "Spill",
+      "date": "Dato",
+      "betId": "Spill ID",
+      "betIn": "Innsats",
+      "betOut": "Gevinst",
+      "account": "Konto",
+      "amount": "Beløp",
+      "provider": "Tilbyder",
+      "match": "Kamp",
+      "tournament": "Turnering"
+    }
+  },
   "settings": "Innstillinger",
   "legal": "Juridisk",
   "nickname": "Kallenavn",
   "zoomAndAdjust": "Zoom og Juster",
   "systemLanguage": "Systemspråk",
   "editProfile": "Rediger profil",
-  "inviteAndGetRewarded": "Inviter og få belønning"
+  "inviteAndGetRewarded": "Inviter og få belønning",
+  "emailAddress": "E-postadresse",
+  "codeSent": "Skriv inn koden vi sendte",
+  "codeSentTo": "En kode har blitt sendt til",
+  "notReceiveCode": "Mottok du ikke koden?",
+  "verificationSuccess": "Verifisering vellykket",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Telefonnummeret ditt er verifisert. Du kan fortsette.",
+  "email_address_has_been_verified": "E-postadressen din er verifisert. Du kan fortsette.",
+  "setNewPassword": "Angi nytt passord",
+  "passwordLengthRequirement": "Vennligst skriv inn et passord mellom 6 og 64 tegn."
 }

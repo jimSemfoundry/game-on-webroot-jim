@@ -1,6 +1,7 @@
 import { onMessage, type Messaging } from 'firebase/messaging'
 import { type ReactNode, useCallback, useEffect } from "react";
-import { getSourcePathPrefix, useFirebaseClientConfig, useFirebaseClientInitialize } from "@/query/firebase.ts";
+import { useFirebaseClientConfig, useFirebaseClientInitialize } from "@/query/firebase.ts";
+import { getFaviconAppleUrl } from "@/utils/assetPaths";
 import { publicService } from "@/services/publicService";
 import { useAuth } from "@/contexts/AuthContext";
 import './IndexDB'
@@ -8,7 +9,7 @@ import './IndexDB'
 let executed = false
 
 // TODO 不用svg，存在浏览器兼容问题
-const notification_logo = `${getSourcePathPrefix()}/favicon/${process.env.VITE_THEME}/apple-touch-icon.png`;
+const notification_logo = getFaviconAppleUrl(import.meta.env.VITE_THEME ?? "1stgame");
 
 function FirebaseClient({ children }: { children: ReactNode }) {
   const { user } = useAuth()

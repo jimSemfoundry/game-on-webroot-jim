@@ -114,7 +114,7 @@ export const BonusVipProgressCard = () => {
 
   return (
     <div
-      className="relative flex min-h-[140px] w-full flex-col items-start gap-4 overflow-hidden rounded-field border border-base-200/60 bg-base-300/30 p-4 sm:col-span-1 sm:min-h-[320px] sm:items-center sm:p-6 shadow-md transition-transform duration-200 hover:-translate-y-1"
+      className={`relative flex min-h-[140px] w-full flex-col items-start gap-4 overflow-hidden rounded-field border ${isClaimAvailable ? 'border-warning' : 'border-base-200/60'} bg-base-300/30 p-4 sm:col-span-1 sm:min-h-[320px] sm:items-center sm:p-6 shadow-md transition-transform duration-200 hover:-translate-y-1`}
       style={{ background }}
     >
       <div className="flex w-full flex-1 items-start gap-3 text-left sm:flex-col sm:items-center sm:text-center">
@@ -140,10 +140,10 @@ export const BonusVipProgressCard = () => {
                 index === array.length - 1 ? (
                   part
                 ) : (
-                  <>
+                  <span key={index}>
                     {part}
                     <span className="text-primary">{formattedBonus.formatted}</span>
-                  </>
+                  </span>
                 ),
               )}
           </p>

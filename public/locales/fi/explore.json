@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Jääkiekko",
   "basketball": "Koripallo",
+  "cricket": "Kriketti",
+  "eSoccer": "eJalkapallo",
   "volleyball": " lentopallo",
   "hot": "Kuuma",
   "all": "Kaikki",
@@ -69,5 +71,6 @@
   "live-casino": "Live-kasino",
   "sports": "Urheilu",
   "lotteries": "Arpajaiset",
-  "gamesYouShouldTry": "Pelit, joita sinun pitäisi kokeilla"
+  "gamesYouShouldTry": "Pelit, joita sinun pitäisi kokeilla",
+  "bonus": "Bonus"
 }

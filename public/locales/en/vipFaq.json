@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "What is the Weekly Bonus?",
-    "content": "<p class=\"leading-7\">Weekly Bonus is an exclusive perk on our website designed for players who are VIP12 and up. This bonus is issued weekly and automatically paid out every Friday to players at VIP12 and above. The size of the bonus depends on the amount wagered over the past week, with a minimum wager requirement of {{minWager}} over the past week.</p>"
+    "content": "<p class=\"leading-7\">The Weekly Bonus is an exclusive perk on our website designed for players who are VIP2 and above. The bonus is issued weekly on Mondays and expires when the next weekly bonus comes out. The size of the bonus depends on the amount wagered over the past week with a minimum effective wager requirement of {{minWager}} over the past week.</p>"
   },
   "faqNine": {
     "title": "What are Achievements?",

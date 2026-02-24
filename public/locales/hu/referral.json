@@ -7,6 +7,9 @@
     "commissions": "Jutalékok",
     "rewards": "Jutalmak"
   },
+  "campaignAlreadyExists": "A kampány már létezik",
+  "campaignCreateSuccess": "A kampány sikeresen létrehozva!",
+  "campaignCreateFailed": "A kampány létrehozása sikertelen",
   "commissionCalculator": "Jutalék Kiszámító",
   "telegramReferralLink": "Telegram Ajánló Link",
   "network": "Hálózat",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Saját Ajánlói Jutalmak",
   "myReferralRewards": "Saját Ajánlói Díjak",
   "exp": "EXP",
-  "userLevel": "Felhasználói Szint"
+  "userLevel": "Felhasználói Szint",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Hívj meg egy barátot, és szerezz extra jutalmakat, amikor ő elvégzi az első befizetését. Az első játékos, akit meghívsz, aki csatlakozik, befizet és játszik, 10% Extra Referral Bónuszt kapsz az ő kezdeti befizetése alapján.",
+    "bonusCalculatedTitle": "Hogyan számítják a bónuszt?",
+    "bonusCalculatedDesc": "Az Extra Referral Bónuszod a barátod első befizetésének 10%-aként kerül kiszámításra. Ha a barátod első befizetése <0>{{depositAmount}}</0> összegű, akkor <0>{{bonusAmount}}</0> értékű jutalmat kapsz.",
+    "claimDistributionTitle": "Jutalom Kiosztás",
+    "claimDistributionDesc": "Csak annyit kell tenned, hogy felveszed a kapcsolatot az Ügyfélszolgálat Élő Chattal, és tájékoztatod őket, hogy szeretnéd igényelni a jutalmat a Referált Információiddal.",
+    "expirationTitle": "Lejárat",
+    "expirationDesc": "A bónuszt 7 x 24 órán (7 napon) belül kell igényelni a barátod kezdeti befizetése után; ezt követően nem lehet újra kiadni.",
+    "generalTermsTitle": "Általános Feltételek",
+    "generalTermsDesc1": "A jutalmak <0>BUCK/USDT</0> értékben kerülnek kiszámításra és jóváírásra, majd a kényelmesebb megjelenítés érdekében a preferált fiat pénznemben láthatók. Kérjük, vegye figyelembe, hogy a pénznemek közötti átváltások hozzávetőlegesek. A maximális bónusz, amelyet egy ajánlott baráttól kaphat, az {{bonusAmount}}-nak megfelelő összeg, és a bónusz egy felhasználói azonosítónként egyszer igényelhető. Az ajánlott barátjának legalább 4-szer kell megforgatnia az első befizetésének összegét, mielőtt igényelheti a bónuszát.",
+    "generalTermsDesc2": "A kaszinó fenntartja a jogot, hogy bármikor módosítsa vagy visszavonja a jogosultságot, anélkül, hogy indokolnia kellene. Bármilyen visszaélés vagy csalárd tevékenység – beleértve, de nem korlátozva a duplikált vagy egyező játékosadatokat, befizetési csalást, egyező IP-címeket, biztonsági fogadásokat vagy befektetési stílusú viselkedést – a promócióból való kizárást és a kapcsolódó bónuszok törlését vonja maga után. A kaszinó által a promócióval kapcsolatban hozott döntések véglegesek és nem vitathatók."
+  },
+  "referral_program_disabled": "AJÁNLÓ\nPROGRAM\n<0>LETILTVA</0>",
+  "programAccessUpdate": "Programhozzáférés frissítése",
+  "referralProgramPrivileges": "Az ajánlóprogramhoz kapcsolódó jogosultságaidat a fiókod és a programban való részvételed felülvizsgálata után visszavontuk. Olyan tevékenységet azonosítottunk, amely nem felel meg az ajánlóprogramunk feltételeinek vagy rendeltetésszerű használatának. Ez magában foglalhat gyanús ajánlási mintákat, nem engedélyezett promóciós módszereket, ösztönzők visszaélését vagy a méltányos használati irányelvek megkerülésére irányuló kísérleteket.",
+  "referralRewardsPrivileges": "Ennek eredményeként letiltottuk azt a lehetőségedet, hogy új ajánlói jutalmakat generálj, ajánlói linkeket ossz meg, vagy előnyöket szerezz az ajánlásokból. Az ajánlóprogramhoz kapcsolódó függőben lévő vagy jövőbeli jutalmakat a szabályzatunknak megfelelően visszatartjuk és töröljük. <0>A fiókod minden egyéb funkciója változatlanul elérhető, és ezt a változást nem érinti</0>.",
+  "understandDisappointing": "Megértjük, hogy ez csalódást okozhat. Ha úgy gondolod, hogy a döntés tévedés, vagy további részletekre vagy kíváncsi, vedd fel a kapcsolatot támogatási csapatunkkal minden releváns információval, és felülvizsgáljuk az ügyedet."
 }

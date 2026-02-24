@@ -63,8 +63,8 @@ export const BonusAchievementsModal = ({ isOpen, onClose }: BonusAchievementsMod
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              style={{ marginTop: "env(safe-area-inset-top)" }}
-              className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
+              style={{ marginTop: "var(--safe-area-inset-top)" }}
+              className="px-4 py-4 bg-base-400 fixed w-full z-[1002] top-0 bottom-0 flex flex-col"
             >
               {/* 标题栏 */}
               {mobileHeaderContent}

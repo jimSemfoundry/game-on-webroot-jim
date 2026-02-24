@@ -64,7 +64,7 @@ interface BetHistorySectionProps {
 }
 
 function CasinoBetHistorySection({ balanceData }: BetHistorySectionProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const [filters, setFilters] = useState<BetHistoryFiltersState>(DEFAULT_FILTERS);
   const [desiredPage, setDesiredPage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -180,7 +180,7 @@ function CasinoBetHistorySection({ balanceData }: BetHistorySectionProps) {
               disabled={!canGoPrev || isFetchingNextPage}
               className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
@@ -191,7 +191,7 @@ function CasinoBetHistorySection({ balanceData }: BetHistorySectionProps) {
                 type="button"
                 onClick={() => handlePageChange(page)}
                 disabled={isFetchingNextPage}
-                className={`btn btn-sm min-w-[2.5rem] rounded-2xl ${
+                className={`btn btn-sm min-w-[2.5rem] rounded-lg ${
                   page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300"
                 }`}
               >
@@ -205,7 +205,7 @@ function CasinoBetHistorySection({ balanceData }: BetHistorySectionProps) {
               disabled={!canGoNext || isFetchingNextPage}
               className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
@@ -371,7 +371,7 @@ function SportsBetHistorySection({ balanceData }: BetHistorySectionProps) {
 }
 
 export function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const [activeTab, setActiveTab] = useState<"casino" | "sports">("casino");
   const { data: balanceData } = useUserBalance();
 
@@ -384,12 +384,12 @@ export function Index() {
   );
 
   return (
-    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
+    <div className="bg-base-300 flex flex-col rounded-field overflow-visible">
       <Card
         icon={<Iconify icon="custom:bet-history" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />}
         title={
           <div className="flex items-center justify-between w-full">
-            {t("profile:betHistory", "Bet History")}{" "}
+            {t("profile:betHistory.title", "Bet History")}{" "}
             <SmoothTabs
               items={tabItems}
               value={activeTab}

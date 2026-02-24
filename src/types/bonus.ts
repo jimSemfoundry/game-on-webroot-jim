@@ -94,5 +94,7 @@ export type IVipBonusClaim = {
   created_at: number;
   updated_at: number;
   expire_at: number;
+  free_spin_record_id: number;
   currency: string;
+  claim?: Record<string, any>
 }

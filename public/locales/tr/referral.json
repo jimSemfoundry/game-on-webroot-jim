@@ -7,6 +7,9 @@
     "commissions": "Komisyonlar",
     "rewards": "Ödüller"
   },
+  "campaignAlreadyExists": "Kampanya zaten mevcut",
+  "campaignCreateSuccess": "Kampanya başarıyla oluşturuldu!",
+  "campaignCreateFailed": "Kampanya oluşturulamadı",
   "commissionCalculator": "Komisyon Hesaplayıcı",
   "telegramReferralLink": "Telegram Tavsiye Bağlantısı",
   "network": "Ağ",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Benim Yönlendirme Komisyonlarım",
   "myReferralRewards": "Benim Yönlendirme Ödüllerim",
   "exp": "EXP",
-  "userLevel": "Kullanıcı Seviyesi"
+  "userLevel": "Kullanıcı Seviyesi",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>REFERANS</0><0>BONUSU</0>",
+    "title": "Bir arkadaşınızı davet edin ve ilk para yatırdıklarında ekstra ödüller kazanın. Davet ettiğiniz ilk oyuncu katıldığında, para yatırdığında ve oynadığında, ilk para yatırma miktarına göre %10 Ekstra Referans Bonusu alacaksınız.",
+    "bonusCalculatedTitle": "Bonus Nasıl Hesaplanır?",
+    "bonusCalculatedDesc": "Ekstra Referans Bonusunuz, arkadaşınızın ilk para yatırmasının %10'u olarak hesaplanır. Eğer arkadaşınızın ilk para yatırması <0>{{depositAmount}}</0> değerindeyse, <0>{{bonusAmount}}</0> değerinde bir ödül alacaksınız.",
+    "claimDistributionTitle": "Ödül Dağıtımı",
+    "claimDistributionDesc": "Tek yapmanız gereken Müşteri Hizmetleri Canlı Sohbet ile iletişime geçmek ve Referans Bilgilerinizle ödülü talep etmek istediğinizi bildirmektir.",
+    "expirationTitle": "Son Kullanım Tarihi",
+    "expirationDesc": "Bonus, arkadaşınızın ilk para yatırmasından sonra 7 x 24 saat (7 gün) içinde talep edilmelidir; bu süreden sonra yeniden verilemez.",
+    "generalTermsTitle": "Genel Şartlar",
+    "generalTermsDesc1": "Ödüller <0>BUCK/USDT</0> cinsinden hesaplanır ve kredi edilir, ardından kolaylık sağlamak için tercih ettiğiniz fiat para biriminde görüntülenir. Lütfen, para birimi dönüşümlerinin yaklaşık olduğunu unutmayın. Her bir referans arkadaşınız için alabileceğiniz maksimum bonus, {{bonusAmount}} karşılığıdır ve bonus, her Kullanıcı Kimliği için bir kez talep edilebilir. Referansınız, bonusunuzu talep edebilmeniz için ilk para yatırma miktarının en az 4 katı kadar bahis oynamalıdır.",
+    "generalTermsDesc2": "Kumarhane, uygunluğu her zaman değiştirme veya iptal etme hakkını saklı tutar, gerekçe göstermeden. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti – kopya veya eşleşen oyuncu verileri, para yatırma dolandırıcılığı, eşleşen IP adresleri, güvenlik bahisleri veya yatırım tarzı davranışlar dahil ancak bunlarla sınırlı olmamak üzere – promosyondan diskalifiye edilmenize ve ilgili bonusların iptaline yol açacaktır. Kumarhane tarafından bu promosyonla ilgili alınan tüm kararlar kesindir ve itiraz edilemez."
+  },
+  "referral_program_disabled": "REFERANS\nPROGRAMI\n<0>DEVRE DIŞI</0>",
+  "programAccessUpdate": "Program erişimi güncellemesi",
+  "referralProgramPrivileges": "Hesabınız ve programa katılımınız incelendikten sonra referans programı ayrıcalıklarınız iptal edilmiştir. Referans programımızın şartlarına, koşullarına veya amaçlanan kullanımına uymayan bir etkinlik tespit ettik. Bu; şüpheli referans kalıplarını, yetkisiz tanıtım yöntemlerini, teşviklerin kötüye kullanımını veya adil kullanım yönergelerini aşmaya yönelik girişimleri içerebilir.",
+  "referralRewardsPrivileges": "Bunun sonucunda yeni referans ödülleri oluşturma, referans bağlantılarını paylaşma veya referanslardan fayda elde etme imkanınız devre dışı bırakılmıştır. Referans programıyla ilişkili bekleyen veya gelecekteki ödüller, politikalarımız doğrultusunda alıkonulacak ve iptal edilecektir. <0>Hesabınızdaki diğer tüm işlevler aynen korunur ve bu değişiklikten etkilenmez</0>.",
+  "understandDisappointing": "Bunun hayal kırıklığı yaratabileceğini anlıyoruz. Bu kararın hatalı olduğunu düşünüyorsanız veya daha fazla ayrıntı istiyorsanız, lütfen ilgili bilgilerle birlikte destek ekibimizle iletişime geçin; durumunuzu inceleyeceğiz."
 }

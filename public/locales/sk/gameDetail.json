@@ -25,6 +25,14 @@
   "totalTips": "Tipy",
   "result": "Výsledok",
   "myBets": "Moje stávky",
-  "**********": "",
-  "demoPlay": "Demonštrácia hry"
+  "demoPlay": "Demonštrácia hry",
+  "limitedOffer": "Obmedzená ponuka",
+  "deposit": "Vklad {{value}}",
+  "get": "Získať {{value}}",
+  "instantCashBonus": "Okamžitý hotovostný bonus",
+  "expires": "Expiruje",
+  "depositNow": "Vložte teraz",
+  "free_spins": "Voľné točenia",
+  "play_with_balance_in": "Hrajte s rovnováhou v",
+  "the_selected_currency_will_be_displayed_in": "Vybraná mena bude zobrazená v"
 }

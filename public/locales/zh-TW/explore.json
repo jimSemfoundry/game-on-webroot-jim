@@ -7,6 +7,8 @@
   "baseball": "棒球",
   "iceHockey": "冰球",
   "basketball": "籃球",
+  "cricket": "板球",
+  "eSoccer": "電子足球",
   "volleyball": "排球",
   "hot": "熱門",
   "all": "全部",
@@ -69,5 +71,6 @@
   "live-casino": "真人娛樂場",
   "sports": "體育",
   "lotteries": "彩票",
-  "gamesYouShouldTry": "您應該嘗試的遊戲"
+  "gamesYouShouldTry": "您應該嘗試的遊戲",
+  "bonus": "獎勵"
 }

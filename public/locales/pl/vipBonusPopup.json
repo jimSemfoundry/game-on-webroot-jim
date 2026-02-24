@@ -5,11 +5,11 @@
     "achievements": "Osiągnięcia",
     "achievementDescription": "Nagrody za osiągnięcia to nagrody przyznawane za osiąganie nowych kamieni milowych i pokonywanie wyzwań. Świętują Twój postęp i sukces, odblokowując zabawne niespodzianki, gdy osiągasz nowe wyczyny po drodze!",
     "claimDistribution": "Dystrybucja nagród",
-    "claimDistributionDescription": "Nagrody są dodawane do Twojego kalendarza bonusów przez 3 dni po ich odebraniu.",
+    "claimDistributionDescription": "Twoje nagrody są natychmiast przyznawane i dostępne do odebrania z Twojej <0>puli bonusowej</0> z depozytu za każdym razem, gdy odbierasz nową nagrodę za osiągnięcie.",
     "expiration": "Wygaszenie",
-    "expirationDescription": "Brak - Nagrody są automatycznie wysyłane do kalendarza.",
+    "expirationDescription": "Brak – odbiór jest możliwy, o ile saldo puli bonusowej jest wystarczające.",
     "generalTerms": "Ogólne warunki",
-    "generalTermsDescription": "Nagrody są obliczane i przyznawane w BUCK/USDT, a następnie wyświetlane w preferowanej walucie fiat dla wygody. Należy pamiętać, że przeliczenia walutowe są przybliżone.\n\nKasyno zastrzega sobie prawo do modyfikacji lub unieważnienia kwalifikacji w dowolnym momencie, bez obowiązku uzasadnienia. Jakiekolwiek nadużycia lub oszustwa prowadzą do dyskwalifikacji z promocji."
+    "generalTermsDescription": "Nagrody są obliczane i księgowane w USDT, a następnie wyświetlane w preferowanej walucie fiducjarnej dla wygody. Pamiętaj, że przeliczenia walut są przybliżone.\n\nKasyno zastrzega sobie prawo do zmiany lub cofnięcia uprawnień w dowolnym momencie bez obowiązku uzasadnienia. Jakiekolwiek nadużycia lub działania oszukańcze skutkują wykluczeniem z promocji."
   },
   "luckyNumberSeven": {
     "title": "Szczęśliwa Liczba \n Siedem",

@@ -41,7 +41,7 @@ const content = (t: TFunction) => [
 ];
 
 export default function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('fairness');
   return (
     <div>
       {content(t).map((item) => (

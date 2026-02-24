@@ -3,5 +3,8 @@
   "notifications": "Ilmoitukset",
   "support": "Tuki",
   "retry": "Yritä uudelleen",
-  "customerServiceChatFailedToLoad": "Asiakaspalvelun chat ei latautunut"
+  "customerServiceChatFailedToLoad": "Asiakaspalvelun chat ei latautunut",
+  "read": "Lue",
+  "unread": "Lukematon",
+  "customerService": "Asiakaspalvelu"
 }

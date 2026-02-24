@@ -115,7 +115,7 @@ const Countdown = (
         <label>{deadlineText}</label>
       )}
       {timeLabel === "endedText" && endedText && (
-        <label className='text-white/50'>{endedText}</label>
+        <label className='text-base-content/50'>{endedText}</label>
       )}
       {timeLabel !== 'endedText' && <>
         {Number(estimatedTime[0]) > 0 && <InnerItem value={estimatedTime[0]} label={unit?.[0]}/>}
@@ -131,7 +131,7 @@ export default Countdown;
 
 const InnerItem = ({ label, value }: { label: string; value: string | number }) => {
   return (
-    <div className="">
+    <div className="font-bold">
       <span className="">{value}</span>
       <span className="">{label}</span>
     </div>
@@ -140,7 +140,7 @@ const InnerItem = ({ label, value }: { label: string; value: string | number }) 
 
 const InnerWrap = (props: PropsWithChildren) => {
   return (
-    <div className='flex text-[12px] gap-1 text-primary'>
+    <div className='flex text-[11px] gap-1 text-primary font-bold'>
       {props.children}
     </div>
   );

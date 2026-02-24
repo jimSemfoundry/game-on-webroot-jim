@@ -14,10 +14,10 @@ import { PasswordInput } from "../ui/PasswordInput";
 import { PhoneEmailInput } from "../ui/PhoneEmailInput";
 import SocialLogin from "@/components/socialLogin";
 import { getCookie } from "@/utils/browser";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper";
 import type { Country } from "react-phone-number-input";
 import { useBaseConfig } from "@/hooks/api/usePublic.ts";
+import { uuidv4Generate } from "@/utils/helper.ts";
 
 type SignUpModalProps = {
   isOpen: boolean;
@@ -25,13 +25,13 @@ type SignUpModalProps = {
 };
 
 export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['login']);
   const { openSignInModal } = useAuthModals();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { login } = useAuth();
   // const siteName = import.meta.env.VITE_WEBSITE_NICKNAME || "";
   const { data: countryCodeResponse } = useCountryCodeByIp();
-  const { data: baseConf } = useBaseConfig()
+  const { data: baseConf } = useBaseConfig();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -67,7 +67,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
     e.preventDefault();
 
     if (!agreeTerms) {
-      toast.error("You must agree to the terms and conditions");
+      toast.error(t("login:must_agree"));
       return;
     }
     if (!username.trim()) {
@@ -90,7 +90,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
 
     try {
       console.log("Executing captcha...");
-      if (captchaRef.current) {
+      if (captchaRef.current && captchaRef.current.execute) {
         captchaRef.current?.execute();
       }
     } catch (error) {
@@ -113,14 +113,14 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
       password,
       hcaptcha_token: captchaToken,
       email_subscription_flag: agreeMarketing,
-      startapp: localStorage.getItem("startapp") || "",
-    }
+      startapp: localStorage.getItem("startapp") || ""
+    };
 
-    let ad_param = '';
+    let ad_param = "";
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      if (key && key.startsWith('__rb_') && key.endsWith('_params')) {
-        ad_param = localStorage.getItem(key) || '';
+      if (key && key.startsWith("__rb_") && key.endsWith("_params")) {
+        ad_param = localStorage.getItem(key) || "";
         break;
       }
     }
@@ -129,27 +129,34 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
      * 同步旧版本新的修改 t107262 --start
      * https://applink.larksuite.com/client/todo/detail?guid=1c9ac498-b62f-4b02-ba96-cfbcd374715b&suite_entity_num=t107262
      */
-    const fingerprint = await FingerprintJS.load();
-    const { visitorId } = await fingerprint.get();
+    const device_id = uuidv4Generate();
 
-    const device = { device_id: visitorId }
     /**
      * 同步旧版本新的修改 t107262 -- end
      */
 
-    const signupFunction = import.meta.env.VITE_PROMOTION_MODEL === 'roibest' ? authService.signupRoiBest : authService.signUp;
-    const signupData = import.meta.env.VITE_PROMOTION_MODEL === 'roibest' ?
+    const signupFunction = import.meta.env.VITE_PROMOTION_MODEL === "roibest" ? authService.signupRoiBest : authService.signUp;
+
+    let pixelIdFromAdParam = "";
+    try {
+      const normalized = ad_param.startsWith("?") ? ad_param.slice(1) : ad_param;
+      pixelIdFromAdParam = new URLSearchParams(normalized).get("pixel_id") || "";
+    } catch {
+      pixelIdFromAdParam = "";
+    }
+
+    const signupData = import.meta.env.VITE_PROMOTION_MODEL === "roibest" ?
       {
         ...data,
         ad_param: ad_param,
-        ...device
+        device_id
       } : {
         ...data,
         ad_param: ad_param,
-        fbp: getCookie('_fbp') || '',
-        fbc: getCookie('_fbc') || '',
-        pixel_id: import.meta.env.VITE_FACEBOOK_PIXEL_ID || '',
-        ...device
+        fbp: getCookie("_fbp") || "",
+        fbc: getCookie("_fbc") || "",
+        pixel_id: pixelIdFromAdParam || import.meta.env.VITE_FACEBOOK_PIXEL_ID || "",
+        device_id
       };
 
 
@@ -199,9 +206,31 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
   const CODE_USERNAME_ALREADY_REGISTERED = 20013;
 
   const renderPromoCard = () => (
-    <div className="relative h-[140px] overflow-hidden sm:h-[610px] rounded-t-box w-full sm:w-[310px] sm:rounded-r-none rtl:rotate-y-180 flex-shrink-0">
+    <div
+      style={{
+        isolation: "isolate",
+        background:
+          `linear-gradient(120deg,
+  var(--color-base-300) 0%,
+  var(--color-base-400) 52.8%,
+  
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 53.2%,
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 81.8%,
+  
+  color-mix(in oklch, var(--color-primary) 40%, transparent) 82.2%,
+  color-mix(in oklch, var(--color-primary) 40%, transparent) 87.8%,
+  
+  color-mix(in oklch, var(--color-primary) 20%, transparent) 88.2%,
+  color-mix(in oklch, var(--color-primary) 20%, transparent) 92.8%,
+  
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 93.2%,
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 100%
+)`
+      }}
+      className="relative h-[140px] overflow-hidden sm:h-[610px] rounded-t-box w-full sm:w-[310px] sm:rounded-r-none rtl:rotate-y-180 flex-shrink-0">
       {/** Title */}
-      <div className="font-extrabold text-xl sm:text-2xl leading-5 sm:leading-6 whitespace-pre-line p-7 sm:p-6 z-50 relative rtl:rotate-y-180">
+      <div
+        className="font-extrabold text-xl sm:text-2xl leading-5 sm:leading-6 whitespace-pre-line p-7 sm:p-6 z-50 relative rtl:rotate-y-180">
         <p className="text-base-content">{t("login:signUpModal.promoTitle1")}</p>
         <p className="text-primary">{t("login:signUpModal.promoTitle2")}</p>
       </div>
@@ -210,26 +239,6 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
         src="/images/illustrations/d4e43016f111393f13035dec78c262fcd55ee1ed.png"
         className="absolute z-20 w-[229px] h-[229px] left-[153px] rtl:right -[153px] rtl:rotate-y-180 top-0 md:-left-[48px] md:top-[179px] md:min-w-[442px] md:min-h-[442px] object-cover bg-no-repeat"
       />
-      {/** Background */}
-      <div
-        className="absolute inset-0 z-0 rounded-t-box"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 28.45%, color-mix(in oklch, var(--color-base-300), transparent 30%) 99.82%), linear-gradient(270deg, transparent 71.67%, color-mix(in oklch, var(--color-base-300), transparent 10%) 100%), linear-gradient(0deg, transparent 40.33%, color-mix(in oklch, var(--color-base-300), transparent 10%) 85.41%), linear-gradient(180deg, transparent 0%, color-mix(in oklch, var(--color-base-300), transparent 10%) 59.51%), url(/images/illustrations/75a2f479bdb1a69ccf2140854ec9033038e744a5.png) lightgray center / cover no-repeat",
-          WebkitBackfaceVisibility: "hidden",
-          backfaceVisibility: "hidden",
-          WebkitTransform: "translateZ(0)",
-          transform: "translateZ(0)",
-        }}
-      />
-      {/** Ellipse 4 */}
-      <div className="absolute -top-[230px] left-[112px] w-[286px] h-[286px] rounded-full bg-base-300 blur-[38px] z-10 sm:-left-[147px] sm:-top-[359px] sm:w-[600px] sm:h-[600px] sm:blur-[80px]" />
-      {/**Ellipse 3 */}
-      <div className="absolute top-[50px] left-[153px] w-[286px] h-[166px] rounded-full bg-primary blur-[38px] z-0 sm:-left-[63px] sm:top-[225px] sm:w-[600px] sm:h-[348px] sm:blur-[80px]" />
-      {/**Rectangle 2 */}
-      <div className="absolute -top-[85px] left-[152px] w-[71px] h-[311px] bg-primary/10 skew-x-[12deg] rotate-[36deg] translate-x-4 sm:translate-x-16 sm:-left-[63px] sm:-top-[57px] sm:w-[148px] sm:h-[652px]" />
-      {/**Rectangle 3 */}
-      <div className="absolute -top-[60px] left-[218px] w-[110px] h-[350px] skew-x-[12deg] rotate-[36deg] bg-primary/10 border-primary/40 border-l-[18px] translate-x-2 sm:left-[74px] sm:-top-[2px] sm:w-[230px] sm:h-[732px] sm:border-l-[38px]" />
     </div>
   );
 
@@ -295,7 +304,8 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
               checked={agreeMarketing}
               onChange={(e) => setAgreeMarketing(e.target.checked)}
             ></input>
-            <p className="text-xs md:text-sm text-base-content/50">{t("login:marketingPromotions", { siteName: `[${baseConf?.data?.h5?.replace(/^https?:\/\//, "")}]` })}</p>
+            <p
+              className="text-xs md:text-sm text-base-content/50">{t("login:marketingPromotions", { siteName: `[${baseConf?.data?.h5?.replace(/^https?:\/\//, "")}]` })}</p>
           </div>
         </div>
 
@@ -318,7 +328,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
       </button>
 
       {/* 社媒登录 */}
-      <SocialLogin />
+      <SocialLogin enabled={isOpen} />
     </div>
   );
 
@@ -355,7 +365,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
             custom
             theme="dark"
           />,
-          document.body,
+          document.body
         )}
     </>
   );

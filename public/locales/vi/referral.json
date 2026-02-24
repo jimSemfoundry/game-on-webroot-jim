@@ -7,6 +7,9 @@
     "commissions": "Hoa hồng",
     "rewards": "Phần thưởng"
   },
+  "campaignAlreadyExists": "Chiến dịch đã tồn tại",
+  "campaignCreateSuccess": "Chiến dịch đã được tạo thành công!",
+  "campaignCreateFailed": "Tạo chiến dịch thất bại",
   "commissionCalculator": "Máy tính hoa hồng",
   "telegramReferralLink": "Liên Kết Giới Thiệu Telegram",
   "network": "Mạng lưới",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Hoa hồng Giới thiệu của tôi",
   "myReferralRewards": "Phần thưởng Giới thiệu của tôi",
   "exp": "Kinh nghiệm",
-  "userLevel": "Cấp độ Người dùng"
+  "userLevel": "Cấp độ Người dùng",
+  "extraReferralBonus": {
+    "slogan": "THƯỞNG<0>GIỚI THIỆU</0><0>THÊM</0>",
+    "title": "Mời một người bạn và nhận thêm phần thưởng khi họ thực hiện lần gửi tiền đầu tiên. Người chơi đầu tiên mà bạn giới thiệu tham gia, gửi tiền và chơi, bạn sẽ nhận được 10% Thưởng Giới Thiệu Thêm dựa trên số tiền gửi ban đầu của họ.",
+    "bonusCalculatedTitle": "Cách Tính Thưởng?",
+    "bonusCalculatedDesc": "Thưởng Giới Thiệu Thêm của bạn được tính là 10% số tiền gửi đầu tiên của bạn bè bạn. Nếu số tiền gửi đầu tiên của bạn bè bạn tương đương với <0>{{depositAmount}}</0>, bạn sẽ nhận được phần thưởng trị giá <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Phân Phối Thưởng",
+    "claimDistributionDesc": "Tất cả những gì bạn cần làm là liên hệ với Dịch vụ Khách hàng qua Live Chat và thông báo cho họ rằng bạn muốn yêu cầu phần thưởng với thông tin của người giới thiệu.",
+    "expirationTitle": "Hết Hạn",
+    "expirationDesc": "Phần thưởng phải được yêu cầu trong vòng 7 x 24 giờ (7 ngày) sau khi bạn bè bạn thực hiện gửi tiền ban đầu; sau đó, nó không thể được phát lại.",
+    "generalTermsTitle": "Điều Khoản Chung",
+    "generalTermsDesc1": "Phần thưởng được tính toán và ghi có bằng <0>BUCK/USDT</0>, sau đó được hiển thị bằng đồng tiền fiat mà bạn ưa thích cho sự tiện lợi. Xin lưu ý, việc chuyển đổi tiền tệ là ước tính. Mức thưởng tối đa bạn có thể nhận được cho mỗi người bạn được giới thiệu là tương đương với {{bonusAmount}}, và phần thưởng có thể được yêu cầu một lần cho mỗi ID người dùng. Người được giới thiệu của bạn phải đặt cược ít nhất 4 lần số tiền gửi lần đầu của họ trước khi bạn có thể yêu cầu phần thưởng của mình.",
+    "generalTermsDesc2": "Sòng bạc có quyền sửa đổi hoặc thu hồi quyền đủ điều kiện bất cứ lúc nào, mà không có nghĩa vụ phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào – bao gồm nhưng không giới hạn ở việc trùng lặp hoặc dữ liệu người chơi khớp nhau, gian lận gửi tiền, địa chỉ IP khớp nhau, cược an toàn, hoặc hành vi đầu tư – sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi và hủy bỏ bất kỳ phần thưởng liên quan nào. Tất cả các quyết định của sòng bạc liên quan đến chương trình khuyến mãi này là cuối cùng và không thể bị tranh chấp."
+  },
+  "referral_program_disabled": "CHƯƠNG TRÌNH\nGIỚI THIỆU\n<0>ĐÃ VÔ HIỆU</0>",
+  "programAccessUpdate": "Cập nhật quyền truy cập chương trình",
+  "referralProgramPrivileges": "Quyền lợi chương trình giới thiệu của bạn đã bị thu hồi sau khi chúng tôi xem xét tài khoản và việc bạn tham gia chương trình. Chúng tôi đã phát hiện hoạt động không tuân thủ các điều khoản, điều kiện hoặc mục đích sử dụng dự kiến của chương trình giới thiệu. Điều này có thể bao gồm các mẫu giới thiệu đáng ngờ, phương thức quảng bá trái phép, lạm dụng ưu đãi hoặc cố gắng lách các hướng dẫn sử dụng hợp lý.",
+  "referralRewardsPrivileges": "Do đó, khả năng tạo phần thưởng giới thiệu mới, chia sẻ liên kết giới thiệu hoặc nhận lợi ích từ lượt giới thiệu của bạn đã bị vô hiệu hóa. Các phần thưởng đang chờ xử lý hoặc trong tương lai liên quan đến chương trình giới thiệu sẽ bị giữ lại và hủy theo chính sách của chúng tôi. <0>Mọi chức năng khác của tài khoản của bạn vẫn nguyên vẹn và không bị ảnh hưởng bởi thay đổi này</0>.",
+  "understandDisappointing": "Chúng tôi hiểu điều này có thể gây thất vọng. Nếu bạn cho rằng quyết định này là nhầm lẫn hoặc muốn biết thêm chi tiết, vui lòng liên hệ đội ngũ hỗ trợ của chúng tôi kèm theo các thông tin liên quan, và chúng tôi sẽ xem xét trường hợp của bạn."
 }

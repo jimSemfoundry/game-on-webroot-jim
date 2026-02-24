@@ -1,9 +1,9 @@
-import { Dot } from "lucide-react";
+import { Asterisk } from "lucide-react";
 
-export const RequireItem = ({ label }: { label: React.ReactNode }) => {
+export const RequireItem = ({ label, required }: { label: React.ReactNode, required?: boolean }) => {
   return (
     <div className="flex items-center">
-      {label} <Dot className="text-error w-4 h-4" strokeWidth={8} />
+      {label} {required && <Asterisk className="text-error w-3 h-3" />}
     </div>
   );
 };

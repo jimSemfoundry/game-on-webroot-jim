@@ -209,7 +209,7 @@ export function Index() {
   };
 
   return (
-    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
+    <div className="bg-base-300 flex flex-col rounded-field overflow-visible">
       <Card
         icon={<Iconify icon="custom:rollover" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />}
         title={t("transaction:tabs.rollover", "Rollover")}
@@ -231,9 +231,9 @@ export function Index() {
                 disabled={!canGoPrev || isFetching}
                 className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                  <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
               </button>
 
               {pageNumbers.map((page, index) => (
@@ -256,9 +256,9 @@ export function Index() {
                 disabled={!canGoNext || isFetching}
                 className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                  <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
               </button>
             </div>
           )}

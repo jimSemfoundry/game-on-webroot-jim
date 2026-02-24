@@ -4,51 +4,49 @@ import { MotionContentBox } from "@/components/modal/UserFinanceModal/c/MotionCo
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import VerificationInput from "react-verification-input";
+import { OTPInput } from 'input-otp'
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { emitter } from "@/store/emitter.ts";
 
-export const WithdrawPinModal = () => {
+export const WithdrawPinModal = (
+  {
+    open,
+    data,
+    onClose
+  }: {
+    open: boolean;
+    data: any
+    onClose: () => void;
+  }) => {
   const { t } = useTranslation();
 
   const { user } = useAuth();
 
-  const [status, { set }] = useToggle<boolean>(false);
-
-  // from data store, share common data
-  const { syncAction } = useBoundStore();
-
-  // 事件通知
-  useEffect(() => {
-    if (syncAction.type === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL" || syncAction.type === "OPEN_WITHDRAW_FIAT_PIN_MODAL") set(true);
-  }, [syncAction]);
-
   return (
     <Modal
-      isOpen={status}
+      isOpen={open}
       title={
         <span className="text-sm font-semibold">
           {user?.pin_setted ? t("finance:enter_withdrawal_pin") : t("finance:setWithdrawalPin")}
         </span>
       }
-      onClose={() => set(false)}
+      onClose={onClose}
       className="bg-base-400 md:max-w-[360px]"
       position="modal-middle"
     >
-      <MotionContentBox sample show={!user?.pin_setted} content={<NoPinCode onClose={() => set(false)} />} />
-      <MotionContentBox sample show={!!user?.pin_setted}
-                        content={<HavePinCode show={status} onClose={() => set(false)} />} />
+      <MotionContentBox sample show={!user?.pin_setted} content={<NoPinCode data={data} onClose={onClose} />} />
+      <MotionContentBox sample show={!!user?.pin_setted} content={<HavePinCode data={data} show={open} onClose={onClose} />} />
     </Modal>
   );
 };
 
 // 未设置PIN码，去设置
-const NoPinCode = ({ onClose }: { onClose: () => void }) => {
+const NoPinCode = ({ data, onClose }: { data: string, onClose: () => void }) => {
   const { t } = useTranslation();
 
-  const { syncAction, setSyncAction } = useBoundStore();
+  const { setSyncAction } = useBoundStore();
 
   return (
     <div className="flex flex-col gap-4">
@@ -68,9 +66,6 @@ const NoPinCode = ({ onClose }: { onClose: () => void }) => {
       <ConfirmBox
         onClick={() => {
           onClose();
-
-          const ty = syncAction.type;
-
           /**
            * 自定义行为 - 来源于用户提款操作但是未设置PIN码
            * 前提：用户操作提款但是未设置PIN码
@@ -81,53 +76,60 @@ const NoPinCode = ({ onClose }: { onClose: () => void }) => {
            * OPEN_WITHDRAW_CRYPTO_PIN_MODAL 加密提款
            * OPEN_WITHDRAW_FIAT_PIN_MODAL   法币提款
            */
-          setSyncAction("OPEN_SET_WITHDRAWAL_PIN_MODAL", ty);
+          setSyncAction("OPEN_SET_WITHDRAWAL_PIN_MODAL", data);
         }}
       >
-        {t("common.confirm")}
+        {t("common:common.confirm")}
       </ConfirmBox>
     </div>
   );
 };
 
 // 已设置PIN码，去交易
-const HavePinCode = ({ show, onClose }: { show: boolean; onClose: () => void }) => {
+const HavePinCode = ({ data, show, onClose }: { data: string, show: boolean; onClose: () => void }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const { t } = useTranslation();
 
   const [pin, setPin] = useState<string>("");
 
-  // from data store, share common data
-  const { setSyncAction, syncAction } = useBoundStore();
-
-  const isError = useMemo(() => pin !== "" && !/^[0-9]{6}$/.test(pin), [pin]);
+  const isError = pin !== "" && !/^[0-9]{6}$/.test(pin);
 
   // 默认focus input
   useLayoutEffect(() => {
-    const timer = setInterval(() => {
-      const dom = document.getElementById("PIN");
-      if (show) dom?.click();
-      if (dom) clearInterval(timer);
-    }, 500);
+    if (!show) return
+    const timer = setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+    return () => clearTimeout(timer);
   }, [show]);
 
   return (
     <div className="flex flex-col gap-4 items-center">
       <img src="/images/profile/security-verification-lock.png" className="w-25 h-25" />
-      <div className="flex flex-col gap-2 w-full" autoFocus>
+      <div className="relative flex flex-col gap-2 w-full" autoFocus>
         <p className="text-xs font-semibold text-base-content/50">{t("common.confirmNewPlaceholder")}</p>
-        <VerificationInput
-          classNames={{
-            container: "flex justify-between gap-2 !w-auto",
-            character:
-              "!cursor-pointer flex items-center justify-center font-sans p-0 input !outline-0 !bg-base-200 !border-2 !border-base-200 !text-xl font-bold justify-center w-full rounded-lg !text-base-content",
-            characterSelected: "!bg-base-200 !border-primary !border-base-200"
-            // characterInactive: "!bg-base-300 !border-base-300"
-          }}
-          inputProps={{ id: "PIN", autoComplete: "off" }}
+        <OTPInput
+          ref={inputRef}
+          autoFocus
+          maxLength={6}
+          inputMode='numeric'
+          containerClassName="group flex items-center has-[:disabled]:opacity-50"
+          render={({ slots }) => (
+            <div className="flex gap-2 justify-between flex-1">
+              {slots.map((slot, idx) => (
+                <div key={idx} className="flex-1 min-w-10 min-h-12 rounded-md flex items-center justify-center bg-base-200 text-2xl font-extrabold font-sans">
+                  {slot.char}
+                  {slot.hasFakeCaret && <div className="w-px h-4 bg-primary animate-caret-blink" />}
+                </div>
+              ))}
+            </div>
+          )}
           placeholder="-"
           value={pin}
           onChange={(v) => {
-            if (v === "" || /^\d+$/.test(v)) setPin(v);
+            if (v === "" || /^\d+$/.test(v))
+              setPin(v)
           }}
         />
         <DisplayContent status={isError}>
@@ -137,12 +139,11 @@ const HavePinCode = ({ show, onClose }: { show: boolean; onClose: () => void }) 
       <ConfirmBox
         disabled={pin === "" || isError}
         onClick={() => {
-          const ty = syncAction.type;
-          if (ty === "OPEN_WITHDRAW_FIAT_PIN_MODAL") {
-            setSyncAction("SYNC_WITHDRAW_FIAT_CREATE", pin);
+          if (data === "OPEN_WITHDRAW_FIAT_PIN_MODAL") {
+            emitter.emit("SYNC_WITHDRAW_FIAT_CREATE", pin);
           }
-          if (ty === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL") {
-            setSyncAction("SYNC_WITHDRAW_CRYPTO_CREATE", pin);
+          if (data === "OPEN_WITHDRAW_CRYPTO_PIN_MODAL") {
+            emitter.emit("SYNC_WITHDRAW_CRYPTO_CREATE", pin);
           }
           setPin("");
           onClose();

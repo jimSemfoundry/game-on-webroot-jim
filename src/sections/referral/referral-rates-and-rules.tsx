@@ -25,7 +25,7 @@ type VipSelectOption = SelectOption & {
 const BASE_COMMISSION_RATE = new Decimal(0.01);
 
 export const ReferralRatesAndRules = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'common']);
   const { status, user } = useAuth();
   const { selectedCurrency, getCurrencySymbol } = useDisplayCurrency();
 

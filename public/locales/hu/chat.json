@@ -3,5 +3,8 @@
   "notifications": "Értesítések",
   "support": "Támogatás",
   "retry": "Próbálja újra",
-  "customerServiceChatFailedToLoad": "Az ügyfélszolgálati csevegés nem töltődött be"
+  "customerServiceChatFailedToLoad": "Az ügyfélszolgálati csevegés nem töltődött be",
+  "read": "Olvasott",
+  "unread": "Olvasatlan",
+  "customerService": "Ügyfélszolgálat"
 }

@@ -1,11 +1,11 @@
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export const CryptoSettlementModal = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -31,7 +31,7 @@ export const CryptoSettlementModal = () => {
       onClose={() => set(false)}
       position="modal-middle"
       className="bg-transparent p-0 md:max-w-[460px] hide-scrollbar relative max-h-[calc(100vh-10em)] shadow-lg rounded-2xl"
-      closeButtonClassName={classNames("top-40", { "w-7.5 h-7.5": isMobile })}
+      closeButtonClassName={clsx("top-40", { "w-7.5 h-7.5": isMobile })}
     >
       <div className="bg-base-400 sticky top-0">
         <div

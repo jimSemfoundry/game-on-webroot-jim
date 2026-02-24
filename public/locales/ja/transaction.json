@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "フリースピン報酬",
   "common": {
     "close": "閉じる",
     "copy": "コピー",
@@ -12,7 +13,8 @@
     "swap": "入れ替え",
     "swapFrom": "入れ替え From",
     "swapTo": "入れ替え To",
-    "noCommissionRecords": "コミッションレコードが見つかりません"
+    "noCommissionRecords": "コミッションレコードが見つかりません",
+    "createdOn": "作成日"
   },
   "tabs": {
     "transactionHistory": "取引履歴",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "出金ネットワーク",
     "blockchainWaiting": "ブロックチェーン確認を待っています。",
     "blockchainFailed": "ブロックチェーントランザクションに失敗しました。",
-    "**********": "********************ここから新しい翻訳が始まりますend********************",
     "withdrawOrderStatus": "リクエストを受け取りました。<br/>ステータスを確認するには、プロフィールの取引をチェックしてください。"
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "必要な総賭け金",
     "wagerCompleted": "賭けが完了しました",
     "pendingWagerRequired": "保留中の賭け金が必要です",
-    "unlockedFunds": "アンロックされた資金"
-  }
+    "unlockedFunds": "ロック解除された資金",
+    "rolloverMul": "ベット倍率"
+  },
+  "assistance": "詳細を確認して再試行するか、カスタマーサービスにお問い合わせください"
 }

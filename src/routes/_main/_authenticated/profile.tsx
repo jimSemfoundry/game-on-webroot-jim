@@ -16,6 +16,7 @@ import { emitter } from "@/store/emitter.ts";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useEffect } from "react";
 import { ProfileSearch } from "@/sections/profile/c/NavScrollBar.tsx";
+import { getPathInROIBEST } from "@/utils/helper.ts";
 
 export const Route = createFileRoute("/_main/_authenticated/profile")({
   component: ProfilePage
@@ -26,7 +27,7 @@ function ProfilePage() {
 
   const { user } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   // const [selectedCategory, setSelectedCategory] = useState<
   //   "dashboard" | "transactions" | "rollover" | "betHistory" | "security" | "settings" | "legal"
   // >("dashboard");
@@ -113,7 +114,7 @@ function ProfilePage() {
 
   if (!user) {
     return <div
-      className="p-5 grid grid-rows-3 grid-rows-[1.5fr_1fr_1fr_1fr] gap-4 h-[calc(100vh-48px-72px-env(safe-area-inset-bottom)-env(safe-area-inset-top)))]">
+      className="p-5 grid grid-rows-3 grid-rows-[1.5fr_1fr_1fr_1fr] gap-4 h-[calc(100vh-48px-72px-var(--safe-area-inset-bottom)-var(--safe-area-inset-top)))]">
       <div className="skeleton bg-base-200/40 rounded-xl" />
       <div className="skeleton bg-base-200/40 rounded-xl" />
       <div className="skeleton bg-base-200/40 rounded-xl" />
@@ -142,7 +143,7 @@ function ProfilePage() {
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-10 sm:items-center -mt-4 mb-4">
           {/* FIXME: roibest 前缀异常 */}
           <img
-            src={`${import.meta.env.VITE_PROMOTION_MODEL === "roibest" ? `/${import.meta.env.VITE_FOLDER}` : ""}/images/illustrations/7d9e2a1cab9d27045f7a0364eadc17c01e2b654e.png`}
+            src={`${getPathInROIBEST()}/images/illustrations/7d9e2a1cab9d27045f7a0364eadc17c01e2b654e.png`}
             className="absolute rtl:left-5 rtl:right-auto rtl:rotate-y-180 right-5 top-0 w-[170px] h-[170px] drop-shadow-[0_4px_40px_rgba(238,216,92,0.30)] z-10 sm:hidden"
           />
 
@@ -234,6 +235,7 @@ function ProfilePage() {
         {/* 菜单的内容 */}
         <MainContent />
       </div>
+
     </div>
   );
 }

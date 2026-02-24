@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { forwardRef, ReactNode, useMemo } from "react";
 import { NumericFormat as _NumericFormat, NumericFormatProps } from "react-number-format";
 
@@ -32,12 +32,12 @@ export const NumericFormat = forwardRef<HTMLDivElement, NumericFormatProps<{
     return props.value;
   }, [props.value, props.decimalScale]);
   return (
-    <div className={classNames("flex gap-1 items-center justify-between px-4 bg-base-300 rounded-lg", wrapCls)}>
+    <div className={clsx("flex gap-1 items-center justify-between px-4 bg-base-300 rounded-lg", wrapCls)}>
       <_NumericFormat
         {...props}
         value={final_value}
         allowNegative={false}
-        className={classNames("flex-1 input px-0 border-0 rounded-none !outline-0 font-bold bg-inherit disabled:bg-inherit", props.className)} />
+        className={clsx("flex-1 input px-0 border-0 rounded-none !outline-0 font-bold bg-inherit disabled:bg-inherit", props.className)} />
       {suf && <div className="text-base-content/70">{suf}</div>}
     </div>
   );

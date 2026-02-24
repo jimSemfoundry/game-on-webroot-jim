@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Kas yra savaitinė premija?",
-    "content": "<p class=\"leading-7\">Savaitinė premija yra išskirtinė privilegija mūsų svetainėje, skirta žaidėjams, kurie yra VIP12 ir aukščiau. Ši premija išmokama kas savaitę ir automatiškai išmokama kiekvieną penktadienį žaidėjams, kurie yra VIP12 ir aukščiau. Premijos dydis priklauso nuo per pastarąją savaitę atliktų statymų sumos, su minimalia statymo reikalavimu {{minWager}} per pastarąją savaitę.</p>"
+    "content": "<p class=\"leading-7\">Savaitinė premija yra išskirtinė privilegija mūsų svetainėje, skirta žaidėjams, kurie yra VIP2 ir aukščiau. Premija išmokama kas savaitę pirmadieniais ir baigiasi, kai pasirodo kita savaitinė premija. Premijos dydis priklauso nuo per pastarąją savaitę atliktų statymų sumos, su minimalia efektyvia statymo reikalavimu {{minWager}} per pastarąją savaitę.</p>"
   },
   "faqNine": {
     "title": "Kas yra pasiekimai?",

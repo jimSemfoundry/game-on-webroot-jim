@@ -7,6 +7,9 @@
     "commissions": "Provisionen",
     "rewards": "Belohnungen"
   },
+  "campaignAlreadyExists": "Kampagne existiert bereits",
+  "campaignCreateSuccess": "Kampagne erfolgreich erstellt!",
+  "campaignCreateFailed": "Fehler beim Erstellen der Kampagne",
   "commissionCalculator": "Provisionsrechner",
   "telegramReferralLink": "Telegram-Empfehlungslink",
   "network": "Netzwerk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Meine Empfehlungsprovisionen",
   "myReferralRewards": "Meine Empfehlungsbelohnungen",
   "exp": "EXP",
-  "userLevel": "Benutzerlevel"
+  "userLevel": "Benutzerlevel",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Lade einen Freund ein und erhalte zusätzliche Belohnungen, wenn er seine erste Einzahlung tätigt. Für den ersten Spieler, den du wirbst und der beitritt, einzahlt und spielt, erhältst du einen 10% Extra Referral Bonus basierend auf dem Betrag seiner ersten Einzahlung.",
+    "bonusCalculatedTitle": "Wie wird der Bonus berechnet?",
+    "bonusCalculatedDesc": "Dein Extra Referral Bonus wird als 10% der ersten Einzahlung deines Freundes berechnet. Wenn die erste Einzahlung deines Freundes <0>{{depositAmount}}</0> beträgt, erhältst du eine Belohnung im Wert von <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Einlösungsverteilung",
+    "claimDistributionDesc": "Alles, was du tun musst, ist, den Kundenservice im Live-Chat zu kontaktieren und ihnen mitzuteilen, dass du die Belohnung mit den Informationen deines geworbenen Freundes einlösen möchtest.",
+    "expirationTitle": "Ablauf",
+    "expirationDesc": "Der Bonus muss innerhalb von 7 x 24 Stunden (7 Tage) nach der ersten Einzahlung deines Freundes eingelöst werden; danach kann er nicht erneut ausgegeben werden.",
+    "generalTermsTitle": "Allgemeine Bedingungen",
+    "generalTermsDesc1": "Belohnungen werden in <0>BUCK/USDT</0> berechnet und gutgeschrieben und dann zu Ihrem bevorzugten Fiat-Währungszweck angezeigt. Bitte beachten Sie, dass Währungsumrechnungen ungefähre Werte sind. Der maximale Bonus, den Sie pro geworbenem Freund erhalten können, entspricht {{bonusAmount}}, und der Bonus kann einmal pro Benutzer-ID beansprucht werden. Ihr geworbener Freund muss mindestens 4 Mal den Betrag seiner ersten Einzahlung umsetzen, bevor Sie Ihren Bonus beanspruchen können.",
+    "generalTermsDesc2": "Das Casino behält sich das Recht vor, die Berechtigung jederzeit zu ändern oder zu widerrufen, ohne die Verpflichtung zur Rechtfertigung. Jeglicher Missbrauch oder betrügerische Aktivitäten – einschließlich, aber nicht beschränkt auf doppelte oder übereinstimmende Spieldaten, Einzahlungsbetrug, übereinstimmende IP-Adressen, Sicherheitswetten oder investitionsähnliches Verhalten – führen zur Disqualifikation von der Aktion und zur Stornierung aller damit verbundenen Boni. Alle Entscheidungen des Casinos bezüglich dieser Aktion sind endgültig und können nicht angefochten werden."
+  },
+  "referral_program_disabled": "EMPFEHLUNGS\nPROGRAMM\n<0>DEAKTIVIERT</0>",
+  "programAccessUpdate": "Aktualisierung des Programmzugriffs",
+  "referralProgramPrivileges": "Deine Berechtigungen für das Empfehlungsprogramm wurden nach einer Überprüfung deines Kontos und deiner Teilnahme am Programm widerrufen. Wir haben Aktivitäten festgestellt, die nicht mit den Bedingungen oder der vorgesehenen Nutzung unseres Empfehlungsprogramms vereinbar sind. Dazu können verdächtige Empfehlungsmuster, nicht autorisierte Werbemethoden, Missbrauch von Anreizen oder Versuche, Fair-Use-Richtlinien zu umgehen, gehören.",
+  "referralRewardsPrivileges": "Infolgedessen wurde deine Möglichkeit, neue Empfehlungsbelohnungen zu generieren, Empfehlungslinks zu teilen oder Vorteile aus Empfehlungen zu erhalten, deaktiviert. Ausstehende oder zukünftige Belohnungen im Zusammenhang mit dem Empfehlungsprogramm werden gemäß unseren Richtlinien einbehalten und storniert. <0>Alle anderen Funktionen deines Kontos bleiben intakt und sind von dieser Änderung nicht betroffen</0>.",
+  "understandDisappointing": "Wir verstehen, dass das enttäuschend sein kann. Wenn du glaubst, dass diese Entscheidung ein Fehler ist oder du weitere Details wünschst, wende dich bitte mit relevanten Informationen an unser Support-Team; wir werden deinen Fall prüfen."
 }

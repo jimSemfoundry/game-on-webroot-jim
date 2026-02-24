@@ -22,7 +22,7 @@ const DEFAULT_GRADIENT = `
 const ILLUSTRATION_URL = "/images/illustrations/eizDsf61VZqnUMmvlAedUuwXehab4SDAw0GzPr9aizTmvx0d1SPQqk5XCgrG4lmgPRAruRqgyLxngVvEfUiCsDvW6B3H.svg";
 
 export function BonusConquestsCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { openTipsModal } = useTipsModal();
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
@@ -166,7 +166,7 @@ export function BonusConquestsCard() {
         {/* Right Section */}
         <div className="flex items-center gap-2 ml-4 rtl:ml-auto rtl:mr-4">
           <button
-            className="btn btn-primary btn-soft btn-md font-semibold px-0 w-20 max-w-20"
+            className={`btn btn-primary btn-md font-semibold px-0 w-20 max-w-20 ${hasClaimableReward ? "" : "btn-soft"}`}
             onClick={handleClaim}
             disabled={isClaimPending}
           >

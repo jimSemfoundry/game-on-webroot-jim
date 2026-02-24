@@ -1,21 +1,26 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { DepositFiatAmount } from "@/components/modal/UserFinanceModal/c/DepositFiatAmount.tsx";
 import {
-  DepositFiatFormInit,
-  handleBindOrHideFormItemDefaultValue
+  DepositFiatFormInit
 } from "@/components/modal/UserFinanceModal/c/DepositFiatFormInit.tsx";
 import { useFiatGatewayDepositParams } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import React, { useCallback, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { ErrorString } from "@/store/type.ts";
-import { InnerFieldItem, InnerOptions } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import {
+  InnerFieldItem,
+  InnerOptions,
+  InnerUnnecessary
+} from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { debug_target, open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useRumSdkUserLog } from "@/utils/helper.ts";
-import { isEmpty } from "lodash-es";
+import { isEmpty } from "@/utils/helper.ts";
+import { emitter } from "@/store/emitter.ts";
+import { openExternalUrl } from "@/utils/telegramWebApp";
 
 export const DepositFiatForm = () => {
 
@@ -26,32 +31,15 @@ export const DepositFiatForm = () => {
   const { rumCustomLog, rumException } = useRumSdkUserLog();
 
   // from data store, share common data
-  const { depositFiat, setDepositFiat, syncAction, setSyncAction } = useBoundStore();
+  const { depositFiat, setDepositFiat, setSyncAction, openModal } = useBoundStore();
 
   // 网关必填字段
   const { data: fields } = useFiatGatewayDepositParams(depositFiat.method?.gateway_id, depositFiat.method?.pay_bankcode);
 
-  // 附加的隐藏的必要的字段，不在表单出现
-  useEffect(() => {
-    if (!fields?.data) return;
-
-    const transform = fields.data;
-    for (const key in transform) {
-      const field = transform[key];
-
-      if (!field.required) continue;
-
-      if (field.bind || field.hide) {
-        const value = handleBindOrHideFormItemDefaultValue(field, depositFiat.method);
-        setDepositFiat({ formItem: { [key]: value || "" } });
-      }
-    }
-  }, [fields]);
-
   // 客户端可见的表单生成
   const formItem = useMemo(() => {
     let amountNode: React.ReactNode = null;
-    let selectNode: React.ReactNode = null;
+    let selectNode: React.ReactNode[] = [];
     let nodes: React.ReactNode[] = [];
     if (fields?.data) {
       const transform = fields.data;
@@ -64,30 +52,50 @@ export const DepositFiatForm = () => {
       for (const key in transform) {
         const field = transform[key];
 
-        if (field.hide || !field.required) continue;
+        if (field.hide) continue;
+
+        if (!field.required && !field.hide && !field.select) {
+          nodes.push(<InnerUnnecessary
+            key={`${key}_${depositFiat.method?.gateway_id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
+            name={key}
+            field={field}
+            onChange={(v) => {
+              setDepositFiat({
+                extraItem: { [key]: v.value }
+              });
+            }} />);
+          continue;
+        }
 
         if (key === "amount") {
-          amountNode = <DepositFiatAmount key="amount" />;
+          amountNode = <DepositFiatAmount key="amount" multiple={field?.multiple} />;
           continue;
         }
 
         if (Array.isArray(field.select) && field.select.length > 0) {
-          selectNode = (
+          selectNode.push(
             <InnerOptions
-              key={key}
+              key={`${key}_${depositFiat.method?.gateway_id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
               name={key}
               field={field}
               onChange={(v) => {
-                setDepositFiat({
-                  formItem: v
-                });
+                if (field.required) { // 必选
+                  setDepositFiat({
+                    formItem: { [key]: v.value },
+                    [`${key}_error`]: v[`${key}_error`]
+                  });
+                } else { // 非必选
+                  setDepositFiat({
+                    extraItem: { [key]: v.value }
+                  });
+                }
               }} />
           );
           continue;
         }
 
         nodes.push(<InnerFieldItem
-          key={key}
+          key={`${key}_${depositFiat.method?.gateway_id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
           name={key}
           field={field}
           onChange={(v) => {
@@ -101,7 +109,7 @@ export const DepositFiatForm = () => {
 
     // 控制表单的显示顺序
     return nodes.concat(selectNode, amountNode);
-  }, [fields]);
+  }, [fields, depositFiat.method?.gateway_id]);
 
   // 创建订单
   const createOrder = useCallback(async () => {
@@ -128,12 +136,15 @@ export const DepositFiatForm = () => {
     authService
       .createFiatDepositOrder(params)
       .then(({ code, data }) => {
-        if (code === 0) {
+        if (code === 0 || code === 200) {
           if (data.payment_url) {
-            window.location.href = data.payment_url;
+            openExternalUrl(data.payment_url);
           } else {
             toast.error(t("toast:paymentUrlNotFound"));
           }
+        } else if (code === 40021) {
+          // 提款AML措施-错误提示
+          openModal("OPEN_FINANCE_AML_MODAL");
         } else {
           toast.error(t("toast:failedToCreateDepositOrder"));
         }
@@ -152,7 +163,7 @@ export const DepositFiatForm = () => {
 
   // 表单字段是否有错误
   const filed_value_null = useMemo(() => {
-    return isEmpty(depositFiat.formItem) || Object.values(depositFiat.formItem).some((value) => !value);
+    return isEmpty(depositFiat.formItem) || (!!depositFiat.formItem && Object.values(depositFiat.formItem).some((value) => !value));
   }, [depositFiat.formItem]);
 
   // 表单字段是否有额外的错误
@@ -168,15 +179,17 @@ export const DepositFiatForm = () => {
 
   // 事件通知
   useEffect(() => {
-    if (syncAction.type === "SYNC_DEPOSIT_FIAT_CREATE") void createOrder();
-  }, [syncAction]);
+    const em = emitter.addListener("SYNC_DEPOSIT_FIAT_CREATE", function () {
+      void createOrder();
+    });
+
+    return () => em?.remove();
+  }, [createOrder]);
 
   // debug console
   useEffect(() => {
     if (open_debug && debug_target === "DEPOSIT") {
-      console.info("************ depositFiat start ************");
       console.info(depositFiat);
-      console.info("************ depositFiat ended ************");
     }
   }, [depositFiat]);
 

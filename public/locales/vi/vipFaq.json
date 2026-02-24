@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Tiền thưởng hàng tuần là gì?",
-    "content": "<p class=\"leading-7\">Tiền thưởng hàng tuần là một đặc quyền độc quyền trên trang web của chúng tôi dành cho những người chơi từ VIP12 trở lên. Tiền thưởng này được phát hàng tuần và tự động được trả vào mỗi thứ Sáu cho những người chơi từ VIP12 trở lên. Kích thước của tiền thưởng phụ thuộc vào số tiền đã cược trong tuần trước, với yêu cầu cược tối thiểu là {{minWager}} trong tuần trước.</p>"
+    "content": "<p class=\"leading-7\">Tiền thưởng hàng tuần là một đặc quyền độc quyền trên trang web của chúng tôi dành cho những người chơi từ VIP2 trở lên. Tiền thưởng được phát hàng tuần vào thứ Hai và hết hạn khi tiền thưởng hàng tuần tiếp theo được phát hành. Kích thước của tiền thưởng phụ thuộc vào số tiền đã cược trong tuần trước, với yêu cầu cược hiệu quả tối thiểu là {{minWager}} trong tuần trước.</p>"
   },
   "faqNine": {
     "title": "Thành tựu là gì?",

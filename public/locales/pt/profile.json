@@ -76,12 +76,39 @@
   "dashboard": "Painel de Controle",
   "transactions": "Transações",
   "rollover": "Rollover",
-  "betHistory": "Histórico de Apostas",
+  "betHistory": {
+    "empty": "Nenhum histórico de apostas encontrado",
+    "title": "Histórico de Apostas",
+    "headers": {
+      "game": "Jogo",
+      "date": "Data",
+      "betId": "ID da Aposta",
+      "betIn": "Aposta",
+      "betOut": "Ganho",
+      "account": "Conta",
+      "amount": "Valor",
+      "provider": "Provedor",
+      "match": "Partida",
+      "tournament": "Torneio"
+    }
+  },
   "settings": "Configurações",
   "legal": "Legal",
   "nickname": "Apelido",
   "zoomAndAdjust": "Ampliar e Ajustar",
   "systemLanguage": "Idioma do Sistema",
   "editProfile": "Editar Perfil",
-  "inviteAndGetRewarded": "Convide e Seja Recompensado"
+  "inviteAndGetRewarded": "Convide e Seja Recompensado",
+  "emailAddress": "Endereço de Email",
+  "codeSent": "Insira o Código Que Enviamos",
+  "codeSentTo": "Um código foi enviado para",
+  "notReceiveCode": "Não recebeu o código?",
+  "verificationSuccess": "Verificação Bem-Sucedida",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Seu número de telefone foi verificado. Você já pode continuar.",
+  "email_address_has_been_verified": "Seu endereço de e-mail foi verificado. Você já pode continuar.",
+  "setNewPassword": "Definir Nova Senha",
+  "passwordLengthRequirement": "Por favor, insira uma senha entre 6 e 64 caracteres."
 }

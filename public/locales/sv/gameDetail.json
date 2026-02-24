@@ -25,6 +25,14 @@
   "totalTips": "Tips",
   "result": "Resultat",
   "myBets": "Mina insatser",
-  "**********": "",
-  "demoPlay": "Demospel"
+  "demoPlay": "Demospel",
+  "limitedOffer": "Begränsat Erbjudande",
+  "deposit": "Sätt in {{value}}",
+  "get": "Få {{value}}",
+  "instantCashBonus": "Omedelbar Kontantbonus",
+  "expires": "Utgår",
+  "depositNow": "Sätt in Nu",
+  "free_spins": "Gratissnurr",
+  "play_with_balance_in": "Spela med Balans I",
+  "the_selected_currency_will_be_displayed_in": "Den valda valutan kommer att visas i"
 }

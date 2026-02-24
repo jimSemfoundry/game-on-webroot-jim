@@ -1,5 +1,5 @@
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import clasNames from "classnames";
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { Card } from "@/sections/profile/c/Card.tsx";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext.tsx";
@@ -30,7 +30,7 @@ export function UserStats() {
 
 const InnerItem = ({ title, amount, className }: { title: string, amount: string | number, className?: string }) => {
   return (<div
-    className={clasNames("bg-base-300 flex flex-col items-center justify-center rounded-lg p-2", className)}>
+    className={clsx("bg-base-300 flex flex-col items-center justify-center rounded-lg p-2", className)}>
     <p className="text-xs text-base-content/50">{title}</p>
     <p className="text-lg font-bold">
       {amount}

@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Wat is de Wekelijkse Bonus?",
-    "content": "<p class=\"leading-7\">Wekelijkse Bonus is een exclusieve perk op onze website ontworpen voor spelers die VIP12 en hoger zijn. Deze bonus wordt wekelijks uitgegeven en automatisch elke vrijdag uitbetaald aan spelers van VIP12 en hoger. De grootte van de bonus hangt af van het bedrag dat in de afgelopen week is ingezet, met een minimum inzetvereiste van {{minWager}} in de afgelopen week.</p>"
+    "content": "<p class=\"leading-7\">De Wekelijkse Bonus is een exclusieve perk op onze website ontworpen voor spelers die VIP2 en hoger zijn. De bonus wordt wekelijks op maandag uitgegeven en vervalt wanneer de volgende wekelijkse bonus uitkomt. De grootte van de bonus hangt af van het bedrag dat in de afgelopen week is ingezet, met een effectieve minimum inzetvereiste van {{minWager}} in de afgelopen week.</p>"
   },
   "faqNine": {
     "title": "Wat zijn Prestaties?",

@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const ReferralTabs = ({ value, onChange, className }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('referral');
   const { user } = useAuth();
 
   const tabs = [

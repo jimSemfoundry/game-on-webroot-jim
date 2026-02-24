@@ -12,7 +12,9 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max);
 
 export const AlliancePartnershipLuisSuarez = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('aliancePartnerships');
+  const supportName = import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP";
+  const tWithSupport = (key: string) => t(key, { supportName });
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
   const slideNodes = useRef<HTMLElement[]>([]);
@@ -155,9 +157,9 @@ export const AlliancePartnershipLuisSuarez = () => {
       <div className="relative h-[209px] overflow-hidden xs:h-[209px] sm:h-[420px] rounded-box w-full rtl:rotate-y-180">
         {/** Title */}
         <div className="font-bold text-xl sm:text-7xl leading-6 sm:leading-18 whitespace-pre-line absolute top-1/2 -translate-y-1/2 left-8 sm:p-6 z-50 rtl:rotate-y-180">
-          <p className="text-base-content">{t("aliancePartnerships:luis")}</p>
-          <p className="text-base-content">{t("aliancePartnerships:suarez")}</p>
-          <p className="text-primary">{t("aliancePartnerships:is_back")}</p>
+          <p className="text-base-content">{tWithSupport("aliancePartnerships:luis")}</p>
+          <p className="text-base-content">{tWithSupport("aliancePartnerships:suarez")}</p>
+          <p className="text-primary">{tWithSupport("aliancePartnerships:is_back")}</p>
         </div>
         {/** Illustration */}
         <img
@@ -194,10 +196,10 @@ export const AlliancePartnershipLuisSuarez = () => {
         <div className="absolute -top-[60px] left-[218px] w-[110px] h-[350px] skew-x-[12deg] rotate-[36deg] sm:rotate-[45deg] bg-primary/10 border-primary/40 border-l-[28px] translate-x-2 sm:left-auto sm:right-[-220px] sm:-top-[2px] sm:w-[230px] sm:h-[732px] sm:border-l-[48px]" />
       </div>
 
-      <p className="text-primary font-bold text-base sm:text-4xl sm:text-center sm:px-32">{t("aliancePartnerships:brand_ambassador_title")}</p>
+      <p className="text-primary font-bold text-base sm:text-4xl sm:text-center sm:px-32">{tWithSupport("aliancePartnerships:brand_ambassador_title")}</p>
 
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:intro_text_1")}</p>
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:intro_text_2")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:intro_text_1")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:intro_text_2")}</p>
 
       {/* Luis Suarez 图片轮播 */}
       <div className="mt-4 w-full relative">
@@ -240,12 +242,12 @@ export const AlliancePartnershipLuisSuarez = () => {
 
       {/* 额外内容部分 */}
       <div className="mt-6 flex flex-col gap-3">
-        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{t("aliancePartnerships:unstoppable_title")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:unstoppable_text_1")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:unstoppable_text_2")}</p>
+        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{tWithSupport("aliancePartnerships:unstoppable_title")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:unstoppable_text_1")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:unstoppable_text_2")}</p>
         
-        <p className="text-primary font-bold text-base mt-4 sm:text-2xl sm:text-center sm:px-32">{t("aliancePartnerships:suarez_okvip_title")}</p>
-        <p className="text-base-content/50 sm:text-base-content sm:font-bold sm:-mt-2 text-sm sm:text-2xl sm:px-32 sm:text-center">{t("aliancePartnerships:suarez_okvip_subtitle")}</p>
+        <p className="text-primary font-bold text-base mt-4 sm:text-2xl sm:text-center sm:px-32">{tWithSupport("aliancePartnerships:suarez_okvip_title")}</p>
+        <p className="text-base-content/50 sm:text-base-content sm:font-bold sm:-mt-2 text-sm sm:text-2xl sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:suarez_okvip_subtitle")}</p>
       </div>
 
       <AlliancePartnerships />

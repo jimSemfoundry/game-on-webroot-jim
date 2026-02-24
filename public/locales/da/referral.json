@@ -7,6 +7,9 @@
     "commissions": "Kommissioner",
     "rewards": "Belønninger"
   },
+  "campaignAlreadyExists": "Kampagnen eksisterer allerede",
+  "campaignCreateSuccess": "Kampagnen blev oprettet med succes!",
+  "campaignCreateFailed": "Oprettelse af kampagne mislykkedes",
   "commissionCalculator": "Provisionsberegner",
   "telegramReferralLink": "Telegram Henvisningslink",
   "network": "Netværk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mine henvisningskommissioner",
   "myReferralRewards": "Mine henvisningsbelønninger",
   "exp": "EXP",
-  "userLevel": "Bruger niveau"
+  "userLevel": "Bruger niveau",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Inviter en ven og få ekstra belønninger, når de foretager deres første indbetaling. For den første spiller, du henviser, som tilmelder sig, indbetaler og spiller, vil du modtage en 10% Ekstra Referral Bonus baseret på deres oprindelige indbetalingsbeløb.",
+    "bonusCalculatedTitle": "Hvordan beregnes bonusen?",
+    "bonusCalculatedDesc": "Din Ekstra Referral Bonus beregnes som 10% af din vens første indbetaling. Hvis din vens første indbetaling svarer til <0>{{depositAmount}}</0>, vil du modtage en belønning værd <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Kravfordeling",
+    "claimDistributionDesc": "Alt, hvad du skal gøre, er at kontakte kundeservice via live chat og informere dem om, at du ønsker at kræve belønningen med din henvisningsoplysninger.",
+    "expirationTitle": "Udløb",
+    "expirationDesc": "Bonusen skal kræves inden for 7 x 24 timer (7 dage) efter din vens første indbetaling; derefter kan den ikke genudstedes.",
+    "generalTermsTitle": "Generelle vilkår",
+    "generalTermsDesc1": "Belønninger beregnes og krediteres i <0>BUCK/USDT</0>, og vises derefter i din foretrukne fiat-valuta for nemheds skyld. Bemærk venligst, at valutakonverteringer er omtrentlige. Den maksimale bonus, du kan modtage pr. henviste ven, svarer til {{bonusAmount}}, og bonusen kan indløses én gang pr. bruger-ID. Din henvisning skal spille mindst 4 gange deres første indbetalingsbeløb, før du kan indløse din bonus.",
+    "generalTermsDesc2": "Casinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse til enhver tid uden forpligtelse til at retfærdiggøre. Enhver misbrug eller svigagtig aktivitet – herunder men ikke begrænset til duplikat- eller matchende spillerdata, indbetalingssvindel, matchende IP-adresser, sikkerhedsspil eller investeringslignende adfærd – vil føre til diskvalifikation fra kampagnen og annullering af eventuelle relaterede bonusser. Alle beslutninger truffet af casinoet vedrørende denne kampagne er endelige og kan ikke anfægtes."
+  },
+  "referral_program_disabled": "HENVISNINGS\nPROGRAM\n<0>DEAKTIVERET</0>",
+  "programAccessUpdate": "Opdatering af programadgang",
+  "referralProgramPrivileges": "Dine privilegier i henvisningsprogrammet er blevet tilbagekaldt efter en gennemgang af din konto og din deltagelse i programmet. Vi har identificeret aktivitet, der ikke er i overensstemmelse med vilkårene, betingelserne eller den tilsigtede brug af vores henvisningsprogram. Dette kan omfatte mistænkelige henvisningsmønstre, uautoriserede markedsføringsmetoder, misbrug af incitamenter eller forsøg på at omgå retningslinjer for fair use.",
+  "referralRewardsPrivileges": "Som følge heraf er din mulighed for at generere nye henvisningsbelønninger, dele henvisningslinks eller modtage fordele fra henvisninger blevet deaktiveret. Afventende eller fremtidige belønninger knyttet til henvisningsprogrammet vil blive tilbageholdt og annulleret i overensstemmelse med vores politikker. <0>Alle andre funktioner på din konto forbliver intakte og upåvirkede af denne ændring</0>.",
+  "understandDisappointing": "Vi forstår, at dette kan være skuffende. Hvis du mener, at denne beslutning er truffet ved en fejl, eller hvis du ønsker flere detaljer, bedes du kontakte vores supportteam med relevante oplysninger, så vil vi gennemgå din sag."
 }

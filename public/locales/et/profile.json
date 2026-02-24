@@ -76,12 +76,39 @@
   "dashboard": "Armatuurlaud",
   "transactions": "Tehingud",
   "rollover": "Rollover",
-  "betHistory": "Panuste ajalugu",
+  "betHistory": {
+    "empty": "Panuste ajalugu ei leitud",
+    "title": "Panuste ajalugu",
+    "headers": {
+      "game": "Mäng",
+      "date": "Kuupäev",
+      "betId": "Panuse ID",
+      "betIn": "Panus",
+      "betOut": "Võit",
+      "account": "Konto",
+      "amount": "Summa",
+      "provider": "Teenusepakkuja",
+      "match": "Mäng",
+      "tournament": "Turniir"
+    }
+  },
   "settings": "Seaded",
   "legal": "Õiguslik",
   "nickname": "Kasutajanimi",
   "zoomAndAdjust": "Suurenda ja kohanda",
   "systemLanguage": "Süsteemi keel",
   "editProfile": "Muuda profiili",
-  "inviteAndGetRewarded": "Kutsu ja saa auhindu"
+  "inviteAndGetRewarded": "Kutsu ja saa auhindu",
+  "emailAddress": "E-posti aadress",
+  "codeSent": "Sisestage kood, mille me saatsime",
+  "codeSentTo": "Kood on saadetud",
+  "notReceiveCode": "Ei saanud koodi?",
+  "verificationSuccess": "Kinnitus õnnestus",
+  "spinHistory": {
+    "statusFilterLabel": "Olek"
+  },
+  "phone_number_has_been_verified": "Sinu telefoninumber on kinnitatud. Võid jätkata.",
+  "email_address_has_been_verified": "Sinu e-posti aadress on kinnitatud. Võid jätkata.",
+  "setNewPassword": "Määra uus parool",
+  "passwordLengthRequirement": "Palun sisestage parool, mis on 6 kuni 64 märki pikk."
 }

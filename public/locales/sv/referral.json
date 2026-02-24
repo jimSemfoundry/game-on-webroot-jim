@@ -7,6 +7,9 @@
     "commissions": "Provisioner",
     "rewards": "Belöningar"
   },
+  "campaignAlreadyExists": "Kampanj finns redan",
+  "campaignCreateSuccess": "Kampanj skapad framgångsrikt!",
+  "campaignCreateFailed": "Misslyckades med att skapa kampanj",
   "commissionCalculator": "Provisionskalkylator",
   "telegramReferralLink": "Telegram Värvningslänk",
   "network": "Nätverk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mina hänvisningskommissioner",
   "myReferralRewards": "Mina hänvisningsbelöningar",
   "exp": "EXP",
-  "userLevel": "Användarnivå"
+  "userLevel": "Användarnivå",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Bjud in en vän och få extra belöningar när de gör sin första insättning. För den första spelare du hänvisar som går med, sätter in och spelar, får du en 10% Extra Referral Bonus baserat på deras initiala insättningsbelopp.",
+    "bonusCalculatedTitle": "Hur beräknas bonusen?",
+    "bonusCalculatedDesc": "Din Extra Referral Bonus beräknas som 10% av din väns första insättning. Om din väns första insättning motsvarar <0>{{depositAmount}}</0>, får du en belöning värd <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Utbetalning av belöning",
+    "claimDistributionDesc": "Allt du behöver göra är att kontakta kundtjänst via livechatt och informera dem om att du vill begära belöningen med din hänvisningsinformation.",
+    "expirationTitle": "Utgång",
+    "expirationDesc": "Bonusen måste begäras inom 7 x 24 timmar (7 dagar) efter din väns initiala insättning; efter det kan den inte återutges.",
+    "generalTermsTitle": "Allmänna villkor",
+    "generalTermsDesc1": "Belöningar beräknas och krediteras i <0>BUCK/USDT</0>, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga. Den maximala bonus du kan få per hänvisad vän är motsvarande {{bonusAmount}}, och bonusen kan hämtas en gång per användar-ID. Din hänvisning måste omsätta minst 4 gånger sitt första insättningsbelopp innan du kan hämta din bonus.",
+    "generalTermsDesc2": "Kasinoet förbehåller sig rätten att ändra eller återkalla berättigande när som helst, utan skyldighet att motivera. All missbruk eller bedräglig aktivitet – inklusive men inte begränsat till duplicerad eller matchande spelarinformation, insättningsbedrägeri, matchande IP-adresser, säkerhetsinsatser eller investeringsliknande beteende – kommer att leda till diskvalificering från kampanjen och avbokning av eventuella relaterade bonusar. Alla beslut som fattas av kasinoet angående denna kampanj är slutgiltiga och kan inte ifrågasättas."
+  },
+  "referral_program_disabled": "VÄRVNINGS\nPROGRAM\n<0>INAKTIVERAT</0>",
+  "programAccessUpdate": "Uppdatering av programåtkomst",
+  "referralProgramPrivileges": "Dina privilegier i värvningsprogrammet har återkallats efter en granskning av ditt konto och ditt deltagande i programmet. Vi har identifierat aktivitet som inte följer villkoren eller den avsedda användningen av vårt värvningsprogram. Detta kan omfatta misstänkta värvningsmönster, otillåtna marknadsföringsmetoder, missbruk av incitament eller försök att kringgå riktlinjer för skälig användning.",
+  "referralRewardsPrivileges": "Som ett resultat har din möjlighet att skapa nya värvningsbelöningar, dela värvningslänkar eller ta emot förmåner från värvningar inaktiverats. Väntande eller framtida belöningar kopplade till värvningsprogrammet kommer att hållas inne och annulleras i enlighet med våra policyer. <0>All annan funktionalitet på ditt konto förblir intakt och påverkas inte av denna förändring</0>.",
+  "understandDisappointing": "Vi förstår att detta kan vara en besvikelse. Om du anser att beslutet är felaktigt eller vill ha fler detaljer, vänligen kontakta vårt supportteam med relevant information så granskar vi ditt ärende."
 }

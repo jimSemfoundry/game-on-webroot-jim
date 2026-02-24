@@ -1,0 +1,66 @@
+html,
+body {
+  background: var(--color-base-300, #0f1419);
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.app-loaded #app {
+  opacity: 1;
+}
+
+.app-loaded #initial-loader {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+#initial-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    var(--color-base-200, #2E3540) 0%,
+    var(--color-base-300, #1E242E) 80%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-logo {
+  animation: breathe 0.8s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}

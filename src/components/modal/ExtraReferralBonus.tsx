@@ -1,57 +1,54 @@
 import { Trans, useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { Gift, X } from "lucide-react";
-import { ComponentProps, ReactNode, useEffect, useState } from "react";
-import classNames from "classnames";
+import { ComponentProps, ReactNode } from "react";
+import clsx from "clsx";
 import { Modal } from "@/components/ui/Modal.tsx";
-import { useBoundStore } from "@/store";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 
-export default function ExtraReferralBonusModal() {
-  const { t } = useTranslation();
+export default function ExtraReferralBonusModal(
+  {
+    open,
+    onClose
+  }: {
+    open: boolean;
+    onClose: () => void;
+  }) {
+  const { t } = useTranslation("referral");
 
   const { user } = useAuth();
 
-  const { syncAction } = useBoundStore();
-
-  const [status, setStatus] = useState<boolean>(false);
-
   const { formatCurrency, convertCurrency, exchangeRates } = useCurrencyData();
-
-  // 事件通知
-  useEffect(() => {
-    if (syncAction.type === "OPEN_EXTRA_REFERRAL_BONUS_MODAL") setStatus(true);
-  }, [syncAction]);
 
   return (
     <Modal
       hideTitle
-      isOpen={status}
-      onClose={() => setStatus(false)}
+      isOpen={open}
+      onClose={onClose}
       className="p-0 h-[75vh] max-h-[75vh] md:w-[500px] hide-scrollbar bg-transparent"
       closeButtonClassName="hidden"
       position="modal-middle"
     >
       <RadialGradientContainer className={"relative rounded-2xl mb-1 flex items-center justify-between h-[180px]"}>
-        <div className={"text-2xl font-bold pl-8 text-white"}>
+        <div className={"text-2xl font-bold pl-8 rtl:pr-8 text-white"}>
           <Trans
             i18nKey="referral:extraReferralBonus:slogan"
             components={[<div className={"text-primary"} />]}
           />
         </div>
-        <img src="/images/referral/extra-bonus.png" className={"h-full absolute right-0"} alt={""} />
+        <img src="https://1stgame.imgix.net/banner/public/images/casino/banner/first-referral.png?w=209&auto=format,compress&q=80" className={"h-full absolute right-0 rtl:left-0 rtl:right-auto"} alt={""} />
       </RadialGradientContainer>
       <section className={"text-xs font-semibold bg-base-300 p-4 rounded-t-2xl flex-1 leading-4"}>
         <div className={"flex items-center justify-between mb-4"}>
           <InnerTitle
             className={"!mt-0"}
             title={<><Gift className={"w-4 h-4 text-primary"} strokeWidth={3} />{t("bonus:bonus_details")}</>} />
-          <InnerClose onClick={() => setStatus(false)} />
+          <InnerClose onClick={onClose} />
         </div>
         <div className={"hide-scrollbar overflow-y-auto h-[calc(100%-80px)]"}>
           <InnerTitle className={"!mt-0"} title={t("referral:extraReferralBonus:bonusCalculatedTitle")} />
-          <p>
+          <p className={"text-base-content/50"}>
             <Trans
               i18nKey="referral:extraReferralBonus:bonusCalculatedDesc"
               components={[<span className="text-primary" />]}
@@ -79,13 +76,14 @@ export default function ExtraReferralBonusModal() {
               }}
             />
           </p>
-          <p className={"mt-3"}>{t("referral:extraReferralBonus:title", { bonusPercent: "10%" })}</p>
+          <p
+            className={"mt-3 text-base-content/50"}>{t("referral:extraReferralBonus:title", { bonusPercent: "10%" })}</p>
           <InnerTitle title={t("referral:extraReferralBonus:claimDistributionTitle")} />
-          <p>{t("referral:extraReferralBonus:claimDistributionDesc")}</p>
+          <p className={"text-base-content/50"}>{t("referral:extraReferralBonus:claimDistributionDesc")}</p>
           <InnerTitle title={t("referral:extraReferralBonus:expirationTitle")} />
-          <p>{t("referral:extraReferralBonus:expirationDesc")}</p>
+          <p className={"text-base-content/50"}>{t("referral:extraReferralBonus:expirationDesc")}</p>
           <InnerTitle title={t("referral:extraReferralBonus:generalTermsTitle")} />
-          <p>
+          <p className={"text-base-content/50"}>
             <Trans
               i18nKey={"referral:extraReferralBonus:generalTermsDesc1"}
               values={{
@@ -104,7 +102,7 @@ export default function ExtraReferralBonusModal() {
               }}
               components={[<span className={"text-primary"} />]} />
           </p>
-          <p className={"mt-3"}>{t("referral:extraReferralBonus:generalTermsDesc2")}</p>
+          <p className={"mt-3 text-base-content/50"}>{t("referral:extraReferralBonus:generalTermsDesc2")}</p>
         </div>
       </section>
     </Modal>
@@ -113,7 +111,7 @@ export default function ExtraReferralBonusModal() {
 
 const InnerTitle = ({ title, className }: { title: ReactNode, className?: string }) => {
   return <h3
-    className={classNames("text-lg text-white font-semibold flex items-center gap-1 mt-3", className)}>{title}</h3>;
+    className={clsx("text-base text-white font-semibold flex items-center gap-1 mt-3", className)}>{title}</h3>;
 };
 
 const RadialGradientContainer = styled.div`
@@ -121,5 +119,5 @@ const RadialGradientContainer = styled.div`
 `;
 
 const InnerClose = (props: ComponentProps<"button">) => {
-  return (<button {...props} className="btn btn-sm btn-square bg-base-100"><X size={16} /></button>);
+  return (<button {...props} className="btn btn-sm btn-square bg-base-100 outline-none"><X size={16} /></button>);
 };

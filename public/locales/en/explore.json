@@ -7,6 +7,8 @@
   "baseball": "Baseball",
   "iceHockey": "Ice Hockey",
   "basketball": "Basketball",
+  "cricket": "Cricket",
+  "eSoccer": "eSoccer",
   "volleyball": "Volleyball",
   "hot": "Hot",
   "all": "All",
@@ -69,5 +71,6 @@
   "live-casino": "Live Casino",
   "sports": "Sports",
   "lotteries": "Lotteries",
-  "gamesYouShouldTry": "Games You Should Try"
+  "gamesYouShouldTry": "Games You Should Try",
+  "bonus": "Bonus"
 }

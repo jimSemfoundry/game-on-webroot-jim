@@ -3,8 +3,23 @@ import Copy from "@/components/ui/Copy";
 import Iconify from "@/components/iconify";
 import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
-import { isMobile } from "@/utils/browser";
+import { isIOS, isMobile } from "@/utils/browser";
 import { toast } from "sonner";
+
+const isStandalonePwa = () => {
+  const isIosStandalone = typeof (navigator as any)?.standalone === 'boolean' && (navigator as any).standalone;
+  const isDisplayModeStandalone = typeof window !== 'undefined' && window.matchMedia?.('(display-mode: standalone)')?.matches;
+  return Boolean(isIosStandalone || isDisplayModeStandalone);
+}
+
+const openExternalUrl = (url: string) => {
+  if (!url) return;
+  if (isStandalonePwa() || (isMobile() && isIOS())) {
+    window.location.assign(url);
+    return;
+  }
+  window.open(url, "_blank", "noopener,noreferrer");
+}
 
 type ReferralShareModalProps = {
   isOpen: boolean;
@@ -17,7 +32,7 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
   onClose,
   referralLink = "",
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'common']);
 
   const shareMessage = useMemo(() => {
     return encodeURIComponent(
@@ -36,11 +51,18 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
         case "whatsapp":
           if (isMobile()) {
             const whatsappMobileLink = `whatsapp://send?text=${shareMessage}`;
-            const link = document.createElement('a');
-            link.href = whatsappMobileLink;
-            link.setAttribute('data-action', 'share/whatsapp/share');
-            link.setAttribute('target', '_blank');
-            link.click();
+            if (isStandalonePwa()) {
+              window.location.assign(whatsappMobileLink);
+            } else if (isIOS()) {
+              window.location.assign(whatsappMobileLink);
+            } else {
+              const link = document.createElement('a');
+              link.href = whatsappMobileLink;
+              link.setAttribute('data-action', 'share/whatsapp/share');
+              link.setAttribute('target', '_blank');
+              link.setAttribute('rel', 'noopener noreferrer');
+              link.click();
+            }
 
             setTimeout(() => {
               window.location.href = `https://api.whatsapp.com/send?text=${shareMessage}`;
@@ -68,7 +90,7 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
           return;
       }
       
-      window.open(url, "_blank", "noopener,noreferrer");
+      openExternalUrl(url);
     } catch (error) {
       console.error("Share error:", error);
       toast.error(t("common:error", "Something went wrong. Please try again."));
@@ -79,18 +101,25 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
     try {
       if (isMobile()) {
         const whatsappMobileLink = `whatsapp://send?text=${shareMessage}`;
-        const link = document.createElement('a');
-        link.href = whatsappMobileLink;
-        link.setAttribute('data-action', 'share/whatsapp/share');
-        link.setAttribute('target', '_blank');
-        link.click();
+        if (isStandalonePwa()) {
+          window.location.assign(whatsappMobileLink);
+        } else if (isIOS()) {
+          window.location.assign(whatsappMobileLink);
+        } else {
+          const link = document.createElement('a');
+          link.href = whatsappMobileLink;
+          link.setAttribute('data-action', 'share/whatsapp/share');
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+          link.click();
+        }
 
         setTimeout(() => {
           window.location.href = `https://api.whatsapp.com/send?text=${shareMessage}`;
         }, 300);
       } else {
         const url = `https://web.whatsapp.com/send?text=${shareMessage}`;
-        window.open(url, "_blank", "noopener,noreferrer");
+        openExternalUrl(url);
       }
     } catch (error) {
       console.error("WhatsApp share error:", error);

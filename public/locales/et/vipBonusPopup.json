@@ -5,11 +5,11 @@
     "achievements": "Saavutused",
     "achievementDescription": "Saavutuse auhindadega tunnustatakse uusi verstaposte ja väljakutsete ületamist. Need tähistavad teie edusamme ja edu, avades lõbusaid üllatusi, kui saavutate uusi saavutusi!",
     "claimDistribution": "Nõudmise jaotamine",
-    "claimDistributionDescription": "Auhinnad lisatakse teie boonuste kalendrisse 3 päevaks pärast nõudmist.",
+    "claimDistributionDescription": "Sinu preemiad kinnistuvad kohe ja on saadaval nõudmiseks sinu sissemakse <0>boonusfondist</0> iga kord, kui taotled uue saavutuse preemiat.",
     "expiration": "Aegumine",
-    "expirationDescription": "Puudub - Auhinnad saadetakse automaatselt kalendrisse.",
+    "expirationDescription": "Puudub – nõuded on saadaval, kuni sinu Bonus Pooli saldo on piisav.",
     "generalTerms": "Üldtingimused",
-    "generalTermsDescription": "Auhinnad arvutatakse ja kantakse BUCK/USDT-s, seejärel kuvatakse teie eelistatud fiat valuutas mugavuse huvides. Palun pange tähele, et valuutavahetused on ligikaudsed.\n\nKasiinol on õigus muuta või tühistada õigustuse igal ajal, ilma kohustuseta õigustada. Iga väärkasutamine või petturlik tegevus toob kaasa kampaaniast diskvalifitseerimise."
+    "generalTermsDescription": "Preemiad arvutatakse ja kantakse USDT-s, seejärel kuvatakse need mugavuse huvides sinu eelistatud fiatrahas. Pane tähele, et valuutakonverteerimine on ligikaudne.\n\nKasiino jätab endale õiguse sobivust igal ajal muuta või tühistada ilma põhjenduskohustuseta. Igasugune kuritarvitamine või pettus toob kaasa kampaaniast diskvalifitseerimise."
   },
   "luckyNumberSeven": {
     "title": "Õnnelik Number \n Seitsme",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimaalne nõudmise summa on {{money}}",
     "expiration": "Aegumine",
-    "expirationDescription": "Teie Müsteeriumikast peab olema nõutud 7 päeva jooksul pärast selle saamist. Nõudmata auhinnad aeguvad pärast seda perioodi.",
+    "expirationDescription": "Teie Müsteeriumikast peab olema nõutud 3 päeva jooksul pärast selle saamist. Nõudmata auhinnad aeguvad pärast seda perioodi.",
     "generalTerms": "Üldtingimused",
     "generalTermsDescription": "Auhinnad arvutatakse ja kantakse kasutaja esimese sissemakse alusel või USDT-s, kui sissemakset ei tehta, nõudes 1x läbimängimist. Summad kuvatakse teie eelistatud fiat valuutas; konversioonid on ligikaudsed.\n\n Kasiinol on õigus muuta või tühistada õigustuse igal ajal ilma ette teatamata. Iga väärkasutamine või pettus toob kaasa diskvalifitseerimise."
   },

@@ -7,6 +7,9 @@
     "commissions": "Commissions",
     "rewards": "Rewards"
   },
+  "campaignAlreadyExists": "Campaign already exists",
+  "campaignCreateSuccess": "Campaign created successfully!",
+  "campaignCreateFailed": "Failed to create campaign",
   "commissionCalculator": "Commission Calculator",
   "telegramReferralLink": "Telegram Referral Link",
   "network": "Network",
@@ -85,7 +88,6 @@
   "letTalkBusiness": "Let's Talk Business!",
   "assembleACrewWith100M": "Assemble a crew with {{amount}} in total wagers, and we'll hand you the keys to your very own casino. That's right—your own domain, custom design, and personalized branding. No more just playing the game—you run the show!",
   "startRecruitingNow": "Start recruiting now and claim your casino today!",
-
   "send": "Send",
   "globalCommissionRewards": "Global Commission Rewards",
   "level": "Level",
@@ -101,9 +103,6 @@
   "campaignSplit": "Campaign Split",
   "campaignNameIsRequired": "Campaign Name is required",
   "referralCodeAlreadyInUse": "Referral code already in use",
-  "campaignAlreadyExists": "Campaign already exists",
-  "campaignCreateSuccess": "Campaign created successfully!",
-  "campaignCreateFailed": "Failed to create campaign",
   "showRates": "Show Rates",
   "calculatorDirectDescription": "Your VIP level not only gives you bragging rights. it also sets the commission rate you earn from your referrals' game play.",
   "direct_share_to_referee": "Direct Share to Referee",
@@ -136,7 +135,7 @@
     "title": "I have a big audience. How can I get a special deal?",
     "content": "<p class=\"leading-7\">If you have a website with good traffic or a social media account with a big audience, you can email us at {{emailLink}}</p>"
   },
-  "faqFive": {  
+  "faqFive": {
     "title": "How many affiliate links can i create if I have different websites/ social media accounts?",
     "content": "<p class=\"leading-7\">You can create up to {{codes}} unique codes for different sources of traffic</p>"
   },
@@ -173,5 +172,23 @@
   "myReferralCommissions": "My Referral Commissions",
   "myReferralRewards": "My Referral Rewards",
   "exp": "EXP",
-  "userLevel": "User Level"
+  "userLevel": "User Level",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Invite a friend and get extra rewards when they make their first deposit. The first player you refer who joins, deposits, and plays, you’ll receive a 10% Extra Referral Bonus based on their initial deposit amount.",
+    "bonusCalculatedTitle": "How is the Bonus Calculated?",
+    "bonusCalculatedDesc": "Your Extra Referral Bonus is calculated as 10% of your friend’s first deposit, If your friend’s first deposit is equivalent to <0>{{depositAmount}}</0>, you’ll receive a reward worth <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Claim Distribution",
+    "claimDistributionDesc": "All you have to do is contact Customer Service Live Chat and inform them that you want to claim the reward with your Referral’s Information.",
+    "expirationTitle": "Expiration",
+    "expirationDesc": "The bonus must be claimed within 7 x 24 hours (7 days) after your friend’s initial deposit; after that, it cannot be reissued.",
+    "generalTermsTitle": "General Terms",
+    "generalTermsDesc1": "Rewards are calculated and credited in <0>BUCK/USDT</0>, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. The maximum bonus you can receive per referred friend is the equivalent of {{bonusAmount}}, and the bonus can be claimed once per User ID. Your referral must wager at least 4 times their first deposit amount before you can claim your bonus.",
+    "generalTermsDesc2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity – including but not limited to duplicate or matching player data, deposit fraud, matching IP addresses, safety bets, or investment-style behaviour – will lead to disqualification from the promotion and cancellation of any related bonuses. All decisions made by the casino regarding this promotion are final and cannot be contested."
+  },
+  "referral_program_disabled": "REFERRAL \n PROGRAM \n <0>DISABLED</0>",
+  "programAccessUpdate": "Program Access Update",
+  "referralProgramPrivileges": "Your referral program privileges have been revoked following a review of your account and participation in the program. We identified activity that does not comply with the terms, conditions, or intended use of our referral program. This may include suspicious referral patterns, unauthorized promotional methods, misuse of incentives, or attempts to circumvent fair-use guidelines.",
+  "referralRewardsPrivileges": "As a result, your ability to generate new referral rewards, share referral links, or receive benefits from referrals has been disabled. Pending or future rewards associated with the referral program will be withheld and canceled in line with our policies. <0>All other functionality of your account remains intact and unaffected by this change</0>.",
+  "understandDisappointing": "We understand this may be disappointing. If you believe this decision is in error, or would like more details, please contact our support team with any relevant information, and we will review your case."
 }

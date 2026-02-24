@@ -7,6 +7,8 @@
   "baseball": "Bisbol",
   "iceHockey": "Hoki Es",
   "basketball": "Basket",
+  "cricket": "Kriket",
+  "eSoccer": "eSepak Bola",
   "volleyball": "Bola Voli",
   "hot": "Populer",
   "all": "Semua",
@@ -69,5 +71,6 @@
   "live-casino": "Live Casino",
   "sports": "Olahraga",
   "lotteries": "Lotere",
-  "gamesYouShouldTry": "Permainan yang Harus Anda Coba"
+  "gamesYouShouldTry": "Permainan yang Harus Anda Coba",
+  "bonus": "Bonus"
 }

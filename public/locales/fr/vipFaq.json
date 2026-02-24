@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Qu'est-ce que le Bonus Hebdomadaire ?",
-    "content": "<p class=\"leading-7\">Le Bonus Hebdomadaire est un avantage exclusif sur notre site conçu pour les joueurs qui sont VIP12 et plus. Ce bonus est attribué chaque semaine et payé automatiquement chaque vendredi aux joueurs VIP12 et plus. La taille du bonus dépend du montant misé au cours de la semaine précédente, avec un montant de mise minimum de {{minWager}} au cours de la semaine précédente.</p>"
+    "content": "<p class=\"leading-7\">Le Bonus Hebdomadaire est un avantage exclusif sur notre site conçu pour les joueurs qui sont VIP2 et plus. Le bonus est attribué chaque semaine le lundi et expire lorsque le prochain bonus hebdomadaire est disponible. La taille du bonus dépend du montant misé au cours de la semaine précédente, avec un montant de mise minimum effectif de {{minWager}} au cours de la semaine précédente.</p>"
   },
   "faqNine": {
     "title": "Quelles sont les Réalisations ?",

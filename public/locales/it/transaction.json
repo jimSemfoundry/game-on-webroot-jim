@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Ricompense per Giri Gratuiti",
   "common": {
     "close": "Chiudi",
     "copy": "Copia",
@@ -12,7 +13,8 @@
     "swap": "Scambia",
     "swapFrom": "Scambia Da",
     "swapTo": "Scambia A",
-    "noCommissionRecords": "Nessun record di commissione trovato"
+    "noCommissionRecords": "Nessun record di commissione trovato",
+    "createdOn": "Creato il"
   },
   "tabs": {
     "transactionHistory": "Cronologia Transazioni",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Rete di Prelievo",
     "blockchainWaiting": "In attesa di conferma blockchain.",
     "blockchainFailed": "Transazione blockchain fallita.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Abbiamo ricevuto la tua richiesta.<br/>Per visualizzare lo stato, controlla le Transazioni nel tuo Profilo."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Scommessa Totale Richiesta",
     "wagerCompleted": "Scommessa Completata",
     "pendingWagerRequired": "Scommessa Pendente Richiesta",
-    "unlockedFunds": "Fondi Sbloccati"
-  }
+    "unlockedFunds": "Fondi sbloccati",
+    "rolloverMul": "Moltiplicatore scommessa"
+  },
+  "assistance": "Si prega di verificare i propri dati e riprovare o contattare il servizio clienti per assistenza"
 }

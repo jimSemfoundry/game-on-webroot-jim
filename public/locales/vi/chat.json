@@ -3,5 +3,8 @@
   "notifications": "Thông báo",
   "support": "Hỗ trợ",
   "retry": "Thử lại",
-  "customerServiceChatFailedToLoad": "Trò chuyện dịch vụ khách hàng không tải được"
+  "customerServiceChatFailedToLoad": "Trò chuyện dịch vụ khách hàng không tải được",
+  "read": "Đã đọc",
+  "unread": "Chưa đọc",
+  "customerService": "Dịch vụ khách hàng"
 }

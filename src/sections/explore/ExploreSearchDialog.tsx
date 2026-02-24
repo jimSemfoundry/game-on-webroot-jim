@@ -4,15 +4,15 @@ import { GameImage } from "@/components/ui/GameImage";
 import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { Modal } from "@/components/ui/Modal";
 import { useSidebar } from "@/contexts/SidebarContext";
-import { useCasinoGameList } from "@/hooks/api/usePublic";
+import { useCasinoGameList, useCasinoGameListInfinite } from "@/hooks/api/usePublic";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNavigate } from "@tanstack/react-router";
 import { Loader2, Search, Trash2, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const MIN_SEARCH_LENGTH = 3;
-const RESULTS_LIMIT = 6;
+const PAGE_SIZE = 24;
 
 export interface ExploreSearchDialogProps {
   isOpen: boolean;
@@ -55,8 +55,7 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
     return {
       ...baseFilters,
       keyword: trimmedDebouncedQuery,
-      page: 1,
-      limit: 24,
+      limit: PAGE_SIZE,
     };
   }, [baseFilters, trimmedDebouncedQuery, meetsMinLength]);
 
@@ -83,22 +82,25 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
     data: searchGameListData,
     isFetching: isSearchFetching,
     isFetched: isSearchFetched,
-  } = useCasinoGameList(searchParams, {
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useCasinoGameListInfinite(searchParams, {
     enabled: Boolean(searchParams),
     refetchOnMount: false,
-    keepPreviousData: true,
   });
-  const searchData = (searchGameListData as any) ?? {};
 
   const displayResults = useMemo(() => {
-    if (!meetsMinLength) return [];
-    const list = Array.isArray(searchData?.data) ? searchData.data : [];
-    return list.slice(0, RESULTS_LIMIT);
-  }, [meetsMinLength, searchData]);
+    if (!meetsMinLength || !searchGameListData?.pages) return [];
+    return searchGameListData.pages.flatMap((page: any) => page?.data || []);
+  }, [meetsMinLength, searchGameListData]);
 
-  const showLoading = meetsMinLength && (!isSearchFetched || isSearchFetching);
+  // 只在首次加载时显示 loading（没有任何数据时）
+  const isInitialLoading = meetsMinLength && isSearchFetching && displayResults.length === 0;
+  const showLoading = isInitialLoading;
   const showNoResults = meetsMinLength && isSearchFetched && !isSearchFetching && displayResults.length === 0;
-  const showCarousel = meetsMinLength && isSearchFetched && displayResults.length > 0;
+  // 只要有数据就显示 Carousel，即使正在加载更多
+  const showCarousel = meetsMinLength && displayResults.length > 0;
 
   const resultsCarousel = useCarousel({
     slidesToShow: isMobile ? 2.5 : 6,
@@ -107,6 +109,28 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
     dragFree: true,
     containScroll: "trimSnaps",
   });
+
+  // 监听 Carousel 滚动，接近末尾时加载更多
+  const handleScrollEnd = useCallback(() => {
+    if (!resultsCarousel.mainApi || !hasNextPage || isFetchingNextPage) return;
+    
+    const scrollProgress = resultsCarousel.mainApi.scrollProgress();
+    
+    // 当滚动进度超过 70% 时加载更多
+    if (scrollProgress > 0.7) {
+      fetchNextPage();
+    }
+  }, [resultsCarousel.mainApi, hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  useEffect(() => {
+    const api = resultsCarousel.mainApi;
+    if (!api) return;
+
+    api.on("scroll", handleScrollEnd);
+    return () => {
+      api.off("scroll", handleScrollEnd);
+    };
+  }, [resultsCarousel.mainApi, handleScrollEnd]);
 
   const hotGamesCarousel = useCarousel({
     slidesToShow: isMobile ? 2.5 : 6,
@@ -196,7 +220,7 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
                                 inner_game_id: game?.inner_game_id ?? game?.id,
                                 game_provider: game?.game_provider ?? game?.provider,
                                 game_name: game?.display_game_name ?? game?.name ?? game?.title,
-                                image: game?.image ?? game?.imageUrl,
+                                image: game?.image || game?.imageUrl || undefined,
                               }}
                               showHoverEffects
                               onClick={() => handleResultNavigate(game)}
@@ -204,6 +228,12 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
                           </div>
                         );
                       })}
+                      {/* 加载更多指示器 */}
+                      {isFetchingNextPage && (
+                        <div className="flex items-center justify-center min-w-[100px]">
+                          <Loader2 className="w-5 h-5 animate-spin text-base-content/50" />
+                        </div>
+                      )}
                     </Carousel>
                   </div>
                 ) : null}
@@ -227,7 +257,7 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
                               inner_game_id: game?.inner_game_id ?? game?.id,
                               game_provider: game?.game_provider ?? game?.provider,
                               game_name: game?.display_game_name ?? game?.name ?? game?.title,
-                              image: game?.image ?? game?.imageUrl,
+                              image: game?.image || game?.imageUrl || undefined,
                             }}
                             showHoverEffects
                             onClick={() => handleResultNavigate(game)}

@@ -25,6 +25,14 @@
   "totalTips": "Dicas",
   "result": "Resultado",
   "myBets": "Minhas Apostas",
-  "**********": "",
-  "demoPlay": "Jogo de Demonstração"
+  "demoPlay": "Jogo de Demonstração",
+  "limitedOffer": "Oferta Limitada",
+  "deposit": "Depositar {{value}}",
+  "get": "Receber {{value}}",
+  "instantCashBonus": "Bônus de Dinheiro Instantâneo",
+  "expires": "Expira",
+  "depositNow": "Depositar Agora",
+  "free_spins": "Giros Grátis",
+  "play_with_balance_in": "Jogar com Saldo em",
+  "the_selected_currency_will_be_displayed_in": "A moeda selecionada será exibida em"
 }

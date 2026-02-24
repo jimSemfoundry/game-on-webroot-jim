@@ -76,12 +76,39 @@
   "dashboard": "Tabloul de bord",
   "transactions": "Tranzacții",
   "rollover": "Rollover",
-  "betHistory": "Istoricul pariurilor",
+  "betHistory": {
+    "empty": "Nu s-a găsit istoric de pariuri",
+    "title": "Istoricul pariurilor",
+    "headers": {
+      "game": "Joc",
+      "date": "Dată",
+      "betId": "ID Pariu",
+      "betIn": "Pariu",
+      "betOut": "Câștig",
+      "account": "Cont",
+      "amount": "Sumă",
+      "provider": "Furnizor",
+      "match": "Meci",
+      "tournament": "Turneu"
+    }
+  },
   "settings": "Setări",
   "legal": "Legal",
   "nickname": "Pseudonim",
   "zoomAndAdjust": "Zoom și Ajustare",
   "systemLanguage": "Limba sistemului",
   "editProfile": "Editează Profilul",
-  "inviteAndGetRewarded": "Invită și Primește Recompense"
+  "inviteAndGetRewarded": "Invită și Primește Recompense",
+  "emailAddress": "Adresă de email",
+  "codeSent": "Introduceți codul pe care l-am trimis",
+  "codeSentTo": "Un cod a fost trimis la",
+  "notReceiveCode": "Nu ați primit codul?",
+  "verificationSuccess": "Verificare reușită",
+  "spinHistory": {
+    "statusFilterLabel": "Stare"
+  },
+  "phone_number_has_been_verified": "Numărul tău de telefon a fost verificat. Poți continua.",
+  "email_address_has_been_verified": "Adresa ta de e-mail a fost verificată. Poți continua.",
+  "setNewPassword": "Setează parolă nouă",
+  "passwordLengthRequirement": "Vă rugăm să introduceți o parolă între 6 și 64 de caractere."
 }

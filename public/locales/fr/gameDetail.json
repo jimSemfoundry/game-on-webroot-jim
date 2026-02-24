@@ -25,6 +25,14 @@
   "totalTips": "Conseils",
   "result": "Résultat",
   "myBets": "Mes Paris",
-  "**********": "",
-  "demoPlay": "Jeu Démo"
+  "demoPlay": "Jeu Démo",
+  "limitedOffer": "Offre Limitée",
+  "deposit": "Déposer {{value}}",
+  "get": "Obtenir {{value}}",
+  "instantCashBonus": "Bonus de Cash Instantané",
+  "expires": "Expire",
+  "depositNow": "Déposer Maintenant",
+  "free_spins": "Tours Gratuits",
+  "play_with_balance_in": "Jouer avec le Solde En",
+  "the_selected_currency_will_be_displayed_in": "La devise sélectionnée sera affichée en"
 }

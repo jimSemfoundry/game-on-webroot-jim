@@ -7,6 +7,9 @@
     "commissions": "Comisiones",
     "rewards": "Recompensas"
   },
+  "campaignAlreadyExists": "La campaña ya existe",
+  "campaignCreateSuccess": "¡Campaña creada con éxito!",
+  "campaignCreateFailed": "Error al crear la campaña",
   "commissionCalculator": "Calculadora de Comisiones",
   "telegramReferralLink": "Enlace de Referencia de Telegram",
   "network": "Red",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mis Comisiones de Referencia",
   "myReferralRewards": "Mis Recompensas de Referencia",
   "exp": "EXP",
-  "userLevel": "Nivel de Usuario"
+  "userLevel": "Nivel de Usuario",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Invita a un amigo y obtén recompensas adicionales cuando realice su primer depósito. Por cada jugador que refieras que se una, deposite y juegue, recibirás un 10% de Bonificación Extra por Referencia basada en el monto de su depósito inicial.",
+    "bonusCalculatedTitle": "¿Cómo se Calcula la Bonificación?",
+    "bonusCalculatedDesc": "Tu Bonificación Extra por Referencia se calcula como el 10% del primer depósito de tu amigo. Si el primer depósito de tu amigo es equivalente a <0>{{depositAmount}}</0>, recibirás una recompensa por un valor de <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribución de Reclamaciones",
+    "claimDistributionDesc": "Todo lo que tienes que hacer es contactar al Servicio de Atención al Cliente por Chat en Vivo e informarles que deseas reclamar la recompensa con la Información de tu Referido.",
+    "expirationTitle": "Expiración",
+    "expirationDesc": "La bonificación debe ser reclamada dentro de 7 x 24 horas (7 días) después del depósito inicial de tu amigo; después de eso, no puede ser reemitida.",
+    "generalTermsTitle": "Términos Generales",
+    "generalTermsDesc1": "Las recompensas se calculan y se acreditan en <0>BUCK/USDT</0>, y luego se muestran en su moneda fiduciaria preferida por conveniencia. Tenga en cuenta que las conversiones de moneda son aproximadas. El bono máximo que puede recibir por cada amigo referido es el equivalente a {{bonusAmount}}, y el bono se puede reclamar una vez por ID de usuario. Su referido debe apostar al menos 4 veces el monto de su primer depósito antes de que pueda reclamar su bono.",
+    "generalTermsDesc2": "El casino se reserva el derecho de modificar o revocar la elegibilidad en cualquier momento, sin la obligación de justificar. Cualquier abuso o actividad fraudulenta – incluyendo, pero no limitado a, datos de jugadores duplicados o coincidentes, fraude de depósitos, direcciones IP coincidentes, apuestas de seguridad o comportamiento de estilo de inversión – llevará a la descalificación de la promoción y la cancelación de cualquier bonificación relacionada. Todas las decisiones tomadas por el casino respecto a esta promoción son finales y no pueden ser impugnadas."
+  },
+  "referral_program_disabled": "PROGRAMA\nDE REFERIDOS\n<0>DESHABILITADO</0>",
+  "programAccessUpdate": "Actualización de acceso al programa",
+  "referralProgramPrivileges": "Tus privilegios del programa de referidos han sido revocados tras una revisión de tu cuenta y tu participación en el programa. Identificamos actividad que no cumple con los términos, condiciones o el uso previsto de nuestro programa de referidos. Esto puede incluir patrones de referidos sospechosos, métodos promocionales no autorizados, uso indebido de incentivos o intentos de eludir las directrices de uso justo.",
+  "referralRewardsPrivileges": "Como resultado, se ha deshabilitado tu capacidad para generar nuevas recompensas por referidos, compartir enlaces de referido o recibir beneficios de los referidos. Las recompensas pendientes o futuras asociadas al programa de referidos serán retenidas y canceladas de acuerdo con nuestras políticas. <0>El resto de las funcionalidades de tu cuenta permanecen intactas y no se ven afectadas por este cambio</0>.",
+  "understandDisappointing": "Entendemos que esto puede ser decepcionante. Si crees que esta decisión es un error o deseas más detalles, ponte en contacto con nuestro equipo de soporte con cualquier información relevante y revisaremos tu caso."
 }

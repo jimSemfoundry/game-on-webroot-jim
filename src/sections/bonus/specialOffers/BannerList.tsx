@@ -6,7 +6,7 @@ import { ThursdaySuperBounsBanner, ThursdaySuperBounsBannerPC } from "@/sections
 import { SundaySuperBounsBanner, SundaySuperBounsBannerPC } from "@/sections/sunday-super-bouns/sunday-super-bouns-banner"
 
 export const BannerList = ({ currentPromo }: { currentPromo: ICurrentPromoList | null }) => {
-  
+
   return (
     <>
       {

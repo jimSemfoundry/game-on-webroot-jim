@@ -3,5 +3,8 @@
   "notifications": "الإشعارات",
   "support": "الدعم",
   "retry": "إعادة المحاولة",
-  "customerServiceChatFailedToLoad": "فشل تحميل دردشة خدمة العملاء"
+  "customerServiceChatFailedToLoad": "فشل تحميل دردشة خدمة العملاء",
+  "read": "اقرأ",
+  "unread": "غير مقروء",
+  "customerService": "خدمة العملاء"
 }

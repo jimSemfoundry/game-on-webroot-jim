@@ -17,6 +17,7 @@ export interface ITournament {
 
 export interface ITournamentTable {
   user_id: number;
+  nickname?: string;
   first_name?: string;
   last_name?: string;
   username?: string;

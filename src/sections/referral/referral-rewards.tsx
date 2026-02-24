@@ -12,7 +12,7 @@ import ReferralRewardsDetailsPage from "./referral-rewards-details";
 const ITEMS_PER_PAGE = 10;
 
 export const ReferralRewards = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'common']);
   const { user } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
@@ -113,9 +113,9 @@ export const ReferralRewards = () => {
               <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
                 <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                   <tr>
-                    <th className="px-4 py-3 sm:text-sm text-xs text-left font-bold" colSpan={4}>{t("referral:user")}</th>
-                    <th className="px-4 py-3 sm:text-sm text-xs text-left font-bold" colSpan={3}>{t("referral:vipLevel")}</th>
-                    <th className="px-4 py-3 sm:text-sm text-xs text-right font-bold" colSpan={2}>{t("referral:amount")}</th>
+                    <th className="px-4 py-3 sm:text-sm text-xs text-left rtl:text-right font-bold" colSpan={4}>{t("referral:user")}</th>
+                    <th className="px-4 py-3 sm:text-sm text-xs text-left rtl:text-right font-bold" colSpan={3}>{t("referral:vipLevel")}</th>
+                    <th className="px-4 py-3 sm:text-sm text-xs text-right rtl:text-left font-bold" colSpan={2}>{t("referral:amount")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -131,15 +131,20 @@ export const ReferralRewards = () => {
                         setIsOpen(true);
                       }}
                     >
-                      <td className="px-4 py-2.5 rounded-l-lg" colSpan={4}>
-                        <div className="flex items-center gap-2">
+                      <td className="px-4 py-2.5 rounded-l-lg rtl:rounded-l-none rtl:rounded-r-lg min-w-0" colSpan={4}>
+                        <div className="flex items-center gap-2 min-w-0">
                           <img
                             src={`/images/vip/levels/${item.downLineUserStatus.vip}.png`}
                             alt={`VIP ${item.downLineUserStatus.vip}`}
                             className="w-5 h-5 flex-shrink-0"
                           />
-                          <div className="text-sm sm:text-base font-semibold text-base-content/50 truncate">
+                          <div className="text-sm sm:text-base font-semibold text-base-content/50 truncate max-w-full sm:hidden">
                             {item.downLineUser.nickname}
+                          </div>
+                          <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full" data-tip={item.downLineUser.nickname}>
+                            <div className="text-sm sm:text-base font-semibold text-base-content/50 truncate max-w-full block">
+                              {item.downLineUser.nickname}
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -148,10 +153,9 @@ export const ReferralRewards = () => {
                         {item.downLineUserStatus.vip}
                       </td>
 
-                      <td className="px-4 py-2.5 text-right rounded-r-lg" colSpan={2}>
-                        <div className="text-success sm:font-bold text-sm sm:text-base font-semibold">
-                          +{" "}
-                          {formatWithConversion(item.reward, "USD", {
+                      <td className="px-4 py-2.5 text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg" colSpan={2}>
+                        <div className="text-success sm:font-bold text-sm sm:text-base font-semibold" dir="ltr">
+                          +{formatWithConversion(item.reward, "USD", {
                             showSymbol: false,
                             showCode: true,
                             minimizeDecimals: true,
@@ -247,4 +251,3 @@ export const ReferralRewards = () => {
     </div>
   );
 };
-

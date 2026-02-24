@@ -5,11 +5,11 @@
     "achievements": "成就",
     "achievementDescription": "成就奖励是为达到新里程碑和征服挑战而给予的奖励。它们庆祝您的进步和成功，在您取得新成就的过程中解锁有趣的惊喜！",
     "claimDistribution": "领取分配",
-    "claimDistributionDescription": "奖励在领取后会添加到您的奖金日历中，持续3天。",
+    "claimDistributionDescription": "当您领取新的成就奖励时，您的奖励会立即归属并可从您的存款<0>奖金池</0>中领取。",
     "expiration": "过期",
-    "expirationDescription": "无 - 奖励会自动发送到日历中。",
+    "expirationDescription": "无 - 只要您的奖金池余额充足即可领取。",
     "generalTerms": "一般条款",
-    "generalTermsDescription": "奖励以BUCK/USDT计算并记入，然后以您首选的法定货币显示，方便您查看。请注意，货币转换为近似值。\n\n赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈行为将导致取消参与该促销活动的资格。"
+    "generalTermsDescription": "奖励以 USDT 计算并发放，然后为方便起见按您偏好的法币显示。请注意，货币换算为近似值。\n\n赌场保留在任何时候修改或取消资格的权利，且无义务说明理由。任何滥用或欺诈行为都将导致取消活动资格。"
   },
   "luckyNumberSeven": {
     "title": "幸运数字 \n 七",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "最低领取金额为{{money}}",
     "expiration": "过期",
-    "expirationDescription": "您的神秘盒子必须在获得后的7天内领取。未领取的奖励将在此期限后过期。",
+    "expirationDescription": "您的神秘盒子必须在获得后的3天内领取。未领取的奖励将在此期限后过期。",
     "generalTerms": "一般条款",
     "generalTermsDescription": "奖励根据用户的首次存款计算并记入，若未存款则以USDT计算，需满足1倍的投注要求。金额以您首选的法定货币显示；转换为近似值。\n\n赌场保留随时修改或撤销资格的权利，恕不另行通知。任何滥用或欺诈行为将导致取消参与资格。"
   },

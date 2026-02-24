@@ -77,3 +77,42 @@
 .legacy-rtl-fix {
   /* Placeholder for any specific legacy fixes needed */
 }
+
+/* 
+ * 输入框 RTL 全局修复
+ * 对于数字和英文输入（如手机号、邮箱、密码等），保持 LTR 输入方向
+ * 但在 RTL 布局中文本靠右对齐
+ */
+[dir="rtl"] input[type="text"],
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="number"],
+[dir="rtl"] input[type="password"],
+[dir="rtl"] input[type="url"],
+[dir="rtl"] input[type="search"] {
+  direction: ltr;
+  text-align: right;
+}
+
+/* 搜索框保持左对齐（因为通常用于搜索内容） */
+[dir="rtl"] input[type="search"] {
+  text-align: left;
+}
+
+/* 纯文本输入框（用于阿拉伯语等 RTL 语言输入）保持 RTL */
+[dir="rtl"] input.rtl-text {
+  direction: rtl;
+  text-align: right;
+}
+
+/* textarea 默认保持 RTL（用于多行文本输入） */
+[dir="rtl"] textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+/* 如果 textarea 需要 LTR（如代码输入），添加 ltr-text 类 */
+[dir="rtl"] textarea.ltr-text {
+  direction: ltr;
+  text-align: left;
+}

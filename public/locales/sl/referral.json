@@ -7,6 +7,9 @@
     "commissions": "Provizije",
     "rewards": "Nagrade"
   },
+  "campaignAlreadyExists": "Kampanja že obstaja",
+  "campaignCreateSuccess": "Kampanja je bila uspešno ustvarjena!",
+  "campaignCreateFailed": "Ustvarjanje kampanje je spodletelo",
   "commissionCalculator": "Kalkulator provizij",
   "telegramReferralLink": "Napotitvena Povezava Telegram",
   "network": "Omrežje",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Moje napotitvene provizije",
   "myReferralRewards": "Moje napotitvene nagrade",
   "exp": "EXP",
-  "userLevel": "Raven uporabnika"
+  "userLevel": "Raven uporabnika",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>PRIPOROČILO</0><0>BONUS</0>",
+    "title": "Povabi prijatelja in prejmi dodatne nagrade, ko opravi svoj prvi polog. Prvi igralec, ki ga priporočiš in se pridruži, položi in igra, boš prejel 10% Ekstra Priporočilni Bonus na podlagi zneska njihovega začetnega pologa.",
+    "bonusCalculatedTitle": "Kako se izračuna bonus?",
+    "bonusCalculatedDesc": "Tvoj Ekstra Priporočilni Bonus se izračuna kot 10% prvega pologa tvojega prijatelja. Če je prvi polog tvojega prijatelja enak <0>{{depositAmount}}</0>, boš prejel nagrado v vrednosti <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Izplačilo nagrade",
+    "claimDistributionDesc": "Vse kar moraš storiti je, da kontaktiraš službo za pomoč strankam preko Live Chata in jih obvestiš, da želiš zahtevati nagrado s podatki o svojem priporočilu.",
+    "expirationTitle": "Potek",
+    "expirationDesc": "Bonus je treba zahtevati v 7 x 24 urah (7 dni) po začetnem pologu tvojega prijatelja; po tem ne more biti ponovno izdan.",
+    "generalTermsTitle": "Splošni pogoji",
+    "generalTermsDesc1": "Nagrade se izračunajo in pripišejo v <0>BUCK/USDT</0>, nato pa se prikažejo v vaši najljubši fiat valuti za udobje. Upoštevajte, da so pretvorbe valut približne. Največji bonus, ki ga lahko prejmete na prijatelja, ki ga priporočite, je ekvivalent {{bonusAmount}}, bonus pa lahko zahtevate enkrat na uporabniški ID. Vaš priporočeni mora staviti vsaj 4-kratnik zneska prvega pologa, preden lahko zahtevate svoj bonus.",
+    "generalTermsDesc2": "Kazino si pridržuje pravico, da kadarkoli spremeni ali prekliče upravičenost, brez obveznosti, da to utemelji. Vsaka zloraba ali goljufivo ravnanje – vključno, a ne omejeno na, podvajanje ali ujemanje podatkov igralcev, goljufije pri pologih, ujemajoče se IP naslove, varne stave ali obnašanje v slogu naložb – bo privedlo do diskvalifikacije iz promocije in preklica vseh povezanih bonusov. Vse odločitve, ki jih sprejme kazino glede te promocije, so končne in jih ni mogoče izpodbijati."
+  },
+  "referral_program_disabled": "PROGRAM\nNAPOTITEV\n<0>ONEMOGOČEN</0>",
+  "programAccessUpdate": "Posodobitev dostopa do programa",
+  "referralProgramPrivileges": "Vaše ugodnosti programa napotitev so bile preklicane po pregledu vašega računa in sodelovanja v programu. Ugotovili smo dejavnost, ki ni skladna s pogoji ali predvideno uporabo našega programa napotitev. To lahko vključuje sumljive vzorce napotitev, nepooblaščene promocijske metode, zlorabo spodbud ali poskuse obhoda smernic poštene uporabe.",
+  "referralRewardsPrivileges": "Posledično je bila onemogočena vaša zmožnost ustvarjanja novih nagrad za napotitve, deljenja povezav za napotitve ali prejemanja ugodnosti iz napotitev. Čakajoče ali prihodnje nagrade, povezane s programom napotitev, bodo zadržane in preklicane v skladu z našimi pravilniki. <0>Vsa ostala funkcionalnost vašega računa ostaja nedotaknjena in ta sprememba nanjo ne vpliva</0>.",
+  "understandDisappointing": "Razumemo, da je to lahko razočaranje. Če menite, da je ta odločitev napačna ali želite več podrobnosti, se obrnite na našo podporo z morebitnimi relevantnimi informacijami in vaš primer bomo ponovno pregledali."
 }

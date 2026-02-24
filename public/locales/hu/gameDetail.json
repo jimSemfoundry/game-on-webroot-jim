@@ -25,6 +25,14 @@
   "totalTips": "Javaslatok",
   "result": "Eredmény",
   "myBets": "Fogadásaim",
-  "**********": "",
-  "demoPlay": "Demó Játék"
+  "demoPlay": "Demó Játék",
+  "limitedOffer": "Korlátozott Ajánlat",
+  "deposit": "Betét {{value}}",
+  "get": "Szerezd meg {{value}}",
+  "instantCashBonus": "Azonnali Készpénz Bónusz",
+  "expires": "Lejár",
+  "depositNow": "Betét Most",
+  "free_spins": "Ingyenes Pörgetések",
+  "play_with_balance_in": "Játssz a Kiegyenlített Összeggel",
+  "the_selected_currency_will_be_displayed_in": "A kiválasztott valuta itt lesz megjelenítve"
 }

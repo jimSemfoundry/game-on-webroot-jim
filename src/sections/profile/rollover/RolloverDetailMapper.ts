@@ -67,16 +67,17 @@ const buildInfoRows = (
   const createdAt = formatTimestamp(record.created_at, DATE_FORMAT);
   if (createdAt) {
     rows.push({
-      label: t("transaction:details.createdOn", "Created On"),
+      label: t("transaction:common.createdOn", "Created On"),
       value: createdAt,
     });
   }
 
   // Rollover (wager requirement multiplier)
   const wagerMultiplier = getWagerMultiplier(record);
+
   if (wagerMultiplier) {
     rows.push({
-      label: t("transaction:rollover.rolloverTimes", "Rollover"),
+      label: t("transaction:rollover.rolloverMul", "Rollover"),
       value: wagerMultiplier,
     });
   }

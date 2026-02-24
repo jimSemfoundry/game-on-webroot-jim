@@ -7,6 +7,9 @@
     "commissions": "Commissioni",
     "rewards": "Ricompense"
   },
+  "campaignAlreadyExists": "La campagna esiste già",
+  "campaignCreateSuccess": "Campagna creata con successo!",
+  "campaignCreateFailed": "Impossibile creare la campagna",
   "commissionCalculator": "Calcolatore di Commissioni",
   "telegramReferralLink": "Link di Riferimento Telegram",
   "network": "Rete",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Le mie commissioni di referral",
   "myReferralRewards": "Le mie ricompense di referral",
   "exp": "EXP",
-  "userLevel": "Livello Utente"
+  "userLevel": "Livello Utente",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Invita un amico e ricevi ricompense extra quando effettua il suo primo deposito. Per il primo giocatore che riferisci che si unisce, deposita e gioca, riceverai un Bonus Referral Extra del 10% basato sull'importo del suo deposito iniziale.",
+    "bonusCalculatedTitle": "Come viene calcolato il Bonus?",
+    "bonusCalculatedDesc": "Il tuo Bonus Referral Extra è calcolato come il 10% del primo deposito del tuo amico. Se il primo deposito del tuo amico è equivalente a <0>{{depositAmount}}</0>, riceverai una ricompensa del valore di <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribuzione del Reclamo",
+    "claimDistributionDesc": "Tutto ciò che devi fare è contattare il Servizio Clienti tramite Live Chat e informarli che desideri richiedere la ricompensa con le informazioni del tuo Referral.",
+    "expirationTitle": "Scadenza",
+    "expirationDesc": "Il bonus deve essere richiesto entro 7 x 24 ore (7 giorni) dopo il deposito iniziale del tuo amico; dopo di che, non può essere riemesso.",
+    "generalTermsTitle": "Termini Generali",
+    "generalTermsDesc1": "I premi sono calcolati e accreditati in <0>BUCK/USDT</0>, quindi visualizzati nella tua valuta fiat preferita per comodità. Si prega di notare che le conversioni valutarie sono approssimative. Il bonus massimo che puoi ricevere per ogni amico referito è l'equivalente di {{bonusAmount}}, e il bonus può essere richiesto una sola volta per ID utente. Il tuo referral deve scommettere almeno 4 volte l'importo del suo primo deposito prima che tu possa richiedere il tuo bonus.",
+    "generalTermsDesc2": "Il casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento, senza l'obbligo di giustificare. Qualsiasi abuso o attività fraudolenta – inclusi, ma non limitati a, dati di giocatori duplicati o corrispondenti, frode nei depositi, indirizzi IP corrispondenti, scommesse sicure o comportamenti di tipo investimento – porterà alla squalifica dalla promozione e alla cancellazione di eventuali bonus correlati. Tutte le decisioni prese dal casinò riguardo a questa promozione sono definitive e non possono essere contestate."
+  },
+  "referral_program_disabled": "PROGRAMMA\nREFERRAL\n<0>DISATTIVATO</0>",
+  "programAccessUpdate": "Aggiornamento accesso al programma",
+  "referralProgramPrivileges": "I privilegi del tuo programma referral sono stati revocati a seguito di una revisione del tuo account e della tua partecipazione al programma. Abbiamo identificato attività non conformi ai termini, alle condizioni o all’uso previsto del nostro programma referral. Ciò può includere schemi di referral sospetti, metodi promozionali non autorizzati, abuso di incentivi o tentativi di aggirare le linee guida di fair use.",
+  "referralRewardsPrivileges": "Di conseguenza, la tua capacità di generare nuove ricompense referral, condividere link referral o ricevere benefici dai referral è stata disattivata. Le ricompense in sospeso o future associate al programma referral saranno trattenute e annullate in linea con le nostre policy. <0>Tutte le altre funzionalità del tuo account rimangono intatte e non sono influenzate da questa modifica</0>.",
+  "understandDisappointing": "Sappiamo che questo può essere deludente. Se ritieni che questa decisione sia un errore o desideri maggiori dettagli, contatta il nostro team di supporto con qualsiasi informazione pertinente e riesamineremo il tuo caso."
 }

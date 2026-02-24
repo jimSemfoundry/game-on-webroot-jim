@@ -76,12 +76,39 @@
   "dashboard": "Panel sterowania",
   "transactions": "Transakcje",
   "rollover": "Rollover",
-  "betHistory": "Historia zakładów",
+  "betHistory": {
+    "empty": "Nie znaleziono historii zakładów",
+    "title": "Historia zakładów",
+    "headers": {
+      "game": "Gra",
+      "date": "Data",
+      "betId": "ID zakładu",
+      "betIn": "Zakład",
+      "betOut": "Wygrana",
+      "account": "Konto",
+      "amount": "Kwota",
+      "provider": "Dostawca",
+      "match": "Mecz",
+      "tournament": "Turniej"
+    }
+  },
   "settings": "Ustawienia",
   "legal": "Prawo",
   "nickname": "Pseudonim",
   "zoomAndAdjust": "Powiększ i dostosuj",
   "systemLanguage": "Język systemowy",
   "editProfile": "Edytuj profil",
-  "inviteAndGetRewarded": "Zaproś i zdobądź nagrody"
+  "inviteAndGetRewarded": "Zaproś i zdobądź nagrody",
+  "emailAddress": "Adres e-mail",
+  "codeSent": "Wprowadź kod, który wysłaliśmy",
+  "codeSentTo": "Kod został wysłany do",
+  "notReceiveCode": "Nie otrzymałeś kodu?",
+  "verificationSuccess": "Weryfikacja zakończona sukcesem",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Twój numer telefonu został zweryfikowany. Możesz kontynuować.",
+  "email_address_has_been_verified": "Twój adres e-mail został zweryfikowany. Możesz kontynuować.",
+  "setNewPassword": "Ustaw nowe hasło",
+  "passwordLengthRequirement": "Proszę podać hasło składające się z 6 do 64 znaków."
 }

@@ -49,6 +49,7 @@ export interface CurrencyFormatOptions {
   minimizeDecimals?: boolean;
   displayDecimal?: number;
   compact?: boolean; // 添加compact格式化选项
+  roundingMode?: number; // 舍入模式: 1 为截断 (ROUND_DOWN)
 }
 
 export interface FormattedCurrency {

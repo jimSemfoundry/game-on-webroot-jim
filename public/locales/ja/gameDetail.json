@@ -25,6 +25,14 @@
   "totalTips": "チップ",
   "result": "結果",
   "myBets": "マイベット",
-  "**********": "",
-  "demoPlay": "デモプレイ"
+  "demoPlay": "デモプレイ",
+  "limitedOffer": "限定オファー",
+  "deposit": "入金 {{value}}",
+  "get": "取得 {{value}}",
+  "instantCashBonus": "インスタントキャッシュボーナス",
+  "expires": "期限切れ",
+  "depositNow": "今すぐ入金",
+  "free_spins": "フリースピン",
+  "play_with_balance_in": "残高でプレイする",
+  "the_selected_currency_will_be_displayed_in": "選択した通貨は次のように表示されます"
 }

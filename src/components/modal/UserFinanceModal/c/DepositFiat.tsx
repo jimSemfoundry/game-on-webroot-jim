@@ -1,13 +1,14 @@
 import { DepositFiatForm } from "@/components/modal/UserFinanceModal/c/DepositFiatForm.tsx";
 import { DepositFiatSelect } from "@/components/modal/UserFinanceModal/c/DepositFiatSelect.tsx";
-import { SecureCard } from "@/components/modal/UserFinanceModal/c/SecureCard.tsx";
-import { WarningCard } from "@/components/modal/UserFinanceModal/c/WarningCard.tsx";
 import { Trans, useTranslation } from "react-i18next";
-import { SpecialOffersH5 } from "./SpecialOffers.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 import { useMemo } from "react";
 import { useBoundStore } from "@/store";
+import { SecureCard } from "@/components/modal/UserFinanceModal/c/SecureCard.tsx";
+import { WarningCard } from "@/components/modal/UserFinanceModal/c/WarningCard.tsx";
+import { SpecialOffersH5 } from "./SpecialOffers.tsx";
+import { SpecialOffersGuard } from "@/components/modal/UserFinanceModal/c/SpecialOffersGuard.tsx";
 
 export const DepositFiat = () => {
   const { t } = useTranslation();
@@ -40,7 +41,11 @@ export const DepositFiat = () => {
       </InnerDisplayContent>
 
       {/* 优惠充值活动 */}
-      <SpecialOffersH5 />
+      <div className="block md:hidden">
+        <SpecialOffersGuard>
+          <SpecialOffersH5 />
+        </SpecialOffersGuard>
+      </div>
 
       {/* 动态表单 */}
       <DepositFiatForm />

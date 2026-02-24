@@ -7,6 +7,8 @@
   "baseball": "Bejzbol",
   "iceHockey": "Hokej na ledu",
   "basketball": "Košarka",
+  "cricket": "Kriket",
+  "eSoccer": "eNogomет",
   "volleyball": "Odbojka",
   "hot": "VROČE",
   "all": "VSE",
@@ -69,5 +71,6 @@
   "live-casino": "Live kazino",
   "sports": "Šport",
   "lotteries": "Loterije",
-  "gamesYouShouldTry": "Igre, ki jih morate preizkusiti"
+  "gamesYouShouldTry": "Igre, ki jih morate preizkusiti",
+  "bonus": "Bonus"
 }

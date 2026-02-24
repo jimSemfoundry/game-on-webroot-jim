@@ -76,12 +76,39 @@
   "dashboard": "Панель управления",
   "transactions": "Транзакции",
   "rollover": "Перекат",
-  "betHistory": "История ставок",
+  "betHistory": {
+    "empty": "История ставок не найдена",
+    "title": "История ставок",
+    "headers": {
+      "game": "Игра",
+      "date": "Дата",
+      "betId": "ID ставки",
+      "betIn": "Ставка",
+      "betOut": "Выигрыш",
+      "account": "Аккаунт",
+      "amount": "Сумма",
+      "provider": "Провайдер",
+      "match": "Матч",
+      "tournament": "Турнир"
+    }
+  },
   "settings": "Настройки",
   "legal": "Юридическая информация",
   "nickname": "Псевдоним",
   "zoomAndAdjust": "Увеличить и настроить",
   "systemLanguage": "Системный язык",
   "editProfile": "Редактировать профиль",
-  "inviteAndGetRewarded": "Пригласите и получите вознаграждение"
+  "inviteAndGetRewarded": "Пригласите и получите вознаграждение",
+  "emailAddress": "Электронная почта",
+  "codeSent": "Введите код, который мы отправили",
+  "codeSentTo": "Код был отправлен на",
+  "notReceiveCode": "Не получили код?",
+  "verificationSuccess": "Успешная верификация",
+  "spinHistory": {
+    "statusFilterLabel": "Статус"
+  },
+  "phone_number_has_been_verified": "Ваш номер телефона подтверждён. Вы можете продолжить.",
+  "email_address_has_been_verified": "Ваш адрес электронной почты подтвержден. Можно продолжать.",
+  "setNewPassword": "Установить новый пароль",
+  "passwordLengthRequirement": "Пожалуйста, введите пароль от 6 до 64 символов."
 }

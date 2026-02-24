@@ -14,7 +14,7 @@ const buildAnchor = (href: string, label: string) =>
   `<a target="_blank" rel="noopener noreferrer" href="${href}" class="text-primary font-bold text-sm">${label}</a>`;
 
 export const ReferralFAQ = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('referral');
 
   const websiteUrl = import.meta.env.VITE_WEBSITE_URL ?? fallbackWebsiteUrl;
   const websiteNickname =

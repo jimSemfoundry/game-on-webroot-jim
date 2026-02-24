@@ -1,21 +1,29 @@
 import axios from "axios";
+import { setTraceIdHeader } from "./trace";
 
 const publicAxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "https://tg.b03test.xyz",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
   }
 });
 
 publicAxiosInstance.interceptors.request.use(
   (config) => {
     config.params = {
-      ...(config.params || {}),
-      _t: Date.now(),
+      ...(config.params || {})
     }
+    
+    // 每次请求生成新的 trace ID
+    config.headers['X-Trace-Id'] = `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
 
-    return config;
+    // 每次请求生成新的 trace ID
+    setTraceIdHeader(config);
+
+    return config
   },
   (error) => {
     return Promise.reject(error);

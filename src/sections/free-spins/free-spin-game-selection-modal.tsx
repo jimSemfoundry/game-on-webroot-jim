@@ -18,7 +18,7 @@ export const FreeSpinGameSelection = ({
   onClaimSuccess,
 }: FreeSpinGameSelectionProps) => {
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('popup');
   const [selectedGameIndex, setSelectedGameIndex] = useState<string | null>(null);
   const enableRecordMutation = useEnableRecord();
 
@@ -78,6 +78,7 @@ export const FreeSpinGameSelection = ({
     }
 
     enableRecordMutation.mutate({
+      // game_id: item.id,
       record_id: freeSpinData.id,
       inner_game_id: item.inner_game_id,
     }, {

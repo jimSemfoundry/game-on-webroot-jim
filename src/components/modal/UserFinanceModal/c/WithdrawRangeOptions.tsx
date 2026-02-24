@@ -19,7 +19,7 @@ export const WithdrawRangeOptions = (
   const [, startTransition] = useTransition();
 
   return (
-    <div className="mt-2 grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-4 gap-2">
       {perRangeOptions.map((o, index) => (
         <button
           key={index}

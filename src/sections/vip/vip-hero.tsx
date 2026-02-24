@@ -10,9 +10,11 @@ import Decimal from "decimal.js";
 import { useVipNextLevelData } from "@/hooks/api/useAuth.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 
+const vipAuthCharacterImage = import.meta.env.VITE_VIP_HERO_AUTH_CHARACTER_IMAGE || "/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png";
+
 // 未登录用户的Hero组件
 function UnauthenticatedVipHero() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('vip');
 
   return (
     <div
@@ -124,7 +126,7 @@ function UnauthenticatedVipHero() {
 
 // 已登录用户的Hero组件
 function AuthenticatedVipHero() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('vip');
   const { status } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { formatCurrency, selectedCurrency, convertCurrency, exchangeRates } = useDisplayCurrency();
@@ -235,7 +237,7 @@ function AuthenticatedVipHero() {
         <div
           className="w-[225px] h-[169px] right-[-6px] sm:w-[312px] sm:h-[234px] flex items-end justify-center absolute lg:left-[350px] lg:top-0 pointer-events-none select-none">
           <img
-            src="/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png"
+            src={vipAuthCharacterImage}
             alt="VIP Character"
             className="w-full h-full object-contain drop-shadow-[0px_0px_100px_rgba(172,0,255,0.3)]"
             draggable="false"
@@ -253,7 +255,7 @@ function AuthenticatedVipHero() {
           <div className="relative flex h-full w-full flex-col gap-4 rounded-box p-5 sm:p-6">
             {/* VIP Badge - 右上角 */}
             <div
-              className="absolute top-3 right-6 sm:top-6 sm:right-10 -translate-y-1/2 pointer-events-none select-none">
+              className="absolute top-3 right-6 rtl:left-6 rtl:right-auto sm:top-6 sm:right-10 -translate-y-1/2 pointer-events-none select-none">
               <img
                 src={`/images/vip/levels/${currentVip}.png`}
                 alt={`VIP ${currentVip}`}

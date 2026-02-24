@@ -2,7 +2,7 @@ import { useCallback, useMemo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useBoundStore } from "@/store";
 import { useGetPromoByPage } from "@/query/promo.tsx";
-import { amounts } from "./DepositFiatAmount";
+import { default_deposit_range_options } from "./DepositFiatAmount";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 
 
@@ -50,7 +50,7 @@ export const RangeSlider = () => {
   // 使用 useMemo 优化 rangeLabels 计算
   const rangeLabels = useMemo(() => {
     // 过滤掉小于 minAmountValue 的推荐金额
-    const filteredRecommendedAmounts = (depositFiat.method?.recommended || amounts).filter((amount: string) => parseFloat(amount) > minAmountValue);
+    const filteredRecommendedAmounts = (depositFiat.method?.recommended || default_deposit_range_options).filter((amount: string) => parseFloat(amount) > minAmountValue);
 
     const labels: Array<{ value: number, label: string, amount: number }> = [
       { value: 0, label: '0', amount: 0 },
@@ -68,7 +68,7 @@ export const RangeSlider = () => {
     }
 
     return labels;
-  }, [depositFiat.method?.recommended, amounts, minAmountValue, depositFiat.method?.max]);
+  }, [depositFiat.method?.recommended, default_deposit_range_options, minAmountValue, depositFiat.method?.max]);
 
   // 计算 range 配置
   const { min: rangeMin, max: rangeMax, step: rangeStep } = useMemo(() => {

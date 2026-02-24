@@ -212,6 +212,9 @@ export const ThursdaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any
   const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
   const { isRTL } = useRTLContext();
+
+  const { openTipsModal } = useTipsModal();
+
   return (
     <div className="w-[208px] h-[244px] rounded-lg relative overflow-hidden border border-primary">
       <div className="absolute inset-0 w-full h-full"
@@ -257,6 +260,14 @@ export const ThursdaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any
         <div className='flex-inline flex-col justify-center'>
           <div className="flex items-center gap-4 mb-2">
             <p className="text-lg test-base text-white font-bold whitespace-pre-line leading-5">{t('bonus:thursday_bonus')}</p>
+            <BadgeAlert
+              strokeWidth={3}
+              className="w-5 h-5 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                openTipsModal("cryptoThursdayBouns", currentPromo);
+              }}
+            />
           </div>
           <div className='text-primary font-semibold text-sm leading-5 flex items-center gap-1 flex-wrap'>
             <div>{t('bonus:expires_in')}</div> <CountdownTimerThree expireTime={currentPromo?.expired_at} />

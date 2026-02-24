@@ -76,12 +76,39 @@
   "dashboard": "Приладна панель",
   "transactions": "Транзакції",
   "rollover": "Перекат",
-  "betHistory": "Історія ставок",
+  "betHistory": {
+    "empty": "Історію ставок не знайдено",
+    "title": "Історія ставок",
+    "headers": {
+      "game": "Гра",
+      "date": "Дата",
+      "betId": "ID ставки",
+      "betIn": "Ставка",
+      "betOut": "Виграш",
+      "account": "Акаунт",
+      "amount": "Сума",
+      "provider": "Провайдер",
+      "match": "Матч",
+      "tournament": "Турнір"
+    }
+  },
   "settings": "Налаштування",
   "legal": "Юридичні",
   "nickname": "Нікнейм",
   "zoomAndAdjust": "Масштабувати та налаштувати",
   "systemLanguage": "Системна мова",
   "editProfile": "Редагувати профіль",
-  "inviteAndGetRewarded": "Запросіть та отримайте винагороду"
+  "inviteAndGetRewarded": "Запросіть та отримайте винагороду",
+  "emailAddress": "Електронна адреса",
+  "codeSent": "Введіть код, який ми надіслали",
+  "codeSentTo": "Код було надіслано на",
+  "notReceiveCode": "Не отримали код?",
+  "verificationSuccess": "Успішна перевірка",
+  "spinHistory": {
+    "statusFilterLabel": "Статус"
+  },
+  "phone_number_has_been_verified": "Ваш номер телефону підтверджено. Ви можете продовжити.",
+  "email_address_has_been_verified": "Вашу адресу електронної пошти підтверджено. Можете продовжувати.",
+  "setNewPassword": "Встановити новий пароль",
+  "passwordLengthRequirement": "Будь ласка, введіть пароль від 6 до 64 символів."
 }

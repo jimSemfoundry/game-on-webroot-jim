@@ -24,7 +24,7 @@ const DEFAULT_GRADIENT = `
 const ILLUSTRATION_URL = "/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png";
 
 export function BonusTournamentCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { isInitialized, isAuthenticated } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
@@ -132,9 +132,12 @@ export function BonusTournamentCard() {
     );
   }
 
+  // 可领取状态
+  const isClaimable = claimableAmount > 0;
+
   return (
     <div
-      className="flex flex-col p-4 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200"
+      className={`flex flex-col p-4 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
       style={{
         background,
       }}
@@ -162,7 +165,7 @@ export function BonusTournamentCard() {
         </label>
 
         <button
-          className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
+          className="btn btn-primary btn-md px-0 w-20 max-w-20"
           onClick={handleClaim}
           disabled={isClaimPending || claimableAmount <= 0}
         >

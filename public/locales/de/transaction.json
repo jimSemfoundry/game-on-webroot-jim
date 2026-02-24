@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Freispiele Belohnungen",
   "common": {
     "close": "Schließen",
     "copy": "Kopieren",
@@ -12,7 +13,8 @@
     "swap": "Tauschen",
     "swapFrom": "Von tauschen",
     "swapTo": "Zu tauschen",
-    "noCommissionRecords": "Keine Kommissionsdatensätze gefunden"
+    "noCommissionRecords": "Keine Kommissionsdatensätze gefunden",
+    "createdOn": "Erstellt am"
   },
   "tabs": {
     "transactionHistory": "Transaktionsverlauf",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Abhebungsnetzwerk",
     "blockchainWaiting": "Warten auf Blockchain-Bestätigung.",
     "blockchainFailed": "Blockchain-Transaktion fehlgeschlagen.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Wir haben Ihre Anfrage erhalten.<br/>Um den Status zu sehen, überprüfen Sie Transaktionen in Ihrem Profil."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Gesamter erforderlicher Einsatz",
     "wagerCompleted": "Einsatz abgeschlossen",
     "pendingWagerRequired": "Ausstehender Einsatz erforderlich",
-    "unlockedFunds": "Freigeschaltete Mittel"
-  }
+    "unlockedFunds": "Freigeschaltete Mittel",
+    "rolloverMul": "Wetteinsatz-Multiplikator"
+  },
+  "assistance": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut oder kontaktieren Sie den Kundenservice für Unterstützung"
 }

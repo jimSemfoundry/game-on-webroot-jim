@@ -1,9 +1,9 @@
 import { useCurrentUser, useLogin, useLogout } from "@/hooks/api/useAuth";
 import type { User, UserStatus } from "@/types/auth";
 import { clearUserAvatar, getOrAssignUserAvatar } from "@/utils/avatar";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { createContext, Dispatch, SetStateAction, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { uuidv4Generate } from "@/utils/helper.ts";
 
 type AuthContextType = {
   user: User | null;
@@ -87,10 +87,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = useCallback(
     async (username: string, password: string) => {
       try {
-        const fingerprint = await FingerprintJS.load();
-        const { visitorId } = await fingerprint.get();
+        const device_id = uuidv4Generate();
 
-        const result = await loginMutation.mutateAsync({ username, password, device_id: visitorId });
+        const result = await loginMutation.mutateAsync({ username, password, device_id });
 
         // 处理用户数据，包括头像
         const userData = { ...result.user };

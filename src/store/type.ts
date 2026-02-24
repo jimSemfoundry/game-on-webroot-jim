@@ -24,16 +24,19 @@ export interface IFinanceSlice {
   setWithdrawType: (params: "crypto" | "fiat") => void;
 
   // withdraw fiat
-  withdrawFiat: IFiat;
-  setWithdrawFiat: (params: Partial<IFiat>) => void;
+  withdrawFiat: IFiat & { extraItem: Record<string, any> | null };
+  setWithdrawFiat: (params: Partial<IFiat & { extraItem: Record<string, any> | null }>) => void;
+  resetWithdrawFiat: () => void;
 
   // withdraw fiat V2
   withdrawFiatV2: Omit<IFiat, "currency">;
   setWithdrawFiatV2: (params: Partial<IFiat>) => void;
+  resetWithdrawFiatV2: () => void;
 
   // withdraw crypto
   withdrawCrypto: IWithdrawCrypto;
   setWithdrawCrypto: (params: Partial<IWithdrawCrypto>) => void;
+  resetWithdrawCrypto: () => void;
 
   depositType: "crypto" | "fiat";
   setDepositType: (params: "crypto" | "fiat") => void;
@@ -43,8 +46,8 @@ export interface IFinanceSlice {
   setDepositCrypto: (params: Partial<ICrypto>) => void;
 
   // deposit fiat
-  depositFiat: IFiat;
-  setDepositFiat: (params: Partial<IFiat>) => void;
+  depositFiat: IFiat & { extraItem: Record<string, any> | null };
+  setDepositFiat: (params: Partial<IFiat & { extraItem: Record<string, any> | null }>) => void;
 
   swapFrom: {
     currency: Record<string, any> | null;
@@ -60,6 +63,11 @@ export interface IFinanceSlice {
 
   syncAction: { type: TActions | undefined; data?: any };
   setSyncAction: (t: TActions | undefined, data?: any) => void;
+
+  // 多弹窗状态管理（支持多个弹窗同时显示）
+  modals: Record<string, { open: boolean; data?: any }>;
+  openModal: (type: TActions, data?: any) => void;
+  closeModal: (type: TActions) => void;
 }
 
 export type TActions =
@@ -87,6 +95,14 @@ export type TActions =
   | "OPEN_BONUS_CLAIM_RESPONSE_MODAL"
   | "OPEN_EXTRA_REFERRAL_BONUS_MODAL"
   | "OPEN_DOUBLE_OR_NOTHING_MODAL"
+  | "OPEN_VIP_MONDAY_BONUS_MODAL"
+  | "OPEN_FINANCE_AML_MODAL"
+  | "OPEN_FREE_PLAY_BONUS_MODAL"
+  | "OPEN_MINI_SLOT_BONUS_MODAL"
+  | "OPEN_MEGA_SLOT_BONUS_MODAL"
+  | "OPEN_OPTIONAL_BONUS_MODAL"
+  | "OPEN_GIVE_UP_BONUS_MODAL"
+  | "OPEN_LIMIT_OFFER_MODAL"
   | "CLOSE_FINANCE_MODAL";
 
 export type TPublicProfileKeys =
@@ -117,4 +133,15 @@ export interface IHeaderSlice {
   setHeaderBackAction: (action: (() => void) | null) => void;
 }
 
-export type Store = IFinanceSlice & ISettingSlice & IHeaderSlice;
+export interface IExploreSlice {
+  exploreState: {
+    games: any[];
+    page: number;
+    scrollTop: number;
+    filterFingerprint: string;
+  };
+  setExploreState: (state: Partial<IExploreSlice["exploreState"]>) => void;
+  resetExploreState: () => void;
+}
+
+export type Store = IFinanceSlice & ISettingSlice & IHeaderSlice & IExploreSlice;

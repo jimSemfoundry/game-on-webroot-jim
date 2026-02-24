@@ -1,22 +1,24 @@
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { useTipsModal } from "@/contexts/ModalsProvider.tsx";
+import { useFinanceModal, useTipsModal } from "@/contexts/ModalsProvider.tsx";
 import { useRTLContext } from "@/contexts/RTLContext";
 import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import classNames from "classnames";
+import clsx from "clsx";
 import { TFunction } from "i18next";
-import { BadgeAlert } from "lucide-react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { deposit_bonus_static_info } from "@/sections/bonus/deposit-bonus/helper.ts";
+import { Alert } from "@/components/icons/Alert.tsx";
 
 const Bonus = ({ cls, t, type }: { cls?: string; t: TFunction; type: "crypto" | "fiat" }) => {
   const { status } = useAuth();
 
-  const { data, isLoading: bonusLoading } = useDepositBonusConfig();
+  const { isUserFinanceOpen } = useFinanceModal()
+
+  const { data, isLoading: bonusLoading } = useDepositBonusConfig(isUserFinanceOpen);
 
   const { depositCrypto, depositFiat } = useBoundStore();
 
@@ -43,7 +45,7 @@ const Bonus = ({ cls, t, type }: { cls?: string; t: TFunction; type: "crypto" | 
   return (
     <SmallLoading
       loading={bonusLoading || currencyLoading}
-      className={classNames(cls, "h-8 !rounded-lg")}
+      className={clsx(cls, "h-8 !rounded-lg")}
       content={
         <div
           className={cn("p-2 inline-flex items-center text-xs text-center font-semibold bg-primary rounded-lg text-primary-content", cls)}
@@ -91,7 +93,11 @@ const Slogan = ({ cls, t }: { cls?: string; t: TFunction }) => {
           className="bg-base-400 min-w-auto mb-1"
         />
       </div>
-      <BadgeAlert strokeWidth={3} className="w-5 h-5 cursor-pointer" onClick={() => openTipsModal("depositBonus")} />
+      <button
+        className={"btn btn-square bg-base-200"}
+        onClick={() => openTipsModal('depositBonus')}>
+        <Alert />
+      </button>
     </div>
   );
 };
@@ -155,7 +161,7 @@ export const BonusCardForH5 = () => {
            style={{
              [isRTL ? "left" : "right"]: "0px",
              transform: isRTL ? "scaleX(-1)" : "none"
-           }} />
+           }} loading='lazy' />
 
     </div>
 
@@ -220,7 +226,7 @@ export const BonusCardForPC = () => {
       </div>
       {/* 申请奖励 */}
       {/* <Applied cls="btn-sm z-11" /> */}
-      <img src="/images/finance/giftBig.png" alt=""
+      <img src="/images/finance/bonus.png" alt=""
            className="absolute bottom-[0px] w-[175px]"
            style={{
              [isRTL ? "left" : "right"]: "0px",

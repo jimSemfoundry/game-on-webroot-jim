@@ -7,6 +7,9 @@
     "commissions": "Komissiot",
     "rewards": "Palkinnot"
   },
+  "campaignAlreadyExists": "Kampanja on jo olemassa",
+  "campaignCreateSuccess": "Kampanja luotiin onnistuneesti!",
+  "campaignCreateFailed": "Kampanjan luominen epäonnistui",
   "commissionCalculator": "Komissiolaskuri",
   "telegramReferralLink": "Telegramin Viittauslinkki",
   "network": "Verkko",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Omat suosittelupalkkiot",
   "myReferralRewards": "Omat suosittelupalkinnot",
   "exp": "KOKEMUS",
-  "userLevel": "Käyttäjätaso"
+  "userLevel": "Käyttäjätaso",
+  "extraReferralBonus": {
+    "slogan": "LISÄÄ<0>SUOSITUS</0><0>BONUS</0>",
+    "title": "Kutsu ystävä ja saa lisäpalkintoja, kun he tekevät ensimmäisen talletuksensa. Ensimmäisestä pelaajasta, jonka suosittelet ja joka liittyy, tallettaa ja pelaa, saat 10 % Lisä Suositusbonuksen heidän alkuperäisestä talletusmäärästään.",
+    "bonusCalculatedTitle": "Miten Bonus Lasketaan?",
+    "bonusCalculatedDesc": "Lisä Suositusbonuksesi lasketaan 10 % ystäväsi ensimmäisestä talletuksesta. Jos ystäväsi ensimmäinen talletus on <0>{{depositAmount}}</0>, saat palkinnon, jonka arvo on <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Vaatimusjakelu",
+    "claimDistributionDesc": "Kaikki mitä sinun tarvitsee tehdä, on ottaa yhteyttä asiakaspalvelun live-chattiin ja ilmoittaa heille, että haluat lunastaa palkinnon Suositustietojesi avulla.",
+    "expirationTitle": "Vanhentuminen",
+    "expirationDesc": "Bonus on lunastettava 7 x 24 tunnin (7 päivän) kuluessa ystäväsi ensimmäisestä talletuksesta; sen jälkeen sitä ei voida uudelleen myöntää.",
+    "generalTermsTitle": "Yleiset Ehdot",
+    "generalTermsDesc1": "Palkkiot lasketaan ja hyvitetään <0>BUCK/USDT</0>, ja ne näytetään sitten valitsemassasi fiat-valuutassa mukavuuden vuoksi. Huomaa, että valuuttamuunnokset ovat arvioita. Suurin bonus, jonka voit saada per viitattu ystävä, on {{bonusAmount}}:n arvoinen, ja bonuksen voi lunastaa kerran käyttäjä-ID:tä kohden. Viittauksesi on panostettava vähintään 4 kertaa ensimmäisen talletusmäärän ennen kuin voit lunastaa bonuksesi.",
+    "generalTermsDesc2": "Kasinolla on oikeus muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman velvollisuutta perustella. Kaikki väärinkäytökset tai petollinen toiminta – mukaan lukien mutta ei rajoittuen, kaksoispelaajatiedot, talletuspetokset, vastaavat IP-osoitteet, turvalliset vedot tai sijoitustyyppinen käyttäytyminen – johtavat erottamiseen kampanjasta ja kaikkien siihen liittyvien bonusten perumiseen. Kaikki kasinon tekemät päätökset tämän kampanjan osalta ovat lopullisia eikä niitä voida kiistää."
+  },
+  "referral_program_disabled": "SUOSITTELU\nOHJELMA\n<0>POISTETTU KÄYTÖSTÄ</0>",
+  "programAccessUpdate": "Ohjelman käyttöoikeuspäivitys",
+  "referralProgramPrivileges": "Suositteluohjelman etuoikeutesi on peruutettu tilisi ja ohjelmaan osallistumisesi tarkistuksen jälkeen. Havaitsimme toimintaa, joka ei noudata suositteluohjelmamme ehtoja tai tarkoitettua käyttöä. Tämä voi sisältää epäilyttäviä suosittelukuvioita, luvattomia markkinointitapoja, kannustimien väärinkäyttöä tai yrityksiä kiertää reilun käytön ohjeita.",
+  "referralRewardsPrivileges": "Tämän seurauksena mahdollisuutesi luoda uusia suosittelupalkkioita, jakaa suosittelulinkkejä tai saada hyötyjä suositteluista on poistettu käytöstä. Odottavat tai tulevat suositteluohjelmaan liittyvät palkkiot pidätetään ja perutaan käytäntöjemme mukaisesti. <0>Kaikki muut tilisi toiminnot säilyvät ennallaan eikä tämä muutos vaikuta niihin</0>.",
+  "understandDisappointing": "Ymmärrämme, että tämä voi olla pettymys. Jos uskot, että päätös on virheellinen tai haluat lisätietoja, ota yhteyttä tukitiimiimme ja toimita mahdolliset asiaankuuluvat tiedot — tarkistamme tapauksesi."
 }

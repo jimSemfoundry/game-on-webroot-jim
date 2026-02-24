@@ -6,12 +6,12 @@ import { ExchangeUSD } from "@/components/modal/UserFinanceModal/c/SwapSend.tsx"
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import getSymbolFromCurrency from "currency-symbol-map";
+import getSymbolFromCurrency from "@/utils/currencySymbol";
 import Decimal from "decimal.js";
 import { EqualApproximately } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { FormatAmount } from "sunmoon-working-components";
+import FormatAmount from "./FormatAmount";
 import { emitter } from "@/store/emitter.ts";
 
 export const SwapReceive = () => {

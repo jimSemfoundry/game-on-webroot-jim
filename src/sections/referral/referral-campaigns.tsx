@@ -12,7 +12,7 @@ import Copy from "@/components/ui/Copy";
 import { AdTag } from "@/types/referral";
 
 export const ReferralCampaigns = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'common']);
   const { status } = useAuth();
   const { data: adTagListResponse, isLoading } = useAdTagList();
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,7 +74,7 @@ export const ReferralCampaigns = () => {
     <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
       <div className="bg-base-200 px-4 sm:px-6 py-4">
         <div className="flex items-center gap-2 mb-4">
-          <img src="/icons/ui/speaker.svg" alt="speaker" className="w-13 h-13" />
+          <img src="/icons/ui/speaker.png" alt="speaker" className="w-13 h-13" />
           <h3 className="text-base sm:text-lg font-bold">{t("referral:tabs.campaigns")}</h3>
         </div>
 
@@ -147,10 +147,10 @@ export const ReferralCampaigns = () => {
               <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
                 <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                   <tr>
-                    <th className="px-4 py-3 text-left">{t("referral:campaignName")}</th>
-                    <th className="px-4 py-3 text-left w-[11rem]">{t("referral:referralCode")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right">{t("referral:campaignName")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right w-[11rem]">{t("referral:referralCode")}</th>
                     <th className="px-4 py-3 text-center">{t("referral:registration")}</th>
-                    <th className="px-4 py-3 text-right">{t("referral:referrals")}</th>
+                    <th className="px-4 py-3 text-right rtl:text-left">{t("referral:referrals")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -166,8 +166,8 @@ export const ReferralCampaigns = () => {
                         setIsCreateModalOpen(true);
                       }}
                     >
-                      <td className="px-4 py-2.5 rounded-l-lg">
-                        <div className="flex items-center gap-2">
+                      <td className="px-4 py-2.5 rounded-l-lg rtl:rounded-l-none rtl:rounded-r-lg min-w-0">
+                        <div className="flex items-center gap-2 min-w-0">
                           {item.is_default ? (
                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -186,13 +186,27 @@ export const ReferralCampaigns = () => {
                               />
                             </svg>
                           )}
-                          <span className="font-semibold truncate text-base-content/50 text-sm">{item.campaign}</span>
+                          <span className="font-semibold truncate text-base-content/50 text-sm max-w-full sm:hidden">
+                            {item.campaign}
+                          </span>
+                          <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full" data-tip={item.campaign}>
+                            <span className="font-semibold truncate text-base-content/50 text-sm max-w-full block">
+                              {item.campaign}
+                            </span>
+                          </div>
                         </div>
                       </td>
                       <td className="px-4 py-2.5 align-middle">
-                        <div className="w-[11rem]">
-                          <div className="bg-base-100/60 rounded-lg px-3 py-1.5 flex items-center justify-between gap-2">
-                            <span className="font-semibold text-left truncate text-base-content/50 text-sm">{item.code}</span>
+                        <div className="w-[11rem] min-w-0">
+                          <div className="bg-base-100/60 rounded-lg px-3 py-1.5 flex items-center justify-between gap-2 rtl:flex-row-reverse">
+                            <span className="font-semibold text-left rtl:text-right truncate text-base-content/50 text-sm max-w-full sm:hidden" dir="ltr">
+                              {item.code}
+                            </span>
+                            <div className="tooltip tooltip-top hidden sm:block min-w-0 flex-1" data-tip={item.code}>
+                              <span className="font-semibold text-left rtl:text-right truncate text-base-content/50 text-sm max-w-full block" dir="ltr">
+                                {item.code}
+                              </span>
+                            </div>
                             <div onClick={(e) => e.stopPropagation()}>
                               <Copy
                                 text={item.code}
@@ -209,11 +223,11 @@ export const ReferralCampaigns = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-2.5 text-center font-medium text-base-content/50 text-sm">{dayjs(item.created_at * 1000).format("YYYY/MM/DD")}</td>
-                      <td className="px-4 py-2.5 text-right rounded-r-lg">
-                        <button className="bg-primary text-primary-content font-semibold text-sm px-3 py-1 rounded-lg inline-flex items-center gap-1 hover:opacity-90 transition-opacity">
+                      <td className="px-4 py-2.5 text-center font-medium text-base-content/50 text-sm" dir="ltr">{dayjs(item.created_at * 1000).format("YYYY/MM/DD")}</td>
+                      <td className="px-4 py-2.5 text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
+                        <button className="bg-primary text-primary-content font-semibold text-sm px-3 py-1 rounded-lg inline-flex items-center gap-1 hover:opacity-90 transition-opacity rtl:flex-row-reverse">
                           <span>{item.register_count}</span>
-                          <ChevronRight className="w-3 h-3" />
+                          <ChevronRight className="w-3 h-3 rtl:rotate-180" />
                         </button>
                       </td>
                     </tr>

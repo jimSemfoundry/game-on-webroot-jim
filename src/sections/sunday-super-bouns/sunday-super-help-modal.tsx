@@ -7,7 +7,6 @@ import { ICurrentPromoList } from "@/types/double-or-nothing";
 import { useCurrencyData } from "@/hooks/useCurrency";
 import { useBoundStore } from "@/store";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
 
 const getCashBonusText = ({
   bonus_rate,
@@ -115,7 +114,7 @@ interface DoubleOrNothingHelpModalProps {
 }
 
 export const SundaySuperHelpModal = ({ currentPromo, open, onClose }: DoubleOrNothingHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('popup');
   const { isRTL } = useRTLContext();
   const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
@@ -197,7 +196,7 @@ export const SundaySuperHelpModal = ({ currentPromo, open, onClose }: DoubleOrNo
         {/* 上方带渐变的独立卡片 */}
         <div className="rounded-box text-center relative overflow-hidden h-[138px] flex items-center">
           <div className="relative z-10 flex items-center h-full justify-between w-full">
-            <div className="w-full h-full rounded-lg relative overflow-hidden bg-base-400">
+            <div className="w-full h-full rounded-lg relative overflow-hidden bg-base-400 ">
               <div
                 className="absolute inset-0 w-full h-full"
                 style={{ transform: isRTL ? "scaleX(-1)" : "none" }}
@@ -252,7 +251,7 @@ export const SundaySuperHelpModal = ({ currentPromo, open, onClose }: DoubleOrNo
           {/* Close按钮 - 位于右上角 */}
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
+            className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
             aria-label="Close"
           >
             <CloseIcon />
@@ -265,7 +264,7 @@ export const SundaySuperHelpModal = ({ currentPromo, open, onClose }: DoubleOrNo
               <h3 className="text-base font-bold text-white">{t('popup:offer_details')}</h3>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto pb-12 flex flex-col gap-4">
+            <div className="max-h-[400px] overflow-y-auto pb-12 flex flex-col gap-4 hide-scrollbar">
               {/* 描述文本 */}
               <p className="text-xs text-base-content/50 leading-5">
                 <Trans
@@ -300,13 +299,6 @@ export const SundaySuperHelpModal = ({ currentPromo, open, onClose }: DoubleOrNo
                       })
                     }
                   </p>
-                </div>
-              </div>
-              {/* Release Frequency 区块 */}
-              <div className="py-3 bg-base-300 rounded-field px-4">
-                <p className="text-xs text-base-content/50 mb-1 font-semibold">{t('popup:offer_expiry')}</p>
-                <div className="text-lg font-bold text-primary inline-flex">
-                  <CountdownTimerThree expireTime={currentPromo?.expired_at} />
                 </div>
               </div>
               <div>

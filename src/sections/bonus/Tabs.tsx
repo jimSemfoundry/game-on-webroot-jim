@@ -1,21 +1,32 @@
 import Iconify from "@/components/iconify";
 import { Tabs as TabsComponent } from "@/components/ui/Tabs";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BonusAchievementsModal } from "./achievements";
 import { useAuth } from "@/contexts/AuthContext";
 import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
+import { useNavigate } from "@tanstack/react-router";
 
 interface BonusTabsProps {
   value: string;
   onChange: (value: string) => void;
   className?: string;
+  urlTab?: string;
 }
 
-export function Tabs({ value, onChange, className }: BonusTabsProps) {
-  const { t } = useTranslation();
+export function Tabs({ value, onChange, className, urlTab }: BonusTabsProps) {
+  const { t } = useTranslation('bonus');
   const [showAchievements, setShowAchievements] = useState(false);
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const isUrlAchievementsTab = urlTab === "achievements" || urlTab === "achievement";
+
+  // 通过 URL 参数自动打开 achievements modal
+  useEffect(() => {
+    if (isUrlAchievementsTab && isAuthenticated) {
+      setShowAchievements(true);
+    }
+  }, [isUrlAchievementsTab, isAuthenticated]);
 
   const { switchData } = useBonusSwitch();
 
@@ -67,7 +78,12 @@ export function Tabs({ value, onChange, className }: BonusTabsProps) {
       {/* Modals */}
       <BonusAchievementsModal 
         isOpen={showAchievements} 
-        onClose={() => setShowAchievements(false)} 
+        onClose={() => {
+          setShowAchievements(false);
+          if (isUrlAchievementsTab) {
+            navigate({ to: "/bonus", search: { tab: undefined }, replace: true });
+          }
+        }} 
       />
     </>
   );

@@ -7,6 +7,9 @@
     "commissions": "Komisijas",
     "rewards": "Balvas"
   },
+  "campaignAlreadyExists": "Kampaņa jau pastāv",
+  "campaignCreateSuccess": "Kampaņa veiksmīgi izveidota!",
+  "campaignCreateFailed": "Kampaņas izveide neizdevās",
   "commissionCalculator": "Komisijas kalkulators",
   "telegramReferralLink": "Telegram Norādes Saite",
   "network": "Tīkls",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mani atsauces komisijas",
   "myReferralRewards": "Mani atsauces atlīdzības",
   "exp": "EXP",
-  "userLevel": "Lietotāja līmenis"
+  "userLevel": "Lietotāja līmenis",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>ATSKAITE</0><0>BONUSS</0>",
+    "title": "Aiciniet draugu un saņemiet papildu atlīdzību, kad viņi veic savu pirmo iemaksu. Pirmajam spēlētājam, kuru jūs aicināt, pievienojoties, iemaksājot un spēlējot, jūs saņemsiet 10% Ekstra Atskaite Bonusu, pamatojoties uz viņu sākotnējās iemaksas summu.",
+    "bonusCalculatedTitle": "Kā tiek aprēķināts bonuss?",
+    "bonusCalculatedDesc": "Jūsu Ekstra Atskaite Bonuss tiek aprēķināts kā 10% no jūsu drauga pirmās iemaksas. Ja jūsu drauga pirmā iemaksa ir ekvivalenta <0>{{depositAmount}}</0>, jūs saņemsiet atlīdzību, kas ir līdzvērtīga <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Prasījumu sadale",
+    "claimDistributionDesc": "Viss, kas jums jādara, ir sazināties ar Klientu apkalpošanas tiešsaistes čatu un informēt viņus, ka vēlaties pieprasīt atlīdzību ar jūsu atsauces informāciju.",
+    "expirationTitle": "Derīguma termiņš",
+    "expirationDesc": "Bonuss jāpieprasa 7 x 24 stundu (7 dienu) laikā pēc jūsu drauga sākotnējās iemaksas; pēc tam tas vairs nevar tikt atkārtoti izsniegts.",
+    "generalTermsTitle": "Vispārīgie noteikumi",
+    "generalTermsDesc1": "Atlīdzības tiek aprēķinātas un piešķirtas <0>BUCK/USDT</0>, pēc tam tās tiek parādītas jūsu izvēlētajā fiat valūtā ērtībai. Lūdzu, ņemiet vērā, ka valūtas konversijas ir aptuvenas. Maksimālā atlīdzība, ko varat saņemt par katru norādīto draugu, ir ekvivalents {{bonusAmount}}, un atlīdzību var pieprasīt vienu reizi uz lietotāja ID. Jūsu norādītajam draugam ir jāveic likmes vismaz 4 reizes no viņu pirmā depozīta summas, pirms varat pieprasīt savu atlīdzību.",
+    "generalTermsDesc2": "Kazino patur tiesības jebkurā laikā mainīt vai atcelt tiesības uz atlīdzību, neuzliekot pienākumu to pamatojot. Jebkura ļaunprātīga izmantošana vai krāpnieciska darbība – tostarp, bet neaprobežojoties ar, dublētu vai atbilstošu spēlētāju datu izmantošanu, iemaksu krāpšanu, atbilstošām IP adresēm, drošības likmēm vai investīciju stila uzvedību – novedīs pie diskvalifikācijas no akcijas un jebkuru saistīto bonusu atcelšanas. Visi kazino pieņemtie lēmumi attiecībā uz šo akciju ir galīgi un nav apstrīdami."
+  },
+  "referral_program_disabled": "IETEIKUMU\nPROGRAMMA\n<0>ATSPĒJOTA</0>",
+  "programAccessUpdate": "Programmas piekļuves atjauninājums",
+  "referralProgramPrivileges": "Jūsu ieteikumu programmas privilēģijas tika anulētas pēc jūsu konta un dalības programmā pārskatīšanas. Mēs konstatējām darbības, kas neatbilst mūsu ieteikumu programmas noteikumiem vai paredzētajam lietojumam. Tas var ietvert aizdomīgus ieteikumu modeļus, neatļautas reklāmas metodes, stimulu ļaunprātīgu izmantošanu vai mēģinājumus apiet godīgas lietošanas vadlīnijas.",
+  "referralRewardsPrivileges": "Rezultātā tika atspējota jūsu iespēja ģenerēt jaunus ieteikumu atalgojumus, kopīgot ieteikumu saites vai saņemt ieguvumus no ieteikumiem. Neizmaksātie vai nākotnes atalgojumi, kas saistīti ar ieteikumu programmu, tiks aizturēti un atcelti saskaņā ar mūsu politikām. <0>Pārējā jūsu konta funkcionalitāte paliek neskarta un šo izmaiņu neietekmē</0>.",
+  "understandDisappointing": "Mēs saprotam, ka tas var būt sarūgtinoši. Ja uzskatāt, ka šis lēmums ir kļūdains, vai vēlaties vairāk informācijas, lūdzu, sazinieties ar mūsu atbalsta komandu, sniedzot jebkādu būtisku informāciju, un mēs izskatīsim jūsu gadījumu."
 }

@@ -4,12 +4,12 @@ import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import locale from "react-phone-number-input/locale/en";
 import { cn } from "@/utils/cn.ts";
 import { ChevronDown, ChevronLeft, Search } from "lucide-react";
-import { AnimatePresence, m } from "motion/react";
+import { AnimatePresence, motion as m } from "motion/react";
 import { createPortal } from "react-dom";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { NoData } from "@/components/modal/UserFinanceModal/c/NoData.tsx";
-import classNames from "classnames";
+import clsx from "clsx";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import { InnerLoading } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
@@ -36,7 +36,7 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
 
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const [status, setStatus] = useState<IStatus>(initStatus);
 
@@ -79,7 +79,7 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
         {memoFilteredOptions.map((o, index: number) => (
           <div
             key={index}
-            className={classNames(
+            className={clsx(
               "md:text-xs font-bold flex items-center justify-between",
               "cursor-pointer rounded-md p-2 select-none",
               "hover:bg-base-200 active:bg-base-200",
@@ -159,7 +159,7 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
           <AnimatePresence>
             {show && (
               <m.div
-                className={classNames(`
+                className={clsx(`
           bg-base-300 z-1 mt-1 w-full rounded-lg shadow-xs overflow-hidden 
           w-[calc(100vw-3rem)] md:w-full 
           ltr:-left-[calc(100%+8px)] rtl:-right-[calc(100%+8px)]
@@ -172,7 +172,7 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
                 <div className="h-2 bg-base-300 sticky top-0" />
                 <InnerSearch
                   className="mx-3 mt-1 mb-2"
-                  placeholder={t("common.searchPlaceholder")}
+                  placeholder={t("common:common.searchPlaceholder")}
                   value={status.search}
                   onChange={(v) => setStatus((o) => ({ ...o, search: v }))}
                 />
@@ -195,8 +195,8 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
-                  style={{ marginTop: 'env(safe-area-inset-top)' }}
-                  className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
+                  style={{ marginTop: "var(--safe-area-inset-top)" }}
+                  className="px-4 py-4 bg-base-400 fixed w-full z-[1002] top-0 bottom-0 flex flex-col"
                 >
                   <p className="flex items-center justify-center relative text-lg font-semibold h-10">
                     <button className={"absolute left-0 btn btn-md btn-square rounded-lg bg-base-300 border-0"} onClick={() => set(false)}>
@@ -206,7 +206,7 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
                   </p>
                   <InnerSearch
                     className="mt-4 bg-base-300"
-                    placeholder={t("common.searchPlaceholder")}
+                    placeholder={t("common:common.searchPlaceholder")}
                     value={status.search}
                     onChange={(v) => setStatus((o) => ({ ...o, search: v }))}
                   />
@@ -228,7 +228,7 @@ export const InnerSearch = forwardRef<HTMLInputElement, {
   onChange: (v: string) => void
 }>(({ value, onChange, className, placeholder }, ref) => {
   return <div className="flex">
-    <label className={classNames("input bg-base-200 w-full !outline-0 border-0 font-bold", className)}>
+    <label className={clsx("input bg-base-200 w-full !outline-0 border-0 font-bold", className)}>
       <Search className="text-base-content/50 w-4 h-4" />
       <input
         ref={ref}

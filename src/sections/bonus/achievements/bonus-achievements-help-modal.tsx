@@ -9,7 +9,7 @@ interface BonusAchievementsHelpModalProps {
 }
 
 export const BonusAchievementsHelpModal = ({ isOpen, onClose }: BonusAchievementsHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['vipBonusPopup', 'bonus', 'popup']);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
@@ -41,7 +41,7 @@ export const BonusAchievementsHelpModal = ({ isOpen, onClose }: BonusAchievement
         {/* 下方独立的主卡片 - 包含close按钮 */}
         <div className="bg-base-400 rounded-box relative">
           {/* Close按钮 - 位于右上角 */}
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 

@@ -25,6 +25,14 @@
   "totalTips": "Padomi",
   "result": "Rezultāts",
   "myBets": "Manas likmes",
-  "**********": "",
-  "demoPlay": "Demonstrācijas spēle"
+  "demoPlay": "Demonstrācijas spēle",
+  "limitedOffer": "Ierobežota piedāvājuma",
+  "deposit": "Iemaksāt {{value}}",
+  "get": "Saņemt {{value}}",
+  "instantCashBonus": "Instantā naudas bonuss",
+  "expires": "Beidzas",
+  "depositNow": "Iemaksāt tagad",
+  "free_spins": "Bezmaksas griezieni",
+  "play_with_balance_in": "Spēlēt ar bilanci valūtā",
+  "the_selected_currency_will_be_displayed_in": "Izvēlētā valūta tiks rādīta"
 }

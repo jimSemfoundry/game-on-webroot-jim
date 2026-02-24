@@ -76,12 +76,39 @@
   "dashboard": "Dashboard",
   "transactions": "Transaktioner",
   "rollover": "Rollover",
-  "betHistory": "Spilhistorik",
+  "betHistory": {
+    "empty": "Ingen spilhistorik fundet",
+    "title": "Spilhistorik",
+    "headers": {
+      "game": "Spil",
+      "date": "Dato",
+      "betId": "Spil ID",
+      "betIn": "Indsats",
+      "betOut": "Gevinst",
+      "account": "Konto",
+      "amount": "Beløb",
+      "provider": "Udbyder",
+      "match": "Kamp",
+      "tournament": "Turnering"
+    }
+  },
   "settings": "Indstillinger",
   "legal": "Juridisk",
   "nickname": "Kaldenavn",
   "zoomAndAdjust": "Zoom og Juster",
   "systemLanguage": "System Sprog",
   "editProfile": "Rediger profil",
-  "inviteAndGetRewarded": "Inviter og få belønning"
+  "inviteAndGetRewarded": "Inviter og få belønning",
+  "emailAddress": "E-mailadresse",
+  "codeSent": "Indtast den kode, vi har sendt",
+  "codeSentTo": "En kode er sendt til",
+  "notReceiveCode": "Modtog du ikke koden?",
+  "verificationSuccess": "Verifikation lykkedes",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Dit telefonnummer er blevet bekræftet. Du kan fortsætte.",
+  "email_address_has_been_verified": "Din e-mailadresse er blevet bekræftet. Du kan fortsætte.",
+  "setNewPassword": "Indstil ny adgangskode",
+  "passwordLengthRequirement": "Indtast venligst en adgangskode mellem 6 og 64 tegn."
 }

@@ -7,6 +7,9 @@
     "commissions": "Provize",
     "rewards": "Odměny"
   },
+  "campaignAlreadyExists": "Kampaň již existuje",
+  "campaignCreateSuccess": "Kampaň byla úspěšně vytvořena!",
+  "campaignCreateFailed": "Nepodařilo se vytvořit kampaň",
   "commissionCalculator": "Kalkulátor provizí",
   "telegramReferralLink": "Odkaz na Doporučení Telegramu",
   "network": "Síť",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Moje doporučovací provize",
   "myReferralRewards": "Moje doporučovací odměny",
   "exp": "ZKUŠENOSTI",
-  "userLevel": "Úroveň uživatele"
+  "userLevel": "Úroveň uživatele",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Pozvěte přítele a získejte extra odměny, když provede svůj první vklad. Za prvního hráče, kterého doporučíte a který se zaregistruje, provede vklad a hraje, obdržíte 10% Extra Referral Bonus na základě jeho počátečního vkladu.",
+    "bonusCalculatedTitle": "Jak je Bonus Vypočítán?",
+    "bonusCalculatedDesc": "Váš Extra Referral Bonus se vypočítává jako 10% z prvního vkladu vašeho přítele. Pokud je první vklad vašeho přítele ve výši <0>{{depositAmount}}</0>, obdržíte odměnu v hodnotě <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribuce Nároku",
+    "claimDistributionDesc": "Vše, co musíte udělat, je kontaktovat zákaznický servis prostřednictvím živého chatu a informovat je, že chcete uplatnit odměnu s informacemi o vašem doporučení.",
+    "expirationTitle": "Platnost",
+    "expirationDesc": "Bonus musí být uplatněn do 7 x 24 hodin (7 dní) po počátečním vkladu vašeho přítele; po uplynutí této doby nemůže být znovu vydán.",
+    "generalTermsTitle": "Obecné Podmínky",
+    "generalTermsDesc1": "Odměny jsou vypočítávány a připsány v <0>BUCK/USDT</0>, poté zobrazeny ve vaší preferované fiat měně pro pohodlí. Vezměte prosím na vědomí, že převody měn jsou přibližné. Maximální bonus, který můžete obdržet za každého doporučeného přítele, je ekvivalent {{bonusAmount}}, a bonus lze uplatnit jednou na uživatelské ID. Váš doporučený musí vsadit alespoň 4krát částku svého prvního vkladu, než si můžete nárokovat svůj bonus.",
+    "generalTermsDesc2": "Casino si vyhrazuje právo kdykoli upravit nebo zrušit způsobilost, aniž by bylo povinno to zdůvodnit. Jakékoli zneužití nebo podvodné jednání – včetně, ale nejen, duplicitních nebo shodných údajů o hráčích, podvodů s vklady, shodných IP adres, bezpečnostních sázek nebo chování ve stylu investic – povede k diskvalifikaci z propagace a zrušení jakýchkoli souvisejících bonusů. Všechna rozhodnutí učiněná kasinem ohledně této propagace jsou konečná a nelze je napadnout."
+  },
+  "referral_program_disabled": "DOPORUČOVACÍ\nPROGRAM\n<0>DEAKTIVOVÁN</0>",
+  "programAccessUpdate": "Aktualizace přístupu k programu",
+  "referralProgramPrivileges": "Vaše oprávnění v doporučovacím programu byla po kontrole vašeho účtu a účasti v programu zrušena. Zjistili jsme aktivitu, která není v souladu s podmínkami nebo zamýšleným využitím našeho doporučovacího programu. Může jít například o podezřelé vzorce doporučení, neautorizované propagační metody, zneužívání pobídek nebo pokusy obejít zásady férového používání.",
+  "referralRewardsPrivileges": "V důsledku toho byla deaktivována vaše možnost vytvářet nové doporučovací odměny, sdílet doporučovací odkazy nebo získávat výhody z doporučení. Nevyřízené nebo budoucí odměny spojené s doporučovacím programem budou v souladu s našimi zásadami zadrženy a zrušeny. <0>Veškeré ostatní funkce vašeho účtu zůstávají zachovány a nejsou touto změnou ovlivněny</0>.",
+  "understandDisappointing": "Chápeme, že to může být zklamáním. Pokud se domníváte, že je toto rozhodnutí chybné, nebo chcete více informací, kontaktujte prosím náš tým podpory s relevantními údaji a váš případ prověříme."
 }

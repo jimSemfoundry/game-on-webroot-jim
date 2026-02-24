@@ -3,5 +3,8 @@
   "notifications": "Ειδοποιήσεις",
   "support": "Υποστήριξη",
   "retry": "Δοκιμάστε ξανά",
-  "customerServiceChatFailedToLoad": "Η συνομιλία εξυπηρέτησης πελατών απέτυχε να φορτώσει"
+  "customerServiceChatFailedToLoad": "Η συνομιλία εξυπηρέτησης πελατών απέτυχε να φορτώσει",
+  "read": "Διαβάστηκε",
+  "unread": "Μη διαβασμένο",
+  "customerService": "Εξυπηρέτηση πελατών"
 }

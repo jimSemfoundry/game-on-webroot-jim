@@ -5,6 +5,19 @@ export function useThemeSystem() {
   const themeContext = useTheme();
 
   const isDarkTheme = () => {
+    // 优先使用 finalTheme 的 colorSchema 字段判断
+    const finalTheme = themeContext.state.finalTheme;
+    if (finalTheme?.colorSchema) {
+      return finalTheme.colorSchema === "dark";
+    }
+    
+    // 降级方案：检查预设主题的 colorSchema
+    const presetTheme = getThemeByName(themeContext.state.currentTheme);
+    if (presetTheme?.colorSchema) {
+      return presetTheme.colorSchema === "dark";
+    }
+    
+    // 最后降级：硬编码检查（向后兼容）
     return (
       themeContext.state.currentTheme === "dark" ||
       themeContext.state.currentTheme === "forest" ||

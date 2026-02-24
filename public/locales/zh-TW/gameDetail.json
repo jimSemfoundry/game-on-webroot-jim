@@ -25,6 +25,14 @@
   "totalTips": "提示",
   "result": "結果",
   "myBets": "我的投注",
-  "**********": "",
-  "demoPlay": "示範遊玩"
+  "demoPlay": "示範遊玩",
+  "limitedOffer": "限時優惠",
+  "deposit": "存款 {{value}}",
+  "get": "獲得 {{value}}",
+  "instantCashBonus": "即時現金獎金",
+  "expires": "到期",
+  "depositNow": "立即存款",
+  "free_spins": "免費旋轉",
+  "play_with_balance_in": "以餘額進行遊戲",
+  "the_selected_currency_will_be_displayed_in": "所選貨幣將顯示在"
 }

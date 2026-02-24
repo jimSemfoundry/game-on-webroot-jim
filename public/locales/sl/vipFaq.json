@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Kaj je tedenski bonus?",
-    "content": "<p class=\"leading-7\">Tedenski bonus je ekskluzivna ugodnost na naši spletni strani, namenjena igralcem, ki so VIP12 in višje. Ta bonus se izplačuje tedensko in se samodejno izplačuje vsak petek igralcem na VIP12 in višje. Velikost bonusa je odvisna od zneska, stavljenega v preteklem tednu, z minimalnim zahtevkom za stave {{minWager}} v preteklem tednu.</p>"
+    "content": "<p class=\"leading-7\">Tedenski bonus je ekskluzivna ugodnost na naši spletni strani, namenjena igralcem, ki so VIP2 in višje. Bonus se izplačuje tedensko ob ponedeljkih in poteče, ko izide naslednji tedenski bonus. Velikost bonusa je odvisna od zneska, stavljenega v preteklem tednu, z minimalnim učinkovitim zahtevkom za stave {{minWager}} v preteklem tednu.</p>"
   },
   "faqNine": {
     "title": "Kaj so dosežki?",

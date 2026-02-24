@@ -5,11 +5,11 @@
     "achievements": "Accomplissements",
     "achievementDescription": "Les récompenses d'accomplissement sont des récompenses données pour atteindre de nouveaux jalons et conquérir des défis. Elles célèbrent votre progression et votre succès, débloquant des surprises amusantes au fur et à mesure que vous réalisez de nouveaux exploits !",
     "claimDistribution": "Distribution des Réclamations",
-    "claimDistributionDescription": "Les récompenses sont ajoutées à votre calendrier de bonus pendant 3 jours après réclamation.",
+    "claimDistributionDescription": "Vos récompenses sont acquises instantanément et disponibles à réclamer depuis votre <0>pool bonus</0> de dépôt chaque fois que vous réclamez une nouvelle récompense de réussite.",
     "expiration": "Expiration",
-    "expirationDescription": "Aucune - Les récompenses sont automatiquement envoyées au calendrier.",
+    "expirationDescription": "Aucune - Les réclamations sont possibles tant que le solde de votre Pool Bonus est suffisant.",
     "generalTerms": "Conditions Générales",
-    "generalTermsDescription": "Les récompenses sont calculées et créditées en BUCK/USDT, puis affichées dans votre devise fiat préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives.\n\nLe casino se réserve le droit de modifier ou de révoquer l'éligibilité à tout moment, sans obligation de justification. Tout abus ou activité frauduleuse entraînera une disqualification de la promotion."
+    "generalTermsDescription": "Les récompenses sont calculées et créditées en USDT, puis affichées dans votre devise fiduciaire préférée pour plus de commodité. Veuillez noter que les conversions de devises sont approximatives.\n\nLe casino se réserve le droit de modifier ou de révoquer l’éligibilité à tout moment, sans obligation de justification. Tout abus ou activité frauduleuse entraînera la disqualification de la promotion."
   },
   "luckyNumberSeven": {
     "title": "Numéro Chanceux \n Sept",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Le montant minimum de réclamation est {{money}}",
     "expiration": "Expiration",
-    "expirationDescription": "Votre Boîte Mystérieuse doit être réclamée dans les 7 jours suivant son attribution. Les récompenses non réclamées expireront après cette période.",
+    "expirationDescription": "Votre Boîte Mystérieuse doit être réclamée dans les 3 jours suivant son attribution. Les récompenses non réclamées expireront après cette période.",
     "generalTerms": "Conditions Générales",
     "generalTermsDescription": "Les récompenses sont calculées et créditées en fonction du premier dépôt de l'utilisateur ou en USDT si aucun dépôt n'est effectué, sous réserve d'un rollover de 1x requis. Les montants sont affichés dans votre devise fiat préférée ; les conversions sont approximatives.\n\nLe casino se réserve le droit de modifier ou de révoquer l'éligibilité à tout moment sans préavis. Tout abus ou fraude entraînera une disqualification."
   },

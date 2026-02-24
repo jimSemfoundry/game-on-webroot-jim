@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Ce este Bonusul Săptămânal?",
-    "content": "<p class=\"leading-7\">Bonusul Săptămânal este un beneficiu exclusiv pe site-ul nostru destinat jucătorilor care sunt VIP12 și mai sus. Acest bonus este emis săptămânal și plătit automat în fiecare vineri jucătorilor de la VIP12 în sus. Dimensiunea bonusului depinde de suma mizată în ultima săptămână, cu o cerință minimă de miză de {{minWager}} în ultima săptămână.</p>"
+    "content": "<p class=\"leading-7\">Bonusul Săptămânal este un beneficiu exclusiv pe site-ul nostru destinat jucătorilor care sunt VIP2 și mai sus. Bonusul este emis săptămânal luni și expiră când apare următorul bonus săptămânal. Dimensiunea bonusului depinde de suma mizată în ultima săptămână, cu o cerință minimă efectivă de miză de {{minWager}} în ultima săptămână.</p>"
   },
   "faqNine": {
     "title": "Ce sunt Realizările?",

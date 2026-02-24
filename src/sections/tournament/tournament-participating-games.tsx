@@ -14,7 +14,7 @@ interface TournamentParticipatingGamesProps {
 }
 
 export function TournamentParticipatingGames({ tournament }: TournamentParticipatingGamesProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['tournament', 'casino']);
   const navigate = useNavigate();
 
 

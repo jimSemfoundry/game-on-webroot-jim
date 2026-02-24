@@ -7,6 +7,8 @@
   "baseball": "野球",
   "iceHockey": "アイスホッケー",
   "basketball": "バスケットボール",
+  "cricket": "クリケット",
+  "eSoccer": "eサッカー",
   "volleyball": "バレーボール",
   "hot": "注目",
   "all": "すべて",
@@ -69,5 +71,6 @@
   "live-casino": "ライブカジノ",
   "sports": "スポーツ",
   "lotteries": "宝くじ",
-  "gamesYouShouldTry": "試してみるべきゲーム"
+  "gamesYouShouldTry": "試してみるべきゲーム",
+  "bonus": "Bonus"
 }

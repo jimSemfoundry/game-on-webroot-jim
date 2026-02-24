@@ -8,7 +8,7 @@ import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useClaimReward } from "@/query/free-spins";
 import { useNavigate } from "@tanstack/react-router";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { useMemo, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { createBonusGradient, gradientStyles } from "../styles";
@@ -60,7 +60,7 @@ export function BonusFreeSpinsCard({
                                      recordId,
                                      isTurnoverMet
                                    }: FreeSpinsProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['bonus','transaction', 'gameDetail']);
   const { isAuthenticated } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const navigate = useNavigate();

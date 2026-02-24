@@ -25,6 +25,14 @@
   "totalTips": "نصائح",
   "result": "النتيجة",
   "myBets": "رهاناتي",
-  "**********": "",
-  "demoPlay": "لعب تجريبي"
+  "demoPlay": "لعب تجريبي",
+  "limitedOffer": "عرض محدود",
+  "deposit": "إيداع {{value}}",
+  "get": "احصل على {{value}}",
+  "instantCashBonus": "مكافأة نقدية فورية",
+  "expires": "تنتهي صلاحيتها",
+  "depositNow": "قم بالإيداع الآن",
+  "free_spins": "لفات مجانية",
+  "play_with_balance_in": "العب مع الرصيد في",
+  "the_selected_currency_will_be_displayed_in": "ستظهر العملة المحددة في"
 }

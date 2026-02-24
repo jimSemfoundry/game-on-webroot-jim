@@ -18,7 +18,7 @@ export const SidebarHeader = () => {
     setActiveTab(newTab); // 同步更新 SidebarContext
   }, [location.pathname, setActiveTab]);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation(['explore']);
 
   const handleChange = (value: string) => {
     const newTab = value as "casino" | "sport";
@@ -27,7 +27,7 @@ export const SidebarHeader = () => {
     if (value === "casino") {
       navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
     } else if (value === "sport") {
-      navigate({ to: "/sports", search: { category: undefined, sport: undefined } });
+      navigate({ to: "/sports", search: { "bt-path": "/" } });
     }
   };
 
@@ -55,6 +55,7 @@ export const SidebarHeader = () => {
   return (
     <div className={`flex items-center justify-center overflow-hidden ${isMini ? "" : "w-full"}`}>
       <SmoothTabs
+        size={'md'}
         items={items}
         value={active}
         onChange={handleChange}

@@ -6,7 +6,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useEarliestPendingRecord } from "@/query/free-spins";
 import { useFreeSpinsFlow } from "./hooks/useFreeSpinsFlow";
 import { FreeSpinData } from "./types";
-import { FREE_SPINS_CONFIG } from "./constants";
 import { useQueryClient } from "@tanstack/react-query";
 
 export const FreeSpinContainer = () => {
@@ -26,7 +25,7 @@ export const FreeSpinContainer = () => {
 
     return false;
   };
-  
+
   // Free Spins 数据（从 API 获取）
   const [freeSpinData, setFreeSpinData] = useState<FreeSpinData | null>(null);
 
@@ -37,50 +36,54 @@ export const FreeSpinContainer = () => {
     }
 
     const timeoutId = setTimeout(() => {
-      if (earliestPendingRecord) {
+      if (earliestPendingRecord?.id) {
         setFreeSpinData(earliestPendingRecord);
         freeSpinsFlow.showStarterPack();
       } else {
         setFreeSpinData(null);
       }
-    }, FREE_SPINS_CONFIG.AUTO_SHOW_DELAY);
+    }, 1000);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [user, earliestPendingRecord, isLoading, isError, freeSpinsFlow]);
+  }, [user, earliestPendingRecord?.id, isLoading, isError, freeSpinsFlow]);
 
   // 处理 Starter Pack modal 的关闭尝试
   const handleStarterPackClose = () => {
     // 如果是正在转换到游戏选择器，不显示退出确认
     if (freeSpinsFlow.isTransitioningToGameSelection) {
       freeSpinsFlow.setTransitioning(false);
+      freeSpinsFlow.hideStarterPack();
       return;
     }
 
-    if (consumeSkipExitPrompt() || freeSpinsFlow.shouldSkipExitConfirmation) {
+    if (consumeSkipExitPrompt()) {
+      freeSpinsFlow.hideStarterPack();
       return;
     }
-    
+
     // 不关闭starter pack，只显示确认框
     freeSpinsFlow.showExitConfirmation();
   };
 
   // 处理 Game Selection modal 的关闭尝试
-  const handleGameSelectionClose = () => {
-    if (consumeSkipExitPrompt()) {
-      return;
-    }
-
-    // 如果已经成功领取，直接关闭不显示确认
-    if (freeSpinsFlow.shouldSkipExitConfirmation) {
-      navigate({ to: '/bonus' });
-      return;
-    }
-    
-    // 不关闭game selection，只显示确认框
-    freeSpinsFlow.showExitConfirmation();
-  };
+  // const handleGameSelectionClose = () => {
+  //   if (consumeSkipExitPrompt()) {
+  //     freeSpinsFlow.hideExitConfirmation();
+  //     return;
+  //   }
+  //
+  //   // 如果已经成功领取，直接关闭不显示确认
+  //   if (freeSpinsFlow.shouldSkipExitConfirmation) {
+  //     freeSpinsFlow.hideExitConfirmation();
+  //     navigate({ to: "/bonus", search: { tab: undefined } });
+  //     return;
+  //   }
+  //
+  //   // 不关闭game selection，只显示确认框
+  //   freeSpinsFlow.showExitConfirmation();
+  // };
 
   // 处理确认对话框的 Go Back
   const handleGoBack = () => {
@@ -96,6 +99,8 @@ export const FreeSpinContainer = () => {
   // 处理 Continue 按钮（从 Starter Pack 到 Game Selection）
   const handleContinueToGameSelection = () => {
     freeSpinsFlow.setTransitioning(true);
+    freeSpinsFlow.hideExitConfirmation();
+    freeSpinsFlow.hideStarterPack();
     freeSpinsFlow.showGameSelection();
   };
 
@@ -112,7 +117,7 @@ export const FreeSpinContainer = () => {
     // 标记成功状态并直接导航，不触发modal的onClose
     freeSpinsFlow.markClaimSuccess();
     freeSpinsFlow.closeAll();
-    navigate({ to: '/bonus' });
+    navigate({ to: "/bonus", search: { tab: undefined } });
   };
 
   // 如果用户未登录，不渲染任何内容
@@ -128,20 +133,16 @@ export const FreeSpinContainer = () => {
         onClose={handleStarterPackClose}
         onContinue={handleContinueToGameSelection}
         freeSpinData={freeSpinData || undefined}
-        modalState={freeSpinsFlow.starterPackModalState}
-        onModalStateChange={freeSpinsFlow.setStarterPackModalState}
-        wonAmount={freeSpinsFlow.starterPackWonAmount}
-        onWonAmountChange={freeSpinsFlow.setStarterPackWonAmount}
       />
-      
+
       {/* Game Selection Modal */}
       <FreeSpinGameSelection
         open={freeSpinsFlow.isGameSelectionOpen}
         freeSpinData={freeSpinData}
-        onExit={handleGameSelectionClose}
+        onExit={() => freeSpinsFlow.hideGameSelection()}
         onClaimSuccess={handleClaimSuccess}
       />
-      
+
       {/* Exit Confirmation Modal */}
       <FreeSpinExitConfirm
         freeSpinData={freeSpinData}

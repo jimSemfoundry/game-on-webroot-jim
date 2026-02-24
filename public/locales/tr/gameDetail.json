@@ -25,6 +25,14 @@
   "totalTips": "Öneriler",
   "result": "Sonuç",
   "myBets": "Bahislerim",
-  "**********": "",
-  "demoPlay": "Demo Oynama"
+  "demoPlay": "Demo Oynama",
+  "limitedOffer": "Sınırlı Teklif",
+  "deposit": "{{value}} Yatır",
+  "get": "{{value}} Al",
+  "instantCashBonus": "Anında Nakit Bonusu",
+  "expires": "Sona Eriyor",
+  "depositNow": "Şimdi Yatır",
+  "free_spins": "Ücretsiz Dönüşler",
+  "play_with_balance_in": "Bakiyenizle Oynayın",
+  "the_selected_currency_will_be_displayed_in": "Seçilen para birimi şu şekilde görüntülenecektir"
 }

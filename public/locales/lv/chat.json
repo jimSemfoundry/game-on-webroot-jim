@@ -3,5 +3,8 @@
   "notifications": "Paziņojumi",
   "support": "Atbalsts",
   "retry": "Mēģināt vēlreiz",
-  "customerServiceChatFailedToLoad": "Klientu apkalpošanas tērzēšana neizdevās ielādēt"
+  "customerServiceChatFailedToLoad": "Klientu apkalpošanas tērzēšana neizdevās ielādēt",
+  "read": "Lasīt",
+  "unread": "Nelasīts",
+  "customerService": "Klientu apkalpošana"
 }

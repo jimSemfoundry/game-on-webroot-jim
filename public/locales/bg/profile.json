@@ -76,12 +76,39 @@
   "dashboard": "Табло",
   "transactions": "Транзакции",
   "rollover": "Ролировка",
-  "betHistory": "История на залозите",
+  "betHistory": {
+    "empty": "Не е намерена история на залозите",
+    "title": "История на залозите",
+    "headers": {
+      "game": "Игра",
+      "date": "Дата",
+      "betId": "ID на залог",
+      "betIn": "Залог",
+      "betOut": "Печалба",
+      "account": "Акаунт",
+      "amount": "Сума",
+      "provider": "Доставчик",
+      "match": "Мач",
+      "tournament": "Турнир"
+    }
+  },
   "settings": "Настройки",
   "legal": "Правни",
   "nickname": "Псевдоним",
   "zoomAndAdjust": "Увеличаване и коригиране",
   "systemLanguage": "Системен език",
   "editProfile": "Редактиране на профил",
-  "inviteAndGetRewarded": "Поканете и получете награда"
+  "inviteAndGetRewarded": "Поканете и получете награда",
+  "emailAddress": "Имейл адрес",
+  "codeSent": "Въведете кода, който изпратихме",
+  "codeSentTo": "Кодът е изпратен на",
+  "notReceiveCode": "Не получихте кода?",
+  "verificationSuccess": "Успешна верификация",
+  "spinHistory": {
+    "statusFilterLabel": "Статус"
+  },
+  "phone_number_has_been_verified": "Телефонният ви номер е потвърден. Можете да продължите.",
+  "email_address_has_been_verified": "Имейл адресът ви е потвърден. Можете да продължите.",
+  "setNewPassword": "Задайте нова парола",
+  "passwordLengthRequirement": "Моля, въведете парола между 6 и 64 знака."
 }

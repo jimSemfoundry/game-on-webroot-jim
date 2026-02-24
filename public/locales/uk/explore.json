@@ -7,6 +7,8 @@
   "baseball": "Бейсбол",
   "iceHockey": "Хокей на льоду",
   "basketball": "Баскетбол",
+  "cricket": "Крикет",
+  "eSoccer": "еФутбол",
   "volleyball": "Волейбол",
   "hot": "Популярне",
   "all": "Всі",
@@ -69,5 +71,6 @@
   "live-casino": "Живе казино",
   "sports": "Спорт",
   "lotteries": "Лотереї",
-  "gamesYouShouldTry": "Ігри, які вам слід спробувати"
+  "gamesYouShouldTry": "Ігри, які вам слід спробувати",
+  "bonus": "Bonus"
 }

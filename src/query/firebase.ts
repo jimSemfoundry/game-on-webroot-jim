@@ -2,18 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { publicService } from "@/services/publicService";
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, Messaging } from "firebase/messaging";
+import { getPathInROIBEST } from "@/utils/helper.ts";
 
 export const useFirebaseClientConfig = () => {
   return useQuery({
     queryKey: ['firebaseClientConfig'],
     queryFn: () => publicService.getFirebaseClientConfig(),
   })
-}
-
-export const getSourcePathPrefix = () => {
-  const model = import.meta.env.VITE_PROMOTION_MODEL
-  const appid = import.meta.env.VITE_FOLDER
-  return appid && model === 'roibest' ? `/${appid}` : ''
 }
 
 export const useFirebaseClientInitialize = (firebase: Record<string, any>) => {
@@ -25,7 +20,7 @@ export const useFirebaseClientInitialize = (firebase: Record<string, any>) => {
         const msg = getMessaging(app);
 
         // 从 firebase 服务端获取 token
-        const serviceWorkerRegistration = await navigator.serviceWorker.register(`${getSourcePathPrefix()}/firebase-messaging-sw.js`);
+        const serviceWorkerRegistration = await navigator.serviceWorker.register(`${getPathInROIBEST()}/firebase-messaging-sw.js`);
         const fcm_token = await getToken(msg, { vapidKey: firebase?.data?.vapidKey, serviceWorkerRegistration })
 
         console.info(`✅✅✅GetFirebaseFCMTokenOK`)

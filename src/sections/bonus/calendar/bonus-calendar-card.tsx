@@ -117,7 +117,7 @@ const CountdownDisplay = ({ targetTime }: { targetTime: number }) => {
 };
 
 export function BonusCalendarCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { openTipsModal } = useTipsModal();
 
@@ -205,8 +205,8 @@ export function BonusCalendarCard() {
         const day = date.date();
         const dayNameEn = date.format("dddd");
         const monthEn = date.format("MMMM");
-        const dayName = t(`common.days.${dayNameEn}`);
-        const month = t(`common.months.${monthEn}`);
+        const dayName = t(`common:common.days.${dayNameEn}`);
+        const month = t(`common:common.months.${monthEn}`);
 
         const completed = bonuses.filter(
           (bonus) => bonus.status === 1 || bonus.handle_status === 1 || dayjs(bonus.end_time * 1000).isBefore(dayjs()),
@@ -257,8 +257,8 @@ export function BonusCalendarCard() {
         const day = date.date();
         const dayNameEn = date.format("dddd");
         const monthEn = date.format("MMMM");
-        const dayName = t(`common.days.${dayNameEn}`);
-        const month = t(`common.months.${monthEn}`);
+        const dayName = t(`common:common.days.${dayNameEn}`);
+        const month = t(`common:common.months.${monthEn}`);
 
         cards.push({
           date: date.toDate(),
@@ -503,9 +503,9 @@ export function BonusCalendarCard() {
       items.push({
         date,
         day: date.getDate(),
-        month: t(`common.months.${monthKey}`),
+        month: t(`common:common.months.${monthKey}`),
         dayOfWeek: dayKey,
-        dayName: t(`common.days.${dayKey}`),
+        dayName: t(`common:common.days.${dayKey}`),
         isPast: offset < 0,
         isCurrent: offset === 0,
         isFuture: offset > 0,
@@ -628,7 +628,7 @@ export function BonusCalendarCard() {
           </label>
 
           <button
-            className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
+            className="btn btn-primary btn-md px-0 w-20 max-w-20"
             onClick={() => claimCalendarBonus()}
             disabled={isClaimPending || processedData.totalClaimable <= 0}
           >

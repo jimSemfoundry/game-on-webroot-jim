@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Apa itu Bonus Mingguan?",
-    "content": "<p class=\"leading-7\">Bonus Mingguan adalah keuntungan eksklusif di situs kami yang dirancang untuk pemain yang VIP12 dan lebih. Bonus ini diberikan setiap minggu dan dibayarkan secara otomatis setiap hari Jumat kepada pemain di VIP12 dan di atasnya. Besar bonus tergantung pada jumlah taruhan selama seminggu terakhir, dengan persyaratan taruhan minimum sebesar {{minWager}} selama seminggu terakhir.</p>"
+    "content": "<p class=\"leading-7\">Bonus Mingguan adalah keuntungan eksklusif di situs kami yang dirancang untuk pemain yang VIP2 dan lebih. Bonus ini diberikan setiap minggu pada hari Senin dan kedaluwarsa ketika bonus mingguan berikutnya keluar. Besar bonus tergantung pada jumlah taruhan selama seminggu terakhir, dengan persyaratan taruhan efektif minimum sebesar {{minWager}} selama seminggu terakhir.</p>"
   },
   "faqNine": {
     "title": "Apa itu Pencapaian?",

@@ -37,7 +37,7 @@ export function BonusLuckyNumberCard() {
   const { openTipsModal } = useTipsModal();
   const isMobile = useMediaQuery("(max-width: 640px)");
   const navigate = useNavigate();
-  const { status } = useAuth();
+  const { status, user } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { setSyncAction } = useBoundStore();
 
@@ -61,15 +61,23 @@ export function BonusLuckyNumberCard() {
   };
   const [objVipBonusClaim, setObjVipBonusClaim] = useState<IVipBonusClaim | null>(null);
 
+  // 可领取状态
+  const isClaimable = useMemo(() => {
+    return (status?.vip ?? 0) >= 7 && Number(objVipBonusClaim?.value ?? 0) > 0;
+  }, [objVipBonusClaim?.value, status?.vip]);
+
   const handleButtonClick = () => {
     navigate({ to: "/explore", search: { tab: "freespins" } });
   };
 
   const handleGetVipBonusClaim = () => {
+    if (!user) return
     authService.getClaimBonus('vip_bonus_lucky_number_seven').then((res) => {
       if (res.code === 0 && res.data) {
         setObjVipBonusClaim(res.data.data);
       }
+    }).catch((error) => {
+      console.info(error);
     });
   };
 
@@ -111,7 +119,7 @@ export function BonusLuckyNumberCard() {
 
   return (
     <div
-      className="relative flex w-full gap-3 overflow-hidden rounded-field border border-base-200/60 bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] flex-col justify-center items-center sm:gap-3 sm:p-5"
+      className={`relative flex w-full gap-3 overflow-hidden rounded-field border ${isClaimable ? "border-warning" : "border-base-200/60"} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] flex-col justify-center items-center sm:gap-3 sm:p-5`}
       style={{
         background,
       }}

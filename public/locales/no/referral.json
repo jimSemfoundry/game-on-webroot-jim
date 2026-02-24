@@ -7,6 +7,9 @@
     "commissions": "Kommisjoner",
     "rewards": "Belønninger"
   },
+  "campaignAlreadyExists": "Kampanje eksisterer allerede",
+  "campaignCreateSuccess": "Kampanje opprettet med suksess!",
+  "campaignCreateFailed": "Feil ved oppretting av kampanje",
   "commissionCalculator": "Kommisjonskalkulator",
   "telegramReferralLink": "Telegram Henvisningslenke",
   "network": "Nettverk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mine henvisningskommisjoner",
   "myReferralRewards": "Mine henvisningsbelønninger",
   "exp": "ERF",
-  "userLevel": "Brukernivå"
+  "userLevel": "Brukernivå",
+  "extraReferralBonus": {
+    "slogan": "EKSTRA<0>VIRKELSE</0><0>BONUS</0>",
+    "title": "Inviter en venn og få ekstra belønninger når de gjør sitt første innskudd. Den første spilleren du henviser som blir med, setter inn og spiller, vil du motta en 10% Ekstra Henvisningsbonus basert på deres første innskuddsbeløp.",
+    "bonusCalculatedTitle": "Hvordan beregnes bonusen?",
+    "bonusCalculatedDesc": "Din Ekstra Henvisningsbonus beregnes som 10% av vennens første innskudd. Hvis vennens første innskudd er lik <0>{{depositAmount}}</0>, vil du motta en belønning verdt <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Kravfordeling",
+    "claimDistributionDesc": "Alt du trenger å gjøre er å kontakte kundeservice via Live Chat og informere dem om at du ønsker å kreve belønningen med din henvisningsinformasjon.",
+    "expirationTitle": "Utløp",
+    "expirationDesc": "Bonusen må kreves innen 7 x 24 timer (7 dager) etter vennens første innskudd; etter det kan den ikke gjenutstedes.",
+    "generalTermsTitle": "Generelle vilkår",
+    "generalTermsDesc1": "Belønninger beregnes og krediteres i <0>BUCK/USDT</0>, og vises deretter i din foretrukne fiat-valuta for enkelhets skyld. Vennligst merk at valutakonverteringer er omtrentlige. Den maksimale bonusen du kan motta per henviste venn er tilsvarende {{bonusAmount}}, og bonusen kan kreves én gang per bruker-ID. Din henvisning må spille minst 4 ganger sitt første innskuddsbeløp før du kan kreve din bonus.",
+    "generalTermsDesc2": "Casinoet forbeholder seg retten til å endre eller tilbakekalle berettigelse når som helst, uten forpliktelse til å rettferdiggjøre. Enhver misbruk eller svindelaktivitet – inkludert, men ikke begrenset til, duplisering eller samsvar av spillerdata, innskuddsbedrageri, samsvarende IP-adresser, sikkerhetsinnsatser eller investeringslignende atferd – vil føre til diskvalifikasjon fra kampanjen og kansellering av eventuelle relaterte bonuser. Alle avgjørelser tatt av casinoet angående denne kampanjen er endelige og kan ikke bestrides."
+  },
+  "referral_program_disabled": "HENVISNINGS\nPROGRAM\n<0>DEAKTIVERT</0>",
+  "programAccessUpdate": "Oppdatering av programtilgang",
+  "referralProgramPrivileges": "Dine privilegier i henvisningsprogrammet er tilbakekalt etter en gjennomgang av kontoen din og deltakelsen din i programmet. Vi identifiserte aktivitet som ikke er i samsvar med vilkårene eller tiltenkt bruk av henvisningsprogrammet vårt. Dette kan inkludere mistenkelige henvisningsmønstre, uautoriserte markedsføringsmetoder, misbruk av insentiver eller forsøk på å omgå retningslinjer for rimelig bruk.",
+  "referralRewardsPrivileges": "Som et resultat er muligheten din til å generere nye henvisningsbelønninger, dele henvisningslenker eller motta fordeler fra henvisninger deaktivert. Ventende eller fremtidige belønninger knyttet til henvisningsprogrammet vil bli holdt tilbake og kansellert i tråd med våre retningslinjer. <0>All annen funksjonalitet på kontoen din forblir intakt og påvirkes ikke av denne endringen</0>.",
+  "understandDisappointing": "Vi forstår at dette kan være skuffende. Hvis du mener at denne avgjørelsen er feil, eller ønsker flere detaljer, vennligst kontakt supportteamet vårt med relevant informasjon, så vil vi gjennomgå saken din."
 }

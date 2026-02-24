@@ -13,7 +13,9 @@ const TWEEN_FACTOR_BASE = 0.8; // 增大因子，让缩放效果更明显
 const numberWithinRange = (number: number, min: number, max: number): number => Math.min(Math.max(number, min), max);
 
 export const AlliancePartnershipVCF = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('aliancePartnerships');
+  const supportName = import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP";
+  const tWithSupport = (key: string) => t(key, { supportName });
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
   const slideNodes = useRef<HTMLElement[]>([]);
@@ -242,12 +244,12 @@ export const AlliancePartnershipVCF = () => {
       </div>
 
       <p className="text-primary font-bold text-base sm:text-4xl sm:text-center sm:px-32">
-        {t("aliancePartnerships:villarreal_title")}
+        {tWithSupport("aliancePartnerships:villarreal_title")}
       </p>
 
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:villarreal_intro_1")}</p>
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:villarreal_intro_2")}</p>
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:villarreal_intro_3")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:villarreal_intro_1")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:villarreal_intro_2")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:villarreal_intro_3")}</p>
       {/* Luis Suarez 图片轮播 */}
       <div className="mt-4 w-full relative">
         {/* 左右渐隐阴影（桌面端加宽） */}
@@ -317,15 +319,15 @@ export const AlliancePartnershipVCF = () => {
 
       {/* 额外内容部分 */}
       <div className="mt-6 flex flex-col gap-3">
-        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{t("aliancePartnerships:more_than_game_title")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:more_than_game_text_1")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:more_than_game_text_2")}</p>
+        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{tWithSupport("aliancePartnerships:more_than_game_title")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:more_than_game_text_1")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:more_than_game_text_2")}</p>
 
         <p className="text-primary font-bold text-base mt-4 sm:text-2xl sm:text-center sm:px-32">
-          {t("aliancePartnerships:villarreal_okvip_title")}
+          {tWithSupport("aliancePartnerships:villarreal_okvip_title")}
         </p>
         <p className="text-base-content/50 sm:text-base-content sm:font-bold sm:-mt-2 text-sm sm:text-2xl sm:px-32 sm:text-center">
-          {t("aliancePartnerships:villarreal_okvip_subtitle")}
+          {tWithSupport("aliancePartnerships:villarreal_okvip_subtitle")}
         </p>
       </div>
 

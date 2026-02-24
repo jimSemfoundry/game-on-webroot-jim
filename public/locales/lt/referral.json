@@ -7,6 +7,9 @@
     "commissions": "Komisijos",
     "rewards": "Apdovanojimai"
   },
+  "campaignAlreadyExists": "Kampanija jau egzistuoja",
+  "campaignCreateSuccess": "Kampanija sėkmingai sukurta!",
+  "campaignCreateFailed": "Nepavyko sukurti kampanijos",
   "commissionCalculator": "Komisijos skaičiuoklė",
   "telegramReferralLink": "Telegram Siuntimo Nuoroda",
   "network": "Tinklas",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mano rekomendacijų komisijos",
   "myReferralRewards": "Mano rekomendacijų apdovanojimai",
   "exp": "EXP",
-  "userLevel": "Vartotojo lygis"
+  "userLevel": "Vartotojo lygis",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Pakvieskite draugą ir gaukite papildomų apdovanojimų, kai jis atliks pirmąjį įnašą. Pirmas žaidėjas, kurį pakviesite, kuris prisijungs, atliks įnašą ir žais, gausite 10% papildomą rekomendacijų premiją, pagrįstą jų pradiniu įnašu.",
+    "bonusCalculatedTitle": "Kaip apskaičiuojama premija?",
+    "bonusCalculatedDesc": "Jūsų papildoma rekomendacijų premija apskaičiuojama kaip 10% jūsų draugo pirmo įnašo. Jei jūsų draugo pirmas įnašas yra lygus <0>{{depositAmount}}</0>, gausite apdovanojimą, kurio vertė yra <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Premijos išmokėjimas",
+    "claimDistributionDesc": "Viskas, ką turite padaryti, tai susisiekti su Klientų aptarnavimo tiesioginiu pokalbiu ir pranešti, kad norite gauti apdovanojimą su savo rekomendacijos informacija.",
+    "expirationTitle": "Galiojimas",
+    "expirationDesc": "Premija turi būti pareikalauta per 7 x 24 valandas (7 dienas) po jūsų draugo pradinio įnašo; po to ji negali būti vėl išduota.",
+    "generalTermsTitle": "Bendros sąlygos",
+    "generalTermsDesc1": "Atlyginimai skaičiuojami ir kredituojami <0>BUCK/USDT</0>, o vėliau rodomi jūsų pageidaujamoje fiat valiutoje patogumui. Prašome atkreipti dėmesį, kad valiutų konversijos yra apytikslės. Didžiausias bonusas, kurį galite gauti už kiekvieną rekomenduotą draugą, yra lygiavertis {{bonusAmount}}, o bonusą galima gauti vieną kartą už kiekvieną vartotojo ID. Jūsų rekomenduotas asmuo turi sužaisti bent 4 kartus savo pirmo įnašo sumą, prieš jums galint reikalauti savo bonuso.",
+    "generalTermsDesc2": "Kazino pasilieka teisę bet kada keisti arba atšaukti tinkamumą, nesuteikdama prievolės pateikti paaiškinimą. Bet koks piktnaudžiavimas ar sukčiavimas – įskaitant, bet neapsiribojant, dubliuojančius ar atitinkančius žaidėjų duomenis, įnašo sukčiavimą, atitinkančias IP adresus, saugos statymus ar investicijų stiliaus elgesį – sukels diskvalifikaciją iš akcijos ir bet kokių susijusių premijų atšaukimą. Visi kazino sprendimai, susiję su šia akcija, yra galutiniai ir negali būti ginčijami."
+  },
+  "referral_program_disabled": "REKOMENDAVIMO\nPROGRAMA\n<0>IŠJUNGTA</0>",
+  "programAccessUpdate": "Programos prieigos atnaujinimas",
+  "referralProgramPrivileges": "Jūsų rekomendavimo programos privilegijos buvo panaikintos po jūsų paskyros ir dalyvavimo programoje peržiūros. Nustatėme veiklą, kuri neatitinka mūsų rekomendavimo programos sąlygų ar numatytos paskirties. Tai gali apimti įtartinus rekomendavimo modelius, neautorizuotus reklamos metodus, paskatų piktnaudžiavimą arba bandymus apeiti sąžiningo naudojimo gaires.",
+  "referralRewardsPrivileges": "Dėl to buvo išjungta jūsų galimybė generuoti naujus rekomendavimo atlygius, dalintis rekomendavimo nuorodomis ar gauti naudą iš rekomendacijų. Laukiami arba būsimi atlygiai, susiję su rekomendavimo programa, bus sulaikyti ir atšaukti pagal mūsų politiką. <0>Visos kitos jūsų paskyros funkcijos išlieka nepakitusios ir šis pakeitimas jų neveikia</0>.",
+  "understandDisappointing": "Suprantame, kad tai gali nuvilti. Jei manote, kad sprendimas buvo priimtas per klaidą, arba norite daugiau informacijos, susisiekite su mūsų palaikymo komanda pateikdami bet kokią susijusią informaciją, ir mes peržiūrėsime jūsų atvejį."
 }

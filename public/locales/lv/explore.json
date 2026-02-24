@@ -7,6 +7,8 @@
   "baseball": "Beisbols",
   "iceHockey": "Hokejs uz ledus",
   "basketball": "Basketbols",
+  "cricket": "Krikets",
+  "eSoccer": "eFutbols",
   "volleyball": "Volejbols",
   "hot": "Karstie",
   "all": "Visi",
@@ -69,5 +71,6 @@
   "live-casino": "Tiesraides kazino",
   "sports": "Sports",
   "lotteries": "Loterijas",
-  "gamesYouShouldTry": "Spēles, kuras jums vajadzētu izmēģināt"
+  "gamesYouShouldTry": "Spēles, kuras jums vajadzētu izmēģināt",
+  "bonus": "Bonus"
 }

@@ -1,8 +1,6 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
-import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import {
-  useSupportedCryptoWithdrawGatewaysFilter,
-  validateAddress
+  useSupportedCryptoWithdrawGatewaysFilter, validateAddress
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
@@ -14,8 +12,8 @@ import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
-import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useQueryClient } from "@tanstack/react-query";
+import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 
 interface ISelectedOption {
   network: string;
@@ -78,7 +76,7 @@ export const WithdrawAddressAddModal = () => {
         } else if (res.code === 1) {
           toast.error(t("finance:repeat_address_added"));
         } else if (res.code === 4) {
-          toast.error(t("toast:incorrectAddressDataLength"));
+          toast.error(t("finance:address_failed_validation"));
         } else {
           toast.error(t("toast:failedToAddAddress"));
         }
@@ -165,7 +163,8 @@ export const WithdrawAddressAddModal = () => {
         <div className="flex flex-col gap-2">
           <RequireItem
             label={<label className="text-xs text-base-content/50 font-semibold">{t("finance:address")}</label>} />
-          <div>
+
+          <div className="relative">
             <input
               type="text"
               className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4"
@@ -178,16 +177,14 @@ export const WithdrawAddressAddModal = () => {
                 }));
               }}
             />
-            <DisplayContent status={isError2}>
-              <ErrorMessageBox sample content={t("finance:address_failed_validation")} show={isError2} />
-            </DisplayContent>
+            <ErrorMessageBox sample content={t("finance:address_failed_validation")} show={isError2} />
           </div>
         </div>
 
         <p className="text-base-content/50 font-semibold leading-4 text-xs">{t("finance:double_check")}</p>
 
         <ConfirmBox disabled={isError1 || isError2 || status.loading} onClick={submit} loading={status.loading}>
-          {t("finance:save")}
+          {t("common:common.confirm")}
         </ConfirmBox>
       </div>
     </Modal>

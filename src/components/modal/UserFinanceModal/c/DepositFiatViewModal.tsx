@@ -7,32 +7,31 @@
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import { useToggle } from "ahooks";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { FormBox } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { emitter } from "@/store/emitter.ts";
 
-export const DepositFiatViewModal = () => {
+export const DepositFiatViewModal = (
+  {
+    open,
+    onClose
+  }: {
+    open: boolean;
+    onClose: () => void;
+  }) => {
   const { t } = useTranslation();
 
-  const [status, { set }] = useToggle<boolean>(false);
-
   // from data store, share common data
-  const { depositFiat, syncAction, setSyncAction } = useBoundStore();
+  const { depositFiat } = useBoundStore();
 
   // 查询代币信息
   const { getCurrencySymbol } = useCurrencyData();
 
-  // 事件通知
-  useEffect(() => {
-    if (syncAction.type === "OPEN_DEPOSIT_FIAT_VIEW_MODAL") set(true);
-  }, [syncAction]);
-
   return (
     <Modal
       title={<span className="flex items-center gap-2 text-sm font-semibold">{t("finance:newFiatDeposit")}</span>}
-      isOpen={status}
-      onClose={() => set(false)}
+      isOpen={open}
+      onClose={onClose}
       position="modal-middle"
       className="bg-base-400 p-4 md:max-w-[360px] shadow-lg"
     >
@@ -78,8 +77,8 @@ export const DepositFiatViewModal = () => {
         <button
           className="btn btn-primary font-bold"
           onClick={() => {
-            set(false);
-            setSyncAction("SYNC_DEPOSIT_FIAT_CREATE");
+            onClose()
+            emitter.emit("SYNC_DEPOSIT_FIAT_CREATE");
           }}
         >
           {t("finance:iUnderstand")}

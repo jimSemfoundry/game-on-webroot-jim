@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Nagrody za Darmowe Spiny",
   "common": {
     "close": "Zamknij",
     "copy": "Kopiuj",
@@ -12,7 +13,8 @@
     "swap": "Zamień",
     "swapFrom": "Zamień Z",
     "swapTo": "Zamień Na",
-    "noCommissionRecords": "Nie znaleziono rekordów prowizji"
+    "noCommissionRecords": "Nie znaleziono rekordów prowizji",
+    "createdOn": "Utworzono"
   },
   "tabs": {
     "transactionHistory": "Historia Transakcji",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Sieć Wypłaty",
     "blockchainWaiting": "Oczekiwanie na potwierdzenie blockchain.",
     "blockchainFailed": "Transakcja blockchain nie powiodła się.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Otrzymaliśmy Twoją prośbę.<br/>Aby sprawdzić status, sprawdź Transakcje w swoim Profilu."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Całkowity Wymagany Zakład",
     "wagerCompleted": "Zakład Zakończony",
     "pendingWagerRequired": "Wymagany Zakład Oczekujący",
-    "unlockedFunds": "Odblokowane Środki"
-  }
+    "unlockedFunds": "Odblokowane środki",
+    "rolloverMul": "Mnożnik zakładu"
+  },
+  "assistance": "Sprawdź swoje dane i spróbuj ponownie lub skontaktuj się z obsługą klienta w celu uzyskania pomocy"
 }

@@ -9,7 +9,7 @@ import type {
   BetHistoryRecord,
   BetHistoryResponse,
 } from "@/types/bet-history";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { type InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 
 export const BET_HISTORY_PAGE_SIZE = 10;
 
@@ -193,99 +193,157 @@ export const normalizeBetHistoryResponse = (raw?: BetHistoryResponse): BetHistor
 export const useUserBetHistory = (params: Omit<BetHistoryQueryParams, "page" | "page_size">) => {
   const { user } = useAuth();
 
-  return useInfiniteQuery<BetHistoryResponse, Error>({
+  return useInfiniteQuery<BetHistoryResponse, Error, InfiniteData<BetHistoryResponse>, readonly unknown[], string | number>({
     queryKey: ["betHistory", params, user?.id],
-    queryFn: async ({ pageParam = 1 }) => {
-      const nextPage = typeof pageParam === "number" ? pageParam : (toNumber(pageParam) ?? 1);
+    queryFn: async ({ pageParam = 0 }) => {
+      if (!user) throw new Error("User not authenticated");
+
       const queryParams: BetHistoryQueryParams = {
         ...params,
-        page: nextPage,
         page_size: BET_HISTORY_PAGE_SIZE,
+        last_id: pageParam,
       };
       return authService.getUserBetHistory(queryParams);
     },
-    initialPageParam: 1,
+    initialPageParam: 0,
     getNextPageParam: (lastPage) => {
-      const payload = normalizeBetHistoryResponse(lastPage);
-      const currentPage = payload.pagination?.current_page ?? 1;
-      const lastPageNumber = payload.pagination?.last_page;
-      const hasMore = payload.pagination?.has_more;
-      const nextPageCandidate = payload.pagination?.next_page ?? currentPage + 1;
-
-      if (hasMore === false) return undefined;
-      if (lastPageNumber !== undefined && currentPage >= lastPageNumber) return undefined;
-      if (hasMore === true) return nextPageCandidate;
-      if (lastPageNumber === undefined && nextPageCandidate > currentPage) {
-        return nextPageCandidate;
-      }
-
-      if (lastPageNumber !== undefined && currentPage < lastPageNumber) {
-        return currentPage + 1;
-      }
-
-      return undefined;
+      return !lastPage?.pagination?.has_more ? undefined : lastPage?.pagination?.next_last_id;
     },
     enabled: !!user,
     staleTime: 0,
-    refetchOnMount: true,
+    refetchOnMount: false,
     retry: 1,
   });
 };
 
+// TODO: api V3->V4 @Frank @Mark
 export const useSportsBetHistory = (params: Omit<BetHistoryQueryParams, "page" | "page_size" | "last_id">) => {
   const { user } = useAuth();
-  const isBetby = params.game_type === "betby";
 
-  return useInfiniteQuery<BetHistoryResponse, Error>({
+  return useInfiniteQuery<BetHistoryResponse, Error, InfiniteData<BetHistoryResponse>, readonly unknown[], string | number>({
     queryKey: ["sportsBetHistory", params, user?.id],
-    queryFn: async ({ pageParam }) => {
+    queryFn: async ({ pageParam = 0 }) => {
+      if (!user) throw new Error("User not authenticated");
+
       const queryParams: BetHistoryQueryParams = {
         ...params,
         page_size: BET_HISTORY_PAGE_SIZE,
+        last_id: pageParam,
       };
-
-      // Only add last_id when game_type is 'betby'
-      if (isBetby) {
-        queryParams.last_id = typeof pageParam === "number" ? pageParam : 0;
-      } else {
-        // For non-betby, use page-based pagination
-        queryParams.page = typeof pageParam === "number" ? pageParam : 1;
-      }
 
       return authService.getUserSportsBetHistory(queryParams);
     },
-    initialPageParam: isBetby ? 0 : 1,
+    initialPageParam: 0,
     getNextPageParam: (lastPage) => {
-      const payload = normalizeBetHistoryResponse(lastPage);
-      const hasMore = payload.pagination?.has_more;
-      if (hasMore === false) return undefined;
-
-      // For betby, use last_id from pagination
-      if (params.game_type === "betby") {
-        const nextLastId =
-          payload.pagination?.last_id ??
-          toNumber(payload.records[payload.records.length - 1]?.id) ??
-          toNumber(payload.records[payload.records.length - 1]?.order_id);
-
-        if (nextLastId === undefined) {
-          return undefined;
-        }
-
-        return nextLastId;
-      }
-
-      // For other game types, use page-based pagination (fallback)
-      const currentPage = payload.pagination?.current_page;
-      const lastPageNumber = payload.pagination?.last_page;
-      if (typeof currentPage === "number" && typeof lastPageNumber === "number" && currentPage < lastPageNumber) {
-        return currentPage + 1;
-      }
-
-      return undefined;
+      return !lastPage?.pagination?.has_more ? undefined : lastPage?.pagination?.next_last_id;
     },
     enabled: !!user,
     staleTime: 0,
-    refetchOnMount: true,
+    refetchOnMount: false,
     retry: 1,
   });
 };
+
+// old 备份
+// export const useUserBetHistory = (params: Omit<BetHistoryQueryParams, "page" | "page_size">) => {
+//   const { user } = useAuth();
+//
+//   return useInfiniteQuery<BetHistoryResponse, Error>({
+//     queryKey: ["betHistory", params, user?.id],
+//     queryFn: async ({ pageParam = 1 }) => {
+//       if (!user) throw new Error("User not authenticated");
+//
+//       const nextPage = typeof pageParam === "number" ? pageParam : (toNumber(pageParam) ?? 1);
+//       const queryParams: BetHistoryQueryParams = {
+//         ...params,
+//         page: nextPage,
+//         page_size: BET_HISTORY_PAGE_SIZE,
+//       };
+//       return authService.getUserBetHistory(queryParams);
+//     },
+//     initialPageParam: 1,
+//     getNextPageParam: (lastPage) => {
+//       const payload = normalizeBetHistoryResponse(lastPage);
+//       const currentPage = payload.pagination?.current_page ?? 1;
+//       const lastPageNumber = payload.pagination?.last_page;
+//       const hasMore = payload.pagination?.has_more;
+//       const nextPageCandidate = payload.pagination?.next_page ?? currentPage + 1;
+//
+//       if (hasMore === false) return undefined;
+//       if (lastPageNumber !== undefined && currentPage >= lastPageNumber) return undefined;
+//       if (hasMore === true) return nextPageCandidate;
+//       if (lastPageNumber === undefined && nextPageCandidate > currentPage) {
+//         return nextPageCandidate;
+//       }
+//
+//       if (lastPageNumber !== undefined && currentPage < lastPageNumber) {
+//         return currentPage + 1;
+//       }
+//
+//       return undefined;
+//     },
+//     enabled: !!user,
+//     staleTime: 0,
+//     refetchOnMount: true,
+//     retry: 1,
+//   });
+// };
+// export const useSportsBetHistoryOld = (params: Omit<BetHistoryQueryParams, "page" | "page_size" | "last_id">) => {
+//   const { user } = useAuth();
+//   const isBetby = params.game_type === "betby";
+//
+//   return useInfiniteQuery<BetHistoryResponse, Error>({
+//     queryKey: ["sportsBetHistory", params, user?.id],
+//     queryFn: async ({ pageParam }) => {
+//       if (!user) throw new Error("User not authenticated");
+//
+//       const queryParams: BetHistoryQueryParams = {
+//         ...params,
+//         page_size: BET_HISTORY_PAGE_SIZE,
+//       };
+//
+//       // Only add last_id when game_type is 'betby'
+//       if (isBetby) {
+//         queryParams.last_id = typeof pageParam === "number" ? pageParam : 0;
+//       } else {
+//         // For non-betby, use page-based pagination
+//         queryParams.page = typeof pageParam === "number" ? pageParam : 1;
+//       }
+//
+//       return authService.getUserSportsBetHistory(queryParams);
+//     },
+//     initialPageParam: isBetby ? 0 : 1,
+//     getNextPageParam: (lastPage) => {
+//       const payload = normalizeBetHistoryResponse(lastPage);
+//       const hasMore = payload.pagination?.has_more;
+//       if (hasMore === false) return undefined;
+//
+//       // For betby, use last_id from pagination
+//       if (params.game_type === "betby") {
+//         const nextLastId =
+//           payload.pagination?.last_id ??
+//           toNumber(payload.records[payload.records.length - 1]?.id) ??
+//           toNumber(payload.records[payload.records.length - 1]?.order_id);
+//
+//         if (nextLastId === undefined) {
+//           return undefined;
+//         }
+//
+//         return nextLastId;
+//       }
+//
+//       // For other game types, use page-based pagination (fallback)
+//       const currentPage = payload.pagination?.current_page;
+//       const lastPageNumber = payload.pagination?.last_page;
+//       if (typeof currentPage === "number" && typeof lastPageNumber === "number" && currentPage < lastPageNumber) {
+//         return currentPage + 1;
+//       }
+//
+//       return undefined;
+//     },
+//     enabled: !!user,
+//     staleTime: 0,
+//     refetchOnMount: true,
+//     retry: 1,
+//   });
+// };

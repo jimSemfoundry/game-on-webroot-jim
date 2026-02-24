@@ -30,7 +30,7 @@ const buildBackground = (accentStop: string, isMobile: boolean) =>
     : `radial-gradient(72.45% 49.48% at 50% 8.89%, ${accentStop} 0%, rgba(51, 51, 51, 0.08) 100%), var(--color-base-200)`;
 
 export function MysteryBoxCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { openTipsModal } = useTipsModal();
   const { data: conquestsReward } = useHasMysteryBox();
   const [isOpenMysteryBoxModal, setIsOpenMysteryBoxModal] = useState(false);
@@ -42,6 +42,9 @@ export function MysteryBoxCard() {
   // const userVipLevel = status?.vip || 0;
   const requiredVipLevel = VIP_REQUIREMENTS.mysteryBox.requiredLevel;
   // const isUnlocked = checkVipAccess(userVipLevel, requiredVipLevel);
+
+  // 可领取状态
+  const isClaimable = conquestsReward?.data?.has_mystery_box ?? false;
 
 
   const accentStopFallback = useMemo(() => `color-mix(in oklch, ${DEFAULT_ACCENT} 40%, transparent)`, []);
@@ -72,7 +75,7 @@ export function MysteryBoxCard() {
   return (
     <>
       <div
-        className="relative flex w-full items-center gap-4 overflow-hidden rounded-field border border-base-200/60 bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] sm:flex-col sm:items-center sm:gap-3 sm:p-5"
+        className={`relative flex w-full items-center gap-4 overflow-hidden rounded-field border ${isClaimable ? "border-warning" : "border-base-200/60"} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 min-h-[145px] sm:min-h-[290px] sm:flex-col sm:items-center sm:gap-3 sm:p-5`}
         style={{
           background,
         }}

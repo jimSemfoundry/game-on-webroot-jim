@@ -29,7 +29,7 @@
 
 import { authService } from "@/services/authService";
 import { getBrowserCurrency } from "@/utils/currency";
-import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import { useSupportedSettlementCurrencies } from "@/hooks/api/usePublic.ts";
 import { useSupportedCurrencyV2 } from "@/components/modal/UserFinanceModal/helper.ts";
@@ -55,7 +55,7 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
     children,
     defaultCurrency
   }) => {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
 
   const { data: settlementCurrencies } = useSupportedSettlementCurrencies();
 
@@ -91,7 +91,7 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
   };
 
   // 更新结算货币（本地+后端同步）
-  const updateSettlementCurrency = async (currency: string): Promise<void> => {
+  const updateSettlementCurrency = useCallback(async (currency: string): Promise<void> => {
     if (isLoading) return;
 
     /**
@@ -100,7 +100,9 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
      *  1. 禁止数据提交
      *  2. 不去设置备用默认值
      */
+
     const whether_currency_was_matched = (settlementCurrencies?.data ?? []).some((c: { currency: string }) => c.currency.toLowerCase() === currency?.toLowerCase());
+
     if (!whether_currency_was_matched) {
       console.info(`The provided currency was not matched: ${currency}`);
       return
@@ -119,6 +121,9 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
         // FIXME 目的：用户切换结算币的时候，把币种同步到存款页面的默认币种选择
         void refetchCurrencyV2()
 
+        // 乐观更新 同步本地缓存数据
+        setUser({ ...user, currency  })
+
         if (response.code !== 0) {
           throw new Error(response.msg || "Failed to update settlement currency");
         }
@@ -131,7 +136,7 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading, settlementCurrencies?.data, user, refetchCurrencyV2]);
 
   // 当用户登录或用户结算货币设置更新时，同步到本地选择
   useEffect(() => {
@@ -140,6 +145,11 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
       setSelectedCurrency(user.currency);
     }
   }, [user?.currency]); // 只依赖user.currency，避免循环
+
+  useEffect(() => {
+    console.info(user?.currency);
+    console.info(selectedCurrency);
+  }, [user, selectedCurrency]);
 
   const contextValue: SettlementCurrencyContextType = {
     selectedCurrency,

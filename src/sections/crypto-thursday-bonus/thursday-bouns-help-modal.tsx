@@ -115,7 +115,7 @@ interface DoubleOrNothingHelpModalProps {
 }
 
 export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOrNothingHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('popup');
   const { isRTL } = useRTLContext();
   const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
@@ -252,7 +252,7 @@ export const ThursdayBounsHelpModal = ({ currentPromo, open, onClose }: DoubleOr
           {/* Close按钮 - 位于右上角 */}
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
+            className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
             aria-label="Close"
           >
             <CloseIcon />

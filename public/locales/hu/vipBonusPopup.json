@@ -5,11 +5,11 @@
     "achievements": "Elismerések",
     "achievementDescription": "Az Elismerés Díjak olyan jutalmak, amelyeket új mérföldkövek eléréséért és kihívások legyőzéséért adnak. Ünneplik a fejlődésedet és a sikereidet, és szórakoztató meglepetéseket nyitnak meg, ahogy új teljesítményeket érsz el az úton!",
     "claimDistribution": "Jutalom Kiosztás",
-    "claimDistributionDescription": "A jutalmak 3 napig kerülnek hozzáadásra a bónusz naptáradhoz a követelés után.",
+    "claimDistributionDescription": "A jutalmaid azonnal megszolgálttá válnak, és minden új teljesítményjutalom igénylésekor elérhetők a befizetési <0>bónusz poolból</0>.",
     "expiration": "Lejárat",
-    "expirationDescription": "Nincs - A jutalmak automatikusan a naptárba kerülnek.",
+    "expirationDescription": "Nincs – az igénylés addig elérhető, amíg a Bonus Pool egyenlege elegendő.",
     "generalTerms": "Általános Feltételek",
-    "generalTermsDescription": "A jutalmak BUCK/USDT alapú számítással és jóváírással kerülnek megállapításra, majd a kényelmed érdekében a preferált fiat valutádban jelennek meg. Kérjük, vedd figyelembe, hogy a valutaátváltások hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot, hogy bármikor módosítsa vagy visszavonja a jogosultságot, indoklás nélkül. Bármilyen visszaélés vagy csalás a promócióból való kizárást vonja maga után."
+    "generalTermsDescription": "A jutalmakat USDT-ben számítjuk és írjuk jóvá, majd a kényelmed érdekében a preferált fiat pénznemben jelenítjük meg. Kérjük, vedd figyelembe, hogy a valutakonverziók hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot, hogy bármikor indoklás nélkül módosítsa vagy visszavonja a jogosultságot. Bármilyen visszaélés vagy csalárd tevékenység a promócióból való kizáráshoz vezet."
   },
   "luckyNumberSeven": {
     "title": "Szerencsés Szám \n Hét",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "A minimális követelési összeg {{money}}",
     "expiration": "Lejárat",
-    "expirationDescription": "A Rejtély Dobozodat 7 napon belül kell követelned, miután megkaptad. A nem követelt jutalmak ezen időszak után lejárnak.",
+    "expirationDescription": "A Rejtély Dobozodat 3 napon belül kell követelned, miután megkaptad. A nem követelt jutalmak ezen időszak után lejárnak.",
     "generalTerms": "Általános Feltételek",
     "generalTermsDescription": "A jutalmak a felhasználó első befizetése alapján kerülnek kiszámításra és jóváírásra, vagy USDT-ben, ha nem történt befizetés, 1x rollover követelmény mellett. Az összegek a preferált fiat valutádban jelennek meg; az átváltások hozzávetőlegesek.\n\nA kaszinó fenntartja a jogot, hogy bármikor módosítsa vagy visszavonja a jogosultságot értesítés nélkül. Bármilyen visszaélés vagy csalás kizárást von maga után."
   },

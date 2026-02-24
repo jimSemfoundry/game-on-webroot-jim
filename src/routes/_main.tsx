@@ -5,12 +5,11 @@ import { FreeSpinContainer } from "@/sections/free-spins";
 import { cn } from "@/utils/themeMerger";
 import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 import React from "react";
+import { useBoundStore } from "@/store";
 import Header from "../components/header/Header";
 import { Sidebar } from "../components/sidebar/Sidebar";
 import { ChatwootWrapper } from "../components/ui/ChatwootFloatingButton";
-import { LimitedOffer } from "@/sections/limited-offer/LimitedOffer";
 import { NavItem } from "@/config/navigation";
-import { t } from "i18next";
 
 export const Route = createFileRoute("/_main")({
   component: MainLayout,
@@ -24,11 +23,17 @@ export default function MainLayout() {
   const { isMobile } = useSidebar();
   const mainRef = React.useRef<HTMLElement>(null);
   const location = useLocation();
+  const headerBackAction = useBoundStore((s) => s.headerBackAction);
+
+  // Legacy viewport hacks removed in favor of interactive-widget=resizes-content
 
   // Sports 页面需要全屏显示，不受 container 限制
   const isSportsPage = location.pathname === '/sports';
   const isGamePlayPage = location.pathname.startsWith("/games/play/");
-  const shouldShowDock = !(isMobile && isGamePlayPage);
+  const isGameDetailPage = location.pathname.startsWith("/games/");
+  // When an in-page game iframe is active, game detail sets a custom back action.
+  const isInGameOverlay = isMobile && isGameDetailPage && Boolean(headerBackAction);
+  const shouldShowDock = !(isMobile && (isGamePlayPage || isInGameOverlay));
 
   // 路由切换时滚动到顶部
   React.useEffect(() => {
@@ -37,48 +42,64 @@ export default function MainLayout() {
     }
   }, [location.pathname, location.search]);
 
+  // Safety cleanup: prevent the global fullscreen flag from leaking into non-game pages.
+  React.useEffect(() => {
+    const isGamesRoute = location.pathname.startsWith("/games/");
+    if (!isGamesRoute) {
+      document.documentElement.classList.remove("game-fullscreen");
+    }
+  }, [location.pathname]);
+
   const MAIN_NAV_ITEMS: NavItem[] = [
     {
       href: "#",
-      label: t("common:common.menu"),
+      label: "common:common.menu",
       icon: "custom:menu",
     },
     {
       href: "/explore",
-      label: t("common:common.explore"),
+      label: "common:common.explore",
       icon: "custom:explore",
     },
     {
       href: "/casino",
-      label: t("common:common.casino"),
+      label: "common:common.casino",
       icon: "custom:casino",
     },
     {
       href: "/sports",
-      label: t("common:common.sports"),
+      label: "common:common.sports",
       icon: "custom:sports",
     },
     {
       href: "/bonus",
-      label: t("common:common.bonus"),
+      label: "common:common.bonus",
       icon: "custom:bonus",
     },
   ];
 
   return (
     <MotionLazy>
-      <div className="flex h-[100dvh] bg-base-300">
+      <div
+        className="fixed inset-0 flex bg-base-300"
+        style={{
+          overscrollBehavior: "none",
+        }}
+      >
         <Sidebar />
 
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden" style={{ overscrollBehavior: "none" }}>
           <Header />
           <main
             ref={mainRef}
             className={cn(
               "flex-1 w-full overflow-y-auto hide-scrollbar",
-              // 为移动端 Dock 预留空间
-              isMobile && shouldShowDock ? "pb-18" : "",
+              // 为固定 Header 预留顶部空间
+              isMobile ? "pt-[calc(3rem+var(--safe-area-inset-top))]" : "pt-[calc(3rem+var(--safe-area-inset-top))] md:pt-[calc(4.5rem+var(--safe-area-inset-top))]",
+              // 为移动端 Dock 预留空间 (Dock高度 + safe-area-inset-bottom)
+              isMobile && shouldShowDock ? "pb-[calc(4.5rem+var(--safe-area-inset-bottom))]" : "",
             )}
+            style={{ overscrollBehavior: "contain", WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
           >
             {isSportsPage ? (
               // Sports 页面：全宽显示，无容器限制
@@ -95,7 +116,6 @@ export default function MainLayout() {
         <ChatwootWrapper />
         {/* Free Spin 全局容器 - 会在用户登录15秒后自动检查待处理的Free Spin */}
         <FreeSpinContainer />
-        <LimitedOffer />
       </div>
     </MotionLazy>
   );

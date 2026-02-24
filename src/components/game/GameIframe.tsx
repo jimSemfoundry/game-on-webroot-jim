@@ -17,8 +17,16 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
   const [isLoading, setIsLoading] = useState(true);
   const [isReady, setIsReady] = useState(false);
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t } = useTranslation(['gameDetail', 'common']);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (!isFullScreen) return;
+    document.documentElement.classList.add("game-fullscreen");
+    return () => {
+      document.documentElement.classList.remove("game-fullscreen");
+    };
+  }, [isFullScreen]);
 
   // 延迟渲染 iframe，确保页面和认证状态都准备好
   useEffect(() => {
@@ -28,6 +36,54 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
     return () => clearTimeout(timer);
   }, []);
 
+  // 清理 iframe 资源
+  useEffect(() => {
+    return () => {
+      if (iframeRef.current) {
+        const iframe = iframeRef.current;
+
+        // 1. 移除所有事件监听器
+        iframe.onload = null;
+        iframe.onerror = null;
+
+        // 2. 清理 Blob URL（如果存在）
+        if (iframe.src.startsWith('blob:')) {
+          URL.revokeObjectURL(iframe.src);
+        }
+
+        // 3. 强制停止 iframe 内部所有活动
+        try {
+          const contentWindow = iframe.contentWindow;
+          if (contentWindow) {
+            // 停止所有网络请求和脚本执行
+            contentWindow.stop();
+            // 清除所有定时器
+            contentWindow.clearTimeout(0);
+            contentWindow.clearInterval(0);
+            // 移除所有事件监听器
+            contentWindow.onbeforeunload = null;
+            contentWindow.onunload = null;
+          }
+        } catch (e) {
+          // 跨域情况下忽略，继续其他清理步骤
+        }
+
+        // 4. 导航到空白页面，强制浏览器清理
+        iframe.src = 'about:blank';
+        iframe.srcdoc = '';
+
+        // 5. 立即从 DOM 移除（更简洁的方式）
+        // 不需要等待，因为 about:blank 会立即生效
+        if (iframe.parentNode) {
+          iframe.parentNode.removeChild(iframe);
+        }
+
+        // 6. 清空引用
+        iframeRef.current = null;
+      }
+    };
+  }, []);
+  
   const handleBack = useCallback(() => {
     if (onClose) {
       onClose();
@@ -68,8 +124,8 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
           onClick={handleBack}
           className="fixed z-[9999] btn btn-sm btn-square"
           style={{
-            top: "calc(env(safe-area-inset-top) + 1rem)",
-            left: "calc(env(safe-area-inset-left) + 1rem)",
+            top: "calc(var(--safe-area-inset-top) + 1rem)",
+            left: "calc(var(--safe-area-inset-left) + 1rem)",
           }}
         >
           <ChevronLeft className="w-5 h-5" />

@@ -23,11 +23,33 @@ declare global {
         };
         ready?: () => void;
         expand?: () => void;
+        requestFullscreen?: () => void;
+        exitFullscreen?: () => void;
+        enableClosingConfirmation?: () => void;
+        disableClosingConfirmation?: () => void;
+        disableVerticalSwipes?: () => void;
+        enableVerticalSwipes?: () => void;
         close?: () => void;
+        setHeaderColor?: (color: string) => void;
         colorScheme?: "light" | "dark";
         themeParams?: Record<string, any>;
         viewportHeight?: number;
         viewportStableHeight?: number;
+        safeAreaInset?: {
+          top: number;
+          right: number;
+          bottom: number;
+          left: number;
+        };
+        contentSafeAreaInset?: {
+          top: number;
+          right: number;
+          bottom: number;
+          left: number;
+        };
+        isFullscreen?: boolean;
+        onEvent?: (event: string, handler: (...args: any[]) => void) => void;
+        offEvent?: (event: string, handler: (...args: any[]) => void) => void;
         isExpanded?: boolean;
         [key: string]: any;
       };

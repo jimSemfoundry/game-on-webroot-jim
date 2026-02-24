@@ -13,6 +13,31 @@ import { SidebarHeader } from "./SidebarHeader";
 import { SidebarItem } from "./SidebarItem";
 import { toUrlSearchParams } from "@/utils/urlSearchParams";
 
+type SidebarLinkConfig = {
+  to: string;
+  search?: Record<string, string | undefined>;
+};
+
+const parseSidebarPath = (path?: string): SidebarLinkConfig => {
+  if (!path) {
+    return { to: "", search: undefined };
+  }
+
+  if (!path.includes("?")) {
+    return { to: path, search: undefined };
+  }
+
+  const [pathname, searchString = ""] = path.split("?");
+  const searchParams = new URLSearchParams(searchString);
+  const search: Record<string, string | undefined> = {};
+
+  for (const [key, value] of searchParams.entries()) {
+    search[key] = value;
+  }
+
+  return { to: pathname, search };
+};
+
 function DesktopSidebar() {
   const { mode, toggleMode, activeTab } = useSidebar();
   const location = useLocation();
@@ -34,8 +59,11 @@ function DesktopSidebar() {
         duration: 0.3,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className={`hide-scrollbar hidden md:flex flex-col bg-base-400 h-auto relative card md:card-sm my-2 ${isRTL ? "mr-2" : "ml-2"}`}
-      style={{ overflow: "visible" }}
+      className={`hide-scrollbar hidden md:flex flex-col bg-base-400 h-auto relative card md:card-sm mb-2 ${isRTL ? "mr-2" : "ml-2"}`}
+      style={{ 
+        overflow: "visible",
+        marginTop: "calc(4.5rem + var(--safe-area-inset-top))"
+      }}
     >
       <div
         onClick={toggleMode}
@@ -70,7 +98,10 @@ function DesktopSidebar() {
                   <SidebarItem
                     icon={item.icon}
                     label={item.label}
-                    path={item.path}
+                    {...(() => {
+                      const parsed = parseSidebarPath(item.path);
+                      return { to: parsed.to, search: parsed.search };
+                    })()}
                     isActive={(() => {
                       if (!item.path) return false;
 
@@ -103,7 +134,9 @@ function DesktopSidebar() {
           </nav>
         </div>
 
-        <SidebarFooter isMini={isMini} />
+        <div className="sticky bottom-0 bg-base-400">
+          <SidebarFooter isMini={isMini} />
+        </div>
       </div>
     </m.aside>
   );
@@ -133,7 +166,11 @@ function MobileDrawer() {
         <Drawer.Title style={{ display: "none" }} />
         <Drawer.Overlay className="fixed inset-0 bg-black/50 z-[998]" />
         <Drawer.Content
-          className={`fixed ${isRTL ? "right-0" : "left-0"} top-12 bottom-2 w-[80%] bg-transparent z-[999] md:hidden outline-none`}
+          className={`fixed ${isRTL ? "right-0" : "left-0"} w-[80%] bg-transparent z-[999] md:hidden outline-none`}
+          style={{
+            top: "calc(var(--safe-area-inset-top) + 3rem)",
+            bottom: "calc(var(--safe-area-inset-bottom) + 0.5rem)",
+          }}
         >
           <div className={`${isRTL ? "mr-2" : "ml-2"} h-full bg-base-400 shadow-xl rounded-2xl flex flex-col overflow-hidden p-3`}>
             <div className="flex-1 flex flex-col overflow-hidden">
@@ -148,7 +185,10 @@ function MobileDrawer() {
                       <SidebarItem
                         icon={item.icon}
                         label={item.label}
-                        path={item.path}
+                        {...(() => {
+                          const parsed = parseSidebarPath(item.path);
+                          return { to: parsed.to, search: parsed.search };
+                        })()}
                         isActive={(() => {
                           if (!item.path) return false;
 

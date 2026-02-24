@@ -76,12 +76,39 @@
   "dashboard": "Dashboard",
   "transactions": "Transactions",
   "rollover": "Rollover",
-  "betHistory": "Bet History",
+  "betHistory": {
+    "empty": "No bet history found",
+    "title": "Bet History",
+    "headers": {
+      "game": "Game",
+      "date": "Date",
+      "betId": "Bet ID",
+      "betIn": "Bet In",
+      "betOut": "Bet Out",
+      "account": "Account",
+      "amount": "Amount",
+      "provider": "Provider",
+      "match": "Match",
+      "tournament": "Tournament"
+    }
+  },
   "settings": "Settings",
   "legal": "Legal",
   "nickname": "Nickname",
   "zoomAndAdjust": "Zoom and Adjust",
   "systemLanguage": "System Language",
   "editProfile": "Edit Profile",
-  "inviteAndGetRewarded": "Invite and Get Rewarded"
+  "inviteAndGetRewarded": "Invite and Get Rewarded",
+  "emailAddress": "Email Address",
+  "codeSent": "Enter the Code We Sent",
+  "codeSentTo": "A code has been sent to",
+  "notReceiveCode": "Didn’t receive the code?",
+  "verificationSuccess": "Verification Success",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Your phone number has been verified. You're all set to continue.",
+  "email_address_has_been_verified": "Your email address has been verified. You're all set to continue.",
+  "setNewPassword": "Set New Password",
+  "passwordLengthRequirement": "Please enter a password between 6 and 64 characters."
 }

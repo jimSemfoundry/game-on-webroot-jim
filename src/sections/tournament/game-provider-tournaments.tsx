@@ -42,7 +42,7 @@ const buildProviderAliases = (provider?: string) => {
 };
 
 export const GameProviderTournaments = ({ provider, withContainer = true, showHeading = true }: GameProviderTournamentsProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const { isAuthenticated } = useAuth();
   const { tournamentList, isLoading } = useTournamentList();
   const { formatWithConversion } = useDisplayCurrencyFormatter();

@@ -2,6 +2,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { AnimatePresence, m } from 'motion/react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from '@tanstack/react-router'
+import { useTranslation } from "react-i18next";
 
 interface Game {
   id: string
@@ -20,6 +21,7 @@ interface GameShuffleSliderProps {
 }
 
 export const GameShuffleSlider = ({ games, isShuffling, onGameSelected, onAnimationComplete }: GameShuffleSliderProps) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [selectedGame, setSelectedGame] = useState<Game | null>(null)
   const [displayGames, setDisplayGames] = useState<Game[]>([])
@@ -363,7 +365,7 @@ export const GameShuffleSlider = ({ games, isShuffling, onGameSelected, onAnimat
                     }
                   }}
                 >
-                  PLAY
+                  {t('common:common.play')}
                 </button>
               </div>
             </div>

@@ -1,8 +1,8 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { useRef, useState, useEffect, ReactNode, WheelEvent } from "react";
 import Measure from "react-measure";
 import Iconify from "@/components/iconify";
-import { kebabCase } from "lodash-es";
+import { kebabCase } from "es-toolkit";
 import { emitter } from "@/store/emitter.ts";
 import { useTranslation } from "react-i18next";
 import { useSearch } from "@tanstack/react-router";
@@ -47,7 +47,7 @@ const items: { value: TBar, label: ReactNode }[] = [
   },
   {
     value: "bet-history",
-    label: <Label name="Bet History" translationKey="betHistory" namespace="profile" />
+    label: <Label name="Bet History" translationKey="betHistory.title" namespace="profile" />
   },
   {
     value: "security",
@@ -179,13 +179,13 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
 
   return (
     <div ref={ref}
-         className={classNames("relative overflow-x-auto overflow-y-hidden gap-4 flex md:mx-0 pb-2 hide-scrollbar")}>
+         className={clsx("relative overflow-x-auto overflow-y-hidden gap-4 flex md:mx-0 pb-2 hide-scrollbar")}>
       {items.map((item: Record<string, any>) => (
         <Measure offset key={item?.value}>
           {({ measureRef, contentRect }) => (
             <button
               ref={measureRef}
-              className={classNames(
+              className={clsx(
                 "relative btn btn-sm md:btn-lg bg-base-300 flex items-center gap-1 rounded-lg border-0 font-bold text-base-content/70 px-1",
                 item?.value === _navIndex ? "text-primary-content bg-primary" : ""
               )}

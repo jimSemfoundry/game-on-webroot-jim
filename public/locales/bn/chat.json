@@ -3,5 +3,8 @@
   "notifications": "বিজ্ঞপ্তিসমূহ",
   "support": "সহায়তা",
   "retry": "পুনরায় চেষ্টা করুন",
-  "customerServiceChatFailedToLoad": "কাস্টমার সার্ভিস চ্যাট লোড হতে ব্যর্থ হয়েছে"
+  "customerServiceChatFailedToLoad": "কাস্টমার সার্ভিস চ্যাট লোড হতে ব্যর্থ হয়েছে",
+  "read": "পড়া",
+  "unread": "অপঠিত",
+  "customerService": "গ্রাহক সেবা"
 }

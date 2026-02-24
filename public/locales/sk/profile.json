@@ -76,12 +76,39 @@
   "dashboard": "Nástenka",
   "transactions": "Transakcie",
   "rollover": "Pretočenie",
-  "betHistory": "História stávok",
+  "betHistory": {
+    "empty": "Nenájdená história stávok",
+    "title": "História stávok",
+    "headers": {
+      "game": "Hra",
+      "date": "Dátum",
+      "betId": "ID stávky",
+      "betIn": "Stávka",
+      "betOut": "Výhra",
+      "account": "Účet",
+      "amount": "Suma",
+      "provider": "Poskytovateľ",
+      "match": "Zápas",
+      "tournament": "Turnaj"
+    }
+  },
   "settings": "Nastavenia",
   "legal": "Právne",
   "nickname": "Prezývka",
   "zoomAndAdjust": "Priblížiť a upraviť",
   "systemLanguage": "Systémový jazyk",
   "editProfile": "Upraviť profil",
-  "inviteAndGetRewarded": "Pozvite a získajte odmenu"
+  "inviteAndGetRewarded": "Pozvite a získajte odmenu",
+  "emailAddress": "Emailová adresa",
+  "codeSent": "Zadajte kód, ktorý sme poslali",
+  "codeSentTo": "Kód bol odoslaný na",
+  "notReceiveCode": "Nedostali ste kód?",
+  "verificationSuccess": "Overenie úspešné",
+  "spinHistory": {
+    "statusFilterLabel": "Stav"
+  },
+  "phone_number_has_been_verified": "Vaše telefónne číslo bolo overené. Môžete pokračovať.",
+  "email_address_has_been_verified": "Vaša e-mailová adresa bola overená. Môžete pokračovať.",
+  "setNewPassword": "Nastaviť nové heslo",
+  "passwordLengthRequirement": "Prosím, zadajte heslo s dĺžkou od 6 do 64 znakov."
 }

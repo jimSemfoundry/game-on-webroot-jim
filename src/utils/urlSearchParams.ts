@@ -1,12 +1,18 @@
-export const toUrlSearchParams = (search: unknown) => {
+export const toUrlSearchParams = (search: unknown): URLSearchParams => {
   if (!search) return new URLSearchParams();
   if (typeof search === "string") return new URLSearchParams(search);
   if (search instanceof URLSearchParams) return search;
   if (typeof search === "object") {
-    const entries = Object.entries(search as Record<string, unknown>).filter(
-      (entry): entry is [string, string] => typeof entry[1] === "string",
-    );
-    return new URLSearchParams(entries);
+    const searchParams = new URLSearchParams();
+    Object.entries(search as Record<string, unknown>).forEach(([key, value]) => {
+      if (value === undefined || value === null) return;
+      if (Array.isArray(value)) {
+        value.forEach((v) => searchParams.append(key, String(v)));
+      } else {
+        searchParams.set(key, String(value));
+      }
+    });
+    return searchParams;
   }
   return new URLSearchParams();
 };

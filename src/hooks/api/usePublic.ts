@@ -1,9 +1,13 @@
+import type { ApiResponse } from "@/types/auth";
 import { publicService } from "@/services/publicService";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export const PUBLIC_QUERY_KEYS = {
   languages: ["public", "languages"] as const,
   baseConfig: ["public", "baseConfig"] as const,
+  aggregationConfig: ["public", "aggregationConfig"] as const,
   greatestGameOrder: ["public", "greatestGameOrder"] as const,
   supportedGameCurrencies: ["public", "supportedGameCurrencies"] as const,
   supportedSettlementCurrencies: ["public", "supportedSettlementCurrencies"] as const,
@@ -22,6 +26,50 @@ export const PUBLIC_QUERY_KEYS = {
   globalCommissions: ["public", "globalCommissions"] as const
 };
 
+const AGGREGATION_FIELDS = [
+  "game_home_cache",
+  "inbox_id",
+  "deposit_bonus_config",
+  "language_list",
+  "country_code",
+  "base_url",
+  "game_currency",
+  "currency",
+  "get_by_group",
+  "big_win_list",
+  "get_providers_v1",
+  "newest_v3",
+  "get_payment_icons"
+] as const;
+
+export type AggregationField = (typeof AGGREGATION_FIELDS)[number];
+
+export type AggregationPayload = Partial<Record<AggregationField, ApiResponse<any>>>;
+
+export function getAggregationPayload(
+  aggregationResponse?: ApiResponse<any> | AggregationPayload | null
+): AggregationPayload | null {
+  if (!aggregationResponse || typeof aggregationResponse !== "object") return null;
+
+  const hasAggregationField = (value: unknown) =>
+    Boolean(
+      value &&
+        typeof value === "object" &&
+        AGGREGATION_FIELDS.some((field) => field in (value as Record<string, unknown>))
+    );
+
+  const responseData = (aggregationResponse as ApiResponse<any>)?.data;
+  if (hasAggregationField(responseData)) {
+    return responseData as AggregationPayload;
+  }
+
+  if (hasAggregationField(aggregationResponse)) {
+    return aggregationResponse as AggregationPayload;
+  }
+
+  return null;
+}
+
 /**
  * 获取支持的语言
  * 缓存最大保持30分钟
@@ -31,8 +79,7 @@ export function useSupportedLanguages() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.languages,
     queryFn: () => publicService.getSupportedLanguages(),
-    staleTime: 30 * 60 * 1000, // 30 minutes - languages don't change often
-    retry: 3
+    staleTime: 30 * 60 * 1000 // 30 minutes - languages don't change often
   });
 }
 
@@ -45,7 +92,7 @@ export function useBaseConfig() {
     queryFn: () => publicService.getBaseConfig(),
     staleTime: 60 * 1000,
     gcTime: 5 * 60 * 1000,
-    refetchOnMount: false
+    refetchOnMount: false,
   });
 }
 
@@ -59,7 +106,7 @@ export function useGreatestGameOrder() {
     queryKey: PUBLIC_QUERY_KEYS.greatestGameOrder,
     queryFn: () => publicService.getGreatestGameOrder(),
     staleTime: 10 * 1000, // 10 seconds - greatest game order doesn't change often
-    retry: 3
+    retry: 3,
   });
 }
 
@@ -72,7 +119,7 @@ export function useSupportedGameCurrencies() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.supportedGameCurrencies,
     queryFn: () => publicService.getSupportedGameCurrencies(),
-    staleTime: 5 * 60 * 1000 // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 }
 
@@ -85,7 +132,7 @@ export function useSupportedSettlementCurrencies() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.supportedSettlementCurrencies,
     queryFn: () => publicService.getSupportedSettlementCurrencies(),
-    staleTime: 5 * 60 * 1000 // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 }
 
@@ -98,7 +145,7 @@ export function useCurrencyExchangeRate() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.currencyExchangeRate,
     queryFn: () => publicService.getCurrencyExchangeRate(),
-    staleTime: 1 * 60 * 1000 // 1 minute
+    staleTime: 1 * 60 * 1000, // 1 minute
   });
 }
 
@@ -122,7 +169,7 @@ export function useGameProviders() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.gameProviders,
     queryFn: () => publicService.getGameProviders(),
-    staleTime: 2 * 60 * 1000 // 2 minutes
+    staleTime: 2 * 60 * 1000, // 2 minutes
   });
 }
 
@@ -134,7 +181,7 @@ export function useChatwootInboxId() {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.chatwootInboxId,
     queryFn: () => publicService.getChatwootInboxId(),
-    staleTime: 2 * 60 * 1000 // 2 minutes
+    staleTime: 2 * 60 * 1000, // 2 minutes
   });
 }
 
@@ -147,11 +194,11 @@ export function useLatestWins(lang?: string) {
     queryFn: () => publicService.getLatestWins(lang),
     staleTime: 0,
     gcTime: 0, // 立即垃圾回收，不保留缓存
-    refetchOnMount: true,
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
     retry: 1,
     networkMode: "always", // 始终发起网络请求
-    placeholderData: (previousData) => previousData
+    placeholderData: (previousData) => previousData,
   });
 }
 
@@ -164,7 +211,7 @@ export function useLatestBets() {
     queryFn: () => publicService.getLatestBets(),
     staleTime: 0,
     gcTime: 0, // 立即垃圾回收，不保留缓存
-    refetchOnMount: true,
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
     retry: 1,
     networkMode: "always", // 始终发起网络请求
@@ -181,11 +228,11 @@ export function useGreatestBets() {
     queryFn: () => publicService.getGreatestBets(),
     staleTime: 0,
     gcTime: 0, // 立即垃圾回收，不保留缓存
-    refetchOnMount: true,
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
     retry: 1,
     networkMode: "always", // 始终发起网络请求
-    placeholderData: (previousData) => previousData
+    placeholderData: (previousData) => previousData,
   });
 }
 
@@ -207,13 +254,41 @@ export function useCasinoGameList(data: any, options: any = {}) {
 }
 
 /**
+ * 获取Casino游戏列表 - 无限滚动版本
+ */
+export function useCasinoGameListInfinite(baseParams: any, options: any = {}) {
+  const pageSize = baseParams?.limit || 24;
+  
+  return useInfiniteQuery({
+    queryKey: [...PUBLIC_QUERY_KEYS.casinoGameList, "infinite", baseParams],
+    queryFn: async ({ pageParam = 1 }) => {
+      const params = { ...baseParams, page: pageParam, limit: pageSize };
+      return publicService.getCasinoGameList(params);
+    },
+    initialPageParam: 1,
+    getNextPageParam: (lastPage: any, allPages: any[]) => {
+      const data = lastPage?.data || [];
+      // 如果返回的数据少于 pageSize，说明没有更多数据
+      if (data.length < pageSize) return undefined;
+      return allPages.length + 1;
+    },
+    staleTime: 30 * 1000,
+    gcTime: 5 * 60 * 1000,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    retry: 1,
+    ...options
+  });
+}
+
+/**
  * Get deposit bonus config
  */
-export function useDepositBonusConfig() {
+export function useDepositBonusConfig(enabled = true) {
   return useQuery({
     queryKey: PUBLIC_QUERY_KEYS.depositBonusConfig,
     queryFn: () => publicService.getDepositBonusConfig(),
-    retry: 1
+    enabled: enabled
   });
 }
 
@@ -267,4 +342,57 @@ export function useGlobalCommissions() {
     retry: 1,
     networkMode: "always" // 始终发起网络请求
   });
+}
+
+export function useAggregationConfig() {
+  const { i18n } = useTranslation();
+  const aggregationLang = (i18n.language || "en").toUpperCase();
+
+  return useQuery({
+    queryKey: [...PUBLIC_QUERY_KEYS.aggregationConfig, aggregationLang],
+    queryFn: () => publicService.getAggregationConfig(aggregationLang),
+  });
+}
+
+export function useAggregationBootstrap() {
+  const queryClient = useQueryClient();
+  const { i18n } = useTranslation();
+  const { data: aggregationResponse, isSuccess } = useAggregationConfig();
+
+  useEffect(() => {
+    if (!isSuccess) return;
+
+    const aggregationPayload = getAggregationPayload(aggregationResponse);
+    if (!aggregationPayload) return;
+
+    const setApiResponse = (key: readonly unknown[], response?: ApiResponse<any>) => {
+      if (!response || response.code !== 0) return;
+      queryClient.setQueryData(key, response);
+    };
+
+    const setApiData = (key: readonly unknown[], response?: ApiResponse<any>) => {
+      if (!response || response.code !== 0) return;
+      queryClient.setQueryData(key, response.data);
+    };
+
+    setApiData(PUBLIC_QUERY_KEYS.languages, aggregationPayload.language_list);
+    setApiResponse(PUBLIC_QUERY_KEYS.baseConfig, aggregationPayload.base_url);
+    setApiResponse(["baseConfig"], aggregationPayload.base_url);
+    setApiResponse(PUBLIC_QUERY_KEYS.casinoHomeGameList, aggregationPayload.game_home_cache);
+    setApiResponse(PUBLIC_QUERY_KEYS.gameProviders, aggregationPayload.get_providers_v1);
+    setApiResponse(PUBLIC_QUERY_KEYS.chatwootInboxId, aggregationPayload.inbox_id);
+    setApiResponse(PUBLIC_QUERY_KEYS.depositBonusConfig, aggregationPayload.deposit_bonus_config);
+    setApiResponse(PUBLIC_QUERY_KEYS.supportedGameCurrencies, aggregationPayload.game_currency);
+    setApiResponse(PUBLIC_QUERY_KEYS.supportedSettlementCurrencies, aggregationPayload.currency);
+    setApiResponse(PUBLIC_QUERY_KEYS.currencyExchangeRate, aggregationPayload.get_by_group);
+    setApiResponse(PUBLIC_QUERY_KEYS.greatestGameOrder, aggregationPayload.big_win_list);
+    setApiResponse(PUBLIC_QUERY_KEYS.greatestBets, aggregationPayload.big_win_list);
+    setApiResponse(["paymentIcons"], aggregationPayload.get_payment_icons);
+    setApiResponse(["countryCodeByIp"], aggregationPayload.country_code);
+
+    // // if (aggregationPayload.newest_v3?.code === 0) {
+    //   const languageKey = (i18n.language || "en").toUpperCase();
+      // queryClient.setQueryData([...PUBLIC_QUERY_KEYS.latestWins, languageKey], aggregationPayload.newest_v3);
+    // }
+  }, [aggregationResponse, i18n.language, isSuccess, queryClient]);
 }

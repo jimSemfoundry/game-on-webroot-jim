@@ -76,12 +76,39 @@
   "dashboard": "Gösterge Paneli",
   "transactions": "İşlemler",
   "rollover": "Çevirme",
-  "betHistory": "Bahis Geçmişi",
+  "betHistory": {
+    "empty": "Bahis geçmişi bulunamadı",
+    "title": "Bahis Geçmişi",
+    "headers": {
+      "game": "Oyun",
+      "date": "Tarih",
+      "betId": "Bahis ID",
+      "betIn": "Bahis",
+      "betOut": "Kazanç",
+      "account": "Hesap",
+      "amount": "Tutar",
+      "provider": "Sağlayıcı",
+      "match": "Maç",
+      "tournament": "Turnuva"
+    }
+  },
   "settings": "Ayarlar",
   "legal": "Yasal",
   "nickname": "Takma Ad",
   "zoomAndAdjust": "Yakınlaştır ve Ayarla",
   "systemLanguage": "Sistem Dili",
   "editProfile": "Profili Düzenle",
-  "inviteAndGetRewarded": "Davet Et ve Ödül Kazan"
+  "inviteAndGetRewarded": "Davet Et ve Ödül Kazan",
+  "emailAddress": "E-posta Adresi",
+  "codeSent": "Gönderdiğimiz Kodu Girin",
+  "codeSentTo": "Bir kod gönderildi",
+  "notReceiveCode": "Kodu almadınız mı?",
+  "verificationSuccess": "Doğrulama Başarılı",
+  "spinHistory": {
+    "statusFilterLabel": "Durum"
+  },
+  "phone_number_has_been_verified": "Telefon numaranız doğrulandı. Devam edebilirsiniz.",
+  "email_address_has_been_verified": "E-posta adresiniz doğrulandı. Devam edebilirsiniz.",
+  "setNewPassword": "Yeni Şifre Belirle",
+  "passwordLengthRequirement": "Lütfen 6 ile 64 karakter arasında bir şifre girin."
 }

@@ -4,53 +4,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-
-  <link rel="icon" type="image/png" href="./favicon/%_THEME_%/favicon-96x96.png?_t=%_VERSION_%" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./favicon/%_THEME_%/favicon.svg?_t=%_VERSION_%" />
-  <link rel="shortcut icon" href="./favicon.ico?_t=%_VERSION_%" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/%_THEME_%/apple-touch-icon.png?_t=%_VERSION_%" />
-
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content" />
+  <link rel="icon" type="image/png" href="%_FAVICON_PNG_URL_%?_t=%_VERSION_%" sizes="192x192" />
+  <link rel="icon" type="image/svg+xml" href="%_FAVICON_SVG_URL_%?_t=%_VERSION_%" />
+  <link rel="shortcut icon" href="%_FAVICON_ICO_URL_%?_t=%_VERSION_%" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%_FAVICON_APPLE_URL_%?_t=%_VERSION_%" />
+  <link rel="preload" href="%BASE_URL%fonts/font.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="%BASE_URL%fonts/font.css" /></noscript>
   <meta name="screen-orientation" content="portrait">
   <meta name="x5-orientation" content="portrait">
   <meta name="orientation" content="portrait">
-
-  <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
-
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="%_PWA_THEME_COLOR_%" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="%_PWA_THEME_COLOR_%" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-status-bar-style" content="%_PWA_STATUS_BAR_STYLE_%">
   <meta name="apple-mobile-web-app-capable" content="yes">
-
   <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-TileColor" content="#0f1419">
-  <meta name="msapplication-navbutton-color" content="#0f1419">
-
+  <meta name="msapplication-TileColor" content="%_PWA_THEME_COLOR_%">
+  <meta name="msapplication-navbutton-color" content="%_PWA_THEME_COLOR_%">
   <meta name="mobile-web-app-capable" content="yes">
-
-  <title>%_WEBSITE_NAME_BLOCK_%</title>
-
-  <meta name="description"
-    content="Enter the world of %_WEBSITE_NICKNAME_% - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill." />
-
-  <!-- Open Graph / Facebook -->
+  <title>%_SEO_TITLE_%</title>
+  <meta name="description" content="%_SEO_DESCRIPTION_%" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="%_WEBSITE_URL_%" />
-  <meta property="og:title" content="%_WEBSITE_NICKNAME_% - Challenge Everything." />
-  <meta property="og:description"
-    content="Enter the world of %_WEBSITE_NICKNAME_% - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill." />
-  <!-- <meta property="og:image" content="https://1stgame.imgix.net/logo/20250620-205416.jpg" /> -->
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="1000" />
-  <meta property="og:site_name" content="%_WEBSITE_NICKNAME_%" />
-
-  <!-- PWA is now handled by vite-plugin-pwa -->
-  <!-- Meta tags are automatically generated -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta property="og:title" content="%_SEO_OG_TITLE_%" />
+  <meta property="og:description" content="%_SEO_OG_DESCRIPTION_%" />
+  <meta property="og:image" content="%_SEO_OG_IMAGE_%" />
+  <meta property="og:image:width" content="%_SEO_OG_IMAGE_WIDTH_%" />
+  <meta property="og:image:height" content="%_SEO_OG_IMAGE_HEIGHT_%" />
+  <meta property="og:site_name" content="%_SEO_OG_SITE_NAME_%" />
+  <link rel="preload" href="%BASE_URL%scripts/loader.js" as="script" />
+  <link rel="stylesheet" href="%BASE_URL%styles/loader.css">
 </head>
-
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.tsx"></script>
+<script src="%BASE_URL%scripts/loader.js" defer></script>
+<!-- Initial loading screen -->
+<div id="initial-loader"><div class="loader-logo"><img src="%_LOGO_LOADER_URL_%" alt=""></div></div>
+<div id="app"></div>
+<script type="module">
+  import.meta.env.VITE_TELEGRAM_SUPPORT==="true"&&(()=>{const e=document.createElement("script");e.src="https://telegram.org/js/telegram-web-app.js",e.defer=true,document.head.appendChild(e)})();
+</script>
+<script type="module" src="/src/main.tsx"></script>
 </body>
-
 </html>

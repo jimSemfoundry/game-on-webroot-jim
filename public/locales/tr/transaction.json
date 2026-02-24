@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Ücretsiz Dönüş Ödülleri",
   "common": {
     "close": "Kapat",
     "copy": "Kopyala",
@@ -12,7 +13,8 @@
     "swap": "Değiştir",
     "swapFrom": "Değiştir From",
     "swapTo": "Değiştir To",
-    "noCommissionRecords": "Komisyon kaydı bulunamadı"
+    "noCommissionRecords": "Komisyon kaydı bulunamadı",
+    "createdOn": "Oluşturulma"
   },
   "tabs": {
     "transactionHistory": "İşlem Geçmişi",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Çekim Ağı",
     "blockchainWaiting": "Blockchain onayını bekliyor.",
     "blockchainFailed": "Blockchain işlemi başarısız oldu.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Talebinizi aldık.<br/>Durumu görmek için Profilinizdeki İşlemleri kontrol edin."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Toplam Bahis Gereksinimi",
     "wagerCompleted": "Bahis Tamamlandı",
     "pendingWagerRequired": "Bekleyen Bahis Gereksinimi",
-    "unlockedFunds": "Açık Fonlar"
-  }
+    "unlockedFunds": "Kilidi açılmış fonlar",
+    "rolloverMul": "Bahis çarpanı"
+  },
+  "assistance": "Lütfen bilgilerinizi kontrol edin ve tekrar deneyin veya yardım için müşteri hizmetleriyle iletişime geçin"
 }

@@ -6,31 +6,20 @@ import { PwaBox } from "./PwaBox";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { SocialMedia } from "@/sections/casino/SocialMedia.tsx";
 import { isPwa } from "@/utils/browser";
-import { useState, useEffect } from "react";
+import { isTelegramWebApp } from "@/utils/telegramWebApp";
 
 export const Footer = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [appinstalled, setAppinstalled] = useState(false);
-
-  useEffect(() => {
-    // 页面加载时，从 localStorage 读取是否安装过
-    const installedFlag = window.localStorage.getItem('pwa-installed');
-    if (installedFlag === '1') {
-      setAppinstalled(true);
-    }
-
-    const handleAppInstalled = () => {
-      setAppinstalled(true);
-      window.localStorage.setItem('pwa-installed', '1');
-    };
-
-    window.addEventListener('appinstalled', handleAppInstalled);
-
-    return () => {
-      window.removeEventListener('appinstalled', handleAppInstalled);
-    };
-  }, []);
+  const supportName = import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP";
+  const certificationIcons = [
+    { src: "/images/partners/certifications/18.svg", alt: "18", width: 40, height: 40 },
+    { src: "/images/partners/certifications/gamble-aware.svg", alt: "Gamble Aware", width: 63, height: 44 },
+    { src: "/images/partners/certifications/gamcare.svg", alt: "Gamcare", width: 39, height: 44 },
+    { src: "/images/partners/certifications/itech-lab.svg", alt: "iTech Lab", width: 42, height: 42 },
+    { src: "/images/partners/certifications/responsible-gaming.svg", alt: "Responsible Gaming", width: 100, height: 36 },
+    { src: "/images/partners/certifications/gaming-laboratories.svg", alt: "Gaming Laboratories", width: 32, height: 33 }
+  ];
 
   return (
     <footer className="flex flex-col gap-4 sm:gap-6 pb-8">
@@ -40,7 +29,7 @@ export const Footer = () => {
         </p>
 
         <p className="text-base-content/50 text-xs sm:text-lg leading-4 sm:leading-5 xs:text-start sm:text-center">
-          <span className="block sm:inline">{t("casino:footerDescriptionOne")}</span>
+          <span className="block sm:inline">{t("casino:footerDescriptionOne", { supportName })}</span>
           <span className="block sm:inline mt-4 sm:mt-0">{t("casino:footerDescriptionTwo")}</span>
         </p>
 
@@ -55,15 +44,11 @@ export const Footer = () => {
             <div className="flex flex-col gap-1 sm:gap-2">
               <Logo />
               <p className="text-[10px] text-xs sm:text-sm font-semibold text-base-content sm:text-base-content/50">
-                {t("casino:footerDescriptionFour")}
+                {t("casino:footerDescriptionFour", { supportName })}
               </p>
               <p className="text-[10px] text-xs sm:text-sm font-normal text-base-content/50">{t("casino:footerDescriptionFive")}</p>
             </div>
-            {
-              isMobile && !isPwa() && !appinstalled && (
-                <PwaBox />
-              )
-            }
+            {isMobile && !isPwa() && !isTelegramWebApp() && <PwaBox />}
             <button
               className="btn btn-square btn-sm p-0 flex sm:hidden self-start"
               onClick={() => {
@@ -79,13 +64,30 @@ export const Footer = () => {
               <ChevronUp size={16} />
             </button>
           </div>
-          <div className="flex items-center gap-7 sm:gap-4 md:gap-6 lg:gap-8 mt-4 flex-nowrap sm:flex-wrap overflow-auto hide-scrollbar relative">
-            <img src="/images/partners/certifications/18.svg" alt="18" />
-            <img src="/images/partners/certifications/gamble-aware.svg" alt="Gamble Aware" />
-            <img src="/images/partners/certifications/gamcare.svg" alt="Gamcare" />
-            <img src="/images/partners/certifications/itech-lab.svg" alt="iTech Lab" />
-            <img src="/images/partners/certifications/responsible-gaming.png" alt="Responsible Gaming" className="w-[100px] h-9" />
-            <img src="/images/partners/certifications/gaming-laboratories.svg" alt="Gaming Laboratories" />
+          <div className="flex items-center gap-7 sm:gap-4 md:gap-6 lg:gap-8 mt-4 flex-nowrap sm:flex-wrap overflow-auto hide-scrollbar relative text-base-content">
+            {certificationIcons.map((icon) => (
+              <span
+                key={icon.src}
+                role="img"
+                aria-label={icon.alt}
+                className="inline-flex shrink-0"
+                style={{ width: icon.width, height: icon.height }}
+              >
+                <span
+                  className="block h-full w-full bg-current"
+                  style={{
+                    WebkitMaskImage: `url(${icon.src})`,
+                    maskImage: `url(${icon.src})`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain"
+                  }}
+                />
+              </span>
+            ))}
           </div>
           <SocialMedia className={'mt-4'} />
         </div>
@@ -114,7 +116,6 @@ export const Footer = () => {
           <FooterLink to="/bonus">{t("bonus:general_bonus")}</FooterLink>
           <FooterLink to="/bonus">{t("bonus:vip_bonus")}</FooterLink>
           <FooterLink to="/vip-club">{t("bonus:vip_program")}</FooterLink>
-          <FooterLink to="/bonus">{t("bonus:conquests")}</FooterLink>
           <FooterLink to="/bonus">{t("bonus:achievements")}</FooterLink>
         </div>
 

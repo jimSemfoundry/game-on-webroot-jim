@@ -76,12 +76,39 @@
   "dashboard": "Dashboard",
   "transactions": "Transaktionen",
   "rollover": "Umsatz",
-  "betHistory": "Wetthistorie",
+  "betHistory": {
+    "empty": "Keine Wett-Verlauf gefunden",
+    "title": "Wett-Verlauf",
+    "headers": {
+      "game": "Spiel",
+      "date": "Datum",
+      "betId": "Wett-ID",
+      "betIn": "Einsatz",
+      "betOut": "Gewinn",
+      "account": "Konto",
+      "amount": "Betrag",
+      "provider": "Anbieter",
+      "match": "Spiel",
+      "tournament": "Turnier"
+    }
+  },
   "settings": "Einstellungen",
   "legal": "Rechtliches",
   "nickname": "Spitzname",
   "zoomAndAdjust": "Vergrößern und Anpassen",
   "systemLanguage": "Systemsprache",
   "editProfile": "Profil bearbeiten",
-  "inviteAndGetRewarded": "Einladen und Belohnung erhalten"
+  "inviteAndGetRewarded": "Einladen und Belohnung erhalten",
+  "emailAddress": "E-Mail-Adresse",
+  "codeSent": "Geben Sie den Code ein, den wir gesendet haben",
+  "codeSentTo": "Ein Code wurde gesendet an",
+  "notReceiveCode": "Code nicht erhalten?",
+  "verificationSuccess": "Verifizierung erfolgreich",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Ihre Telefonnummer wurde verifiziert. Sie können fortfahren.",
+  "email_address_has_been_verified": "Deine E-Mail-Adresse wurde verifiziert. Du kannst jetzt fortfahren.",
+  "setNewPassword": "Neues Passwort festlegen",
+  "passwordLengthRequirement": "Bitte geben Sie ein Passwort zwischen 6 und 64 Zeichen ein."
 }

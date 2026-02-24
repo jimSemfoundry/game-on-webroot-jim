@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Nemokamų sukimų apdovanojimai",
   "common": {
     "close": "Uždaryti",
     "copy": "Kopijuoti",
@@ -12,7 +13,8 @@
     "swap": "Keisti",
     "swapFrom": "Keisti Iš",
     "swapTo": "Keisti Į",
-    "noCommissionRecords": "Komisijos įrašų nerasta"
+    "noCommissionRecords": "Komisijos įrašų nerasta",
+    "createdOn": "Sukurta"
   },
   "tabs": {
     "transactionHistory": "Sandorių Istorija",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Išėmimo Tinklas",
     "blockchainWaiting": "Laukiama blockchain patvirtinimo.",
     "blockchainFailed": "Blockchain sandoris nepavyko.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Gavome jūsų prašymą.<br/>Norėdami peržiūrėti būseną, patikrinkite Sandorius savo profilyje."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Bendras Reikalingas Lažybų",
     "wagerCompleted": "Lažybos Baigtos",
     "pendingWagerRequired": "Laukiamos Lažybos Reikalingos",
-    "unlockedFunds": "Atblokuoti Lėšos"
-  }
+    "unlockedFunds": "Atrakinti lėšos",
+    "rolloverMul": "Statymo daugiklis"
+  },
+  "assistance": "Patikrinkite savo duomenis ir bandykite dar kartą arba susisiekite su klientų aptarnavimo tarnyba pagalbos"
 }

@@ -72,7 +72,7 @@ export function TransactionDetailsDialog({ isOpen, onClose, detail }: Transactio
         )}
 
         <button type="button" className="btn btn-primary btn-lg font-semibold" onClick={onClose}>
-          {t("common.close", "Close")}
+          {t("common:common.close", "Close")}
         </button>
       </div>
     </Modal>

@@ -20,7 +20,7 @@ import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
-const ILLUSTRATION_URL = "/images/rewards/vip-monday.svg";
+const ILLUSTRATION_URL = "/images/rewards/vip-monday.png";
 const DEFAULT_ACCENT = "#7C3AED";
 
 const buildBackground = (accentStop: string, isMobile: boolean) =>
@@ -75,10 +75,19 @@ export const BonusVipMondayCard = () => {
   const requiredVipLevel = VIP_REQUIREMENTS.vipMonday.requiredLevel;
   const isUnlocked = (status?.vip ?? 0) >= requiredVipLevel;
 
+  // 可领取状态
+  const isClaimable = useMemo(() => {
+    const nowInSeconds = Math.floor(Date.now() / 1000);
+    const maxWager = new Decimal(mondayVipBonus?.max_wager ?? 0).toNumber();
+    const currentWager = new Decimal(mondayVipBonus?.current_wager ?? 0).toNumber();
+    const claimEndTime = mondayVipBonus?.claim_end_time ?? 0;
+    const claimStartTime = mondayVipBonus?.claim_start_time ?? 0;
+    return maxWager <= currentWager && claimStartTime <= nowInSeconds && nowInSeconds <= claimEndTime;
+  }, [mondayVipBonus]);
 
   return (
     <div
-      className="relative flex w-full flex-col gap-3 overflow-hidden rounded-field border border-base-200/60 bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 sm:min-h-[320px] sm:p-5"
+      className={`min-h-34 relative flex justify-center w-full flex-col gap-3 overflow-hidden rounded-field border ${isClaimable ? 'border-warning' : 'border-base-200/60'} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 sm:min-h-[320px] sm:p-5`}
       style={{ background }}
     >
       <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={() => setIsOpenTipsModal(true)}>
@@ -91,7 +100,7 @@ export const BonusVipMondayCard = () => {
         <div className="flex flex-1 flex-col gap-1 sm:gap-2 sm:items-center">
           <p className="text-sm font-bold sm:text-base text-left w-full">{t('bonus:vip_monday')}</p>
           {!isUnlocked && (
-            <p className="text-xs text-base-content/50 text-left w-full">{t('bonus:vip_monday_description')}</p>
+            <p className="text-xs text-base-content/50 text-left w-full leading-5">{t('bonus:vip_monday_description')}</p>
           )}
           {isUnlocked && (
             <p
@@ -201,7 +210,7 @@ export const BonusVipMondayCard = () => {
           return maxWager <= currentWager && weekStartTime <= nowInSeconds && nowInSeconds <= weekEndTime;
         })() && (
           <div className="flex justify-center">
-            <button className="btn btn-primary w-full btn-soft h-10 min-h-10 w-auto min-w-20 px-3 font-bold sm:btn-md sm:w-full sm:min-w-24 sm:max-w-none sm:px-6">
+            <button className="btn btn-primary w-full h-10 min-h-10 w-auto min-w-20 px-3 font-bold sm:btn-md sm:w-full sm:min-w-24 sm:max-w-none sm:px-6">
               {t('bonus:claim_on_monday')}
             </button>
           </div>
@@ -216,12 +225,12 @@ export const BonusVipMondayCard = () => {
 
           return (status?.vip ?? 0) >= 2 && weekStartTime <= nowInSeconds && nowInSeconds <= weekEndTime;
         })() && (
-          <p className="text-xs flex items-center justify-center gap-2 text-base-content/50">
+          <div className="text-xs flex items-center justify-center gap-2 text-base-content/50">
             {t('bonus:next_claim_in')}
             <CountdownTimerThree expireTime={mondayVipBonus?.week_end_time ?? 0} isEndFun={() => {
               queryClient.resetQueries({ queryKey: ['PromoByPage'] });
             }} />
-          </p>
+          </div>
         )
       }
 
@@ -239,12 +248,12 @@ export const BonusVipMondayCard = () => {
             <button className="btn btn-primary h-10 min-h-10 w-full px-3 font-bold sm:btn-md sm:min-w-24 sm:max-w-none sm:px-6" onClick={handleClaimBonus}>
               {t('bonus:claim')}
             </button>
-            <p className="text-xs flex items-center justify-center gap-2 text-base-content/50">
+            <div className="text-xs flex items-center justify-center gap-2 text-base-content/50">
               {t('bonus:next_claim_in')}
               <CountdownTimerThree expireTime={mondayVipBonus?.claim_end_time ?? 0} isEndFun={() => {
                 queryClient.resetQueries({ queryKey: ['PromoByPage'] });
               }} />
-            </p>
+            </div>
           </div>
         )
       }

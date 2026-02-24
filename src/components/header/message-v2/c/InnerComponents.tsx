@@ -1,17 +1,18 @@
-import { X } from "lucide-react";
 import { ComponentProps, ReactNode } from "react";
-import { useTranslation } from "react-i18next";
-import classNames from "classnames";
+import clsx from "clsx";
+import { X } from "lucide-react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useTranslation } from "react-i18next";
+import { getLogoPwaUrl } from "@/utils/assetPaths";
 
 export const InnerComponents = (props: ComponentProps<"button">) => {
   return (<button {...props} className="btn btn-sm btn-square rtl:left-4 rtl:right-auto"><X size={16} /></button>);
 };
 
 export const InnerModalTitle = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("chat");
   return (<div
-    className="h-8 font-bold text-sm text-white inline-flex items-center gap-2 bg-base-200 px-3 rounded-lg">
+    className="h-8 font-bold text-sm text-base-content inline-flex items-center gap-2 bg-base-200 px-3 rounded-lg">
     <InnerBoxIcon />
     {t("chat:notifications")}
   </div>);
@@ -42,7 +43,7 @@ export const InnerButton = (
   return (
     <button
       {...props}
-      className={classNames(`btn btn-primary btn-soft btn-sm w-full`, className)}
+      className={clsx(`btn btn-primary btn-soft btn-sm w-full`, className)}
       onClick={(e) => !loading && onClick?.(e)}
     >
       {children}
@@ -54,18 +55,19 @@ export const InnerButton = (
 export const InnerIsRead = ({ read }: { read: boolean }) => {
   const { t } = useTranslation();
   return (<span
-    className={classNames("absolute text-xs font-bold rounded-tr-lg rounded-bl-lg right-0 top-0 px-2 py-0.5 text-primary-content",
+    className={clsx("absolute text-[10px] font-semibold rounded-tr-lg rounded-bl-lg right-0 top-0 px-2",
       read ? "bg-base-100" : "bg-primary",
-      read ? "text-white/50" : "text-primary-content"
+      read ? "text-base-content/50" : "text-primary-content"
     )}>
     {read ? t("chat:read") : t("chat:unread")}
   </span>);
 };
 
 export const InnerNoRecords = ({ status }: { status: boolean }) => {
-  return (status && <div className="flex flex-col items-center justify-center">
-    <img src="/images/empty.png" className="w-16" alt={""} />
-    <div className="text-xs text-base-content/50">No Notifications</div>
+  const { t } = useTranslation();
+  return (status && <div
+    className="flex flex-col items-center justify-center text-xs text-base-content/50 py-6 bg-base-200 rounded-lg font-semibold">
+    {t("common:no_notification", "No notification yet")}
   </div>);
 };
 
@@ -75,15 +77,19 @@ export const InnerDataLabel = ({ label }: { label: ReactNode }) => {
     className={"text-xs text-base-content/80 font-bold capitalize"}>{t(`chat:${label}`)}</span>;
 };
 
-const placeholderSrc=`/logos/${import.meta.env.VITE_THEME ?? "1stgame"}/logo-pwa.png`
+export const InnerStatusText = ({ text, className }: { text: string, className?: string }) => {
+  return <span className={clsx("text-xs text-base-content/60 font-semibold", className)}>{text}</span>;
+};
+
+const placeholderSrc = getLogoPwaUrl(import.meta.env.VITE_THEME ?? "1stgame");
 export const InnerCustomIcon = ({ icon }: { icon: string }) => {
   return <LazyLoadImage
     src={icon}
     placeholderSrc={placeholderSrc}
-    wrapperClassName={"rounded-lg w-12 h-12"}
-    className={classNames("w-12 h-12")}
+    wrapperClassName={"rounded-lg w-10 h-10"}
+    className={clsx("w-10 h-10")}
     onError={(e) => {
-      e.currentTarget.src = placeholderSrc
+      e.currentTarget.src = placeholderSrc;
     }}
     alt="" />;
 };
@@ -92,9 +98,9 @@ export const InnerDisplayContent = ({ show, children }: { show: boolean, childre
   return show ? (children) : null;
 };
 
-export const InnerContentVisible = ({ show, className, ...props }: ComponentProps<'div'> & {
+export const InnerContentVisible = ({ show, className, ...props }: ComponentProps<"div"> & {
   show: boolean,
   className?: string
 }) => {
-  return <div {...props} className={classNames(show ? "block" : "hidden", className)}>{props.children}</div>;
+  return <div {...props} className={clsx(show ? "block" : "hidden", className)}>{props.children}</div>;
 };

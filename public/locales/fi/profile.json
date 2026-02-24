@@ -76,12 +76,39 @@
   "dashboard": "Ohjauspaneeli",
   "transactions": "Transaktiot",
   "rollover": "Rollover",
-  "betHistory": "Vedonlyöntihistoria",
+  "betHistory": {
+    "empty": "Vedonlyöntihistoriaa ei löytynyt",
+    "title": "Vedonlyöntihistoria",
+    "headers": {
+      "game": "Peli",
+      "date": "Päivämäärä",
+      "betId": "Veto ID",
+      "betIn": "Panos",
+      "betOut": "Voitto",
+      "account": "Tili",
+      "amount": "Summa",
+      "provider": "Tarjoaja",
+      "match": "Ottelu",
+      "tournament": "Turnaus"
+    }
+  },
   "settings": "Asetukset",
   "legal": "Lainsäädäntö",
   "nickname": "Nimimerkki",
   "zoomAndAdjust": "Zoomaa ja säädä",
   "systemLanguage": "Järjestelmän kieli",
   "editProfile": "Muokkaa profiilia",
-  "inviteAndGetRewarded": "Kutsu ja saa palkinto"
+  "inviteAndGetRewarded": "Kutsu ja saa palkinto",
+  "emailAddress": "Sähköpostiosoite",
+  "codeSent": "Syötä koodi, jonka lähetimme",
+  "codeSentTo": "Koodi on lähetetty osoitteeseen",
+  "notReceiveCode": "Et saanut koodia?",
+  "verificationSuccess": "Vahvistus onnistui",
+  "spinHistory": {
+    "statusFilterLabel": "Tila"
+  },
+  "phone_number_has_been_verified": "Puhelinnumerosi on vahvistettu. Voit jatkaa.",
+  "email_address_has_been_verified": "Sähköpostiosoitteesi on vahvistettu. Voit jatkaa.",
+  "setNewPassword": "Aseta uusi salasana",
+  "passwordLengthRequirement": "Syötä salasana, joka on 6-64 merkkiä pitkä."
 }

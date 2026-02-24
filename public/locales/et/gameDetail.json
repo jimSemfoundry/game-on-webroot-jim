@@ -25,6 +25,14 @@
   "totalTips": "Vinkit",
   "result": "Tulemus",
   "myBets": "Minu Panused",
-  "**********": "",
-  "demoPlay": "Demo mäng"
+  "demoPlay": "Demo mäng",
+  "limitedOffer": "Piiratud pakkumine",
+  "deposit": "Sisesta {{value}}",
+  "get": "Saada {{value}}",
+  "instantCashBonus": "Kohene sularahaboonus",
+  "expires": "Aegub",
+  "depositNow": "Sisesta nüüd",
+  "free_spins": "Tasuta keerutused",
+  "play_with_balance_in": "Mängi saldoga",
+  "the_selected_currency_will_be_displayed_in": "Valitud valuuta kuvatakse"
 }

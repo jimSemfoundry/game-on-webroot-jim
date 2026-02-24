@@ -12,7 +12,7 @@ import { PhoneAreaCodeSelect } from "@/sections/profile/security/PhoneAreaCodeSe
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
 import { CountryCodeSelect } from "@/sections/profile/settings/CountryCodeSelect.tsx";
 import { DayPicker } from "react-day-picker";
-import classNames from "classnames";
+import clsx from "clsx";
 
 interface IStatus {
   loading: boolean
@@ -45,7 +45,7 @@ const initStatus = {
 };
 
 export function Personal({ className }: { className?: string }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { data, refetch } = QueryKycDetail();
 
@@ -113,7 +113,7 @@ export function Personal({ className }: { className?: string }) {
 
   return (
     <Card
-      className={classNames("md:p-6 md:gap-4 mx-5 md:mx-0", className)} title={"Personal Details"}
+      className={clsx("md:p-6 md:gap-4 mx-5 md:mx-0", className)} title={"Personal Details"}
       icon={<Iconify icon="custom:user" className="text-primary" />}>
       <div className="flex w-full flex-col items-center gap-3">
         <div className={`
@@ -290,7 +290,7 @@ export function Personal({ className }: { className?: string }) {
           disabled={disabled}
           className={"md:w-auto md:ml-auto md:px-10"}
           loading={status.loading} onClick={handle}>
-          {t("common.save")}
+          {t("common:common.save")}
         </ConfirmBox>
       </div>
     </Card>

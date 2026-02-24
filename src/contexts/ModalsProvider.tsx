@@ -1,103 +1,117 @@
+import { Suspense, lazy, useContext, useEffect, useMemo, useState } from "react";
+import { useModal } from "../components/ui/Modal";
+import { ModalsContext, type TipsModalType, type TabItemsType, ModalsContextType } from "./ModalsContext";
+import { useSidebar } from "./SidebarContext";
 import { UserFinanceModal } from "@/components/modal/UserFinanceModal";
-import { MysteryBoxModal } from "@/sections/bonus/mystery-box/bonus-mystery-box-modal";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { BetSlipModal } from "../components/modal/BetSlipModal";
-import { GameCurrencySelectModal } from "../components/modal/GameCurrencySelectModal";
-import { LanguageSelectModal } from "../components/modal/LanguageSelectModal";
 import { SignInModal } from "../components/modal/SignInModal";
 import { SignUpModal } from "../components/modal/SignUpModal";
-import { useModal } from "../components/ui/Modal";
-import { useSidebar } from "./SidebarContext";
 // Help Modals
-import { ThemeSwitcherModal } from "@/components/modal/ThemeSwitcherModal.tsx";
-import { BonusAchievementsHelpModal } from "@/sections/bonus/achievements";
-import { BonusCalendarHelpModal } from "@/sections/bonus/calendar";
-import { BonusCannonHelpModal } from "@/sections/bonus/cannon";
-import { BonusCashbackHelpModal } from "@/sections/bonus/cashback";
-import { BonusConquestsModal } from "@/sections/bonus/conquests";
-import { BonusDepositHelpModal } from "@/sections/bonus/deposit-bonus";
-import { BonusJesterHelpModal } from "@/sections/bonus/jester";
-import { BonusLuckyNumberHelpModal } from "@/sections/bonus/lucky-number";
-import { HelpModalMysteryBox } from "@/sections/bonus/mystery-box/bonus-mystery-box-help-modal";
-import { BonusRakebackHelpModal } from "@/sections/bonus/rakeback";
-import { BonusTournamentHelpModal } from "@/sections/bonus/tournament/bonus-tournament-help-modal";
-import { SpecialOffersModal } from "@/sections/bonus/specialOffers/SpecialOffersModal.tsx";
-import { DoubleOrNothingHelpModal } from "@/sections/double-or-nothing/double-or-nothing-help-modal";
-import { LimitedOffersHelpModal } from "@/sections/limited-offer/limited-offers-help-modal";
-import { DoubleOrNothingModal } from "@/sections/double-or-nothing/DoubleOrNothing";
-import type { DoubleOrNothingModalProps } from "@/sections/double-or-nothing/DoubleOrNothing";
-import { ThursdayBounsHelpModal } from "@/sections/crypto-thursday-bonus/thursday-bouns-help-modal";
-import { SundaySuperHelpModal } from "@/sections/sunday-super-bouns/sunday-super-help-modal";
 import { IDoubledUpProps, ICurrentPromoList, ICurrentPromo } from "@/types/double-or-nothing";
-import { DoubledUp } from "@/sections/double-or-nothing/DoubledUp";
-import { Nothing } from "@/sections/double-or-nothing/Nothing";
-import { Boost } from "@/sections/double-or-nothing/Boost";
+import type { DoubleOrNothingModalProps } from "@/sections/double-or-nothing/DoubleOrNothing";
 
-export type TabItemsType = "deposit" | "withdraw" | "swap" | `deposit_${string}` | `withdraw_${string}` | `swap_${string}`;
-type TipsModalType =
-  | "superRakeback"
-  | "dailyCashback"
-  | "bonusCalendar"
-  | "conquest"
-  | "tournament"
-  | "achievement"
-  | "mysteryBox"
-  | "luckyNumber"
-  | "cannon"
-  | "jester"
-  | "depositBonus"
-  | "doubleOrNothing"
-  | "limitedOffers"
-  | "sundaySuperBouns"
-  | "cryptoThursdayBouns";
+export type { TabItemsType } from "./ModalsContext";
 
-type ModalsContextType = {
-  // Auth Modals
-  openSignInModal: () => void;
-  closeSignInModal: () => void;
-  openSignUpModal: () => void;
-  closeSignUpModal: () => void;
-  // Language Modal
-  openLanguageModal: () => void;
-  // Wallet Modal
-  openWalletModal: () => void;
-  // Bet Slip Modal
-  openBetSlipModal: (order: any) => void;
-  closeBetSlipModal: () => void;
-  // User Finance Modal
-  openUserFinanceModal: () => void;
-  openUserFinanceModalWithTab: (tab: TabItemsType) => void;
-  closeUserFinanceModal: () => void;
-  isUserFinanceOpen: boolean;
-  userFinanceInitialTab: TabItemsType;
-  setUserFinanceInitialTab: (tab: TabItemsType) => void;
-  // Tips Modals
-  openTipsModal: (type: TipsModalType, promo?: ICurrentPromoList) => void;
-  closeTipsModal: () => void;
-  // Mystery Box Modal
-  openMysteryBoxModal: () => void;
-  closeMysteryBoxModal: () => void;
-  // Theme Modal
-  openThemeSwitcherModal: () => void;
-  closeThemeSwitcherModal: () => void;
-  // Special Offers Modal
-  openSpecialOffersModal: () => void;
-  closeSpecialOffersModal: () => void;
+const LazyThemeSwitcherModal = lazy(() =>
+  import("@/components/modal/ThemeSwitcherModal.tsx").then((m) => ({ default: m.ThemeSwitcherModal })),
+);
 
-  openDoubleOrNothingModal: (modalData: DoubleOrNothingModalProps["modalData"]) => void;
-  closeDoubleOrNothingModal: () => void;
+const LazyBetSlipModal = lazy(() =>
+  import("../components/modal/BetSlipModal").then((m) => ({ default: m.BetSlipModal })),
+);
 
-  openDoubledUpModal: (donData: IDoubledUpProps) => void;
-  closeDoubledUpModal: () => void;
+const LazyBonusDepositHelpModal = lazy(() =>
+  import("@/sections/bonus/deposit-bonus").then((m) => ({ default: m.BonusDepositHelpModal })),
+);
 
-  openNothingModal: (don_record_id: string) => void;
-  closeNothingModal: () => void;
+const LazyBonusRakebackHelpModal = lazy(() =>
+  import("@/sections/bonus/rakeback").then((m) => ({ default: m.BonusRakebackHelpModal })),
+);
 
-  openBoostModal: (modalData: any) => void;
-  closeBoostModal: () => void;
-};
+const LazyBonusCashbackHelpModal = lazy(() =>
+  import("@/sections/bonus/cashback").then((m) => ({ default: m.BonusCashbackHelpModal })),
+);
 
-const ModalsContext = createContext<ModalsContextType | undefined>(undefined);
+const LazyBonusCalendarHelpModal = lazy(() =>
+  import("@/sections/bonus/calendar").then((m) => ({ default: m.BonusCalendarHelpModal })),
+);
+
+const LazyBonusCannonHelpModal = lazy(() =>
+  import("@/sections/bonus/cannon").then((m) => ({ default: m.BonusCannonHelpModal })),
+);
+
+const LazyBonusConquestsModal = lazy(() =>
+  import("@/sections/bonus/conquests").then((m) => ({ default: m.BonusConquestsModal })),
+);
+
+const LazyBonusTournamentHelpModal = lazy(() =>
+  import("@/sections/bonus/tournament/bonus-tournament-help-modal").then((m) => ({ default: m.BonusTournamentHelpModal })),
+);
+
+const LazyBonusAchievementsHelpModal = lazy(() =>
+  import("@/sections/bonus/achievements").then((m) => ({ default: m.BonusAchievementsHelpModal })),
+);
+
+const LazyHelpModalMysteryBox = lazy(() =>
+  import("@/sections/bonus/mystery-box/bonus-mystery-box-help-modal").then((m) => ({ default: m.HelpModalMysteryBox })),
+);
+
+const LazyBonusLuckyNumberHelpModal = lazy(() =>
+  import("@/sections/bonus/lucky-number").then((m) => ({ default: m.BonusLuckyNumberHelpModal })),
+);
+
+const LazyBonusJesterHelpModal = lazy(() =>
+  import("@/sections/bonus/jester").then((m) => ({ default: m.BonusJesterHelpModal })),
+);
+
+const LazyLimitedOffersHelpModal = lazy(() =>
+  import("@/sections/limited-offer/limited-offers-help-modal").then((m) => ({ default: m.LimitedOffersHelpModal })),
+);
+
+const LazyDoubleOrNothingHelpModal = lazy(() =>
+  import("@/sections/double-or-nothing/double-or-nothing-help-modal").then((m) => ({ default: m.DoubleOrNothingHelpModal })),
+);
+
+const LazyThursdayBounsHelpModal = lazy(() =>
+  import("@/sections/crypto-thursday-bonus/thursday-bouns-help-modal").then((m) => ({ default: m.ThursdayBounsHelpModal })),
+);
+
+const LazySundaySuperHelpModal = lazy(() =>
+  import("@/sections/sunday-super-bouns/sunday-super-help-modal").then((m) => ({ default: m.SundaySuperHelpModal })),
+);
+
+const LazyBoost = lazy(() =>
+  import("@/sections/double-or-nothing/Boost").then((m) => ({ default: m.Boost })),
+);
+
+const LazyNothing = lazy(() =>
+  import("@/sections/double-or-nothing/Nothing").then((m) => ({ default: m.Nothing })),
+);
+
+const LazyDoubledUp = lazy(() =>
+  import("@/sections/double-or-nothing/DoubledUp").then((m) => ({ default: m.DoubledUp })),
+);
+
+const LazyDoubleOrNothingModal = lazy(() =>
+  import("@/sections/double-or-nothing/DoubleOrNothing").then((m) => ({ default: m.DoubleOrNothingModal })),
+);
+
+const LazyMysteryBoxModal = lazy(() =>
+  import("@/sections/bonus/mystery-box/bonus-mystery-box-modal").then((m) => ({ default: m.MysteryBoxModal })),
+);
+
+const LazySpecialOffersModal = lazy(() =>
+  import("@/sections/bonus/specialOffers/SpecialOffersModal.tsx").then((m) => ({ default: m.SpecialOffersModal })),
+);
+
+
+const LazyLanguageSelectModal = lazy(() =>
+  import("../components/modal/LanguageSelectModal").then((m) => ({ default: m.LanguageSelectModal })),
+);
+
+const LazyGameCurrencySelectModal = lazy(() =>
+  import("../components/modal/GameCurrencySelectModal").then((m) => ({ default: m.GameCurrencySelectModal })),
+);
+
 
 export function ModalsProvider({ children }: { children: React.ReactNode }) {
   const { isMobile, isDrawerOpen, closeDrawer, openDrawer } = useSidebar();
@@ -149,7 +163,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
 
   // Boost Modal
   const { isOpen: isBoostOpen, openModal: openBoostModal, closeModal: closeBoostModal } = useModal();
-  const [boostModalData, setBoostModalData] = useState<ICurrentPromo | null>(null); 
+  const [boostModalData, setBoostModalData] = useState<ICurrentPromo | null>(null);
 
   // 监听需要管理sidebar的modal状态
   useEffect(() => {
@@ -246,7 +260,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
     setBoostModalData(null);
   };
 
-  const value = useMemo(
+  const value = useMemo<ModalsContextType>(
     () => ({
       openSignInModal,
       closeSignInModal,
@@ -316,60 +330,182 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
   return (
     <ModalsContext.Provider value={value}>
       {children}
+      {/* 
+      将 Suspense 提取到外层可能会有一些潜在问题
+      1. 代码打包影响
+      之前：每个 modal 可以独立打包，按需加载
+      现在：所有在同一个 Suspense 中的组件可能会被打包到同一个 chunk
+      2. 错误边界处理
+      如果一个懒加载组件失败，可能影响整个 Suspense 块内的其他组件
+      3. 性能考虑
+      同时加载多个 modal 可能会增加初始加载时间 */}
+      
       {/* Auth Modals */}
       <SignInModal isOpen={isSignInOpen} onClose={closeSignInModal} />
       <SignUpModal isOpen={isSignUpOpen} onClose={closeSignUpModal} />
+
       {/* Language Modal */}
-      <LanguageSelectModal isOpen={isLanguageOpen} onClose={closeLanguageModal} />
+      {isLanguageOpen && (
+        <Suspense fallback={null}>
+          <LazyLanguageSelectModal isOpen={isLanguageOpen} onClose={closeLanguageModal} />
+        </Suspense>
+      )}
+
       {/* Wallet Modal */}
-      <GameCurrencySelectModal isOpen={isWalletOpen} onClose={closeWalletModal} />
-      {/* Bet Slip Modal */}
-      <BetSlipModal isOpen={isBetSlipOpen} onClose={handleCloseBetSlipModal} order={betSlipOrder} />
+      {isWalletOpen && (
+        <Suspense fallback={null}>
+          <LazyGameCurrencySelectModal isOpen={isWalletOpen} onClose={closeWalletModal} />
+        </Suspense>
+      )}
+
       {/* User Finance Modal */}
       <UserFinanceModal isOpen={isUserFinanceOpen} onClose={closeUserFinanceModal} initialTab={userFinanceInitialTab} />
+
+      {/* Bet Slip Modal */}
+      {isBetSlipOpen && (
+        <Suspense fallback={null}>
+          <LazyBetSlipModal isOpen={isBetSlipOpen} onClose={handleCloseBetSlipModal} order={betSlipOrder} />
+        </Suspense>
+      )}
+
       {/* User Finance Modal */}
-      <ThemeSwitcherModal isOpen={isThemeSwitcherOpen} onClose={closeThemeSwitcherModal} />
+      {isThemeSwitcherOpen && (
+        <Suspense fallback={null}>
+          <LazyThemeSwitcherModal isOpen={isThemeSwitcherOpen} onClose={closeThemeSwitcherModal} />
+        </Suspense>
+      )}
 
       {/* Help Modals */}
-      {currentTipsModal === "superRakeback" && <BonusRakebackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "dailyCashback" && <BonusCashbackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "bonusCalendar" && <BonusCalendarHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "conquest" && <BonusConquestsModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "tournament" && <BonusTournamentHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "achievement" && <BonusAchievementsHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "mysteryBox" && <HelpModalMysteryBox isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "luckyNumber" && <BonusLuckyNumberHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "cannon" && <BonusCannonHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "jester" && <BonusJesterHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />}
-      {currentTipsModal === "limitedOffers" && currentPromo && <LimitedOffersHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
-      {currentTipsModal === "doubleOrNothing" && currentPromo && <DoubleOrNothingHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
-      {currentTipsModal === "cryptoThursdayBouns" && currentPromo && <ThursdayBounsHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
-      {currentTipsModal === "sundaySuperBouns" && currentPromo && <SundaySuperHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />}
+      {currentTipsModal === "superRakeback" && (
+        <Suspense fallback={null}>
+          <LazyBonusRakebackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
 
+      {currentTipsModal === "dailyCashback" && (
+        <Suspense fallback={null}>
+          <LazyBonusCashbackHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
 
-      <BonusDepositHelpModal isOpen={currentTipsModal === "depositBonus"} onClose={handleCloseTipsModal} />
+      {currentTipsModal === "bonusCalendar" && (
+        <Suspense fallback={null}>
+          <LazyBonusCalendarHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "conquest" && (
+        <Suspense fallback={null}>
+          <LazyBonusConquestsModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "tournament" && (
+        <Suspense fallback={null}>
+          <LazyBonusTournamentHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "achievement" && (
+        <Suspense fallback={null}>
+          <LazyBonusAchievementsHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "mysteryBox" && (
+        <Suspense fallback={null}>
+          <LazyHelpModalMysteryBox isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "luckyNumber" && (
+        <Suspense fallback={null}>
+          <LazyBonusLuckyNumberHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "cannon" && (
+        <Suspense fallback={null}>
+          <LazyBonusCannonHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "jester" && (
+        <Suspense fallback={null}>
+          <LazyBonusJesterHelpModal isOpen={isTipsModalOpen} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "limitedOffers" && currentPromo && (
+        <Suspense fallback={null}>
+          <LazyLimitedOffersHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "doubleOrNothing" && currentPromo && (
+        <Suspense fallback={null}>
+          <LazyDoubleOrNothingHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "cryptoThursdayBouns" && currentPromo && (
+        <Suspense fallback={null}>
+          <LazyThursdayBounsHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "sundaySuperBonus" && currentPromo && (
+        <Suspense fallback={null}>
+          <LazySundaySuperHelpModal open={isTipsModalOpen} onClose={handleCloseTipsModal} currentPromo={currentPromo} />
+        </Suspense>
+      )}
+
+      {currentTipsModal === "depositBonus" && (
+        <Suspense fallback={null}>
+          <LazyBonusDepositHelpModal isOpen={true} onClose={handleCloseTipsModal} />
+        </Suspense>
+      )}
 
       {/* Mystery Box Modal */}
-      <MysteryBoxModal isOpen={isMysteryBoxOpen} onClose={closeMysteryBoxModal} />
+      {isMysteryBoxOpen && (
+        <Suspense fallback={null}>
+          <LazyMysteryBoxModal isOpen={isMysteryBoxOpen} onClose={closeMysteryBoxModal} />
+        </Suspense>
+      )}
 
       {/* Special Offers Modal */}
-      <SpecialOffersModal
-        open={isSpecialOffersOpen}
-        onClose={closeSpecialOffersModal}
-      />
+      {isSpecialOffersOpen && (
+        <Suspense fallback={null}>
+          <LazySpecialOffersModal
+            open={isSpecialOffersOpen}
+            onClose={closeSpecialOffersModal}
+          />
+        </Suspense>
+      )}
 
       {/* Double Or Nothing Related pop-ups */}
       {isDoubleOrNothingOpen && doubleOrNothingModalData && doubleOrNothingModalData?.don_record_id && (
-        <DoubleOrNothingModal open={isDoubleOrNothingOpen} onClose={closeDoubleOrNothingBase} modalData={doubleOrNothingModalData} />
+        <Suspense fallback={null}>
+          <LazyDoubleOrNothingModal open={isDoubleOrNothingOpen} onClose={closeDoubleOrNothingBase} modalData={doubleOrNothingModalData} />
+        </Suspense>
       )}
+
       {isDoubledUpOpen && doubledUpModalData && (
-        <DoubledUp open={isDoubledUpOpen} onClose={closeDoubledUpModal} donData={doubledUpModalData} />
+        <Suspense fallback={null}>
+          <LazyDoubledUp open={isDoubledUpOpen} onClose={closeDoubledUpModal} donData={doubledUpModalData} />
+        </Suspense>
       )}
+
       {isNothingOpen && nothingModalData && (
-        <Nothing open={isNothingOpen} onClose={closeNothingModal} don_record_id={nothingModalData} />
+        <Suspense fallback={null}>
+          <LazyNothing open={isNothingOpen} onClose={closeNothingModal} don_record_id={nothingModalData} />
+        </Suspense>
       )}
+
       {isBoostOpen && boostModalData && (
-        <Boost open={isBoostOpen} onClose={closeBoostModal} modalData={boostModalData} />
+        <Suspense fallback={null}>
+          <LazyBoost open={isBoostOpen} onClose={closeBoostModal} modalData={boostModalData} />
+        </Suspense>
       )}
       {/* Double Or Nothing Related pop-ups */}
 
@@ -378,7 +514,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
 }
 
 // Unified hook for all modals
-export const useModals = () => {
+export const useModals = (): ModalsContextType => {
   const context = useContext(ModalsContext);
   if (context === undefined) {
     throw new Error("useModals must be used within a ModalsProvider");

@@ -6,7 +6,7 @@ import { InnerContainer } from "@/sections/profile/security/ChangePassword.tsx";
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 
 export function SetWithdrawalPIN() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { user } = useAuth();
 

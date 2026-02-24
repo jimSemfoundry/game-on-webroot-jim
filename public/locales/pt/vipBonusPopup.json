@@ -5,11 +5,11 @@
     "achievements": "Realizações",
     "achievementDescription": "Os Prêmios de Realização são recompensas dadas por alcançar novos marcos e conquistar desafios. Eles celebram seu progresso e sucesso, desbloqueando surpresas divertidas à medida que você alcança novas conquistas ao longo do caminho!",
     "claimDistribution": "Distribuição de Recompensas",
-    "claimDistributionDescription": "As recompensas são adicionadas ao seu calendário de bônus por 3 dias após a reivindicação.",
+    "claimDistributionDescription": "As suas recompensas são adquiridas imediatamente e ficam disponíveis para reivindicação a partir do seu <0>pool de bônus</0> de depósito sempre que você resgatar uma nova recompensa de conquista.",
     "expiration": "Validade",
-    "expirationDescription": "Nenhuma - As recompensas são enviadas automaticamente para o calendário.",
+    "expirationDescription": "Nenhuma – os resgates ficam disponíveis enquanto o saldo do seu Pool de Bônus for suficiente.",
     "generalTerms": "Termos Gerais",
-    "generalTermsDescription": "As recompensas são calculadas e creditadas em BUCK/USDT, e depois exibidas na sua moeda fiduciária preferida para conveniência. Por favor, note que as conversões de moeda são aproximadas.\n\nO cassino se reserva o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta resultará na desqualificação da promoção."
+    "generalTermsDescription": "As recompensas são calculadas e creditadas em USDT e, em seguida, exibidas na sua moeda fiduciária preferida por conveniência. Observe que as conversões de moeda são aproximadas.\n\nO cassino se reserva o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificativa. Qualquer abuso ou atividade fraudulenta resultará em desqualificação da promoção."
   },
   "luckyNumberSeven": {
     "title": "Número da Sorte \n Sete",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "O valor mínimo de reivindicação é {{money}}",
     "expiration": "Validade",
-    "expirationDescription": "Sua Caixa Misteriosa deve ser reivindicada dentro de 7 dias após ser concedida. Recompensas não reivindicadas expirarão após este período.",
+    "expirationDescription": "Sua Caixa Misteriosa deve ser reivindicada dentro de 3 dias após ser concedida. Recompensas não reivindicadas expirarão após este período.",
     "generalTerms": "Termos Gerais",
     "generalTermsDescription": "As recompensas são calculadas e creditadas com base no primeiro depósito do usuário ou em USDT se nenhum depósito for feito, sujeito a um rollover de 1x exigido. Os valores são exibidos na sua moeda fiduciária preferida; as conversões são aproximadas.\n\nO cassino se reserva o direito de modificar ou revogar a elegibilidade a qualquer momento sem aviso prévio. Qualquer abuso ou fraude resultará na desqualificação."
   },

@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Bezmaksas griezienu atlīdzības",
   "common": {
     "close": "Aizvērt",
     "copy": "Kopēt",
@@ -12,7 +13,8 @@
     "swap": "Aizstāt",
     "swapFrom": "Aizstāt No",
     "swapTo": "Aizstāt Uz",
-    "noCommissionRecords": "Nav atrastu komisijas ierakstu"
+    "noCommissionRecords": "Nav atrastu komisijas ierakstu",
+    "createdOn": "Izveidots"
   },
   "tabs": {
     "transactionHistory": "Darījumu Vēsture",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Izmaksas Tīkls",
     "blockchainWaiting": "Gaidām blokķēdes apstiprinājumu.",
     "blockchainFailed": "Blokķēdes darījums neizdevās.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Esam saņēmuši jūsu pieprasījumu.<br/>Lai skatītu statusu, pārbaudiet Darījumus savā profilā."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Kopējā Likme Prasīta",
     "wagerCompleted": "Likme Pabeigta",
     "pendingWagerRequired": "Gaidāmā Likme Prasīta",
-    "unlockedFunds": "Atbloķētie Līdzekļi"
-  }
+    "unlockedFunds": "Atbloķētie līdzekļi",
+    "rolloverMul": "Likmes reizinātājs"
+  },
+  "assistance": "Lūdzu, pārbaudiet savus datus un mēģiniet vēlreiz vai sazinieties ar klientu apkalpošanas dienestu, lai saņemtu palīdzību"
 }

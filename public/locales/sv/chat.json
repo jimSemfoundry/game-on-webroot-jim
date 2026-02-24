@@ -3,5 +3,8 @@
   "notifications": "Meddelanden",
   "support": "Support",
   "retry": "Försök igen",
-  "customerServiceChatFailedToLoad": "Kundtjänstchatten kunde inte laddas"
+  "customerServiceChatFailedToLoad": "Kundtjänstchatten kunde inte laddas",
+  "read": "Lästa",
+  "unread": "Olästa",
+  "customerService": "Kundtjänst"
 }

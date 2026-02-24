@@ -96,17 +96,17 @@ export const Index = () => {
   };
 
   return (
-    <div className="relative flex flex-col bg-base-200 rounded-field p-3 sm:p-6 border border-base-300 gap-4">
+    <div className="relative flex flex-col bg-base-200 rounded-field p-3 sm:p-6 gap-4">
       {isFetching && (
         <div className="absolute inset-0 bg-base-200 backdrop-blur-sm z-20 flex items-center justify-center rounded-box">
           <span className="loading loading-spinner loading-lg text-primary"></span>
         </div>
       )}
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 text-base-content/80 font-semibold text-sm md:text-lg h-8">
         <Iconify icon="custom:free-spin" className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
         <div>
-          <p className="text-sm font-semibold">{t("transaction:freeSpinRewards")}</p>
+          <p>{t("transaction:freeSpinRewards")}</p>
         </div>
       </div>
 
@@ -137,7 +137,7 @@ export const Index = () => {
             className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
             aria-label={t("common:prev", "Previous page")}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -165,7 +165,7 @@ export const Index = () => {
             className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
             aria-label={t("common:next", "Next page")}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>

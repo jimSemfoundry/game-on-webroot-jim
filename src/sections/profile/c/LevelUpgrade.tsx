@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 export function LevelUpgrade({ onClick }: { onClick: () => void }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('vip');
 
   const { status } = useAuth();
 

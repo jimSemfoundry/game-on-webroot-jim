@@ -122,10 +122,10 @@ export const getDefaultSecondaryValue = (primaryValue: string): string => {
 };
 
 // 根据主菜单值获取API的game_category_1参数
-export const getPrimaryApiCategory = (primaryValue: string): string => {
+export const getPrimaryApiCategory = (primaryValue: string, secondaryValue?: string): string => {
   // 默认casino不传参数
   if (primaryValue === "casino") {
-    return "";
+    return secondaryValue === 'bonus' ? "slots" : "";
   }
   const menu = PRIMARY_MENUS.find((m) => m.value === primaryValue);
   return menu?.apiCategory || "";
@@ -134,7 +134,7 @@ export const getPrimaryApiCategory = (primaryValue: string): string => {
 // 根据二级菜单值获取API的game_category_2参数
 export const getSecondaryApiCategory = (secondaryValue: string): string => {
   // casino + hot 的默认组合不传参数
-  if (secondaryValue === "hot" || secondaryValue === "new" || secondaryValue === "recent" || secondaryValue === "favorites") {
+  if (secondaryValue === "hot" || secondaryValue === "new" || secondaryValue === "recent" || secondaryValue === "favorites" || secondaryValue === "bonus") {
     return "";
   }
   // 'all' 表示不限制二级分类

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import isYesterday from "dayjs/plugin/isYesterday";
-import { groupBy } from "lodash-es";
+import { groupBy } from "es-toolkit";
 import { InnerMsgItem } from "./c/InnerMsgItem.tsx";
 import { useNotificationMessage, useUnreadNotificationCounter } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
@@ -26,7 +26,7 @@ type TRead = `read_${number}`;
 const Index = ({ status, className, onClose }: { status: boolean, className?: string, onClose?: () => void }) => {
   const observerTarget = useRef<HTMLDivElement>(null)
 
-  const { data: data, refetch, isFetching, fetchNextPage } = useNotificationMessage({ read: -1 });
+  const { data: data, refetch, isFetching, fetchNextPage } = useNotificationMessage({ read: -1 }, status);
 
   const { refetch: unreadCounterRefetch } = useUnreadNotificationCounter();
 
@@ -106,7 +106,7 @@ const Index = ({ status, className, onClose }: { status: boolean, className?: st
   }, [data, isFetching])
 
   return (
-    <div className={classNames("overflow-y-auto hide-scrollbar ", className)}>
+    <div className={clsx("overflow-y-auto hide-scrollbar ", className)}>
       <InnerNoRecords status={combine[0].length === 0 && !isFetching} />
 
       <div className="flex flex-col gap-2">

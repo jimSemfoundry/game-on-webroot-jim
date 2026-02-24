@@ -7,6 +7,8 @@
   "baseball": "बेसबॉल",
   "iceHockey": "आइस हॉकी",
   "basketball": "बास्केटबॉल",
+  "cricket": "क्रिकेट",
+  "eSoccer": "ई-सॉकर",
   "volleyball": "वॉलीबॉल",
   "hot": "हॉट",
   "all": "सभी",
@@ -69,5 +71,6 @@
   "live-casino": "लाइव कैसीनो",
   "sports": "स्पोर्ट्स",
   "lotteries": "लॉटरीज़",
-  "gamesYouShouldTry": "आपको आजमाने के लिए गेम्स"
+  "gamesYouShouldTry": "आपको आजमाने के लिए गेम्स",
+  "bonus": "Bonus"
 }

@@ -74,7 +74,7 @@ export const NAVIGATION_ITEMS = (t: (key: string) => string, isAuthenticated: bo
       type: 'item' as const,
       icon: 'custom:providers',
       label: t('explore:providers'),
-      path: '/explore?type=casino&providers=',
+      path: '/explore?type=casino&providers=all',
       id: 'providers'
     },
   ];
@@ -135,14 +135,14 @@ export const SPORTS_NAVIGATION_ITEMS = (t: (key: string) => string, isAuthentica
       type: 'item' as const,
       icon: 'custom:hot',
       label: t('casino:hot'),
-      path: '/sports?category=hot',
+      path: '/sports?bt-path=/',
       id: 'sports-hot'
     },
     {
       type: 'item' as const,
       icon: 'custom:live-casino',
       label: t('explore:sportsLive'),
-      path: '/sports?category=live',
+      path: '/sports?bt-path=/live',
       id: 'sports-live'
     },
   ];
@@ -152,7 +152,7 @@ export const SPORTS_NAVIGATION_ITEMS = (t: (key: string) => string, isAuthentica
       type: 'item' as const,
       icon: 'custom:favorites',
       label: t('casino:favorites'),
-      path: '/sports?category=favorites',
+      path: '/sports?bt-path=/favorites',
       id: 'sports-favorites'
     },
   ];
@@ -166,56 +166,56 @@ export const SPORTS_NAVIGATION_ITEMS = (t: (key: string) => string, isAuthentica
       type: 'item' as const,
       icon: 'custom:football',
       label: t('explore:football'),
-      path: '/sports?sport=football',
+      path: '/sports?bt-path=/soccer-1',
       id: 'football'
-    },
-    {
-      type: 'item' as const,
-      icon: 'custom:tennis',
-      label: t('explore:tennis'),
-      path: '/sports?sport=tennis',
-      id: 'tennis'
-    },
-    {
-      type: 'item' as const,
-      icon: 'custom:baseball',
-      label: t('explore:baseball'),
-      path: '/sports?sport=baseball',
-      id: 'baseball'
-    },
-    {
-      type: 'item' as const,
-      icon: 'custom:ice-hockey',
-      label: t('explore:iceHockey'),
-      path: '/sports?sport=ice-hockey',
-      id: 'ice-hockey'
     },
     {
       type: 'item' as const,
       icon: 'custom:basketball',
       label: t('explore:basketball'),
-      path: '/sports?sport=basketball',
+      path: '/sports?bt-path=/basketball-2',
       id: 'basketball'
     },
     {
       type: 'item' as const,
-      icon: 'custom:volleyball',
-      label: t('explore:volleyball'),
-      path: '/sports?sport=volleyball',
-      id: 'volleyball'
+      icon: 'custom:baseball',
+      label: t('explore:cricket'),
+      path: '/sports?bt-path=/cricket-21',
+      id: 'cricket'
     },
     {
       type: 'item' as const,
-      icon: 'custom:handball',
-      label: t('explore:handball'),
-      path: '/sports?sport=handball',
-      id: 'handball'
+      icon: 'custom:tennis',
+      label: t('explore:tennis'),
+      path: '/sports?bt-path=/tennis-5',
+      id: 'tennis'
+    },
+    {
+      type: 'item' as const,
+      icon: 'custom:football',
+      label: t('explore:eSoccer'),
+      path: '/sports?bt-path=/esoccer-300',
+      id: 'esoccer'
+    },
+    {
+      type: 'item' as const,
+      icon: 'custom:ice-hockey',
+      label: t('explore:iceHockey'),
+      path: '/sports?bt-path=/ice-hockey-4',
+      id: 'ice-hockey'
+    },
+    {
+      type: 'item' as const,
+      icon: 'custom:gameboy',
+      label: t('explore:eSport'),
+      path: '/sports?bt-path=/e_sport/109',
+      id: 'esports'
     },
     {
       type: 'item' as const,
       icon: 'custom:formula1',
       label: t('explore:formula1'),
-      path: '/sports?sport=formula1',
+      path: '/sports?bt-path=/formula-1-40',
       id: 'formula1'
     },
   ];

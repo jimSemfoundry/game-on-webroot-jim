@@ -12,7 +12,7 @@ import { useSupportedCurrencyV2Filter } from "@/components/modal/UserFinanceModa
 export const Boost = ({ open, onClose, modalData }: { open: boolean; onClose: () => void; modalData: ICurrentPromo }) => {
 
   const { openUserFinanceModalWithTab } = useFinanceModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation(['gameDetail', 'bonus']);
   // const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { user } = useAuth();
 

@@ -1,17 +1,19 @@
 import React, { PropsWithChildren, ReactNode, useEffect, useMemo, useRef, useState } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/utils/cn.ts";
+import { useThemeSystem } from "@/hooks/useThemeSystem";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { emitter } from "@/store/emitter.ts";
+import { BadgeCheck } from "lucide-react";
 
 export const DisplayContent = ({ children, status, className }: PropsWithChildren<{
   status: boolean,
   className?: string
 }>) => {
-  return <div className={classNames(status ? "block" : "hidden", className)}>{children}</div>;
+  return <div className={clsx(status ? "block" : "hidden", className)}>{children}</div>;
 };
 
 export const Applied = ({ cls }: { cls?: string }) => {
@@ -33,22 +35,38 @@ export const FormBox = ({ label, children }: { label: ReactNode; children: React
   );
 };
 
-export const InputBox = ({ type, label, className, ...props }: React.ComponentProps<"input"> & {
+export const InputBox = ({ type, ignore, detect, label, className, ...props }: React.ComponentProps<"input"> & {
   label: React.ReactNode
+  ignore?: boolean
+  detect?: Record<string, any>
 }) => {
+  const passed = useMemo(() => {
+    if (ignore) return false;
+    return detect?.value?.trim() !== "" && !detect?.error;
+  }, [detect, ignore]);
+
   return (
     <FormBox label={label}>
-      <input {...props}
-             className={classNames("input bg-base-300 w-full border-0 !outline-0 font-semibold px-4", className)} />
+      <div className="relative flex items-center">
+        <input
+          {...props}
+          className={clsx("input bg-base-300 w-full border-0 !outline-0 font-semibold px-4", className)} />
+        {!ignore && passed &&
+          <BadgeCheck className={"text-primary w-5 h-5 absolute right-2 rtl:left-2 rtl:right-auto z-1"}
+                      strokeWidth={2} />}
+      </div>
     </FormBox>
   );
 };
 
+// 服务于必填项
 export const InnerFieldItem = ({ name, field, onChange }: {
   name: string,
   field: Record<string, any>,
   onChange: (v: Record<string, any>) => void
 }) => {
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const { t } = useTranslation();
 
   const [account, setAccount] = useState<{
@@ -147,7 +165,17 @@ export const InnerFieldItem = ({ name, field, onChange }: {
           len: field.min_length
         };
       }
-      // 特殊字符禁止要求
+
+      // 特殊字符禁止要求 - 单个限制
+      if (field?.enonly) {
+        // 限制只能输入英文字母,数字,空格
+        return {
+          error: "STRING_EN_ONLY",
+          regexp: /^(?=.*[a-zA-Z0-9])[a-zA-Z0-9 ]+$/
+        };
+      }
+
+      // 特殊字符禁止要求 - 单个限制
       if (field?.disabled_char) {
         return {
           error: "STRING_DISABLED_CHAR",
@@ -161,29 +189,27 @@ export const InnerFieldItem = ({ name, field, onChange }: {
     return { error: "REQUIRED_FIELDS", regexp: /^(?=\s*\S)[\s\S]*$/ };
   }, [field]);
 
-  // 初始化数据
+  const debouncedChange = (v: Record<string, any>) => {
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      onChange(v);
+    }, 300);
+  };
+
+  const cancelDebounce = () => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
+    }
+  };
+
   useEffect(() => {
-    const fun = () => {
-      const base = {
-        error: !regexp.regexp.test(account.value),
-        error_content: !regexp.regexp.test(account.value) ? regexp : null
-      };
-      onChange({ value: "", [`${name}_error`]: !regexp.regexp.test(account.value) });
-      setAccount((old) => ({ ...old, ...base }));
-    };
-
-    const em = emitter.addListener("OPEN_FINANCE_MODAL", function() {
-      fun();
-    });
-
-    fun();
-
     return () => {
-      em?.remove();
+      cancelDebounce();
     };
-  }, [name, regexp]);
+  }, []);
 
-  // 事件通知 & 重置表单状态
+  // ‼️‼️‼️ 事件通知 & 重置表单状态‼
   useEffect(() => {
     const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
       setAccount({
@@ -192,17 +218,29 @@ export const InnerFieldItem = ({ name, field, onChange }: {
         error_content: null
       });
       onChange({ value: "", [`${name}_error`]: false });
+      cancelDebounce();
     });
 
     return () => em?.remove();
   }, [name, onChange]);
 
+  // 如果带了默认值则默认填充
+  useEffect(() => {
+    if (field?.default) {
+      const check_value = field?.type === "number" && Number(field?.default) === 0;
+      const final_value = check_value ? "" : field?.default
+      onChange({ value: final_value, [`${name}_error`]: false });
+      setAccount((old) => ({ ...old, value: final_value, error: false, error_content: null }));
+    }
+  }, [field]);
+
   return (
-    <div key={name} onClick={(e) => e.stopPropagation()}>
+    <div className={"relative"} key={name} onClick={(e) => e.stopPropagation()}>
       <InputBox
         type="text"
-        label={<RequireItem label={t(`finance:${field.label}`)} />}
+        label={<RequireItem label={t(`finance:${field.label}`)} required={field?.required} />}
         value={account.value}
+        detect={account}
         onChange={(e) => {
           const base = {
             value: e.target.value,
@@ -210,40 +248,34 @@ export const InnerFieldItem = ({ name, field, onChange }: {
             error_content: !regexp.regexp.test(e.target.value) ? regexp : null
           };
           setAccount((old) => ({ ...old, ...base }));
-          onChange({ value: base.value, [`${name}_error`]: base.error });
+          debouncedChange({ value: base.value, [`${name}_error`]: base.error });
         }}
         placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
       />
       {/* 有长度范围的手机号 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "MIN_MAX_LENGTH" && account.error_content?.mobile}
         content={t("finance:enter_phone_min_max", { min: account.error_content?.min, max: account.error_content?.max })}
       />
       {/* 固定长度的手机号 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "FIXED_LENGTH" && account.error_content?.mobile}
         content={t("finance:enter_phone_fixed_len", { len: account.error_content?.len })}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "EMAIL"}
         content={t("finance:enter_email_correct")}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "REQUIRED_FIELDS"}
         content={t("finance:field_required")}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "REQUIRED_NUMBER"}
         content={t("finance:enter_number")}
       />
       {/* 有长度范围的数字账号 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "MIN_MAX_LENGTH" && !account.error_content?.mobile}
         content={t("finance:enter_number_min_max", {
           min: account.error_content?.min,
@@ -252,41 +284,79 @@ export const InnerFieldItem = ({ name, field, onChange }: {
       />
       {/* 固定长度的数字账号 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "FIXED_LENGTH" && !account.error_content?.mobile}
         content={t("finance:enter_number_fixed_len", { len: account.error_content?.len })}
       />
       <ErrorMessageBox
-        sample
         content={t("finance:enter_code_fixed_len", { len: account.error_content?.len })}
         show={account.error_content?.error === "STRING_FIXED_LENGTH"}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "STRING_MIN_MAX_LENGTH" && !account.error_content?.mobile}
         content={t("finance:enter_code_min_max", { min: account.error_content?.min, max: account.error_content?.max })}
       />
       {/* 特殊字符禁止要求 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "STRING_DISABLED_CHAR"}
         content={t("finance:enter_string_disabled_char", { char: account.error_content?.disabled_char })}
       />
       {/* 有几个固定长度要求 */}
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "NUMBER_LIMIT_LENGTH"}
         content={t("finance:enter_number_limit_length", { limit: account.error_content?.limit })}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "STRING_LIMIT_LENGTH"}
         content={t("finance:enter_string_limit_length", { limit: account.error_content?.limit })}
       />
       <ErrorMessageBox
-        sample
         show={account.error_content?.error === "STRING_MIN_LENGTH"}
-        content={t("finance:enter_string_min_length", `The length must be at least ${account.error_content?.len}.`, { limit: account.error_content?.len })}
+        content={t("finance:enter_string_min_length", `The length must be at least ${account.error_content?.len}.`, { length: account.error_content?.len })}
+      />
+      <ErrorMessageBox
+        show={account.error_content?.error === "STRING_EN_ONLY"}
+        content={t("finance:enter_string_en_only", `Only English letters, numbers, and spaces can be entered.`)}
+      />
+      <ErrorMessageBox
+        show={account.error_content?.error === "STRING_EN_ONLY_AND_DISABLED_CHAR"}
+        content={t("finance:enter_string_disabled_char", { char: account.error_content?.disabled_char })}
+      />
+    </div>
+  );
+};
+
+// 服务于非必填项
+export const InnerUnnecessary = ({ name, field, onChange }: {
+  name: string,
+  field: Record<string, any>,
+  onChange: (v: Record<string, any>) => void
+}) => {
+  const { t } = useTranslation();
+
+  const [value, setValue] = useState<string>("");
+
+  useEffect(() => {
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+      setValue("");
+      onChange({ value: "" });
+    });
+
+    return () => em?.remove();
+  }, [name, onChange]);
+
+  return (
+    <div key={name} onClick={(e) => e.stopPropagation()}>
+      <InputBox
+        ignore
+        type="text"
+        label={<RequireItem label={t(`finance:${field.label}`)} />}
+        value={value}
+        onChange={(e) => {
+          const value = e.target.value;
+          setValue(value);
+          onChange({ value });
+        }}
+        placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
       />
     </div>
   );
@@ -314,18 +384,37 @@ export const InnerOptions = ({ name, field, onChange }: {
   }, [field]);
 
   useEffect(() => {
-    onChange({ [name]: memoOptions[0].value });
-    setStatus((old) => ({ ...old, value: memoOptions[0].value }));
-  }, [memoOptions]);
+    const required = field?.required;
+    const defaultValue = field?.default;
+    const defaultOption = defaultValue
+      ? memoOptions.find((o: Record<string, any>) => o.value === defaultValue)
+      : "";
 
-  return (<FormBox key={name} label={<RequireItem label={t(`finance:${field.label}`)} />}>
+    onChange({ value: defaultOption?.value ?? "", [`${name}_error`]: !!(required && defaultOption === "") });
+    setStatus((old) => ({ ...old, value: defaultOption?.value ?? "" }));
+  }, [memoOptions, field?.default]);
+
+  // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
+  useEffect(() => {
+    const events = ["CLOSE_FINANCE_MODAL"];
+    const subs = events.map((eventName) =>
+      emitter.addListener(eventName, () => {
+        setStatus((old) => ({ ...old, value: "" }));
+      })
+    );
+    return () => {
+      subs.forEach((sub) => sub.remove());
+    };
+  }, []);
+
+  return (<FormBox key={name} label={<RequireItem required={field?.required} label={t(`finance:${field.label}`)} />}>
     <SelectDropdown
       title={t(`finance:${field.label}`)}
       height="sm"
       options={memoOptions}
       value={status.value}
       onChange={(value) => {
-        onChange({ [name]: value });
+        onChange({ value: value, [`${name}_error`]: false });
         setStatus((old) => ({ ...old, value: value as string }));
       }}
       placeholder={`${t("finance:select")} ${t(`finance:${field.label}`)}`}
@@ -340,17 +429,21 @@ export const InnerPayment = ({ method, gateway, onClick }: {
   gateway: Record<string, any>,
   onClick: () => void
 }) => {
+  const { isDarkTheme } = useThemeSystem();
+  const isDark = isDarkTheme();
+  const gatewayIcon = isDark ? gateway?.icon : (gateway?.icon_light ?? gateway?.icon);
+
   return (<div
-    className={classNames(
-      "relative cursor-pointer bg-base-400 border-2 border-base-400 flex flex-col gap-2 rounded-lg p-3 justify-center text-[10px] text-base-content/50 text-center font-extrabold",
+    className={clsx(
+      "tracking-tighter relative cursor-pointer bg-base-400 border-1 border-base-400 flex flex-col rounded-lg p-2.5 justify-center text-[12px] text-base-content/50 text-center font-semibold overflow-hidden",
       { "border-primary text-primary": method?.id === gateway?.id }
     )}
     onClick={onClick}
   >
-    <InnerMaintenance show={gateway?.status === 0} className="top-0 left-0 right-0 rounded-t-lg" />
+    <InnerMaintenance show={gateway?.status === 0} className="top-0 left-0 right-0" />
     <div className="flex h-10 items-center justify-center">
-      {gateway?.icon ? (
-        <ImageWithPlaceholder src={gateway?.icon} className="max-h-10"
+      {gatewayIcon ? (
+        <ImageWithPlaceholder src={gatewayIcon} className="max-h-10"
                               alt={gateway?.display_name || gateway?.channel_class} />
       ) : (
         <div
@@ -395,31 +488,58 @@ export const InnerMaintenance = ({ show, className }: { show: boolean, className
   const { t } = useTranslation();
   return show && (
     <span
-      className={classNames("uppercase text-center bg-warning text-[10px] px-1 text-neutral absolute truncate leading-3", className)}
+      className={clsx("uppercase bg-warning text-[10px] px-1 text-neutral absolute truncate h-3 flex items-center justify-center", className)}
     >
       {t("finance:maintenance")}
     </span>
   );
 };
 
-export const InnerProviderIcon = ({ icon, thumbnail }: { icon?: string, thumbnail?: string }) => {
-  return <img src={thumbnail || icon} className={classNames("h-7 rounded-sm", { "!h-4": thumbnail })} alt="" />;
+export const InnerProviderIcon = ({
+  icon,
+  thumbnail,
+  iconLight,
+  thumbnailLight
+}: {
+  icon?: string;
+  thumbnail?: string;
+  iconLight?: string;
+  thumbnailLight?: string;
+}) => {
+  const { isDarkTheme } = useThemeSystem();
+  const isDark = isDarkTheme();
+
+  const effectiveThumbnail = isDark ? thumbnail : (thumbnailLight ?? thumbnail);
+  const effectiveIcon = isDark ? icon : (iconLight ?? icon);
+
+  const src = effectiveThumbnail || effectiveIcon;
+  if (!src) return null;
+
+  return <img src={src} className={clsx("h-7 rounded-sm", { "h-4!": !!effectiveThumbnail })} alt="" loading="lazy" />;
 };
 
 export const ImageWithPlaceholder = ({ src, alt, className, ...props }: React.ComponentProps<"img">) => {
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
-  useEffect(() => {
-    if (!src) return;
-    setImageLoaded(false);
-    const img = new Image();
-    img.src = src;
-    img.onload = () => setImageLoaded(true);
-  }, [src]);
-  return imageLoaded ? (
-    <img {...props} src={src} className={className} alt={alt} />
-  ) : (
-    <div className={classNames("skeleton bg-base-300 w-full h-full rounded-lg", className)} />
-  );
+
+  return <div className="w-25 bg-base-400 rounded-lg p-1 overflow-hidden">
+    {/* 加载中的skeleton */}
+    {!imageLoaded && (
+      <div className="skeleton bg-base-300 w-full rounded-lg h-10" />
+    )}
+
+    <img
+      {...props}
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className={cn("object-cover", {
+        "opacity-0": !imageLoaded,
+        "opacity-100": imageLoaded,
+        "transition-opacity duration-200": true
+      })}
+      onLoad={() => setImageLoaded(true)}
+    />
+  </div>;
 };
 
 export const InnerLoading = () => {
@@ -470,4 +590,12 @@ export const InnerRangeSlider = ({ max, step, disabled, value, onPointerUp }: {
     }}
     disabled={disabled}
     className="range range-xs w-full mt-6" />;
+};
+
+export const InnerErrorWrapper = ({ children }: { children: ReactNode }) => {
+  return <div className="relative">{children}</div>;
+};
+
+export const InnerErrorGapWrapper = ({ children }: { children: ReactNode }) => {
+  return <div className="flex flex-col gap-4">{children}</div>;
 };

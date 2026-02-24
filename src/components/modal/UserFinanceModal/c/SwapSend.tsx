@@ -4,11 +4,11 @@ import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericForm
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import classNames from "classnames";
+import clsx from "clsx";
 import Decimal from "decimal.js";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { FormatAmount } from "sunmoon-working-components";
+import FormatAmount from "./FormatAmount";
 import { useNavigate } from "@tanstack/react-router";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { emitter } from "@/store/emitter.ts";
@@ -79,7 +79,7 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
         {/* swap send amount control */}
         <NumericFormat
           wrapCls={"!px-0"}
-          className={classNames("!px-0 !text-lg !h-7", { "text-error": insufficient })}
+          className={clsx("!px-0 !text-lg !h-7", { "text-error": insufficient })}
           placeholder="0.00"
           value={swapFrom.inAmount}
           thousandSeparator

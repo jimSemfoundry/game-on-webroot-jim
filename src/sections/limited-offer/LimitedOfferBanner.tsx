@@ -15,7 +15,6 @@ const getFormattedMinAmount = (
   depositCrypto: any,
   convertCurrency: any,
   exchangeRates: any,
-  getCurrencySymbol: any,
   formatCurrency: any,
 ) => {
   const value =
@@ -29,15 +28,14 @@ const getFormattedMinAmount = (
       exchangeRates: exchangeRates,
     }) || 0;
 
-  const valueNum = Math.ceil(value || 0);
+  const valueNum = depositType === "fiat" ? Math.ceil(value || 0) : value;
 
-  return depositType === "fiat"
-    ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${valueNum}`
-    : formatCurrency({
-      amount: value,
-      currency: depositCrypto?.currency?.currency,
-      showSymbol: true,
-    }).formatted;
+  return formatCurrency({
+    amount: valueNum,
+    currency: depositType === "fiat" ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+    showSymbol: true,
+    showCode: false,
+  }).formatted;
 };
 
 const getFormattedCashBonus = (
@@ -75,7 +73,7 @@ const getFormattedCashBonus = (
 export const LimitedOfferBanner = ({ currentPromo }: { currentPromo: ICurrentPromoList }) => {
 
   const { t } = useTranslation();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
   const { isRTL } = useRTLContext();
   const { openTipsModal } = useTipsModal();
@@ -125,7 +123,7 @@ export const LimitedOfferBanner = ({ currentPromo }: { currentPromo: ICurrentPro
               className="w-5 h-5 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
-                openTipsModal("doubleOrNothing", currentPromo);
+                openTipsModal("limitedOffers", currentPromo);
               }}
             />
           </div>
@@ -139,7 +137,6 @@ export const LimitedOfferBanner = ({ currentPromo }: { currentPromo: ICurrentPro
                   depositCrypto,
                   convertCurrency,
                   exchangeRates,
-                  getCurrencySymbol,
                   formatCurrency,
                 ),
                 cash_bonus: getFormattedCashBonus(
@@ -171,9 +168,11 @@ export const LimitedOfferBanner = ({ currentPromo }: { currentPromo: ICurrentPro
 export const LimitedOfferBannerPC = ({ currentPromo }: { currentPromo: any }) => {
 
   const { t } = useTranslation();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
   const { isRTL } = useRTLContext();
+
+  const { openTipsModal } = useTipsModal();
 
   return (
     <div className="w-[208px] h-[244px] rounded-lg relative overflow-hidden border border-primary">
@@ -220,6 +219,14 @@ export const LimitedOfferBannerPC = ({ currentPromo }: { currentPromo: any }) =>
         <div className='flex-inline flex-col justify-center'>
           <div className="flex items-center gap-4 mb-2">
             <p className="text-lg test-base text-white font-bold whitespace-pre-line leading-5">{t('finance:limited_offer')}</p>
+            <BadgeAlert
+              strokeWidth={3}
+              className="w-5 h-5 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                openTipsModal("limitedOffers", currentPromo);
+              }}
+            />
           </div>
           <div className='text-primary font-semibold text-sm leading-5 flex items-center gap-1 mb-4 flex-wrap'>
             <div>{t('bonus:expires_in')}</div> <CountdownTimerThree expireTime={currentPromo?.expired_at} />
@@ -234,7 +241,6 @@ export const LimitedOfferBannerPC = ({ currentPromo }: { currentPromo: any }) =>
                   depositCrypto,
                   convertCurrency,
                   exchangeRates,
-                  getCurrencySymbol,
                   formatCurrency,
                 ),
                 cash_bonus: getFormattedCashBonus(

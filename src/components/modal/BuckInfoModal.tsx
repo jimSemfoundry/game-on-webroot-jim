@@ -8,7 +8,7 @@ interface HelpModalBuckInfoProps {
 
 export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
+    <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle" zIndex={1002}>
       <div className="flex flex-col gap-1">
         {/* 上方带渐变的独立卡片 */}
         <div
@@ -25,7 +25,7 @@ export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) =
             <h2 className="text-xl md:text-2xl font-bold text-base-content mb-2 text-start leading-6 text-nowrap">GET BUCK</h2>
             <div className="flex items-center -space-x-6">
               <img src="/images/illustrations/8eb77e26320d092b03e700eb23d717c408ef3995.png" className="w-23 h-25 rotate-y-180" />
-              <img src="/images/illustrations/70e8f81b75be2401fb7171d70c371de8e99ebd6a.png" className="w-26 h-26 z-10" />
+              <img src="/images/illustrations/buck.png" className="w-26 h-26 z-10" />
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@ export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) =
         {/* 下方独立的主卡片 - 包含close按钮 */}
         <div className="bg-base-400 rounded-box relative">
           {/* Close按钮 - 位于右上角 */}
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 
@@ -42,7 +42,7 @@ export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) =
               {/* What is BUCK? */}
               <div className="mb-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <img src="/images/illustrations/70e8f81b75be2401fb7171d70c371de8e99ebd6a.png" className="w-4 h-4" />
+                  <img src="/images/illustrations/buck.png" className="w-4 h-4" />
                   <h3 className="text-sm font-bold text-base-content">What is BUCK?</h3>
                 </div>
                 <p className="text-xs text-base-content/50 leading-5">

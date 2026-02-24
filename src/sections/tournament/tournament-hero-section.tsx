@@ -2,8 +2,10 @@ import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTranslation } from "react-i18next";
 
+const tournamentHeroImage = import.meta.env.VITE_TOURNAMENT_HERO_IMAGE || "/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png";
+
 export const TournamentHeroSection = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
@@ -28,18 +30,18 @@ export const TournamentHeroSection = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full h-full">
           <div className="flex flex-col gap-2 sm:gap-3 z-10 sm:max-w-[48%] h-full pl-4">
             <div className="flex flex-col h-full justify-center">
-              <h1 className="text-lg sm:text-[40px] font-black  uppercase leading-[1.05]">
+              <div className="text-lg sm:text-[40px] font-black  uppercase leading-[1.05]">
                 <h2 className="text-base-content">{t("tournament:explore", "EXPLORE")}</h2>
                 <span className="text-primary">{t("tournament:tournaments", "TOURNAMENTS")},</span>
                 <br />
                 <span className="text-base-content">{t("tournament:dropsAndRaces", "DROPS & RACES")}</span>
-              </h1>
+              </div>
             </div>
           </div>
 
           {/* 角色插画 - 桌面端（置于卡片之上） */}
           <img
-            src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
+            src={tournamentHeroImage}
             alt="Tournament Character"
             className="hidden sm:block absolute left-[391px] rtl:left-auto rtl:right-[391px] top-0 w-[340px] h-[340px] object-cover object-center drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] z-20 pointer-events-none select-none"
             draggable="false"
@@ -47,7 +49,7 @@ export const TournamentHeroSection = () => {
 
           {/* 角色插画 - 移动端 */}
           <img
-            src="/images/illustrations/83d32b6759e32e12ef3b96efdec9a536204ec5c6.png"
+            src={tournamentHeroImage}
             alt="Tournament Character"
             className="sm:hidden absolute -right-1 rtl:right-auto rtl:left-1 -bottom-1 w-[207px] h-[207px] object-cover object-top opacity-80 drop-shadow-[0px_0px_120px_rgba(255,215,0,0.2)] pointer-events-none select-none"
             draggable="false"

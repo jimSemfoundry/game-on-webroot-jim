@@ -130,6 +130,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     root.style.setProperty("--color-base-300", theme.colors.base300);
     root.style.setProperty("--color-base-400", theme.colors.base400);
     root.style.setProperty("--color-base-content", theme.colors.baseContent);
+
+    root.style.setProperty("--d-color-base-200", theme.colors.base200);
+    root.style.setProperty("--d-color-base-300", theme.colors.base300);
+    root.style.setProperty("--d-color-base-3000", "transparent");
+    root.style.setProperty("--d-color-semantic-primary-bg", "color-mix(in oklch, var(--color-primary) 20%, transparent)");
     root.style.setProperty("--color-info", theme.colors.info);
     root.style.setProperty("--color-info-content", theme.colors.infoContent);
     root.style.setProperty("--color-success", theme.colors.success);

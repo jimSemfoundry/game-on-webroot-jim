@@ -5,11 +5,11 @@
     "achievements": "Prestationer",
     "achievementDescription": "Prestationsutdelningar är belöningar som ges för att nå nya milstolpar och övervinna utmaningar. De firar din framsteg och framgång, och låser upp roliga överraskningar när du uppnår nya prestationer längs vägen!",
     "claimDistribution": "Utdelning av belöningar",
-    "claimDistributionDescription": "Belöningar läggs till din bonuskalender i 3 dagar efter att de har hämtats.",
+    "claimDistributionDescription": "Dina belöningar blir omedelbart intjänade och kan krävas från din insättnings-<0>bonuspool</0> varje gång du gör anspråk på en ny prestationsbelöning.",
     "expiration": "Utgång",
-    "expirationDescription": "Ingen - Belöningar skickas automatiskt till kalendern.",
+    "expirationDescription": "Ingen - Anspråk är tillgängliga så länge saldot i din Bonus Pool är tillräckligt.",
     "generalTerms": "Allmänna villkor",
-    "generalTermsDescription": "Belöningar beräknas och krediteras i BUCK/USDT, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.\n\nKasinoet förbehåller sig rätten att ändra eller återkalla berättigande när som helst, utan skyldighet att motivera. All missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen."
+    "generalTermsDescription": "Belöningar beräknas och krediteras i USDT och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.\n\nKasinot förbehåller sig rätten att när som helst ändra eller återkalla behörighet utan skyldighet att motivera. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
   },
   "luckyNumberSeven": {
     "title": "Lyckonummer \n Sju",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minsta belopp för hämtning är {{money}}",
     "expiration": "Utgång",
-    "expirationDescription": "Din Mysterielåda måste hämtas inom 7 dagar efter att den har tilldelats. Outhämtade belöningar kommer att gå ut efter denna period.",
+    "expirationDescription": "Din Mysterielåda måste hämtas inom 3 dagar efter att den har tilldelats. Outhämtade belöningar kommer att gå ut efter denna period.",
     "generalTerms": "Allmänna villkor",
     "generalTermsDescription": "Belöningar beräknas och krediteras baserat på användarens första insättning eller i USDT om ingen insättning görs, med ett krav på 1x omsättning. Belopp visas i din föredragna fiatvaluta; konverteringar är ungefärliga.\n\nKasinoet förbehåller sig rätten att ändra eller återkalla berättigande när som helst utan förvarning. All missbruk eller bedrägeri kommer att leda till diskvalificering."
   },

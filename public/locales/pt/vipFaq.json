@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "O que é o Bônus Semanal?",
-    "content": "<p class=\"leading-7\">O Bônus Semanal é um benefício exclusivo em nosso site projetado para jogadores que são VIP12 ou mais. Este bônus é emitido semanalmente e pago automaticamente toda sexta-feira para jogadores VIP12 e acima. O tamanho do bônus depende do valor apostado na semana anterior, com um requisito mínimo de aposta de {{minWager}} na semana passada.</p>"
+    "content": "<p class=\"leading-7\">O Bônus Semanal é um benefício exclusivo em nosso site projetado para jogadores que são VIP2 ou mais. O bônus é emitido semanalmente às segundas-feiras e expira quando o próximo bônus semanal é lançado. O tamanho do bônus depende do valor apostado na semana anterior, com um requisito mínimo de aposta efetiva de {{minWager}} na semana passada.</p>"
   },
   "faqNine": {
     "title": "O que são Conquistas?",

@@ -10,9 +10,11 @@ import { ReferralRewards } from "@/sections/referral/referral-rewards.tsx";
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ReferralSummaryCard } from "@/sections/referral/referral-summary-card";
+import { ReferralGuard } from "@/sections/referral/referral-guard.tsx";
+import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 
 export const Route = createFileRoute("/_main/referral/")({
-  component: RouteComponent,
+  component: RouteComponent
 });
 
 function RouteComponent() {
@@ -30,26 +32,32 @@ function RouteComponent() {
   };
 
   return (
-    <div className="flex flex-col gap-3 pb-26">
-      <div className="relative">
-        <ReferralHeroSection onNavigateToMyReferrals={handleGoToMyReferrals} />
-        <ReferralSummaryCard />
-      </div>
+    <ReferralGuard>
+      {(referral_enable: boolean) => {
+        return (<div className="flex flex-col gap-3 pb-26 h-full">
+          <div className="relative">
+            <ReferralHeroSection referralEnable={referral_enable} onNavigateToMyReferrals={handleGoToMyReferrals} />
+            <ReferralSummaryCard referralEnable={referral_enable} />
+          </div>
 
-      <div className="px-5 sm:px-0 flex flex-col gap-3">
-        <div ref={tabsRef}>
-          <ReferralTabs value={value} onChange={setValue} />
-        </div>
+          <InnerDisplayContent show={referral_enable}>
+            <div className="px-5 sm:px-0 flex flex-col gap-3">
+              <div ref={tabsRef}>
+                <ReferralTabs value={value} onChange={setValue} />
+              </div>
 
-        {value === "global" && <ReferralGlobal />}
-        {value === "ratesAndRules" && <ReferralRatesAndRules />}
-        {value === "myReferrals" && <ReferralMyReferrals />}
-        {value === "campaigns" && <ReferralCampaigns />}
-        {value === "commissions" && <ReferralMyCommissions />}
-        {value === "rewards" && <ReferralRewards />}
+              {value === "global" && <ReferralGlobal />}
+              {value === "ratesAndRules" && <ReferralRatesAndRules />}
+              {value === "myReferrals" && <ReferralMyReferrals />}
+              {value === "campaigns" && <ReferralCampaigns />}
+              {value === "commissions" && <ReferralMyCommissions />}
+              {value === "rewards" && <ReferralRewards />}
 
-        <ReferralFAQ />
-      </div>
-    </div>
+              <ReferralFAQ />
+            </div>
+          </InnerDisplayContent>
+        </div>);
+      }}
+    </ReferralGuard>
   );
 }

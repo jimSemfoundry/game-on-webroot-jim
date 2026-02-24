@@ -3,5 +3,8 @@
   "notifications": "Notifications",
   "support": "Support",
   "retry": "Réessayer",
-  "customerServiceChatFailedToLoad": "Le chat du service client n'a pas pu être chargé"
+  "customerServiceChatFailedToLoad": "Le chat du service client n'a pas pu être chargé",
+  "read": "Lire",
+  "unread": "Non lu",
+  "customerService": "Service client"
 }

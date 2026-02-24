@@ -362,7 +362,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
         >
           <div className={cn("flex items-center gap-2 flex-1 min-w-0 text-base-content", sizeStyles.text)}>
             {icon && <span className="shrink-0">{icon}</span>}
-            <div className="flex-1 text-left rtl:text-right truncate">
+            <div className="text-xs flex-1 text-left rtl:text-right truncate">
               {loading ? (
                 <div className="flex items-center gap-2">
                   <span className="loading loading-spinner loading-sm"></span>

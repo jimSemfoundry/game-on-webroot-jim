@@ -25,6 +25,14 @@
   "totalTips": "Napitnine",
   "result": "Rezultat",
   "myBets": "Moje stave",
-  "**********": "",
-  "demoPlay": "Demo igra"
+  "demoPlay": "Demo igra",
+  "limitedOffer": "Omejeno ponudbo",
+  "deposit": "Depozit {{value}}",
+  "get": "Pridobi {{value}}",
+  "instantCashBonus": "Takojšnji denarni bonus",
+  "expires": "Poteka",
+  "depositNow": "Depozit zdaj",
+  "free_spins": "Brezplačni vrtljaji",
+  "play_with_balance_in": "Igraj z ravnotežjem v",
+  "the_selected_currency_will_be_displayed_in": "Izbrana valuta bo prikazana v"
 }

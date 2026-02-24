@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
-import { useMemo, useEffect, useCallback } from "react";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import { createFileRoute, useNavigate, useLocation } from "@tanstack/react-router";
-import { toast } from "sonner";
+import { useCallback, useEffect, useMemo } from "react";
+import { createFileRoute, useLocation, useNavigate } from "@tanstack/react-router";
 import i18n from "i18next";
+import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { publicService } from "@/services/publicService.ts";
 import { sleep, parseURLParamsToJson, getAdvertisementParams } from "@/components/socialLogin/helper.ts";
-import { rum_sdk_user_log } from "@/utils/helper.ts";
+import { rum_sdk_user_log, uuidv4Generate } from "@/utils/helper.ts";
+import { getLogoFullUrl } from "@/utils/assetPaths";
 
 const controller = new AbortController();
 
@@ -64,8 +64,7 @@ export function RouteComponent() {
     const redirect_uri = searchParams.get("redirect_uri");
 
     // 设备指纹
-    const fingerprint = await FingerprintJS.load();
-    const { visitorId: device_id } = await fingerprint.get();
+    const device_id = uuidv4Generate();
 
     // 不能缺少必要参数
     if (!code || !redirect_uri || !device_id) return toast.error(t("toast:signInFailed"));
@@ -101,7 +100,7 @@ export function RouteComponent() {
           localStorage.setItem("status", JSON.stringify(res?.status));
 
           // 用户信息上传 rum
-          rum_sdk_user_log(res.data)
+          rum_sdk_user_log(res?.user)
 
           void navigate({
             to: "/casino",
@@ -142,8 +141,7 @@ export function RouteComponent() {
     const redirect_uri = searchParams.get("redirect_uri");
 
     // 设备指纹
-    const fingerprint = await FingerprintJS.load();
-    const { visitorId: device_id } = await fingerprint.get();
+    const device_id = uuidv4Generate();
 
     // 不能缺少必要参数
     if (!code || !redirect_uri || !device_id) return toast.error(t("toast:signInFailed"));
@@ -208,7 +206,7 @@ export function RouteComponent() {
           <div
             className="flex flex-col gap-6 mb-6">
             {/* 站点的标志性图标 */}
-            <img src={`/logos/${import.meta.env.VITE_THEME}/logo-full.svg`} className="h-8" alt="" />
+            <img src={getLogoFullUrl(import.meta.env.VITE_THEME ?? "1stgame")} className="h-8" alt="" />
             {/* 当前社媒图标 */}
             <AuthIcon authType={authType} />
           </div>

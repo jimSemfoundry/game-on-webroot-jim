@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Kas ir nedēļas bonuss?",
-    "content": "<p class=\"leading-7\">Nedēļas bonuss ir ekskluzīvs labums mūsu vietnē, kas paredzēts spēlētājiem, kuri ir VIP12 un augstāk. Šis bonuss tiek izsniegts katru nedēļu un automātiski izmaksāts katru piektdienu spēlētājiem ar VIP12 un augstāk. Bonusa apmērs ir atkarīgs no likmes summas pēdējās nedēļas laikā, ar minimālo likmes prasību {{minWager}} pēdējās nedēļas laikā.</p>"
+    "content": "<p class=\"leading-7\">Nedēļas bonuss ir ekskluzīvs labums mūsu vietnē, kas paredzēts spēlētājiem, kuri ir VIP2 un augstāk. Bonuss tiek izsniegts katru nedēļu pirmdienās un beidzas, kad iznāk nākamais nedēļas bonuss. Bonusa apmērs ir atkarīgs no likmes summas pēdējās nedēļas laikā, ar minimālo efektīvo likmes prasību {{minWager}} pēdējās nedēļas laikā.</p>"
   },
   "faqNine": {
     "title": "Kas ir sasniegumi?",

@@ -25,6 +25,14 @@
   "totalTips": "Съвети",
   "result": "Резултат",
   "myBets": "Моите залози",
-  "**********": "",
-  "demoPlay": "Демо игра"
+  "demoPlay": "Демо игра",
+  "limitedOffer": "Ограничена оферта",
+  "deposit": "Депозит {{value}}",
+  "get": "Вземи {{value}}",
+  "instantCashBonus": "Моментален кеш бонус",
+  "expires": "Изтича",
+  "depositNow": "Депозирай сега",
+  "free_spins": "Безплатни завъртания",
+  "play_with_balance_in": "Играйте с баланс в",
+  "the_selected_currency_will_be_displayed_in": "Избраната валута ще бъде показана в"
 }

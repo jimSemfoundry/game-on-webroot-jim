@@ -7,6 +7,9 @@
     "commissions": "Komisi",
     "rewards": "Hadiah"
   },
+  "campaignAlreadyExists": "Kampanye sudah ada",
+  "campaignCreateSuccess": "Kampanye berhasil dibuat!",
+  "campaignCreateFailed": "Gagal membuat kampanye",
   "commissionCalculator": "Kalkulator Komisi",
   "telegramReferralLink": "Tautan Rujukan Telegram",
   "network": "Koneksi",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Komisi Rujukan Saya",
   "myReferralRewards": "Hadiah Rujukan Saya",
   "exp": "EXP",
-  "userLevel": "Tingkat Pengguna"
+  "userLevel": "Tingkat Pengguna",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Undang teman dan dapatkan hadiah ekstra saat mereka melakukan deposit pertama. Pemain pertama yang Anda referensikan yang bergabung, melakukan deposit, dan bermain, Anda akan menerima Bonus Referral Ekstra sebesar 10% berdasarkan jumlah deposit awal mereka.",
+    "bonusCalculatedTitle": "Bagaimana Bonus Dihitung?",
+    "bonusCalculatedDesc": "Bonus Referral Ekstra Anda dihitung sebagai 10% dari deposit pertama teman Anda. Jika deposit pertama teman Anda setara dengan <0>{{depositAmount}}</0>, Anda akan menerima hadiah senilai <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribusi Klaim",
+    "claimDistributionDesc": "Yang perlu Anda lakukan adalah menghubungi Layanan Pelanggan melalui Live Chat dan memberi tahu mereka bahwa Anda ingin mengklaim hadiah dengan Informasi Referral Anda.",
+    "expirationTitle": "Kedaluwarsa",
+    "expirationDesc": "Bonus harus diklaim dalam waktu 7 x 24 jam (7 hari) setelah deposit awal teman Anda; setelah itu, bonus tidak dapat diterbitkan kembali.",
+    "generalTermsTitle": "Syarat Umum",
+    "generalTermsDesc1": "Hadiah dihitung dan dikreditkan dalam <0>BUCK/USDT</0>, kemudian ditampilkan dalam mata uang fiat pilihan Anda untuk kenyamanan. Harap dicatat, konversi mata uang bersifat perkiraan. Bonus maksimum yang dapat Anda terima per teman yang dirujuk adalah setara dengan {{bonusAmount}}, dan bonus dapat diklaim sekali per ID Pengguna. Teman yang Anda rujuk harus mempertaruhkan setidaknya 4 kali jumlah setoran pertama mereka sebelum Anda dapat mengklaim bonus Anda.",
+    "generalTermsDesc2": "Kasino berhak untuk memodifikasi atau mencabut kelayakan kapan saja, tanpa kewajiban untuk memberikan alasan. Setiap penyalahgunaan atau aktivitas penipuan – termasuk tetapi tidak terbatas pada data pemain yang duplikat atau cocok, penipuan deposit, alamat IP yang cocok, taruhan aman, atau perilaku gaya investasi – akan mengakibatkan diskualifikasi dari promosi dan pembatalan bonus terkait. Semua keputusan yang dibuat oleh kasino mengenai promosi ini adalah final dan tidak dapat diperdebatkan."
+  },
+  "referral_program_disabled": "PROGRAM\nREFERAL\n<0>DINONAKTIFKAN</0>",
+  "programAccessUpdate": "Pembaruan Akses Program",
+  "referralProgramPrivileges": "Hak istimewa program referal Anda telah dicabut setelah peninjauan akun dan partisipasi Anda dalam program. Kami mengidentifikasi aktivitas yang tidak mematuhi syarat, ketentuan, atau penggunaan yang dimaksudkan dari program referal kami. Ini dapat mencakup pola referal yang mencurigakan, metode promosi yang tidak sah, penyalahgunaan insentif, atau upaya untuk mengakali pedoman penggunaan wajar.",
+  "referralRewardsPrivileges": "Akibatnya, kemampuan Anda untuk membuat hadiah referal baru, membagikan tautan referal, atau menerima manfaat dari referal telah dinonaktifkan. Hadiah yang tertunda atau di masa depan yang terkait dengan program referal akan ditahan dan dibatalkan sesuai kebijakan kami. <0>Semua fungsi lain pada akun Anda tetap utuh dan tidak terpengaruh oleh perubahan ini</0>.",
+  "understandDisappointing": "Kami memahami ini mungkin mengecewakan. Jika Anda yakin keputusan ini keliru atau ingin detail lebih lanjut, silakan hubungi tim dukungan kami dengan informasi yang relevan, dan kami akan meninjau kasus Anda."
 }

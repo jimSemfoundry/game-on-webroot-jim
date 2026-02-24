@@ -49,7 +49,7 @@ export function useReferralRewards() {
     return formatWithConversion(totalRewards, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [totalRewards, formatWithConversion, referralValue, groupValue]);
 
@@ -67,7 +67,7 @@ export function useReferralRewards() {
     return formatWithConversion(value, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [groupValue, formatWithConversion]);
 
@@ -78,7 +78,7 @@ export function useReferralRewards() {
     return formatWithConversion(value, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [referralValue, formatWithConversion]);
 
@@ -89,7 +89,7 @@ export function useReferralRewards() {
     return formatWithConversion(sum, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [groupValue, formatWithConversion]);
 
@@ -100,7 +100,7 @@ export function useReferralRewards() {
     return formatWithConversion(sum, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [referralValue, formatWithConversion]);
 
@@ -111,7 +111,7 @@ export function useReferralRewards() {
     return formatWithConversion(locked, currency, {
       showSymbol: true,
       showCode: false,
-      minimizeDecimals: false,
+      minimizeDecimals: true,
     });
   }, [referralValue, formatWithConversion]);
 

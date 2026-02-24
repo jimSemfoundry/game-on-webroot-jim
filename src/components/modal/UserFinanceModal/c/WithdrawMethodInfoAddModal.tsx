@@ -9,30 +9,30 @@ import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.t
 import { WithdrawMethodSelectV2 } from "@/components/modal/UserFinanceModal/c/WithdrawMethodSelectV2.tsx";
 import {
   debug_target,
-  open_debug,
-  useSupportedFiatWithdrawGatewaysV2,
+  open_debug, useSupportedFiatWithdrawGatewaysV2,
   useUserWithdrawFiatInfo
 } from "@/components/modal/UserFinanceModal/helper.ts";
-import { AnimatePresence, motion as m } from "motion/react";
-import classNames from "classnames";
+import { AnimatePresence, domMax, LazyMotion, motion as m } from "motion/react";
+import clsx from "clsx";
 import { createPortal } from "react-dom";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 import { InnerSearch } from "@/sections/profile/security/PhoneAreaCodeSelect.tsx";
 import { NoData } from "@/components/modal/UserFinanceModal/c/NoData.tsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
-import { useToggle } from "ahooks";
+import { useToggle } from "@/hooks/useToggle";
 import { cn } from "@/utils/cn.ts";
 import { handleBindOrHideFormItemDefaultValue } from "@/components/modal/UserFinanceModal/c/DepositFiatFormInit.tsx";
-import { FormBox, InnerFieldItem } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { FormBox, InnerFieldItem, InnerUnnecessary } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { emitter } from "@/store/emitter.ts";
+import { isEmpty } from "@/utils/helper.ts";
 
 type ErrorString = `${string}_error`;
 
 interface ISelectedOption {
   loading: boolean;
-  showModal: boolean;
   provider: Record<string, any> | null;
   formItem: Record<string, any> | null;
+  extraItem: Record<string, any> | null;
 
   [key: ErrorString]: boolean;
 }
@@ -41,53 +41,73 @@ const initSelected = {
   loading: false,
   provider: null,
   formItem: null,
-  showModal: false
+  extraItem: null
 };
 
-export const WithdrawMethodInfoAddModal = () => {
+export const WithdrawMethodInfoAddModal = (
+  {
+    open,
+    onClose: onCloseCurrentModal
+  }: {
+    open: boolean;
+    onClose: () => void;
+  }
+) => {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<ISelectedOption>(initSelected);
 
   // from data store, share common data
-  const { withdrawFiat, syncAction, setWithdrawFiatV2 } = useBoundStore();
-
-  // 法币是否支持新版的提币操作
-  const { data: gatewaysV2 } = useSupportedFiatWithdrawGatewaysV2(withdrawFiat.currency?.currency);
+  const { withdrawFiat, setWithdrawFiatV2, openModal } = useBoundStore();
 
   // 法币提现用用户添加的快捷信息列表
   const { refetch } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
 
-  // 附加的隐藏的必要的字段，不在表单出现
+  // 法币提款支持的网关
+  const { data: gatewaysV2 } = useSupportedFiatWithdrawGatewaysV2(withdrawFiat.currency?.currency);
+
+  // 初始化表单项目
   useEffect(() => {
-    if (!status.provider?.params) return;
+    if (!status.provider?.id || !status.provider?.params) return;
 
     const transform = parser(status.provider?.params);
+
+    const nextFormItem: Record<string, any> = {};
+    const nextExtraItem: Record<string, any> = {};
+
     for (const key in transform) {
       const field = transform[key];
 
-      if (!field.required) continue;
+      if (key === "amount") {
+        nextFormItem[key] = "";
+        continue;
+      }
 
       if (field.bind || field.hide) {
         const value = handleBindOrHideFormItemDefaultValue(field, status.provider);
-        setStatus((old) => ({
-          ...old,
-          formItem: { ...old.formItem, [key]: value || "" }
-        }));
+        nextFormItem[key] = value || "";
+        continue;
       }
-    }
-  }, [status.provider?.params]);
 
-  // 重置数据状态，避免脏数据
-  useEffect(() => {
-    if (status.provider?.id) {
-      const next_status = { ...status, formItem: null };
-      Object.keys(next_status).forEach((k) => {
-        if (k.endsWith("_error")) Reflect.deleteProperty(next_status, k);
-      });
-      setStatus(next_status);
+      if (!field.required) {
+        if (!field.hide) nextExtraItem[key] = field.default || "";
+        continue;
+      }
+
+      if (Array.isArray(field.select) && field.select.length > 0) {
+        nextFormItem[key] = field.default || "";
+        continue;
+      }
+
+      nextFormItem[key] = field.default || "";
     }
-  }, [status.provider?.id]);
+
+    setStatus((old) => ({
+      ...old,
+      formItem: nextFormItem,
+      extraItem: nextExtraItem
+    }));
+  }, [status.provider?.id, status.provider?.params]);
 
   // 表单初始化
   const formItem = useMemo(() => {
@@ -107,20 +127,46 @@ export const WithdrawMethodInfoAddModal = () => {
       for (const key in transform) {
         const field = transform[key];
 
-        if (field.hide || !field.required) continue;
+        if (field.bind || field.hide) continue;
+
+        if (!field.required && !field.hide && !field.select) {
+          nodes.push(<InnerUnnecessary
+            key={`${key}_${status.provider?.id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
+            name={key}
+            field={field}
+            onChange={(v) => {
+              setStatus((old) => {
+                return ({
+                  ...old,
+                  extraItem: { ...old.extraItem, [key]: v.value }
+                });
+              });
+            }} />);
+          continue;
+        }
 
         if (key === "amount") continue;
 
-        if (field.select && field.select.length > 0) {
+        if (field.select && field.select.length >= 0) {
           selectNode = (<InnerOptions
             key={`${key}_${status.provider?.id}`} // key 的不同可以强制重新挂载新数据，方便数据状态重置
             name={key}
             field={field}
             onChange={(v) => {
-              setStatus((old) => ({
-                ...old,
-                formItem: { ...old.formItem, ...v }
-              }));
+              setStatus((old) => {
+                if (field.required) { // 必选
+                  return ({
+                    ...old,
+                    formItem: { ...old.formItem, [key]: v.value },
+                    [`${key}_error`]: v[`${key}_error`]
+                  });
+                } else { // 非必选
+                  return ({
+                    ...old,
+                    extraItem: { ...old.extraItem, [key]: v.value }
+                  });
+                }
+              });
             }} />);
           continue;
         }
@@ -135,56 +181,41 @@ export const WithdrawMethodInfoAddModal = () => {
                 ...old,
                 formItem: { ...old.formItem, [key]: v.value },
                 [`${key}_error`]: v[`${key}_error`]
-              })
+              });
             });
           }} />);
       }
     }
 
     return nodes.concat(selectNode);
-  }, [status.provider]);
+  }, [status.provider?.params, status.provider?.id]);
 
   // 表单字段是否有错误
-  const filed_value_match = useMemo(() => {
-    if (!status.formItem || !status.provider) return true;
-    if (status.formItem && status.provider) return Object.values(params(status.provider, status.formItem)).some((value) => !value);
-  }, [status.formItem, status.provider]);
+  const filed_value_null = isEmpty(status.formItem) || (!!status.formItem && Object.values(status.formItem).some((value) => !value));
 
   // 表单字段是否有额外的错误
-  const filed_value_null = useMemo(() => {
-    const keys = Object.keys(status);
-    return keys.filter((k) => k.includes("_error")).some((j) => status[j as ErrorString]);
-  }, [status]);
+  const filed_value_error = Object.keys(status).filter((k) => k.includes("_error")).some((j) => status[j as ErrorString]);
 
   // 添加提款快捷信息
   const submit = useCallback(() => {
-    const final_params = params(status.provider, status.formItem);
-
-    if (open_debug && debug_target === "WITHDRAW") {
-      console.info("Withdraw Fiat Fast Data");
-      console.info({
-        ...final_params,
-        currency: withdrawFiat.currency?.currency,
-        channel_class: status.provider?.channel_class
-      });
-      console.info(status);
-      // return;
-    }
-
     setStatus((v) => ({ ...v, loading: true }));
 
     authService
       .addUserWithdrawInfo({
-        ...final_params,
+        ...status.formItem,
+        ...status.extraItem,
         currency: withdrawFiat.currency?.currency,
         channel_class: status.provider?.channel_class
       })
       .then((res) => {
-        if (res.code === 200) { // FIXME: 怎么又是 200 了，约定的应该都是 0 吧
+        if (res.code === 0 || res.code === 200) { // FIXME: 怎么又是 200 了，约定的应该都是 0 吧
           toast.success(t("toast:walletAddressAddedSuccessfully"));
           setWithdrawFiatV2({ method: status.provider });
-          setStatus((v) => ({ ...v, showModal: false }));
           void refetch();
+          onCloseCurrentModal();
+        } else if (res.code === 40021) {
+          // 提款AML措施-错误提示
+          openModal("OPEN_FINANCE_AML_MODAL");
         } else {
           toast.error(t("toast:failedToAddAddress"));
         }
@@ -196,28 +227,25 @@ export const WithdrawMethodInfoAddModal = () => {
       .finally(() => {
         setStatus((v) => ({ ...v, loading: false }));
       });
-  }, [status, filed_value_match, filed_value_null]);
-
-  // 事件通知
-  useEffect(() => {
-    if (syncAction.type === "OPEN_WITHDRAW_METHOD_ADD_MODAL") {
-      setStatus((v) => ({ ...v, showModal: true }));
-    }
-  }, [syncAction]);
+  }, [status, withdrawFiat.currency?.currency]);
 
   // 设置默认通道
   useEffect(() => {
-    if (status.showModal && Array.isArray(gatewaysV2?.data)) setStatus((old) => ({
+    if (
+      open &&
+      Array.isArray(gatewaysV2?.data) &&
+      gatewaysV2?.data?.length > 0
+    ) setStatus((old) => ({
       ...old,
       provider: gatewaysV2?.data?.[0]
     }));
-  }, [gatewaysV2, status.showModal]);
+  }, [gatewaysV2?.data?.length, open]);
 
   useEffect(() => {
-    console.info("status", status);
-    console.info("filed_value_null", filed_value_null);
-    console.info("filed_value_match", filed_value_match);
-  }, [filed_value_match, filed_value_null, status]);
+    if (open_debug && debug_target === "WITHDRAW") {
+      console.info(status);
+    }
+  }, [status]);
 
   return (
     <Modal
@@ -226,10 +254,13 @@ export const WithdrawMethodInfoAddModal = () => {
           <p className="text-sm font-bold">{t("finance:add_withdrawal_address")}</p>
         </div>
       }
-      isOpen={status.showModal}
-      onClose={() => setStatus(initSelected)}
+      isOpen={open}
+      onClose={() => {
+        onCloseCurrentModal();
+        setStatus(initSelected);
+      }}
       position="modal-middle"
-      className="bg-base-400 md:max-w-[400px] shadow-lg hide-scrollbar h-[75vh] max-h-[75vh]"
+      className="bg-base-400 md:max-w-[400px] shadow-lg hide-scrollbar max-h-[75vh]"
     >
       <div className="flex flex-col gap-4">
         <FormBox label={t("finance:withdrawCurrency")}>
@@ -241,10 +272,18 @@ export const WithdrawMethodInfoAddModal = () => {
 
         {/* 供应商选择 */}
         <WithdrawMethodSelectV2
-          method={status.provider}
-          setMethod={(v) => setStatus((old) => ({ ...old, ...v }))}
           title={t("finance:withdrawalMethod")}
+          method={status.provider}
           currency={withdrawFiat.currency?.currency}
+          setMethod={(v) => setStatus((old) => {
+            const next = { ...old, ...v, formItem: null, extraItem: null };
+
+            Object.keys(next).forEach((k) => {
+              if (k.endsWith("_error")) Reflect.deleteProperty(next, k);
+            });
+
+            return next;
+          })}
         />
 
         {/* 表单 */}
@@ -254,8 +293,8 @@ export const WithdrawMethodInfoAddModal = () => {
           {t("finance:ensure_all_withdrawal")}
         </p>
 
-        <ConfirmBox onClick={submit} loading={status.loading}>
-          {t("finance:save")}
+        <ConfirmBox onClick={submit} loading={status.loading} disabled={filed_value_error || filed_value_null}>
+          {t("common:common.confirm")}
         </ConfirmBox>
       </div>
     </Modal>
@@ -307,8 +346,8 @@ const InnerOptions = ({ name, field, onChange }: {
         {memoFilteredOptions.map((o: Record<string, any>, index: number) => (
           <div
             key={index}
-            className={classNames(
-              "md:text-xs font-bold flex items-center justify-between",
+            className={clsx(
+              "text-sm md:text-xs font-bold flex items-center justify-between",
               "cursor-pointer rounded-md p-2 select-none",
               "hover:bg-base-200 active:bg-base-200",
               o.value === status.option?.value ? "bg-base-200" : ""
@@ -316,7 +355,7 @@ const InnerOptions = ({ name, field, onChange }: {
             onClick={() => {
               emitter.emit(name, o.value);
               setStatus((v) => ({ ...v, option: o, search: "" }));
-              onChange({ [name]: o.value });
+              onChange({ value: o.value });
               set(false);
             }}
           >
@@ -328,19 +367,26 @@ const InnerOptions = ({ name, field, onChange }: {
   }, [memoFilteredOptions, status.option]);
 
   useEffect(() => {
-    onChange({ [name]: memoOptions[0].value });
-    setStatus((old) => ({ ...old, option: memoOptions[0] }));
-  }, [memoOptions]);
+    const required = field?.required;
+    const defaultValue = field?.default;
+    const defaultOption = defaultValue
+      ? memoOptions.find((o: Record<string, any>) => o.value === defaultValue)
+      : "";
+
+    onChange({ value: defaultOption?.value ?? "", [`${name}_error`]: !!(required && defaultOption === "") });
+    setStatus((old) => ({ ...old, option: defaultOption ?? null }));
+  }, [memoOptions, field?.default]);
 
   return (
-    <FormBox key={name} label={<RequireItem label={t(`finance:${field.label}`)} />}>
+    <FormBox key={name} label={<RequireItem required={field?.required} label={t(`finance:${field.label}`)} />}>
       <div
         className="flex items-center justify-between bg-base-300 h-10 rounded-lg px-4 cursor-pointer"
         onClick={() => {
           set(!show);
           !show && setStatus((o) => ({ ...o, search: "" }));
         }}>
-        <span className="text-sm font-semibold truncate">{status.option?.label}</span>
+        <span className={clsx("text-sm font-semibold truncate",
+          { "text-base-content/50": !status.option?.label })}>{status.option?.label || "Please select"}</span>
         <ChevronDown
           className={cn("w-4 h-4 md:transition-transform md:duration-200 text-base-content/50", show ? "md:rotate-180" : "")}
         />
@@ -348,68 +394,70 @@ const InnerOptions = ({ name, field, onChange }: {
 
       <div className="flex flex-col -mt-1" ref={ref}>
         {/*桌面端*/}
-        {!isMobile && (
-          <AnimatePresence>
-            {show && (
-              <m.div
-                className={classNames(`
+          {!isMobile && (
+            <LazyMotion features={domMax}>
+            <AnimatePresence>
+              {show && (
+                <m.div
+                  className={clsx(`
           bg-base-300 z-1 w-full rounded-lg shadow-xs overflow-hidden 
           w-[calc(100vw-3rem)] md:w-full 
           ltr:-left-[calc(100%+8px)] rtl:-right-[calc(100%+8px)]
           `)}
-                exit={{ height: 0 }}
-                initial={{ height: 0 }}
-                animate={{ height: "auto" }}
-                transition={{ duration: 0.1, delay: 0.1 }}
-              >
-                <div className="h-2 bg-base-300 sticky top-0" />
-                <InnerSearch
-                  className="mx-3 mt-1 mb-2"
-                  placeholder={t("common.searchPlaceholder")}
-                  value={status.search}
-                  onChange={(v) => setStatus((o) => ({ ...o, search: v }))}
-                />
-                <div className="flex max-h-[160px] flex-col gap-3 px-3 py-1 overflow-y-auto hide-scrollbar">
-                  {memoSelectOptions}
-                </div>
-                <div className="h-2 bg-base-300 sticky bottom-0" />
-              </m.div>
-            )}
-          </AnimatePresence>
-        )}
-
-        {/* 移动端 */}
-        {isMobile &&
-          createPortal(
-            <AnimatePresence>
-              {show && (
-                <m.div
-                  exit={{ opacity: 0 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                  style={{ marginTop: "env(safe-area-inset-top)" }}
-                  className="px-4 py-4 bg-base-400 fixed w-full z-[1001] top-0 bottom-0 flex flex-col"
+                  exit={{ height: 0 }}
+                  initial={{ height: 0 }}
+                  animate={{ height: "auto" }}
+                  transition={{ duration: 0.1, delay: 0.1 }}
                 >
-                  <p className="flex items-center justify-center relative text-lg font-semibold h-10">
-                    <button className={"absolute left-0 btn btn-md btn-square rounded-lg bg-base-300 border-0"}
-                            onClick={() => set(false)}>
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    {t(`finance:${field.label}`)}
-                  </p>
+                  <div className="h-2 bg-base-300 sticky top-0" />
                   <InnerSearch
-                    className="mt-4 bg-base-300"
-                    placeholder={t("common.searchPlaceholder")}
+                    className="mx-3 mt-1 mb-2"
+                    placeholder={t("common:common.searchPlaceholder")}
                     value={status.search}
                     onChange={(v) => setStatus((o) => ({ ...o, search: v }))}
                   />
-                  <div className="mt-2 overflow-y-auto flex-1 hide-scrollbar">{memoSelectOptions}</div>
+                  <div className="flex max-h-[160px] flex-col gap-3 px-3 py-1 overflow-y-auto hide-scrollbar">
+                    {memoSelectOptions}
+                  </div>
+                  <div className="h-2 bg-base-300 sticky bottom-0" />
                 </m.div>
               )}
-            </AnimatePresence>,
-            document.body
+            </AnimatePresence></LazyMotion>
           )}
+
+        {/* 移动端 */}
+          {isMobile &&
+            createPortal(
+              <LazyMotion features={domMax}>
+              <AnimatePresence>
+                {show && (
+                  <m.div
+                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    style={{ marginTop: "var(--safe-area-inset-top)" }}
+                    className="px-4 py-4 bg-base-400 fixed w-full z-[1002] top-0 bottom-0 flex flex-col"
+                  >
+                    <p className="flex items-center justify-center relative text-lg font-semibold h-10">
+                      <button className={"absolute left-0 btn btn-md btn-square rounded-lg bg-base-300 border-0"}
+                              onClick={() => set(false)}>
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      {t(`finance:${field.label}`)}
+                    </p>
+                    <InnerSearch
+                      className="mt-4 bg-base-300"
+                      placeholder={t("common:common.searchPlaceholder")}
+                      value={status.search}
+                      onChange={(v) => setStatus((o) => ({ ...o, search: v }))}
+                    />
+                    <div className="mt-2 overflow-y-auto flex-1 hide-scrollbar">{memoSelectOptions}</div>
+                  </m.div>
+                )}
+              </AnimatePresence></LazyMotion>,
+              document.body
+            )}
       </div>
     </FormBox>
   );
@@ -427,18 +475,6 @@ export function parser(payload: string) {
     }
   }
   return output;
-}
-
-function params(a: Record<string, any> | null, b: Record<string, any> | null) {
-  let final_params = {};
-  const parsed = parser(a?.params);
-  for (const key in parsed) {
-    if (parsed[key]?.hide || !parsed[key]?.required) continue;
-    if (Object.prototype.hasOwnProperty.call(b, key)) {
-      final_params = { ...final_params, [key]: b?.[key] };
-    }
-  }
-  return final_params;
 }
 
 export default WithdrawMethodInfoAddModal;

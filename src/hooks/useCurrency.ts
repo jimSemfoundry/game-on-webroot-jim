@@ -1,5 +1,6 @@
 import type { Currency, CurrencyConversionParams, CurrencyFormatOptions, ExchangeRates, FormattedCurrency } from "@/types/currency";
-import getSymbolFromCurrency from "currency-symbol-map";
+import getSymbolFromCurrency from "@/utils/currencySymbol";
+import Decimal from "decimal.js";
 import { useMemo } from "react";
 import { useCurrencyExchangeRate, useSupportedGameCurrencies } from "./api/usePublic";
 
@@ -128,8 +129,8 @@ export function useCurrencyData() {
     // 如果是整数，返回0
     if (absAmount % 1 === 0) return 0;
 
-    // 获取小数部分字符串
-    const decimalStr = absAmount.toString().split(".")[1] || "";
+    // 获取小数部分字符串（避免科学计数法）
+    const decimalStr = new Decimal(absAmount).toFixed(maxDecimals, Decimal.ROUND_DOWN).split(".")[1] || "";
 
     // 找到最后一个非零数字的位置
     let significantDecimals = 0;
@@ -147,10 +148,27 @@ export function useCurrencyData() {
     return Math.min(significantDecimals, maxDecimals);
   };
 
+  const getTwoNonZeroDecimalPlaces = (amount: number, maxDecimals: number): number => {
+    if (amount === 0 || !isFinite(amount)) return 0;
+
+    const absAmount = Math.abs(amount);
+    const decimalStr = new Decimal(absAmount).toFixed(maxDecimals, Decimal.ROUND_DOWN).split(".")[1] || "";
+
+    let nonZeroCount = 0;
+    for (let i = 0; i < Math.min(decimalStr.length, maxDecimals); i++) {
+      if (decimalStr[i] !== "0") {
+        nonZeroCount++;
+        if (nonZeroCount >= 2) return i + 1;
+      }
+    }
+
+    return Math.min(decimalStr.length, maxDecimals);
+  };
+
   /**
    * 格式化数字为紧凑格式 (k, m, b)
    */
-  const formatCompactNumber = (amount: number, maxDecimals: number = 2): string => {
+  const formatCompactNumber = (amount: number, maxDecimals: number = 2, roundingMode?: number): string => {
     if (!isFinite(amount) || isNaN(amount)) {
       return "0";
     }
@@ -160,9 +178,13 @@ export function useCurrencyData() {
 
     // 智能小数位处理函数
     const formatWithDecimals = (value: number): string => {
-      if (value % 1 === 0) return value.toFixed(0);
+      // 使用Decimal进行处理
       const decimals = Math.min(maxDecimals, 2); // 紧凑格式最多2位小数
-      return value.toFixed(decimals).replace(/\.?0+$/, "");
+      const truncated = new Decimal(value).toDecimalPlaces(
+        decimals,
+        (roundingMode ?? Decimal.ROUND_HALF_UP) as Decimal.Rounding,
+      );
+      return truncated.toString();
     };
 
     if (absAmount >= 1e9) {
@@ -179,10 +201,20 @@ export function useCurrencyData() {
     // 小于1000的数字，根据原始配置显示小数位
     if (absAmount < 1 && absAmount > 0) {
       const decimals = Math.min(maxDecimals, 8); // 小数最多8位
-      return amount.toFixed(decimals).replace(/\.?0+$/, "");
+      // 使用Decimal处理
+      const truncated = new Decimal(amount).toDecimalPlaces(
+        decimals,
+        (roundingMode ?? Decimal.ROUND_HALF_UP) as Decimal.Rounding,
+      );
+      return truncated.toString();
     }
 
-    return formatWithDecimals(amount);
+    // 普通数字也使用Decimal处理
+    const truncated = new Decimal(amount).toDecimalPlaces(
+      maxDecimals,
+      (roundingMode ?? Decimal.ROUND_HALF_UP) as Decimal.Rounding,
+    );
+    return truncated.toString();
   };
 
   /**
@@ -196,6 +228,7 @@ export function useCurrencyData() {
     minimizeDecimals = true,
     displayDecimal,
     compact = false,
+    roundingMode,
   }: CurrencyFormatOptions): FormattedCurrency => {
     // 输入验证
     if (!currency) {
@@ -253,7 +286,7 @@ export function useCurrencyData() {
 
     if (compact) {
       // 使用紧凑格式，传入货币配置的小数位
-      formatted = formatCompactNumber(numAmount, decimals);
+      formatted = formatCompactNumber(numAmount, decimals, roundingMode);
     } else {
       // 智能小数位处理
       const formatOptions: Intl.NumberFormatOptions = {
@@ -262,13 +295,18 @@ export function useCurrencyData() {
 
       if (minimizeDecimals) {
         // 最小化小数位：只显示必要的小数位，最多不超过配置的小数位
-        // 自适应精度：对于 < 1 的小额数字，允许突破配置的小数位限制，最多显示 8 位
+        // 自适应精度：对于 < 1 的小额数字，部分场景允许突破配置的小数位限制，最多显示 8 位
+        // 但如果调用方显式传入 displayDecimal，则必须严格遵守该精度（例如：VND=0、JPY=0）
         let maxDecimals = decimals;
-        if (Math.abs(numAmount) > 0 && Math.abs(numAmount) < 1) {
+        const canExceedConfiguredDecimals = displayDecimal === undefined;
+        if (canExceedConfiguredDecimals && Math.abs(numAmount) > 0 && Math.abs(numAmount) < 1) {
           maxDecimals = Math.max(decimals, 8);
         }
 
-        const significantDecimals = getSignificantDecimals(numAmount, maxDecimals);
+        const significantDecimals =
+          Math.abs(numAmount) > 0 && Math.abs(numAmount) < 1
+            ? getTwoNonZeroDecimalPlaces(numAmount, maxDecimals)
+            : getSignificantDecimals(numAmount, maxDecimals);
         formatOptions.minimumFractionDigits = 0;
         formatOptions.maximumFractionDigits = significantDecimals;
       } else {
@@ -277,7 +315,13 @@ export function useCurrencyData() {
         formatOptions.maximumFractionDigits = decimals;
       }
 
-      formatted = numAmount.toLocaleString("en-US", formatOptions);
+      // 用截断式处理，避免 toLocaleString 在 maximumFractionDigits 下四舍五入
+      const truncateDecimals = formatOptions.maximumFractionDigits ?? decimals;
+      const processedAmount = new Decimal(numAmount)
+        .toDecimalPlaces(truncateDecimals, Decimal.ROUND_DOWN)
+        .toNumber();
+
+      formatted = processedAmount.toLocaleString("en-US", formatOptions);
     }
 
     // 获取货币符号

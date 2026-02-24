@@ -7,6 +7,8 @@
   "baseball": "বেসবল",
   "iceHockey": "আইস হকি",
   "basketball": "বাস্কেটবল",
+  "cricket": "ক্রিকেট",
+  "eSoccer": "ই-সকার",
   "volleyball": "ভলিবল",
   "hot": "হট",
   "all": "সব",
@@ -69,5 +71,6 @@
   "live-casino": "লাইভ ক্যাসিনো",
   "sports": "স্পোর্টস",
   "lotteries": "লটারিস",
-  "gamesYouShouldTry": "আপনার চেষ্টা করা উচিত এমন গেমগুলি"
+  "gamesYouShouldTry": "আপনার চেষ্টা করা উচিত এমন গেমগুলি",
+  "bonus": "Bonus"
 }

@@ -76,12 +76,39 @@
   "dashboard": "Bảng điều khiển",
   "transactions": "Giao dịch",
   "rollover": "Rollover",
-  "betHistory": "Lịch sử cược",
+  "betHistory": {
+    "empty": "Không tìm thấy lịch sử cược",
+    "title": "Lịch sử cược",
+    "headers": {
+      "game": "Trò chơi",
+      "date": "Ngày",
+      "betId": "ID cược",
+      "betIn": "Cược",
+      "betOut": "Thắng",
+      "account": "Tài khoản",
+      "amount": "Số tiền",
+      "provider": "Nhà cung cấp",
+      "match": "Trận đấu",
+      "tournament": "Giải đấu"
+    }
+  },
   "settings": "Cài đặt",
   "legal": "Pháp lý",
   "nickname": "Biệt danh",
   "zoomAndAdjust": "Phóng to và Điều chỉnh",
   "systemLanguage": "Ngôn ngữ Hệ thống",
   "editProfile": "Chỉnh sửa Hồ sơ",
-  "inviteAndGetRewarded": "Mời và Nhận Thưởng"
+  "inviteAndGetRewarded": "Mời và Nhận Thưởng",
+  "emailAddress": "Địa chỉ Email",
+  "codeSent": "Nhập mã mà chúng tôi đã gửi",
+  "codeSentTo": "Một mã đã được gửi đến",
+  "notReceiveCode": "Không nhận được mã?",
+  "verificationSuccess": "Xác minh thành công",
+  "spinHistory": {
+    "statusFilterLabel": "Trạng thái"
+  },
+  "phone_number_has_been_verified": "Số điện thoại của bạn đã được xác minh. Bạn có thể tiếp tục.",
+  "email_address_has_been_verified": "Địa chỉ email của bạn đã được xác minh. Bạn có thể tiếp tục.",
+  "setNewPassword": "Đặt Mật khẩu Mới",
+  "passwordLengthRequirement": "Vui lòng nhập mật khẩu từ 6 đến 64 ký tự."
 }

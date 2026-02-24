@@ -7,6 +7,9 @@
     "commissions": "Commissies",
     "rewards": "Beloningen"
   },
+  "campaignAlreadyExists": "Campagne bestaat al",
+  "campaignCreateSuccess": "Campagne succesvol aangemaakt!",
+  "campaignCreateFailed": "Mislukt om campagne aan te maken",
   "commissionCalculator": "Commissiecalculator",
   "telegramReferralLink": "Telegram Verwijzingslink",
   "network": "Netwerk",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Mijn Verwijzingscommissies",
   "myReferralRewards": "Mijn Verwijzingsbeloningen",
   "exp": "EXP",
-  "userLevel": "Gebruikersniveau"
+  "userLevel": "Gebruikersniveau",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>VERWIJZING</0><0>BONUS</0>",
+    "title": "Nodig een vriend uit en ontvang extra beloningen wanneer zij hun eerste storting doen. Voor de eerste speler die je verwijst en die zich aanmeldt, stort en speelt, ontvang je een Extra Verwijsbonus van 10% op hun initiële stortingsbedrag.",
+    "bonusCalculatedTitle": "Hoe wordt de Bonus Berekend?",
+    "bonusCalculatedDesc": "Je Extra Verwijsbonus wordt berekend als 10% van de eerste storting van je vriend. Als de eerste storting van je vriend gelijk is aan <0>{{depositAmount}}</0>, ontvang je een beloning ter waarde van <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Claimverdeling",
+    "claimDistributionDesc": "Alles wat je hoeft te doen is contact opnemen met de Klantenservice via Live Chat en hen informeren dat je de beloning wilt claimen met de informatie van je verwijzing.",
+    "expirationTitle": "Vervaldatum",
+    "expirationDesc": "De bonus moet binnen 7 x 24 uur (7 dagen) na de initiële storting van je vriend worden geclaimd; daarna kan deze niet opnieuw worden uitgegeven.",
+    "generalTermsTitle": "Algemene Voorwaarden",
+    "generalTermsDesc1": "Beloningen worden berekend en gecrediteerd in <0>BUCK/USDT</0>, en vervolgens weergegeven in uw voorkeurs fiat-valuta voor uw gemak. Houd er rekening mee dat valutaconversies bij benadering zijn. De maximale bonus die u per doorverwezen vriend kunt ontvangen, is het equivalent van {{bonusAmount}}, en de bonus kan eenmaal per gebruikers-ID worden geclaimd. Uw verwijzing moet minstens 4 keer het bedrag van hun eerste storting inzetten voordat u uw bonus kunt claimen.",
+    "generalTermsDesc2": "Het casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken, zonder de verplichting om dit te rechtvaardigen. Misbruik of frauduleuze activiteiten – inclusief maar niet beperkt tot dubbele of overeenkomende spelerdata, stortingsfraude, overeenkomende IP-adressen, veilige inzetten of investeringsgedrag – zullen leiden tot diskwalificatie van de promotie en annulering van gerelateerde bonussen. Alle beslissingen van het casino met betrekking tot deze promotie zijn definitief en kunnen niet worden betwist."
+  },
+  "referral_program_disabled": "DOORVERWIJS\nPROGRAMMA\n<0>UITGESCHAKELD</0>",
+  "programAccessUpdate": "Update van programmatoegang",
+  "referralProgramPrivileges": "Je privileges voor het referralprogramma zijn ingetrokken na een beoordeling van je account en deelname aan het programma. We hebben activiteit vastgesteld die niet in overeenstemming is met de voorwaarden of het beoogde gebruik van ons referralprogramma. Dit kan onder meer verdachte referralpatronen, ongeautoriseerde promotionele methoden, misbruik van incentives of pogingen om fair-use richtlijnen te omzeilen omvatten.",
+  "referralRewardsPrivileges": "Als gevolg hiervan is je mogelijkheid om nieuwe referralbeloningen te genereren, referral-links te delen of voordelen uit referrals te ontvangen uitgeschakeld. In afwachting zijnde of toekomstige beloningen die aan het referralprogramma zijn gekoppeld, worden overeenkomstig ons beleid ingehouden en geannuleerd. <0>Alle overige functionaliteit van je account blijft intact en wordt niet beïnvloed door deze wijziging</0>.",
+  "understandDisappointing": "We begrijpen dat dit teleurstellend kan zijn. Als je denkt dat deze beslissing onjuist is, of als je meer details wilt, neem dan contact op met ons supportteam met relevante informatie, en we zullen je zaak beoordelen."
 }

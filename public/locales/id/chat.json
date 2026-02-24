@@ -3,5 +3,8 @@
   "notifications": "Notifikasi",
   "support": "Dukungan",
   "retry": "Coba lagi",
-  "customerServiceChatFailedToLoad": "Obrolan layanan pelanggan gagal dimuat"
+  "customerServiceChatFailedToLoad": "Obrolan layanan pelanggan gagal dimuat",
+  "read": "Baca",
+  "unread": "Belum dibaca",
+  "customerService": "Layanan pelanggan"
 }

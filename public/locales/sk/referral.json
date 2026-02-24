@@ -7,6 +7,9 @@
     "commissions": "Provizie",
     "rewards": "Odmeny"
   },
+  "campaignAlreadyExists": "Kampaň už existuje",
+  "campaignCreateSuccess": "Kampaň bola úspešne vytvorená!",
+  "campaignCreateFailed": "Nepodarilo sa vytvoriť kampaň",
   "commissionCalculator": "Kalkulačka provízií",
   "telegramReferralLink": "Odkaz na Odporúčanie Telegramu",
   "network": "Sieť",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Moje referralové provízie",
   "myReferralRewards": "Moje referralové odmeny",
   "exp": "EXP",
-  "userLevel": "Úroveň používateľa"
+  "userLevel": "Úroveň používateľa",
+  "extraReferralBonus": {
+    "slogan": "EXTRA<0>REFERRAL</0><0>BONUS</0>",
+    "title": "Pozvite priateľa a získajte extra odmeny, keď urobí svoj prvý vklad. Za prvého hráča, ktorého odporučíte, ktorý sa zaregistruje, vloží a hrá, dostanete 10% Extra Referral Bonus na základe jeho počiatočnej sumy vkladu.",
+    "bonusCalculatedTitle": "Ako sa bonus vypočíta?",
+    "bonusCalculatedDesc": "Váš Extra Referral Bonus sa vypočíta ako 10% z prvého vkladu vášho priateľa. Ak je prvý vklad vášho priateľa ekvivalentný <0>{{depositAmount}}</0>, dostanete odmenu v hodnote <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Distribúcia nároku",
+    "claimDistributionDesc": "Všetko, čo musíte urobiť, je kontaktovať zákaznícku službu cez Live Chat a informovať ich, že chcete uplatniť odmenu s informáciami o vašom odporúčaní.",
+    "expirationTitle": "Platnosť",
+    "expirationDesc": "Bonus musí byť uplatnený do 7 x 24 hodín (7 dní) po počiatočnom vklade vášho priateľa; po uplynutí tejto doby nemôže byť znovu vydaný.",
+    "generalTermsTitle": "Všeobecné podmienky",
+    "generalTermsDesc1": "Odmeny sa počítajú a pripisujú v <0>BUCK/USDT</0>, potom sa zobrazia vo vašej preferovanej fiat mene pre pohodlie. Upozorňujeme, že konverzie mien sú približné. Maximálna odmena, ktorú môžete získať za každého odporúčaného priateľa, je ekvivalent {{bonusAmount}} a odmenu môžete uplatniť raz na používateľské ID. Váš odporúčaný musí vsadiť aspoň 4-násobok svojej prvej vkladovej sumy, než si môžete uplatniť svoju odmenu.",
+    "generalTermsDesc2": "Kasíno si vyhradzuje právo kedykoľvek zmeniť alebo odvolať oprávnenosť, bez povinnosti to odôvodniť. Akékoľvek zneužitie alebo podvodná činnosť – vrátane, ale nie obmedzené na, duplicitné alebo zhodné údaje hráčov, podvodné vklady, zhodné IP adresy, bezpečnostné stávky alebo správanie v štýle investícií – povedie k diskvalifikácii z propagácie a zrušeniu akýchkoľvek súvisiacich bonusov. Všetky rozhodnutia kasína týkajúce sa tejto propagácie sú konečné a nemožno ich napadnúť."
+  },
+  "referral_program_disabled": "REFERENČNÝ\nPROGRAM\n<0>DEAKTIVOVANÝ</0>",
+  "programAccessUpdate": "Aktualizácia prístupu k programu",
+  "referralProgramPrivileges": "Vaše privilégiá v referenčnom programe boli po kontrole vášho účtu a účasti v programe odobraté. Identifikovali sme aktivitu, ktorá nie je v súlade s podmienkami alebo zamýšľaným použitím nášho referenčného programu. Môže ísť o podozrivé vzorce odporúčaní, neautorizované propagačné metódy, zneužívanie stimulov alebo pokusy obísť pravidlá férového používania.",
+  "referralRewardsPrivileges": "V dôsledku toho bola deaktivovaná vaša schopnosť generovať nové odmeny za odporúčania, zdieľať odporúčacie odkazy alebo získavať výhody z odporúčaní. Nevybavené alebo budúce odmeny spojené s referenčným programom budú zadržané a zrušené v súlade s našimi politikami. <0>Všetky ostatné funkcie vášho účtu zostávajú zachované a nie sú touto zmenou ovplyvnené</0>.",
+  "understandDisappointing": "Chápeme, že to môže byť sklamaním. Ak si myslíte, že toto rozhodnutie je chybné, alebo chcete viac detailov, kontaktujte prosím náš tím podpory s relevantnými informáciami a váš prípad preveríme."
 }

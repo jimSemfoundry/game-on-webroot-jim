@@ -25,6 +25,14 @@
   "totalTips": "Tips",
   "result": "Hasil",
   "myBets": "Taruhan Saya",
-  "**********": "",
-  "demoPlay": "Permainan Demo"
+  "demoPlay": "Permainan Demo",
+  "limitedOffer": "Penawaran Terbatas",
+  "deposit": "Setor {{value}}",
+  "get": "Dapatkan {{value}}",
+  "instantCashBonus": "Bonus Tunai Instan",
+  "expires": "Kedaluwarsa",
+  "depositNow": "Setor Sekarang",
+  "free_spins": "Putaran Gratis",
+  "play_with_balance_in": "Bermain dengan Saldo Dalam",
+  "the_selected_currency_will_be_displayed_in": "Mata uang yang dipilih akan ditampilkan dalam"
 }

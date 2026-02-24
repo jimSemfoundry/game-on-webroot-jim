@@ -5,11 +5,11 @@
     "achievements": "Saavutukset",
     "achievementDescription": "Saavutuspalkinnot ovat palkintoja, jotka annetaan uusien virstanpylväiden saavuttamisesta ja haasteiden voittamisesta. Ne juhlistavat edistymistäsi ja menestystäsi, avaten hauskoja yllätyksiä, kun saavutat uusia saavutuksia matkan varrella!",
     "claimDistribution": "Vaatimusten jakaminen",
-    "claimDistributionDescription": "Palkinnot lisätään bonuskalenteriisi 3 päivän ajaksi vaatimisen jälkeen.",
+    "claimDistributionDescription": "Palkintosi vahvistetaan välittömästi ja ne ovat lunastettavissa talletus-<0>bonuspools</0>ta aina, kun lunastat uuden saavutuspalkinnon.",
     "expiration": "Voimassaolo",
-    "expirationDescription": "Ei - Palkinnot lähetetään automaattisesti kalenteriin.",
+    "expirationDescription": "Ei vanhenemista – lunastukset ovat saatavilla niin kauan kuin Bonus Pool -saldo on riittävä.",
     "generalTerms": "Yleiset ehdot",
-    "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään BUCK/USDT-määräisenä, ja ne näytetään sitten valitsemassasi fiat-valuutassa mukavuuden vuoksi. Huomaa, että valuuttamuunnokset ovat suuntaa-antavia.\n\nKasinolla on oikeus muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman velvollisuutta perustella. Mahdollinen väärinkäyttö tai petollinen toiminta johtaa hylkäämiseen kampanjasta."
+    "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään USDT:nä ja näytetään sen jälkeen sinulle mieluisassa fiat-valuutassa. Huomioithan, että valuuttamuunnokset ovat suuntaa-antavia.\n\nKasino pidättää oikeuden muuttaa tai perua kelpoisuuden milloin tahansa ilman perusteluvelvollisuutta. Kaikki väärinkäyttö tai vilpillinen toiminta johtaa kampanjasta sulkemiseen."
   },
   "luckyNumberSeven": {
     "title": "Onnekas Numero \n Seitsemän",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Vähimmäisvaatimussumma on {{money}}",
     "expiration": "Voimassaolo",
-    "expirationDescription": "Mysteerilaatikkosi on vaadittava 7 päivän kuluessa sen myöntämisestä. Vaatimattomat palkinnot vanhenevat tämän ajan jälkeen.",
+    "expirationDescription": "Mysteerilaatikkosi on vaadittava 3 päivän kuluessa sen myöntämisestä. Vaatimattomat palkinnot vanhenevat tämän ajan jälkeen.",
     "generalTerms": "Yleiset ehdot",
     "generalTermsDescription": "Palkinnot lasketaan ja hyvitetään käyttäjän ensimmäisen talletuksen perusteella tai USDT:ssä, jos talletusta ei ole tehty, edellyttäen 1x kierrätysvaatimus. Määrät näytetään valitsemassasi fiat-valuutassa; muunnokset ovat suuntaa-antavia.\n\nKasinolla on oikeus muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman ennakkoilmoitusta. Mahdollinen väärinkäyttö tai petos johtaa hylkäämiseen."
   },

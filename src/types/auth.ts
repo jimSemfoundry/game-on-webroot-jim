@@ -99,7 +99,7 @@ export interface UserStatus {
   withdraw_times: number;
   promotion_times: number;
   promotion_amount: string;
-  recents_game: string | null;
+  recents_game: number|string | null;
   favorites_game: string | null;
   bet_in: string;
   bet_out: string;
@@ -125,6 +125,9 @@ export interface UserStatus {
   ban_game_type_2: string;
   ban_game_category_1: string;
   ban_game_category_2: string;
+  referral_enable: number;
+  welcome_bonus_type: number;
+  bonus_wallet_name: string;
 }
 
 export interface LoginCredentials {

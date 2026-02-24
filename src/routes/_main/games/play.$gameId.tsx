@@ -131,11 +131,14 @@ const GamePlay = () => {
     );
   }
 
-  const playerViewportHeight = "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4.5rem)]";
-  const playerViewportMinHeight = "min-h-[calc(100dvh-3rem)] md:min-h-[calc(100dvh-4.5rem)]";
+  // MainLayout reserves header space via `pt-[calc(<header>+env(safe-area-inset-top))]`.
+  // This route renders an iframe-heavy view where parent scrolling is effectively blocked,
+  // so we must match the same subtraction to avoid clipping the bottom of the game.
+  const playerViewportHeight = "h-[calc(100dvh-3rem-env(safe-area-inset-top))] md:h-[calc(100dvh-4.5rem-env(safe-area-inset-top))]";
+  const playerViewportMinHeight = "min-h-[calc(100dvh-3rem-env(safe-area-inset-top))] md:min-h-[calc(100dvh-4.5rem-env(safe-area-inset-top))]";
 
   return (
-    <div className={cn("bg-black", playerViewportMinHeight)}>
+    <div className={cn("bg-black overflow-hidden", playerViewportMinHeight)}>
       <div className={cn("w-full", playerViewportHeight)}>
         <GameIframe
           launchData={gameData.launchData}

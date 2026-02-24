@@ -145,7 +145,7 @@ const deriveRawFromExternal = (external: string, fallbackCountry: Country): stri
 
 const getFlagAsset = (countryCode?: Country): string => {
   if (!countryCode) return ''
-  return `/icons/flags/country/${countryCode.toLowerCase()}.svg`
+  return `/icons/flags/country/${countryCode.toLowerCase()}.png`
 }
 
 const getBrowserCountryCode = (): Country => {
@@ -286,7 +286,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
     ref
   ) => {
     // Get current language
-    const { i18n } = useTranslation()
+    const { i18n, t } = useTranslation()
     const currentLanguage = i18n.language
     
     // Get country names based on current language - now synchronous
@@ -578,7 +578,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                 className={cn(
                   'btn join-item bg-base-300 hover:bg-base-200 focus:bg-base-200',
                   'min-w-20 gap-2 flex items-center justify-start',
-                  'border-0 h-10 sm:h-12 rounded-r-none',
+                  'border-0 h-10 sm:h-12 ltr:rounded-r-none rtl:rounded-l-none',
                   disabled && 'btn-disabled'
                 )}
                 onClick={handleDropdownToggle}
@@ -588,6 +588,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                 aria-label={`Selected country: ${countryNames[selectedCountry] || selectedCountry}`}
               >
                 <img
+                  loading="lazy"
                   src={getFlagAsset(selectedCountry)}
                   alt={countryNames[selectedCountry] || selectedCountry}
                   className="w-4 h-4 sm:w-5 sm:h-5 rounded-sm object-cover"
@@ -605,18 +606,18 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
 
               {/* Dropdown */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 z-50 mt-1 bg-base-200 border border-base-300 rounded-lg shadow-lg min-w-80 max-h-80 overflow-hidden">
+                <div className="absolute top-full ltr:left-0 rtl:right-0 z-50 mt-1 bg-base-200 border border-base-300 rounded-lg shadow-lg min-w-80 max-h-80 overflow-hidden">
                   {/* Search */}
                   <div className="p-3 border-b border-base-300">
                     <div className="relative">
-                      <Search className="absolute z-50 left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-base-content/50" />
+                      <Search className="absolute z-50 ltr:left-3 rtl:right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-base-content/50" />
                       <input
                         ref={searchInputRef}
                         type="text"
-                        placeholder="Search countries..."
+                        placeholder={t('common:common.searchPlaceholder')}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="input input-sm sm:input-md w-full rounded-field pl-10 bg-base-300 border-0 focus:outline-none"
+                        className="input input-sm sm:input-md w-full rounded-field ltr:pl-10 rtl:pr-10 bg-base-300 border-0 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -625,7 +626,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                   <div className="overflow-y-auto max-h-60 py-2" role="listbox">
                     {filteredCountries.length === 0 ? (
                       <div className="p-3 text-center text-base-content/50 text-sm">
-                        No countries found
+                        {t('common:no_countries_found')}
                       </div>
                     ) : (
                       filteredCountries.map((country, index) => (
@@ -633,7 +634,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                           key={country}
                           ref={el => { optionRefs.current[index] = el }}
                           className={cn(
-                            'flex items-center gap-3 px-3 py-2 cursor-pointer transition-colors ml-3 rounded-field',
+                            'font-bold flex items-center gap-3 px-3 py-2 cursor-pointer transition-colors ltr:ml-3 rtl:mr-3 rounded-field',
                             'hover:bg-base-300 focus:bg-base-200',
                             country === selectedCountry && 'bg-primary/10 text-primary',
                             focusedIndex === index && 'bg-base-200'
@@ -644,14 +645,15 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
                           tabIndex={-1}
                         >
                           <img
+                            loading="lazy"
                             src={getFlagAsset(country)}
                             alt={countryNames[country] || country}
-                            className="w-5 h-5 rounded-sm object-cover"
+                            className="w-4 h-4 rounded-sm object-cover"
                           />
-                          <span className="flex-1 text-sm">
+                          <span className="flex-1 text-xs">
                             {countryNames[country] || country}
                           </span>
-                          <span className="text-sm text-base-content/70 font-mono">
+                          <span className="text-xs text-base-content/70 font-mono">
                             +{getCountryCallingCode(country)}
                           </span>
                         </li>
@@ -666,7 +668,7 @@ export const PhoneEmailInput = forwardRef<HTMLInputElement, PhoneEmailInputProps
           {/* Main Input */}
           <label className={cn(
             'input input-ghost join-item flex-1 bg-base-300 input-md sm:input-lg',
-            showCountrySelector ? 'rounded-l-none' : 'rounded-lg',
+            showCountrySelector ? 'ltr:rounded-l-none rtl:rounded-r-none' : 'rounded-lg',
             disabled && 'input-disabled'
           )}>
             <input

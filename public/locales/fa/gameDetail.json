@@ -25,6 +25,14 @@
   "totalTips": "انعام‌ها",
   "result": "نتیجه",
   "myBets": "شرط‌های من",
-  "**********": "",
-  "demoPlay": "بازی دمو"
+  "demoPlay": "بازی دمو",
+  "limitedOffer": "پیشنهاد محدود",
+  "deposit": "واریز {{value}}",
+  "get": "دریافت {{value}}",
+  "instantCashBonus": "پاداش نقدی فوری",
+  "expires": "منقضی می‌شود",
+  "depositNow": "همین حالا واریز کنید",
+  "free_spins": "چرخش‌های رایگان",
+  "play_with_balance_in": "بازی با موجودی در",
+  "the_selected_currency_will_be_displayed_in": "ارز انتخاب شده در"
 }

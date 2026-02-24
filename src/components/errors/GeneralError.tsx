@@ -7,6 +7,7 @@ import Header from "../header/Header";
 import { Sidebar } from "../sidebar/Sidebar";
 import { ChatwootWrapper } from "../ui/ChatwootFloatingButton";
 import { useTranslation } from "react-i18next";
+import { useRumSdkUserLog } from "@/utils/helper.ts";
 
 interface GeneralErrorProps {
     error: Error;
@@ -18,10 +19,14 @@ export function GeneralError({ error }: GeneralErrorProps) {
     const router = useRouter();
     const mainRef = useRef<HTMLElement>(null);
 
+    const { rumException } = useRumSdkUserLog()
+
     useEffect(() => {
         // Log the error to console for debugging purposes
         console.error("GeneralError caught:", error);
-    }, [error]);
+        // TODO: 异常日志推送
+        rumException(error)
+    }, [error, rumException]);
 
     const handleBack = () => {
         // Attempt to go back, fallback to home if no history or other issue

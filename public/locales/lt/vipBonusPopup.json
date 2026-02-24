@@ -5,11 +5,11 @@
     "achievements": "Pasiekimai",
     "achievementDescription": "Pasiekimų apdovanojimai yra apdovanojimai, skiriami už naujų etapų pasiekimą ir iššūkių įveikimą. Jie švenčia jūsų pažangą ir sėkmę, atrakindami smagius siurprizus, kai pasiekiate naujų laimėjimų!",
     "claimDistribution": "Reikalavimo paskirstymas",
-    "claimDistributionDescription": "Apdovanojimai pridedami prie jūsų premijų kalendoriaus 3 dienas po reikalavimo.",
+    "claimDistributionDescription": "Jūsų atlygis iš karto įgyjamas ir tampa prieinamas atsiimti iš jūsų įmokos <0>bonusų fondo</0> kiekvieną kartą, kai atsiimate naują pasiekimo atlygį.",
     "expiration": "Galiojimas",
-    "expirationDescription": "Nėra - apdovanojimai automatiškai siunčiami į kalendorių.",
+    "expirationDescription": "Nėra – atsiėmimai galimi, kol Bonus Pool balansas pakankamas.",
     "generalTerms": "Bendros sąlygos",
-    "generalTermsDescription": "Apdovanojimai skaičiuojami ir kredituojami BUCK/USDT, tada rodomi jūsų pageidaujamoje fiat valiutoje patogumui. Prašome atkreipti dėmesį, kad valiutų konversijos yra apytikslės.\n\nKazino pasilieka teisę bet kuriuo metu keisti arba atšaukti tinkamumą, nesuteikdama pareigos pateikti paaiškinimus. Bet koks piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją iš akcijos."
+    "generalTermsDescription": "Atlygiai apskaičiuojami ir įskaitomi USDT, o vėliau patogumui rodomi jūsų pageidaujama fiat valiuta. Atkreipkite dėmesį, kad valiutų konvertavimas yra apytikslis.\n\nKazino pasilieka teisę bet kada keisti arba atšaukti tinkamumą be pareigos pagrįsti. Bet koks piktnaudžiavimas ar sukčiavimas lems diskvalifikaciją iš akcijos."
   },
   "luckyNumberSeven": {
     "title": "Laimingas skaičius \n Septyni",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimalus reikalavimo suma yra {{money}}",
     "expiration": "Galiojimas",
-    "expirationDescription": "Jūsų mistinė dėžutė turi būti reikalaujama per 7 dienas po jos suteikimo. Nepriklausomi apdovanojimai pasibaigs po šio laikotarpio.",
+    "expirationDescription": "Jūsų mistinė dėžutė turi būti reikalaujama per 3 dienas po jos suteikimo. Nepriklausomi apdovanojimai pasibaigs po šio laikotarpio.",
     "generalTerms": "Bendros sąlygos",
     "generalTermsDescription": "Apdovanojimai skaičiuojami ir kredituojami pagal vartotojo pirmąjį įnašą arba USDT, jei įnašo nebuvo, taikant 1x apyvartą. Sumos rodomos jūsų pageidaujamoje fiat valiutoje; konversijos yra apytikslės.\n\nKazino pasilieka teisę bet kuriuo metu keisti arba atšaukti tinkamumą be įspėjimo. Bet koks piktnaudžiavimas ar sukčiavimas sukels diskvalifikaciją."
   },

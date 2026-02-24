@@ -76,12 +76,39 @@
   "dashboard": "Cruscotto",
   "transactions": "Transazioni",
   "rollover": "Rollover",
-  "betHistory": "Storico scommesse",
+  "betHistory": {
+    "empty": "Nessuna cronologia scommesse trovata",
+    "title": "Cronologia scommesse",
+    "headers": {
+      "game": "Gioco",
+      "date": "Data",
+      "betId": "ID scommessa",
+      "betIn": "Puntata",
+      "betOut": "Vincita",
+      "account": "Account",
+      "amount": "Importo",
+      "provider": "Fornitore",
+      "match": "Partita",
+      "tournament": "Torneo"
+    }
+  },
   "settings": "Impostazioni",
   "legal": "Legale",
   "nickname": "Soprannome",
   "zoomAndAdjust": "Zoom e Regola",
   "systemLanguage": "Lingua di Sistema",
   "editProfile": "Modifica Profilo",
-  "inviteAndGetRewarded": "Invita e Ricevi Ricompense"
+  "inviteAndGetRewarded": "Invita e Ricevi Ricompense",
+  "emailAddress": "Indirizzo Email",
+  "codeSent": "Inserisci il Codice Che Abbiamo Inviato",
+  "codeSentTo": "Un codice è stato inviato a",
+  "notReceiveCode": "Non hai ricevuto il codice?",
+  "verificationSuccess": "Verifica Riuscita",
+  "spinHistory": {
+    "statusFilterLabel": "Stato"
+  },
+  "phone_number_has_been_verified": "Il tuo numero di telefono è stato verificato. Puoi continuare.",
+  "email_address_has_been_verified": "Il tuo indirizzo email è stato verificato. Puoi continuare.",
+  "setNewPassword": "Imposta nuova password",
+  "passwordLengthRequirement": "Inserisci una password tra 6 e 64 caratteri."
 }

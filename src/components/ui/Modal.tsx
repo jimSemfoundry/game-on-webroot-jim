@@ -1,6 +1,6 @@
 import { cn } from "@/utils/themeMerger";
 import { X } from "lucide-react";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 export const useModal = (initialState = false) => {
@@ -43,7 +43,7 @@ export function Modal({
   classNameModal
 }: ModalProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const modalId = `${id}_${Math.random().toString(36).substring(2, 11)}`;
+  const modalId = `${id}_${useId()}`;
 
   useEffect(() => {
     const modal = modalRef.current;
@@ -52,7 +52,16 @@ export function Modal({
     if (isOpen) {
       modal.show();
     } else {
+      // iOS (especially in PWA) may scroll the layout viewport when an input is focused inside a dialog.
+      // Blurring before close helps the keyboard dismiss cleanly and prevents the app from being shifted.
+      const active = document.activeElement;
+      if (active instanceof HTMLElement) active.blur();
       modal.close();
+
+      // Snap window scroll back (the app uses an internal scroll container).
+      if (window.scrollY !== 0) {
+        window.setTimeout(() => window.scrollTo(0, 0), 0);
+      }
     }
   }, [isOpen]);
 
@@ -84,7 +93,7 @@ export function Modal({
         <form method="dialog">
           <button
             type="button"
-            className={cn("btn btn-sm btn-square absolute top-4 right-5 rtl:left-4 rtl:right-auto", closeButtonClassName)}
+            className={cn("btn btn-sm btn-square absolute top-4 right-5 rtl:left-4 rtl:right-auto outline-none", closeButtonClassName)}
             onClick={onClose}
           >
             <X size={16} />
@@ -99,12 +108,12 @@ export function Modal({
         )}
 
         {/* 内容 */}
-        <div className="h-full">{children}</div>
+        <div className="h-full hide-scrollbar">{children}</div>
       </div>
 
       {/* 背景遮罩 - 点击关闭 */}
       {outsideClose && (
-        <form method="dialog" className="modal-backdrop">
+        <form method="dialog" className="modal-backdrop bg-base-400/80">
           <button type="button" onClick={onClose} />
         </form>
       )}

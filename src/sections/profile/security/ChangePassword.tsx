@@ -1,17 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { Card } from "@/sections/profile/c/Card.tsx";
-import { ChangePasswordModal } from "@/sections/profile/security/ChangePasswordModal.tsx";
 import { useBoundStore } from "@/store";
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export function ChangePassword() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const { setSyncAction } = useBoundStore();
 
   return (
-    <>
       <Card className="bg-base-300 md:p-4 justify-between">
         <InnerContainer
           name={`security-change-password`}
@@ -23,13 +21,11 @@ export function ChangePassword() {
           {t("profile:changePassword")}
         </ConfirmBox>
       </Card>
-      <ChangePasswordModal />
-    </>
   );
 }
 
 export const InnerImg = ({ name, className }: { name: string, className?: string }) => {
-  return <img src={`/images/profile/${name}.png`} className={classNames("w-14 h-14 md:w-21 md:h-21", className)}
+  return <img src={`/images/profile/${name}.png`} className={clsx("w-14 h-14 md:w-21 md:h-21", className)}
               alt="" />;
 };
 

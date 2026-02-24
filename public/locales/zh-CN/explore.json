@@ -7,6 +7,8 @@
   "baseball": "棒球",
   "iceHockey": "冰球",
   "basketball": "篮球",
+  "cricket": "板球",
+  "eSoccer": "电子足球",
   "volleyball": "排球",
   "hot": "热门",
   "all": "全部",
@@ -69,5 +71,6 @@
   "live-casino": "真人娱乐场",
   "sports": "体育",
   "lotteries": "彩票",
-  "gamesYouShouldTry": "您应该尝试的游戏"
+  "gamesYouShouldTry": "您应该尝试的游戏",
+  "bonus": "奖励"
 }

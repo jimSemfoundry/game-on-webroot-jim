@@ -59,7 +59,16 @@ const GeneralLink = ({ jump_url, onClose }: {
       const isOuterLink = /^https?:\/\/.*/.test(jump_url);
       if (isOuterLink) window.open(decodeURIComponent(jump_url));
       else {
-        void navigate({ to: decodeURIComponent(jump_url?.replace('/main/', '/')) });
+        // 解析jump_url为路径和查询参数
+        const url = new URL(decodeURIComponent(jump_url), window.location.origin);
+        const pathname = url.pathname.replace('/main', ''); // 移除/main前缀
+        const searchParams = Object.fromEntries(url.searchParams?.entries() || []);
+        
+        void navigate({ 
+          to: pathname || '/', 
+          search: searchParams 
+        });
+
         onClose?.();
       }
     }}>
@@ -188,7 +197,16 @@ const JumpUrl = ({ jump_url, navigate, onClose }: {
 }) => {
   return (<div className="text-right mt-4 sticky bottom-0">
     <button className={"btn btn-primary btn-soft btn-square btn-sm"} onClick={() => {
-      void navigate({ to: decodeURIComponent(jump_url?.replace('/main/', '/')) });
+      // 解析jump_url为路径和查询参数
+      const url = new URL(decodeURIComponent(jump_url), window.location.origin);
+      const pathname = url.pathname.replace('/main', ''); // 移除/main前缀
+      const searchParams = Object.fromEntries(url.searchParams?.entries() || []);
+
+      void navigate({
+        to: pathname || '/',
+        search: searchParams
+      });
+
       onClose?.();
     }}>
       <SquareArrowOutUpRight className="w-4 h-4" />

@@ -1,12 +1,12 @@
 export default class IndexDB {
-  private readonly IDB: Promise<IDBOpenDBRequest>
-  private static dbName = 'service'
-  private static version = 1
-  private static instance: IndexDB
-  private static tableName = 'service_host'
+  private readonly IDB: Promise<IDBDatabase>
+  private static readonly dbName = 'service'
+  private static readonly version = 1
+  private static instance: IndexDB | undefined
+  private static readonly tableName = 'record'
 
   private constructor() {
-    const { promise, resolve, reject } = Promise.withResolvers<IDBOpenDBRequest>()
+    const { promise, resolve, reject } = Promise.withResolvers<IDBDatabase>()
     try {
       const connect = window.indexedDB.open(IndexDB.dbName, IndexDB.version)
       connect.onerror = function (_e) {
@@ -16,15 +16,24 @@ export default class IndexDB {
         reject(_e)
       }
       connect.onupgradeneeded = function (_e) {
-        connect.result.createObjectStore(IndexDB.tableName)
+        if (!connect.result.objectStoreNames.contains(IndexDB.tableName)) {
+          connect.result.createObjectStore(IndexDB.tableName)
+        }
       }
       connect.onsuccess = function (_e) {
-        resolve(connect)
+        const db = connect.result
+        db.onversionchange = function () {
+          db.close()
+        }
+        resolve(db)
       }
     } catch (e) {
       reject(e)
     } finally {
       this.IDB = promise
+      void promise.catch(() => {
+        if (IndexDB.instance === this) IndexDB.instance = undefined
+      })
     }
   }
 
@@ -35,29 +44,72 @@ export default class IndexDB {
     return IndexDB.instance
   }
 
-  async transaction(mode: IDBTransactionMode) {
-    const IDB = await this.IDB
-    const objectStore = IDB.result.transaction([IndexDB.tableName], mode)
+  static reset() {
+    IndexDB.instance = undefined
+  }
+
+  async transaction(mode: IDBTransactionMode, retry = true): Promise<IDBObjectStore> {
+    let db: IDBDatabase
+    try {
+      db = await this.IDB
+    } catch (e) {
+      if (!retry) throw e
+      IndexDB.reset()
+      return IndexDB.getInstance().transaction(mode, false)
+    }
+
+    const objectStore = db.transaction([IndexDB.tableName], mode)
     return objectStore.objectStore(IndexDB.tableName)
   }
 
   async add(key: IDBValidKey, val: any) {
-    const { promise, resolve, reject } = Promise.withResolvers()
     const transaction = await this.transaction('readwrite')
     const request = transaction.put(val, key)
-    request.onerror = function (_e) {
-      reject(_e)
-    }
-    request.onsuccess = function (_e) {
-        resolve(_e)
-    }
-    return promise
+    return promisifyIDBRequest(request)
+  }
+
+  async get<T = unknown>(key: IDBValidKey): Promise<T | undefined> {
+    const transaction = await this.transaction('readonly')
+    const request = transaction.get(key)
+    return promisifyIDBRequest<T | undefined>(request)
+  }
+
+  async clear() {
+    const transaction = await this.transaction('readwrite')
+    const request = transaction.clear()
+    return promisifyIDBRequest(request)
   }
 }
 
-try {
+function promisifyIDBRequest<T = unknown>(request: IDBRequest) {
+  const { promise, resolve, reject } = Promise.withResolvers<T>()
+  request.onerror = function (_e) {
+    reject(_e)
+  }
+  request.onsuccess = function () {
+    resolve(request.result as T)
+  }
+  return promise
+}
+
+function isIndexedDBAvailable() {
+  return typeof window !== 'undefined' && typeof window.indexedDB !== 'undefined'
+}
+
+export async function readIDBValueByKey<T = unknown>(key: IDBValidKey): Promise<T | undefined> {
+  if (!isIndexedDBAvailable()) return undefined
   const instance = IndexDB.getInstance()
-  void instance.add('value', import.meta.env.VITE_API_URL)
-} catch (e) {
-  console.info(e)
+  return instance.get<T>(key)
+}
+
+export async function writeIDBValueByKey(key: IDBValidKey, val: any) {
+  if (!isIndexedDBAvailable()) return
+  const instance = IndexDB.getInstance()
+  await instance.add(key, val)
+}
+
+export async function clearIDBAllValues() {
+  if (!isIndexedDBAvailable()) return
+  const instance = IndexDB.getInstance()
+  await instance.clear()
 }

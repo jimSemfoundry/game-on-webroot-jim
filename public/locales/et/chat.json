@@ -3,5 +3,8 @@
   "notifications": "Teavitused",
   "support": "Tugi",
   "retry": "Proovi uuesti",
-  "customerServiceChatFailedToLoad": "Klienditeeninduse vestlus ei laadinud"
+  "customerServiceChatFailedToLoad": "Klienditeeninduse vestlus ei laadinud",
+  "read": "Loe",
+  "unread": "Lugemata",
+  "customerService": "Klienditeenindus"
 }

@@ -1,8 +1,8 @@
 import { useAuth } from "@/contexts/AuthContext";
+import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService";
 import { keepPreviousData, useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth.ts";
 
 // ========== Type Definitions ==========
 
@@ -84,8 +84,7 @@ export const useEarliestPendingRecord = () => {
       return result.data;
     },
     enabled: !!user,
-    refetchOnMount: true,
-    staleTime: 30 * 1000, // 30 seconds
+    refetchOnMount: true
   });
 };
 
@@ -253,7 +252,7 @@ export const useCancelFreeSpinRecord = () => {
       });
 
       if (result.code === 0) {
-        toast.success("Free spin record cancelled successfully!");
+        // toast.success("Free spin record cancelled successfully!");
       } else {
         toast.error(result.msg || "Failed to cancel record");
       }

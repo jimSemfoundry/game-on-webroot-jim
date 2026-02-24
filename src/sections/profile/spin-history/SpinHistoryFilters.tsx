@@ -9,11 +9,11 @@ interface SpinHistoryFiltersProps {
 }
 
 export const SpinHistoryFilters = ({ statusFilter, statusOptions, onStatusChange }: SpinHistoryFiltersProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   return (
     <div className="flex flex-col gap-2 w-full sm:max-w-[220px]">
-      <label className="text-xs font-semibold text-base-content/60">
+      <label className="text-xs font-medium text-base-content/60">
         {t("profile:spinHistory.statusFilterLabel", "Status")}
       </label>
       <Select

@@ -13,7 +13,9 @@ const TWEEN_FACTOR_BASE = 0.8; // 增大因子，让缩放效果更明显
 const numberWithinRange = (number: number, min: number, max: number): number => Math.min(Math.max(number, min), max);
 
 export const AlliancePartnershipAFA = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('aliancePartnerships');
+  const supportName = import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP";
+  const tWithSupport = (key: string) => t(key, { supportName });
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
   const slideNodes = useRef<HTMLElement[]>([]);
@@ -271,11 +273,11 @@ export const AlliancePartnershipAFA = () => {
       </div>
 
       <p className="text-primary font-bold text-base sm:text-4xl sm:text-center sm:px-32">
-        {t("aliancePartnerships:afa_title")}
+        {tWithSupport("aliancePartnerships:afa_title")}
       </p>
 
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:afa_intro_1")}</p>
-      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:afa_intro_2")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:afa_intro_1")}</p>
+      <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:afa_intro_2")}</p>
 
       {/* Luis Suarez 图片轮播 */}
       <div className="mt-4 w-full relative">
@@ -355,16 +357,16 @@ export const AlliancePartnershipAFA = () => {
 
       {/* 额外内容部分 */}
       <div className="mt-6 flex flex-col gap-3">
-        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{t("aliancePartnerships:champions_title")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:champions_text_1")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:champions_text_2")}</p>
-        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{t("aliancePartnerships:champions_text_3")}</p>
+        <p className="text-primary font-bold text-base sm:text-3xl sm:text-center sm:px-32">{tWithSupport("aliancePartnerships:champions_title")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:champions_text_1")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:champions_text_2")}</p>
+        <p className="text-base-content/50 text-sm sm:text-lg sm:px-32 sm:text-center">{tWithSupport("aliancePartnerships:champions_text_3")}</p>
 
         <p className="text-primary font-bold text-base mt-4 sm:text-2xl sm:text-center sm:px-32">
-          {t("aliancePartnerships:afa_okvip_title")}
+          {tWithSupport("aliancePartnerships:afa_okvip_title")}
         </p>
         <p className="text-base-content/50 sm:text-base-content sm:font-bold sm:-mt-2 text-sm sm:text-2xl sm:px-32 sm:text-center">
-          {t("aliancePartnerships:afa_okvip_subtitle")}
+          {tWithSupport("aliancePartnerships:afa_okvip_subtitle")}
         </p>
       </div>
 

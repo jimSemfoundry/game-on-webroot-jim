@@ -6,14 +6,20 @@ import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
 // import { BonusCollectorCard } from "./collector";
-import { BonusDetailsModal } from "./shared/bonus-details-modal";
+import { BonusDetailsModal } from "@/sections/bonus/shared";
 
 interface BonusHeroProps {
   totalBonusClaimed?: number; // 可选，用作fallback
 }
 
+const rewardsNotRequireStatistics = new Set([
+  "don", "conquest", "bonus_manual"
+]);
+
+const bonusHeroImage = import.meta.env.VITE_BONUS_HERO_IMAGE || "/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png";
+
 export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { isInitialized, isAuthenticated } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -32,12 +38,11 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
     }
 
     // 将所有 bonus 的 sum 值累加，转换为 USDT（作为基准货币）
-    const totalInUSD = claimBonusData.data.data.reduce((acc: number, item: any) => {
+    return claimBonusData.data.data.reduce((acc: number, item: any) => {
+      if (rewardsNotRequireStatistics.has(item.item)) return acc; // 不符合 => 跳过
       // 这里假设后端已经统一转换为 USDT，如果不同货币需要转换，可以使用 convertToUSD
       return acc + (parseFloat(item.sum) || 0);
     }, 0);
-
-    return totalInUSD;
   }, [claimBonusData?.data?.data, totalBonusClaimed]);
 
   return (
@@ -54,7 +59,7 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
           oklch(from var(--color-base-300) l c h / 0.3) 12px,
           oklch(from var(--color-base-200) l c h / 0.1) 12px,
           oklch(from var(--color-base-200) l c h / 0.1) 18px
-        )`,
+        )`
       }}
     >
       <div className="flex flex-col">
@@ -70,7 +75,10 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
                   {isLoading ? (
                     <span className="skeleton w-32 h-8 sm:h-12 rounded"></span>
                   ) : (
-                    formatWithConversion(calculatedTotalClaimed, "USDT", { showSymbol: true, showCode: false }).formatted
+                    formatWithConversion(calculatedTotalClaimed, "USDT", {
+                      showSymbol: true,
+                      showCode: false
+                    }).formatted
                   )}
                 </p>
                 <button
@@ -82,7 +90,8 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
                 </button>
               </>
             ) : (
-              <p className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
+              <p
+                className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
                 <span className="text-base-content block">
                   {t("bonus:enjoy")}
                 </span>
@@ -102,13 +111,13 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
             )} */}
           </div>
           <img
-            src="/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png"
+            src={bonusHeroImage}
             alt=""
             className="object-cover w-[512px] object-top hidden sm:block absolute left-[224px] rtl:left-auto rtl:right-[224px] top-0"
           />
         </div>
         <img
-          src="/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png"
+          src={bonusHeroImage}
           alt=""
           className="absolute top-3 -right-2 rtl:right-auto rtl:-left-2 object-cover w-[233px] object-top h-[158px] sm:hidden rtl:rotate-y-180"
         />

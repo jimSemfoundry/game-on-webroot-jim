@@ -8,7 +8,7 @@ interface TournamentRulesSectionProps {
 }
 
 export function TournamentRulesSection({ tournament }: TournamentRulesSectionProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (!tournament) return null;

@@ -177,7 +177,7 @@ export const ReferralLiveGlobalCommissions = () => {
               <div className="flex items-center gap-1 justify-end">
                 <span className={cn("text-xs sm:text-sm font-bold", reward > 0 ? "text-primary" : "text-base-content/50")}>
                   {reward > 0 ? "+" : ""}
-                  {formatWithConversion(reward, "USD", { compact: true, showCode: false }).formatted}
+                  {formatWithConversion(reward, "USD", { compact: false, showCode: false, minimizeDecimals: true }).formatted}
                 </span>
                 <CurrencyIcon currency="USD" />
               </div>
@@ -220,8 +220,8 @@ export const ReferralLiveGlobalCommissions = () => {
         </div>
 
         {/* 内容区域 - 使用 Auto Animate */}
-        <div className="relative">
-          <div ref={animationParent}>
+        <div className="relative" style={{ overflowAnchor: 'none' }}>
+          <div ref={animationParent} style={{ overflowAnchor: 'none' }}>
             {tableRows}
           </div>
           {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-linear-to-t from-base-300/90 to-transparent"></div> */}

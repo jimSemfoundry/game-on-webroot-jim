@@ -17,15 +17,15 @@ interface BonusDepositHelpModalProps {
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/9b21b4f293a0c81d954bc249ddb962a373edff51.png";
+const ILLUSTRATION_URL = "/images/illustrations/deposit-bonus.png";
 
 export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['popup', 'bonus']);
   const { status: authStatus } = useAuth();
   const { openUserFinanceModal } = useFinanceModal();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
-  const { data: bonusConfig } = useDepositBonusConfig();
+  const { data: bonusConfig } = useDepositBonusConfig(isOpen);
 
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient: "radial-gradient(100% 308% at 100% 0%, rgba(255, 215, 0, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -46,9 +46,9 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
       isOpen={isOpen}
       onClose={onClose}
       position="modal-middle"
-      className="bg-transparent md:w-[500px] max-w-lg p-0"
+      className="bg-transparent md:w-[500px] max-w-lg p-0 max-h-[70vh]"
       closeButtonClassName="z-10 hidden"
-      zIndex={1006}
+      zIndex={1007}
     >
       <div className="flex flex-col gap-1">
         {/* Top highlight card */}
@@ -122,7 +122,7 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
         {/* Main content card */}
         <div className="bg-base-400 rounded-box relative">
           <button onClick={onClose}
-                  className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+                  className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 
@@ -139,6 +139,7 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
 
               <div className="flex flex-col gap-2 mb-4">
                 {(bonusConfig?.data ?? []).map((item: Record<string, any>) => {
+                  if (item?.id === 5) return
                   const find = deposit_bonus_static_info(t).find((d) => d.id === item.id);
                   if (find)
                     return (<BonusCard
@@ -174,6 +175,7 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
 
                 <div className="flex flex-col gap-1">
                   {(bonusConfig?.data ?? []).map((item: Record<string, any>) => {
+                    if (item?.id === 5) return
                     const find = deposit_bonus_static_info(t).find((d) => d.id === item.id);
                     if (find)
                       return (

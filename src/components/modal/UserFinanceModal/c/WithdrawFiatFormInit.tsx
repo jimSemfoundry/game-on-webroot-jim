@@ -32,26 +32,33 @@ export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
   const initFormFields = useCallback(() => {
     if (fields?.data) {
       const transform = fields.data;
+      const nextFormItem: Record<string, string> = {};
+
       for (const key in transform) {
         const field = transform[key];
 
-        if (!field.required) continue;
+        if (!field.required && !field.hide) {
+          setWithdrawFiat({ extraItem: { [key]: field.default || "" } });
+          continue;
+        }
 
         if (field.bind || field.hide) {
           const value = handleBindOrHideFormItemDefaultValue(field, withdrawFiat.method);
-          setWithdrawFiat({ formItem: { [key]: value || "" } });
+          nextFormItem[key] = value || "";
           continue;
         }
 
-        if (field.select && field.select.length > 0) {
-          setWithdrawFiat({ formItem: { [key]: field.default || field.select[0].value } });
+        if (Array.isArray(field.select) && field.select.length > 0 && field.required) {
+          nextFormItem[key] = field.default;
           continue;
         }
 
-        setWithdrawFiat({ formItem: { [key]: field.default || "" } });
+        nextFormItem[key] = field.default || "";
       }
+
+      setWithdrawFiat({ formItem: nextFormItem });
     }
-  }, [fields]);
+  }, [fields?.data]);
 
   useEffect(() => {
     initFormFields();
@@ -68,12 +75,12 @@ export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
     return () => {
       subs.forEach((sub) => sub.remove());
     };
-  }, []);
+  }, [initFormFields]);
 
   // TODO：未来优化掉 用 emitter
   useEffect(() => {
     if (syncAction.type === "OPEN_WITHDRAW_ORDER_OK_MODAL") initFormFields();
-  }, [syncAction]);
+  }, [syncAction, initFormFields]);
 
   return <>{l1 || l2 ? <Loading className="h-52" /> : memoGateways}</>;
 };

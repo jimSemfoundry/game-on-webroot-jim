@@ -103,13 +103,13 @@ const getPageNumbers = (currentPage: number, totalPages: number) => {
 };
 
 export function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<TFilters>({
-    type: "Deposit",
+    type: "Bonus",
     status: "All",
     asset: "all",
-    period: "Past 24 Hours",
+    period: "Past 30 Days",
   });
   const [lastIdsMap, setLastIdsMap] = useState<Record<string, Record<number, string | number | undefined>>>({});
 
@@ -270,7 +270,7 @@ export function Index() {
   }, [transactions, paginationKey, currentPage]);
 
   return (
-    <div className="bg-base-300 flex flex-col rounded-field overflow-hidden">
+    <div className="bg-base-300 flex flex-col rounded-field overflow-visible">
       <div className={`flex flex-col gap-4 flex-1 pb-5 md:p-0`}>
         <Card
           icon={<Iconify icon="custom:transactions" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />}
@@ -294,7 +294,7 @@ export function Index() {
                   disabled={!canGoPrev || isFetching}
                   className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
@@ -317,7 +317,7 @@ export function Index() {
                   disabled={!canGoNext || isFetching}
                   className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="rtl:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>

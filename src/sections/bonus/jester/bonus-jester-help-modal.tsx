@@ -8,7 +8,7 @@ interface BonusJesterHelpModalProps {
 }
 
 export const BonusJesterHelpModal = ({ isOpen, onClose }: BonusJesterHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
 
   const headerContent = (
     <div className="flex items-center gap-2">

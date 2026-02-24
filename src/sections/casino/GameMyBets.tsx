@@ -31,7 +31,7 @@ const getPageNumbers = (currentPage: number, totalPages: number) => {
 };
 
 export const GameMyBets = ({ game_id }: { game_id: string }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['gameDetail', 'common']);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const [desiredPage, setDesiredPage] = useState(1);
@@ -123,29 +123,32 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
       const key = betItem.bet_id ?? betItem.id ?? `${betItem.order_id}-${betItem.bet_amount}`;
 
       return (
-        <tr key={key} className="border-b border-2 border-base-300 bg-base-200 text-xs sm:text-lg text-base-content/50 ">
-          <td className="sm:flex items-center px-2 py-2.5 text-left font-semibold rounded-l-field sm:w-[50%] w-[35%]">
+        <tr
+          key={key}
+          className="text-xs sm:text-base text-base-content/50 transition-colors odd:bg-base-200 even:bg-base-200/50"
+        >
+          <td className="sm:flex items-center px-3 py-3 text-left font-semibold sm:w-[50%] w-[30%]">
             <span className="block truncate sm:ml-5 flex-1" title={betItem.bet_id}>
               {betItem.bet_id}
             </span>
             <Copy text={betItem.bet_id ?? ""} className="w-3.5 h-3.5 sm:block hidden" />
           </td>
-          <td className="py-2.5 sm:w-[15%] w-[20%] px-0 sm:px-2">
-            <div className="flex items-center gap-2 font-semibold justify-center">
+          <td className="py-3 sm:w-[15%] w-[20%] px-0 sm:px-2">
+            <div className="flex items-center gap-2 font-semibold justify-center tabular-nums">
               {/* <CurrencyIcon className="h-4 w-4" currency={betItem.real_currency ?? "USD"} /> */}
               <span className="block" title={betAmountInfo.formatted}>
                 {betAmountInfo.formatted}
               </span>
             </div>
           </td>
-          <td className="w-16 px-2 py-2.5 text-center font-semibold sm:w-[15%] w-[20%]">
-            <span className="inline-block w-full" title={parseX(betItem)}>
+          <td className="px-2 py-3 text-center font-semibold sm:w-[15%] w-[20%]">
+            <span className="inline-block w-full tabular-nums" title={parseX(betItem)}>
               {parseX(betItem)}
             </span>
           </td>
-          <td className="pr-2 pl-0 sm:px-2 py-2.5 rounded-r-field text-right sm:w-[20%] w-[25%]">
-            <div className="flex items-center justify-end gap-2 font-semibold sm:mr-5">
-              <span className="block" title={winAmountInfo.formatted}>
+          <td className="pr-2 pl-0 sm:px-2 py-3 text-right sm:w-[20%] w-[30%]">
+            <div className="flex items-center justify-end gap-2 font-semibold sm:mr-5 tabular-nums">
+              <span className="truncate block" title={winAmountInfo.formatted}>
                 {winAmountInfo.formatted}
               </span>
               <CurrencyIcon className="h-4 w-4" currency={betItem.real_currency ?? "USD"} />
@@ -157,24 +160,23 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
   };
 
   return (
-    <div className="rounded-field">
-      <div className="rounded-field">
+    <div className="rounded-field border-base-200 border">
+      <div className="relative rounded-t-field overflow-hidden min-h-[360px] md:min-h-[420px]">
         <table className="w-full table-fixed text-sm text-base-content">
-          <thead className="bg-base-300 text-xs font-semibold uppercase tracking-wide text-base-content/70">
+          <thead className="bg-base-300 text-xs font-semibold uppercase tracking-widest text-base-content border-b border-base-200">
             <tr className="sm:text-sm text-xs">
-              <th className="px-4 py-3 text-left sm:w-[50%] w-[35%]">{t("gameDetail:betId")}</th>
-              <th className="px-4 py-3 text-center sm:w-[15%] w-[20%]">{t("gameDetail:bet")}</th>
-              <th className="w-16 px-2 py-3 text-center sm:w-[15%] w-[20%]">{t("gameDetail:x")}</th>
-              <th className="px-4 py-3 text-right sm:w-[20%] w-[25%]">{t("gameDetail:profit")}</th>
+              <th className="px-4 py-4 text-left sm:w-[50%] w-[30%]">{t("gameDetail:betId")}</th>
+              <th className="px-4 py-4 text-center sm:w-[15%] w-[20%]">{t("gameDetail:bet")}</th>
+              <th className="px-2 py-4 text-center sm:w-[15%] w-[20%]">{t("gameDetail:x")}</th>
+              <th className="px-4 py-4 text-right sm:w-[20%] w-[30%]">{t("gameDetail:profit")}</th>
             </tr>
           </thead>
-          <tbody>
-            {isInitialLoading || isAwaitingDesiredPage ? (
+          <tbody className="divide-y divide-base-300/60">
+            {isInitialLoading ? (
               <tr>
                 <td colSpan={4} className="py-10">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="loading loading-spinner loading-sm text-primary"></span>
-                    <span className="text-sm text-base-content/60">{t("common:loading")}</span>
+                  <div className="flex items-center justify-center">
+                    <span className="loading loading-spinner loading-sm text-base-content"></span>
                   </div>
                 </td>
               </tr>
@@ -182,8 +184,14 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
               <tr>
                 <td colSpan={4} className="py-10">
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <img src="/images/illustrations/no-data.svg" alt="mybets" className="h-20 w-20 opacity-70" />
-                    <div className="text-xs font-semibold text-base-content/50">{t("gameDetail:noRecordsFound")}</div>
+                    <img
+                      src="/images/illustrations/no-data.svg"
+                      alt="mybets"
+                      className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 opacity-70"
+                    />
+                    <div className="text-xs sm:text-sm md:text-base font-semibold text-base-content/60">
+                      {t("gameDetail:noRecordsFound")}
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -192,17 +200,22 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
             )}
           </tbody>
         </table>
+
+        {isAwaitingDesiredPage && (
+          <div className="absolute inset-0 flex items-center justify-center bg-base-200/50">
+            <span className="loading loading-spinner loading-sm text-base-content"></span>
+          </div>
+        )}
       </div>
 
-      {isFetchingNextPage && (
-        <div className="flex items-center justify-center gap-2 py-3 text-sm text-base-content/60">
-          <span className="loading loading-spinner loading-sm text-primary"></span>
-          {t("common:loading")}
+      {isFetchingNextPage && !isAwaitingDesiredPage && (
+        <div className="flex items-center justify-center py-4">
+          <span className="loading loading-spinner loading-sm text-base-content"></span>
         </div>
       )}
 
       {safeTotalPages > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-5 px-3 sm:px-6 w-full">
+        <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-3 py-5 sm:py-3 px-3 sm:px-6 w-full bg-base-300 rounded-b-field">
           <button
             type="button"
             onClick={() => canGoPrev && handlePageChange(Math.max(1, currentPage - 1))}
@@ -220,8 +233,8 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
               type="button"
               onClick={() => handlePageChange(page)}
               disabled={isFetchingNextPage}
-              className={`btn btn-sm min-w-[2.5rem] rounded-2xl ${
-                page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300"
+              className={`btn btn-sm btn-square rounded-field ${
+                page === currentPage ? "btn-primary text-black" : ""
               }`}
             >
               {page}
@@ -232,7 +245,7 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
             type="button"
             onClick={() => canGoNext && handlePageChange(Math.min(safeTotalPages, currentPage + 1))}
             disabled={!canGoNext || isFetchingNextPage}
-            className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
+            className="btn btn-sm btn-square disabled:opacity-30"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

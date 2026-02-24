@@ -7,6 +7,8 @@
   "baseball": "بیسبال",
   "iceHockey": "هاکی روی یخ",
   "basketball": "بسکتبال",
+  "cricket": "کریکت",
+  "eSoccer": "فوتبال الکترونیکی",
   "volleyball": "والیبال",
   "hot": "داغ",
   "all": "همه",
@@ -69,5 +71,6 @@
   "live-casino": "کازینو زنده",
   "sports": "ورزش‌ها",
   "lotteries": "لاتاری‌ها",
-  "gamesYouShouldTry": "بازی‌هایی که باید امتحان کنید"
+  "gamesYouShouldTry": "بازی‌هایی که باید امتحان کنید",
+  "bonus": "Bonus"
 }

@@ -67,11 +67,11 @@ interface DoubleOrNothingHelpModalProps {
 }
 
 export const DoubleOrNothingHelpModal = ({ currentPromo, open, onClose }: DoubleOrNothingHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('popup');
   const { isRTL } = useRTLContext();
-  const { convertCurrency, exchangeRates, getCurrencySymbol, formatCurrency } = useCurrencyData();
+  const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
   const { depositFiat, depositCrypto, depositType } = useBoundStore();
-  const { selectedCurrency, formatWithoutConversion } = useDisplayCurrencyFormatter();
+  const { selectedCurrency } = useDisplayCurrencyFormatter();
 
   // Memoize currency calculations
   const currentCurrency = useMemo(
@@ -83,23 +83,22 @@ export const DoubleOrNothingHelpModal = ({ currentPromo, open, onClose }: Double
     const value = convertCurrency({
       amount: currentPromo?.min_amount,
       fromCurrency: 'USDT',
-      toCurrency: depositFiat?.currency?.currency,
+      toCurrency:
+        depositType === "fiat"
+          ? depositFiat?.currency?.currency
+          : depositCrypto?.currency?.currency,
       exchangeRates: exchangeRates,
     }) || 0;
 
-    const valueNum = Math.ceil(value || 0);
+    const valueNum = depositType === "fiat" ? Math.ceil(value) : value;
 
-    return depositType === 'fiat'
-      ? `${getCurrencySymbol(depositFiat?.currency?.currency)} ${valueNum}`
-      : formatWithoutConversion(
-          currentPromo?.min_amount,
-          depositCrypto?.currency?.currency,
-          {
-            showSymbol: true,
-            minimizeDecimals: true,
-          }
-        ).formatted;
-  }, [currentPromo?.min_amount, depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency, convertCurrency, exchangeRates, getCurrencySymbol, formatWithoutConversion]);
+    return formatCurrency({
+      amount: valueNum,
+      currency: depositType === "fiat" ? depositFiat?.currency?.currency : depositCrypto?.currency?.currency,
+      showSymbol: true,
+      showCode: false,
+    }).formatted;
+  }, [currentPromo?.min_amount, depositType, depositFiat?.currency?.currency, depositCrypto?.currency?.currency, convertCurrency, exchangeRates, formatCurrency]);
 
   const formattedBonusAmount = useMemo(() => {
     const value = convertCurrency({
@@ -131,7 +130,7 @@ export const DoubleOrNothingHelpModal = ({ currentPromo, open, onClose }: Double
         <div className="rounded-box text-center relative overflow-hidden h-[138px] flex items-center">
           <div className="relative z-10 flex items-center h-full justify-between w-full">
             <div className="w-full h-full rounded-lg relative overflow-hidden bg-base-400">
-              <div 
+              <div
                 className="absolute inset-0 w-full h-full"
                 style={{ transform: isRTL ? "scaleX(-1)" : "none" }}
               >
@@ -146,8 +145,8 @@ export const DoubleOrNothingHelpModal = ({ currentPromo, open, onClose }: Double
                     {t('popup:cash_bonus_btn', { value: '10%' })}
                   </button>
                 </div>
-                <img 
-                  src="/images/double-nothing/recoveryBonus.png" 
+                <img
+                  src="/images/double-nothing/recoveryBonus.png"
                   alt="Recovery Bonus"
                   className="w-[146px] h-[146px] absolute top-[-3px]"
                   style={{
@@ -163,9 +162,9 @@ export const DoubleOrNothingHelpModal = ({ currentPromo, open, onClose }: Double
         {/* 下方独立的主卡片 - 包含close按钮 */}
         <div className="bg-base-400 rounded-box relative" style={{ background: 'rgba(7, 11, 16, 1)' }}>
           {/* Close按钮 - 位于右上角 */}
-          <button 
-            onClick={onClose} 
-            className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0"
             aria-label="Close"
           >
             <CloseIcon />

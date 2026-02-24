@@ -5,11 +5,11 @@
     "achievements": "Logros",
     "achievementDescription": "Los premios por logros son recompensas otorgadas por alcanzar nuevos hitos y conquistar desafíos. Celebran tu progreso y éxito, desbloqueando sorpresas divertidas a medida que logras nuevas hazañas en el camino.",
     "claimDistribution": "Distribución de Reclamaciones",
-    "claimDistributionDescription": "Las recompensas se añaden a tu calendario de bonos durante 3 días tras la reclamación.",
+    "claimDistributionDescription": "Tus recompensas se consolidan al instante y quedan disponibles para reclamar desde tu <0>fondo de bonus</0> de depósito cada vez que reclames una nueva recompensa de logro.",
     "expiration": "Expiración",
-    "expirationDescription": "Ninguna - Las recompensas se envían automáticamente al calendario.",
+    "expirationDescription": "Ninguna - Las reclamaciones están disponibles mientras el saldo de tu Fondo de Bonus sea suficiente.",
     "generalTerms": "Términos Generales",
-    "generalTermsDescription": "Las recompensas se calculan y acreditan en BUCK/USDT, luego se muestran en tu moneda fiduciaria preferida por conveniencia. Ten en cuenta que las conversiones de moneda son aproximadas.\n\nEl casino se reserva el derecho de modificar o revocar la elegibilidad en cualquier momento, sin la obligación de justificar. Cualquier abuso o actividad fraudulenta resultará en descalificación de la promoción."
+    "generalTermsDescription": "Las recompensas se calculan y se acreditan en USDT, y luego se muestran en tu moneda fiduciaria preferida para tu comodidad. Ten en cuenta que las conversiones de moneda son aproximadas.\n\nEl casino se reserva el derecho de modificar o revocar la elegibilidad en cualquier momento sin obligación de justificarlo. Cualquier abuso o actividad fraudulenta llevará a la descalificación de la promoción."
   },
   "luckyNumberSeven": {
     "title": "Número Afortunado \n Siete",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "El monto mínimo de reclamación es {{money}}",
     "expiration": "Expiración",
-    "expirationDescription": "Tu Caja Misteriosa debe ser reclamada dentro de los 7 días posteriores a su otorgamiento. Las recompensas no reclamadas expirarán después de este período.",
+    "expirationDescription": "Tu Caja Misteriosa debe ser reclamada dentro de los 3 días posteriores a su otorgamiento. Las recompensas no reclamadas expirarán después de este período.",
     "generalTerms": "Términos Generales",
     "generalTermsDescription": "Las recompensas se calculan y acreditan en función del primer depósito del usuario o en USDT si no se realiza ningún depósito, sujeto a un rollover de 1x requerido. Los montos se muestran en tu moneda fiduciaria preferida; las conversiones son aproximadas.\n\nEl casino se reserva el derecho de modificar o revocar la elegibilidad en cualquier momento sin previo aviso. Cualquier abuso o fraude resultará en descalificación."
   },

@@ -8,7 +8,7 @@ import { useFinanceModal } from "@/contexts/ModalsProvider";
 
 export const SundaySuperBounsModal = () => {
 
-  const { t } = useTranslation();
+  const { t } = useTranslation(['gameDetail', 'finance']);
   const [open, setOpen] = useState(true);
 
   const [currentPromo] = useState<any>(null);

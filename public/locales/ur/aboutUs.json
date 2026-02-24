@@ -1,0 +1,6 @@
+{
+  "aboutUs": {
+    "title": "ہمارے بارے میں",
+    "content": "<p class=\"leading-7\">\n      {{gameLink}} اتحاد میں، ہم نے آپ کو آن لائن تفریح، خوشگوار تجربات اور آپ کے فنڈز تک فوری رسائی فراہم کرنے کے لیے ایک ٹیم تشکیل دی ہے۔ ہمارا مشن دنیا بھر میں اپنے ناظرین کے لیے حتمی کرپٹو گیمنگ منزل بننا ہے۔         \n    </p>\n    <p class=\"leading-7\">\n      ہم {{supportName}} اتحاد کا حصہ ہیں: Villareal CF، AC Milan اور Argentina Football Association کے سرکاری اسپانسرز۔\n    </p>\n    <p class=\"leading-7\">\n      ہمارے {{supportName}} اتحاد کی اسپانسرشپس یہاں دیکھیں۔ {{allianceLink}} \n    </p>\n    <br />\n    <p class=\"leading-7\">\n      {{gameLink}} اتحاد کا مالک ہے <span class=\"font-bold text-base\">Omnispect B.V.</span>، ایک محدود ذمہ داری کمپنی جو کیوراساؤ میں رجسٹرڈ ہے جس کا کمپنی رجسٹریشن نمبر <span class=\"font-bold text-base\">{{companyRegistrationNumber}}</span> ہے، اور اس کا رجسٹرڈ پتہ ہے <span class=\"font-bold text-base\"> Abraham de Veerstraat {{registeredAddress}}, Willemstad.</span>           \n    </p>\n    <p class=\"leading-7\">\n     {{gameLink}} اتحاد نے تمام ریگولیٹری تقاضوں کو پورا کر لیا ہے اور کسی بھی اور تمام آن لائن کھیلوں کی قسمت اور شرط لگانے کے لیے قانونی طور پر مجاز ہے۔         \n    </p>"
+  }
+}

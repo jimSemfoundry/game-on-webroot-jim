@@ -5,7 +5,7 @@ import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import classNames from "classnames";
+import clsx from "clsx";
 import { TFunction } from "i18next";
 import { BadgeAlert } from "lucide-react";
 import { useMemo } from "react";
@@ -48,7 +48,7 @@ const Bonus = ({ cls, t, type }: { cls?: string; t: TFunction; type: "crypto" | 
   return (
     <SmallLoading
       loading={bonusLoading || currencyLoading}
-      className={classNames(cls, "h-8 !rounded-lg")}
+      className={clsx(cls, "h-8 !rounded-lg")}
       content={
         <div
           className={cn("p-2 inline-flex items-center text-xs text-center font-semibold bg-primary rounded-lg text-primary-content", cls)}

@@ -3,5 +3,8 @@
   "notifications": "اعلان‌ها",
   "support": "پشتیبانی",
   "retry": "تلاش مجدد",
-  "customerServiceChatFailedToLoad": "چت خدمات مشتری بارگیری نشد"
+  "customerServiceChatFailedToLoad": "چت خدمات مشتری بارگیری نشد",
+  "read": "خوانده شده",
+  "unread": "خوانده نشده",
+  "customerService": "خدمات مشتری"
 }

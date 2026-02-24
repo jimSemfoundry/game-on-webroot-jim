@@ -3,5 +3,8 @@
   "notifications": "Pranešimai",
   "support": "Palaikymas",
   "retry": "Bandyti dar kartą",
-  "customerServiceChatFailedToLoad": "Klientų aptarnavimo pokalbis nepavyko įkelti"
+  "customerServiceChatFailedToLoad": "Klientų aptarnavimo pokalbis nepavyko įkelti",
+  "read": "Skaityti",
+  "unread": "Neskaityta",
+  "customerService": "Klientų aptarnavimas"
 }

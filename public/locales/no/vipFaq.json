@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Hva er Ukentlig Bonus?",
-    "content": "<p class=\"leading-7\">Ukentlig Bonus er en eksklusiv fordel på vår nettside designet for spillere som er VIP12 og oppover. Denne bonusen utstedes ukentlig og utbetales automatisk hver fredag til spillere på VIP12 og høyere. Størrelsen på bonusen avhenger av beløpet som er spillt i løpet av den siste uken, med et minimum spillkrav på {{minWager}} i løpet av den siste uken.</p>"
+    "content": "<p class=\"leading-7\">Ukentlig Bonus er en eksklusiv fordel på vår nettside designet for spillere som er VIP2 og oppover. Bonusen utstedes ukentlig på mandager og utløper når den neste ukentlige bonusen kommer ut. Størrelsen på bonusen avhenger av beløpet som er spillt i løpet av den siste uken, med et effektivt minimum spillkrav på {{minWager}} i løpet av den siste uken.</p>"
   },
   "faqNine": {
     "title": "Hva er Prestasjoner?",

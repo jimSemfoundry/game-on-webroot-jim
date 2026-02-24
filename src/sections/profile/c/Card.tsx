@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 
 export function Card({ icon, title, children, className }: {
   icon?: React.ReactNode,
@@ -8,9 +8,9 @@ export function Card({ icon, title, children, className }: {
   className?: string
 }) {
   return (
-    <div className={classNames("rounded-field bg-base-200 p-3 flex flex-col gap-3 md:p-6 md:gap-4", className)}>
+    <div className={clsx("rounded-field bg-base-200 p-3 flex flex-col gap-3 md:p-6 md:gap-4", className)}>
       {(icon || title) && (
-        <div className="flex gap-2 items-center text-base-content/80 font-semibold text-sm md:text-lg md:h-8">
+        <div className="flex gap-2 items-center text-base-content/80 font-semibold text-sm md:text-lg h-8">
           {icon}
           {title}
         </div>

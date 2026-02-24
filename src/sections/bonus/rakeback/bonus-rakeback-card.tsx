@@ -27,7 +27,7 @@ const DEFAULT_GRADIENT = `
 const ILLUSTRATION_URL = "/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png";
 
 export function BonusRakebackCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['popup', 'bonus']);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { status, isInitialized, isAuthenticated } = useAuth();
   const { openTipsModal } = useTipsModal();
@@ -167,9 +167,12 @@ export function BonusRakebackCard() {
     );
   }
 
+  // 可领取状态
+  const isClaimable = 1 <= Number(claimableAmount);
+
   return (
     <div
-      className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative overflow-hidden border border-base-200"
+      className={`flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative overflow-hidden border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
       style={{
         background,
       }}
@@ -242,7 +245,7 @@ export function BonusRakebackCard() {
             </label>
 
             <button
-              className="btn btn-primary btn-soft btn-md px-0 w-20 max-w-20"
+              className="btn btn-primary btn-md px-0 w-20 max-w-20"
               onClick={handleClaim}
               disabled={isClaimPending || claimableAmount <= 0}
             >

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, m, Variants } from 'motion/react';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useNavigate } from '@tanstack/react-router';
+import { getImgCompressParams } from "@/utils/helper.ts";
+import { useTranslation } from "react-i18next";
 
 // ==========================================
 // Types
@@ -206,7 +208,7 @@ const Card: React.FC<CardProps> = React.memo(({
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
         <m.div className="h-full w-full relative overflow-hidden">
           <m.img
-            src={data.image}
+            src={getImgCompressParams(data.image, isMobile ? 154 : 220, 80)}
             alt={data.display_game_name}
             className="h-full w-full object-cover pointer-events-none"
             animate={isWinner ? { scale: [1, 1.05, 1] } : { scale: 1 }}
@@ -233,6 +235,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
   onGameSelected,
   onAnimationComplete
 }) => {
+  const { t } = useTranslation()
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [winnerId, setWinnerId] = useState<string | null>(null);
@@ -358,7 +361,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
             }}
           >
             <button
-              className="btn btn-primary btn-lg w-36 shadow-lg"
+              className="btn btn-accent btn-lg w-36 shadow-lg"
               onClick={() => {
                 if (activeGame?.inner_game_id) {
                   const gameId = activeGame.game_provider
@@ -368,7 +371,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
                 }
               }}
             >
-              PLAY
+              {t('common:common.play')}
             </button>
           </m.div>
         )}
@@ -391,7 +394,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
               <div className="absolute -inset-2 sm:-inset-6 rounded-box bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30 blur-xl opacity-60 group-hover:opacity-80 animate-pulse transition-all duration-500" />
               <div className="relative w-40 sm:w-64 aspect-3/4 rounded-box overflow-hidden bg-transparent shadow-lg group-hover:shadow-xl transition-shadow duration-300 z-10">
                 <img
-                  src={selectedGame.image}
+                  src={getImgCompressParams(selectedGame.image, 160, 80)}
                   alt={selectedGame.display_game_name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -401,7 +404,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
               </div>
               <div className="absolute hidden sm:flex bottom-0 translate-y-1/2 z-10 mx-auto left-0 right-0 items-center justify-center">
                 <button
-                  className="btn btn-primary btn-lg w-36 shadow-lg"
+                  className="btn btn-accent btn-lg w-36 shadow-lg"
                   onClick={() => {
                     if (selectedGame?.inner_game_id) {
                       const gameId = selectedGame.game_provider
@@ -411,7 +414,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
                     }
                   }}
                 >
-                  PLAY
+                  {t('common:common.play')}
                 </button>
               </div>
             </div>

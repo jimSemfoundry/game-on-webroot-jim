@@ -55,14 +55,14 @@ export function FastViewDataLink() {
   ];
 
   return (
-    <StopPropagation className="flex justify-between mt-4 px-4">
+    <StopPropagation className="grid gap-2 grid-cols-2 mt-4">
       {items.map((item: Record<string, any>) => (<div
         id={item.id}
         key={item.id}
         onClick={() => item.event()}
-        className="cursor-pointer h-15 font-semibold flex flex-col items-center justify-center gap-1 text-base-content/50">
+        className="p-2 rounded-lg truncate cursor-pointer h-10 font-semibold flex gap-1 items-center text-base-content/50 border border-1 border-base-100">
         <Iconify icon={`custom:${item.id}`} className="w-5 h-5" />
-        <span className="text-[10px] font-bold whitespace-nowrap">{item.label}</span>
+        <span className="text-[12px] font-bold truncate max-w-full overflow-hidden whitespace-nowrap">{item.label}</span>
       </div>))}
     </StopPropagation>
   );

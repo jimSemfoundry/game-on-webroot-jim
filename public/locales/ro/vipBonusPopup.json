@@ -5,11 +5,11 @@
     "achievements": "Realizări",
     "achievementDescription": "Premiile pentru realizări sunt recompense oferite pentru atingerea de noi repere și înfruntarea provocărilor. Ele sărbătoresc progresul și succesul tău, deblocând surprize distractive pe măsură ce atingi noi realizări pe parcurs!",
     "claimDistribution": "Distribuția revendicărilor",
-    "claimDistributionDescription": "Recompensele sunt adăugate în calendarul tău de bonusuri timp de 3 zile după revendicare.",
+    "claimDistributionDescription": "Recompensele tale sunt acordate instantaneu și devin disponibile pentru revendicare din <0>pool-ul de bonus</0> al depunerii de fiecare dată când revendici o nouă recompensă de realizare.",
     "expiration": "Expirare",
-    "expirationDescription": "Niciuna - Recompensele sunt trimise automat în calendar.",
+    "expirationDescription": "Niciuna - revendicările sunt disponibile atât timp cât soldul Bonus Pool este suficient.",
     "generalTerms": "Termeni Generali",
-    "generalTermsDescription": "Recompensele sunt calculate și creditate în BUCK/USDT, apoi afișate în moneda ta fiat preferată pentru comoditate. Te rugăm să reții că, conversiile valutare sunt aproximative.\n\nCasino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promovare."
+    "generalTermsDescription": "Recompensele sunt calculate și creditate în USDT, apoi afișate în moneda fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative.\n\nCazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție."
   },
   "luckyNumberSeven": {
     "title": "Numărul Norocos \n Șapte",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Suma minimă de revendicat este {{money}}",
     "expiration": "Expirare",
-    "expirationDescription": "Cutia ta misterioasă trebuie revendicată în termen de 7 zile de la acordare. Recompensele ne-revendicate vor expira după această perioadă.",
+    "expirationDescription": "Cutia ta misterioasă trebuie revendicată în termen de 3 zile de la acordare. Recompensele ne-revendicate vor expira după această perioadă.",
     "generalTerms": "Termeni Generali",
     "generalTermsDescription": "Recompensele sunt calculate și creditate pe baza primei depuneri a utilizatorului sau în USDT dacă nu s-a efectuat nicio depunere, supuse unei cerințe de rulaj de 1x. Sumele sunt afișate în moneda ta fiat preferată; conversiile sunt aproximative.\n\n Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment fără notificare. Orice abuz sau fraudă va duce la descalificare."
   },

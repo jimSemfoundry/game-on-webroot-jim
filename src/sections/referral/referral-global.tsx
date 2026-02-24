@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { ReferralLiveGlobalCommissions } from "./ReferralLiveGlobalCommissions";
 
 export const ReferralGlobal = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('referral');
 
   return (
     <div className="rounded-field bg-base-200 p-4 w-full">

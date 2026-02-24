@@ -112,7 +112,7 @@ export function BonusClaimConfirmationModal(
         {(formattedAmount || rawBuckAmount != null) && (
           <div className="flex flex-col items-center gap-3 mb-8">
             <div className="flex items-center justify-center gap-2">
-              <img src="/icons/currency/buck.svg" className="w-8 h-8" />
+              <img src="/icons/currency/buck.png" className="w-8 h-8" />
               <div className="text-2xl font-bold text-primary">
                 {formattedAmount?.formatted ?? rawBuckAmount?.toLocaleString()}
               </div>

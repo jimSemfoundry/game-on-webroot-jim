@@ -71,7 +71,7 @@ export const UploadDocumentDialog = ({ open, onClose, data }: { open: boolean; o
             <div>Pending Verification</div>
           </div>
           <div className='flex items-center justify-between font-bold text-xs leading-3 text-base-content/50'>
-            <div>Created On</div>
+            <div>{t("transaction:common.createdOn", "Created On")}</div>
             <div>{formatDateTime(data?.created_at * 1000)}</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const UploadDocumentDialog = ({ open, onClose, data }: { open: boolean; o
             // navigate(-1);
           }}
         >
-          {t('common.close')}
+          {t('common:common.close')}
         </button>
       </div>
     </Modal>

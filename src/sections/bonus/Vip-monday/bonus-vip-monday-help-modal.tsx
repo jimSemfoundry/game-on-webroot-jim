@@ -8,13 +8,14 @@ interface BonusRakebackHelpModalProps {
 }
 
 export const BonusVipMondayHelpModal = ({ isOpen, onClose }: BonusRakebackHelpModalProps) => { 
-  const { t } = useTranslation();
+  const { t } = useTranslation('popup');
 
   return (
     <Modal
       hideTitle
       isOpen={isOpen}
       onClose={onClose}
+      position={'modal-middle'}
       className="bg-transparent md:w-[500px] max-w-lg p-0"
     >
       <div className="flex flex-col gap-1">
@@ -23,7 +24,7 @@ export const BonusVipMondayHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMo
           className="rounded-box px-8 text-center relative overflow-hidden h-[140px] flex items-center"
           style={{
             background: `
-            radial-gradient(100% 308% at 100% 0%, color(display-p3 0.255 0.145 0.392 / 0.5) 0%, color(display-p3 0.063 0.078 0.098 / 0.5) 100%),
+            radial-gradient(100% 308% at 100% 0%, color(display-p3 0.7765 0.2824 0.1412 / 0.50) 0%, color(display-p3 0.063 0.078 0.098 / 0.5) 100%),
             linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
             `,
           }}
@@ -35,17 +36,17 @@ export const BonusVipMondayHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMo
                 components={[<span className="text-primary" />]}
               />
             </h2>
-            <img src="/images/rewards/vip-monday.svg" alt="Super Rakeback" className="w-auto h-[128px]" />
+            <img src="/images/rewards/vip-monday.png" alt="Super Rakeback" className="w-auto h-[128px]" />
           </div>
         </div>
 
         {/* 下方独立的主卡片 - 包含close按钮 */}
         <div className="bg-base-400 rounded-box relative" style={{ background: `rgba(7, 11, 16, 1)` }}>
           {/* Close按钮 - 位于右上角 */}
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.91406 2.91406L11.0802 11.0802" stroke="#EBEBEB" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M2.91591 11.0802L11.082 2.91406" stroke="#EBEBEB" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2.91406 2.91406L11.0802 11.0802" stroke="#EBEBEB" strokeOpacity="0.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2.91591 11.0802L11.082 2.91406" stroke="#EBEBEB" strokeOpacity="0.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
@@ -65,7 +66,7 @@ export const BonusVipMondayHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMo
               <h3 className="text-base font-bold text-white">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto pb-12">
+            <div className="max-h-[400px] overflow-y-auto pb-12 hide-scrollbar">
               {/* 描述文本 */}
               <p className="text-xs text-base-content/50 leading-5">{t("popup:vipMonday.vipMondayDescription")}</p>
 

@@ -7,7 +7,7 @@ import { InnerCountdown, msg_type_need_countdown } from "./InnerCountdown.tsx";
 import { parser, InnerMsgLink } from "./InnerMsgLink.tsx";
 import { Trans, useTranslation } from "react-i18next";
 import { Decimal } from "decimal.js";
-import getSymbolFromCurrency from "currency-symbol-map";
+import getSymbolFromCurrency from "@/utils/currencySymbol";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import {
@@ -27,18 +27,18 @@ export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose
 }) => {
   // 根据用户的语言匹配相应的模版内容
   const language_match = useMemo(() => {
-    const keys = Object.keys(item?.content?.information || '')
-    return keys.find((l) => l === i18n.language) ?? (keys[0] || 'en')
-  }, [i18n.language])
+    const keys = Object.keys(item?.content?.information || "");
+    return keys.find((l) => l === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
 
   const content_match = useMemo(() => item?.content?.information?.[language_match] ?? null, [language_match]);
 
   const is_read = useMemo(() => {
     if (!item?.is_global) return item?.is_read;
-    return !!dataMatching?.find((m: Record<string, any>) => m.message_id === item?.id)
-  }, [item, dataMatching])
+    return !!dataMatching?.find((m: Record<string, any>) => m.message_id === item?.id);
+  }, [item, dataMatching]);
 
-  return (<InfoTheme i={i} key={item.id} type={String(item?.content?.name_key)} resetAnimate={resetAnimate}>
+  return (<InfoTheme i={i} key={item.id} rgb={item?.content?.rgb} resetAnimate={resetAnimate}>
     {({ data }) => (<>
       <div className="flex items-center gap-2 w-full" onClick={(e) => {
         e.stopPropagation();
@@ -57,6 +57,7 @@ export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose
             <InnerCountdown
               type={item?.content?.name_key}
               status={item?.content?.handle_status}
+              content={item?.content}
               payload={item?.content?.payload}
               jump_url={item?.content?.jump_url}
               expired_at={item?.content?.expired_at}
@@ -78,7 +79,7 @@ export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose
           transition={{ duration: 0.1, ease: "easeInOut", opacity: { duration: 0.075 } }}
         >
           <div
-            className="leading-4 text-[12px] mt-3 font-semibold max-h-[400px] overflow-y-auto hide-scrollbar text-white/75">
+            className="leading-4 text-[12px] mt-3 font-semibold text-base-content/80 max-h-[400px] overflow-y-auto hide-scrollbar">
             {content_match?.images?.map((img: string) => (
               <img src={img} alt="" className="rounded-xl mx-auto mb-2" />))}
             <DisplayDifferentMessages
@@ -95,12 +96,12 @@ export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose
                 status={item?.content?.handle_status}
                 jump_url={item?.content?.jump_url}
                 expired_at={item?.content?.expired_at || 0}
-                onClose={onClose}/>
+                onClose={onClose} />
             </InnerDisplayContent>
           </div>
         </m.div>}
       </AnimatePresence>
-    </>)}
+    </>) }
   </InfoTheme>);
 };
 
@@ -117,11 +118,11 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
   const { convertCurrency, isLoading, formatCurrency, exchangeRates } = useCurrencyData();
 
   const source = useMemo(() => {
-    if (!payload) return
+    if (!payload) return;
 
     const parsed_payload = parser(payload);
     const targetCurrency = (user?.currency_fiat ?? "USD");
-    console.info(parsed_payload);
+
     if (type.includes("promo_code")) {
       const min_amount = convertCurrency({
         amount: parsed_payload?.extra_data?.min_amount || 0,
@@ -216,7 +217,7 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
         pool_amount: isLoading ? "0.00" : formatCurrency({
           amount: convertCurrency({
             amount: parsed_payload?.rakeback_log?.amount || 0,
-            fromCurrency: "USDT",
+            fromCurrency: parsed_payload?.rakeback_log?.currency ?? "USDT",
             toCurrency: targetCurrency,
             exchangeRates
           }),
@@ -227,32 +228,76 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
       };
     }
 
+    if (type.includes("recovery_bonus")) {
+      return {
+        ...parsed_payload,
+        amount: isLoading ? "0.00" : formatCurrency({
+          amount: convertCurrency({
+            amount: parsed_payload?.extra_data?.bonus_amount || 0,
+            fromCurrency: parsed_payload?.extra_data?.currency ?? "USDT",
+            toCurrency: targetCurrency,
+            exchangeRates
+          }),
+          currency: targetCurrency,
+          showSymbol: true, showCode: false
+        }).formatted,
+        currency: ""
+      };
+    }
+
+    if (type.includes("bonus_wallet")) {
+      return {
+        ...parsed_payload,
+        amount: isLoading ? "0.00" : formatCurrency({
+          amount: convertCurrency({
+            amount: parsed_payload?.init_amount || 0,
+            fromCurrency: parsed_payload?.currency ?? "USDT",
+            toCurrency: targetCurrency,
+            exchangeRates
+          }),
+          currency: targetCurrency,
+          showSymbol: true, showCode: false
+        }).formatted,
+        wagering: formatCurrency({
+          amount: convertCurrency({
+            amount: parsed_payload?.wager_require || 0,
+            fromCurrency: parsed_payload?.currency ?? "USDT",
+            toCurrency: targetCurrency,
+            exchangeRates
+          }),
+          currency: targetCurrency,
+          showSymbol: true, showCode: false
+        }).formatted,
+        currency: '',
+      };
+    }
+
     return {
       ...parsed_payload,
       amount: isLoading ? "0.00" : formatCurrency({
         amount: convertCurrency({
           amount: parsed_payload?.amount || 0,
-          fromCurrency: "USDT",
+          fromCurrency: parsed_payload?.currency ?? "USDT",
           toCurrency: targetCurrency,
           exchangeRates
         }),
         currency: targetCurrency,
         showSymbol: true, showCode: false
       }).formatted,
-      currency: ''
+      currency: ""
     };
   }, [i18n, isLoading, user?.currency_fiat, language_match]);
 
   return (display === 1
     ? (<>
-      <div className="text-[14px] text-white leading-4 text-left flex-1 font-semibold">
+      <div className="text-[12px] text-base-content leading-4 text-left flex-1 font-bold">
         <Trans
           i18nKey={content?.title}
           values={source}
         />
       </div>
       <InnerDisplayContent show={content?.subtitle}>
-        <div className="text-[12px] text-white/50 leading-4 text-left flex-1 font-semibold">
+        <div className="text-[12px] text-base-content/80 leading-4 text-left flex-1 font-semibold">
           <Trans
             i18nKey={content?.subtitle}
             values={source}
@@ -263,6 +308,6 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
     : (<Trans
       i18nKey={`<0>${content?.detail_user}</0>`}
       values={source}
-      components={[<article className="whitespace-pre-line" />]}
+      components={[<article className="whitespace-pre-line pr-8 rtl:pl-8 rtl:pr-0" />]}
     />));
 };

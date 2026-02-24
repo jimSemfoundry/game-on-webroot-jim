@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "फ्री स्पिन पुरस्कार",
   "common": {
     "close": "बंद करें",
     "copy": "कॉपी करें",
@@ -12,7 +13,8 @@
     "swap": "स्वैप करें",
     "swapFrom": "स्वैप करें From",
     "swapTo": "स्वैप करें To",
-    "noCommissionRecords": "कोई कमीशन रिकॉर्ड नहीं मिला"
+    "noCommissionRecords": "कोई कमीशन रिकॉर्ड नहीं मिला",
+    "createdOn": "बनाई गई तिथि"
   },
   "tabs": {
     "transactionHistory": "लेन-देन का इतिहास",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "निकासी नेटवर्क",
     "blockchainWaiting": "ब्लॉकचेन पुष्टि की प्रतीक्षा कर रहे हैं।",
     "blockchainFailed": "ब्लॉकचेन लेन-देन विफल।",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "हमने आपके अनुरोध को प्राप्त कर लिया है।<br/>स्थिति देखने के लिए, अपने प्रोफ़ाइल में लेन-देन देखें।"
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "कुल शर्त आवश्यक",
     "wagerCompleted": "शर्त पूरी हुई",
     "pendingWagerRequired": "लंबित शर्त आवश्यक",
-    "unlockedFunds": "अनलॉक की गई धनराशि"
-  }
+    "unlockedFunds": "अनलॉक किए गए फंड",
+    "rolloverMul": "दांव गुणक"
+  },
+  "assistance": "कृपया अपने विवरण जांचें और पुनः प्रयास करें या सहायता के लिए ग्राहक सेवा से संपर्क करें"
 }

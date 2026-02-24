@@ -3,5 +3,8 @@
   "notifications": "Notificări",
   "support": "Suport",
   "retry": "Reîncearcă",
-  "customerServiceChatFailedToLoad": "Chat-ul pentru asistență clienți nu a putut fi încărcat"
+  "customerServiceChatFailedToLoad": "Chat-ul pentru asistență clienți nu a putut fi încărcat",
+  "read": "Citește",
+  "unread": "Necitit",
+  "customerService": "Serviciu clienți"
 }

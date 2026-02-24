@@ -15,7 +15,7 @@ export const BonusHub = () => {
   const { isMobile } = useSidebar();
   const { isRTL } = useRTLContext();
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const navigate = useNavigate();
   const [cashbackCountdown, setCashbackCountdown] = useState<string>("");
 
@@ -117,7 +117,7 @@ export const BonusHub = () => {
           onClick={() => setIsOpen(true)}
         >
           <m.img
-            src="/icons/ui/gift-box.svg"
+            src="/icons/ui/gift-box.png"
             alt="Bonus"
             className="w-7 h-7"
             animate={{
@@ -253,7 +253,7 @@ export const BonusHub = () => {
     <div className="dropdown dropdown-center cursor-pointer z-10">
       <div tabIndex={0} role="button" className="btn btn-md gap-2">
         <m.img
-          src="/icons/ui/gift-box.svg"
+          src="/icons/ui/gift-box.png"
           alt="Bonus"
           className="w-7 h-7"
           animate={{

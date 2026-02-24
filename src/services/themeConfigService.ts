@@ -2,6 +2,7 @@ import type { ThemeConfig } from "../contexts/ThemeContext";
 
 export interface RuntimeThemeConfig {
   currentTheme: string;
+  colorSchema?: "light" | "dark";
   customOverrides?: {
     colors?: Partial<ThemeConfig["colors"]>;
     // DaisyUI radius settings

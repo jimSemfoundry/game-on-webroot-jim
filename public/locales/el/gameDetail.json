@@ -25,6 +25,14 @@
   "totalTips": "Οδηγίες",
   "result": "Αποτέλεσμα",
   "myBets": "Τα Στοιχήματά Μου",
-  "**********": "",
-  "demoPlay": "Δοκιμαστική Αναπαραγωγή"
+  "demoPlay": "Δοκιμαστική Αναπαραγωγή",
+  "limitedOffer": "Περιορισμένη Προσφορά",
+  "deposit": "Κατάθεση {{value}}",
+  "get": "Πάρε {{value}}",
+  "instantCashBonus": "Άμεσο Μπόνους Μετρητών",
+  "expires": "Λήγει",
+  "depositNow": "Κατάθεση Τώρα",
+  "free_spins": "Δωρεάν Περιστροφές",
+  "play_with_balance_in": "Παίξτε με Υπόλοιπο Σε",
+  "the_selected_currency_will_be_displayed_in": "Το επιλεγμένο νόμισμα θα εμφανίζεται σε"
 }

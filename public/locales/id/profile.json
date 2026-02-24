@@ -76,12 +76,39 @@
   "dashboard": "Dasbor",
   "transactions": "Transaksi",
   "rollover": "Rollover",
-  "betHistory": "Riwayat Taruhan",
+  "betHistory": {
+    "empty": "Tidak ada riwayat taruhan ditemukan",
+    "title": "Riwayat Taruhan",
+    "headers": {
+      "game": "Permainan",
+      "date": "Tanggal",
+      "betId": "ID Taruhan",
+      "betIn": "Taruhan",
+      "betOut": "Kemenangan",
+      "account": "Akun",
+      "amount": "Jumlah",
+      "provider": "Penyedia",
+      "match": "Pertandingan",
+      "tournament": "Turnamen"
+    }
+  },
   "settings": "Pengaturan",
   "legal": "Hukum",
   "nickname": "Nama Panggilan",
   "zoomAndAdjust": "Perbesar dan Sesuaikan",
   "systemLanguage": "Bahasa Sistem",
   "editProfile": "Edit Profil",
-  "inviteAndGetRewarded": "Undang dan Dapatkan Hadiah"
+  "inviteAndGetRewarded": "Undang dan Dapatkan Hadiah",
+  "emailAddress": "Alamat Email",
+  "codeSent": "Masukkan Kode yang Kami Kirim",
+  "codeSentTo": "Kode telah dikirim ke",
+  "notReceiveCode": "Tidak menerima kode?",
+  "verificationSuccess": "Verifikasi Berhasil",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Nomor telepon Anda telah diverifikasi. Anda dapat melanjutkan.",
+  "email_address_has_been_verified": "Alamat email kamu telah diverifikasi. Kamu bisa lanjut.",
+  "setNewPassword": "Atur Kata Sandi Baru",
+  "passwordLengthRequirement": "Silakan masukkan kata sandi antara 6 hingga 64 karakter."
 }

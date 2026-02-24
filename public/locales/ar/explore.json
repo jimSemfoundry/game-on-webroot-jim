@@ -7,6 +7,8 @@
   "baseball": "بيسبول",
   "iceHockey": "هوكي الجليد",
   "basketball": "كرة السلة",
+  "cricket": "كريكيت",
+  "eSoccer": "كرة قدم إلكترونية",
   "volleyball": "كرة الطائرة",
   "hot": "رائج",
   "all": "الكل",
@@ -69,5 +71,6 @@
   "live-casino": "الكازينو المباشر",
   "sports": "الرياضة",
   "lotteries": "اليانصيب",
-  "gamesYouShouldTry": "ألعاب يجب أن تجربها"
+  "gamesYouShouldTry": "ألعاب يجب أن تجربها",
+  "bonus": "Bonus"
 }

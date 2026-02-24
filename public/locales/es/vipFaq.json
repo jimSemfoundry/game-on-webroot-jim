@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "¿Qué es el Bono Semanal?",
-    "content": "<p class=\"leading-7\">El Bono Semanal es un beneficio exclusivo en nuestro sitio web diseñado para jugadores que son VIP12 y superiores. Este bono se emite semanalmente y se paga automáticamente cada viernes a los jugadores en VIP12 y superiores. El tamaño del bono depende de la cantidad apostada durante la semana pasada, con un requisito de apuesta mínima de {{minWager}} durante la semana pasada.</p>"
+    "content": "<p class=\"leading-7\">El Bono Semanal es un beneficio exclusivo en nuestro sitio web diseñado para jugadores que son VIP2 y superiores. El bono se emite semanalmente los lunes y expira cuando sale el siguiente bono semanal. El tamaño del bono depende de la cantidad apostada durante la semana pasada, con un requisito de apuesta mínima efectiva de {{minWager}} durante la semana pasada.</p>"
   },
   "faqNine": {
     "title": "¿Qué son los Logros?",

@@ -27,7 +27,7 @@ type SignInModalProps = {
 type FormMode = "signin" | "forgot-password" | "reset-password";
 
 export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const isMobile = useMediaQuery("(max-width: 768px)");
   const navigate = useNavigate();
 
@@ -174,7 +174,7 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
     setIsResetLoading(true);
 
     try {
-      if (resetCaptchaRef.current) {
+      if (resetCaptchaRef.current && resetCaptchaRef.current.execute) {
         resetCaptchaRef.current?.execute();
       }
     } catch (error) {
@@ -282,6 +282,26 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
 
   const renderPromoCard = () => (
     <div
+      style={{
+        isolation: "isolate",
+        background:
+          `linear-gradient(120deg,
+  var(--color-base-300) 0%,
+  var(--color-base-400) 52.8%,
+  
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 53.2%,
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 81.8%,
+  
+  color-mix(in oklch, var(--color-primary) 40%, transparent) 82.2%,
+  color-mix(in oklch, var(--color-primary) 40%, transparent) 87.8%,
+  
+  color-mix(in oklch, var(--color-primary) 20%, transparent) 88.2%,
+  color-mix(in oklch, var(--color-primary) 20%, transparent) 92.8%,
+  
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 93.2%,
+  color-mix(in oklch, var(--color-primary) 10%, transparent) 100%
+)`
+      }}
       className="relative h-[140px] overflow-hidden xs:h-[140px] sm:h-full rounded-t-box w-full sm:w-[310px] sm:rounded-r-none rtl:rotate-y-180">
       {/** Title */}
       <div
@@ -291,43 +311,16 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
       </div>
       {/** Illustration */}
       <img
-        src="/images/illustrations/79b42f076d581f884bcd9974c65fdc88bb4a891b.png"
+        src="/images/illustrations/tiger.png"
         alt="Sign in modal image"
         className="absolute left-[171px] z-20 top-0 w-[171px] -rotate-[9deg] h-[224px] object-cover translate-x-4 sm:min-w-[333px] sm:h-[434px] sm:left-0 sm:top-[138px] sm:-ml-4"
       />
-      {/** Background */}
-      <div
-        className="absolute inset-0 z-0 rounded-t-box"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 28.45%, color-mix(in oklch, var(--color-base-300), transparent 30%) 99.82%), linear-gradient(270deg, transparent 71.67%, color-mix(in oklch, var(--color-base-300), transparent 10%) 100%), linear-gradient(0deg, transparent 40.33%, color-mix(in oklch, var(--color-base-300), transparent 10%) 85.41%), linear-gradient(180deg, transparent 0%, color-mix(in oklch, var(--color-base-300), transparent 10%) 59.51%), url(/images/illustrations/75a2f479bdb1a69ccf2140854ec9033038e744a5.png) lightgray center / cover no-repeat",
-          WebkitBackfaceVisibility: "hidden",
-          backfaceVisibility: "hidden",
-          WebkitTransform: "translateZ(0)",
-          transform: "translateZ(0)"
-        }}
-      />
-      {/** Ellipse 5 */}
-      <div
-        className="hidden sm:block absolute -left-[100px] top-[405px] w-[479px] h-[98px] bg-primary/80 rounded-full blur-[46px] z-30" />
-      {/** Ellipse 4 */}
-      <div
-        className="absolute -top-[230px] left-[112px] w-[286px] h-[286px] rounded-full bg-base-300 blur-[38px] z-10 sm:-left-[147px] sm:-top-[359px] sm:w-[600px] sm:h-[600px] sm:blur-[80px]" />
-      {/**Ellipse 3 */}
-      <div
-        className="absolute top-[50px] left-[153px] w-[286px] h-[166px] rounded-full bg-primary blur-[38px] z-0 sm:-left-[63px] sm:top-[225px] sm:w-[600px] sm:h-[348px] sm:blur-[80px]" />
-      {/**Rectangle 2 */}
-      <div
-        className="absolute -top-[85px] left-[152px] w-[71px] h-[311px] bg-primary/10 skew-x-[12deg] rotate-[36deg] translate-x-4 sm:translate-x-16 sm:-left-[63px] sm:-top-[57px] sm:w-[148px] sm:h-[652px]" />
-      {/**Rectangle 3 */}
-      <div
-        className="absolute -top-[60px] left-[218px] w-[110px] h-[350px] skew-x-[12deg] rotate-[36deg] bg-primary/10 border-primary/40 border-l-[18px] translate-x-2 sm:left-[74px] sm:-top-[2px] sm:w-[230px] sm:h-[732px] sm:border-l-[38px]" />
     </div>
   );
 
   const renderSignInForm = () => (
     <div
-      className="p-5 sm:p-6 flex flex-col gap-4 flex-1 relative h-full min-h-[400px] overflow-y-auto pb-[env(safe-area-inset-bottom,16px)]"
+      className="p-5 sm:p-6 flex flex-col gap-4 flex-1 relative h-full min-h-[400px] overflow-y-auto pb-[max(var(--safe-area-inset-bottom),16px)]"
       onFocusCapture={(e) => {
         // iOS Safari: ensure focused inputs scroll into view on first keyboard open
         if (!isMobile) return;
@@ -386,7 +379,7 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
       </form>
 
       {/* 社媒登录 */}
-      <SocialLogin />
+      <SocialLogin enabled={isOpen} />
     </div>
   );
 

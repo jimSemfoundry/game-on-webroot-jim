@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Phần thưởng Quay miễn phí",
   "common": {
     "close": "Đóng",
     "copy": "Sao chép",
@@ -12,7 +13,8 @@
     "swap": "Hoán đổi",
     "swapFrom": "Hoán đổi Từ",
     "swapTo": "Hoán đổi Đến",
-    "noCommissionRecords": "Không tìm thấy bản ghi hoa hồng nào"
+    "noCommissionRecords": "Không tìm thấy bản ghi hoa hồng nào",
+    "createdOn": "Tạo lúc"
   },
   "tabs": {
     "transactionHistory": "Lịch sử giao dịch",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Mạng rút tiền",
     "blockchainWaiting": "Đang chờ xác nhận blockchain.",
     "blockchainFailed": "Giao dịch blockchain thất bại.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Chúng tôi đã nhận được yêu cầu của bạn.<br/>Để xem trạng thái, kiểm tra Giao dịch trong Hồ sơ của bạn."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Tổng cược yêu cầu",
     "wagerCompleted": "Cược đã hoàn thành",
     "pendingWagerRequired": "Cược đang chờ yêu cầu",
-    "unlockedFunds": "Quỹ đã mở khóa"
-  }
+    "unlockedFunds": "Tiền đã mở khóa",
+    "rolloverMul": "Hệ số cược"
+  },
+  "assistance": "Vui lòng kiểm tra thông tin của bạn và thử lại hoặc liên hệ dịch vụ khách hàng để được hỗ trợ"
 }

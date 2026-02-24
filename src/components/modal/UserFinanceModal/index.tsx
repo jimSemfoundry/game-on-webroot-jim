@@ -7,17 +7,20 @@ import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { cn } from "@/utils/themeMerger.ts";
 import { TFunction } from "i18next";
 import { X } from "lucide-react";
-import { ReactNode, useState, useEffect, PropsWithChildren } from "react";
+import { ReactNode, useState, useEffect, PropsWithChildren, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { Deposit as UserDeposit } from "./Deposit";
-import { Swap as UserSwap } from "./Swap";
-import { Withdraw as UserWithdraw } from "./Withdraw";
 import { SpecialOffersPC } from "@/components/modal/UserFinanceModal/c/SpecialOffers.tsx";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import FinanceModalManager from "@/components/modal/UserFinanceModal/c/FinanceModalManager.tsx";
 import { TabItemsType, useFinanceModal } from "@/contexts/ModalsProvider.tsx";
-import { useLocation } from "@tanstack/react-router";
 import { emitter } from "@/store/emitter.ts";
+import { useLocation } from "@tanstack/react-router";
+import { SpecialOffersGuard } from "@/components/modal/UserFinanceModal/c/SpecialOffersGuard.tsx";
+
+// 懒加载部分Tab组件（Swap和Withdraw）
+const LazySwap = lazy(() => import("./Swap").then(module => ({ default: module.Swap })));
+const LazyWithdraw = lazy(() => import("./Withdraw").then(module => ({ default: module.Withdraw })));
 
 type UserFinanceModalProps = {
   isOpen: boolean;
@@ -32,7 +35,7 @@ const tabItems: {
 }[] = [
   {
     label: "deposit",
-    trans: "common.deposit",
+    trans: "common:common.deposit",
     getIcon: function(active: boolean) {
       return <DepositIcon customCls={active ? "" : "text-primary"} className={"w-4 h-4 md:w-5 md:h-5"} />;
     }
@@ -46,7 +49,7 @@ const tabItems: {
   },
   {
     label: "withdraw",
-    trans: "common.withdraw",
+    trans: "common:common.withdraw",
     getIcon: function(active: boolean) {
       return <WithdrawIcon customCls={active ? "" : "text-primary"} className={"w-4 h-4 md:w-5 md:h-5"} />;
     }
@@ -89,7 +92,6 @@ export const UserFinanceModal = ({ isOpen, onClose, initialTab = "deposit" }: Us
         title={<InnerModalHeader t={t} />}
         position={isMobile ? "modal-bottom" : "modal-middle"}
         className={`
-        !z-[1001]
         p-5 bg-base-400 hide-scrollbar md:p-0 md:rounded-lg shadow-lg 
         md:min-w-[648px]
         min-h-[calc(85%)]
@@ -116,7 +118,9 @@ export const UserFinanceModal = ({ isOpen, onClose, initialTab = "deposit" }: Us
                 <InnerTabItems setTab={setTab} tab={tab} t={t} cls="w-[208px] flex-none justify-start" />
               </div>
 
-              <SpecialOffersPC />
+              <SpecialOffersGuard>
+                <SpecialOffersPC />
+              </SpecialOffersGuard>
 
             </div>
             {/*右侧内容*/}
@@ -145,10 +149,22 @@ const InnerDisplay = ({ tab, status }: { tab: TabItemsType, status: boolean }) =
         <UserDeposit />
       </DisplayContent>
       <DisplayContent status={tab === "swap"}>
-        <UserSwap open={status} />
+        <Suspense fallback={
+          <div className="flex justify-center items-center h-40">
+            <div className="loading loading-spinner loading-md"></div>
+          </div>
+        }>
+          <LazySwap open={status} />
+        </Suspense>
       </DisplayContent>
       <DisplayContent status={tab === "withdraw"}>
-        <UserWithdraw />
+        <Suspense fallback={
+          <div className="flex justify-center items-center h-40">
+            <div className="loading loading-spinner loading-md"></div>
+          </div>
+        }>
+          <LazyWithdraw />
+        </Suspense>
       </DisplayContent>
     </InnerResetFinanceStatus>
   );

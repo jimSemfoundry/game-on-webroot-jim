@@ -1,86 +1,109 @@
 import { useLanguageModal, useThemeSwitcherModal, useWalletModal } from "@/contexts/ModalsProvider";
-import { ChevronDown, ChevronRight, CircleDollarSign, SwatchBook } from "lucide-react";
-import { AnimatePresence, m } from 'motion/react'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import Iconify from '../iconify/iconify'
-import { useAuth } from '@/contexts/AuthContext'
-import { getLanguageDisplayName } from '@/utils/languages'
-import getSymbolFromCurrency from 'currency-symbol-map'
-import { useDisplayCurrency } from '@/contexts/DisplayCurrencyContext'
-import { useChatwootContext } from '@/contexts/ChatwootContext'
+import { ChevronRight, CircleDollarSign, SwatchBook } from "lucide-react";
+import { AnimatePresence, m } from "motion/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import Iconify from "../iconify/iconify";
+import { useAuth } from "@/contexts/AuthContext";
+import { getLanguageDisplayName } from "@/utils/languages";
+import getSymbolFromCurrency from "@/utils/currencySymbol";
+import { useDisplayCurrency } from "@/contexts/DisplayCurrencyContext";
+import { useChatwootContext } from "@/contexts/ChatwootContext";
 import { useTheme } from "@/contexts/ThemeContext.tsx";
+import { useSidebar } from "@/contexts/SidebarContext";
+import { EnvVariablesGuard } from "@/components/EnvVariablesGuard.tsx";
+// import { ClearCache } from "@/components/sidebar/ClearCache.tsx";
+import { ExpandButton } from "@/components/sidebar/ExpandButton.tsx";
+import { LastUpdate } from "@/components/sidebar/LastUpdate.tsx";
+import { ClearCache } from "@/components/sidebar/ClearCache.tsx";
 
 export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
-  const { user } = useAuth()
-  const { selectedCurrency } = useDisplayCurrency()
-  const { toggleWidget } = useChatwootContext()
+  const { user } = useAuth();
+  const { selectedCurrency } = useDisplayCurrency();
+  const { toggleWidget } = useChatwootContext();
+  const { closeDrawer } = useSidebar();
 
-  const [isSettingsOpen, setSettingsOpen] = useState(false)
-  const settingsRef = useRef<HTMLDivElement>(null)
-  const { openModal: openLanguageModal } = useLanguageModal()
-  const { openModal: openWalletModal } = useWalletModal()
-  const { openModal: openThemeSwitcherModal } = useThemeSwitcherModal()
-  const { t, i18n } = useTranslation()
-  const {state} = useTheme()
-  const isThemeSwitcherEnabled = import.meta.env.VITE_ENABLE_THEME_SWITCHER === 'true'
-  
+  const [isSettingsOpen, setSettingsOpen] = useState(false);
+  const settingsRef = useRef<HTMLDivElement>(null);
+  const { openModal: openLanguageModal } = useLanguageModal();
+  const { openModal: openWalletModal } = useWalletModal();
+  const { openModal: openThemeSwitcherModal } = useThemeSwitcherModal();
+  const { t, i18n } = useTranslation();
+  const { state } = useTheme();
+
   // 获取当前显示的货币（优先用户设置，其次CurrencyContext选择）
-  const displayCurrency = user?.currency_fiat || selectedCurrency
+  const displayCurrency = user?.currency_fiat || selectedCurrency;
 
   // Memoized click outside handler to prevent unnecessary re-renders
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
-      setSettingsOpen(false)
+      setSettingsOpen(false);
     }
-  }, [])
+  }, []);
 
   // Click outside to close settings
   useEffect(() => {
     if (isSettingsOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isSettingsOpen, handleClickOutside])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSettingsOpen, handleClickOutside]);
 
   return (
     <div ref={settingsRef}>
       <div className="rounded-xl">
         {isMini ? (
           <div className="flex flex-col gap-y-1 py-2">
-            <button 
-              onClick={toggleWidget}
+            <button
+              onClick={() => {
+                toggleWidget();
+                closeDrawer();
+              }}
               className="cursor-pointer flex items-center justify-center rounded-field hover:bg-base-200 text-base-content group relative h-11 w-11 py-3 px-2  max-w-none bg-base-400"
             >
-              <Iconify icon="custom:headphone" className="w-5 h-5 shrink-0 text-base-content/70 group-hover:text-primary" />
+              <Iconify icon="custom:headphone"
+                       className="w-5 h-5 shrink-0 text-base-content/70 group-hover:text-primary" />
               {/* Tooltip for mini mode */}
-              <div className="fixed left-20 rtl:right-20 px-2 py-1 bg-base-100 shadow-lg text-base-content rounded-selector badge badge-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-                {t('menu:support')}
+              <div
+                className="fixed left-20 rtl:right-20 px-2 py-1 bg-base-100 shadow-lg text-base-content rounded-selector badge badge-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                {t("menu:support")}
               </div>
             </button>
-            <button className="cursor-pointer flex items-center justify-center rounded-field hover:bg-base-200 text-base-content group relative h-11 w-11 py-3 px-2  max-w-none bg-base-400">
-              <Iconify icon="custom:setting" className="w-5 h-5 shrink-0 text-base-content/70 group-hover:text-primary" />
+            <button
+              className="cursor-pointer flex items-center justify-center rounded-field hover:bg-base-200 text-base-content group relative h-11 w-11 py-3 px-2  max-w-none bg-base-400">
+              <Iconify icon="custom:setting"
+                       className="w-5 h-5 shrink-0 text-base-content/70 group-hover:text-primary" />
               {/* Tooltip for mini mode */}
-              <div className="fixed left-20 rtl:right-20 px-2 py-1 bg-base-100 shadow-lg text-base-content rounded-selector badge badge-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-                {t('menu:settings')}
+              <div
+                className="fixed left-20 rtl:right-20 px-2 py-1 bg-base-100 shadow-lg text-base-content rounded-selector badge badge-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
+                {t("menu:settings")}
               </div>
             </button>
           </div>
         ) : (
           <div className="space-y-1">
-            <div 
-              onClick={toggleWidget}
+            {/* TODO: 增加版本信息 */}
+            {/*<InnerContentVisible show={isSettingsOpen}>*/}
+            {/*  <div className="text-[10px] font-extrabold text-base-content/40 text-right underline">*/}
+            {/*    v1.0.0*/}
+            {/*  </div>*/}
+            {/*</InnerContentVisible>*/}
+            <div
+              onClick={() => {
+                toggleWidget();
+                closeDrawer();
+              }}
               className="btn flex w-full items-center justify-between btn-md md:btn-lg"
             >
               <div className="flex items-center gap-x-3">
                 <Iconify icon="custom:headphone" className="w-5 h-5 shrink-0 text-base-content/70" />
-                <span className="text-sm font-semibold">{t('menu:support')}</span>
+                <span className="text-sm font-semibold">{t("menu:support")}</span>
               </div>
               <div className="flex items-center gap-x-2">
-                <span className="badge badge-soft badge-primary badge-sm md:badge-md">24/7</span>
+                <span className="badge badge-soft badge-primary badge-sm md:badge-md rounded-md">24/7</span>
                 <ChevronRight size={16} className="rtl:rotate-z-180" />
               </div>
             </div>
@@ -106,10 +129,7 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                         </span>
                       </div>
                     </div>
-                    <div
-                      className="flex items-center justify-center btn-square btn-xs rounded-lg bg-primary text-primary-content">
-                      <ChevronDown size={16} />
-                    </div>
+                    <ExpandButton />
                   </button>
                   <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
                           onClick={openWalletModal}>
@@ -122,30 +142,26 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                         </span>
                       </div>
                     </div>
-                    <div
-                      className="flex items-center justify-center btn-square btn-xs rounded-lg bg-primary text-primary-content">
-                      <ChevronDown size={16} />
-                    </div>
+                    <ExpandButton />
                   </button>
-
-                  {isThemeSwitcherEnabled && (
+                  <EnvVariablesGuard name={"VITE_ENABLE_THEME_SWITCHER"}>
                     <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
-                            onClick={openThemeSwitcherModal }>
+                            onClick={openThemeSwitcherModal}>
                       <div className="flex items-center gap-x-3">
                         <SwatchBook size={20} className="w-5 h-5 shrink-0 opacity-50" />
                         <div className="flex flex-col items-start">
-                          <span className="text-xs text-base-content/50">{t('theme:theme_switching','Theme Switching')}</span>
+                          <span
+                            className="text-xs text-base-content/50">{t("theme:theme_switching", "Theme Switching")}</span>
                           <span className="text-xs font-semibold">
                             {state.currentTheme}
                           </span>
                         </div>
                       </div>
-                      <div
-                        className="flex items-center justify-center btn-square btn-xs rounded-lg bg-primary text-primary-content">
-                        <ChevronDown size={16} />
-                      </div>
+                      <ExpandButton />
                     </button>
-                  )}
+                  </EnvVariablesGuard>
+                  <ClearCache />
+                  <LastUpdate />
                 </m.div>
               )}
             </AnimatePresence>
@@ -166,5 +182,5 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

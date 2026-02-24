@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const ProfileTabs = ({ value, onChange, className }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
 
   const tabs = [
     {
@@ -48,7 +48,7 @@ export const ProfileTabs = ({ value, onChange, className }: Props) => {
       label: (
         <div className="flex items-center gap-2 justify-center rounded-field min-w-[48px] px-2 sm:px-3 h-8 sm:h-12 py-1 font-semibold">
           <Iconify icon="custom:bet-history" />
-          <p>{t("profile:betHistory")}</p>
+          <p>{t("profile:betHistory.title")}</p>
         </div>
       ),
     },

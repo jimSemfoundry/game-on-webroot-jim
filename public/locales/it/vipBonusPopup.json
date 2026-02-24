@@ -5,11 +5,11 @@
     "achievements": "Risultati",
     "achievementDescription": "I Premi per i Risultati sono ricompense assegnate per il raggiungimento di nuovi traguardi e la conquista di sfide. Celebrano i tuoi progressi e successi, sbloccando sorprese divertenti man mano che raggiungi nuove imprese lungo il cammino!",
     "claimDistribution": "Distribuzione dei Premi",
-    "claimDistributionDescription": "I premi vengono aggiunti al tuo calendario bonus per 3 giorni dopo la richiesta.",
+    "claimDistributionDescription": "Le tue ricompense vengono maturate immediatamente e sono disponibili per il prelievo dal tuo <0>bonus pool</0> di deposito ogni volta che richiedi una nuova ricompensa per un traguardo.",
     "expiration": "Scadenza",
-    "expirationDescription": "Nessuna - I premi vengono inviati automaticamente al calendario.",
+    "expirationDescription": "Nessuna - Le richieste sono disponibili finché il saldo del Bonus Pool è sufficiente.",
     "generalTerms": "Termini Generali",
-    "generalTermsDescription": "I premi sono calcolati e accreditati in BUCK/USDT, quindi visualizzati nella tua valuta fiat preferita per comodità. Si prega di notare che le conversioni valutarie sono approssimative.\n\nIl casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento, senza l'obbligo di giustificare. Qualsiasi abuso o attività fraudolenta porterà alla squalifica dalla promozione."
+    "generalTermsDescription": "Le ricompense sono calcolate e accreditate in USDT, poi visualizzate nella tua valuta fiat preferita per comodità. Tieni presente che le conversioni di valuta sono approssimative.\n\nIl casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento senza obbligo di giustificazione. Qualsiasi abuso o attività fraudolenta comporterà la squalifica dalla promozione."
   },
   "luckyNumberSeven": {
     "title": "Numero Fortunato \n Sette",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "L'importo minimo da richiedere è {{money}}",
     "expiration": "Scadenza",
-    "expirationDescription": "La tua Scatola Misteriosa deve essere richiesta entro 7 giorni dall'assegnazione. I premi non richiesti scadranno dopo questo periodo.",
+    "expirationDescription": "La tua Scatola Misteriosa deve essere richiesta entro 3 giorni dall'assegnazione. I premi non richiesti scadranno dopo questo periodo.",
     "generalTerms": "Termini Generali",
     "generalTermsDescription": "I premi sono calcolati e accreditati in base al primo deposito dell'utente o in USDT se non viene effettuato alcun deposito, soggetti a un rollover di 1x richiesto. Gli importi sono visualizzati nella tua valuta fiat preferita; le conversioni sono approssimative.\n\nIl casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento senza preavviso. Qualsiasi abuso o frode comporterà la squalifica."
   },

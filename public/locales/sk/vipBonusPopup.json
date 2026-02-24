@@ -5,11 +5,11 @@
     "achievements": "Dosiahnutia",
     "achievementDescription": "Ocenienia za dosiahnutia sú odmeny udeľované za dosiahnutie nových míľnikov a prekonávanie výziev. Oslavujú váš pokrok a úspech, odomykanie zábavných prekvapení, keď dosiahnete nové úspechy na ceste!",
     "claimDistribution": "Distribúcia odmien",
-    "claimDistributionDescription": "Odmény sú pridané do vášho bonusového kalendára na 3 dni po ich uplatnení.",
+    "claimDistributionDescription": "Vaše odmeny sa okamžite pripíšu a sú dostupné na vyžiadanie z vášho vkladového <0>bonusového fondu</0> vždy, keď si vyzdvihnete novú odmenu za úspech.",
     "expiration": "Platnosť",
-    "expirationDescription": "Žiadna - Odmeny sú automaticky zaslané do kalendára.",
+    "expirationDescription": "Žiadna – nároky sú k dispozícii, pokiaľ je zostatok Bonus Pool dostatočný.",
     "generalTerms": "Všeobecné podmienky",
-    "generalTermsDescription": "Odmény sú vypočítané a pripísané v BUCK/USDT, potom zobrazené vo vašej preferovanej fiat mene pre pohodlie. Upozorňujeme, že konverzie mien sú približné.\n\nKasíno si vyhradzuje právo kedykoľvek zmeniť alebo odvolať oprávnenie, bez povinnosti to odôvodniť. Akékoľvek zneužitie alebo podvodná činnosť povedie k diskvalifikácii z propagácie."
+    "generalTermsDescription": "Odmeny sa počítajú a pripisujú v USDT a potom sa pre pohodlie zobrazujú vo vašej preferovanej fiat mene. Upozorňujeme, že menové konverzie sú orientačné.\n\nKasíno si vyhradzuje právo kedykoľvek zmeniť alebo zrušiť oprávnenie bez povinnosti to odôvodniť. Akékoľvek zneužitie alebo podvodné správanie povedie k diskvalifikácii z promo akcie."
   },
   "luckyNumberSeven": {
     "title": "Šťastné číslo \n Sedem",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimálna suma na uplatnenie je {{money}}",
     "expiration": "Platnosť",
-    "expirationDescription": "Vaša Tajná Škatula musí byť uplatnená do 7 dní od jej udelenia. Neuplatnené odmeny vypršia po tomto období.",
+    "expirationDescription": "Vaša Tajná Škatula musí byť uplatnená do 3 dní od jej udelenia. Neuplatnené odmeny vypršia po tomto období.",
     "generalTerms": "Všeobecné podmienky",
     "generalTermsDescription": "Odmény sú vypočítané a pripísané na základe prvej platby používateľa alebo v USDT, ak nebola vykonaná žiadna platba, podliehajúca 1x rolloveru. Sums sú zobrazené vo vašej preferovanej fiat mene; konverzie sú približné.\n\n Kasíno si vyhradzuje právo kedykoľvek zmeniť alebo odvolať oprávnenosť bez predchádzajúceho upozornenia. Akékoľvek zneužitie alebo podvod povedie k diskvalifikácii."
   },

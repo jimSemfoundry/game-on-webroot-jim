@@ -16,7 +16,7 @@ import { authService } from "@/services/authService";
 
 export function PersonalDetails() {
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const { user } = useAuth();
   const { refetch } = useCurrentUser();
 
@@ -307,7 +307,7 @@ export function PersonalDetails() {
       <ConfirmBox
         className={"btn btn-primary h-10 sm:h-12 w-[139px] self-end"}
         loading={loading} onClick={handle}>
-        {t("common.save")}
+        {t("common:common.save")}
       </ConfirmBox>
     </div>
   );

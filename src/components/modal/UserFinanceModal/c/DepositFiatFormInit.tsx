@@ -3,7 +3,7 @@ import { useFiatGatewayDepositParams, useSupportedFiatDepositGateways } from "@/
 import { useBoundStore } from "@/store";
 import { PropsWithChildren, useCallback, useEffect, useMemo } from "react";
 import { emitter } from "@/store/emitter.ts";
-import { isEmpty } from "lodash-es";
+import { isEmpty } from "@/utils/helper.ts";
 
 export const DepositFiatFormInit = (props: PropsWithChildren) => {
   // from data store, share common data
@@ -25,7 +25,10 @@ export const DepositFiatFormInit = (props: PropsWithChildren) => {
       for (const key in transform) {
         const field = transform[key];
 
-        if (!field.required) continue;
+        if (!field.required && !field.hide) {
+          setDepositFiat({ extraItem: { [key]: field.default || "" } });
+          continue;
+        }
 
         if (field.bind || field.hide) {
           const value = handleBindOrHideFormItemDefaultValue(field, depositFiat.method);
@@ -33,7 +36,7 @@ export const DepositFiatFormInit = (props: PropsWithChildren) => {
           continue;
         }
 
-        if (field.select && field.select.length > 0) {
+        if (Array.isArray(field.select) && field.select.length > 0) {
           setDepositFiat({ formItem: { [key]: field.default || field.select[0].value } });
           continue;
         }

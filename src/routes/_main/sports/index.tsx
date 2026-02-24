@@ -3,16 +3,16 @@ import { useSidebar } from '@/contexts/SidebarContext';
 import { BetbyAccessDeniedError, BetbyNoAccessError, BetbyNotAllowedError } from '@/types/betby';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { createFileRoute, useLocation, useNavigate, useSearch } from '@tanstack/react-router';
 import { fetchBetbyAuthToken, getBetByConfig } from '@/services/betbyService';
 import type { BetbyAuthResponse, BTRendererInstance } from '@/types/betby';
+import { useAuthModals } from '@/contexts/ModalsProvider';
 
 export const Route = createFileRoute('/_main/sports/')({
   component: SportsPage,
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      category: search.category as string | undefined,
-      sport: search.sport as string | undefined,
+      'bt-path': search['bt-path'] as string | undefined,
     };
   },
 });
@@ -21,14 +21,18 @@ function SportsPage() {
   const { user } = useAuth();
   const { isMobile } = useSidebar();
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const navigate = useNavigate();
+  const { openSignInModal, openSignUpModal } = useAuthModals();
   const searchParams = useSearch({ from: '/_main/sports/' });
+  const btPathParam = searchParams['bt-path'];
   const [params, setParams] = useState<BetbyAuthResponse | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [isRestricted, setIsRestricted] = useState(false);
   const [restrictionReason, setRestrictionReason] = useState<'currency' | 'noAccess' | null>(null);
 
   const btInstanceRef = useRef<BTRendererInstance | null>(null);
+  const isSportsRouteRef = useRef(true);
   const lastInitParamsRef = useRef<{
     brandId: string | number;
     lang: string;
@@ -47,45 +51,114 @@ function SportsPage() {
   const normalizedLang = params?.lang === 'zh-CN' ? 'zh' : (params?.lang || 'en');
   const currency = params?.currency || user?.currency_fiat || 'USD';
 
-  // Betby 导航栏高度
+  // Header 和 Betby 导航栏高度
+  const headerHeight = 48;
   const betbyNavigationHeight = 48;
   const betbyStickyTop = 0;
-  const betbyBetSlipOffsetTop = betbyNavigationHeight;
+  
+  // 动态获取 safe-area-inset-top（Telegram Mini App 顶部安全区域）
+  const [safeAreaInsetTop, setSafeAreaInsetTop] = useState(0);
+  
+  useEffect(() => {
+    const updateSafeAreaInset = () => {
+      if (typeof document !== 'undefined') {
+        const value = getComputedStyle(document.documentElement).getPropertyValue('--safe-area-inset-top');
+        const parsed = parseInt(value, 10);
+        setSafeAreaInsetTop(isNaN(parsed) ? 0 : parsed);
+      }
+    };
+    
+    updateSafeAreaInset();
+    
+    // 监听 Telegram viewport 变化
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.onEvent?.('viewportChanged', updateSafeAreaInset);
+      tg.onEvent?.('safeAreaChanged', updateSafeAreaInset);
+      tg.onEvent?.('contentSafeAreaChanged', updateSafeAreaInset);
+      
+      return () => {
+        tg.offEvent?.('viewportChanged', updateSafeAreaInset);
+        tg.offEvent?.('safeAreaChanged', updateSafeAreaInset);
+        tg.offEvent?.('contentSafeAreaChanged', updateSafeAreaInset);
+      };
+    }
+  }, []);
+  
+  // bet slip 需要考虑：safe area + header + betby 导航栏
+  const betbyBetSlipOffsetTop = safeAreaInsetTop + headerHeight + betbyNavigationHeight;
 
   // Dock 高度
   const dockHeight = isMobile ? 72 : 0;
   const betSlipBottomOffset = dockHeight;
 
-  // 将 URL 参数映射为 Betby 内部路径
-  const getBetbyUrl = useCallback((params: { category?: string; sport?: string }) => {
-    // 根据 category 或 sport 参数构建 Betby URL
-    // 这些路径需要根据实际的 Betby 路由结构调整
-    // 使用 Shift+D 在 Betby 中查看实际路径
-    if (params.category === 'hot') {
-      return '/'; // 热门页面
+  const getBetbyUrl = useCallback((btPath?: string) => {
+    if (!btPath) return undefined;
+
+    let value = btPath;
+    try {
+      value = decodeURIComponent(value);
+    } catch {
+      // ignore
     }
-    if (params.category === 'live') {
-      return '/live'; // 直播页面
+
+    if (!value.startsWith('/')) {
+      value = `/${value}`;
     }
-    if (params.category === 'favorites') {
-      return '/favorites'; // 收藏页面
-    }
-    if (params.sport) {
-      // 体育项目映射 - Sidebar URL 参数到 Betby 内部路径的映射
-      const sportMap: Record<string, string> = {
-        'football': '/1', // 足球
-        'basketball': '/2', // 篮球
-        'baseball': '/3', // 棒球
-        'ice-hockey': '/4', // 冰球
-        'tennis': '/5', // 网球
-        'handball': '/6', // 手球
-        'volleyball': '/volleyball-23', // 排球
-        'formula1': '/formula-1-40', // F1
-      };
-      return sportMap[params.sport] || '/';
-    }
-    return undefined; // 默认不设置，让 Betby 显示首页
+    return value;
   }, []);
+
+  const getLegacyBetbyPathFromLocation = useCallback(() => {
+    if (typeof window === 'undefined') return null;
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const sport = params.get('sport');
+
+    if (category === 'hot') return '/';
+    if (category === 'live') return '/live';
+    if (category === 'favorites') return '/favorites';
+    if (!sport) return null;
+
+    const sportMap: Record<string, string> = {
+      football: '/soccer-1',
+      basketball: '/basketball-2',
+      cricket: '/cricket-21',
+      tennis: '/tennis-5',
+      esoccer: '/esoccer-300',
+      'ice-hockey': '/ice-hockey-4',
+      esports: '/e_sport/109',
+      formula1: '/formula-1-40',
+      baseball: '/3',
+      handball: '/6',
+      volleyball: '/volleyball-23',
+    };
+
+    return sportMap[sport] ?? null;
+  }, []);
+
+  const syncSearchWithBetbyPath = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    if ((window as any).__betby_disable_route_sync) return;
+    if (!isSportsRouteRef.current) return;
+    if (!window.location.pathname.startsWith('/sports')) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const betbyPath = params.get('bt-path');
+    if (!betbyPath) return;
+
+    const hasExtraParams = Array.from(params.keys()).some((key) => key !== 'bt-path');
+    if (!hasExtraParams && btPathParam === betbyPath) {
+      return;
+    }
+
+    void navigate({
+      to: '/sports',
+      search: {
+        'bt-path': betbyPath,
+      },
+      replace: true,
+    });
+  }, [btPathParam, navigate]);
 
   // 动态加载 Betby SDK 脚本
   useEffect(() => {
@@ -99,7 +172,6 @@ function SportsPage() {
     script.async = true;
     script.onload = () => {
       setScriptLoaded(true);
-      console.log('✅ Betby SDK loaded successfully');
     };
     script.onerror = () => {
       console.error('❌ Failed to load Betby SDK');
@@ -125,8 +197,6 @@ function SportsPage() {
 
   // 获取集成参数
   const getIntegrationParams = useCallback(async () => {
-    console.log('🔄 [getIntegrationParams] 用户:', user?.id, '法币:', user?.currency_fiat);
-
     if (user) {
       // 已登录用户，获取认证令牌
       try {
@@ -134,7 +204,6 @@ function SportsPage() {
           currency: user.currency_fiat,
           lang: user.language_code,
         });
-        console.log('✅ 成功获取 Betby 认证令牌');
 
         const paramsWithCurrency = {
           ...response,
@@ -171,7 +240,6 @@ function SportsPage() {
             lang: i18n.language,
             currency: 'USD',
           };
-          console.log('🔄 使用游客模式:', guestParams);
           setParams(guestParams);
           setIsRestricted(false);
           setRestrictionReason(null);
@@ -183,7 +251,6 @@ function SportsPage() {
       }
     } else {
       // 未登录用户，使用游客模式
-      console.log('👤 用户未登录，进入游客模式');
       try {
         const brandId = await getBetByConfig();
         const guestParams = {
@@ -192,7 +259,6 @@ function SportsPage() {
           lang: i18n.language,
           currency: 'USD',
         };
-        console.log('✅ 游客模式参数:', guestParams);
         setParams(guestParams);
         setIsRestricted(false);
         setRestrictionReason(null);
@@ -207,10 +273,7 @@ function SportsPage() {
 
   // 刷新令牌
   const refreshToken = useCallback(async () => {
-    console.log('🔄 刷新 Betby 令牌...');
-
     if (!user) {
-      console.log('👤 游客用户，无需刷新令牌');
       return null;
     }
 
@@ -220,7 +283,6 @@ function SportsPage() {
         lang: user.language_code,
       });
 
-      console.log('✅ 令牌刷新成功');
       return response?.jwt ?? null;
     } catch (error) {
       if (error instanceof BetbyNotAllowedError) {
@@ -246,12 +308,10 @@ function SportsPage() {
 
   // 会话刷新回调
   const handleSessionRefresh = useCallback(async () => {
-    console.log('🔄 Betby onSessionRefresh 触发 - 完整参数刷新');
     try {
       const newParams = await getIntegrationParams();
       if (newParams) {
         const nextToken = newParams?.jwt ?? null;
-        console.log('✅ 会话刷新成功，将使用新参数重新初始化');
         return nextToken;
       }
       return null;
@@ -263,12 +323,8 @@ function SportsPage() {
 
   // 令牌过期回调
   const handleTokenExpired = useCallback(async () => {
-    console.log('⚠️ Betby onTokenExpired 触发 - 刷新认证令牌');
     try {
       const newToken = await refreshToken();
-      if (newToken) {
-        console.log('✅ 令牌过期刷新成功');
-      }
       return newToken;
     } catch (error) {
       console.error('❌ 刷新过期令牌失败:', error);
@@ -278,12 +334,8 @@ function SportsPage() {
 
   // 令牌刷新回调
   const handleTokenRefresh = useCallback(async () => {
-    console.log('🔄 Betby onTokenRefresh 触发 - 刷新认证令牌');
     try {
       const newToken = await refreshToken();
-      if (newToken) {
-        console.log('✅ 令牌刷新成功');
-      }
       return newToken;
     } catch (error) {
       console.error('❌ 令牌刷新失败:', error);
@@ -291,10 +343,17 @@ function SportsPage() {
     }
   }, [refreshToken]);
 
+  const handleBetbyLogin = useCallback(() => {
+    openSignInModal();
+  }, [openSignInModal]);
+
+  const handleBetbyRegister = useCallback(() => {
+    openSignUpModal();
+  }, [openSignUpModal]);
+
   // 初始化时获取参数
   useEffect(() => {
     if (scriptLoaded) {
-      console.log('📍 [useEffect-scriptLoaded] 调用 getIntegrationParams');
       if (user) {
         lastUserStateRef.current = {
           currency: user.currency || undefined,
@@ -321,14 +380,7 @@ function SportsPage() {
         lastState.currency_fiat !== currentState.currency_fiat ||
         lastState.language_code !== currentState.language_code;
 
-      console.log('📍 [useEffect-userChange] 触发', {
-        hasChanged,
-        currentState,
-        lastState,
-      });
-
       if (hasChanged) {
-        console.log('✅ 用户数据变化，重新获取集成参数', currentState);
         lastUserStateRef.current = currentState;
         getIntegrationParams();
       }
@@ -339,7 +391,6 @@ function SportsPage() {
   // 监听游客用户的语言变化
   useEffect(() => {
     if (scriptLoaded && !user) {
-      console.log('📍 [useEffect-guestLanguageChange] 游客用户语言变化:', i18n.language);
       getIntegrationParams();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -348,11 +399,36 @@ function SportsPage() {
   // 监听 URL 参数变化，更新 Betby 导航
   useEffect(() => {
     if (btInstanceRef.current && typeof btInstanceRef.current.updateOptions === 'function') {
-      const betbyUrl = getBetbyUrl(searchParams);
-      console.log('🔄 URL 参数变化，更新 Betby 导航:', { searchParams, betbyUrl });
+      const betbyUrl = getBetbyUrl(btPathParam);
+      if (!betbyUrl) return;
       btInstanceRef.current.updateOptions({ url: betbyUrl });
     }
-  }, [searchParams, getBetbyUrl]);
+  }, [btPathParam, getBetbyUrl]);
+
+  // 初始化时补齐 bt-path（兼容旧参数）
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if ((window as any).__betby_disable_route_sync) return;
+    if (!isSportsRouteRef.current) return;
+    if (!window.location.pathname.startsWith('/sports')) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const locationPath = params.get('bt-path');
+    const hasExtraParams = Array.from(params.keys()).some((key) => key !== 'bt-path');
+
+    if (btPathParam && !hasExtraParams) return;
+
+    const legacyPath = getLegacyBetbyPathFromLocation();
+    const nextPath = btPathParam ?? legacyPath ?? locationPath ?? '/';
+
+    void navigate({
+      to: '/sports',
+      search: {
+        'bt-path': nextPath,
+      },
+      replace: true,
+    });
+  }, [btPathParam, getLegacyBetbyPathFromLocation, navigate]);
 
   // 初始化 Betby SDK
   useEffect(() => {
@@ -360,7 +436,6 @@ function SportsPage() {
 
     if (isRestricted) {
       if (btInstanceRef.current && typeof btInstanceRef.current.kill === 'function') {
-        console.log('🚫 访问受限 - 销毁 Betby 实例');
         btInstanceRef.current.kill();
         btInstanceRef.current = null;
       }
@@ -407,7 +482,6 @@ function SportsPage() {
     }
 
     if (btInstanceRef.current && typeof btInstanceRef.current.kill === 'function') {
-      console.log('🔄 清理现有 Betby 实例以使用新参数');
       btInstanceRef.current.kill();
       btInstanceRef.current = null;
       lastInitParamsRef.current = null;
@@ -420,19 +494,8 @@ function SportsPage() {
         return;
       }
 
-      console.log('🚀 初始化 BTRenderer，参数:', {
-        brand_id: brandId,
-        token,
-        lang: normalizedLang,
-        currency,
-        betbyStickyTop,
-        betbyBetSlipOffsetTop,
-        isRestricted,
-      });
-
       // 获取初始 URL
-      const initialUrl = getBetbyUrl(searchParams);
-      console.log('📍 初始化 Betby URL:', initialUrl);
+      const initialUrl = getBetbyUrl(btPathParam);
 
       const bt = new window.BTRenderer().initialize({
         brand_id: brandId,
@@ -445,31 +508,19 @@ function SportsPage() {
         betSlipOffsetBottom: betSlipBottomOffset,
         stickyTop: betbyStickyTop,
         betslipZIndex: 996, // 低于 Sidebar (z-999) 和 Betby 导航栏 (z-997)
-        onRouteChange: function () {},
-        onLogin: function () {
-          console.log('🔑 Betby onLogin 回调触发');
-          // 使用 window.location 导航到登录页
-          window.location.href = '/login';
-        },
-        onRegister: function () {
-          console.log('📝 Betby onRegister 回调触发');
-          // 使用 window.location 导航到注册页
-          window.location.href = '/login?type=sign-up';
-        },
+        onRouteChange: syncSearchWithBetbyPath,
+        onLogin: handleBetbyLogin,
+        onRegister: handleBetbyRegister,
         onRecharge: function () {
-          console.log('💰 Betby onRecharge 回调触发');
           // 导航到个人资料页面
           navigate({ to: '/profile' });
         },
         onSessionRefresh: handleSessionRefresh,
         onTokenExpired: handleTokenExpired,
         onTokenRefresh: handleTokenRefresh,
-        onBetSlipStateChange: function (state: any) {
-          console.log('🎰 Betby 投注单状态变化:', state);
-        },
+        onBetSlipStateChange: function () {},
       });
 
-      console.log('✅ BTRenderer 初始化完成:', bt);
       btInstanceRef.current = bt;
       lastInitParamsRef.current = currentInitParams;
     }, 100);
@@ -488,25 +539,35 @@ function SportsPage() {
     betbyBetSlipOffsetTop,
     betSlipBottomOffset,
     isRestricted,
+    syncSearchWithBetbyPath,
+    handleBetbyLogin,
+    handleBetbyRegister,
     handleSessionRefresh,
     handleTokenExpired,
     handleTokenRefresh,
     token,
-    searchParams,
+    btPathParam,
     getBetbyUrl,
   ]);
 
   // 组件卸载时清理
   useEffect(() => {
     return () => {
+      isSportsRouteRef.current = false;
       if (btInstanceRef.current && typeof btInstanceRef.current.kill === 'function') {
-        console.log('🧹 组件卸载，销毁 Betby 实例');
         btInstanceRef.current.kill();
         btInstanceRef.current = null;
       }
       lastInitParamsRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    isSportsRouteRef.current = location.pathname.startsWith('/sports');
+    if (isSportsRouteRef.current && typeof window !== 'undefined') {
+      (window as any).__betby_disable_route_sync = false;
+    }
+  }, [location.pathname]);
 
   const restrictionTitle =
     restrictionReason === 'noAccess'

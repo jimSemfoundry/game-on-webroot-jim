@@ -2,7 +2,7 @@ import Iconify from "@/components/iconify";
 import { useTranslation } from "react-i18next";
 
 export function IDVerification() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   return (
     <div
       className="flex flex-col gap-3 p-4 rounded-lg mx-4"

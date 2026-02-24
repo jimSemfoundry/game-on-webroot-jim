@@ -5,11 +5,11 @@
     "achievements": "Præstationer",
     "achievementDescription": "Præstationsbelønninger er belønninger givet for at nå nye milepæle og overvinde udfordringer. De fejrer din fremgang og succes, og låser sjove overraskelser op, når du opnår nye bedrifter undervejs!",
     "claimDistribution": "Kravfordeling",
-    "claimDistributionDescription": "Belønninger tilføjes til din bonuskalender i 3 dage efter krav.",
+    "claimDistributionDescription": "Dine belønninger optjenes øjeblikkeligt og kan kræves fra din indbetalings-<0>bonuspulje</0>, hver gang du gør krav på en ny achievements-belønning.",
     "expiration": "Udløb",
-    "expirationDescription": "Ingen - Belønninger sendes automatisk til kalenderen.",
+    "expirationDescription": "Ingen – krav er tilgængelige, så længe din Bonus Pool-saldo er tilstrækkelig.",
     "generalTerms": "Generelle vilkår",
-    "generalTermsDescription": "Belønninger beregnes og krediteres i BUCK/USDT, og vises derefter i din foretrukne fiat-valuta for bekvemmelighed. Bemærk venligst, at valutakonverteringer er omtrentlige.\n\nCasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse når som helst, uden forpligtelse til at retfærdiggøre. Enhver misbrug eller svigagtig aktivitet vil føre til diskvalifikation fra kampagnen."
+    "generalTermsDescription": "Belønninger beregnes og krediteres i USDT og vises derefter i din foretrukne fiatvaluta for bekvemmelighed. Bemærk, at valutakonverteringer er omtrentlige.\n\nKasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse til enhver tid uden pligt til at begrunde. Misbrug eller svig vil føre til diskvalifikation fra kampagnen."
   },
   "luckyNumberSeven": {
     "title": "Heldigt Nummer \n Syv",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Det mindste kravbeløb er {{money}}",
     "expiration": "Udløb",
-    "expirationDescription": "Din Mystiske Boks skal kræves inden for 7 dage efter tildeling. Ureklamerede belønninger udløber efter denne periode.",
+    "expirationDescription": "Din Mystiske Boks skal kræves inden for 3 dage efter tildeling. Ureklamerede belønninger udløber efter denne periode.",
     "generalTerms": "Generelle vilkår",
     "generalTermsDescription": "Belønninger beregnes og krediteres baseret på brugerens første indbetaling eller i USDT, hvis der ikke er foretaget nogen indbetaling, underlagt et 1x omsætningskrav. Beløb vises i din foretrukne fiat-valuta; konverteringer er omtrentlige.\n\nCasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse når som helst uden varsel. Enhver misbrug eller svindel vil resultere i diskvalifikation."
   },

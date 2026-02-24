@@ -5,11 +5,11 @@
     "achievements": "Prestaties",
     "achievementDescription": "Prestatieprijzen zijn beloningen die worden gegeven voor het bereiken van nieuwe mijlpalen en het overwinnen van uitdagingen. Ze vieren je vooruitgang en succes, en ontgrendelen leuke verrassingen terwijl je nieuwe prestaties behaalt!",
     "claimDistribution": "Claimverdeling",
-    "claimDistributionDescription": "Beloningen worden gedurende 3 dagen aan je bonuskalender toegevoegd na het claimen.",
+    "claimDistributionDescription": "Je beloningen worden direct toegekend en zijn beschikbaar om te claimen uit je stortings-<0>bonuspool</0> wanneer je een nieuwe achievement-beloning claimt.",
     "expiration": "Vervaldatum",
-    "expirationDescription": "Geen - Beloningen worden automatisch naar de kalender gestuurd.",
+    "expirationDescription": "Geen - Claims zijn beschikbaar zolang het saldo van je Bonus Pool voldoende is.",
     "generalTerms": "Algemene Voorwaarden",
-    "generalTermsDescription": "Beloningen worden berekend en gecrediteerd in BUCK/USDT, en vervolgens weergegeven in je favoriete fiat-valuta voor gemak. Houd er rekening mee dat valutaconversies bij benadering zijn.\n\nHet casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken, zonder de verplichting om dit te rechtvaardigen. Misbruik of frauduleuze activiteiten leiden tot diskwalificatie van de promotie."
+    "generalTermsDescription": "Beloningen worden berekend en bijgeschreven in USDT en vervolgens voor het gemak weergegeven in je voorkeursfiatvaluta. Houd er rekening mee dat valutaconversies bij benadering zijn.\n\nHet casino behoudt zich het recht voor om de geschiktheid op elk moment te wijzigen of in te trekken zonder verplichting tot toelichting. Misbruik of frauduleuze activiteiten leiden tot diskwalificatie van de promotie."
   },
   "luckyNumberSeven": {
     "title": "Gelukkig Nummer \n Zeven",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Het minimale claimbedrag is {{money}}",
     "expiration": "Vervaldatum",
-    "expirationDescription": "Je Mysterie Doos moet binnen 7 dagen na toekenning worden geclaimd. Niet-geclaimde beloningen vervallen na deze periode.",
+    "expirationDescription": "Je Mysterie Doos moet binnen 3 dagen na toekenning worden geclaimd. Niet-geclaimde beloningen vervallen na deze periode.",
     "generalTerms": "Algemene Voorwaarden",
     "generalTermsDescription": "Beloningen worden berekend en gecrediteerd op basis van de eerste storting van de gebruiker of in USDT als er geen storting is gedaan, onderhevig aan een vereiste rollover van 1x. Bedragen worden weergegeven in je favoriete fiat-valuta; conversies zijn bij benadering.\n\nHet casino behoudt zich het recht voor om de geschiktheid op elk moment zonder kennisgeving te wijzigen of in te trekken. Misbruik of fraude leidt tot diskwalificatie."
   },

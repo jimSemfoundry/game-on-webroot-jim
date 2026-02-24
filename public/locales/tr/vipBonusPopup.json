@@ -5,11 +5,11 @@
     "achievements": "Başarılar",
     "achievementDescription": "Başarı Ödülleri, yeni kilometre taşlarına ulaşmak ve zorlukları aşmak için verilen ödüllerdir. İlerlemenizi ve başarınızı kutlar, yol boyunca yeni başarılar elde ettikçe eğlenceli sürprizler açar!",
     "claimDistribution": "Talep Dağıtımı",
-    "claimDistributionDescription": "Ödüller, talep edildikten sonra 3 gün boyunca bonus takviminize eklenir.",
+    "claimDistributionDescription": "Yeni bir başarı ödülü talep ettiğinizde, ödülleriniz anında hak edilir ve yatırdığınız <0>bonus havuzundan</0> talep edilebilir.",
     "expiration": "Son Kullanım Tarihi",
-    "expirationDescription": "Yok - Ödüller otomatik olarak takvime gönderilir.",
+    "expirationDescription": "Yok - Bonus Havuzu bakiyeniz yeterli olduğu sürece talepler mevcuttur.",
     "generalTerms": "Genel Şartlar",
-    "generalTermsDescription": "Ödüller BUCK/USDT cinsinden hesaplanır ve kredi edilir, ardından kolaylık için tercih ettiğiniz fiat para biriminde gösterilir. Lütfen döviz dönüşümlerinin yaklaşık olduğunu unutmayın.\n\nKumarhane, uygunluğu herhangi bir zamanda değiştirme veya iptal etme hakkını saklı tutar, gerekçe gösterme yükümlülüğü olmaksızın. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti, promosyondan diskalifiye edilmenize yol açacaktır."
+    "generalTermsDescription": "Ödüller USDT cinsinden hesaplanır ve yatırılır, ardından kolaylık için tercih ettiğiniz itibari para biriminde gösterilir. Para birimi dönüşümlerinin yaklaşık olduğunu lütfen unutmayın.\n\nKumarhane, herhangi bir gerekçe göstermeksizin uygunluğu istediği zaman değiştirme veya iptal etme hakkını saklı tutar. Her türlü kötüye kullanım veya hileli faaliyet promosyondan diskalifiye edilmenize yol açar."
   },
   "luckyNumberSeven": {
     "title": "Şanslı Numara \n Yedi",
@@ -40,7 +40,7 @@
     "yourCalendar": "",
     "minimumClaimAmount": "Minimum talep tutarı {{money}}'dir.",
     "expiration": "Son Kullanım Tarihi",
-    "expirationDescription": "Gizemli Kutunuz, verildikten sonra 7 gün içinde talep edilmelidir. Talep edilmeyen ödüller bu süre sonunda süresiz geçerliliğini yitirir.",
+    "expirationDescription": "Gizemli Kutunuz, verildikten sonra 3 gün içinde talep edilmelidir. Talep edilmeyen ödüller bu süre sonunda süresiz geçerliliğini yitirir.",
     "generalTerms": "Genel Şartlar",
     "generalTermsDescription": "Ödüller, kullanıcının ilk yatırımı veya hiç yatırım yapılmadıysa USDT cinsinden hesaplanır, 1x çevrim şartına tabidir. Tutarlar, tercih ettiğiniz fiat para biriminde gösterilir; dönüşümler yaklaşık olarak hesaplanır.\n\n Kumarhane, uygunluğu herhangi bir zamanda bildirimde bulunmaksızın değiştirme veya iptal etme hakkını saklı tutar. Herhangi bir kötüye kullanım veya dolandırıcılık, diskalifiye ile sonuçlanacaktır."
   },

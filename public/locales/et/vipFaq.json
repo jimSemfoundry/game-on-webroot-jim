@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Mis on iganädalane boonus?",
-    "content": "<p class=\"leading-7\">Iganädalane boonus on eksklusiivne eelis meie veebisaidil, mis on mõeldud mängijatele, kes on VIP12 ja kõrgemad. See boonus antakse iganädalaselt ja makstakse automaatselt välja igal reedel VIP12 ja kõrgematele mängijatele. Boonuse suurus sõltub eelneva nädala panustamisest, minimaalne panustamisnõue on {{minWager}} eelneva nädala jooksul.</p>"
+    "content": "<p class=\"leading-7\">Iganädalane boonus on eksklusiivne eelis meie veebisaidil, mis on mõeldud mängijatele, kes on VIP2 ja kõrgemad. Boonus antakse iganädalaselt esmaspäeviti ja aegub, kui järgmine iganädalane boonus välja tuleb. Boonuse suurus sõltub eelneva nädala panustamisest, efektiivne minimaalne panustamisnõue on {{minWager}} eelneva nädala jooksul.</p>"
   },
   "faqNine": {
     "title": "Mis on saavutused?",

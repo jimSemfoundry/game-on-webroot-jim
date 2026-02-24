@@ -7,6 +7,9 @@
     "commissions": "Prowizje",
     "rewards": "Nagrody"
   },
+  "campaignAlreadyExists": "Kampania już istnieje",
+  "campaignCreateSuccess": "Kampania została pomyślnie utworzona!",
+  "campaignCreateFailed": "Nie udało się utworzyć kampanii",
   "commissionCalculator": "Kalkulator prowizji",
   "telegramReferralLink": "Link Polecający Telegram",
   "network": "Sieć",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "Moje prowizje z poleceń",
   "myReferralRewards": "Moje nagrody z poleceń",
   "exp": "EXP",
-  "userLevel": "Poziom użytkownika"
+  "userLevel": "Poziom użytkownika",
+  "extraReferralBonus": {
+    "slogan": "DODATKOWY<0>PROGRAM</0><0>POLECEŃ</0>",
+    "title": "Zaproś przyjaciela i zdobądź dodatkowe nagrody, gdy dokona on pierwszej wpłaty. Za pierwszego gracza, którego polecisz, a który dołączy, wpłaci i zagra, otrzymasz 10% Dodatkowego Bonusu za Polecenie na podstawie jego początkowej kwoty wpłaty.",
+    "bonusCalculatedTitle": "Jak obliczany jest bonus?",
+    "bonusCalculatedDesc": "Twój Dodatkowy Bonus za Polecenie obliczany jest jako 10% pierwszej wpłaty twojego przyjaciela. Jeśli pierwsza wpłata twojego przyjaciela wynosi <0>{{depositAmount}}</0>, otrzymasz nagrodę o wartości <0>{{bonusAmount}}</0>.",
+    "claimDistributionTitle": "Odbiór nagrody",
+    "claimDistributionDesc": "Wystarczy, że skontaktujesz się z Obsługą Klienta przez Czat na Żywo i poinformujesz ich, że chcesz odebrać nagrodę, podając informacje o swoim poleceniu.",
+    "expirationTitle": "Wygaszenie",
+    "expirationDesc": "Bonus musi zostać odebrany w ciągu 7 x 24 godzin (7 dni) po początkowej wpłacie twojego przyjaciela; po tym czasie nie może być ponownie wydany.",
+    "generalTermsTitle": "Ogólne warunki",
+    "generalTermsDesc1": "Nagrody są obliczane i przyznawane w <0>BUCK/USDT</0>, a następnie wyświetlane w preferowanej walucie fiducjarnej dla wygody. Proszę pamiętać, że przeliczenia walut są przybliżone. Maksymalny bonus, jaki możesz otrzymać za poleconego przyjaciela, wynosi równowartość {{bonusAmount}}, a bonus można odebrać raz na identyfikator użytkownika. Twój polecony musi postawić co najmniej 4 razy kwotę swojego pierwszego depozytu, zanim będziesz mógł odebrać swój bonus.",
+    "generalTermsDesc2": "Kasyno zastrzega sobie prawo do modyfikacji lub cofnięcia uprawnień w dowolnym momencie, bez obowiązku uzasadnienia. Jakiekolwiek nadużycia lub działania oszukańcze – w tym, ale nie ograniczając się do, duplikacji lub dopasowywania danych graczy, oszustw wpłat, dopasowanych adresów IP, zakładów zabezpieczających lub zachowań inwestycyjnych – prowadzą do dyskwalifikacji z promocji i anulowania wszelkich związanych z nią bonusów. Wszystkie decyzje podjęte przez kasyno w odniesieniu do tej promocji są ostateczne i nie mogą być kwestionowane."
+  },
+  "referral_program_disabled": "PROGRAM\nPOLECEŃ\n<0>WYŁĄCZONY</0>",
+  "programAccessUpdate": "Aktualizacja dostępu do programu",
+  "referralProgramPrivileges": "Twoje uprawnienia do programu poleceń zostały cofnięte po weryfikacji Twojego konta i udziału w programie. Zidentyfikowaliśmy działania niezgodne z warunkami lub przeznaczeniem naszego programu poleceń. Może to obejmować podejrzane wzorce poleceń, nieautoryzowane metody promocji, nadużycia zachęt lub próby obejścia zasad uczciwego korzystania.",
+  "referralRewardsPrivileges": "W rezultacie wyłączono Twoją możliwość generowania nowych nagród za polecenia, udostępniania linków polecających lub otrzymywania korzyści z poleceń. Oczekujące lub przyszłe nagrody powiązane z programem poleceń zostaną wstrzymane i anulowane zgodnie z naszymi zasadami. <0>Wszystkie pozostałe funkcje Twojego konta pozostają bez zmian i nie są dotknięte tą zmianą</0>.",
+  "understandDisappointing": "Rozumiemy, że może to być rozczarowujące. Jeśli uważasz, że ta decyzja jest błędna lub chcesz uzyskać więcej informacji, skontaktuj się z naszym zespołem wsparcia, przekazując istotne informacje, a my przeanalizujemy Twoją sprawę."
 }

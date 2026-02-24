@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "프리 스핀 보상",
   "common": {
     "close": "닫기",
     "copy": "복사",
@@ -12,7 +13,8 @@
     "swap": "교환",
     "swapFrom": "교환 From",
     "swapTo": "교환 To",
-    "noCommissionRecords": "커미션 기록이 없습니다"
+    "noCommissionRecords": "커미션 기록이 없습니다",
+    "createdOn": "생성일"
   },
   "tabs": {
     "transactionHistory": "거래 기록",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "출금 네트워크",
     "blockchainWaiting": "블록체인 확인을 기다리는 중.",
     "blockchainFailed": "블록체인 거래 실패.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "귀하의 요청을 받았습니다.<br/>상태를 보려면 프로필의 거래를 확인하세요."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "총 내기 요구 사항",
     "wagerCompleted": "내기 완료됨",
     "pendingWagerRequired": "대기 중인 내기 요구 사항",
-    "unlockedFunds": "잠금 해제된 자금"
-  }
+    "unlockedFunds": "잠금 해제된 자금",
+    "rolloverMul": "베팅 배수"
+  },
+  "assistance": "세부 정보를 확인하고 다시 시도하거나 고객 서비스에 문의하세요"
 }

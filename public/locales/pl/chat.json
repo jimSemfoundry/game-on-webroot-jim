@@ -3,5 +3,8 @@
   "notifications": "Powiadomienia",
   "support": "Wsparcie",
   "retry": "Spróbuj ponownie",
-  "customerServiceChatFailedToLoad": "Czat obsługi klienta nie mógł zostać załadowany"
+  "customerServiceChatFailedToLoad": "Czat obsługi klienta nie mógł zostać załadowany",
+  "read": "Przeczytane",
+  "unread": "Nieprzeczytane",
+  "customerService": "Obsługa klienta"
 }

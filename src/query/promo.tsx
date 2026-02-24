@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useBoundStore } from "@/store";
 import { useState, useEffect } from "react";
+import { hasAuth } from "@/utils/auth.ts";
 
 
 export const useCurrentPromo = () => {
@@ -32,8 +33,10 @@ export const useCurrentPromo = () => {
   };
 };
 
-export const useGetPromoByPage = () => {
-  // const { user } = useAuth();
+export const useGetPromoByPage = (enabled = true) => {
+  console.info(enabled);
+
+  const { user } = useAuth();
   const { isUserFinanceOpen } = useFinanceModal();
   const { depositType } = useBoundStore();
   const [currentPromo, setCurrentPromo] = useState<any>(null);
@@ -42,16 +45,16 @@ export const useGetPromoByPage = () => {
   // 先请求 getCurrentPromo
   const {
     data: currentPromoData = { data: null },
-    isFetching: isFetchingCurrentPromo,
+    isLoading: isFetchingCurrentPromo,
     refetch
   } = useQuery<any>({
     queryKey: ['getPromoByPage'],
     queryFn: async () => {
       return authService.getPromoByPageV2();
     },
-    refetchOnMount: false,
+    refetchOnMount: true,
     refetchOnWindowFocus: false,
-    enabled: isUserFinanceOpen && depositType === "crypto" || isUserFinanceOpen && depositType === "fiat",
+    enabled: !!user && hasAuth(),
     // 5 seconds polling interval
     refetchInterval: 15000,
   });

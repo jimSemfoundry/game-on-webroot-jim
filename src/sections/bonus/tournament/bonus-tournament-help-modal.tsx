@@ -11,7 +11,7 @@ interface Props {
 const ILLUSTRATION_URL = "/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png";
 
 export const BonusTournamentHelpModal = ({ isOpen, onClose }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['popup' , 'bonus', 'casino']);
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient:
       "radial-gradient(120% 260% at 100% 0%, rgba(255, 138, 76, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -48,7 +48,7 @@ export const BonusTournamentHelpModal = ({ isOpen, onClose }: Props) => {
 
         {/* Main content card */}
         <div className="bg-base-400 rounded-box relative">
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 

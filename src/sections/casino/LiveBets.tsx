@@ -25,7 +25,7 @@ export const LiveBets = () => {
     refetch: refetchLatestBets,
     isFetching: isFetchingLatestBets,
   } = useLatestBets();
-  const { data: greatestBetsResponse, isFetching: isFetchingGreatestBets } = useGreatestBets();
+  const { data: greatestBetsResponse, isFetching: isFetchingGreatestBets, refetch: refetchGreatestBets } = useGreatestBets();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   // 初始化时用空数组，让页面立即显示8行空行
   const [visibleRows, setVisibleRows] = useState<any[]>([]);
@@ -42,6 +42,16 @@ export const LiveBets = () => {
   const [selectedCategory, setSelectedCategory] = useState<"latestWins" | "latestBets" | "greatestBets">("latestWins");
   const previousCategoryRef = useRef<typeof selectedCategory>("latestWins");
 
+  const handleCategoryChange = useCallback(
+    (nextCategory: "latestWins" | "latestBets" | "greatestBets") => {
+      setSelectedCategory(nextCategory);
+      if (nextCategory === "greatestBets") {
+        refetchGreatestBets();
+      }
+    },
+    [refetchGreatestBets],
+  );
+
   // 使用 Framer Motion 的 useInView hook
   const isInView = useInView(containerRef, {
     amount: 0.1, // 10% 可见即认为在视口内
@@ -52,27 +62,24 @@ export const LiveBets = () => {
     {
       value: "latestWins",
       label: (
-        <span className="flex items-center gap-2 whitespace-nowrap">
-          <Iconify icon="custom:latest-win" />
-          <p>{t("casino:latestWins")}</p>
+        <span className="flex items-center gap-2 whitespace-nowrap overflow-hidden">
+          <p className={'truncate'}>{t("casino:latestWins")}</p>
         </span>
       ),
     },
     {
       value: "latestBets",
       label: (
-        <span className="flex items-center gap-2 whitespace-nowrap">
-          <Iconify icon="custom:greatest-win" />
-          <p>{t("casino:latestBets")}</p>
+        <span className="flex items-center gap-2 whitespace-nowrap overflow-hidden">
+          <p className={'truncate'}>{t("casino:latestBets")}</p>
         </span>
       ),
     },
     {
       value: "greatestBets",
       label: (
-        <span className="flex items-center gap-2 whitespace-nowrap">
-          <Iconify icon="custom:tournament" />
-          <p>{t("casino:greatestBets")}</p>
+        <span className="flex items-center gap-2 whitespace-nowrap overflow-hidden">
+          <p className={'truncate'}>{t("casino:greatestBets")}</p>
         </span>
       ),
     },
@@ -221,6 +228,15 @@ export const LiveBets = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView, selectedCategory, clearTimeoutIfAny]);
 
+  // greatestBets 每 15 秒自动刷新
+  useEffect(() => {
+    if (selectedCategory !== "greatestBets" || !isInView) return;
+    const intervalId = setInterval(() => {
+      refetchGreatestBets();
+    }, 15000);
+    return () => clearInterval(intervalId);
+  }, [selectedCategory, isInView, refetchGreatestBets]);
+
   // 使用 Auto Animate
   const [animationParent] = useAutoAnimate({
     duration: 300,
@@ -267,7 +283,7 @@ export const LiveBets = () => {
               <div className="flex items-center gap-1">
                 <CurrencyIcon currency={currency} />
                 <span className="text-xs sm:text-sm">
-                  {formatWithConversion(betAmount, currency, { compact: true, showCode: false }).formatted}
+                  {formatWithConversion(betAmount, currency, { compact: false, showCode: false, minimizeDecimals: true }).formatted}
                 </span>
               </div>
             </div>
@@ -284,7 +300,7 @@ export const LiveBets = () => {
               <div className="flex items-center gap-1 justify-end">
                 <span className={cn("text-xs sm:text-sm font-bold", winAmount > 0 ? "text-primary" : "text-base-content/50")}>
                   {winAmount > 0 ? "+" : ""}
-                  {formatWithConversion(winAmount, currency, { compact: true, showCode: false }).formatted}
+                  {formatWithConversion(winAmount, currency, { compact: false, showCode: false, minimizeDecimals: true }).formatted}
                 </span>
                 <CurrencyIcon currency={currency} />
               </div>
@@ -327,11 +343,15 @@ export const LiveBets = () => {
           <p className="text-sm sm:text-base font-bold">{t("casino:bets")}</p>
         </div>
         <div className="hidden sm:block">
-          <SegmentedControl options={segments} value={selectedCategory} onChange={(value) => setSelectedCategory(value as any)} />
+          <SegmentedControl
+            options={segments}
+            value={selectedCategory}
+            onChange={(value) => handleCategoryChange(value as any)}
+          />
         </div>
         <div className="block sm:hidden">
           <div className="dropdown dropdown-center">
-            <div tabIndex={0} role="button" className="btn m-1 btn-sm w-38 flex items-center justify-between">
+            <div tabIndex={0} role="button" className="btn m-1 btn-sm w-50 flex items-center justify-between">
               {segments.find((segment) => segment.value === selectedCategory)?.label}
               <ChevronRight className="w-4 h-4 text-base-content rtl:rotate-180" />
             </div>
@@ -341,7 +361,7 @@ export const LiveBets = () => {
                   <a
                     className="text-xs font-semibold"
                     onClick={() => {
-                      setSelectedCategory(segment.value as any);
+                      handleCategoryChange(segment.value as any);
                       if (document.activeElement instanceof HTMLElement) {
                         document.activeElement.blur();
                       }
@@ -369,8 +389,8 @@ export const LiveBets = () => {
         </div>
 
         {/* 内容区域 - 使用 Auto Animate */}
-        <div className="relative">
-          <div ref={animationParent}>
+        <div className="relative" style={{ overflowAnchor: 'none' }}>
+          <div ref={animationParent} style={{ overflowAnchor: 'none' }}>
             {tableRows}
           </div>
           {/* 底部渐变遮罩：从底部到上方的透明渐变，提示可滚动/内容延伸。不阻挡交互 */}

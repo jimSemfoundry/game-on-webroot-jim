@@ -11,7 +11,7 @@ import { useNavigate } from "@tanstack/react-router";
 import type { ITournament } from "@/types/tournament";
 
 export const TournamentList = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const { tournamentList, isLoading } = useTournamentList();
   const navigate = useNavigate();
   const isDesktop = useMediaQuery("(min-width: 1024px)");

@@ -17,7 +17,7 @@ export interface BetHistoryTableProps {
 }
 
 const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMore, emptyMessage }: BetHistoryTableProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const renderAmount = (amount: number | undefined, currency?: string, forceNegative?: boolean, prefixPlus?: boolean) => {
@@ -65,8 +65,8 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       const rowKey = primaryBetId ?? `${index}-${gameName}`;
 
       return (
-        <tr key={rowKey} className="border-b border-base-300/70 bg-base-200/40 hover:bg-base-200 transition-colors text-sm">
-          <td className="px-4 py-3 rounded-l-lg align-middle">
+        <tr key={rowKey} className="bg-base-300 hover:bg-base-300/80 transition-colors text-sm">
+          <td className="px-4 py-3 rounded-l-lg align-middle rtl:rounded-l-none rtl:rounded-r-lg">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-base-content truncate">{gameName}</span>
@@ -76,27 +76,36 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
               </div>
             </div>
           </td>
-          <td className="px-4 py-3 align-middle text-xs text-base-content/70 whitespace-nowrap">{timestamp ?? "--"}</td>
-          <td className="px-4 py-3 align-middle text-xs text-base-content/80 whitespace-nowrap">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs">{betId}</span>
-              {primaryBetId && <Copy text={primaryBetId} className="w-4 h-4" />}
+          <td className="px-4 py-3 align-middle text-xs text-base-content/70 whitespace-nowrap rtl:text-right">{timestamp ?? "--"}</td>
+          <td className="px-4 py-3 align-middle text-xs text-base-content/80 rtl:text-right min-w-0">
+            <div className="flex items-center gap-2 rtl:flex-row-reverse min-w-0 w-full">
+              <div className="min-w-0 flex-1">
+                <span className="font-mono text-xs truncate max-w-full sm:hidden" dir="ltr">{betId}</span>
+                <span className="font-mono text-xs truncate max-w-full hidden sm:block" dir="ltr" title={betId}>
+                  {betId}
+                </span>
+              </div>
+              {primaryBetId && <Copy text={primaryBetId} className="w-4 h-4 shrink-0" />}
             </div>
           </td>
-          <td className="px-4 py-3 align-middle text-right font-semibold text-error">{renderAmount(betAmount, currency, true)}</td>
-          <td className="px-4 py-3 align-middle text-right font-semibold">
+          <td className="px-4 py-3 align-middle text-right font-semibold text-error rtl:text-left">
+            <span dir="ltr">{renderAmount(betAmount, currency, true)}</span>
+          </td>
+          <td className="px-4 py-3 align-middle text-right font-semibold rtl:text-left">
             <span
+              dir="ltr"
               className={cn(
                 "inline-flex items-center justify-end text-sm font-semibold",
+                "rtl:justify-start",
                 winAmount && winAmount > 0 ? "text-success" : winAmount && winAmount < 0 ? "text-error" : "text-base-content/70",
               )}
             >
               {renderAmount(winAmount, currency, false, true)}
             </span>
           </td>
-          <td className="px-4 py-3 rounded-r-lg align-middle text-right">
+          <td className="px-4 py-3 rounded-r-lg align-middle text-right rtl:text-left rtl:rounded-r-none rtl:rounded-l-lg">
             {accountCurrency ? (
-              <div className="flex items-center justify-end gap-2 text-xs font-semibold text-base-content/70">
+              <div className="flex items-center justify-end gap-2 text-xs font-semibold text-base-content/70 rtl:justify-start rtl:flex-row-reverse">
                 <CurrencyIcon currency={accountCurrency} className="h-4 w-4" />
                 <span className="hidden sm:inline">{accountCurrency}</span>
               </div>
@@ -152,12 +161,11 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       );
 
       const rowKey = primaryBetId ?? `${index}-${gameName}`;
-      const profitAmount = winAmount !== undefined && betAmount !== undefined ? winAmount - betAmount : winAmount;
-      const profitColor =
-        profitAmount && profitAmount > 0 ? "text-success" : profitAmount && profitAmount < 0 ? "text-error" : "text-base-content/70";
+      const winColor =
+        winAmount && winAmount > 0 ? "text-success" : winAmount && winAmount < 0 ? "text-error" : "text-base-content/70";
 
       return (
-        <div key={rowKey} className={cn("rounded-2xl px-4 py-3 flex flex-col gap-1 bg-base-300 w-full overflow-hidden")}>
+        <div key={rowKey} className={cn("rounded-field px-4 py-3 flex flex-col gap-2 bg-base-300 w-full overflow-hidden")}>
           {/* Row 1: game name | provider name */}
           <div className="flex items-center justify-between gap-4 w-full">
             <div className="flex items-center gap-1 min-w-0">
@@ -180,9 +188,8 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
               <div className="flex flex-col items-end gap-1">
-                <span className={cn("text-xs font-semibold", profitColor)}>
-                  {profitAmount !== undefined && profitAmount > 0 && "+"}
-                  {renderAmount(profitAmount, currency, false, false)}
+                <span className={cn("text-xs font-semibold", winColor)}>
+                  {renderAmount(winAmount, currency, false, true)}
                 </span>
                 <span className="text-xs text-base-content/50 font-semibold">{renderAmount(betAmount, currency, true)}</span>
               </div>
@@ -199,14 +206,22 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       {/* Desktop Table */}
       <div className="hidden sm:block flex-1 overflow-y-auto">
         <table className="w-full table-fixed text-sm text-base-content border-separate border-spacing-y-1">
+          <colgroup>
+            <col className="w-[36%]" />
+            <col className="w-[16%]" />
+            <col className="w-[18%]" />
+            <col className="w-[10%]" />
+            <col className="w-[10%]" />
+            <col className="w-[10%]" />
+          </colgroup>
           <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60 tracking-wide">
             <tr>
-              <th className="px-4 py-3 text-left">{t("profile:betHistory.headers.game", "Game | Provider")}</th>
-              <th className="px-4 py-3 text-left">{t("profile:betHistory.headers.date", "Date")}</th>
-              <th className="px-4 py-3 text-left">{t("profile:betHistory.headers.betId", "Bet ID")}</th>
-              <th className="px-4 py-3 text-right">{t("profile:betHistory.headers.betIn", "Bet In")}</th>
-              <th className="px-4 py-3 text-right">{t("profile:betHistory.headers.betOut", "Bet Out")}</th>
-              <th className="px-4 py-3 text-right">{t("profile:betHistory.headers.account", "Account")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("profile:betHistory.headers.game", "Game | Provider")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("profile:betHistory.headers.date", "Date")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("profile:betHistory.headers.betId", "Bet ID")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("profile:betHistory.headers.betIn", "Bet In")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("profile:betHistory.headers.betOut", "Bet Out")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("profile:betHistory.headers.account", "Account")}</th>
             </tr>
           </thead>
           <tbody>{!isLoading && records.length === 0 ? null : renderRows()}</tbody>
@@ -218,9 +233,9 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       <div className="sm:hidden flex-1 overflow-y-auto space-y-2">
         {records.length > 0 && (
           <>
-            <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/40">
+            <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/50 text-xs">
               <span>{t("profile:betHistory.headers.game", "Game")} | {t("profile:betHistory.headers.date", "Date")}</span>
-              <span>{t("common:amount", "Amount")} | {t("common:provider", "Provider")}</span>
+              <span>{t("profile:betHistory.headers.amount", "Amount")} | {t("profile:betHistory.headers.provider", "Provider")}</span>
             </div>
             {renderMobileCards()}
           </>

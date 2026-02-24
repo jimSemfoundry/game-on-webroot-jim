@@ -21,10 +21,10 @@ const COMMISSION_OPTIONS = [0, 10, 25, 50];
 const generateCode = () => Math.random().toString(36).slice(2, 8).toUpperCase();
 
 export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen, onClose, onCreated, compaignDetail }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'common']);
   const createCampaign = useCreateAdTag();
   const setDefaultCampaign = useSetDefaultAdTag();
-  const [commissionSplit, setCommissionSplit] = useState<number>(25);
+  const [commissionSplit, setCommissionSplit] = useState<number>(0);
   const [campaignName, setCampaignName] = useState("");
   const [referralCode, setReferralCode] = useState(generateCode());
   const [isDefaultCampaign, setIsDefaultCampaign] = useState(false);
@@ -39,7 +39,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
         setReferralCode(compaignDetail.code);
         setIsDefaultCampaign(compaignDetail.is_default || false);
       } else {
-        setCommissionSplit(25);
+        setCommissionSplit(0);
         setCampaignName("");
         setReferralCode(generateCode());
         setIsDefaultCampaign(false);

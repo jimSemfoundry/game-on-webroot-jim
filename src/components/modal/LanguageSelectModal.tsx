@@ -26,6 +26,9 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
   const isMobile = useMediaQuery('(max-width: 768px)')
   const queryClient = useQueryClient()
 
+  const currentLang = (i18n.resolvedLanguage ?? i18n.language).toLowerCase()
+  const currentLangBase = currentLang.split('-')[0]
+
   const filteredLanguages = languages?.filter((lang: any) => lang.label.toLowerCase().includes(searchTerm.toLowerCase()))
 
   const changeLanguage = async (lng: string) => {
@@ -37,16 +40,19 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
       // 如果用户已登录，先更新后端
       if (user) {
         await authService.updateUserLanguage(lng)
-        
-        // 刷新用户数据，这将触发AuthContext中的useEffect来更新语言
-        await queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser })
-        
-        toast.success(t('common:languageUpdated'))
-      } else {
-        // 未登录用户直接更新本地语言
-        i18n.changeLanguage(lng)
       }
-
+      
+      // 切换语言
+      await i18n.changeLanguage(lng)
+      
+      // 刷新用户数据（保持后端同步）
+      if (user) {
+        await queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser })
+      }
+      
+      // 使用目标语言的翻译显示成功消息
+      const tTarget = i18n.getFixedT(lng)
+      toast.success(tTarget('common:languageUpdated'))
       onClose()
     } catch (error) {
       console.error('Failed to update language:', error)
@@ -100,7 +106,19 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
                 className={cn(
                   'text-sm md:text-base font-semibold flex items-center gap-x-3 h-10 sm:h-12 px-4 py-2 rounded-lg transition-colors',
                   'hover:bg-base-200 active:bg-base-100',
-                  i18n.language.startsWith(lang.value) ? 'text-primary bg-primary/10' : 'text-base-content/50 hover:text-base-content',
+                  (() => {
+                    const optionLang = String(lang.value ?? '').toLowerCase()
+                    const optionLangBase = optionLang.split('-')[0]
+                    // 如果选项包含区域代码（如 zh-CN, zh-TW），必须完全匹配
+                    // 否则只匹配基础语言代码
+                    const hasRegion = optionLang.includes('-')
+                    const isActive = hasRegion 
+                      ? currentLang === optionLang 
+                      : currentLang === optionLang || currentLangBase === optionLangBase
+                    return isActive
+                      ? 'text-primary bg-primary/10'
+                      : 'text-base-content/50 hover:text-base-content'
+                  })(),
                   isUpdating && 'opacity-50 cursor-not-allowed',
                 )}
                 onClick={() => !isUpdating && changeLanguage(lang.value)}

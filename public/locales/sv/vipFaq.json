@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Vad är den Veckovisa Bonusen?",
-    "content": "<p class=\"leading-7\">Veckovisa bonusen är en exklusiv förmån på vår webbplats som är utformad för spelare som är VIP12 och uppåt. Denna bonus utfärdas veckovis och betalas automatiskt ut varje fredag till spelare på VIP12 och högre. Storleken på bonusen beror på det belopp som satsats under den senaste veckan, med ett minimikrav på insats på {{minWager}} under den senaste veckan.</p>"
+    "content": "<p class=\"leading-7\">Veckovisa bonusen är en exklusiv förmån på vår webbplats som är utformad för spelare som är VIP2 och uppåt. Bonusen utfärdas veckovis på måndagar och går ut när nästa veckovisa bonus kommer ut. Storleken på bonusen beror på det belopp som satsats under den senaste veckan, med ett effektivt minimikrav på insats på {{minWager}} under den senaste veckan.</p>"
   },
   "faqNine": {
     "title": "Vad är Prestationer?",

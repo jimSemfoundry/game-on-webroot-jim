@@ -107,6 +107,8 @@ export const BonusAchievementsDetailsModal = ({
         });
         onCloseModal()
       }
+    }).catch((error) => {
+      console.info(error);
     }).finally(() => {
       setIsLoading(false);
     });
@@ -123,7 +125,13 @@ export const BonusAchievementsDetailsModal = ({
       onCloseModal()
     }
     if (achievement?.link) {
-      navigate({ to: achievement?.link || CASINO_ROUTE });
+      const url = new URL(decodeURIComponent(achievement?.link), window.location.origin);
+      const pathname = url.pathname
+      const searchParams = Object.fromEntries(url.searchParams?.entries() || []);
+      void navigate({
+        to: pathname || CASINO_ROUTE,
+        search: searchParams
+      });
     }
   }
 
@@ -284,9 +292,9 @@ export const BonusAchievementsDetailsModal = ({
                             i18nKey={`bonus:${achievement.key}.description`}
                             values={{
                               count: step?.number,
-                              amount: formatWithConversion(
-                                parseFloat(step?.reward_amount) || 0,
-                                step?.reward_currency || "BUCK"
+                              amount: formatWithConversion(step?.total_number ?? 0,
+                                step?.reward_currency ??'BUCK',
+                                {showCode: false}
                               ).formatted
                             }}
                             components={[<span className="font-semibold text-primary" key="highlight" />

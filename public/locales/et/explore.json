@@ -7,6 +7,8 @@
   "baseball": "Pesapall",
   "iceHockey": "Jäähoki",
   "basketball": "Korvpall",
+  "cricket": "Kriket",
+  "eSoccer": "eJalgpall",
   "volleyball": "Rannavõrkpall",
   "hot": "Kuum",
   "all": "Kõik",
@@ -69,5 +71,6 @@
   "live-casino": "Live kasiino",
   "sports": "Sport",
   "lotteries": "Loteriid",
-  "gamesYouShouldTry": "Mängud, mida peaksite proovima"
+  "gamesYouShouldTry": "Mängud, mida peaksite proovima",
+  "bonus": "Bonus"
 }

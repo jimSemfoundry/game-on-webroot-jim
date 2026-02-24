@@ -76,12 +76,37 @@
   "dashboard": "لوحة التحكم",
   "transactions": "المعاملات",
   "rollover": "تدوير",
-  "betHistory": "تاريخ الرهانات",
+  "betHistory": {
+    "empty": "لم يتم العثور على سجل الرهانات",
+    "title": "سجل الرهانات",
+    "headers": {
+      "game": "اللعبة",
+      "date": "التاريخ",
+      "betId": "معرف الرهان",
+      "betIn": "مبلغ الرهان",
+      "betOut": "مبلغ الفوز",
+      "account": "الحساب",
+      "amount": "المبلغ",
+      "provider": "المزود",
+      "match": "المباراة",
+      "tournament": "البطولة"
+    }
+  },
   "settings": "الإعدادات",
   "legal": "قانوني",
   "nickname": "الاسم المستعار",
   "zoomAndAdjust": "تكبير وضبط",
   "systemLanguage": "لغة النظام",
   "editProfile": "تعديل الملف الشخصي",
-  "inviteAndGetRewarded": "دعوة واحصل على مكافآت"
+  "inviteAndGetRewarded": "دعوة واحصل على مكافآت",
+  "emailAddress": "عنوان البريد الإلكتروني",
+  "codeSent": "أدخل الرمز الذي أرسلناه",
+  "codeSentTo": "تم إرسال رمز إلى",
+  "notReceiveCode": "لم تستلم الرمز؟",
+  "verificationSuccess": "نجاح التحقق",
+  "spinHistory": {
+    "statusFilterLabel": "الحالة"
+  },
+  "phone_number_has_been_verified": "تم التحقق من رقم هاتفك. يمكنك المتابعة الآن.",
+  "email_address_has_been_verified": "تم التحقق من عنوان بريدك الإلكتروني. يمكنك المتابعة."
 }

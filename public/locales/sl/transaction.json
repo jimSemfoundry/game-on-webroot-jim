@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Nagrade za brezplačne vrtljaje",
   "common": {
     "close": "Zapri",
     "copy": "Kopiraj",
@@ -12,7 +13,8 @@
     "swap": "Zamenjaj",
     "swapFrom": "Zamenjaj Od",
     "swapTo": "Zamenjaj Do",
-    "noCommissionRecords": "Ni najdenih komisijskih zapisov"
+    "noCommissionRecords": "Ni najdenih komisijskih zapisov",
+    "createdOn": "Ustvarjeno"
   },
   "tabs": {
     "transactionHistory": "Zgodovina transakcij",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Omrežje umika",
     "blockchainWaiting": "Čakanje na potrditev blockchain.",
     "blockchainFailed": "Blockchain transakcija neuspešna.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Prejeli smo vašo zahtevo.<br/>Za ogled statusa preverite Transakcije v vašem profilu."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Skupna zahteva po stavah",
     "wagerCompleted": "Stava zaključena",
     "pendingWagerRequired": "Zahtevana stava v teku",
-    "unlockedFunds": "Odklenjena sredstva"
-  }
+    "unlockedFunds": "Odklenjena sredstva",
+    "rolloverMul": "Množitelj stave"
+  },
+  "assistance": "Preverite svoje podatke in poskusite znova ali se obrnite na službo za stranke za pomoč"
 }

@@ -192,7 +192,6 @@ export function Tabs({
   }, [isDragging, isVertical, startX, scrollLeft]);
 
   const handleHeaderTouchMove = useCallback((e: React.TouchEvent) => {
-    console.log("handleHeaderTouchMove", e);
     if (isDragging) {
       e.preventDefault();
     }
@@ -227,7 +226,7 @@ export function Tabs({
           }!tab.disabled && onChange(tab.value)}}
           disabled={tab.disabled}
           className={cn(
-            "relative flex items-center justify-center rounded-field transition-all duration-200",
+            "btn relative flex items-center justify-center rounded-field transition-all duration-200",
             "border-0 bg-transparent font-medium",
             sizeClasses[size],
             isVertical ? "w-full" : "min-w-fit px-1 flex-shrink-0",

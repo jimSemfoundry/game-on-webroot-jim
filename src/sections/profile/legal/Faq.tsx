@@ -158,7 +158,7 @@ const content = (t: TFunction) => [
 ];
 
 export default function Index() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('faq');
   return (
     <div className={"flex flex-col gap-2"}>
       {content(t).map((item) => (

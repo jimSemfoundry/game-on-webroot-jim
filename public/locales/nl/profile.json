@@ -76,12 +76,39 @@
   "dashboard": "Dashboard",
   "transactions": "Transacties",
   "rollover": "Rollover",
-  "betHistory": "Wedgeschiedenis",
+  "betHistory": {
+    "empty": "Geen wedgeschiedenis gevonden",
+    "title": "Wedgeschiedenis",
+    "headers": {
+      "game": "Spel",
+      "date": "Datum",
+      "betId": "Wed ID",
+      "betIn": "Inzet",
+      "betOut": "Winst",
+      "account": "Account",
+      "amount": "Bedrag",
+      "provider": "Provider",
+      "match": "Wedstrijd",
+      "tournament": "Toernooi"
+    }
+  },
   "settings": "Instellingen",
   "legal": "Juridisch",
   "nickname": "Bijnaam",
   "zoomAndAdjust": "Inzoomen en Aanpassen",
   "systemLanguage": "Systeemtaal",
   "editProfile": "Profiel Bewerken",
-  "inviteAndGetRewarded": "Nodig Uit en Ontvang Beloningen"
+  "inviteAndGetRewarded": "Nodig Uit en Ontvang Beloningen",
+  "emailAddress": "E-mailadres",
+  "codeSent": "Voer de code in die we hebben verzonden",
+  "codeSentTo": "Er is een code verzonden naar",
+  "notReceiveCode": "Geen code ontvangen?",
+  "verificationSuccess": "Verificatie Succes",
+  "spinHistory": {
+    "statusFilterLabel": "Status"
+  },
+  "phone_number_has_been_verified": "Je telefoonnummer is geverifieerd. Je kunt doorgaan.",
+  "email_address_has_been_verified": "Je e-mailadres is geverifieerd. Je kunt nu doorgaan.",
+  "setNewPassword": "Nieuw wachtwoord instellen",
+  "passwordLengthRequirement": "Voer een wachtwoord in van 6 tot 64 tekens."
 }

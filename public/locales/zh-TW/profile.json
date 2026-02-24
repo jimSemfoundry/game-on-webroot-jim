@@ -73,15 +73,42 @@
   "changePhone": "更改電話",
   "updateAccountAndPassword": "更新帳戶和密碼",
   "confirm_new_password": "確認新密碼",
-  "dashboard": "儀表板",
+  "dashboard": "總覽",
   "transactions": "交易紀錄",
-  "rollover": "滾存",
-  "betHistory": "投注歷史",
+  "rollover": "投注要求",
+  "betHistory": {
+    "empty": "未找到投注歷史",
+    "title": "投注歷史",
+    "headers": {
+      "game": "遊戲",
+      "date": "日期",
+      "betId": "投注ID",
+      "betIn": "投注金額",
+      "betOut": "派彩金額",
+      "account": "帳戶",
+      "amount": "金額",
+      "provider": "提供商",
+      "match": "比賽",
+      "tournament": "錦標賽"
+    }
+  },
   "settings": "設定",
   "legal": "法律",
   "nickname": "暱稱",
   "zoomAndAdjust": "縮放和調整",
   "systemLanguage": "系統語言",
   "editProfile": "編輯個人資料",
-  "inviteAndGetRewarded": "邀請並獲得獎勵"
+  "inviteAndGetRewarded": "邀請並獲得獎勵",
+  "emailAddress": "電子郵件地址",
+  "codeSent": "輸入我們發送的代碼",
+  "codeSentTo": "代碼已發送至",
+  "notReceiveCode": "沒有收到代碼？",
+  "verificationSuccess": "驗證成功",
+  "spinHistory": {
+    "statusFilterLabel": "狀態"
+  },
+  "phone_number_has_been_verified": "您的手機號碼已驗證成功，可以繼續操作。",
+  "email_address_has_been_verified": "你的電子郵件地址已驗證成功。你已準備就緒，可以繼續。",
+  "setNewPassword": "設定新密碼",
+  "passwordLengthRequirement": "請輸入6到64個字元之間的密碼。"
 }

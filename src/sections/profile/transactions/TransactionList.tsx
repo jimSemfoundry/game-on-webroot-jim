@@ -167,7 +167,7 @@ const getTransactionTypeLabel = (transactionType: string, item: Transaction, t: 
     }
     case "Bonus":
       // return t("transaction:transactionTypes.bonus");
-      return t(`bonus:item.${item?.note}`)
+      return t(`bonus:item.${item?.note?.toLowerCase()}`, 'BONUS')
     case "Swap":
       return t("finance:swap", "Swap");
     case "Referral":
@@ -197,21 +197,21 @@ export function TransactionList({
     const toCurrency = String(item.to_currency ?? item.toCurrency ?? "USD");
 
     const fromConverted = formatWithConversion(fromAmount, fromCurrency, {
-      showSymbol: false,
+      showSymbol: true,
       showCode: false,
       minimizeDecimals: true
     });
 
     const toConverted = formatWithConversion(toAmount, toCurrency, {
-      showSymbol: false,
+      showSymbol: true,
       showCode: false,
       minimizeDecimals: true
     });
 
     const containerClass =
       orientation === "row"
-        ? "flex items-center justify-end gap-3"
-        : "flex flex-col items-end gap-1";
+        ? "flex items-center justify-end rtl:justify-start gap-3"
+        : "flex flex-col items-end rtl:items-start gap-1";
 
     return (
       <div className={containerClass}>
@@ -242,15 +242,15 @@ export function TransactionList({
       "USD";
 
     const converted = formatWithConversion(amount, String(currency), {
-      showSymbol: false,
+      showSymbol: true,
       showCode: false,
       minimizeDecimals: true
     });
 
     const containerClass =
       orientation === "row"
-        ? "flex items-center justify-end gap-2 text-primary font-bold text-xs"
-        : "flex items-end gap-1 text-primary font-bold text-xs";
+        ? "flex items-center justify-end rtl:justify-start gap-2 text-primary font-bold text-xs"
+        : "flex items-end rtl:items-start gap-1 text-primary font-bold text-xs";
 
     return (
       <div className={containerClass}>
@@ -302,16 +302,16 @@ export function TransactionList({
           <thead
             className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/50 tracking-wide">
           <tr>
-            <th className="px-4 py-3 text-left">
+            <th className="px-4 py-3 text-left rtl:text-right">
               {t("transaction:tableHeaders.type")}
             </th>
-            <th className="px-4 py-3 text-left">
+            <th className="px-4 py-3 text-left rtl:text-right">
               {t("transaction:tableHeaders.time")}
             </th>
-            <th className="px-4 py-3 text-right">
+            <th className="px-4 py-3 text-right rtl:text-left">
               {t("transaction:tableHeaders.amount")}
             </th>
-            <th className="px-4 py-3 text-right">
+            <th className="px-4 py-3 text-right rtl:text-left">
               {t("transaction:tableHeaders.status")}
             </th>
           </tr>
@@ -321,14 +321,14 @@ export function TransactionList({
             <tr
               key={item.id ?? `${transactionType}-${index}`}
               className={cn(
-                "rounded-lg transition-colors border border-transparent cursor-pointer bg-base-300"
+                "rounded-lg transition-colors border border-transparent cursor-pointer bg-base-300 hover:bg-base-300/80"
               )}
               onClick={() => onTransactionClick?.(item, { transactionType })}
             >
-              <td className="px-4 py-3 rounded-l-lg align-middle">
-                <div className="flex items-center gap-3">
+              <td className="px-4 py-3 rounded-l-lg align-middle rtl:rounded-l-none rtl:rounded-r-lg min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
                     <span
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-primary text-xs font-bold whitespace-nowrap uppercase">
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-primary text-xs font-bold uppercase min-w-0 max-w-full truncate sm:hidden">
                       <svg
                         width="12"
                         height="12"
@@ -340,20 +340,41 @@ export function TransactionList({
                       </svg>
                       {getTransactionTypeLabel(transactionType, item, t)}
                     </span>
+                    <div
+                      className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full"
+                      data-tip={getTransactionTypeLabel(transactionType, item, t)}
+                    >
+                      <span
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-primary text-xs font-bold uppercase min-w-0 max-w-full truncate w-full"
+                      >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        className="flex-shrink-0"
+                      >
+                        <circle cx="6" cy="6" r="6" fill="currentColor" />
+                      </svg>
+                      {getTransactionTypeLabel(transactionType, item, t)}
+                      </span>
+                    </div>
                 </div>
               </td>
 
-              <td className="px-4 py-3 align-middle text-left">
+              <td className="px-4 py-3 align-middle text-left rtl:text-right">
                   <span className="text-xs text-base-content/50 font-medium">
                     {getDisplayTimestamp(item) || t("transaction:tableHeaders.timePlaceholder", "—")}
                   </span>
               </td>
 
-              <td className="px-4 py-3 rounded-r-lg text-right align-middle">
-                {transactionType === "Swap" ? renderSwapAmount(item) : renderStandardAmount(item, transactionType)}
+              <td className="px-4 py-3 text-right align-middle rtl:text-left">
+                <span dir="ltr">
+                  {transactionType === "Swap" ? renderSwapAmount(item) : renderStandardAmount(item, transactionType)}
+                </span>
               </td>
 
-              <td className="px-4 py-3 align-middle text-right">
+              <td className="px-4 py-3 align-middle text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
                   <span
                     className={cn(
                       "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold min-w-[90px] justify-center",

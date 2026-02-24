@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Czym jest tygodniowy bonus?",
-    "content": "<p class=\"leading-7\">Tygodniowy bonus to ekskluzywna korzyść na naszej stronie, zaprojektowana dla graczy, którzy są VIP12 i wyżej. Ten bonus jest przyznawany co tydzień i automatycznie wypłacany w każdy piątek graczom na poziomie VIP12 i wyżej. Wysokość bonusu zależy od kwoty postawionej w ciągu ostatniego tygodnia, z minimalnym wymogiem zakładu wynoszącym {{minWager}} w ciągu ostatniego tygodnia.</p>"
+    "content": "<p class=\"leading-7\">Tygodniowy bonus to ekskluzywna korzyść na naszej stronie, zaprojektowana dla graczy, którzy są VIP2 i wyżej. Bonus jest przyznawany co tydzień w poniedziałki i wygasa, gdy pojawi się następny tygodniowy bonus. Wysokość bonusu zależy od kwoty postawionej w ciągu ostatniego tygodnia, z minimalnym efektywnym wymogiem zakładu wynoszącym {{minWager}} w ciągu ostatniego tygodnia.</p>"
   },
   "faqNine": {
     "title": "Czym są osiągnięcia?",

@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Gratis Spin Beloningen",
   "common": {
     "close": "Sluiten",
     "copy": "Kopiëren",
@@ -12,7 +13,8 @@
     "swap": "Wissel",
     "swapFrom": "Wissel Van",
     "swapTo": "Wissel Naar",
-    "noCommissionRecords": "Geen commissie records gevonden"
+    "noCommissionRecords": "Geen commissie records gevonden",
+    "createdOn": "Aangemaakt op"
   },
   "tabs": {
     "transactionHistory": "Transactiegeschiedenis",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Opname Netwerk",
     "blockchainWaiting": "Wachten op blockchain bevestiging.",
     "blockchainFailed": "Blockchain transactie mislukt.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "We hebben uw verzoek ontvangen.<br/>Om de status te bekijken, controleer Transacties in uw Profiel."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Totaal Vereiste Inzet",
     "wagerCompleted": "Inzet Voltooid",
     "pendingWagerRequired": "Inzet in Afwachting Vereist",
-    "unlockedFunds": "Ontgrendelde Fondsen"
-  }
+    "unlockedFunds": "Ontgrendelde fondsen",
+    "rolloverMul": "Inzetmultiplicator"
+  },
+  "assistance": "Controleer uw gegevens en probeer het opnieuw of neem contact op met de klantenservice voor hulp"
 }

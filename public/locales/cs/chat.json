@@ -3,5 +3,8 @@
   "notifications": "Oznámení",
   "support": "Podpora",
   "retry": "Zkusit znovu",
-  "customerServiceChatFailedToLoad": "Chat zákaznické podpory se nepodařilo načíst"
+  "customerServiceChatFailedToLoad": "Chat zákaznické podpory se nepodařilo načíst",
+  "read": "Přečteno",
+  "unread": "Nepřečteno",
+  "customerService": "Zákaznický servis"
 }

@@ -111,11 +111,11 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
           </colgroup>
           <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60 tracking-wide">
             <tr>
-              <th className="px-4 py-3 text-left">{t("transaction:tableHeaders.type")}</th>
-              <th className="px-4 py-3 text-left">{t("transaction:tableHeaders.time")}</th>
-              <th className="px-4 py-3 text-left">{t("transaction:rollover.progress", "Progress")}</th>
-              <th className="px-4 py-3 text-right">{t("transaction:rollover.totalWagerRequired", "Goal")}</th>
-              <th className="px-4 py-3 text-right">{t("transaction:tableHeaders.status")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:tableHeaders.type")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:tableHeaders.time")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:rollover.progress", "Progress")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("transaction:rollover.totalWagerRequired", "Goal")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("transaction:tableHeaders.status")}</th>
             </tr>
           </thead>
           <tbody className="relative">
@@ -124,11 +124,10 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
                 key={item.id ?? index}
                 onClick={() => handleRowClick(item)}
                 className={cn(
-                  "rounded-lg transition-colors border border-transparent cursor-pointer",
-                  index % 2 === 0 ? "bg-base-300 hover:bg-base-300/50" : "bg-base-200 hover:bg-base-300/50",
+                  "rounded-lg transition-colors border border-transparent cursor-pointer bg-base-300 hover:bg-base-300/80",
                 )}
               >
-                <td className="px-4 py-3 rounded-l-lg align-middle">
+                <td className="px-4 py-3 rounded-l-lg align-middle rtl:rounded-l-none rtl:rounded-r-lg">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase w-fit">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="flex-shrink-0">
                       <circle cx="6" cy="6" r="6" fill="currentColor" />
@@ -137,7 +136,7 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
                   </span>
                 </td>
 
-                <td className="px-4 py-3 align-middle text-left text-xs text-base-content/60 font-medium">
+                <td className="px-4 py-3 align-middle text-left rtl:text-right text-xs text-base-content/60 font-medium">
                   {item.created_at
                     ? dayjs(item.created_at * 1000).format("YYYY/MM/DD HH:mm:ss")
                     : t("transaction:tableHeaders.timePlaceholder", "—")}
@@ -154,16 +153,16 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
                   </div>
                 </td>
 
-                <td className="px-4 py-3 align-middle text-right">
-                  <div className="flex items-center justify-end gap-2 font-semibold text-sm text-primary">
-                    <span>
+                <td className="px-4 py-3 align-middle text-right rtl:text-left">
+                  <div className="flex items-center justify-end gap-2 font-semibold text-sm text-primary rtl:justify-start rtl:flex-row-reverse">
+                    <span dir="ltr">
                       {formatAmount(item.progressAmount, item.currency ?? "USD")} / {formatAmount(item.goalAmount, item.currency ?? "USD")}
                     </span>
                     {getCurrencyIcon(item.currency)}
                   </div>
                 </td>
 
-                <td className="px-4 py-3 rounded-r-lg text-right align-middle">
+                <td className="px-4 py-3 rounded-r-lg text-right align-middle rtl:text-left rtl:rounded-r-none rtl:rounded-l-lg">
                   <span
                     className={cn(
                       "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase justify-center min-w-[90px]",
@@ -182,7 +181,7 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
 
       <div className="sm:hidden flex-1 overflow-y-auto space-y-2 pb-5">
         {records.length > 0 && (
-          <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/40">
+          <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/50 text-xs">
             <span>
               {t("transaction:tableHeaders.type")} | {t("transaction:tableHeaders.time")}
             </span>

@@ -29,7 +29,7 @@
   },
   "faqEight": {
     "title": "Was ist der wöchentliche Bonus?",
-    "content": "<p class=\"leading-7\">Der wöchentliche Bonus ist ein exklusives Privileg auf unserer Website, das für Spieler ab VIP12 gedacht ist. Dieser Bonus wird wöchentlich ausgegeben und automatisch jeden Freitag an Spieler ab VIP12 ausgezahlt. Die Höhe des Bonus hängt von der Höhe des Einsatzes in der vergangenen Woche ab, mit einer Mindestanforderung von {{minWager}} in der vergangenen Woche.</p>"
+    "content": "<p class=\"leading-7\">Der wöchentliche Bonus ist ein exklusives Privileg auf unserer Website, das für Spieler ab VIP2 gedacht ist. Der Bonus wird wöchentlich montags ausgegeben und verfällt, wenn der nächste wöchentliche Bonus erscheint. Die Höhe des Bonus hängt von der Höhe des Einsatzes in der vergangenen Woche ab, mit einer effektiven Mindesteinsatzanforderung von {{minWager}} in der vergangenen Woche.</p>"
   },
   "faqNine": {
     "title": "Was sind Erfolge?",

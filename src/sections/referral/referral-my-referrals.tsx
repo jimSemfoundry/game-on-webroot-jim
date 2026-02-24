@@ -10,14 +10,14 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Select } from "@/components/ui/Select";
-import { Search } from "lucide-react";
+import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { X } from "lucide-react";
 import ReferralMyReferralsDetails from "./referral-my-referrals-details";
 
 const ITEMS_PER_PAGE = 10;
 
 export const ReferralMyReferrals = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['referral', 'transaction', 'common']);
   const { user } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,8 +48,8 @@ export const ReferralMyReferrals = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-  const { data, isLoading, isFetching, refetch } = useQuery<ReferralListResponse>({
-    queryKey: ["referralList", currentPage, isMobile, user?.id],
+  const { data, isLoading, isFetching, isPlaceholderData } = useQuery<ReferralListResponse>({
+    queryKey: ["referralList", currentPage, isMobile, user?.id, selectedPeriod, selectedType, inputValue],
     queryFn: () =>
       authService.getReferralList({
         limit: isMobile ? 5 : ITEMS_PER_PAGE,
@@ -66,27 +66,30 @@ export const ReferralMyReferrals = () => {
     placeholderData: (previousData) => previousData,
   });
 
+  // 筛选条件变更时重置分页状态
   useEffect(() => {
-    refetch();
+    setCurrentPage(1);
+    setLastIds([""]);
   }, [selectedPeriod, selectedType, inputValue]);
 
   const referralList = data?.data || [];
   const itemsPerPage = isMobile ? 5 : ITEMS_PER_PAGE;
   const hasNextPage = referralList.length === itemsPerPage;
-  const totalPages = hasNextPage ? currentPage + 1 : currentPage;
 
   useEffect(() => {
+    if (isPlaceholderData) return;
     if (data?.data && data.data.length === itemsPerPage) {
       const lastItem = data.data[data.data.length - 1];
-      if (lastItem && !lastIds[currentPage]) {
+      if (lastItem) {
         setLastIds((prev) => {
+          if (prev[currentPage] === lastItem.id) return prev;
           const newLastIds = [...prev];
           newLastIds[currentPage] = lastItem.id;
           return newLastIds;
         });
       }
     }
-  }, [data, currentPage, lastIds, itemsPerPage]);
+  }, [data, currentPage, itemsPerPage, isPlaceholderData]);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -94,37 +97,6 @@ export const ReferralMyReferrals = () => {
     }
   }, [data]);
 
-  const getPageNumbers = () => {
-    const pages: (number | string)[] = [];
-    const maxVisible = 5;
-
-    if (totalPages <= maxVisible + 2) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-    } else {
-      pages.push(1);
-
-      if (currentPage > 3) {
-        pages.push("...");
-      }
-
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = start; i <= end; i++) {
-        pages.push(i);
-      }
-
-      if (currentPage < totalPages - 2) {
-        pages.push("...");
-      }
-
-      pages.push(totalPages);
-    }
-
-    return pages;
-  };
 
   return (
     <div className="bg-base-200 flex flex-col rounded-field overflow-hidden gap-3">
@@ -169,7 +141,7 @@ export const ReferralMyReferrals = () => {
             />
           </div>
         </div>
-        <label className={`flex-shrink-0 self-end relative input bg-base-300 px-0 input input-ghost gap-0 transition-all duration-300 ease-in-out overflow-hidden ${isSearchFocused ? (isMobile ? `w-full absolute right-0 top-0 -ml-2.5` : 'w-[280px]') : 'w-[40px]'}`}>
+        <label className={`flex-shrink-0 self-end relative input bg-base-300 px-0 input-ghost gap-0 transition-all duration-300 ease-in-out overflow-hidden ${isSearchFocused ? (isMobile ? `w-full absolute right-0 top-0 -ml-2.5` : 'w-[280px]') : 'w-[40px]'}`}>
           <input
             type="text"
             value={inputValue}
@@ -182,7 +154,7 @@ export const ReferralMyReferrals = () => {
                 : "w-0 opacity-0 -translate-x-2"
             )}
           />
-          <div className="flex items-center gap-2 absolute right-0 top-0 z-10 ">
+          <div className="flex items-center gap-2 absolute right-0 top-0 z-10">
             {isSearchFocused && inputValue !== '' && (
               <button
                 type="button"
@@ -204,7 +176,7 @@ export const ReferralMyReferrals = () => {
                 </button>
               ) : (
                 <button
-                  className="btn btn-square btn-md btn-primary    "
+                  className="btn btn-square btn-sm btn-primary    "
                   onClick={() => {
                     setIsSearchFocused(false);
                   }}
@@ -216,7 +188,7 @@ export const ReferralMyReferrals = () => {
           </div>
         </label>
       </div>
-      <div className="bg-base-200 flex flex-col h-[320px] sm:h-[450px] relative">
+      <div className={cn("bg-base-200 flex flex-col relative", referralList.length > 0 ? "min-h-[560px]" : "")}>
         {isFetching && (
           <div className="absolute inset-0 bg-base-200/50 backdrop-blur-sm z-20 flex items-center justify-center">
             <span className="loading loading-spinner loading-lg text-primary"></span>
@@ -243,11 +215,11 @@ export const ReferralMyReferrals = () => {
               <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
                 <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                   <tr>
-                    <th className="px-4 py-3 text-left">{t("referral:user")}</th>
-                    <th className="px-4 py-3 text-left">{t("referral:registration")}</th>
-                    <th className="px-4 py-3 text-left">{t("referral:date")}</th>
-                    <th className="px-4 py-3 text-left">{t("referral:code")}</th>
-                    <th className="px-4 py-3 text-right">{t("referral:amount")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right">{t("referral:user")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right">{t("referral:registration")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right">{t("referral:date")}</th>
+                    <th className="px-4 py-3 text-left rtl:text-right">{t("referral:code")}</th>
+                    <th className="px-4 py-3 text-right rtl:text-left">{t("referral:amount")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -263,15 +235,20 @@ export const ReferralMyReferrals = () => {
                         setIsOpen(true);
                       }}
                     >
-                      <td className="px-4 py-2.5 rounded-l-lg">
-                        <div className="flex items-center gap-2">
+                      <td className="px-4 py-2.5 rounded-l-lg rtl:rounded-l-none rtl:rounded-r-lg min-w-0">
+                        <div className="flex items-center gap-2 min-w-0">
                           <img
                             src={`/images/vip/levels/${item.vip_level}.png`}
                             alt={`VIP ${item.vip_level}`}
                             className="w-5 h-5 flex-shrink-0"
                           />
-                          <div className="text-sm font-semibold text-base-content/50 truncate">
+                          <div className="text-sm font-semibold text-base-content/50 truncate max-w-full sm:hidden">
                             {item.down_line_username}
+                          </div>
+                          <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full" data-tip={item.down_line_username}>
+                            <div className="text-sm font-semibold text-base-content/50 truncate max-w-full block">
+                              {item.down_line_username}
+                            </div>
                           </div>
                         </div>
                       </td>
@@ -289,16 +266,22 @@ export const ReferralMyReferrals = () => {
                         </div>
                       </td>
 
-                      <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium">
+                      <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium" dir="ltr">
                         {dayjs(item.regitration_date * 1000).format("YYYY/MM/DD")}
                       </td>
 
-                      <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium">{item.referral_code}</td>
+                      <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium truncate max-w-full sm:hidden" dir="ltr">
+                        {item.referral_code}
+                      </td>
+                      <td className="px-4 py-2.5 text-sm text-base-content/50 font-medium hidden sm:table-cell">
+                        <div className="tooltip tooltip-top min-w-0 max-w-full" data-tip={item.referral_code}>
+                          <span className="truncate max-w-full block" dir="ltr">{item.referral_code}</span>
+                        </div>
+                      </td>
 
-                      <td className="px-4 py-2.5 text-right rounded-r-lg">
-                        <div className="text-success font-bold text-sm">
-                          +{" "}
-                          {formatWithConversion(item.reward, "USD", {
+                      <td className="px-4 py-2.5 text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
+                        <div className="text-success font-bold text-xs" dir="ltr">
+                          +{formatWithConversion(item.reward, "USD", {
                             showSymbol: false,
                             showCode: true,
                             minimizeDecimals: true,
@@ -313,21 +296,20 @@ export const ReferralMyReferrals = () => {
             </div>
 
             <div className="sm:hidden flex-1 overflow-y-auto px-4 pb-4 space-y-2">
-              {referralList.map((item, index) => (
+              {referralList.map((item) => (
                 <div
                   key={item.id}
                   className={cn(
-                    "rounded-2xl px-4 py-2.5 flex flex-col gap-2",
-                    index % 2 === 0 ? "bg-base-300/30" : "bg-base-300/50"
+                    "rounded-2xl p-3 flex flex-col gap-2 bg-base-300/50",
                   )}
                   onClick={() => {
                     setSelectedItem(item);
                     setIsOpen(true);
                   }}
                 >
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1 min-w-0">
-                      <div className="flex items-center gap-2">
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 min-w-0">
                         <img
                           src={`/images/vip/levels/${item.vip_level}.png`}
                           alt={`VIP ${item.vip_level}`}
@@ -337,27 +319,28 @@ export const ReferralMyReferrals = () => {
                           {item.down_line_username}
                         </div>
                       </div>
-                      <div className="text-xs text-base-content/60 font-medium">
-                        {dayjs(item.regitration_date * 1000).format("YYYY/MM/DD")}
-                      </div>
-                      <div className="text-xs text-base-content/60 font-medium truncate">
-                        {item.referral_code}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-end justify-start gap-1">
                       <div
                         className={cn(
-                          "px-2 py-0.5 rounded text-xs font-bold uppercase",
+                          "px-2 py-0.5 rounded text-xs font-bold uppercase flex-shrink-0",
                           item.refer_type === "direct"
-                            ? "bg-primary/20 text-primary"
-                            : "bg-base-content/20 text-base-content/70"
+                            ? "bg-primary text-primary-content"
+                            : "bg-primary/10 text-primary"
                         )}
                       >
                         {item.refer_type}
                       </div>
-                      <div className="text-success font-bold text-sm">
-                        +{" "}
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col gap-1 min-w-0">
+                        <div className="text-xs text-base-content/60 font-medium">
+                          {dayjs(item.regitration_date * 1000).format("YYYY/MM/DD")}
+                        </div>
+                        <div className="text-xs text-base-content/60 font-medium truncate">
+                          {item.referral_code}
+                        </div>
+                      </div>
+                      <div className="text-success font-bold text-xs flex items-center">
+                        +
                         {formatWithConversion(item.reward, "USD", {
                           showSymbol: false,
                           showCode: true,
@@ -371,42 +354,29 @@ export const ReferralMyReferrals = () => {
               ))}
             </div>
 
-            {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-1 sm:gap-2 py-6 px-4">
-                <button
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  disabled={currentPage === 1 || isFetching}
-                  className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-
-                {getPageNumbers().map((page, index) => (
+            {(currentPage > 1 || hasNextPage) && (
+              <div className="py-6 px-4">
+                <div className="w-full max-w-[340px] mx-auto flex items-center justify-between">
                   <button
-                    key={index}
-                    onClick={() => typeof page === "number" && setCurrentPage(page)}
-                    disabled={page === "..." || isFetching}
-                    className={cn(
-                      "btn btn-sm min-w-[2.5rem] rounded-2xl",
-                      page === currentPage ? "btn-primary text-black" : "btn-ghost bg-base-300/60 hover:bg-base-300",
-                      page === "..." && "btn-ghost cursor-default hover:bg-transparent"
-                    )}
+                    className="btn btn-sm bg-base-100 btn-square rounded-field disabled:opacity-30"
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1 || isFetching}
                   >
-                    {page}
+                    <ChevronLeft className="w-4 h-4" />
                   </button>
-                ))}
 
-                <button
-                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages || isFetching}
-                  className="btn btn-sm btn-ghost btn-square rounded-2xl disabled:opacity-30"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
+                  <div className="text-xs text-base-content/50 select-none rounded-field badge badge-soft font-semibold w-8 h-8">
+                    {currentPage}
+                  </div>
+
+                  <button
+                    className="btn btn-sm bg-base-100 btn-square rounded-field disabled:opacity-30"
+                    onClick={() => setCurrentPage((p) => p + 1)}
+                    disabled={!hasNextPage || isFetching}
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             )}
           </>

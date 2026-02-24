@@ -13,7 +13,7 @@ interface BonusCashbackHelpModalProps {
 const ILLUSTRATION_URL = "/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png";
 
 export const BonusCashbackHelpModal = ({ isOpen, onClose }: BonusCashbackHelpModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['bonus','popup']);
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient:
       "radial-gradient(120% 260% at 100% 0%, rgba(34, 197, 94, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -48,7 +48,7 @@ export const BonusCashbackHelpModal = ({ isOpen, onClose }: BonusCashbackHelpMod
 
         {/* Main content card */}
         <div className="bg-base-400 rounded-box relative">
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 
@@ -74,6 +74,7 @@ export const BonusCashbackHelpModal = ({ isOpen, onClose }: BonusCashbackHelpMod
               <div className="mt-4">
                 <h4 className="text-sm font-semibold mb-3">{t("popup:daily.claimDistribution")}</h4>
                 <p className="text-xs text-base-content/50 leading-5">{t("popup:daily.claimDistributionDesc1")}</p>
+                <p className="text-xs text-base-content/50 leading-5 mt-4">{t("popup:daily.claimDistributionDesc2", { value: "$10" })}</p>
                 <p className="text-xs text-base-content/50 leading-5 mt-4">{t("popup:missions.minimumClaimAmount", { money: "$0.10" })}</p>
               </div>
 

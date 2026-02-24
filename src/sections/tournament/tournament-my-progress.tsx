@@ -8,7 +8,7 @@ interface TournamentMyProgressProps {
 }
 
 export function TournamentMyProgress({ data }: TournamentMyProgressProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('tournament');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const position = data?.rank || 0;

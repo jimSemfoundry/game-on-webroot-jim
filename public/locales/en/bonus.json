@@ -43,6 +43,7 @@
   },
   "bonus": "Bonus",
   "total_bonus_claimed": "Total Bonus Claimed",
+  "detail": "Detail",
   "details": "Details",
   "redeem": "Redeem",
   "deposit_bonus": "Deposit Bonus Pool",
@@ -186,12 +187,12 @@
     "description": "This achievement is awarded to players who have made a total of <0>{{count}} deposits</0>. With a steady flow of credits and unwavering commitment, they’ve shown they’re not just players — they’re tycoons in the making."
   },
   "achievement_change_avatar": {
-    "name": "Change Avatar",
-    "description": "This achievement is awarded to players who personalize their profile by changing their avatar. A bold step toward standing out and owning your identity in the game."
+    "name": "Face of Fortune",
+    "description": "This achievement is awarded to players who have customized their avatar for the first time. A Face of Fortune knows that identity is power — every choice of style, symbol, or expression is a mark of individuality. By shaping their look, they show that true players don’t just play the game — they leave their mark on it."
   },
   "achievement_set_username": {
-    "name": "Set Username",
-    "description": "You’ve claimed your name — now the legend begins. This achievement honors those who carve out their space and make it official."
+    "name": "Name of Fame",
+    "description": "This achievement is awarded to players who have set their username for the first time. A Name of Fame marks the beginning of true identity, transforming a newcomer into a recognized presence. Bold and unique, they prove that every legend starts with a name remembered."
   },
   "achievement_download_mobile_app": {
     "name": "Download Mobile App",
@@ -265,7 +266,16 @@
     "name": "Chain Shifter",
     "description": "This achievement is awarded to players who have successfully completed a <0>crypto swap transaction</0>. A Chain Shifter is someone who knows how to move between tokens with confidence, adapting to market tides with ease. Masters of momentum, they thrive on flexibility and transformation, always ready to shift gears and seize opportunity."
   },
+  "achievement_first_swap_non_buck": {
+    "name": "First Swap Non Buck",
+    "description": "This achievement is awarded to players who have successfully completed a <0>crypto swap transaction</0>. A Chain Shifter is someone who knows how to move between tokens with confidence, adapting to market tides with ease. Masters of momentum, they thrive on flexibility and transformation, always ready to shift gears and seize opportunity."
+  },
+  "achievement_first_swap_buck": {
+    "name": "First Swap Buck",
+    "description": "This achievement is awarded to players who have successfully completed a <0>crypto swap transaction</0>. A Chain Shifter is someone who knows how to move between tokens with confidence, adapting to market tides with ease. Masters of momentum, they thrive on flexibility and transformation, always ready to shift gears and seize opportunity."
+  },
   "item": {
+    "achievement_slot_master": "Slot Master",
     "conquest_just_wager_on_100": "Conquest Just Wager on 100",
     "conquest_just_wager_on_200": "Conquest Just Wager on 200",
     "conquest_roulette_master": "Conquest Roulette Master",
@@ -306,13 +316,32 @@
     "conquest_extra_reward": "Conquest Extra Reward",
     "bonus": "Bonus",
     "bonus_manual": "Manual Bonus",
+    "max_win": "Max Win",
+    "pending": "Pending",
+    "ongoing": "Ongoing",
+    "wager": "Wager",
+    "on_any_game_to_unlock_your_free_spin_winnings": "on any game to unlock your free spin winnings",
     "vip_bonus_lucky_number_seven": "VIP Bonus Lucky Number Seven",
     "rakeback_bonus": "Rakeback Bonus",
     "group_bonus": "Group Bonus",
     "level_up_bonus": "Level Up Bonus",
     "refer_bonus": "Refer Bonus",
     "tournament_bonus": "Tournament Bonus",
-    "vip_bonus_mystery_box": "VIP Bonus Mystery Box"
+    "vip_bonus_mystery_box": "VIP Bonus Mystery Box",
+    "achievement_first_swap_buck": "Achievement First Swap Buck",
+    "achievement_first_swap_non_buck": "Achievement First Swap Non Buck",
+    "don": "Double Or Nothing",
+    "free_spin_reward": "Free Spin Reward",
+    "special_offer_don_deposit": "Special Offer Double or Nothing Deposit",
+    "don_win": "Double Or Nothing Win",
+    "don_lose": "Double Or Nothing Lose",
+    "special_offer_second_deposit": "Special Offer Second Deposit",
+    "special_offer_first_deposit": "Special Offer First Deposit",
+    "monday_vip_bonus": "Monday VIP Bonus",
+    "special_offer_thursday": "Crypto Thursday Bonus",
+    "special_offer_sunday": "Super Sunday Bonus",
+    "conquest_bonus": "Conquest Bonus",
+    "dollars_bonus": "Bonus"
   },
   "achievements_description": "Unlocked at VIP {{vip}}, these rewards celebrate your milestones with exciting surprises along the way!",
   "lucky_number_seven_description": "Hit the Lucky {{number}}s and score a sweet bonus every day!",
@@ -361,6 +390,13 @@
     "nextReleaseIn": "Next Release In {{time}}"
   },
   "freeSpins": "Free Spins",
+  "status": {
+    "notStarted": "Not Started",
+    "ongoing": "Ongoing",
+    "claim": "Claim",
+    "claimed": "Claimed",
+    "cancelled": "Cancelled"
+  },
   "freeSpinsBonusDetails": "Free Spins bonuses reward you with extra gameplay on selected slot titles. Wagering the required amount unlocks your free spin winnings, which can then be instantly credited to your account balance.",
   "freeSpinsClaimDistributionDescription1": "Free Spins winnings will be credited to your account balance once the wagering requirement is completed and you click 'Claim.' ",
   "freeSpinsClaimDistributionDescription2": "Track your progress anytime in your Bonus Panel or Free Spins History.",
@@ -368,6 +404,16 @@
   "freeSpinsExpirationDescription2": "Winnings from free spins will not expire until unlocked and claimed. ",
   "freeSpinsGeneralTermsDescription1": "Free Spin rewards are calculated and credited in BUCK, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.",
   "freeSpinsGeneralTermsDescription2": "The casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion.",
+  "freeSpinsStatus": {
+    "not_started": "Not Started",
+    "playing": "Playing",
+    "ongoing": "Ongoing",
+    "claim": "claim",
+    "claimed": "claimed",
+    "cancelled": "Cancelled"
+  },
+  "freeSpin": "Free Spin",
+  "bonusWins": "Bonus Wins",
   "the_collector": "The Collector",
   "collector_description": "Eligible Rewards, One Click",
   "claim_all": "Claim All",
@@ -393,6 +439,10 @@
   "vip_monday_description": "A special weekly drop to reward loyal players each Monday",
   "vip_monday_wager": "Wager at least {{amount}} in the previous 7 days for a Mystery drop every Monday.",
   "claim_on_monday": "Claim on Monday",
+  "max_win": "Max Win",
+  "pending": "Pending",
+  "wager": "Wager",
+  "on_any_game_to_unlock_your_free_spin_winnings": "on any game to unlock your free spin winnings",
   "vip_monday_title": "VIP \n <0>MONDAY</0>",
   "bonus_already_claimed": "Bonus already claimed",
   "wager_requirement_not_met": "Wager requirement not met",
@@ -402,8 +452,8 @@
   "program": "Program",
   "races": "Races",
   "loading_achievements": "Loading achievements...",
-  "no_achievements_available":"No achievements available",
-  "check_back_later_for_new_achievements":"Check back later for new achievements",
+  "no_achievements_available": "No achievements available",
+  "check_back_later_for_new_achievements": "Check back later for new achievements",
   "i_will_wait": "Okay, I’ll Wait",
   "bonus_reset_daily": "This bonus reset daily.",
   "another_go": "Give it another go.",
@@ -429,8 +479,115 @@
   "set_username_now": "Set Username Now",
   "withdraw_now": "Withdraw Now",
   "swap_now": "Swap Now",
-  "ongoing":"Ongoing",
-  "no_tournaments_available":"No Tournaments Available",
-  "tournaments_available_desc":"There are currently no active tournaments. Check back later for exciting competitions!",
-  "no_leaderboard_data_available":"No leaderboard data available"
+  "ongoing": "Ongoing",
+  "no_tournaments_available": "No Tournaments Available",
+  "tournaments_available_desc": "There are currently no active tournaments. Check back later for exciting competitions!",
+  "no_leaderboard_data_available": "No leaderboard data available",
+  "thursday_bonus_title": "CRYPTO THURSDAY",
+  "thursday_bonus": "CRYPTO \n THURSDAY",
+  "super_sunday_title": "Super Sunday",
+  "super_sunday": "1ST \n Deposit Boost",
+  "first_deposit_of_the_day": "First Deposit of the Day",
+  "cash_bonus": "Cash Bonus",
+  "super_deposit_bonus": "Deposit {{amount}} \n Get {{bonus_rate}}% Bonus",
+  "crypto_thursday": "CRYPTO \n THURSDAY",
+  "crypto_thursday_title": "CRYPTO THURSDAY",
+  "cash_bonus_low": "{{value}}% CASH BONUS",
+  "wager_free_spin": "Wager {{value1}} on any game to unlock your free spin winnings <0>{{value2}}</0> instantly",
+  "spinHistory": "Spin History",
+  "gotIt": "Got It",
+  "achievementsAvailableLevel1": "Achievements are available to VIP level {{level}} and above.",
+  "achievementsAvailableLevel2": "Come back when you are VIP level {{level}} and above.",
+  "gameOver": "Game Over",
+  "spin_to_win": "SPIN TO WIN \n UP TO \n <0>{{bonus}}</0>",
+  "sports_bonus_win": "SPORTS \n BONUS \n UP TO \n <0>{{bonus}}</0>",
+  "get_bonus": "Get {{bonus}} Bonus Dollars",
+  "activity_unavailable": "Coming Soon",
+  "challenge_everything": "Play with Bonus Dollars just like real cash! Every wager brings you closer to unlocking their full value. Meet the play-through requirements and watch your Bonus Dollars turn into withdraw-able rewards today!",
+  "frequently_asked": "Frequently Asked Questions",
+  "play_to_claim": "Play to Claim",
+  "bonus_dollars": "Bonus Dollars",
+  "sports_bonus": "Sports Bonus",
+  "your_bonus": "Claim your Bonus now!",
+  "bonus_rules_desc": {
+    "r0": {
+      "title": "Can I give up the Bonus Dollars promotion at any time?",
+      "desc": "Yes. You may choose to give up the Bonus Dollars promotion at any time during its validity period. Please note that once you give up, your current Bonus Dollars balance will be cleared and cannot be restored or withdrawn. You can still participate in future bonus promotions if available."
+    },
+    "r1": {
+      "title": "What is the Bonus Dollar?",
+      "desc": "Bonus Dollars are a special play credit you can use just like real money on selected games. Bonus Dollars convert into withdraw-able cash once you complete the play-through requirement."
+    },
+    "r2": {
+      "title": "What are the minimum and maximum claim amounts?",
+      "desc": "You can claim your bonus once you’ve reached at least <0>{{min}}</0> in eligible bonus winnings, up to a maximum of <0>{{max}}</0>."
+    },
+    "r3": {
+      "title": "Can I continue playing even after reaching the claim limit?",
+      "desc": "Yes, you can keep playing with your bonus balance for fun - but your claim will still be limited to the maximum of <0>{{max}}<0/>."
+    },
+    "r4": {
+      "title": "Which games can I play using my bonus balance?",
+      "desc": "You can use your bonus on selected participating games. Look for the Bonus Tag or check the Game List for details."
+    },
+    "r5": {
+      "title": "Can I withdraw my bonus money immediately?",
+      "desc": "Not yet - you’ll need to complete the wagering requirement first. Once done, you can claim your eligible amount, which will be transferred to your main balance for withdrawal or continued play."
+    },
+    "r6": {
+      "title": "What happens to my bonus balance after I claim it?",
+      "desc": "Once you claim your bonus, your bonus wallet will be reset to zero, and your claimed amount will move to your main account balance. You can then withdraw or keep playing as you like."
+    },
+    "r7": {
+      "title": "How are my rewards calculated and credited?",
+      "desc": "All rewards are calculated and credited in <0>{{currency}}/USDT</0>, then displayed in your preferred fiat currency for convenience. Please note that currency conversions are approximate and may vary slightly depending on the exchange rate at the time."
+    },
+    "r8": {
+      "title": "Are there any rules or restrictions I should know about?",
+      "desc": "Yes. The casino reserves the right to modify, suspend, or revoke eligibility for this event at any time without prior notice. Any abuse, multiple account usage, or fraudulent activity will result in immediate disqualification from the promotion."
+    },
+    "r9": {
+      "title": "What are the minimum and maximum claim amounts?",
+      "desc": "You can cash out your bonus once you’ve fulfilled the wagering conditions."
+    },
+    "r10": {
+      "title": "Can I continue playing even after reaching the cashout limit?",
+      "desc": "Yes, you can keep playing with your bonus balance for fun - but your claim will still be limited to the cashout limit."
+    },
+    "free": "Jump in with free bonus money — no deposit required. Spin real games, test your luck, and see how far you can go before cashing out. \n\n Perfect for getting started with zero risk.",
+    "mini": "Make a small deposit and receive a slot bonus with light wagering requirements. Designed for quick play and faster progress toward withdrawal. \n\n Ideal for casual players who want a smooth bonus experience.",
+    "mega": "Play with Bonus Dollars just like real cash! Every wager brings you closer to unlocking their full value. Meet the play-through requirements and watch your Bonus Dollars turn into withdraw-able rewards today!",
+    "cashout": "Once you Cashout, your bonus wallet balance is transferred to your account and the event ends. \n\n Ending the event early or allowing it to expire will forfeit any remaining bonus balance.",
+    "approximately": "Approximately <0>{{value}}</0> of users who utilize this bonus have met the requirements for cash out."
+  },
+  "bo_balance": "Bonus Balance",
+  "min_claim": "Minimum amount to claim",
+  "wagering": "Wagering",
+  "prepared_for_you": "Congrats! A personalized reward has been prepared just for you.",
+  "tracks_claim": "Tracks how close you are to the maximum claim. Once the bar turns green, you’ve reached the minimum amount eligible to claim — keep playing to unlock the full bonus!",
+  "progress_playthrough": "Shows your progress toward completing the playthrough requirement. The closer the bar gets to full, the nearer you are to unlocking your bonus for claim or transfer to your main balance.",
+  "bonus_credited1": "Your Bonus will be credited to the following account",
+  "bonus_credited2": "<0>{{bonus}}</0> will be credited to the following account",
+  "welcomeBonus": "Welcome Bonus",
+  "skip": "Skip",
+  "megaSlotBonus": "Mega Slot \n Bonus",
+  "miniSlotBonus": "Mini Slot \n Bonus",
+  "freePlayBonus": "Free Play \n Bonus",
+  "depositSlotBonus": "Deposit {{amount}}+ \n {{value}} Slot Bonus",
+  "noDepositBonus": "No Deposit \n Get {{amount}} Bonus",
+  "free": "Free",
+  "wagerRequired": "Wager Required",
+  "minimumCashout": "Minimum Cashout",
+  "maximumCashout": "Maximum Cashout",
+  "slotBonus": "Slot Bonus",
+  "giveUp": "Give Up",
+  "restrictions1": "I don't want any restrictions",
+  "restrictions2": "Free Spins awarded with no strings attached",
+  "lose_all": "Give up your bonus",
+  "reset_bonus": "Giving up the bonus will reset your Bonus Wallet to zero.",
+  "maxClaim": "Max Claim",
+  "bonus_expired": "Expires",
+  "bonus_claimed": "Claimed",
+  "bonus_failure_end": "Finish",
+  "bonus_give_up": "Give Up"
 }

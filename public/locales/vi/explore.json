@@ -7,6 +7,8 @@
   "baseball": "Bóng chày",
   "iceHockey": "Khúc côn cầu trên băng",
   "basketball": "Bóng rổ",
+  "cricket": "Cricket",
+  "eSoccer": "eBóng đá",
   "volleyball": "Bóng chuyền",
   "hot": "Nổi bật",
   "all": "Tất cả",
@@ -69,5 +71,6 @@
   "live-casino": "Sòng bạc trực tiếp",
   "sports": "Thể thao",
   "lotteries": "Xổ số",
-  "gamesYouShouldTry": "Các trò chơi bạn nên thử"
+  "gamesYouShouldTry": "Các trò chơi bạn nên thử",
+  "bonus": "Bonus"
 }

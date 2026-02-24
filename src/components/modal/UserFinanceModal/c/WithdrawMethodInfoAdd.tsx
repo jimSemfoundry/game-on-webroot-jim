@@ -2,18 +2,19 @@ import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { useClickAway, useToggle } from "ahooks";
-import classNames from "classnames";
+import { useToggle } from "@/hooks/useToggle";
+import clsx from "clsx";
 import { TFunction } from "i18next";
 import { ChevronLeft, ChevronsUpDown, Plus, Trash2 } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { m, LazyMotion, domMax } from "motion/react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { useUserWithdrawFiatInfo } from "@/components/modal/UserFinanceModal/helper.ts";
-import { orderBy } from "lodash-es";
+import { orderBy } from "es-toolkit";
 import { authService } from "@/services/authService.ts";
 import { sleep } from "@/components/socialLogin/helper.ts";
+import { useThemeSystem } from "@/hooks/useThemeSystem";
 import {
   DisplayContent,
   ImageWithPlaceholder,
@@ -32,8 +33,6 @@ const initState = {
 
 export const WithdrawMethodInfoAdd = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-
-  const ref = useRef<HTMLDivElement>(null);
 
   const { t } = useTranslation();
 
@@ -69,10 +68,6 @@ export const WithdrawMethodInfoAdd = () => {
       setWithdrawFiatV2({ method: null, formItem: { amount: "" } });
     }
   }, [currentWallet]);
-
-  useClickAway(() => {
-    setStatus((v) => ({ ...v, create: false }));
-  }, [ref]);
 
   return (
     <div>
@@ -120,20 +115,72 @@ export const WithdrawMethodInfoAdd = () => {
             </button>} />}
 
             {/*桌面端*/}
-            {!isMobile && (
-              <AnimatePresence>
-                {status.create && (
-                  <motion.div
-                    className="bg-base-300 absolute z-1 mt-1 w-full rounded-lg shadow-xs overflow-hidden shadow-lg"
-                    exit={{ height: 0 }}
-                    initial={{ height: 0 }}
-                    animate={{ height: "auto" }}
-                    transition={{ duration: 0.1 }}
+            <LazyMotion features={domMax}>
+              {!isMobile && (
+                <m.div
+                  initial={false}
+                  animate={status.create ? "open" : "closed"}
+                  variants={{
+                    open: { height: "auto", opacity: 1, pointerEvents: "auto", display: "block" },
+                    closed: { height: 0, opacity: 0, pointerEvents: "none", transitionEnd: { display: "none" } }
+                  }}
+                  transition={{ duration: 0.1 }}
+                  className="bg-base-300 absolute z-1 mt-1 w-full rounded-lg shadow-xs overflow-hidden shadow-lg"
+                >
+                  <div className="h-2 bg-base-300 sticky top-0" />
+                  <div
+                    className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
+                    <p className="h-5 text-xs font-semibold">{t("finance:withdrawalAddress")}</p>
+                    <InnerAddressList
+                      data={currentWallet}
+                      onSelect={async (v: Record<string, any>) => {
+                        setWithdrawFiatV2({ method: v });
+
+                        await sleep(250);
+
+                        setStatus((old) => ({ ...old, create: false }));
+
+                        void authService.setUserWithdrawInfoDefaultById({ id: v?.id });
+                      }}
+                    />
+                    <InnerAddAddr
+                      t={t}
+                      className="p-0"
+                      onClick={() => {
+                        setStatus((old) => ({ ...old, create: false }));
+                        setSyncAction("OPEN_WITHDRAW_METHOD_ADD_MODAL");
+                      }}
+                    />
+                  </div>
+                  <div className="h-2 bg-base-300 sticky bottom-0" />
+                </m.div>
+              )}</LazyMotion>
+
+            {/* 移动端 */}
+            {isMobile &&
+              createPortal(
+                <LazyMotion features={domMax}>
+                  <m.div
+                    initial={false}
+                    animate={status.create ? "open" : "closed"}
+                    variants={{
+                      open: { opacity: 1, pointerEvents: "auto", display: "flex" },
+                      closed: { opacity: 0, pointerEvents: "none", transitionEnd: { display: "none" } }
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="px-4 py-6 bg-base-300 fixed w-full z-1001 top-0 bottom-0 flex flex-col"
+                    style={{ paddingTop: "max(1rem, var(--safe-area-inset-top))" }}
                   >
-                    <div className="h-2 bg-base-300 sticky top-0" />
-                    <div
-                      className="relative flex max-h-[412px] flex-col gap-2 px-3 py-1 overflow-y-auto hide-scrollbar">
-                      <p className="h-5 text-xs font-semibold">{t("finance:withdrawalAddress")}</p>
+                    <p className="flex items-center justify-center relative text-lg font-semibold h-7">
+                      <button
+                        className={"absolute left-0 btn btn-square rounded-lg"}
+                        onClick={() => setStatus((v) => ({ ...v, create: false }))}
+                      >
+                        <ChevronLeft className="w-6 h-6" />
+                      </button>
+                      {t("finance:withdrawalAddress")}
+                    </p>
+                    <div className="mt-6 overflow-y-auto flex-1 hide-scrollbar flex flex-col gap-4">
                       <InnerAddressList
                         data={currentWallet}
                         onSelect={async (v: Record<string, any>) => {
@@ -155,58 +202,8 @@ export const WithdrawMethodInfoAdd = () => {
                         }}
                       />
                     </div>
-                    <div className="h-2 bg-base-300 sticky bottom-0" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            )}
-
-            {/* 移动端 */}
-            {isMobile &&
-              createPortal(
-                <AnimatePresence>
-                  {status.create && (
-                    <motion.div
-                      exit={{ opacity: 0 }}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                      className="px-4 py-6 bg-base-300 fixed w-full z-1001 top-0 bottom-0 flex flex-col"
-                    >
-                      <p className="flex items-center justify-center relative text-lg font-semibold h-7">
-                        <button
-                          className={"absolute left-0 btn btn-square rounded-lg"}
-                          onClick={() => setStatus((v) => ({ ...v, create: false }))}
-                        >
-                          <ChevronLeft className="w-6 h-6" />
-                        </button>
-                        {t("finance:withdrawalAddress")}
-                      </p>
-                      <div className="mt-6 overflow-y-auto flex-1 hide-scrollbar flex flex-col gap-4">
-                        <InnerAddressList
-                          data={currentWallet}
-                          onSelect={async (v: Record<string, any>) => {
-                            setWithdrawFiatV2({ method: v });
-
-                            await sleep(250);
-
-                            setStatus((old) => ({ ...old, create: false }));
-
-                            void authService.setUserWithdrawInfoDefaultById({ id: v?.id });
-                          }}
-                        />
-                        <InnerAddAddr
-                          t={t}
-                          className="p-0"
-                          onClick={() => {
-                            setStatus((old) => ({ ...old, create: false }));
-                            setSyncAction("OPEN_WITHDRAW_METHOD_ADD_MODAL");
-                          }}
-                        />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>,
+                  </m.div>
+                </LazyMotion>,
                 document.body
               )}
           </div>
@@ -228,11 +225,11 @@ const InnerAddAddr = ({ t, onClick, className }: { t: TFunction; onClick: () => 
       )}
     >
       <div className="flex items-center gap-4 font-semibold">
-        <img src="/icons/isometric/8.svg" className="h-12 w-12" alt="" />
+        <img src="/icons/isometric/deposit.png" className="h-12 w-12" alt="" />
         <div className="flex flex-col gap-2">
           <p className="text-sm font-semibold">{t("finance:add_withdrawal_address")}</p>
           <p
-            className="text-xs text-base-content/50">{t("Please fill in your fiat currency withdrawal information.")}</p>
+            className="text-xs text-base-content/50">{t("finance:fill_in_your_fiat_currency_withdrawal_information")}</p>
         </div>
       </div>
       <button className="btn btn-square btn-sm btn-soft">
@@ -259,25 +256,29 @@ const InnerAddress = (
     onClick?: (v: Record<string, any>) => void;
   }) => {
   const { withdrawFiat, withdrawFiatV2 } = useBoundStore();
+  const { isDarkTheme } = useThemeSystem();
+  const isDark = isDarkTheme();
+  const displayIcon = isDark ? data?.icon : (data?.icon_light ?? data?.icon);
 
   // 法币提现用用户添加的快捷信息列表
   const { refetch, isFetching } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
 
   const [loading, { set }] = useToggle<boolean>(false);
 
-  const source = useMemo(() => data?.params ? orderBy(Object.values(parser(data?.params)), ["weight"], ["desc"]) : [], [data?.params]);
+  const source = useMemo(() => data?.params ? orderBy(Object.values(parser(data?.params)) as Record<string, any>[], ["weight"], ["desc"]) : [], [data?.params]);
 
   return <div
-    className={classNames("relative bg-base-200 flex items-center gap-3 p-4 rounded-field font-semibold cursor-pointer", className)}
+    className={clsx("relative bg-base-200 flex items-center gap-3 p-4 rounded-field font-semibold cursor-pointer", className)}
     onClick={() => {
       if (withdrawFiatV2.method?.id !== data?.id && (!loading || isFetching)) onClick?.(data);
     }}
   >
     <InnerDisplayContent show={Boolean(edit)}>
-      <input type="radio" checked={withdrawFiatV2.method?.id === data?.id} className="radio radio-sm radio-primary" />
+      <input type="radio" readOnly checked={withdrawFiatV2.method?.id === data?.id}
+             className="radio radio-sm radio-primary" />
     </InnerDisplayContent>
-    <ImageWithPlaceholder src={data?.icon} className="max-w-25 min-h-8 min-w-8 !bg-base-400 rounded-lg p-2" />
-    <div className="flex-1 flex flex-col gap-2 text-xs truncate">
+    <ImageWithPlaceholder src={displayIcon} />
+    <div className="flex-1 flex flex-col gap-2 text-xs">
       {
         source.map((v: any) => {
           if (["accountname", "name"].includes(v.name)) {
@@ -314,6 +315,8 @@ const InnerAddressList = (
     data: Record<string, any>[];
     onSelect: (v: Record<string, any>) => void;
   }) => {
+  const { t } = useTranslation();
+
   const { withdrawFiat } = useBoundStore();
 
   // 法币提现用用户添加的快捷信息列表
@@ -322,7 +325,9 @@ const InnerAddressList = (
   return (
     <>
       {isFetching &&
-        <div className="p-2 text-xs text-center text-base-content/50">Updating withdrawal address, please wait...</div>}
+        <div className="text-[11px] font-bold text-center text-base-content/50">
+          {t("finance:updating_withdrawal_address", "Updating withdrawal address, please wait...")}
+        </div>}
       {data.map((item) => (
         <InnerAddress
           key={item.id}
@@ -338,9 +343,9 @@ const InnerAddressList = (
 const InnerPleaseSelect = ({ extra }: { extra: ReactNode }) => {
   const { t } = useTranslation();
   return (<div
-    className={classNames("relative bg-base-300 flex items-center gap-2 p-4 rounded-field font-semibold cursor-pointer")}>
+    className={clsx("relative bg-base-300 flex items-center gap-2 p-4 rounded-field font-semibold cursor-pointer")}>
     <div className="flex-1 flex flex-col gap-2 text-xs">
-      {t("Please select a withdrawal method.")}
+      {t("finance:please_select_withdrawal_method", "Please select a withdrawal method.")}
     </div>
     {extra}
   </div>);

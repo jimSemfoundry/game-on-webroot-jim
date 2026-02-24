@@ -76,12 +76,39 @@
   "dashboard": "ダッシュボード",
   "transactions": "取引",
   "rollover": "ロールオーバー",
-  "betHistory": "ベット履歴",
+  "betHistory": {
+    "empty": "ベット履歴が見つかりません",
+    "title": "ベット履歴",
+    "headers": {
+      "game": "ゲーム",
+      "date": "日付",
+      "betId": "ベットID",
+      "betIn": "ベットイン",
+      "betOut": "ベットアウト",
+      "account": "アカウント",
+      "amount": "金額",
+      "provider": "プロバイダー",
+      "match": "試合",
+      "tournament": "トーナメント"
+    }
+  },
   "settings": "設定",
   "legal": "法的",
   "nickname": "ニックネーム",
   "zoomAndAdjust": "ズームと調整",
   "systemLanguage": "システム言語",
   "editProfile": "プロフィールを編集",
-  "inviteAndGetRewarded": "招待して報酬を得る"
+  "inviteAndGetRewarded": "招待して報酬を得る",
+  "emailAddress": "メールアドレス",
+  "codeSent": "送信されたコードを入力してください",
+  "codeSentTo": "コードが送信されました",
+  "notReceiveCode": "コードが届きませんでしたか？",
+  "verificationSuccess": "認証成功",
+  "spinHistory": {
+    "statusFilterLabel": "ステータス"
+  },
+  "phone_number_has_been_verified": "電話番号の認証が完了しました。続行できます。",
+  "email_address_has_been_verified": "メールアドレスの確認が完了しました。続行する準備が整いました。",
+  "setNewPassword": "新しいパスワードを設定",
+  "passwordLengthRequirement": "6文字から64文字の間でパスワードを入力してください。"
 }

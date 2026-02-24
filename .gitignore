@@ -8,10 +8,12 @@ count.txt
 .env
 .nitro
 .tanstack
+.idea/
 
 # YoYo AI version control directory
 .yoyo/
 AGENTS.md
+branch-assets/
 
 # AI generated documentation files (根目录)
 /*.md
@@ -19,4 +21,7 @@ AGENTS.md
 
 # version.json
 public/version.json
-Peter-QA
+stats.html
+
+# TanStack Router generated files
+src/routeTree.gen.ts

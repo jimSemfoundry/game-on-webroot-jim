@@ -3,55 +3,78 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useSidebar } from "@/contexts/SidebarContext.tsx";
 import { useUserGameList } from "@/hooks/api/useAuth.ts";
 import { useCasinoGameList } from "@/hooks/api/usePublic.ts";
-import { ExploreGameGrid, ExploreSearchBar, ExploreTabs } from "@/sections/explore";
-import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import { bonus_currencies, ExploreGameGrid, ExploreSearchBar, ExploreTabs } from "@/sections/explore";
+import { createFileRoute, useLocation, useNavigate, useSearch } from "@tanstack/react-router";
 import axios from "axios";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useBoundStore } from "@/store";
 import { useTranslation } from "react-i18next";
+import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext.tsx";
+
+export const sanitizeSearchValue = (value: unknown) => {
+  if (typeof value !== "string") return "";
+  return value.split("?")[0]?.split("#")[0] ?? "";
+};
+
+export const validateExploreSearch = (search: Record<string, unknown>) => {
+  // 只保留已知的有效参数，过滤掉未知参数（如 rt=fxiq）
+  // 部分 PWA 容器会把自己的 query 片段拼进参数值里（例如 category=all?rb=Ftxi），这里做一次兜底清洗。
+
+  const type = sanitizeSearchValue(search.type) || "casino";
+  const result: Record<string, string> = {
+    type,
+  };
+
+  // fishing 不需要 category 参数
+  if (type !== "fishing" && search.category) {
+    const category = sanitizeSearchValue(search.category);
+    if (category) {
+      result.category = category;
+    }
+  }
+
+  if (typeof search.providers !== "undefined" && search.providers) {
+    const providers = sanitizeSearchValue(search.providers);
+    if (providers) {
+      const providerList = providers
+        .split(",")
+        .map((p) => p.trim())
+        .filter(Boolean);
+
+      // providers=all 用于触发供应商筛选弹层
+      if (providerList.includes("all")) {
+        result.providers = "all";
+      } else {
+        result.providers = providerList.join(",");
+      }
+    }
+  }
+
+  // Allow sort parameter
+  if (typeof search.sort !== "undefined") {
+    // Also sanitize sort parameter to prevent pollution
+    result.sort = sanitizeSearchValue(search.sort);
+  }
+
+  return result;
+};
 
 export const Route = createFileRoute("/_main/explore/")({
   component: RouteComponent,
-  validateSearch: (search: Record<string, unknown>) => {
-    // 只保留已知的有效参数，过滤掉未知参数（如 rt=fxiq）
-    // 中文注释：部分 PWA 容器会把自己的 query 片段拼进参数值里（例如 category=all?rb=Ftxi），这里做一次兜底清洗。
-    const sanitizeSearchValue = (value: unknown) => {
-      if (typeof value !== "string") return "";
-      return value.split("?")[0]?.split("#")[0] ?? "";
-    };
-
-    const type = sanitizeSearchValue(search.type) || "casino";
-    const result: Record<string, string> = {
-      type,
-    };
-
-    // fishing 不需要 category 参数
-    if (type !== "fishing" && search.category) {
-      const category = sanitizeSearchValue(search.category);
-      if (category) {
-        result.category = category;
-      }
-    }
-
-    if (typeof search.providers !== "undefined" && search.providers) {
-      const providers = sanitizeSearchValue(search.providers);
-      if (providers) {
-        result.providers = providers;
-      }
-    }
-
-    // 显式返回只包含有效参数的对象，确保过滤掉所有未知参数
-    return result;
-  },
+  validateSearch: validateExploreSearch,
 });
 
 function RouteComponent() {
+  const location = useLocation();
+
   const search = useSearch({ from: "/_main/explore/" });
   const gameType = search.type;
   const initialCategory = search.category;
   const providers = search.providers;
+  const sort = (search as any).sort;
   const { isMobile } = useSidebar();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, status, isInitialized } = useAuth();
 
   useEffect(() => {
     const navEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
@@ -74,7 +97,7 @@ function RouteComponent() {
     }
   }, [gameType, initialCategory, providers, user?.country, user?.id]);
 
-  // 中文注释：Android PWA 下拉刷新/页面卸载时，未完成的请求可能会被取消（ERR_CANCELED）。
+  // Android PWA 下拉刷新/页面卸载时，未完成的请求可能会被取消（ERR_CANCELED）。
   // 取消不算真正的加载失败，避免误显示错误态。
   const isRequestCanceled = (err: unknown) => {
     if (!err) return false;
@@ -88,16 +111,81 @@ function RouteComponent() {
     );
   };
 
-  const [value, setValue] = useState(initialCategory || "hot");
-  const [sortValue, setSortValue] = useState("popular");
-  const [selectedProviders, setSelectedProviders] = useState<string[]>([]);
-  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [allGames, setAllGames] = useState<any[]>([]);
+  // Derived state directly from URL
+  const resolvedDefaultCategory = useMemo(() => {
+    if (gameType === "fishing") {
+      return "";
+    }
+    if (gameType === "casino") {
+      return status?.bet_times && status.bet_times > 0 ? "recent" : "hot";
+    }
+    return getDefaultSecondaryValue(gameType) || "hot";
+  }, [gameType, status?.bet_times]);
+
+  const fallbackCategory = gameType === "fishing" ? "" : "hot";
+  const value = initialCategory || (isInitialized ? resolvedDefaultCategory : fallbackCategory);
+  const sortValue = sort || (value === "new" ? "newest" : value === "hot" ? "popular" : "");
+  const selectedProviders = useMemo(() => {
+    if (!providers?.trim()) return [];
+    return providers
+      .split(",")
+      .map((provider) => provider.trim())
+      .filter(Boolean)
+      .filter((provider) => provider !== "all");
+  }, [providers]);
+
+  const providersSignature = useMemo(() => selectedProviders.join(","), [selectedProviders]);
+
   const isUserTab = value === "recent" || value === "favorites";
+  const shouldShowBackButton = gameType !== "casino";
+
+  useEffect(() => {
+    if (!isInitialized) {
+      return;
+    }
+    if (gameType === "fishing") {
+      return;
+    }
+    if (initialCategory) {
+      return;
+    }
+    if (!resolvedDefaultCategory) {
+      return;
+    }
+
+    navigate({
+      to: "/explore",
+      search: (prev: any) => ({
+        ...prev,
+        type: gameType,
+        category: resolvedDefaultCategory,
+      }),
+      replace: true,
+    });
+  }, [gameType, initialCategory, isInitialized, resolvedDefaultCategory, navigate]);
+
+  const handleSetSelectedProviders = useCallback((newProvidersOrFn: string[] | ((prev: string[]) => string[])) => {
+    const nextProviders = typeof newProvidersOrFn === 'function'
+      ? newProvidersOrFn(selectedProviders)
+      : newProvidersOrFn;
+
+    const providersStr = nextProviders.join(',');
+
+    navigate({
+      to: "/explore",
+      search: (prev: any) => ({
+        ...prev,
+        providers: nextProviders.length > 0 ? providersStr : undefined
+      }),
+      replace: true
+    });
+  }, [selectedProviders, navigate]);
 
   // Map frontend sort values to API format
   const getSortParam = (sortValue: string) => {
+    if (!sortValue) {
+      return "";
+    }
     switch (sortValue) {
       case "popular":
         return "popular";
@@ -119,26 +207,71 @@ function RouteComponent() {
 
   const { i18n } = useTranslation();
 
+  const { selectedCurrency } = useSettlementCurrency();
+
+  // 是否是彩金币种
+  const is_bonus_currency = gameType === 'casino' && value === 'bonus' && bonus_currencies.has(selectedCurrency);
+
+  const gameCategory1 = gameType === "casino" && value === "fishing" ? "fishing" : getPrimaryApiCategory(gameType, value);
+  const gameCategory2 = gameType === "casino" && value === "fishing" ? "" : getSecondaryApiCategory(value);
+
+  const filterParamsSig = useMemo(() => {
+    if (isUserTab) {
+      return JSON.stringify({
+        mode: "user",
+        type: value,
+        providers: providersSignature,
+        sort: sortParam,
+      });
+    }
+
+    return JSON.stringify({
+      mode: "casino",
+      game_category_1: gameCategory1,
+      game_category_2: gameCategory2,
+      providers: providersSignature,
+      sort: sortParam,
+      tag: is_bonus_currency ? "Bonus Wager" : "",
+    });
+  }, [gameCategory1, gameCategory2, isUserTab, is_bonus_currency, providersSignature, sortParam, value]);
+
+  // Store Integration
+  const { exploreState, setExploreState } = useBoundStore();
+  const isCacheValid = exploreState.filterFingerprint === filterParamsSig;
+
+  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
+  // Initialize from cache if valid, otherwise defaults
+  const [currentPage, setCurrentPage] = useState(isCacheValid ? exploreState.page : 1);
+  const [allGames, setAllGames] = useState<any[]>(isCacheValid ? exploreState.games : []);
+
+  // 追踪上一次的 filterParamsSig，用于同步重置 page
+  const prevFilterSigRef = useRef(filterParamsSig);
+
   // 将菜单值映射到API参数
   const filterParams = useMemo(() => {
     return {
+      tag: is_bonus_currency ? "Bonus Wager" : "", // TODO: only for bonus wallet activities
       sort: sortParam,
       lang: user?.language_code.toUpperCase() || i18n.language.toUpperCase() || "EN",
       keyword: "",
       providers: providersParam,
-      game_category_1: getPrimaryApiCategory(gameType),
-      game_category_2: getSecondaryApiCategory(value),
+      game_category_1: gameCategory1,
+      game_category_2: gameCategory2,
       type: "",
     };
-  }, [sortParam, providersParam, gameType, value, user?.language_code, i18n.language]);
+  }, [is_bonus_currency, sortParam, user?.language_code, i18n.language, providersParam, gameCategory1, gameCategory2]);
 
   const baseParams = useMemo(() => {
+    // 同步检测筛选条件是否变化，避免用旧的 page 发起请求
+    const filterChanged = prevFilterSigRef.current !== filterParamsSig;
+    const effectivePage = filterChanged ? 1 : currentPage;
+    
     return {
       ...filterParams,
       limit: gameLimit,
-      page: currentPage,
+      page: effectivePage,
     };
-  }, [filterParams, gameLimit, currentPage]);
+  }, [filterParams, gameLimit, currentPage, filterParamsSig]);
 
   const userGameParams = useMemo(() => {
     return {
@@ -155,6 +288,7 @@ function RouteComponent() {
   const {
     data: casinoGameListData,
     isLoading: isCasinoLoading,
+    isFetching: isCasinoFetching,
     isError: isCasinoError,
     error: casinoError,
   } = useCasinoGameList(baseParams, {
@@ -170,6 +304,7 @@ function RouteComponent() {
   const {
     data: userGameListData,
     isLoading: isUserGameListLoading,
+    isFetching: isUserGameListFetching,
     isError: isUserGameListError,
     error: userGameListError,
   } = useUserGameList(userGameParams, {
@@ -177,32 +312,22 @@ function RouteComponent() {
     refetchOnMount: true,
     retry: 2,
     retryDelay: 300,
+    placeholderData: undefined,
   });
 
   const crossNavigationTabs = useMemo(() => new Set(["casino", "slots", "liveCasino", "fast", "fishing"]), []);
 
   const changeExploreTab = (newValue: string) => {
-    const currentURL = window.location.pathname + window.location.search;
-    if (window.RumSDK?.default) {
-      const ArmsRum = window.RumSDK.default;
-      ArmsRum.sendCustom({
-        type: "DebugExploreURL",
-        name: "DebugExploreURL",
-        properties: {
-          error_msg: `${currentURL}`,
-          error_time: new Date().getTime(),
-          error_user: user?.id,
-          error_country: user?.country,
-          error_version: process.env.VITE_VERSION,
-        },
-      });
-    }
-    // 如果当前是 fishing，点击的是一级菜单切换
-    if (gameType === "fishing" && crossNavigationTabs.has(newValue)) {
+    // 如果是跨类型切换（点击了一级菜单项）
+    if (crossNavigationTabs.has(newValue) && !(gameType === "casino" && newValue === "fishing")) {
       const targetType = newValue;
-      const defaultCategory = getDefaultSecondaryValue(targetType);
+      const defaultCategory =
+        targetType === "casino"
+          ? status?.bet_times && status.bet_times > 0
+            ? "recent"
+            : "hot"
+          : getDefaultSecondaryValue(targetType);
 
-      // fishing 没有 category，其他类型需要 category
       const nextSearch: any = {
         type: targetType,
       };
@@ -211,96 +336,66 @@ function RouteComponent() {
         nextSearch.category = defaultCategory || "hot";
       }
 
+      // 切换一级分类时，通常重置筛选条件
       navigate({
         to: "/explore",
         search: nextSearch,
+        replace: true,
       });
       return;
     }
 
-    if (gameType === "casino") {
-      if (crossNavigationTabs.has(newValue)) {
-        const targetType = newValue;
-        const defaultCategory = getDefaultSecondaryValue(targetType);
-
-        // fishing 没有 category，其他类型需要 category
-        const nextSearch: any = {
-          type: targetType,
-        };
-
-        if (targetType !== "fishing") {
-          nextSearch.category = defaultCategory || "hot";
-        }
-
-        navigate({
-          to: "/explore",
-          search: nextSearch,
-        });
-        return;
-      }
-
-      setValue(newValue);
-      const nextSearch: { type: string; category: string; providers?: string } = {
-        type: "casino",
-        category: newValue,
-      };
-      if (providersParam) {
-        nextSearch.providers = providersParam;
-      }
-      navigate({
-        to: "/explore",
-        search: nextSearch,
-      });
-      return;
-    }
-
-    setValue(newValue);
-    const nextSearch: { type: string; category: string; providers?: string } = {
+    // 同一类型下切换二级分类
+    const nextSearch: any = {
       type: gameType,
       category: newValue,
     };
+
+    // 保留 providers
     if (providersParam) {
       nextSearch.providers = providersParam;
     }
+
+    // 处理排序逻辑
+    if (newValue === "new") {
+      nextSearch.sort = "newest";
+    } else if (newValue === "hot") {
+      nextSearch.sort = "popular";
+    } else if (newValue === "all") {
+      // Reset to default sort when returning to all
+      nextSearch.sort = undefined;
+    } else if (sortValue && sortValue !== 'popular') {
+      // 保留当前排序（如果不是默认值）
+      nextSearch.sort = sortValue;
+    }
+
     navigate({
       to: "/explore",
       search: nextSearch,
+      replace: true,
     });
   };
 
-  // Reset page and games when filters change
+  // 筛选条件变化时：重置分页，并更新指纹基准（否则翻页会一直被强制 page=1）
   useEffect(() => {
+    const filterChanged = prevFilterSigRef.current !== filterParamsSig;
+    if (!filterChanged) return;
+
+    prevFilterSigRef.current = filterParamsSig;
     setCurrentPage(1);
-    if (providers?.includes("all")) {
-      navigate({
-        to: "/explore",
-        search: {
-          type: gameType,
-          category: "hot",
-          providers: "",
-        },
+    setAllGames([]);
+  }, [filterParamsSig]);
+
+  // Sync state to store whenever data changes
+  useEffect(() => {
+    if (!isUserTab) {
+      setExploreState({
+        games: allGames,
+        page: currentPage,
+        filterFingerprint: filterParamsSig
       });
     }
-  }, [sortValue, value, selectedProviders.length, gameType]);
-
-  // Reset tab value when game type changes, but prioritize initial category from URL
-  useEffect(() => {
-    if (initialCategory) {
-      setValue(initialCategory);
-    } else {
-      const defaultValue = getDefaultSecondaryValue(gameType);
-      setValue(defaultValue);
-    }
-  }, [gameType, initialCategory]);
-
-  // Sync sort value with specific tabs (Hot/New)
-  useEffect(() => {
-    if (value === "new") {
-      setSortValue("newest");
-    } else if (value === "hot") {
-      setSortValue("popular");
-    }
-  }, [value]);
+  }, [allGames, currentPage, filterParamsSig, isUserTab, setExploreState]);
 
   // Accumulate games when new data arrives
   useEffect(() => {
@@ -330,66 +425,86 @@ function RouteComponent() {
     return [];
   }, [userGameListData]);
 
-  const displayedGames = isUserTab ? userGames : allGames;
+  const isFilterChanging = prevFilterSigRef.current !== filterParamsSig;
+  const displayedGames = isFilterChanging ? [] : isUserTab ? userGames : allGames;
   const userGamesErrorState = isUserTab && (isUserGameListError || (userGameListData !== undefined && userGameListData.code !== 0));
-  const isGridLoading = isUserTab ? isUserGameListLoading : isCasinoLoading;
+  const isGridLoading = isUserTab ? isUserGameListLoading || isUserGameListFetching : isCasinoLoading || isCasinoFetching;
   const isGridError = isUserTab
     ? Boolean(userGamesErrorState) && !isRequestCanceled(userGameListError)
     : isCasinoError && !isRequestCanceled(casinoError);
   const hasMoreCasinoGames = !isUserTab && casinoData?.data?.length === gameLimit;
-  const totalCount = isUserTab ? (userGameListData?.count ?? userGames.length) : (casinoData?.count ?? 0);
   const currentCount = displayedGames?.length ?? 0;
   const isLoadingMoreGames = !isUserTab && isCasinoLoading && currentPage > 1;
   const loadMoreHandler = !isUserTab ? handleLoadMore : undefined;
-  const initialLoading = isGridLoading && currentCount === 0;
+  // 首次加载中：正在请求 或 数据已到但还没同步到 allGames
+  const hasPendingData = !isUserTab && casinoData?.data?.length > 0 && allGames.length === 0;
+  const initialLoading = isFilterChanging || (isGridLoading && currentCount === 0) || hasPendingData;
+
+  // 防止在非 explore 路由下渲染（可能由 React 并发渲染导致）
+  if (!location.pathname.startsWith('/explore')) {
+    return null;
+  }
 
   return (
-    <div className="fixed inset-0 top-16 bottom-[72px] md:relative md:inset-auto md:top-0 md:bottom-0 md:h-[calc(100vh-72px)] flex flex-col overflow-hidden">
+    <div className="flex flex-col h-full md:pt-0 md:pb-0">
       {/** Fixed Header - Tabs and Search */}
-      <div className="shrink-0 bg-base-300 px-5 py-2" style={{ touchAction: "none" }}>
+      <div className="shrink-0 bg-base-300 px-3 py-2 sticky top-0 z-10" style={{ touchAction: "pan-y" }}>
         {/** Mobile: Stack vertically */}
-        <div className="md:hidden space-y-2">
-          <ExploreTabs value={value} onChange={changeExploreTab} gameType={gameType} />
-          <ExploreSearchBar
-            sortValue={sortValue}
-            setSortValue={setSortValue}
-            selectedProviders={selectedProviders}
-            setSelectedProviders={setSelectedProviders}
-            isSearchOpen={isSearchDialogOpen}
-            setIsSearchOpen={setIsSearchDialogOpen}
-            filterParams={filterParams}
-            providers={providers}
-          />
-        </div>
+        {isMobile && (
+          <div className="md:hidden space-y-2">
+            <ExploreTabs
+              value={value}
+              onChange={changeExploreTab}
+              gameType={gameType}
+              showBackButton={shouldShowBackButton}
+              onBack={() => changeExploreTab("casino")}
+            />
+            <ExploreSearchBar
+              selectedProviders={selectedProviders}
+              setSelectedProviders={handleSetSelectedProviders}
+              isSearchOpen={isSearchDialogOpen}
+              setIsSearchOpen={setIsSearchDialogOpen}
+              filterParams={filterParams}
+              providers={providers}
+              gameType={gameType}
+              activeCategory={value}
+            />
+          </div>
+        )}
 
-        {/** Desktop: Same row */}
+        {/** Desktop: Stack tabs over providers */}
         {!isMobile && (
-          <div className="hidden md:flex md:items-center md:gap-4">
-            <div className="flex-1 min-w-0">
-              <ExploreTabs value={value} onChange={changeExploreTab} gameType={gameType} />
+          <div className="hidden md:flex md:flex-col md:gap-3">
+            <div>
+              <ExploreTabs
+                value={value}
+                onChange={changeExploreTab}
+                gameType={gameType}
+                showBackButton={shouldShowBackButton}
+                onBack={() => changeExploreTab("casino")}
+              />
             </div>
-            <div className="shrink-0">
+            <div>
               <ExploreSearchBar
-                sortValue={sortValue}
-                setSortValue={setSortValue}
                 selectedProviders={selectedProviders}
-                setSelectedProviders={setSelectedProviders}
+                setSelectedProviders={handleSetSelectedProviders}
                 isSearchOpen={isSearchDialogOpen}
                 setIsSearchOpen={setIsSearchDialogOpen}
                 filterParams={filterParams}
                 providers={providers}
+                gameType={gameType}
+                activeCategory={value}
               />
             </div>
           </div>
         )}
       </div>
 
-      {/** Scrollable Game list */}
-      <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-2">
+      {/** Game list with virtual scrolling */}
+      <div className="flex-1 min-h-0 px-5 pb-2">
         <ExploreGameGrid
           isLoading={initialLoading}
           isError={isGridError}
-          totalCount={totalCount}
           currentCount={currentCount}
           casinoGameList={{ data: displayedGames }}
           hasMoreGames={hasMoreCasinoGames}

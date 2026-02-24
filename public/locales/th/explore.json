@@ -7,6 +7,8 @@
   "baseball": "เบสบอล",
   "iceHockey": "ฮอกกี้น้ำแข็ง",
   "basketball": "บาสเกตบอล",
+  "cricket": "คริกเก็ต",
+  "eSoccer": "อีสปอร์ตฟุตบอล",
   "volleyball": "วอลเลย์บอล",
   "hot": "ยอดนิยม",
   "all": "ทั้งหมด",
@@ -69,5 +71,6 @@
   "live-casino": "คาสิโนสด",
   "sports": "กีฬา",
   "lotteries": "ลอตเตอรี่",
-  "gamesYouShouldTry": "เกมที่คุณควรลอง"
+  "gamesYouShouldTry": "เกมที่คุณควรลอง",
+  "bonus": "Bonus"
 }

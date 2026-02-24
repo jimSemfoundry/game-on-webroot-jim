@@ -7,6 +7,8 @@
   "baseball": "Beyzbol",
   "iceHockey": "Buz Hokeyi",
   "basketball": "Basketbol",
+  "cricket": "Kriket",
+  "eSoccer": "eFutbol",
   "volleyball": "Voleybol",
   "hot": "Popüler",
   "all": "Tümü",
@@ -69,5 +71,6 @@
   "live-casino": "Canlı Casino",
   "sports": "Spor",
   "lotteries": "Piyangolar",
-  "gamesYouShouldTry": "Denemeniz Gereken Oyunlar"
+  "gamesYouShouldTry": "Denemeniz Gereken Oyunlar",
+  "bonus": "Bonus"
 }

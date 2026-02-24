@@ -7,6 +7,9 @@
     "commissions": "佣金",
     "rewards": "獎勵"
   },
+  "campaignAlreadyExists": "活動已存在",
+  "campaignCreateSuccess": "活動創建成功！",
+  "campaignCreateFailed": "創建活動失敗",
   "commissionCalculator": "佣金計算器",
   "telegramReferralLink": "Telegram推薦連結",
   "network": "推薦網絡",
@@ -169,5 +172,23 @@
   "myReferralCommissions": "我的推薦佣金",
   "myReferralRewards": "我的推薦獎勵",
   "exp": "經驗值",
-  "userLevel": "用戶級別"
+  "userLevel": "用戶級別",
+  "extraReferralBonus": {
+    "slogan": "額外<0>推薦</0><0>獎金</0>",
+    "title": "邀請朋友並在他們首次存款時獲得額外獎勵。您推薦的第一位玩家加入、存款並遊玩後，您將根據他們的首次存款金額獲得10%的額外推薦獎金。",
+    "bonusCalculatedTitle": "獎金如何計算？",
+    "bonusCalculatedDesc": "您的額外推薦獎金是根據您朋友的首次存款的10%計算的。如果您朋友的首次存款相當於<0>{{depositAmount}}</0>，您將獲得價值<0>{{bonusAmount}}</0>的獎勵。",
+    "claimDistributionTitle": "索取分配",
+    "claimDistributionDesc": "您只需聯繫客戶服務實時聊天，告訴他們您想要使用您的推薦信息來索取獎勵。",
+    "expirationTitle": "到期",
+    "expirationDesc": "獎金必須在您朋友首次存款後的7 x 24小時（7天）內索取；之後將無法重新發放。",
+    "generalTermsTitle": "一般條款",
+    "generalTermsDesc1": "獎勵以 <0>BUCK/USDT</0> 計算並入帳，然後為方便起見以您首選的法定貨幣顯示。請注意，貨幣轉換僅為近似值。您每位推薦朋友可以獲得的最高獎金相當於 {{bonusAmount}}，且每個用戶 ID 只能申請一次獎金。您的推薦必須至少下注其首次存款金額的 4 倍，您才能申請獎金。",
+    "generalTermsDesc2": "賭場保留隨時修改或撤銷資格的權利，無需說明。任何濫用或欺詐行為，包括但不限於重複或匹配玩家數據、存款欺詐、匹配IP地址、安全投注或投資風格行為，將導致取消參加促銷的資格和任何相關獎金的取消。賭場對於此促銷的所有決定均為最終決定，無法提出異議。"
+  },
+  "referral_program_disabled": "推薦\n計畫\n<0>已停用</0>",
+  "programAccessUpdate": "計畫存取更新",
+  "referralProgramPrivileges": "在審查您的帳戶及參與情況後，您的推薦計畫權限已被撤銷。我們識別到不符合推薦計畫條款、條件或預期用途的活動。這可能包括可疑的推薦模式、未經授權的推廣方式、濫用獎勵機制，或嘗試規避公平使用準則等。",
+  "referralRewardsPrivileges": "因此，您產生新的推薦獎勵、分享推薦連結或從推薦中獲得收益的權限已被停用。與推薦計畫相關的待發放或未來獎勵將依照我們的政策被保留並取消。<0>您帳戶的其他所有功能仍維持完整，且不受此變更影響</0>。",
+  "understandDisappointing": "我們理解這可能令人失望。若您認為此決定有誤或希望取得更多細節，請提供任何相關資訊並聯繫我們的客服團隊，我們將重新審查您的案件。"
 }

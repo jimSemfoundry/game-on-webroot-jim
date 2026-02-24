@@ -12,7 +12,7 @@ interface TournamentLeaderboardProps {
 }
 
 export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["tournament", "bonus", "vip"]);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [tableData, setTableData] = useState<ITournamentTable[]>([]);
   const [loading, setLoading] = useState(false);
@@ -36,7 +36,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
           limit: pageSize,
           page: currentPage,
           last_id: lastIds[currentPage - 1] || undefined,
-          last_wagered: lastWagereds[currentPage - 1] || undefined,
+          last_wagered: lastWagereds[currentPage - 1] || undefined
         })
         .then((res) => {
           if (res.code === 0 && res.data) {
@@ -140,7 +140,8 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
 
       {/* Header row */}
       <div className="relative min-h-[500px]">
-        <div className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
+        <div
+          className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
           <div>{t("tournament:player", "Player")}</div>
           <div className="text-center ">{t("tournament:wagered", "Wagered")}</div>
           <div className="text-center sm:w-[207px] sm:text-center text-right">{t("tournament:prize", "Prize")}</div>
@@ -197,9 +198,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
                       );
                     })()}
                     <span className="font-semibold text-base-content/50 truncate text-xs sm:text-lg -ml-1">
-                      {item.first_name && item.last_name
-                        ? `${item.first_name} ${item.last_name}`
-                        : item.username || `User ${item.user_id}`}
+                      {item?.username || `User ${item.user_id}`}
                     </span>
                   </div>
 
@@ -211,7 +210,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
                   {/* Prize */}
                   <div className="font-semibold text-xs sm:text-lg sm:w-[207px] sm:text-center text-right">
                     <span className="text-primary">{formattedPrize.formatted} ({prizeRate.toFixed(0)}%)</span>
-                   </div>
+                  </div>
                 </div>
               </div>
             );
@@ -227,7 +226,7 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
         {!loading && tableData.length === 0 && (
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <div className="text-6xl mb-4">🏆</div>
-            <p className="text-base-content/70">{t("no_leaderboard_data_available")}</p>
+            <p className="text-base-content/70">{t("bonus:no_leaderboard_data_available")}</p>
           </div>
         )}
       </div>
@@ -244,7 +243,8 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
               <ChevronLeft className="w-4 h-4" />
             </button>
 
-            <div className="text-xs text-base-content/50 select-none rounded-field badge badge-soft font-semibold w-8 h-8 ">
+            <div
+              className="text-xs text-base-content/50 select-none rounded-field badge badge-soft font-semibold w-8 h-8 ">
               {currentPage}
             </div>
 

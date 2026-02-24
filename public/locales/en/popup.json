@@ -39,7 +39,7 @@
     "cashbackBonus": "CASHBACK\nBONUS",
     "dailyCashback": "Daily Cashback",
     "general": "General",
-    "description": "Get up to 40% cashback just for playing! Every day, you’ll get a percentage of your lost coins back as Daily Cashback - so you can bounce back, keep the fun going, and play even more. ",
+    "description": "Get up to 40% cashback just for playing! Every day, you’ll get a percentage of your lost coins back as Daily Cashback - so you can bounce back, keep the fun going, and play even more.",
     "accrualFrequency": "Accrual frequency",
     "accrualFrequencyValue": "Daily",
     "accrualIn": "Accrual in",
@@ -60,16 +60,16 @@
     "depositBonus": "Deposit Bonus Pool",
     "general": "General",
     "description": "Don't miss this exceptional opportunity to boost your deposit bonus pool with increasing bonuses on your first four consecutive deposits. Each deposit unlocks a higher bonus percentage and a larger maximum reward in the currency of your choice.",
-    "firstDepositBonus": "1st Deposit Bonus",
+    "firstDepositBonus": "1st \n Deposit \n Bonus",
     "firstDepositBonusValue": "180%",
     "firstDepositMinimum": "Minimum Deposit: {{value}}",
-    "secondDepositBonus": "2nd Deposit Bonus",
+    "secondDepositBonus": "2nd \n Deposit \n Bonus",
     "secondDepositBonusValue": "240%",
     "secondDepositMinimum": "Minimum Deposit: {{value}}",
-    "thirdDepositBonus": "3rd Deposit Bonus",
+    "thirdDepositBonus": "3rd \n Deposit \n Bonus",
     "thirdDepositBonusValue": "300%",
     "thirdDepositMinimum": "Minimum Deposit: {{value}}",
-    "fourthDepositBonus": "4th Deposit Bonus",
+    "fourthDepositBonus": "4th \n Deposit \n Bonus",
     "fourthDepositBonusValue": "360%",
     "fourthDepositMinimum": "Minimum Deposit: {{value}}",
     "depositInvitation": "Deposit now and experience the difference.",
@@ -77,15 +77,17 @@
     "howIsBonusCalculated": "How is the Bonus Calculated?",
     "depositCountBonus": "DEPOSIT COUNT | BONUS %",
     "limit": "LIMIT",
-    "bonusCalculationDesc1": "1st Deposit: Get 180% in your bonus pool balance (or a whopping 300% if you register and deposit within 7 minutes) up to {{value}}",
-    "bonusCalculationDesc2": "2nd Deposit: Enjoy a 240% bonus, up to {{value}}",
-    "bonusCalculationDesc3": "3rd Deposit: Receive a 300% bonus, up to {{value}}",
-    "bonusCalculationDesc4": "4th Deposit: Score a 360% bonus, up to {{value}}",
+    "bonusCalculationDesc1": "1st Deposit: Get {{bonus_percent}} in your bonus pool balance (or a whopping 300% if you register and deposit within 7 minutes) up to {{value}}",
+    "bonusCalculationDesc2": "2nd Deposit: Enjoy a {{bonus_percent}} bonus, up to {{value}}",
+    "bonusCalculationDesc3": "3rd Deposit: Receive a {{bonus_percent}} bonus, up to {{value}}",
+    "bonusCalculationDesc4": "4th Deposit: Score a {{bonus_percent}} bonus, up to {{value}}",
+    "bonusCalculationDesc5": "5th and up Deposit: Score a {{bonus_percent}} bonus, up to {{value}}",
     "expiration": "Expiration",
     "expirationDesc": "None - Rewards accumulate until unlocked.",
     "generalTerms": "General Terms",
     "generalTermsDesc1": "Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.",
-    "generalTermsDesc2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    "generalTermsDesc2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion.",
+    "lgeFiveDepositBonus": "5th and up Deposit Bonus"
   },
   "tournament": {
     "title": "TOURNAMENT",
@@ -109,7 +111,7 @@
     "title": "RAKEBACK\nPROGRAM",
     "superRakeback": "Super Rakeback",
     "general": "General",
-    "release_frequency":"Release Frequency",
+    "release_frequency": "Release Frequency",
     "goldMembersAndAbove": "To your Account Balance",
     "description": "Get rewarded for every wager you place! A percentage of your total bets — up to 3% — is returned as Rakeback, ensuring consistent play pays off. Keep playing to maximize your earnings, and supercharge your rewards with the Booster Mechanism!",
     "accrualFrequency": "Accrual frequency",
@@ -187,11 +189,13 @@
     "releaseFrequencyValue": "7th of Every Month",
     "claimDistributionTitle": "To your Account Balance",
     "claimDistributionDesc": "Monetary Claims are credited directly to your account balance with no wagering requirement.",
-    "expirationDesc": "Your Mystery Box must be claimed within 7 days of its release on the 7th of each month. Unclaimed rewards will expire."
+    "expirationDesc": "Your Mystery Box must be claimed within 3 days of its release on the 7th of each month. Unclaimed rewards will expire.",
+    "generalTermsDesc1": "Rewards are calculated and credited in BUCK/USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.",
+    "generalTermsDesc2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
   },
   "luckySeven": {
     "title": "LUCKY\nSEVENS",
-    "description": "Hit the Lucky 7s and score a sweet bonus! If your Bet ID ends in 7777, 77777 or 777777 while playing eligible slots, you'll get a surprise bonus - up to ₱44,553.57! Just spin, hit those lucky digits, and let the good times (and bonuses) roll!",
+    "description": "Hit the Lucky 7s and score a sweet bonus! If your Bet ID ends in 7777, 77777 or 777777 while playing eligible slots, you'll get a surprise bonus - up to <0>{{money}}!</0> Just spin, hit those lucky digits, and let the good times (and bonuses) roll!",
     "claimDistributionTitle": "To your Account Balance",
     "claimDistributionDesc": "Claims are credited directly to your account balance with no wagering requirement.",
     "claimDistributionNote": "Claims are available as long as your Bonus Pool balance has sufficient funds.",
@@ -203,7 +207,7 @@
     "condition3": "777% OF BET AMOUNT",
     "expirationDesc": "None - Lucky Seven Rewards accumulate until claimed.",
     "generalTermsDesc1": "You can win each lucky 7 combo once per day.",
-    "generalTermsDesc2": "The bonus amount is capped at ₱44,553.57 per qualifying Bet ID.",
+    "generalTermsDesc2": "The bonus amount is capped at <0>{{money}}</0> per qualifying Bet ID.",
     "generalTermsDesc3": "Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.",
     "generalTermsDesc4": "The casino reserves the right to modify or terminate this promotion at any time. Abuse or fraudulent activity will result in disqualification from the promotion."
   },
@@ -232,5 +236,19 @@
     "claim_distribution_desc": "Your cash bonus is instantly credited to your account balance in the same currency as your deposit - whether in <0>{{currency}}</0> or its crypto equivalent - with no additional wagering requirement.",
     "generalTerms_description": "Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n The casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion.",
     "cash_bonus": "Cash Bonus"
-  }
+  },
+  "thursdayBonus": {
+    "offer_details_desc": "Jump-start your Thursday with an {{value}}% cash bonus on your first deposit of the day.",
+    "claim_distribution_desc": "Your cash bonus is instantly credited to your account balance in the same currency as your deposit - with no additional wagering requirement.",
+    "generalTerms_description": "Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n\n The casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+  },
+  "sundayBonus": {
+    "offer_details_desc": "Jump-start your day with an {{value}}% cash bonus on your first deposit of the day.",
+    "claim_distribution_desc": "Your cash bonus is instantly credited to your account balance in the same currency as your deposit - whether in <0>{{currency}}</0> or its crypto equivalent - with no additional wagering requirement.",
+    "generalTerms_description": "Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n\n The casino reserves the right to modify or revoke  eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+  },
+  "cash_bonus": "Cash Bonus",
+  "none": "None",
+  "bonus_limit": "Bonus Limit",
+  "minimum_deposit": "Minimum Deposit"
 }

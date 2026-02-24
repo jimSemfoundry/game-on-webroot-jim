@@ -5,6 +5,8 @@ import { RTLProvider } from "@/contexts/RTLContext";
 import { SettlementCurrencyProvider } from "@/contexts/SettlementCurrencyContext";
 import { SidebarProvider } from "@/contexts/SidebarContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { useAggregationBootstrap } from "@/hooks/api/usePublic";
+import { MqttServiceProvider } from "@/contexts/mqtt";
 
 /**
  * 应用全局 Providers 组合
@@ -21,6 +23,8 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
  * 6. ChatwootProvider - 客服聊天
  */
 export function AppProviders({ children }: { children: React.ReactNode }) {
+  useAggregationBootstrap();
+
   return (
     <SettlementCurrencyProvider>
       <RTLProvider>
@@ -28,7 +32,11 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
           <SidebarProvider>
             <AdProvider>
               <AppProvider>
-                <ChatwootProvider>{children}</ChatwootProvider>
+                <ChatwootProvider>
+                  <MqttServiceProvider>
+                    {children}
+                  </MqttServiceProvider>
+                </ChatwootProvider>
               </AppProvider>
             </AdProvider>
           </SidebarProvider>

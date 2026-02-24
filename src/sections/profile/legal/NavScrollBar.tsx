@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { useRef, useState, useEffect, ReactNode } from "react";
 import Measure, { Rect } from "react-measure";
 import { useTranslation } from "react-i18next";
@@ -87,7 +87,7 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
           {({ measureRef, contentRect }) => (
             <button
               ref={measureRef}
-              className={classNames(
+              className={clsx(
                 "relative btn btn-sm md:btn-lg bg-base-300 flex items-center gap-1 rounded-lg border-0 font-bold text-base-content/70 px-1",
                 item?.value === _navIndex ? "text-primary-content bg-secondary" : ""
               )}

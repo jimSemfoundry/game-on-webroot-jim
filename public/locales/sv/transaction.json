@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Gratis Snurr Belöningar",
   "common": {
     "close": "Stäng",
     "copy": "Kopiera",
@@ -12,7 +13,8 @@
     "swap": "Byt",
     "swapFrom": "Byt Från",
     "swapTo": "Byt Till",
-    "noCommissionRecords": "Inga kommissionposter hittades"
+    "noCommissionRecords": "Inga kommissionposter hittades",
+    "createdOn": "Skapad"
   },
   "tabs": {
     "transactionHistory": "Transaktionshistorik",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Uttagsnätverk",
     "blockchainWaiting": "Väntar på blockchain-bekräftelse.",
     "blockchainFailed": "Blockchain-transaktionen misslyckades.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Vi har mottagit din begäran.<br/>För att se status, kontrollera Transaktioner i din Profil."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Totalt Insatskrav",
     "wagerCompleted": "Insats Slutförd",
     "pendingWagerRequired": "Utestående Insatskrav",
-    "unlockedFunds": "Upplåsta Medel"
-  }
+    "unlockedFunds": "Upplåsta medel",
+    "rolloverMul": "Insatsmultiplikator"
+  },
+  "assistance": "Vänligen kontrollera dina uppgifter och försök igen eller kontakta kundtjänst för hjälp"
 }

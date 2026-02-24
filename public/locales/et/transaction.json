@@ -1,4 +1,5 @@
 {
+  "freeSpinRewards": "Tasuta Spinnide Auhinnad",
   "common": {
     "close": "Sulge",
     "copy": "Kopeeri",
@@ -12,7 +13,8 @@
     "swap": "Vaheta",
     "swapFrom": "Vaheta Kust",
     "swapTo": "Vaheta Kuhu",
-    "noCommissionRecords": "Komisjonide andmeid ei leitud"
+    "noCommissionRecords": "Komisjonide andmeid ei leitud",
+    "createdOn": "Loodud"
   },
   "tabs": {
     "transactionHistory": "Tehingute Ajalugu",
@@ -129,7 +131,6 @@
     "withdrawalNetwork": "Väljamakse Võrk",
     "blockchainWaiting": "Ootab plokiahela kinnitust.",
     "blockchainFailed": "Plokiahela tehing ebaõnnestus.",
-    "**********": "********************此处开始新增翻译end********************",
     "withdrawOrderStatus": "Oleme saanud teie taotluse.<br/>Olekut vaatamiseks kontrollige oma profiilis Tehingud."
   },
   "betHistory": {
@@ -146,6 +147,8 @@
     "totalWagerRequired": "Kokku Nõutav Panus",
     "wagerCompleted": "Panus Lõpetatud",
     "pendingWagerRequired": "Ootel Panuse Nõue",
-    "unlockedFunds": "Avatud Fondid"
-  }
+    "unlockedFunds": "Avatud vahendid",
+    "rolloverMul": "Panuse kordaja"
+  },
+  "assistance": "Palun kontrollige oma andmeid ja proovige uuesti või võtke abi saamiseks ühendust klienditeenindusega"
 }

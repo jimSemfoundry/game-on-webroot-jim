@@ -97,7 +97,7 @@ export const CurrencyScrollBar = () => {
               <button
                 ref={measureRef}
                 className={cn(
-                  "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-3 font-sans",
+                  "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-2 font-sans",
                   item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
                 )}
                 id={item?.currency === depositCrypto.currency?.currency ? "target" : ""}

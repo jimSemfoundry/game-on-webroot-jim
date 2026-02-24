@@ -6,7 +6,7 @@ import { VIP_REQUIREMENTS } from "../shared/config";
 import { VipButton } from "../shared/VipButton";
 
 export function BonusCannonCard() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('bonus');
   const { openTipsModal } = useTipsModal();
   
   const requiredVipLevel = VIP_REQUIREMENTS.cannon.requiredLevel;

@@ -13,9 +13,12 @@ import { Card } from "@/sections/profile/c/Card.tsx";
 import { useState } from "react";
 import { NavScrollBar } from "@/sections/profile/c/NavScrollBar.tsx";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { isTelegramWebApp } from "@/utils/telegramWebApp";
+import { SetAccountPassword } from "@/sections/profile/settings/SetAccountPassword";
 
 export function FreeCombination() {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTelegram = isTelegramWebApp();
 
   const { t } = useTranslation();
 
@@ -41,10 +44,10 @@ export function FreeCombination() {
 
       {/* Security */}
       <DisplayContent status={navIndex === "Security"}>
-        <Card className="md:p-6 md:gap-4" title={t("common.security")}
+        <Card className="md:p-6 md:gap-4" title={t("common:common.security")}
               icon={<Iconify icon="custom:profile-security" className="text-primary" />}>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
-            <ChangePassword />
+            {isTelegram ? <SetAccountPassword /> : <ChangePassword />}
             {/*TODO*/}
             {/*<SetWithdrawalPIN />*/}
             <EmailVerification />

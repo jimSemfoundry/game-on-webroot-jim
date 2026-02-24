@@ -25,6 +25,14 @@
   "totalTips": "Чайові",
   "result": "Результат",
   "myBets": "Мої ставки",
-  "**********": "",
-  "demoPlay": "Демо гра"
+  "demoPlay": "Демо гра",
+  "limitedOffer": "Обмежена пропозиція",
+  "deposit": "Депозит {{value}}",
+  "get": "Отримати {{value}}",
+  "instantCashBonus": "Миттєвий грошовий бонус",
+  "expires": "Закінчується",
+  "depositNow": "Депозит зараз",
+  "free_spins": "Безкоштовні обертання",
+  "play_with_balance_in": "Грати з балансом у",
+  "the_selected_currency_will_be_displayed_in": "Вибрана валюта буде відображена в"
 }

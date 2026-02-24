@@ -11,7 +11,7 @@ interface HelpModalMysteryBoxProps {
 const ILLUSTRATION_URL = "/images/illustrations/a0460e0b128df2ab73ba3a735212bd9d95c841b1.png";
 
 export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['popup', 'bonus']);
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient:
       "radial-gradient(120% 260% at 100% 0%, rgba(190, 242, 100, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -31,9 +31,7 @@ export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProp
         >
           <div className="relative z-10 flex items-center justify-between w-full">
             <div className="text-left">
-              <p className="text-2xl font-bold text-base-content">THE</p>
-              <p className="text-2xl font-bold text-primary leading-7">MYSTERY</p>
-              <p className="text-2xl font-bold text-primary leading-7">BOX</p>
+              <p className="text-2xl font-bold text-primary leading-7 uppercase">{t('bonus:mystery_box')}</p>
             </div>
             <div className="flex-shrink-0">
               <img
@@ -47,7 +45,7 @@ export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProp
 
         {/* Main content card */}
         <div className="bg-base-400 rounded-box relative">
-          <button onClick={onClose} className="absolute right-4 top-4 btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
+          <button onClick={onClose} className="absolute right-4 top-4 rtl:left-4 rtl:right-auto btn btn-square btn-sm bg-base-300 hover:bg-base-200 border-0">
             <Iconify icon="mdi:close" className="w-5 h-5 text-base-content/50" />
           </button>
 
@@ -83,8 +81,8 @@ export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProp
 
               <div className="mt-4">
                 <h4 className="text-sm font-semibold mb-3">{t("popup:deposit.generalTerms")}</h4>
-                <p className="text-xs text-base-content/50 leading-5">{t("popup:generalTermsDesc1")}</p>
-                <p className="mt-2 text-xs text-base-content/50 leading-5">{t("popup:generalTermsDesc2")}</p>
+                <p className="text-xs text-base-content/50 leading-5">{t("popup:mysteryBox.generalTermsDesc1")}</p>
+                <p className="mt-2 text-xs text-base-content/50 leading-5">{t("popup:mysteryBox.generalTermsDesc2")}</p>
               </div>
             </div>
           </div>

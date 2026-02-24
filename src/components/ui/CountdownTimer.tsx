@@ -61,33 +61,33 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
     <div className={`flex items-center justify-center gap-1 ${className}`}>
       <div>
         <span className="countdown font-mono">
-          <span style={{ '--value': timeLeftRef.current.days } as React.CSSProperties} aria-live="polite">
+          {/*<span style={{ '--value': timeLeftRef.current.days } as React.CSSProperties} aria-live="polite">*/}
             {timeLeftRef.current.days}
-          </span>
+          {/*</span>*/}
         </span>
         d
       </div>
       <div>
         <span className="countdown font-mono">
-          <span style={{ '--value': timeLeftRef.current.hours } as React.CSSProperties} aria-live="polite">
+          {/*<span style={{ '--value': timeLeftRef.current.hours } as React.CSSProperties} aria-live="polite">*/}
             {timeLeftRef.current.hours}
-          </span>
+          {/*</span>*/}
         </span>
         h
       </div>
       <div>
         <span className="countdown font-mono">
-          <span style={{ '--value': timeLeftRef.current.minutes } as React.CSSProperties} aria-live="polite">
+          {/*<span style={{ '--value': timeLeftRef.current.minutes } as React.CSSProperties} aria-live="polite">*/}
             {timeLeftRef.current.minutes}
-          </span>
+          {/*</span>*/}
         </span>
         m
       </div>
       <div>
         <span className="countdown font-mono">
-          <span style={{ '--value': timeLeftRef.current.seconds } as React.CSSProperties} aria-live="polite">
+          {/*<span style={{ '--value': timeLeftRef.current.seconds } as React.CSSProperties} aria-live="polite">*/}
             {timeLeftRef.current.seconds}
-          </span>
+          {/*</span>*/}
         </span>
         s
       </div>
