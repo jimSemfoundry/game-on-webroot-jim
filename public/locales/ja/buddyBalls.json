@@ -1,0 +1,23 @@
+{
+  "go": "進む",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "デイリーチェックイン",
+  "referFriend": "友達を紹介",
+  "referralDeposit": "紹介者の初回入金",
+  "moreBalls": "Buddy Ballsをもっと獲得",
+  "rewards": "Buddy Ball 報酬",
+  "records": "Buddy Ball 記録",
+  "balls": "ボール",
+  "type_deposit": "直接FTD",
+  "type_user": "友達を紹介",
+  "type_buddy_balls_daily_checkin": "デイリーチェックイン",
+  "type_promo_code_buddy_balls": "プロモコード",
+  "type_achievement_bb": "実績",
+  "accumulated": "報酬は蓄積し、いつでも受け取ることができます。すべての報酬は選択した通貨で決済されます。",
+  "type_lucky_spin": "ラッキースピン",
+  "getMore": "もっと見る",
+  "share": "共有",
+  "getMoreBuddyball": "もっと多くの Buddy Ballsを獲得",
+  "shareBuddyball": "共有 Buddy Balls",
+  "quickShare": "クイック共有"
+}

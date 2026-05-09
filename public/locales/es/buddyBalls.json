@@ -1,0 +1,23 @@
+{
+  "go": "Ir",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Check-in diario",
+  "referFriend": "Recomienda a un amigo",
+  "referralDeposit": "Primer depósito del referido",
+  "moreBalls": "Consigue más Buddy Balls",
+  "rewards": "Recompensas de Buddy Ball",
+  "records": "Historial de Buddy Ball",
+  "balls": "Bolas",
+  "type_deposit": "FTD Directo",
+  "type_user": "Recomendar a un amigo",
+  "type_buddy_balls_daily_checkin": "Registro diario",
+  "type_promo_code_buddy_balls": "Código promocional",
+  "type_achievement_bb": "Logro",
+  "accumulated": "Las recompensas pueden acumularse y reclamarse en cualquier momento. Todas las recompensas se liquidan en la moneda seleccionada.",
+  "type_lucky_spin": "Giro de Suerte",
+  "getMore": "Obtener más",
+  "share": "Compartir",
+  "getMoreBuddyball": "Obtener más Buddyball",
+  "shareBuddyball": "Compartir Buddyball",
+  "quickShare": "Compartir Rápido"
+}

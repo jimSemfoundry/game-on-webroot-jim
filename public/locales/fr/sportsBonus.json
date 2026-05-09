@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Jouez avec Sports Bonus comme de l'argent réel ! Chaque pari vous rapproche du déblocage de leur pleine valeur. Répondez aux conditions de mise en jeu et regardez votre bonus sportif se transformer en récompenses retirables dès aujourd'hui !",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Le Sports Bonus Wallet est un portefeuille spécial pour les paris sportifs. Lorsque vous achetez, vous recevez le montant de votre dépôt plus un bonus supplémentaire (par exemple, déposez 100 USDT avec un bonus de 50 % = 150 USDT dans votre portefeuille de bonus sportifs). Tous les fonds de ce portefeuille ne peuvent être utilisés que pour les paris sportifs.",
+      "title": "Qu'est-ce que le portefeuille bonus sportif ?"
+    },
+    "q2": {
+      "body": "Accédez à la page Bonus sportifs, sélectionnez un niveau de bonus (par exemple +50 %), entrez le montant de votre dépôt (doit correspondre au montant minimum indiqué sur la page) et appuyez sur « Acheter maintenant ». Votre dépôt ainsi que le bonus seront ajoutés instantanément à votre portefeuille de bonus sportifs.",
+      "title": "Comment puis-je acheter un bonus sportif ?"
+    },
+    "q3": {
+      "body": "Oui. Veuillez consulter la page des bonus sportifs pour connaître les limites de dépôt minimales et maximales actuelles.",
+      "title": "Y a-t-il un dépôt minimum ou maximum ?"
+    },
+    "q4": {
+      "body": "Non. Le bonus sportif ne peut être utilisé que pour les paris sportifs. Il ne peut pas être utilisé pour les machines à sous, le casino, le casino en direct ou tout autre jeu.",
+      "title": "Puis-je utiliser Sports Bonus pour les machines à sous ou les jeux de casino ?"
+    },
+    "q5": {
+      "body": "Avant de pouvoir retirer, vous devez remplir une condition de mise. La formule est la suivante : BONUS total obtenu × Multiplicateur de mise. Par exemple, si vous achetez 100 USDT pour 50 % de BONUS SPORTIF afin d'ajouter 150 BONUS SPORTIF à votre portefeuille et que le multiplicateur est de 10x, vous devez placer 150 × 10 = 1500 {{currency}} équivalent en paris sportifs qualifiés.",
+      "title": "Quelle est la condition de mise ?"
+    },
+    "q6": {
+      "body": "Trois règles s'appliquent :\n\n Paris perdants : Si vous misez 100 USDT et perdez, 100 USDT comptent pour les conditions de mise.\n\n Paris gagnants : Ne comptent que si les cotes sont ≥ {{minOdds}}. Si vous misez 100 USDT à une cote de 1,7 et gagnez, 100 sera compté pour les conditions de mise. Si les cotes sont inférieures à {{minOdds}} et que vous gagnez, cela ne compte pas pour les conditions de mise.\n\n Paris encaissés (abandon anticipé) : Ne comptent que si le montant encaissé est supérieur au montant de la mise originale × {{minOdds}}. Si la condition est remplie, le montant de la mise compte pour les conditions de mise. Sinon, cela ne compte pas pour les conditions de mise.",
+      "title": "Quels paris sont pris en compte dans les conditions de mise ?"
+    },
+    "q7": {
+      "body": "Oui, une fois que vous avez rempli les conditions de mise et que votre solde atteint le montant minimum de retrait. Votre solde SPORTS BONUS peut être converti dans votre portefeuille principal dans la devise de votre choix.",
+      "title": "Puis-je retirer mon solde de bonus sportif ?"
+    },
+    "q8": {
+      "body": "Le montant maximum que vous pouvez convertir en espèces est plafonné à un multiplicateur de votre BONUS SPORTIF total obtenu. Par exemple, si votre BONUS SPORTIF obtenu est de 150 et que le multiplicateur de réclamation maximum est de 10x, le maximum que vous pouvez convertir en espèces est de 1 500 USDT (converti dans la devise de votre choix au taux de change actuel).",
+      "title": "Quel est le montant maximum que je peux convertir en espèces ?"
+    },
+    "q9": {
+      "body": "Non. Vous ne pouvez avoir qu’un seul bonus sportif actif à la fois. Vous devez d'abord terminer votre compte actuel, soit en le retirant après avoir satisfait aux conditions de mise, en le renonçant (lorsque le solde est ≤ 0,1 USDT équivalent) ou en attendant son expiration. Après cela, vous pourrez acheter à nouveau.",
+      "title": "Puis-je acheter à nouveau un bonus sportif alors que j'en ai encore un actif ?"
+    },
+    "q10": {
+      "body": "Il y a une période de récupération entre les achats. La durée du temps de recharge est indiquée sur la page Bonus Sport.",
+      "title": "À quelle fréquence puis-je acheter un bonus sportif ?"
+    },
+    "q11": {
+      "body": "Le Sports Bonus Wallet a une période de validité (par exemple 30 jours). Si vous ne remplissez pas les conditions de mise dans ce délai, le solde restant du SPORTS BONUS expirera et sera supprimé.",
+      "title": "Que se passe-t-il si je ne remplis pas les conditions de mise à temps ?"
+    },
+    "q12": {
+      "body": "R : Oui. Si votre solde de bonus sportif est ≤ 0,1 USDT, vous pouvez perdre votre portefeuille de bonus sportifs. Cependant, si vous avez placé des paris sportifs non réglés avec Sports Bonus, vous ne pouvez pas renoncer tant que tous les paris ne sont pas réglés. Veuillez noter que lorsque vous renoncez à votre BONUS SPORTIF, le solde restant sera supprimé et ne pourra pas être récupéré. Certains joueurs perdent leur solde afin d'acheter un autre BONUS SPORTIF puisqu'il ne peut y avoir qu'un seul BONUS SPORTIF actif à la fois.",
+      "title": "Puis-je renoncer à mon portefeuille de bonus sportifs ?"
+    },
+    "q13": {
+      "body": "Si vous utilisez un fournisseur Internet d'une région restreinte comme Singapour, les États-Unis, Israël, etc. SPORTS BONUS ne sera pas disponible dans votre région. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter le service client.",
+      "title": "Pourquoi ne puis-je pas voir l'option Bonus sportif ?"
+    }
+  }
+}

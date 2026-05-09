@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Recompensa",
+  "activeTab": "Ativos",
+  "completedTab": "Concluídos",
+  "myCompletedTab": "Meus concluídos",
+  "claimReward": "Resgatar",
+  "claiming": "Resgatando...",
+  "claimed": "Resgatado",
+  "play": "Jogar",
+  "challengeCompleted": "Desafio concluído",
+  "hitMultiplier": "Atingir {{multiplier}}×",
+  "rewardLabel": "Recompensa",
+  "minBetLabel": "Aposta mín.",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Restam {{remaining}}",
+  "noActiveChallenges": "Nenhum desafio ativo no momento.",
+  "noCompletedChallenges": "Ainda não há desafios concluídos.",
+  "noMyChallenges": "Você ainda não venceu nenhum desafio bounty.",
+  "branchDisabled": "Os desafios bounty não estão disponíveis no momento.",
+  "forbidden": "Sua conta está atualmente restrita das recompensas bounty.",
+  "searchPlaceholder": "Buscar jogos...",
+  "filterProvider": "Filtrar por provedor",
+  "winnersLabel": "Vencedores",
+  "viewWinners": "Ver vencedores",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Sua recompensa será creditada na seguinte conta:",
+    "continue": "Continuar"
+  },
+  "claimYourReward": "Resgatar recompensa: {{amount}} {{currency}}",
+  "sortOrder": "Ordem de classificação",
+  "congratulations": "Parabéns!",
+  "bountyCompleted": "Bounty concluído, resgate sua recompensa agora!",
+  "youHitMultiplier": "Você atingiu <0>{{multiplier}}×</0>! Bounty concluído, resgate sua recompensa agora!",
+  "newBountyAvailable": "Novo Bounty disponível",
+  "claimSuccess": "Recompensa resgatada",
+  "claimSuccessDetail": "{{amount}} {{currency}} adicionados à sua carteira.",
+  "claimNow": "Resgatar agora",
+  "go": "Ir",
+  "winAmount": "Ganhe {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplicador",
+  "sortByCreated": "Adicionados recentemente",
+  "sortByReward": "Maior recompensa",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detalhes do bônus",
+    "intro": "Os desafios Bounty recompensam você com prêmios por grandes vitórias. Em qualquer um dos jogos listados, basta fazer uma aposta qualificada que atenda ao valor mínimo de aposta e atinja o multiplicador necessário — se você estiver entre os primeiros a fazê-lo, a recompensa é sua.",
+    "howItWorks": {
+      "title": "Como funciona",
+      "body": "  - Cada desafio Bounty está vinculado a um jogo específico\n  - Faça uma aposta que atenda ao valor mínimo de aposta\n  - Atinja o multiplicador alvo ou superior para concluir o desafio\n  - Os primeiros jogadores a concluir o desafio ganham a recompensa\n  - Você pode ganhar várias vezes no mesmo desafio se houver vários prêmios concedidos"
+    },
+    "claim": {
+      "title": "Distribuição de resgates",
+      "body": "As recompensas serão creditadas em sua carteira na moeda especificada para cada desafio. Você pode resgatar sua recompensa a qualquer momento na aba \"Meus concluídos\" na página Bounty. Não há limite de tempo para resgatar."
+    },
+    "eligible": {
+      "title": "Apostas elegíveis",
+      "body": "  - Apenas apostas em dinheiro real contam. Apostas feitas usando Slot Bonus Wallet ou Free Spins não se qualificam.\n  - Seu valor de aposta deve atender ou exceder o valor mínimo de aposta exibido no desafio."
+    },
+    "terms": {
+      "title": "Termos gerais",
+      "body": "  - As recompensas Bounty são calculadas e creditadas na moeda configurada para cada desafio, e depois exibidas em sua moeda preferida para conveniência. Observe que as conversões de moeda são aproximadas.\n  - O cassino se reserva o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção."
+    }
+  },
+  "rewardTooltip": "Aposte pelo menos {{minBet}} {{currency}} (ou equivalente) com um multiplicador de {{multiplier}}× ou superior. Os primeiros {{slots}} jogadores qualificados ganham a recompensa.",
+  "filterAll": "Todos",
+  "filterClaimable": "Resgatável",
+  "filterClaimed": "Resgatado"
+}

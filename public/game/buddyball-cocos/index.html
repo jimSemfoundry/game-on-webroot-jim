@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Cocos Creator | BuddyBalls</title>
+
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <script>
+      (function () {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var color = params.get('color');
+          if (!color) return;
+          document.documentElement.style.backgroundColor = color;
+          document.body && (document.body.style.backgroundColor = color);
+          document.documentElement.style.setProperty('--buddyball-bg', color);
+        } catch (e) {
+        }
+      })();
+    </script>
+
+    <style>
+      #BuddyballBootScreen {
+        position: fixed;
+        inset: 0;
+        background: var(--buddyball-bg, #0f1419);
+        z-index: 999999;
+        opacity: 1;
+        transition: opacity 240ms ease;
+        pointer-events: none;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="icon" href="favicon.ico"/>
+  </head>
+  <body>
+    <div id="BuddyballBootScreen"></div>
+    <div id="GameDiv" cc_exact_fit_screen="true">
+      <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" width="375" height="525" tabindex="99"></canvas>
+      </div>
+    </div>
+
+    <!-- Polyfills bundle. -->
+
+
+
+<script src="src/polyfills.bundle.js" charset="utf-8"> </script>    
+
+
+
+
+
+<!-- SystemJS support. -->
+
+<script src="src/system.bundle.js" charset="utf-8"> </script>
+
+
+
+<!-- Import map -->
+<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"></script>
+<script>
+    System.import('./index.js').then(function () {
+      var boot = document.getElementById('BuddyballBootScreen');
+      if (!boot) return;
+
+      var hasHidden = false;
+      var start = Date.now();
+      var MAX_WAIT_MS = 15000;
+
+      function hideBoot() {
+        if (hasHidden) return;
+        hasHidden = true;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            boot.style.opacity = '0';
+            setTimeout(function () {
+              boot && boot.remove && boot.remove();
+            }, 260);
+          });
+        });
+      }
+
+      function attachFirstFrameListener() {
+        if (hasHidden) return;
+        if (Date.now() - start > MAX_WAIT_MS) {
+          hideBoot();
+          return;
+        }
+
+        var cc = window.cc;
+        var director = cc && cc.director;
+        if (!cc || !director) {
+          setTimeout(attachFirstFrameListener, 50);
+          return;
+        }
+
+        var Director = cc.Director;
+        var eventNames = [
+          Director && Director.EVENT_AFTER_DRAW,
+          Director && Director.EVENT_AFTER_RENDER,
+          Director && Director.EVENT_AFTER_SCENE_LAUNCH,
+          Director && Director.EVENT_AFTER_UPDATE,
+          'after-draw',
+          'after-render'
+        ].filter(Boolean);
+
+        var used = false;
+        for (var i = 0; i < eventNames.length; i++) {
+          try {
+            director.once(eventNames[i], function () {
+              hideBoot();
+            });
+            used = true;
+            break;
+          } catch (e) {
+          }
+        }
+
+        if (!used) {
+          setTimeout(attachFirstFrameListener, 50);
+        }
+      }
+
+      attachFirstFrameListener();
+    }).catch(function(err) { console.error(err); })
+</script>
+<script>
+
+  (function () {
+    const gameDiv = document.getElementById('GameDiv');
+    const gameCanvas = document.getElementById('GameCanvas');
+    if (!gameDiv) return;
+
+    function resizeGame({ width, height } = {}) {
+      const availableWidth = typeof width === 'number' ? width : window.innerWidth;
+      const availableHeight = typeof height === 'number' ? height : window.innerHeight;
+
+      const targetWidth = availableWidth;
+      const targetHeight = availableHeight;
+
+      gameDiv.style.width = `${targetWidth}px`;
+      gameDiv.style.height = `${targetHeight}px`;
+      gameDiv.style.position = "fixed";
+      gameDiv.style.top = "0";
+      gameDiv.style.left = "0";
+      gameDiv.style.margin = "0";
+      gameDiv.style.transform = "none";
+
+      if (gameCanvas) {
+        gameCanvas.style.width = "100%";
+        gameCanvas.style.height = "100%";
+      }
+    }
+
+    function handleViewportMessage(event) {
+      if (!event?.data || event.data.source !== 'game-on-web' || event.data.type !== 'ViewportSize') return;
+      const payload = event.data.data || {};
+      resizeGame({ width: payload.width, height: payload.height });
+    }
+
+    window.addEventListener('message', handleViewportMessage);
+    window.addEventListener('resize', () => resizeGame());
+    resizeGame();
+  })();
+</script>
+  </body>
+</html>

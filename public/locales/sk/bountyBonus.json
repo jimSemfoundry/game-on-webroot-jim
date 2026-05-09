@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Odmena",
+  "activeTab": "Aktívne",
+  "completedTab": "Dokončené",
+  "myCompletedTab": "Moje dokončené",
+  "claimReward": "Vyzdvihnúť",
+  "claiming": "Vyzdvihovanie...",
+  "claimed": "Vyzdvihnuté",
+  "play": "Hrať",
+  "challengeCompleted": "Výzva dokončená",
+  "hitMultiplier": "Dosiahnite {{multiplier}}×",
+  "rewardLabel": "Odmena",
+  "minBetLabel": "Min. stávka",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} zostáva",
+  "noActiveChallenges": "Momentálne žiadne aktívne výzvy.",
+  "noCompletedChallenges": "Zatiaľ žiadne dokončené výzvy.",
+  "noMyChallenges": "Ešte ste nevyhrali žiadnu bounty výzvu.",
+  "branchDisabled": "Bounty výzvy nie sú momentálne k dispozícii.",
+  "forbidden": "Váš účet je momentálne obmedzený z bounty odmien.",
+  "searchPlaceholder": "Hľadať hry...",
+  "filterProvider": "Filter podľa poskytovateľa",
+  "winnersLabel": "Víťazi",
+  "viewWinners": "Zobraziť víťazov",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Vaša odmena bude pripísaná na nasledujúci účet:",
+    "continue": "Pokračovať"
+  },
+  "claimYourReward": "Vyzdvihnite si odmenu: {{amount}} {{currency}}",
+  "sortOrder": "Poradie zoradenia",
+  "congratulations": "Gratulujeme!",
+  "bountyCompleted": "Bounty dokončené, vyzdvihnite si odmenu teraz!",
+  "youHitMultiplier": "Dosiahli ste <0>{{multiplier}}×</0>! Bounty dokončené, vyzdvihnite si odmenu teraz!",
+  "newBountyAvailable": "Nové Bounty k dispozícii",
+  "claimSuccess": "Odmena vyzdvihnutá",
+  "claimSuccessDetail": "{{amount}} {{currency}} pridané do vašej peňaženky.",
+  "claimNow": "Vyzdvihnúť teraz",
+  "go": "Ísť",
+  "winAmount": "Vyhrajte {{amount}} {{currency}}",
+  "multiplierLabel": "Násobiteľ",
+  "sortByCreated": "Nedávno pridané",
+  "sortByReward": "Najvyššia odmena",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detaily bonusu",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Stavte aspoň {{minBet}} {{currency}} (alebo ekvivalent) s násobiteľom {{multiplier}}× alebo vyšším. Prví {{slots}} kvalifikovaní hráči získajú odmenu.",
+  "filterAll": "Všetko",
+  "filterClaimable": "Na prevzatie",
+  "filterClaimed": "Prevzaté"
+}

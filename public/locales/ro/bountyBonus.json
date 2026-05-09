@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Recompensă",
+  "activeTab": "Active",
+  "completedTab": "Finalizate",
+  "myCompletedTab": "Ale mele finalizate",
+  "claimReward": "Revendică",
+  "claiming": "Se revendică...",
+  "claimed": "Revendicat",
+  "play": "Joacă",
+  "challengeCompleted": "Provocare finalizată",
+  "hitMultiplier": "Atinge {{multiplier}}×",
+  "rewardLabel": "Recompensă",
+  "minBetLabel": "Pariu min.",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} rămase",
+  "noActiveChallenges": "Nu există provocări active momentan.",
+  "noCompletedChallenges": "Încă nu există provocări finalizate.",
+  "noMyChallenges": "Nu ați câștigat încă nicio provocare bounty.",
+  "branchDisabled": "Provocările bounty nu sunt disponibile momentan.",
+  "forbidden": "Contul dvs. este restricționat de la recompensele bounty.",
+  "searchPlaceholder": "Căutați jocuri...",
+  "filterProvider": "Filtrați după furnizor",
+  "winnersLabel": "Câștigători",
+  "viewWinners": "Vezi câștigători",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Recompensa va fi creditată în contul următor:",
+    "continue": "Continuă"
+  },
+  "claimYourReward": "Revendică-ți recompensa: {{amount}} {{currency}}",
+  "sortOrder": "Ordine de sortare",
+  "congratulations": "Felicitări!",
+  "bountyCompleted": "Bounty finalizat, revendicați-vă recompensa acum!",
+  "youHitMultiplier": "Ați atins <0>{{multiplier}}×</0>! Bounty finalizat, revendicați-vă recompensa acum!",
+  "newBountyAvailable": "Bounty nou disponibil",
+  "claimSuccess": "Recompensă revendicată",
+  "claimSuccessDetail": "{{amount}} {{currency}} adăugat la portofelul dvs.",
+  "claimNow": "Revendică acum",
+  "go": "Mergi",
+  "winAmount": "Câștigă {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplicator",
+  "sortByCreated": "Adăugate recent",
+  "sortByReward": "Cea mai mare recompensă",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detalii bonus",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Pariază cel puțin {{minBet}} {{currency}} (sau echivalent) la un multiplicator de {{multiplier}}× sau mai mare. Primii {{slots}} jucători calificați câștigă recompensa.",
+  "filterAll": "Toate",
+  "filterClaimable": "Revendicabil",
+  "filterClaimed": "Revendicat"
+}

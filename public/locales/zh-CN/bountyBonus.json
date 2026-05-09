@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "赏金",
+  "activeTab": "进行中",
+  "completedTab": "已完成",
+  "myCompletedTab": "我的完成",
+  "claimReward": "领取",
+  "claiming": "领取中...",
+  "claimed": "已领取",
+  "play": "开始游戏",
+  "challengeCompleted": "挑战已完成",
+  "hitMultiplier": "达成 {{multiplier}}×",
+  "rewardLabel": "奖励",
+  "minBetLabel": "最低投注",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "剩余 {{remaining}}",
+  "noActiveChallenges": "当前没有进行中的挑战。",
+  "noCompletedChallenges": "暂无已完成的挑战。",
+  "noMyChallenges": "你还没有完成任何赏金挑战。",
+  "branchDisabled": "赏金挑战暂未开放。",
+  "forbidden": "您的账户当前被限制参与赏金活动。",
+  "searchPlaceholder": "搜索游戏...",
+  "filterProvider": "按厂商筛选",
+  "winnersLabel": "获胜者",
+  "viewWinners": "查看获胜者",
+  "claim": {
+    "title": "领取奖励",
+    "from": "来源",
+    "selectCurrency": "选择币种",
+    "exchangeNote": "最终金额按当前汇率换算。",
+    "confirm": "确认",
+    "cancel": "取消",
+    "creditedToFollowing": "奖励将记入以下账户：",
+    "continue": "继续"
+  },
+  "claimYourReward": "领取奖励：{{amount}} {{currency}}",
+  "sortOrder": "排序方向",
+  "congratulations": "恭喜！",
+  "bountyCompleted": "赏金挑战完成，立即领取奖励！",
+  "youHitMultiplier": "你达成了 <0>{{multiplier}}×</0>！赏金挑战完成，立即领取奖励！",
+  "newBountyAvailable": "新的赏金挑战上线",
+  "claimSuccess": "奖励已领取",
+  "claimSuccessDetail": "{{amount}} {{currency}} 已存入你的钱包。",
+  "claimNow": "立即领取",
+  "go": "前往",
+  "winAmount": "赢取 {{amount}} {{currency}}",
+  "multiplierLabel": "倍率",
+  "sortByCreated": "最新上线",
+  "sortByReward": "奖励最高",
+  "infoModal": {
+    "title": "赏金",
+    "detailsHeader": "活动详情",
+    "intro": "赏金挑战让你在大额获胜时拿到奖励。在列表中的任意游戏，下注满足最低投注金额并达成所需倍率，只要你是最早达成的玩家之一，奖励就归你。",
+    "howItWorks": {
+      "title": "活动玩法",
+      "body": "  - 每个赏金挑战对应一款指定游戏\n  - 下注金额需达到最低投注门槛\n  - 达到或超过目标倍率即可完成挑战\n  - 最先完成挑战的玩家获得奖励\n  - 同一挑战可多次中奖（如设有多份奖励）"
+    },
+    "claim": {
+      "title": "奖励发放",
+      "body": "奖励将以挑战指定的币种发放至你的钱包。你可以随时在赏金页面的「我的完成」中领取，无领取时间限制。"
+    },
+    "eligible": {
+      "title": "有效投注",
+      "body": "  - 仅真实金额投注计算在内。使用「Slot 彩金钱包」或「免费旋转」的投注不计入。\n  - 投注金额必须达到或超过挑战展示的最低金额。"
+    },
+    "terms": {
+      "title": "通用条款",
+      "body": "  - 赏金奖励按各挑战配置的币种结算和入账，并以你的偏好币种估算显示。请注意，币种换算为近似值。\n  - 平台保留随时修改或取消活动资格的权利，无需另行说明。任何作弊或舞弊行为都将导致取消活动资格。"
+    }
+  },
+  "rewardTooltip": "投注 ≥ {{minBet}} {{currency}} 等值，且赔率 ≥ {{multiplier}}×，前 {{slots}} 名达成条件的玩家可获得奖励。",
+  "filterAll": "全部",
+  "filterClaimable": "可领取",
+  "filterClaimed": "已领取"
+}

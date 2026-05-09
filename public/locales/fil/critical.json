@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Mga Sakop",
+  "completed": "Nakumpleto",
+  "daily_cashback": "Araw-araw na Cashback",
+  "expiration": "Pagkawalang-saysay",
+  "claimed": "Nakuha na",
+  "deposit_now": "Magdeposito Ngayon",
+  "gameOver": "Tapos na ang Laro",
+  "level": "Antas",
+  "bonusHub": {
+    "ongoing": "{{count}} Patuloy",
+    "root": "Bonus Hub"
+  },
+  "details": {
+    "lastUpdate": "Huling Update"
+  },
+  "transactionStatus": {
+    "expired": "Nag-expire",
+    "cancelled": "Nakansela"
+  },
+  "notifications": "Mga Notipikasyon",
+  "read": "Basahin",
+  "unread": "Hindi Nabasa"
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "Prime",
+  "conquests": "Conquêtes",
+  "completed": "Terminé",
+  "daily_cashback": "Remboursement Quotidien",
+  "expiration": "Expiration",
+  "claimed": "Réclamé",
+  "deposit_now": "Déposez Maintenant",
+  "gameOver": "Fin de partie",
+  "level": "Niveau",
+  "bonusHub": {
+    "ongoing": "{{count}} En Cours",
+    "root": "Hub de Bonus"
+  },
+  "details": {
+    "lastUpdate": "Dernière Mise à Jour"
+  },
+  "transactionStatus": {
+    "expired": "Expiré",
+    "cancelled": "Annulé"
+  },
+  "notifications": "Notifications",
+  "read": "Lire",
+  "unread": "Non lu"
+}

@@ -1,0 +1,23 @@
+{
+  "go": "Mene",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Päivittäinen sisäänkirjautuminen",
+  "referFriend": "Kutsu ystävä",
+  "referralDeposit": "Kutsutun ensimmäinen talletus",
+  "moreBalls": "Hanki lisää Buddy Balls",
+  "rewards": "Buddy Ball -palkinnot",
+  "records": "Buddy Ball -historia",
+  "balls": "Pallot",
+  "type_deposit": "Suora FTD",
+  "type_user": "Suosittele ystävää",
+  "type_buddy_balls_daily_checkin": "Päivittäinen kirjautuminen",
+  "type_promo_code_buddy_balls": "Promo-koodi",
+  "type_achievement_bb": "Saavutus",
+  "accumulated": "Palkinnot voi kerätä ja lunastaa milloin tahansa. Kaikki palkinnot maksetaan valitussa valuutassa.",
+  "type_lucky_spin": "Lucky Spin",
+  "getMore": "Hanki lisää",
+  "share": "Jaa",
+  "getMoreBuddyball": "Hanki lisää Buddyball",
+  "shareBuddyball": "Jaa Buddyball",
+  "quickShare": "Kiire jääminen" 
+}

@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Tiền Thưởng",
+  "activeTab": "Đang diễn ra",
+  "completedTab": "Đã hoàn thành",
+  "myCompletedTab": "Của tôi",
+  "claimReward": "Nhận thưởng",
+  "claiming": "Đang nhận...",
+  "claimed": "Đã nhận",
+  "play": "Chơi",
+  "challengeCompleted": "Hoàn thành thử thách",
+  "hitMultiplier": "Đạt {{multiplier}}×",
+  "rewardLabel": "Phần thưởng",
+  "minBetLabel": "Cược tối thiểu",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Còn {{remaining}}",
+  "noActiveChallenges": "Hiện không có thử thách nào đang diễn ra.",
+  "noCompletedChallenges": "Chưa có thử thách nào hoàn thành.",
+  "noMyChallenges": "Bạn chưa thắng thử thách bounty nào.",
+  "branchDisabled": "Thử thách bounty hiện không khả dụng.",
+  "forbidden": "Tài khoản của bạn hiện đang bị hạn chế nhận thưởng bounty.",
+  "searchPlaceholder": "Tìm kiếm trò chơi...",
+  "filterProvider": "Lọc theo nhà cung cấp",
+  "winnersLabel": "Người thắng",
+  "viewWinners": "Xem người thắng",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Phần thưởng của bạn sẽ được ghi có vào tài khoản sau:",
+    "continue": "Tiếp tục"
+  },
+  "claimYourReward": "Nhận phần thưởng: {{amount}} {{currency}}",
+  "sortOrder": "Thứ tự sắp xếp",
+  "congratulations": "Chúc mừng!",
+  "bountyCompleted": "Hoàn thành Bounty, nhận thưởng ngay!",
+  "youHitMultiplier": "Bạn đạt <0>{{multiplier}}×</0>! Hoàn thành Bounty, nhận thưởng ngay!",
+  "newBountyAvailable": "Bounty mới đã có",
+  "claimSuccess": "Đã nhận thưởng",
+  "claimSuccessDetail": "{{amount}} {{currency}} đã được thêm vào ví của bạn.",
+  "claimNow": "Nhận ngay",
+  "go": "Vào",
+  "winAmount": "Thắng {{amount}} {{currency}}",
+  "multiplierLabel": "Hệ số",
+  "sortByCreated": "Mới thêm",
+  "sortByReward": "Phần thưởng cao nhất",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Chi tiết thưởng",
+    "intro": "Thử thách Bounty trao cho bạn phần thưởng khi thắng lớn. Trong bất kỳ trò chơi nào trong danh sách, chỉ cần đặt cược đủ điều kiện đạt mức cược tối thiểu và đạt được hệ số yêu cầu — nếu bạn nằm trong số những người làm được đầu tiên, phần thưởng là của bạn.",
+    "howItWorks": {
+      "title": "Cách hoạt động",
+      "body": "  - Mỗi thử thách Bounty gắn với một trò chơi cụ thể\n  - Đặt cược đáp ứng số tiền cược tối thiểu\n  - Đạt hệ số mục tiêu hoặc cao hơn để hoàn thành thử thách\n  - Những người chơi đầu tiên hoàn thành thử thách giành được phần thưởng\n  - Bạn có thể thắng nhiều lần trên cùng một thử thách nếu có nhiều phần thưởng được trao"
+    },
+    "claim": {
+      "title": "Phân phối thưởng",
+      "body": "Phần thưởng sẽ được ghi có vào ví của bạn bằng loại tiền tệ được chỉ định cho mỗi thử thách. Bạn có thể nhận thưởng bất cứ lúc nào từ tab \"Của tôi\" trong trang Bounty. Không có giới hạn thời gian để nhận."
+    },
+    "eligible": {
+      "title": "Cược đủ điều kiện",
+      "body": "  - Chỉ tính cược bằng tiền thật. Cược đặt bằng Slot Bonus Wallet hoặc Free Spins không đủ điều kiện.\n  - Số tiền cược của bạn phải đáp ứng hoặc vượt quá số tiền cược tối thiểu hiển thị trên thử thách."
+    },
+    "terms": {
+      "title": "Điều khoản chung",
+      "body": "  - Phần thưởng Bounty được tính và ghi có bằng loại tiền được cấu hình cho mỗi thử thách, sau đó hiển thị bằng loại tiền ưa thích của bạn để thuận tiện. Xin lưu ý, các quy đổi tiền tệ chỉ là gần đúng.\n  - Sòng bạc giữ quyền sửa đổi hoặc thu hồi đủ điều kiện bất cứ lúc nào, mà không có nghĩa vụ phải biện minh. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến bị loại khỏi chương trình khuyến mãi."
+    }
+  },
+  "rewardTooltip": "Đặt cược ít nhất {{minBet}} {{currency}} (hoặc tương đương) với hệ số nhân {{multiplier}}× hoặc cao hơn. {{slots}} người chơi đầu tiên đáp ứng điều kiện sẽ nhận được phần thưởng.",
+  "filterAll": "Tất cả",
+  "filterClaimable": "Có thể nhận",
+  "filterClaimed": "Đã nhận"
+}

@@ -1,0 +1,58 @@
+{
+  "bonus": "Spor\nBonus",
+  "intro": "Spor Bonusu ile tıpkı gerçek para gibi oynayın! Her bahis sizi tam değerlerinin kilidini açmaya bir adım daha yaklaştırır. Oynama gereksinimlerini karşılayın ve Spor Bonusunuzun bugün çekilebilir ödüllere dönüşmesini izleyin!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Spor Bonus Cüzdanı, spor bahisleri için özel bir cüzdandır. Satın aldığınızda, yatırdığınız tutarın yanı sıra ekstra bir bonus alırsınız (örneğin, Spor Bonus Cüzdanınıza %50 bonusla 100 USDT yatırın = 150 USDT). Bu cüzdandaki tüm paralar yalnızca spor bahisleri için kullanılabilir.",
+      "title": "Spor Bonus Cüzdanı Nedir?"
+    },
+    "q2": {
+      "body": "Spor Bonusu sayfasına gidin, bir bonus kademesi seçin (örn. +%50), para yatırma tutarınızı girin (sayfada gösterilen minimum tutarı karşılamalıdır) ve \"Şimdi Satın Al\"a dokunun. Yatırdığınız para artı bonus anında Spor Bonus Cüzdanınıza eklenecektir.",
+      "title": "Spor Bonusunu nasıl satın alabilirim?"
+    },
+    "q3": {
+      "body": "Evet. Güncel minimum ve maksimum para yatırma limitleri için lütfen Spor Bonusu sayfasını kontrol edin.",
+      "title": "Minimum veya maksimum depozito var mı?"
+    },
+    "q4": {
+      "body": "Hayır. Spor Bonusu yalnızca spor bahislerinde kullanılabilir. Slot, Casino, Canlı Casino veya diğer oyunlarda kullanılamaz.",
+      "title": "Spor Bonusunu slot veya casino oyunlarında kullanabilir miyim?"
+    },
+    "q5": {
+      "body": "Çekebilirsinizden önce bir bahis şartını tamamlamanız gerekir. Formül şöyledir: Elde Edilen Toplam BONUS × Bahis Çarpanı. Örneğin, cüzdanınıza 150 SPOR BONUSU eklenmesi için 100 USDT satın alırsanız ve çarpan 10x ise, 150 × 10 = 1500 {{currency}} eşdeğerinde nitelikli spor bahisleri yapmanız gerekir.",
+      "title": "Bahis şartı nedir?"
+    },
+    "q6": {
+      "body": "Üç kural geçerlidir:\n\n Kaybedilen bahisler: 100 USDT bahis yaparsanız ve kaybederseniz, 100 USDT bahis şartına dahil edilir.\n\n Kazanan bahisler: Sadece oranlar ≥ {{minOdds}} ise sayılır. 1.7 oranıyla 100 USDT bahis yaparsanız ve kazanırsanız, 100 bahis şartına dahil edilir. Oranlar {{minOdds}} altındaysa ve kazanırsanız, bahis şartına dahil edilmez.\n\n Nakit çıkışı yapılan bahisler (erken teslim): Sadece nakit çıkış tutarı orijinal bahis tutarından × {{minOdds}} daha büyükse sayılır. Koşul karşılanırsa, bahis tutarı bahis şartına dahil edilir. Aksi takdirde, bahis şartına dahil edilmez.",
+      "title": "Hangi bahisler bahis şartına dahil edilir?"
+    },
+    "q7": {
+      "body": "Evet, bahis şartını tamamladığınızda ve bakiyeniz minimum para çekme tutarını karşıladığında. SPORTS BONUS bakiyeniz, seçtiğiniz para biriminde ana cüzdanınıza çevrilebilir.",
+      "title": "Sports Bonus bakiyemi çekebilir miyim?"
+    },
+    "q8": {
+      "body": "Nakde çevirebileceğiniz maksimum tutar, elde ettiğiniz toplam SPOR BONUS'unun çarpanı ile sınırlıdır. Örneğin, elde ettiğiniz SPOR BONUS'unuz 150 ve maksimum talep çarpanı 10x ise nakde çevirebileceğiniz maksimum tutar 1500 USDT'dir (mevcut döviz kuru üzerinden seçtiğiniz para birimine dönüştürülür).",
+      "title": "Nakde çevirebileceğim maksimum tutar nedir?"
+    },
+    "q9": {
+      "body": "Hayır. Aynı anda yalnızca bir aktif Spor Bonusuna sahip olabilirsiniz. Önce mevcut hesabınızı tamamlamanız gerekir; bahis şartını yerine getirdikten sonra çekilerek, kaybederek (bakiye ≤ 0,1 USDT eşdeğeri olduğunda) veya süresinin dolmasını bekleyerek. Bundan sonra tekrar satın alabilirsiniz.",
+      "title": "Aktif bir bonusum varken tekrar Spor Bonusu satın alabilir miyim?"
+    },
+    "q10": {
+      "body": "Satın alımlar arasında bir bekleme süresi vardır. Bekleme süresi Spor Bonusu sayfasında gösterilir.",
+      "title": "Spor Bonusunu ne sıklıkla satın alabilirim?"
+    },
+    "q11": {
+      "body": "Spor Bonus Cüzdanının bir geçerlilik süresi vardır (örn. 30 gün). Bu süre içerisinde çevrim şartını tamamlamadığınız takdirde kalan SPOR BONUS bakiyesi silinecek ve silinecektir.",
+      "title": "Bahis şartını zamanında tamamlamazsam ne olur?"
+    },
+    "q12": {
+      "body": "C: Evet. Spor Bonus bakiyeniz ≤ 0,1 USDT ise Spor Bonus Cüzdanınızı kaybedebilirsiniz. Ancak Spor Bonusu ile oynanan, sonuçlanmamış spor bahisleriniz varsa, tüm bahisler sonuçlanana kadar hükmen mağlup olamazsınız. SPOR BONUS'unuzu kaybettiğinizde kalan bakiyenin silineceğini ve geri alınamayacağını lütfen unutmayın. Aynı anda yalnızca 1 SPOR BONUSU aktif olabileceğinden, bazı oyuncular başka bir SPOR BONUSU satın almak için bakiyelerini kaybederler.",
+      "title": "Sports Bonus Cüzdanımdan vazgeçebilir miyim/kaybedebilir miyim?"
+    },
+    "q13": {
+      "body": "Singapur, Amerika Birleşik Devletleri, İsrail vb. gibi kısıtlı bir bölgedeki internet sağlayıcısını kullanıyorsanız SPOR BONUS'u bölgenizde mevcut olmayacaktır. Bunun bir hata olduğunu düşünüyorsanız lütfen müşteri desteğiyle iletişime geçin.",
+      "title": "Spor Bonusu seçeneğini neden göremiyorum?"
+    }
+  }
+}

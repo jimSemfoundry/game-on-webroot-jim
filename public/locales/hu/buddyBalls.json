@@ -1,0 +1,23 @@
+{
+  "go": "Indítás",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Napi bejelentkezés",
+  "referFriend": "Ajánlj egy barátot",
+  "referralDeposit": "A meghívott első befizetése",
+  "moreBalls": "Szerezz több Buddy Balls-t",
+  "rewards": "Buddy Ball jutalmak",
+  "records": "Buddy Ball előzmények",
+  "balls": "Labdák",
+  "type_deposit": "Közvetlen FTD",
+  "type_user": "Ajánlj egy barátot",
+  "type_buddy_balls_daily_checkin": "Napi bejelentkezés",
+  "type_promo_code_buddy_balls": "Promóciós kód",
+  "type_achievement_bb": "Teljesítmény",
+  "accumulated": "A jutalmak felhalmozhatók és bármikor igényelhetők. Minden jutalom a választott pénznemben kerül kifizetésre.",
+  "type_lucky_spin": "Lucky Spin",
+  "getMore": "Továbbiak szerezése",
+  "share": "Megosztás",
+  "getMoreBuddyball": "További Buddy Balls szerezése",
+  "shareBuddyball": "Buddy Balls megosztása",
+  "quickShare": "Gyors megosztás"
+}

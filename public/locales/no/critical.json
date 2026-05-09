@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Erobringer",
+  "completed": "Fullført",
+  "daily_cashback": "Daglig Cashback",
+  "expiration": "Utløp",
+  "claimed": "Innløst",
+  "deposit_now": "Sett inn nå",
+  "gameOver": "Spillet er slutt",
+  "level": "Nivå",
+  "bonusHub": {
+    "ongoing": "{{count}} pågående",
+    "root": "Bonus Hub"
+  },
+  "details": {
+    "lastUpdate": "Siste oppdatering"
+  },
+  "transactionStatus": {
+    "expired": "Utløpt",
+    "cancelled": "Avbrutt"
+  },
+  "notifications": "Varsler",
+  "read": "Les",
+  "unread": "Ulest"
+}

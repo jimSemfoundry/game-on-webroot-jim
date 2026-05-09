@@ -1,0 +1,25 @@
+{
+  "bonus": "โบนัส",
+  "conquests": "ภารกิจพิชิต",
+  "completed": "สำเร็จ",
+  "daily_cashback": "เงินคืนรายวัน",
+  "expiration": "วันหมดอายุ",
+  "claimed": "เรียบร้อย",
+  "deposit_now": "ฝากเงินตอนนี้",
+  "gameOver": "เกมจบแล้ว",
+  "level": "ระดับ",
+  "bonusHub": {
+    "ongoing": "{{count}} กำลังดำเนินการ",
+    "root": "ศูนย์โบนัส"
+  },
+  "details": {
+    "lastUpdate": "อัปเดตล่าสุด"
+  },
+  "transactionStatus": {
+    "expired": "หมดอายุ",
+    "cancelled": "ถูกยกเลิก"
+  },
+  "notifications": "การแจ้งเตือน",
+  "read": "อ่าน",
+  "unread": "ยังไม่ได้อ่าน"
+}

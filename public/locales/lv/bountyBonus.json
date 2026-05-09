@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Atlīdzība",
+  "activeTab": "Aktīvi",
+  "completedTab": "Pabeigti",
+  "myCompletedTab": "Mani pabeigti",
+  "claimReward": "Pieprasīt",
+  "claiming": "Pieprasa...",
+  "claimed": "Pieprasīts",
+  "play": "Spēlēt",
+  "challengeCompleted": "Izaicinājums pabeigts",
+  "hitMultiplier": "Sasniegt {{multiplier}}×",
+  "rewardLabel": "Balva",
+  "minBetLabel": "Min. likme",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} atlikuši",
+  "noActiveChallenges": "Pašlaik nav aktīvu izaicinājumu.",
+  "noCompletedChallenges": "Vēl nav pabeigtu izaicinājumu.",
+  "noMyChallenges": "Jūs vēl neesat uzvarējis nevienā bounty izaicinājumā.",
+  "branchDisabled": "Bounty izaicinājumi pašlaik nav pieejami.",
+  "forbidden": "Jūsu konts pašlaik ir ierobežots no bounty balvām.",
+  "searchPlaceholder": "Meklēt spēles...",
+  "filterProvider": "Filtrēt pēc nodrošinātāja",
+  "winnersLabel": "Uzvarētāji",
+  "viewWinners": "Skatīt uzvarētājus",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Jūsu balva tiks ieskaitīta šajā kontā:",
+    "continue": "Turpināt"
+  },
+  "claimYourReward": "Saņemiet savu balvu: {{amount}} {{currency}}",
+  "sortOrder": "Šķirošanas secība",
+  "congratulations": "Apsveicam!",
+  "bountyCompleted": "Bounty pabeigts, pieprasiet savu balvu tagad!",
+  "youHitMultiplier": "Jūs sasniedzāt <0>{{multiplier}}×</0>! Bounty pabeigts, pieprasiet savu balvu tagad!",
+  "newBountyAvailable": "Pieejams jauns Bounty",
+  "claimSuccess": "Balva pieprasīta",
+  "claimSuccessDetail": "{{amount}} {{currency}} pievienots jūsu makam.",
+  "claimNow": "Pieprasīt tagad",
+  "go": "Iet",
+  "winAmount": "Laimējiet {{amount}} {{currency}}",
+  "multiplierLabel": "Reizinātājs",
+  "sortByCreated": "Nesen pievienoti",
+  "sortByReward": "Lielākā balva",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonusa informācija",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Veiciet likmi vismaz {{minBet}} {{currency}} (vai ekvivalentu) ar reizinātāju {{multiplier}}× vai augstāku. Pirmie {{slots}} kvalificētie spēlētāji laimē balvu.",
+  "filterAll": "Visi",
+  "filterClaimable": "Pieprasāms",
+  "filterClaimed": "Pieprasīts"
+}

@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Graj z bonusem sportowym tak jak prawdziwą gotówką! Każdy zakład przybliża Cię do odblokowania ich pełnej wartości. Spełnij wymagania gry i już dziś zobacz, jak Twój bonus sportowy zamienia się w nagrody z możliwością wypłaty!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Portfel bonusów sportowych to specjalny portfel do zakładów sportowych. Kiedy dokonasz zakupu, otrzymasz kwotę depozytu oraz dodatkowy bonus (np. wpłać 100 USDT z bonusem 50% = 150 USDT w swoim portfelu bonusów sportowych). Wszystkie środki w tym portfelu można wykorzystać wyłącznie na zakłady sportowe.",
+      "title": "Co to jest portfel bonusów sportowych?"
+    },
+    "q2": {
+      "body": "Przejdź do strony Bonus sportowy, wybierz poziom bonusu (np. +50%), wprowadź kwotę depozytu (musi spełniać minimalną kwotę pokazaną na stronie) i dotknij „Kup teraz”. Twój depozyt wraz z bonusem zostaną natychmiast dodane do Twojego portfela Sports Bonus.",
+      "title": "Jak kupić Bonus Sportowy?"
+    },
+    "q3": {
+      "body": "Tak. Sprawdź stronę Bonusów Sportowych, aby sprawdzić aktualne minimalne i maksymalne limity depozytów.",
+      "title": "Czy istnieje minimalny lub maksymalny depozyt?"
+    },
+    "q4": {
+      "body": "Nie. Bonus sportowy można wykorzystać wyłącznie na zakłady sportowe. Nie można go używać w automatach, kasynie, kasynie na żywo ani żadnych innych grach.",
+      "title": "Czy mogę używać bonusu sportowego na automatach lub grach kasynowych?"
+    },
+    "q5": {
+      "body": "Zanim będziesz mógł wypłacić, musisz spełnić wymóg zakładów. Wzór to: Łączny uzyskany BONUS × Mnożnik zakładów. Na przykład, jeśli kupisz 100 USDT za 50% BONUSU SPORTOWEGO, aby mieć 150 BONUSU SPORTOWEGO dodanego do portfela, a mnożnik wynosi 10x, musisz postawić 150 × 10 = 1500 {{currency}} równowartości w kwalifikujących się zakładach sportowych.",
+      "title": "Jaki jest wymóg dotyczący zakładów?"
+    },
+    "q6": {
+      "body": "Obowiązują trzy zasady:\n\n Przegrane zakłady: Jeśli obstawisz 100 USDT i przegrasz, 100 USDT liczy się do wymogu obrotu.\n\n Wygrane zakłady: Liczą się tylko, jeśli kurs jest ≥ {{minOdds}}. Jeśli obstawisz 100 USDT przy kursie 1.7 i wygrasz, 100 zostanie policzone do wymogu obrotu. Jeśli kurs jest niższy niż {{minOdds}} i wygrasz, nie liczy się do wymogu obrotu.\n\n Wypłacone zakłady (wcześniejsza rezygnacja): Liczą się tylko, jeśli wypłacona kwota jest większa niż pierwotna kwota zakładu × {{minOdds}}. Jeśli warunek zostanie spełniony, kwota zakładu liczy się do wymogu obrotu. W przeciwnym razie nie liczy się do wymogu obrotu.",
+      "title": "Które zakłady wliczają się do wymogu obrotu?"
+    },
+    "q7": {
+      "body": "Tak, gdy spełnisz wymagania dotyczące zakładów, a saldo osiągnie minimalną kwotę wypłaty. Twoje saldo SPORTS BONUS może zostać przeliczone na Twój główny portfel w wybranej przez Ciebie walucie.",
+      "title": "Czy mogę wypłacić saldo bonusu sportowego?"
+    },
+    "q8": {
+      "body": "Maksymalna kwota, którą możesz zamienić na gotówkę, jest ograniczona do mnożnika całkowitego uzyskanego BONUSU SPORTOWEGO. Na przykład, jeśli uzyskany BONUS SPORTOWY wynosi 150, a maksymalny mnożnik roszczenia wynosi 10x, maksymalna kwota, którą możesz zamienić na gotówkę to 1500 USDT (przeliczona na wybraną walutę według aktualnego kursu wymiany).",
+      "title": "Jaka jest maksymalna kwota, którą mogę zamienić na gotówkę?"
+    },
+    "q9": {
+      "body": "Nie. Możesz mieć tylko jeden aktywny bonus sportowy na raz. Najpierw musisz ukończyć swój obecny — albo wycofując się po spełnieniu wymogu obrotu, rezygnując z niego (gdy saldo ≤ 0,1 równowartości USDT) lub czekając, aż wygaśnie. Następnie możesz dokonać zakupu ponownie.",
+      "title": "Czy mogę ponownie kupić Sports Bonus, jeśli nadal posiadam aktywny bonus?"
+    },
+    "q10": {
+      "body": "Pomiędzy zakupami obowiązuje okres karencji. Czas odnowienia jest pokazany na stronie Bonusów Sportowych.",
+      "title": "Jak często mogę kupować Bonus Sportowy?"
+    },
+    "q11": {
+      "body": "Portfel Bonusów Sportowych ma okres ważności (np. 30 dni). Jeśli w tym okresie nie spełnisz wymagań dotyczących zakładów, pozostałe saldo SPORTS BONUS wygaśnie i zostanie usunięte.",
+      "title": "Co się stanie, jeśli nie spełnię wymagań dotyczących zakładów na czas?"
+    },
+    "q12": {
+      "body": "O: Tak. Jeśli saldo Twojej premii sportowej wynosi ≤ 0,1 USDT, możesz utracić swój portfel premii sportowej. Jeśli jednak masz jakieś nierozliczone zakłady sportowe postawione w ramach bonusu sportowego, nie możesz z nich zrezygnować, dopóki wszystkie zakłady nie zostaną rozliczone. Należy pamiętać, że w przypadku rezygnacji ze SPORTOWEGO BONUSU pozostałe saldo zostanie usunięte i nie będzie można go odzyskać. Niektórzy gracze rezygnują ze swojego salda, aby kupić kolejny BONUS SPORTOWY, ponieważ w danym momencie może być aktywny tylko 1 BONUS SPORTOWY.",
+      "title": "Czy mogę zrezygnować / utracić swój portfel z bonusami sportowymi?"
+    },
+    "q13": {
+      "body": "Jeśli korzystasz z usług dostawcy Internetu z regionu objętego ograniczeniami, np. Singapuru, Stanów Zjednoczonych, Izraela itp. BONUS SPORTOWY nie będzie dostępny w Twoim regionie. Jeśli uważasz, że to błąd, skontaktuj się z obsługą klienta.",
+      "title": "Dlaczego nie widzę opcji bonusu sportowego?"
+    }
+  }
+}

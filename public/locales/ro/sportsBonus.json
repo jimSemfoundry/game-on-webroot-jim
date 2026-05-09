@@ -1,0 +1,58 @@
+{
+  "bonus": "Sporturi\nBonus",
+  "intro": "Joacă cu bonusuri sportive la fel ca bani reali! Fiecare pariu te aduce mai aproape de deblocarea valorii lor totale. Îndeplinește cerințele de joc și urmărește ca bonusul tău sportiv se transformă în recompense care pot fi retrase astăzi!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Portofelul Sports Bonus este un portofel special pentru pariuri sportive. Când cumpărați, primiți suma depusă plus un bonus suplimentar (de exemplu, depuneți 100 USDT cu un bonus de 50% = 150 USDT în portofelul dvs. de bonusuri sportive). Toate fondurile din acest portofel pot fi folosite doar pentru pariuri sportive.",
+      "title": "Ce este portofelul cu bonusuri sportive?"
+    },
+    "q2": {
+      "body": "Accesați pagina Bonus sportiv, selectați un nivel de bonus (de exemplu, +50%), introduceți suma depozitului (trebuie să atingă suma minimă afișată pe pagină) și atingeți „Cumpărați acum”. Depunerea dvs. plus bonusul vor fi adăugate instantaneu în portofelul dvs. de bonusuri sportive.",
+      "title": "Cum cumpăr un bonus sportiv?"
+    },
+    "q3": {
+      "body": "Da. Vă rugăm să verificați pagina de bonusuri sportive pentru limitele minime și maxime actuale de depunere.",
+      "title": "Există un depozit minim sau maxim?"
+    },
+    "q4": {
+      "body": "Nu. Bonusul sportiv poate fi folosit doar pentru pariuri sportive. Nu poate fi folosit pentru sloturi, cazinouri, cazinouri live sau orice alte jocuri.",
+      "title": "Pot folosi Sports Bonus pentru sloturi sau jocuri de cazinou?"
+    },
+    "q5": {
+      "body": "Înainte de a putea retrage, trebuie să îndepliniți o cerință de pariere. Formula este: BONUS Total Obținut × Multiplicator de Pariere. De exemplu, dacă achiziționați 100 USDT pentru 50% BONUS SPORTIV pentru a avea 150 BONUS SPORTIV adăugat în portofelul dvs. și multiplicatorul este 10x, trebuie să plasați 150 × 10 = 1500 {{currency}} echivalent în pariuri sportive calificate.",
+      "title": "Care este cerința de pariere?"
+    },
+    "q6": {
+      "body": "Se aplică trei reguli:\n\n Pariuri pierdute: Dacă pariați 100 USDT și pierdeți, 100 USDT contează pentru cerința de pariere.\n\n Pariuri câștigătoare: Se numără doar dacă cotele sunt ≥ {{minOdds}}. Dacă pariați 100 USDT la o cotă de 1.7 și câștigați, 100 va fi numărat pentru cerința de pariere. Dacă cotele sunt sub {{minOdds}} și câștigați, nu se numără pentru cerința de pariere.\n\n Pariuri încasate (predare anticipată): Se numără doar dacă suma încasată este mai mare decât suma pariului original × {{minOdds}}. Dacă condiția este îndeplinită, suma pariului contează pentru cerința de pariere. Altfel, nu se numără pentru cerința de pariere.",
+      "title": "Care pariuri sunt luate în considerare pentru cerința de pariere?"
+    },
+    "q7": {
+      "body": "Da, odată ce ați îndeplinit cerințele de pariere și soldul dvs. atinge suma minimă de retragere. Soldul dvs. SPORTS BONUS poate fi convertit în portofelul dvs. principal în moneda dorită.",
+      "title": "Îmi pot retrage soldul bonusului sportiv?"
+    },
+    "q8": {
+      "body": "Suma maximă pe care o puteți converti în numerar este limitată la un multiplicator al BONUSULUI SPORTIV total obținut. De exemplu, dacă BONUSUL SPORTIV obținut este 150 și multiplicatorul maxim al revendicării este de 10x, valoarea maximă pe care o puteți converti în numerar este 1500 USDT (convertit în moneda aleasă de dvs. la cursul de schimb curent).",
+      "title": "Care este suma maximă pe care o pot converti în numerar?"
+    },
+    "q9": {
+      "body": "Nu. Puteți avea un singur bonus sportiv activ la un moment dat. Mai întâi trebuie să-l finalizați pe cel actual - fie retragându-vă după îndeplinirea cerinței de pariere, pierzându-l (când soldul echivalent ≤ 0,1 USDT), fie așteptând expirarea acestuia. După aceea, puteți cumpăra din nou.",
+      "title": "Pot să cumpăr din nou un bonus sportiv cât mai am unul activ?"
+    },
+    "q10": {
+      "body": "Există o perioadă de rece între achiziții. Durata de răcire este afișată pe pagina de bonusuri sportive.",
+      "title": "Cât de des pot cumpăra bonusuri sportive?"
+    },
+    "q11": {
+      "body": "Portofelul Sports Bonus are o perioadă de valabilitate (de exemplu, 30 de zile). Dacă nu îndepliniți cerința de pariere în această perioadă, soldul BONUS SPORTIV rămas va expira și va fi eliminat.",
+      "title": "Ce se întâmplă dacă nu îndeplinesc cerințele de pariere la timp?"
+    },
+    "q12": {
+      "body": "A: Da. Dacă soldul dvs. de bonusuri sportive este ≤ 0,1 USDT, puteți renunța la portofelul de bonusuri sportive. Cu toate acestea, dacă aveți pariuri sportive nesoluționate plasate cu bonusuri sportive, nu puteți renunța până când toate pariurile nu sunt soluționate. Vă rugăm să rețineți că atunci când pierdeți BONUSUL SPORTIV, soldul rămas va fi eliminat și nu poate fi recuperat. Unii jucători își pierd soldul pentru a cumpăra un alt BONUS SPORTIV, deoarece poate exista doar 1 BONUS SPORTIV activ la un moment dat.",
+      "title": "Pot să renunț/să renunț la portofelul cu bonusuri sportive?"
+    },
+    "q13": {
+      "body": "Dacă utilizați un furnizor de internet dintr-o regiune restricționată, cum ar fi Singapore, Statele Unite, Israel etc. BONUSUL SPORTIV nu va fi disponibil în regiunea dvs. Dacă considerați că aceasta este o eroare, vă rugăm să contactați asistența pentru clienți.",
+      "title": "De ce nu pot vedea opțiunea Bonus sportiv?"
+    }
+  }
+}

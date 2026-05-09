@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBónusz",
+  "intro": "Játssz a Sportbónusszal, mint valódi készpénzzel! Minden fogadás közelebb visz a teljes érték feloldásához. Teljesítsd az átjátszási követelményeket, és nézd meg, amint Sportbónuszod visszaváltható jutalommá válik még ma!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "A Sports Bonus Wallet egy speciális pénztárca sportfogadásokhoz. Vásárláskor megkapja a befizetés összegét plusz egy extra bónuszt (pl. 100 USDT befizetés 50% bónusz mellett = 150 USDT a Sportbónusz pénztárcájában). Ebben a pénztárcában lévő összes pénzeszköz csak sportfogadásra használható fel.",
+      "title": "Mi az a sportbónusz pénztárca?"
+    },
+    "q2": {
+      "body": "Lépjen a Sportbónusz oldalra, válasszon egy bónuszszintet (pl. +50%), adja meg a befizetés összegét (el kell érnie az oldalon látható minimális összeget), majd érintse meg a „Vásárlás most” lehetőséget. Befizetése és a bónusz azonnal hozzáadódik Sportbónusz pénztárcájához.",
+      "title": "Hogyan vásárolhatok Sportbónuszt?"
+    },
+    "q3": {
+      "body": "Igen. Kérjük, ellenőrizze a Sportbónusz oldalon az aktuális minimális és maximális befizetési limiteket.",
+      "title": "Van minimum vagy maximum befizetés?"
+    },
+    "q4": {
+      "body": "Nem. A sportbónusz csak sportfogadásra használható fel. Nem használható nyerőgépekhez, kaszinóhoz, élő kaszinóhoz vagy bármely más játékhoz.",
+      "title": "Használhatom a Sports Bónuszt nyerőgépekhez vagy kaszinójátékokhoz?"
+    },
+    "q5": {
+      "body": "Mielőtt kivehetne, teljesítenie kell egy fogadási követelményt. A képlet a következő: Összes megszerzett BÓNUSZ × Fogadási szorzó. Például, ha 100 USDT-t vásárol 50% SPORTBÓNUSZ-ért, hogy 150 SPORTBÓNUSZ kerüljön a pénztárcájába, és a szorzó 10x, akkor 150 × 10 = 1500 {{currency}} értékű jogosult sportfogadást kell elhelyeznie.",
+      "title": "Mi a fogadási követelmény?"
+    },
+    "q6": {
+      "body": "Három szabály érvényes:\n\n Vesztett fogadások: Ha 100 USDT-t fogad és veszít, 100 USDT beleszámít a fogadási követelménybe.\n\n Nyertes fogadások: Csak akkor számít, ha a szorzó ≥ {{minOdds}}. Ha 100 USDT-t fogad 1.7-es szorzóval és nyer, 100 beleszámít a fogadási követelménybe. Ha a szorzó alacsonyabb, mint {{minOdds}} és nyer, nem számít be a fogadási követelménybe.\n\n Kifizetett fogadások (korai feladás): Csak akkor számít, ha a kifizetett összeg nagyobb, mint az eredeti fogadási összeg × {{minOdds}}. Ha a feltétel teljesül, a fogadási összeg beleszámít a fogadási követelménybe. Ellenkező esetben nem számít be a fogadási követelménybe.",
+      "title": "Mely fogadások számítanak bele a fogadási követelménybe?"
+    },
+    "q7": {
+      "body": "Igen, miután teljesítetted a fogadási követelményt, és egyenlege eléri a minimális kifizetési összeget. SPORTBÓNUSZ egyenlegét átválthatja fő pénztárcájára az Ön által választott pénznemben.",
+      "title": "Kivehetem a Sportbónusz egyenlegemet?"
+    },
+    "q8": {
+      "body": "A készpénzre váltható maximális összeg felső határa a teljes megszerzett SPORTBÓNUSZ szorzója. Például, ha a megszerzett SPORTBÓNUSZ 150, és a maximális kárszorzó 10-szeres, akkor a készpénzre váltható maximum 1500 USDT (az aktuális árfolyamon átváltva a választott pénznemre).",
+      "title": "Mennyi a maximális összeg, amit készpénzre válthatok?"
+    },
+    "q9": {
+      "body": "Nem. Egyszerre csak egy aktív sportbónuszod lehet. Először a jelenlegit kell teljesítenie – vagy a fogadási követelmény teljesítése utáni visszavonással, vagy elvesztésével (ha az egyenleg ≤ 0,1 USDT-nek megfelelő), vagy megvárva, amíg lejár. Ezt követően újra vásárolhat.",
+      "title": "Vásárolhatok újra Sportbónuszt, amíg még van egy aktív bónuszom?"
+    },
+    "q10": {
+      "body": "A vásárlások között lehűlési időszak van. A lehűlés időtartama a Sportbónusz oldalon látható.",
+      "title": "Milyen gyakran vásárolhatok Sportbónuszt?"
+    },
+    "q11": {
+      "body": "A Sports Bonus Wallet érvényességi ideje van (pl. 30 nap). Ha ezen az időszakon belül nem teljesíti a fogadási követelményt, a fennmaradó SPORTBÓNUSZ egyenleg lejár, és eltávolítjuk.",
+      "title": "Mi történik, ha nem teljesítem időben a fogadási követelményt?"
+    },
+    "q12": {
+      "body": "V: Igen. Ha a sportbónusz egyenlege ≤ 0,1 USD, elveszítheti Sportbónusz pénztárcáját. Azonban, ha bármilyen rendezetlen sportfogadása van a Sportbónusszal, akkor nem veszíthet el, amíg az összes fogadást el nem rendezik. Felhívjuk figyelmét, hogy a SPORTBÓNUSZ elvesztése esetén a fennmaradó egyenleget eltávolítjuk, és azt nem lehet behajtani. Néhány játékos elveszíti egyenlegét, hogy újabb SPORTBÓNUSZT vásároljon, mivel egyszerre csak 1 SPORTBÓNUSZ lehet aktív.",
+      "title": "Lemondhatom/elhagyhatom a Sportbónusz pénztárcámat?"
+    },
+    "q13": {
+      "body": "Ha korlátozott régióból, például Szingapúrból, Egyesült Államokból, Izraelből stb. származó internetszolgáltatót használ, a SPORTBÓNUSZ nem érhető el az Ön régiójában. Ha úgy gondolja, hogy ez hiba, forduljon az ügyfélszolgálathoz.",
+      "title": "Miért nem látom a Sportbónusz opciót?"
+    }
+  }
+}

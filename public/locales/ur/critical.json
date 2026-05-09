@@ -1,0 +1,25 @@
+{
+  "bonus": "بونس",
+  "conquests": "فتوحات",
+  "completed": "مکمل",
+  "daily_cashback": "روزانہ کیش بیک",
+  "expiration": "اختتام",
+  "claimed": "حاصل کیا",
+  "deposit_now": "ابھی جمع کریں",
+  "gameOver": "کھیل ختم",
+  "level": "لیول",
+  "bonusHub": {
+    "ongoing": "{{count}} جاری",
+    "root": "بونس ہب"
+  },
+  "details": {
+    "lastUpdate": "آخری تازہ کاری"
+  },
+  "transactionStatus": {
+    "expired": "میعاد ختم",
+    "cancelled": "منسوخ"
+  },
+  "notifications": "نوٹیفیکیشنز",
+  "read": "پڑھیں",
+  "unread": "نہیں پڑھی"
+}

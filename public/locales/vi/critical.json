@@ -1,0 +1,25 @@
+{
+  "bonus": "Tiền thưởng",
+  "conquests": "Nhiệm vụ chinh phục",
+  "completed": "Đã hoàn thành",
+  "daily_cashback": "Hoàn tiền hàng ngày",
+  "expiration": "Hết hạn",
+  "claimed": "Đã Nhận",
+  "deposit_now": "Nạp tiền ngay",
+  "gameOver": "Trò chơi kết thúc",
+  "level": "Cấp độ",
+  "bonusHub": {
+    "ongoing": "{{count}} Đang Diễn Ra",
+    "root": "Trung Tâm Thưởng"
+  },
+  "details": {
+    "lastUpdate": "Cập nhật cuối"
+  },
+  "transactionStatus": {
+    "expired": "Đã hết hạn",
+    "cancelled": "Đã hủy"
+  },
+  "notifications": "Thông báo",
+  "read": "Đã đọc",
+  "unread": "Chưa đọc"
+}

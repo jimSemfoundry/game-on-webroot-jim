@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Gioca con Sports Bonus proprio come soldi veri! Ogni scommessa ti avvicina allo sblocco del loro pieno valore. Soddisfa i requisiti di gioco e guarda il tuo bonus sportivo trasformarsi in premi prelevabili oggi stesso!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Lo Sports Bonus Wallet è un portafoglio speciale per le scommesse sportive. Quando effettui un acquisto, ricevi l'importo del deposito più un bonus extra (ad esempio deposita 100 USDT con un bonus del 50% = 150 USDT nel tuo Portafoglio Bonus Sport). Tutti i fondi presenti in questo portafoglio possono essere utilizzati solo per le scommesse sportive.",
+      "title": "Cos'è il Portafoglio Bonus Sport?"
+    },
+    "q2": {
+      "body": "Vai alla pagina Bonus Sport, seleziona un livello bonus (ad esempio +50%), inserisci l'importo del tuo deposito (deve raggiungere l'importo minimo mostrato nella pagina) e tocca \"Acquista ora\". Il tuo deposito più il bonus verranno aggiunti immediatamente al tuo Portafoglio Bonus Sport.",
+      "title": "Come posso acquistare il Bonus Sport?"
+    },
+    "q3": {
+      "body": "SÌ. Ti preghiamo di controllare la pagina Bonus Sport per gli attuali limiti di deposito minimo e massimo.",
+      "title": "C'è un deposito minimo o massimo?"
+    },
+    "q4": {
+      "body": "No. Il bonus sportivo può essere utilizzato solo per le scommesse sportive. Non può essere utilizzato per slot, casinò, casinò dal vivo o altri giochi.",
+      "title": "Posso utilizzare il bonus sportivo per le slot o i giochi da casinò?"
+    },
+    "q5": {
+      "body": "Prima di poter prelevare, devi completare un requisito di scommessa. La formula è: BONUS Totale Ottenuto × Moltiplicatore di Scommessa. Ad esempio, se acquisti 100 USDT per il 50% BONUS SPORTIVO per avere 150 BONUS SPORTIVO aggiunti al tuo portafoglio e il moltiplicatore è 10x, devi piazzare 150 × 10 = 1500 {{currency}} equivalente in scommesse sportive qualificate.",
+      "title": "Qual è il requisito di scommessa?"
+    },
+    "q6": {
+      "body": "Si applicano tre regole:\n\n Scommesse perse: Se scommetti 100 USDT e perdi, 100 USDT conta ai fini dei requisiti di scommessa.\n\n Scommesse vinte: Contano solo se le quote sono ≥ {{minOdds}}. Se scommetti 100 USDT con una quota di 1.7 e vinci, 100 verrà conteggiato ai fini dei requisiti di scommessa. Se le quote sono inferiori a {{minOdds}} e vinci, non conta ai fini dei requisiti di scommessa.\n\n Scommesse riscosse (resistenza anticipata): Contano solo se l'importo riscosso è maggiore dell'importo della scommessa originale × {{minOdds}}. Se la condizione è soddisfatta, l'importo della scommessa conta ai fini dei requisiti di scommessa. Altrimenti, non conta ai fini dei requisiti di scommessa.",
+      "title": "Quali scommesse contano ai fini dei requisiti di scommessa?"
+    },
+    "q7": {
+      "body": "Sì, una volta che hai completato i requisiti di scommessa e il tuo saldo raggiunge l'importo minimo di prelievo. Il tuo saldo BONUS SPORT può essere convertito nel tuo portafoglio principale nella valuta di tua scelta.",
+      "title": "Posso prelevare il saldo del mio Bonus Sport?"
+    },
+    "q8": {
+      "body": "L'importo massimo che puoi convertire in contanti è limitato a un moltiplicatore del tuo BONUS SPORT totale ottenuto. Ad esempio, se il tuo BONUS SPORTIVO ottenuto è 150 e il moltiplicatore massimo di richieste è 10x, il massimo che puoi convertire in contanti è 1500 USDT (convertito nella valuta prescelta al tasso di cambio corrente).",
+      "title": "Qual è l'importo massimo che posso convertire in contanti?"
+    },
+    "q9": {
+      "body": "No. Puoi avere un solo Bonus Sport attivo alla volta. Devi prima completare quello attuale: ritirandoti dopo aver soddisfatto i requisiti di scommessa, rinunciando a esso (quando il saldo è ≤ 0,1 USDT equivalente) o aspettando che scada. Successivamente potrai effettuare nuovamente l'acquisto.",
+      "title": "Posso acquistare nuovamente lo Sports Bonus mentre ne ho ancora uno attivo?"
+    },
+    "q10": {
+      "body": "C'è un periodo di recupero tra gli acquisti. La durata del cooldown è mostrata nella pagina Bonus Sport.",
+      "title": "Con quale frequenza posso acquistare il Bonus Sport?"
+    },
+    "q11": {
+      "body": "Il Portafoglio Bonus Sport ha un periodo di validità (es. 30 giorni). Se non completi i requisiti di scommessa entro questo periodo, il saldo SPORTS BONUS rimanente scadrà e verrà rimosso.",
+      "title": "Cosa succede se non completo i requisiti di scommessa in tempo?"
+    },
+    "q12": {
+      "body": "R: Sì. Se il saldo del tuo bonus sportivo è ≤ 0,1 USDT, puoi rinunciare al tuo portafoglio bonus sportivo. Tuttavia, se hai scommesse sportive non definite piazzate con il bonus sportivo, non puoi rinunciare fino a quando tutte le scommesse non saranno state definite. Tieni presente che quando perdi il tuo BONUS SPORTIVO, il saldo rimanente verrà rimosso e non potrà essere recuperato. Alcuni giocatori perdono il proprio saldo per acquistare un altro BONUS SPORTIVO poiché può esserci solo 1 BONUS SPORTIVO attivo alla volta.",
+      "title": "Posso rinunciare/perdere il mio Portafoglio Bonus Sport?"
+    },
+    "q13": {
+      "body": "Se utilizzi un provider Internet di una regione con restrizioni come Singapore, Stati Uniti, Israele ecc. SPORT BONUS non sarà disponibile nella tua regione. Se ritieni che si tratti di un errore, contatta l'assistenza clienti.",
+      "title": "Perché non riesco a vedere l'opzione Bonus Sport?"
+    }
+  }
+}

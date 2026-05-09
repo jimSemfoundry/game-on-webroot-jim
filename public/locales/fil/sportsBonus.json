@@ -1,0 +1,58 @@
+{
+  "bonus": "Palakasan\nBonus",
+  "intro": "Maglaro ng Sports Bonus tulad ng totoong pera! Ang bawat taya ay naglalapit sa iyo sa pag-unlock ng kanilang buong halaga. Matugunan ang mga kinakailangan sa paglalaro at panoorin ang iyong Sports Bonus na naging mga reward na kayang i-withdraw ngayon!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Ang Sports Bonus Wallet ay isang espesyal na wallet para sa pagtaya sa sports. Kapag bumili ka, matatanggap mo ang halaga ng iyong deposito at karagdagang bonus (hal. deposito ng 100 USDT na may 50% na bonus = 150 USDT sa iyong Sports Bonus Wallet). Ang lahat ng mga pondo sa wallet na ito ay magagamit lamang para sa pagtaya sa sports.",
+      "title": "Ano ang Sports Bonus Wallet?"
+    },
+    "q2": {
+      "body": "Pumunta sa page ng Sports Bonus, pumili ng tier ng bonus (hal. +50%), ilagay ang halaga ng iyong deposito (dapat matugunan ang pinakamababang halaga na ipinapakita sa page), at i-tap ang \"Buy Now\". Ang iyong deposito at ang bonus ay idadagdag kaagad sa iyong Sports Bonus Wallet.",
+      "title": "Paano ako bibili ng Sports Bonus?"
+    },
+    "q3": {
+      "body": "Oo. Mangyaring suriin ang pahina ng Sports Bonus para sa kasalukuyang minimum at maximum na mga limitasyon sa deposito.",
+      "title": "Mayroon bang minimum o maximum na deposito?"
+    },
+    "q4": {
+      "body": "Hindi. Magagamit lamang ang Sports Bonus para sa pagtaya sa sports. Hindi ito maaaring gamitin para sa Slots, Casino, Live Casino, o anumang iba pang laro.",
+      "title": "Maaari ko bang gamitin ang Sports Bonus para sa mga slot o mga laro sa casino?"
+    },
+    "q5": {
+      "body": "Bago ka makakuha ng withdraw, kailangan mong kumpletuhin ang isang kinakailangan sa pagtaya. Ang formula ay: Kabuuang Nakuha na BONUS × Multiplier ng Pagtaya. Halimbawa, kung bumili ka ng 100 USDT para sa 50% SPORTS BONUS na magkaroon ng 150 SPORTS BONUS na idagdag sa iyong wallet at ang multiplier ay 10x, kailangan mong ilagay ang 150 × 10 = 1500 {{currency}} katumbas sa mga kwalipikadong sports wagers.",
+      "title": "Ano ang kinakailangan sa pagtaya?"
+    },
+    "q6": {
+      "body": "Tatlong patakaran ang naaaply:\n\n Matalong taya: Kung magtaya ka ng 100 USDT at matalo, 100 USDT ay binibilang sa kinakailangan sa pagtaya.\n\n Panalong taya: Binibilang lang kung ang odds ay ≥ {{minOdds}}. Kung magtaya ka ng 100 USDT sa odds na 1.7 at manalo, 100 ay bibilang sa kinakailangan sa pagtaya. Kung ang odds ay sa ibaba ng {{minOdds}} at manalo, hindi ito binibilang sa kinakailangan sa pagtaya.\n\n Cash out na taya (maagang sumuko): Binibilang lang kung ang cash out na halaga ay mas malaki kaysa sa orihinal na halaga ng taya × {{minOdds}}. Kung naisasabatas ang kondisyon, ang halaga ng taya ay binibilang sa kinakailangan sa pagtaya. Kung hindi, hindi ito binibilang sa kinakailangan sa pagtaya.",
+      "title": "Aling mga taya ang binibilang sa kinakailangan sa pagtaya?"
+    },
+    "q7": {
+      "body": "Oo, kapag nakumpleto mo na ang kinakailangan sa pagtaya at naabot ng iyong balanse ang pinakamababang halaga ng withdrawal. Ang iyong balanse sa SPORTS BONUS ay maaaring ma-convert sa iyong pangunahing wallet sa currency na iyong pinili.",
+      "title": "Maaari ko bang bawiin ang aking balanse sa Sports Bonus?"
+    },
+    "q8": {
+      "body": "Ang maximum na halaga na maaari mong i-convert sa cash ay nilimitahan sa isang multiplier ng iyong kabuuang SPORTS BONUS na nakuha. Halimbawa, kung ang iyong SPORTS BONUS na nakuha ay 150 at ang max claim multiplier ay 10x, ang maximum na maaari mong i-convert sa cash ay 1500 USDT (na-convert sa iyong napiling currency sa kasalukuyang exchange rate).",
+      "title": "Ano ang maximum na halaga na maaari kong i-convert sa cash?"
+    },
+    "q9": {
+      "body": "Hindi. Maaari ka lamang magkaroon ng isang aktibong Sports Bonus sa isang pagkakataon. Kailangan mo munang kumpletuhin ang iyong kasalukuyan — alinman sa pamamagitan ng pag-withdraw pagkatapos matugunan ang kinakailangan sa pagtaya, pag-alis nito (kapag ang balanse ay katumbas ng ≤ 0.1 USDT), o paghihintay na mag-expire ito. Pagkatapos nito, maaari kang bumili muli.",
+      "title": "Maaari ba akong bumili muli ng Sports Bonus habang mayroon pa akong aktibo?"
+    },
+    "q10": {
+      "body": "May cooldown period sa pagitan ng mga pagbili. Ang tagal ng cooldown ay ipinapakita sa pahina ng Sports Bonus.",
+      "title": "Gaano kadalas ako makakabili ng Sports Bonus?"
+    },
+    "q11": {
+      "body": "Ang Sports Bonus Wallet ay may validity period (hal. 30 araw). Kung hindi mo makumpleto ang kinakailangan sa pagtaya sa loob ng panahong ito, ang natitirang balanse sa SPORTS BONUS ay mawawalan ng bisa at aalisin.",
+      "title": "Ano ang mangyayari kung hindi ko makumpleto ang kinakailangan sa pagtaya sa oras?"
+    },
+    "q12": {
+      "body": "A: Oo. Kung ang balanse ng iyong Sports Bonus ay ≤ 0.1 USDT, maaari mong mawala ang iyong Sports Bonus Wallet. Gayunpaman, kung mayroon kang anumang hindi maayos na taya sa sports na inilagay sa Sports Bonus, hindi ka maaaring mag-forfeit hanggang ang lahat ng taya ay naayos. Pakitandaan na kapag nawala mo ang iyong SPORTS BONUS, ang natitirang balanse ay aalisin at hindi na mababawi. Ang ilang mga manlalaro ay nawawala ang kanilang balanse upang makabili ng isa pang SPORTS BONUS dahil maaari lamang magkaroon ng 1 SPORTS BONUS na aktibo sa anumang oras.",
+      "title": "Maaari ko bang isuko / i-forfeit ang aking Sports Bonus Wallet?"
+    },
+    "q13": {
+      "body": "Kung gumagamit ka ng internet provider mula sa isang pinaghihigpitang rehiyon tulad ng Singapore, United States, Israel atbp. Ang SPORTS BONUS ay hindi magiging available sa iyong rehiyon. Kung naniniwala ka na ito ay isang error, mangyaring makipag-ugnayan sa suporta sa customer.",
+      "title": "Bakit hindi ko makita ang opsyon na Sports Bonus?"
+    }
+  }
+}

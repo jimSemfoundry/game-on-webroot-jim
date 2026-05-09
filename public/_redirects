@@ -1,0 +1,7 @@
+# 语法：[原始路径] [目标路径] [状态码]
+
+# 显式排除 game.html，防止它被重定向到 React 首页
+/games/buddyball-cocos/index.html  /games/buddyball-cocos/index.html  200
+
+# 其余路由指向 index.html 支持 React Router
+/* /index.html 200

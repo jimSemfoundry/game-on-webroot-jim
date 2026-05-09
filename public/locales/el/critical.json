@@ -1,0 +1,25 @@
+{
+  "bonus": "Μπόνους",
+  "conquests": "Κατακτήσεις",
+  "completed": "Ολοκληρώθηκε",
+  "daily_cashback": "Καθημερινό Cashback",
+  "expiration": "Λήξη",
+  "claimed": "Παραλήφθηκε",
+  "deposit_now": "Κατάθεση τώρα",
+  "gameOver": "Τέλος Παιχνιδιού",
+  "level": "Επίπεδο",
+  "bonusHub": {
+    "ongoing": "{{count}} σε εξέλιξη",
+    "root": "Κέντρο Μπόνους"
+  },
+  "details": {
+    "lastUpdate": "Τελευταία Ενημέρωση"
+  },
+  "transactionStatus": {
+    "expired": "Έχει λήξει",
+    "cancelled": "Ακυρώθηκε"
+  },
+  "notifications": "Ειδοποιήσεις",
+  "read": "Διαβάστηκε",
+  "unread": "Μη διαβασμένο"
+}

@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Taglia",
+  "activeTab": "Attivi",
+  "completedTab": "Completati",
+  "myCompletedTab": "I miei completati",
+  "claimReward": "Riscatta",
+  "claiming": "Riscatto in corso...",
+  "claimed": "Riscattato",
+  "play": "Gioca",
+  "challengeCompleted": "Sfida completata",
+  "hitMultiplier": "Raggiungi {{multiplier}}×",
+  "rewardLabel": "Ricompensa",
+  "minBetLabel": "Puntata min.",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} rimasti",
+  "noActiveChallenges": "Nessuna sfida attiva al momento.",
+  "noCompletedChallenges": "Ancora nessuna sfida completata.",
+  "noMyChallenges": "Non hai ancora vinto alcuna sfida bounty.",
+  "branchDisabled": "Le sfide bounty non sono attualmente disponibili.",
+  "forbidden": "Il tuo account è attualmente limitato dalle ricompense bounty.",
+  "searchPlaceholder": "Cerca giochi...",
+  "filterProvider": "Filtra per fornitore",
+  "winnersLabel": "Vincitori",
+  "viewWinners": "Vedi vincitori",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Il tuo premio sarà accreditato sul seguente account:",
+    "continue": "Continua"
+  },
+  "claimYourReward": "Riscatta il tuo premio: {{amount}} {{currency}}",
+  "sortOrder": "Ordine di ordinamento",
+  "congratulations": "Congratulazioni!",
+  "bountyCompleted": "Bounty completato, riscatta la tua ricompensa ora!",
+  "youHitMultiplier": "Hai raggiunto <0>{{multiplier}}×</0>! Bounty completato, riscatta la tua ricompensa ora!",
+  "newBountyAvailable": "Nuovo Bounty disponibile",
+  "claimSuccess": "Ricompensa riscattata",
+  "claimSuccessDetail": "{{amount}} {{currency}} aggiunti al tuo portafoglio.",
+  "claimNow": "Riscatta ora",
+  "go": "Vai",
+  "winAmount": "Vinci {{amount}} {{currency}}",
+  "multiplierLabel": "Moltiplicatore",
+  "sortByCreated": "Aggiunti di recente",
+  "sortByReward": "Ricompensa più alta",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Dettagli del bonus",
+    "intro": "Le sfide Bounty ti ricompensano con premi per le grandi vincite. In uno qualsiasi dei giochi elencati, basta piazzare una scommessa qualificata che soddisfi l'importo minimo di puntata e raggiunga il moltiplicatore richiesto — se sei tra i primi a farlo, la ricompensa è tua.",
+    "howItWorks": {
+      "title": "Come funziona",
+      "body": "  - Ogni sfida Bounty è legata a un gioco specifico\n  - Piazza una scommessa che soddisfi l'importo minimo di puntata\n  - Raggiungi il moltiplicatore obiettivo o superiore per completare la sfida\n  - I primi giocatori a completare la sfida vincono la ricompensa\n  - Puoi vincere più volte sulla stessa sfida se ci sono più premi assegnati"
+    },
+    "claim": {
+      "title": "Distribuzione dei riscatti",
+      "body": "Le ricompense saranno accreditate sul tuo portafoglio nella valuta specificata per ogni sfida. Puoi riscattare la tua ricompensa in qualsiasi momento dalla scheda \"I miei completati\" nella pagina Bounty. Non c'è limite di tempo per riscattare."
+    },
+    "eligible": {
+      "title": "Scommesse idonee",
+      "body": "  - Solo le scommesse con denaro reale contano. Le scommesse effettuate utilizzando Slot Bonus Wallet o Free Spins non sono idonee.\n  - Il tuo importo di scommessa deve soddisfare o superare l'importo minimo di puntata mostrato sulla sfida."
+    },
+    "terms": {
+      "title": "Termini generali",
+      "body": "  - Le ricompense Bounty vengono calcolate e accreditate nella valuta configurata per ogni sfida, e poi visualizzate nella tua valuta preferita per comodità. Si prega di notare che le conversioni di valuta sono approssimative.\n  - Il casinò si riserva il diritto di modificare o revocare l'idoneità in qualsiasi momento, senza obbligo di giustificare. Qualsiasi abuso o attività fraudolenta porterà alla squalifica dalla promozione."
+    }
+  },
+  "rewardTooltip": "Punta almeno {{minBet}} {{currency}} (o equivalente) con un moltiplicatore di {{multiplier}}× o superiore. I primi {{slots}} giocatori qualificati vincono il premio.",
+  "filterAll": "Tutti",
+  "filterClaimable": "Riscattabile",
+  "filterClaimed": "Riscattato"
+}

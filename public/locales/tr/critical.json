@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Fetihler",
+  "completed": "Tamamlandı",
+  "daily_cashback": "Günlük Geri Ödeme",
+  "expiration": "Son Kullanma Tarihi",
+  "claimed": "Talep Edildi",
+  "deposit_now": "Şimdi Yatır",
+  "gameOver": "Oyun Bitti",
+  "level": "Seviye",
+  "bonusHub": {
+    "ongoing": "{{count}} Devam Eden",
+    "root": "Bonus Merkezi"
+  },
+  "details": {
+    "lastUpdate": "Son Güncelleme"
+  },
+  "transactionStatus": {
+    "expired": "Süresi Dolmuş",
+    "cancelled": "İptal Edildi"
+  },
+  "notifications": "Bildirimler",
+  "read": "Oku",
+  "unread": "Okunmamış"
+}

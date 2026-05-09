@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Spela med sportbonus precis som riktiga pengar! Varje satsning tar dig närmare att låsa upp deras fulla värde. Uppfyll genomspelningskraven och se din sportbonus förvandlas till uttagbara belöningar idag!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Sports Bonus Wallet är en speciell plånbok för sportspel. När du köper får du ditt insättningsbelopp plus en extra bonus (t.ex. sätt in 100 USDT med en 50 % bonus = 150 USDT i din Sports Bonus Wallet). Alla medel i denna plånbok kan endast användas för sportspel.",
+      "title": "Vad är Sports Bonus Wallet?"
+    },
+    "q2": {
+      "body": "Gå till sportbonussidan, välj en bonusnivå (t.ex. +50 %), ange ditt insättningsbelopp (måste uppfylla minimibeloppet som visas på sidan) och tryck på \"Köp nu\". Din insättning plus bonusen kommer att läggas till din Sports Bonus Wallet direkt.",
+      "title": "Hur köper jag sportbonus?"
+    },
+    "q3": {
+      "body": "Ja. Vänligen kolla sportbonussidan för aktuella lägsta och högsta insättningsgränser.",
+      "title": "Finns det en lägsta eller högsta insättning?"
+    },
+    "q4": {
+      "body": "Nej. Sportbonus kan endast användas för sportspel. Det kan inte användas för Slots, Casino, Live Casino eller andra spel.",
+      "title": "Kan jag använda Sports Bonus för slots eller kasinospel?"
+    },
+    "q5": {
+      "body": "Innan du kan ta ut måste du slutföra ett omsättningskrav. Formeln är: Totalt BONUS Erhållen × Omsättningsmultiplikator. Till exempel, om du köper 100 USDT för 50% SPORTSBONUS för att ha 150 SPORTSBONUS tillagt i din plånbok och multiplikatorn är 10x, måste du placera 150 × 10 = 1500 {{currency}} motsvarande i kvalificerade sportspel.",
+      "title": "Vad är omsättningskravet?"
+    },
+    "q6": {
+      "body": "Tre regler gäller:\n\n Förlorande spel: Om du satsar 100 USDT och förlorar, räknas 100 USDT mot omsättningskravet.\n\n Vinnande spel: Räknas bara om oddsen är ≥ {{minOdds}}. Om du satsar 100 USDT med odds på 1.7 och vinner, kommer 100 att räknas mot omsättningskravet. Om oddsen är under {{minOdds}} och du vinner, räknas det inte mot omsättningskravet.\n\n Utbetalade spel (tidig kapitulation): Räknas bara om utbetalningsbeloppet är större än det ursprungliga insatsbeloppet × {{minOdds}}. Om villkoret är uppfyllt, räknas insatsbeloppet mot omsättningskravet. Annars räknas det inte mot omsättningskravet.",
+      "title": "Vilka insatser räknas mot omsättningskravet?"
+    },
+    "q7": {
+      "body": "Ja, när du har slutfört omsättningskravet och ditt saldo uppfyller det lägsta uttagsbeloppet. Ditt SPORTBONUS-saldo kan konverteras till din huvudplånbok i den valuta du väljer.",
+      "title": "Kan jag ta ut mitt sportbonussaldo?"
+    },
+    "q8": {
+      "body": "Det maximala beloppet du kan konvertera till kontanter är begränsat till en multiplikator av din totala SPORTBONUS. Till exempel, om din erhållna SPORTBONUS är 150 och den maximala anspråksmultiplikatorn är 10x, är det maximala du kan konvertera till kontanter 1500 USDT (omräknat till din valda valuta med aktuell växelkurs).",
+      "title": "Vilket är det maximala beloppet jag kan konvertera till kontanter?"
+    },
+    "q9": {
+      "body": "Nej. Du kan bara ha en aktiv sportbonus åt gången. Du måste slutföra din nuvarande först — antingen genom att ta ut efter att ha uppfyllt omsättningskravet, förverka det (när saldo ≤ 0,1 USDT ekvivalent), eller vänta på att det ska löpa ut. Efter det kan du köpa igen.",
+      "title": "Kan jag köpa Sports Bonus igen medan jag fortfarande har en aktiv?"
+    },
+    "q10": {
+      "body": "Det finns en nedkylningsperiod mellan köpen. Nedkylningstiden visas på sportbonussidan.",
+      "title": "Hur ofta kan jag köpa sportbonus?"
+    },
+    "q11": {
+      "body": "Sportbonusplånboken har en giltighetstid (t.ex. 30 dagar). Om du inte fullföljer omsättningskravet inom denna period kommer det återstående SPORTBONUS-saldot att förfalla och tas bort.",
+      "title": "Vad händer om jag inte fullföljer omsättningskravet i tid?"
+    },
+    "q12": {
+      "body": "A: Ja. Om ditt saldo för sportbonus är ≤ 0,1 USDT kan du förlora din sportbonusplånbok. Men om du har några oavgjorda sportspel placerade med Sports Bonus, kan du inte förlora förrän alla spel är avgjorda. Observera att när du förlorar din SPORTBONUS kommer det återstående saldot att tas bort och kan inte återvinnas. Vissa spelare förlorar sitt saldo för att köpa ytterligare en SPORTBONUS eftersom det bara kan vara 1 SPORTBONUS aktiv åt gången.",
+      "title": "Kan jag ge upp/förverka min Sports Bonus Wallet?"
+    },
+    "q13": {
+      "body": "Om du använder en internetleverantör från en begränsad region som Singapore, USA, Israel etc. SPORTBONUS kommer inte att vara tillgänglig i din region. Om du tror att detta är ett fel, vänligen kontakta kundsupport.",
+      "title": "Varför kan jag inte se sportbonusalternativet?"
+    }
+  }
+}

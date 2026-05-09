@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Ödül",
+  "activeTab": "Aktif",
+  "completedTab": "Tamamlandı",
+  "myCompletedTab": "Tamamladıklarım",
+  "claimReward": "Talep et",
+  "claiming": "Talep ediliyor...",
+  "claimed": "Talep edildi",
+  "play": "Oyna",
+  "challengeCompleted": "Zorluk tamamlandı",
+  "hitMultiplier": "{{multiplier}}× yakala",
+  "rewardLabel": "Ödül",
+  "minBetLabel": "Min. bahis",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} kaldı",
+  "noActiveChallenges": "Şu anda aktif bir zorluk yok.",
+  "noCompletedChallenges": "Henüz tamamlanmış zorluk yok.",
+  "noMyChallenges": "Henüz hiç bounty zorluğu kazanmadınız.",
+  "branchDisabled": "Bounty zorlukları şu anda mevcut değil.",
+  "forbidden": "Hesabınız şu anda bounty ödüllerinden kısıtlandırılmıştır.",
+  "searchPlaceholder": "Oyun ara...",
+  "filterProvider": "Sağlayıcıya göre filtrele",
+  "winnersLabel": "Kazananlar",
+  "viewWinners": "Kazananları görüntüle",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Ödülünüz aşağıdaki hesaba yatırılacaktır:",
+    "continue": "Devam et"
+  },
+  "claimYourReward": "Ödülünü al: {{amount}} {{currency}}",
+  "sortOrder": "Sıralama düzeni",
+  "congratulations": "Tebrikler!",
+  "bountyCompleted": "Bounty tamamlandı, şimdi ödülünüzü talep edin!",
+  "youHitMultiplier": "<0>{{multiplier}}×</0> yakaladınız! Bounty tamamlandı, şimdi ödülünüzü talep edin!",
+  "newBountyAvailable": "Yeni Bounty mevcut",
+  "claimSuccess": "Ödül talep edildi",
+  "claimSuccessDetail": "{{amount}} {{currency}} cüzdanınıza eklendi.",
+  "claimNow": "Şimdi talep et",
+  "go": "Git",
+  "winAmount": "{{amount}} {{currency}} kazan",
+  "multiplierLabel": "Çarpan",
+  "sortByCreated": "Yeni eklenenler",
+  "sortByReward": "En yüksek ödül",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonus detayları",
+    "intro": "Bounty zorlukları, büyük kazançlar için sizi ödüllerle ödüllendirir. Listelenen oyunların herhangi birinde, minimum bahis miktarını karşılayan ve gerekli çarpanı yakalayan uygun bir bahis yapmanız yeterlidir — eğer bunu yapan ilk kişiler arasındaysanız, ödül sizindir.",
+    "howItWorks": {
+      "title": "Nasıl çalışır",
+      "body": "  - Her Bounty zorluğu belirli bir oyuna bağlıdır\n  - Minimum bahis miktarını karşılayan bir bahis yapın\n  - Zorluğu tamamlamak için hedef çarpana veya daha yüksek bir değere ulaşın\n  - Zorluğu tamamlayan ilk oyuncular ödülü kazanır\n  - Birden fazla ödül verilirse aynı zorluk üzerinde birden fazla kez kazanabilirsiniz"
+    },
+    "claim": {
+      "title": "Talep dağıtımı",
+      "body": "Ödüller, her zorluk için belirtilen para biriminde cüzdanınıza yatırılacaktır. Bounty sayfasındaki \"Tamamladıklarım\" sekmesinden istediğiniz zaman ödülünüzü talep edebilirsiniz. Talep etmek için zaman sınırı yoktur."
+    },
+    "eligible": {
+      "title": "Uygun bahisler",
+      "body": "  - Yalnızca gerçek para bahisleri sayılır. Slot Bonus Wallet veya Free Spins kullanılarak yapılan bahisler uygun değildir.\n  - Bahis miktarınız zorlukta gösterilen minimum bahis miktarına eşit veya daha fazla olmalıdır."
+    },
+    "terms": {
+      "title": "Genel şartlar",
+      "body": "  - Bounty ödülleri, her zorluk için yapılandırılan para biriminde hesaplanır ve yatırılır, ardından kolaylık için tercih ettiğiniz para biriminde görüntülenir. Lütfen para birimi dönüşümlerinin yaklaşık olduğunu unutmayın.\n  - Kumarhane, herhangi bir zamanda haklı çıkarma yükümlülüğü olmaksızın uygunluğu değiştirme veya iptal etme hakkını saklı tutar. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti, promosyondan diskalifiye edilmenize neden olur."
+    }
+  },
+  "rewardTooltip": "En az {{minBet}} {{currency}} (veya eşdeğeri) tutarında {{multiplier}}× veya daha yüksek çarpanla bahis yapın. Şartları sağlayan ilk {{slots}} oyuncu ödülü kazanır.",
+  "filterAll": "Tümü",
+  "filterClaimable": "Talep edilebilir",
+  "filterClaimed": "Talep edildi"
+}

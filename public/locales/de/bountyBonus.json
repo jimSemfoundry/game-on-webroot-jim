@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Prämie",
+  "activeTab": "Aktiv",
+  "completedTab": "Abgeschlossen",
+  "myCompletedTab": "Meine abgeschlossen",
+  "claimReward": "Einlösen",
+  "claiming": "Einlösen...",
+  "claimed": "Eingelöst",
+  "play": "Spielen",
+  "challengeCompleted": "Herausforderung abgeschlossen",
+  "hitMultiplier": "{{multiplier}}× erreicht",
+  "rewardLabel": "Belohnung",
+  "minBetLabel": "Min. Einsatz",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} übrig",
+  "noActiveChallenges": "Derzeit keine aktiven Herausforderungen.",
+  "noCompletedChallenges": "Noch keine abgeschlossenen Herausforderungen.",
+  "noMyChallenges": "Du hast noch keine Bounty-Herausforderungen gewonnen.",
+  "branchDisabled": "Bounty-Herausforderungen sind derzeit nicht verfügbar.",
+  "forbidden": "Dein Konto ist derzeit von Bounty-Belohnungen ausgeschlossen.",
+  "searchPlaceholder": "Spiele suchen...",
+  "filterProvider": "Nach Anbieter filtern",
+  "winnersLabel": "Gewinner",
+  "viewWinners": "Gewinner anzeigen",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Deine Belohnung wird dem folgenden Konto gutgeschrieben:",
+    "continue": "Weiter"
+  },
+  "claimYourReward": "Hol dir deine Belohnung: {{amount}} {{currency}}",
+  "sortOrder": "Sortierreihenfolge",
+  "congratulations": "Herzlichen Glückwunsch!",
+  "bountyCompleted": "Bounty abgeschlossen, jetzt deine Belohnung einlösen!",
+  "youHitMultiplier": "Du hast <0>{{multiplier}}×</0> erreicht! Bounty abgeschlossen, jetzt deine Belohnung einlösen!",
+  "newBountyAvailable": "Neue Bounty verfügbar",
+  "claimSuccess": "Belohnung eingelöst",
+  "claimSuccessDetail": "{{amount}} {{currency}} zu deiner Wallet hinzugefügt.",
+  "claimNow": "Jetzt einlösen",
+  "go": "Los",
+  "winAmount": "Gewinne {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplikator",
+  "sortByCreated": "Neu hinzugefügt",
+  "sortByReward": "Höchste Belohnung",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonus-Details",
+    "intro": "Bounty-Herausforderungen belohnen dich mit Preisen für große Gewinne. In jedem der aufgeführten Spiele musst du einfach einen qualifizierten Einsatz platzieren, der dem Mindesteinsatz entspricht und den erforderlichen Multiplikator erreicht — wenn du zu den Ersten gehörst, die das schaffen, gehört die Belohnung dir.",
+    "howItWorks": {
+      "title": "Wie es funktioniert",
+      "body": "  - Jede Bounty-Herausforderung ist an ein bestimmtes Spiel gebunden\n  - Platziere einen Einsatz, der dem Mindesteinsatz entspricht\n  - Erreiche den Zielmultiplikator oder höher, um die Herausforderung abzuschließen\n  - Die ersten Spieler, die die Herausforderung abschließen, gewinnen die Belohnung\n  - Du kannst bei derselben Herausforderung mehrmals gewinnen, wenn mehrere Preise vergeben werden"
+    },
+    "claim": {
+      "title": "Auszahlungsverteilung",
+      "body": "Die Belohnungen werden in der für jede Herausforderung angegebenen Währung deiner Wallet gutgeschrieben. Du kannst deine Belohnung jederzeit über die Registerkarte \"Meine abgeschlossen\" auf der Bounty-Seite einlösen. Es gibt keine zeitliche Begrenzung für die Einlösung."
+    },
+    "eligible": {
+      "title": "Berechtigte Einsätze",
+      "body": "  - Nur Echtgeld-Einsätze zählen. Einsätze mit Slot Bonus Wallet oder Free Spins sind nicht berechtigt.\n  - Dein Einsatzbetrag muss dem auf der Herausforderung angezeigten Mindesteinsatz entsprechen oder ihn übersteigen."
+    },
+    "terms": {
+      "title": "Allgemeine Bedingungen",
+      "body": "  - Bounty-Belohnungen werden in der für jede Herausforderung konfigurierten Währung berechnet und gutgeschrieben und dann zur bequemeren Anzeige in deiner bevorzugten Währung angezeigt. Bitte beachte, dass Währungsumrechnungen ungefähr sind.\n  - Das Casino behält sich das Recht vor, die Berechtigung jederzeit ohne Rechtfertigungspflicht zu ändern oder zu widerrufen. Jeder Missbrauch oder betrügerische Aktivitäten führen zum Ausschluss aus der Aktion."
+    }
+  },
+  "rewardTooltip": "Setze mindestens {{minBet}} {{currency}} (oder Äquivalent) bei einem Multiplikator von {{multiplier}}× oder höher. Die ersten {{slots}} qualifizierten Spieler erhalten die Belohnung.",
+  "filterAll": "Alle",
+  "filterClaimable": "Verfügbar",
+  "filterClaimed": "Eingelöst"
+}

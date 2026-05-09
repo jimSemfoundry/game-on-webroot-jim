@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Speel met Sports Bonus, net als echt geld! Elke inzet brengt je dichter bij het ontgrendelen van de volledige waarde ervan. Voldoe aan de doorspeelvereisten en zie hoe uw sportbonus vandaag nog wordt omgezet in opneembare beloningen!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "De Sports Bonus Wallet is een speciale portemonnee voor sportweddenschappen. Wanneer u een aankoop doet, ontvangt u uw stortingsbedrag plus een extra bonus (bijvoorbeeld: stort 100 USDT met een bonus van 50% = 150 USDT in uw Sports Bonus Wallet). Al het geld in deze portemonnee kan alleen worden gebruikt voor sportweddenschappen.",
+      "title": "Wat is de sportbonusportemonnee?"
+    },
+    "q2": {
+      "body": "Ga naar de Sportbonuspagina, selecteer een bonusniveau (bijvoorbeeld +50%), voer uw stortingsbedrag in (moet voldoen aan het minimumbedrag dat op de pagina wordt weergegeven) en tik op \"Koop nu\". Uw storting plus de bonus worden onmiddellijk aan uw Sports Bonus Wallet toegevoegd.",
+      "title": "Hoe koop ik een sportbonus?"
+    },
+    "q3": {
+      "body": "Ja. Kijk op de Sportbonuspagina voor de huidige minimale en maximale stortingslimieten.",
+      "title": "Is er een minimale of maximale storting?"
+    },
+    "q4": {
+      "body": "Nee. De sportbonus kan alleen worden gebruikt voor sportweddenschappen. Het kan niet worden gebruikt voor slots, casino's, live casino's of andere spellen.",
+      "title": "Kan ik Sports Bonus gebruiken voor slots of casinospellen?"
+    },
+    "q5": {
+      "body": "Voordat u kunt opnemen, moet u voldoen aan een inzetvereiste. De formule is: Totaal behaalde BONUS × Inzetvermenigvuldiger. Als u bijvoorbeeld 100 USDT koopt voor 50% SPORTSBONUS om 150 SPORTSBONUS aan uw portemonnee toe te voegen en de vermenigvuldiger is 10x, moet u 150 × 10 = 1500 {{currency}} equivalent inzetten op kwalificerende sportweddenschappen.",
+      "title": "Wat is de inzetvereiste?"
+    },
+    "q6": {
+      "body": "Er zijn drie regels van toepassing:\n\n Verliezende weddenschappen: Als u 100 USDT inzet en verliest, telt 100 USDT mee voor de inzetvereiste.\n\n Winnende weddenschappen: Tellen alleen mee als de odds ≥ {{minOdds}} zijn. Als u 100 USDT inzet met odds van 1.7 en wint, telt 100 mee voor de inzetvereiste. Als de odds lager zijn dan {{minOdds}} en wint u, telt dit niet mee voor de inzetvereiste.\n\n Uitbetaalde weddenschappen (vroegtijdige opgave): Tellen alleen mee als het uitbetaalde bedrag groter is dan het oorspronkelijke inzetbedrag × {{minOdds}}. Als aan de voorwaarde is voldaan, telt het inzetbedrag mee voor de inzetvereiste. Anders telt het niet mee voor de inzetvereiste.",
+      "title": "Welke weddenschappen tellen mee voor de inzetvereiste?"
+    },
+    "q7": {
+      "body": "Ja, zodra u aan de inzetvereisten heeft voldaan en uw saldo voldoet aan het minimale opnamebedrag. Uw SPORTBONUS-saldo kan worden omgezet naar uw hoofdportemonnee in de valuta van uw keuze.",
+      "title": "Kan ik mijn Sportbonus-saldo opnemen?"
+    },
+    "q8": {
+      "body": "Het maximale bedrag dat u in contanten kunt omzetten, is beperkt tot een vermenigvuldiger van uw totale verkregen SPORTBONUS. Als uw verkregen SPORTBONUS bijvoorbeeld 150 is en de maximale claimvermenigvuldiger 10x is, is het maximum dat u kunt omzetten in contant geld 1500 USDT (omgerekend naar de door u gekozen valuta tegen de huidige wisselkoers).",
+      "title": "Wat is het maximale bedrag dat ik kan omzetten in contant geld?"
+    },
+    "q9": {
+      "body": "Nee. Je kunt slechts één actieve sportbonus tegelijk hebben. U moet eerst uw huidige bonus voltooien – door u op te nemen nadat u aan de inzetvereiste hebt voldaan, deze te verbeuren (wanneer het saldo ≤ 0,1 USDT-equivalent is), of te wachten tot deze verloopt. Daarna kunt u opnieuw kopen.",
+      "title": "Kan ik de Sportbonus opnieuw kopen terwijl ik nog een actieve bonus heb?"
+    },
+    "q10": {
+      "body": "Tussen aankopen zit een afkoelperiode. De cooldownduur wordt weergegeven op de Sportbonuspagina.",
+      "title": "Hoe vaak kan ik een Sportbonus kopen?"
+    },
+    "q11": {
+      "body": "De Sports Bonus Wallet heeft een geldigheidsduur (bijvoorbeeld 30 dagen). Als u binnen deze periode niet aan de inzetvereiste voldoet, vervalt het resterende SPORTBONUS-saldo en wordt het verwijderd.",
+      "title": "Wat gebeurt er als ik niet op tijd aan de inzetvereisten voldoe?"
+    },
+    "q12": {
+      "body": "EEN: Ja. Als uw sportbonussaldo ≤ 0,1 USDT bedraagt, kunt u uw sportbonusportemonnee verliezen. Als u echter nog niet afgehandelde sportweddenschappen heeft geplaatst met Sports Bonus, kunt u deze pas verliezen als alle weddenschappen zijn afgehandeld. Houd er rekening mee dat wanneer u uw SPORTBONUS verliest, het resterende saldo wordt verwijderd en niet kan worden teruggevorderd. Sommige spelers verliezen hun saldo om nog een SPORTBONUS te kopen, aangezien er maar 1 SPORTBONUS tegelijk actief kan zijn.",
+      "title": "Kan ik mijn Sports Bonus Wallet opgeven/verbeuren?"
+    },
+    "q13": {
+      "body": "Als u een internetprovider gebruikt uit een beperkte regio, zoals Singapore, de Verenigde Staten, Israël enz., is SPORTBONUS niet beschikbaar in uw regio. Als u denkt dat dit een fout is, neem dan contact op met de klantenservice.",
+      "title": "Waarom zie ik de optie Sportbonus niet?"
+    }
+  }
+}

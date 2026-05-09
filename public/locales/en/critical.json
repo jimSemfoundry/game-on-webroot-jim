@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Conquests",
+  "completed": "Completed",
+  "daily_cashback": "Daily Cashback",
+  "expiration": "Expiration",
+  "claimed": "Claimed",
+  "deposit_now": "Deposit Now",
+  "gameOver": "Game Over",
+  "level": "Level",
+  "bonusHub": {
+    "ongoing": "{{count}} Ongoing",
+    "root": "Bonus Hub"
+  },
+  "details": {
+    "lastUpdate": "Last Update"
+  },
+  "transactionStatus": {
+    "expired": "Expired",
+    "cancelled": "Cancelled"
+  },
+  "notifications": "Notifications",
+  "read": "Read",
+  "unread": "Unread"
+}

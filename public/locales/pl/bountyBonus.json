@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Nagroda",
+  "activeTab": "Aktywne",
+  "completedTab": "Zakończone",
+  "myCompletedTab": "Moje zakończone",
+  "claimReward": "Odbierz",
+  "claiming": "Odbieranie...",
+  "claimed": "Odebrane",
+  "play": "Graj",
+  "challengeCompleted": "Wyzwanie ukończone",
+  "hitMultiplier": "Osiągnij {{multiplier}}×",
+  "rewardLabel": "Nagroda",
+  "minBetLabel": "Min. zakład",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Pozostało {{remaining}}",
+  "noActiveChallenges": "Obecnie brak aktywnych wyzwań.",
+  "noCompletedChallenges": "Jeszcze nie ma ukończonych wyzwań.",
+  "noMyChallenges": "Nie wygrałeś jeszcze żadnego wyzwania bounty.",
+  "branchDisabled": "Wyzwania bounty są obecnie niedostępne.",
+  "forbidden": "Twoje konto jest obecnie wyłączone z nagród bounty.",
+  "searchPlaceholder": "Szukaj gier...",
+  "filterProvider": "Filtruj według dostawcy",
+  "winnersLabel": "Zwycięzcy",
+  "viewWinners": "Zobacz zwycięzców",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Twoja nagroda zostanie zaksięgowana na następującym koncie:",
+    "continue": "Kontynuuj"
+  },
+  "claimYourReward": "Odbierz nagrodę: {{amount}} {{currency}}",
+  "sortOrder": "Kolejność sortowania",
+  "congratulations": "Gratulacje!",
+  "bountyCompleted": "Bounty ukończone, odbierz swoją nagrodę teraz!",
+  "youHitMultiplier": "Osiągnąłeś <0>{{multiplier}}×</0>! Bounty ukończone, odbierz swoją nagrodę teraz!",
+  "newBountyAvailable": "Nowy Bounty dostępny",
+  "claimSuccess": "Nagroda odebrana",
+  "claimSuccessDetail": "{{amount}} {{currency}} dodano do Twojego portfela.",
+  "claimNow": "Odbierz teraz",
+  "go": "Przejdź",
+  "winAmount": "Wygraj {{amount}} {{currency}}",
+  "multiplierLabel": "Mnożnik",
+  "sortByCreated": "Niedawno dodane",
+  "sortByReward": "Najwyższa nagroda",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Szczegóły bonusu",
+    "intro": "Wyzwania Bounty nagradzają Cię nagrodami za duże wygrane. W dowolnej z wymienionych gier po prostu postaw zakład kwalifikujący, który spełnia minimalną kwotę zakładu i osiąga wymagany mnożnik — jeśli jesteś jednym z pierwszych, którzy to zrobią, nagroda jest Twoja.",
+    "howItWorks": {
+      "title": "Jak to działa",
+      "body": "  - Każde wyzwanie Bounty jest powiązane z konkretną grą\n  - Postaw zakład spełniający minimalną kwotę zakładu\n  - Osiągnij docelowy mnożnik lub wyższy, aby ukończyć wyzwanie\n  - Pierwsi gracze, którzy ukończą wyzwanie, wygrywają nagrodę\n  - Możesz wygrać wielokrotnie w tym samym wyzwaniu, jeśli przyznawanych jest wiele nagród"
+    },
+    "claim": {
+      "title": "Dystrybucja odbioru",
+      "body": "Nagrody zostaną zaksięgowane na Twoim portfelu w walucie określonej dla każdego wyzwania. Możesz odebrać swoją nagrodę w dowolnym momencie z karty \"Moje zakończone\" na stronie Bounty. Nie ma limitu czasowego na odbiór."
+    },
+    "eligible": {
+      "title": "Kwalifikujące się zakłady",
+      "body": "  - Liczą się tylko zakłady prawdziwymi pieniędzmi. Zakłady postawione za pomocą Slot Bonus Wallet lub Free Spins nie kwalifikują się.\n  - Kwota Twojego zakładu musi spełniać lub przekraczać minimalną kwotę zakładu pokazaną na wyzwaniu."
+    },
+    "terms": {
+      "title": "Ogólne warunki",
+      "body": "  - Nagrody Bounty są obliczane i księgowane w walucie skonfigurowanej dla każdego wyzwania, a następnie wyświetlane w preferowanej przez Ciebie walucie dla wygody. Należy pamiętać, że konwersje walut są przybliżone.\n  - Kasyno zastrzega sobie prawo do modyfikacji lub cofnięcia kwalifikowalności w dowolnym momencie, bez obowiązku uzasadnienia. Wszelkie nadużycia lub oszukańcze działania doprowadzą do dyskwalifikacji z promocji."
+    }
+  },
+  "rewardTooltip": "Postaw co najmniej {{minBet}} {{currency}} (lub równowartość) z mnożnikiem {{multiplier}}× lub wyższym. Pierwszych {{slots}} kwalifikujących się graczy wygrywa nagrodę.",
+  "filterAll": "Wszystkie",
+  "filterClaimable": "Do odebrania",
+  "filterClaimed": "Odebrane"
+}

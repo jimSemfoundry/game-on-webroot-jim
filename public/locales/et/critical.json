@@ -1,0 +1,25 @@
+{
+  "bonus": "Boonus",
+  "conquests": "Vallutused",
+  "completed": "Lõpetatud",
+  "daily_cashback": "Igapäevane Cashback",
+  "expiration": "Aegumine",
+  "claimed": "Lunastatud",
+  "deposit_now": "Tee sissemakse",
+  "gameOver": "Mäng läbi",
+  "level": "Tase",
+  "bonusHub": {
+    "ongoing": "{{count}} käimas",
+    "root": "Boonusekeskus"
+  },
+  "details": {
+    "lastUpdate": "Viimane Uuendus"
+  },
+  "transactionStatus": {
+    "expired": "Aegunud",
+    "cancelled": "Tühistatud"
+  },
+  "notifications": "Teavitused",
+  "read": "Loe",
+  "unread": "Lugemata"
+}

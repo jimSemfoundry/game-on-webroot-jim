@@ -1,0 +1,23 @@
+{
+  "go": "ไป",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "เช็คอินรายวัน",
+  "referFriend": "ชวนเพื่อน",
+  "referralDeposit": "ฝากครั้งแรกของผู้ถูกแนะนำ",
+  "moreBalls": "รับ Buddy Balls เพิ่มเติม",
+  "rewards": "รางวัล Buddy Ball",
+  "records": "บันทึก Buddy Ball",
+  "balls": "ลูกบอล",
+  "type_deposit": "FTD โดยตรง",
+  "type_user": "แนะนำเพื่อน",
+  "type_buddy_balls_daily_checkin": "เช็คอินรายวัน",
+  "type_promo_code_buddy_balls": "โค้ดโปรโมชั่น",
+  "type_achievement_bb": "ความสำเร็จ",
+  "accumulated": "รางวัลสามารถสะสมและรับได้ทุกเวลา รางวัลทั้งหมดจะถูกชำระในสกุลเงินที่คุณเลือก",
+  "type_lucky_spin": "ลัคกี้สปิน",
+  "getMore": "รบเพม",
+  "share": "แชร",
+  "getMoreBuddyball": "รบลกบอลบดดเพม",
+  "shareBuddyball": "แชรลกบอลบดด",
+  "quickShare": "แชรดวน"
+}

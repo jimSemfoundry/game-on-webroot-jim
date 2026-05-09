@@ -1,0 +1,58 @@
+{
+  "bonus": "Deportes\nBono",
+  "intro": "¡Juega con Sports Bonus como si fuera dinero real! Cada apuesta te acerca a desbloquear su valor total. ¡Cumpla con los requisitos para jugar y observe cómo su bono deportivo se convierte en recompensas que se pueden retirar hoy mismo!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "El Sports Bonus Wallet es un monedero especial para apuestas deportivas. Cuando compras, recibes el monto de tu depósito más un bono adicional (por ejemplo, depositas 100 USDT con un bono del 50 % = 150 USDT en tu billetera de bonos deportivos). Todos los fondos de esta billetera solo se pueden utilizar para apuestas deportivas.",
+      "title": "¿Qué es la Cartera de Bono Deportivo?"
+    },
+    "q2": {
+      "body": "Vaya a la página de bonos deportivos, seleccione un nivel de bono (por ejemplo, +50%), ingrese el monto de su depósito (debe cumplir con el monto mínimo que se muestra en la página) y toque \"Comprar ahora\". Su depósito más el bono se agregarán instantáneamente a su Cartera de bonos deportivos.",
+      "title": "¿Cómo compro el bono deportivo?"
+    },
+    "q3": {
+      "body": "Sí. Consulte la página de bonos deportivos para conocer los límites de depósito mínimo y máximo actuales.",
+      "title": "¿Existe un depósito mínimo o máximo?"
+    },
+    "q4": {
+      "body": "No. El Bono Deportivo sólo se puede utilizar para apuestas deportivas. No se puede utilizar para tragamonedas, casino, casino en vivo ni ningún otro juego.",
+      "title": "¿Puedo utilizar el Bono Deportivo para tragamonedas o juegos de casino?"
+    },
+    "q5": {
+      "body": "Antes de poder retirar, debes completar un requisito de apuesta. La fórmula es: BONUS Total Obtenido × Multiplicador de Apuesta. Por ejemplo, si compras 100 USDT para 50% BONO DEPORTIVO para tener 150 BONO DEPORTIVO agregado a tu billetera y el multiplicador es 10x, necesitas colocar 150 × 10 = 1500 {{currency}} equivalente en apuestas deportivas calificadas.",
+      "title": "¿Cuál es el requisito de apuesta?"
+    },
+    "q6": {
+      "body": "Se aplican tres reglas:\n\n Apuestas perdidas: Si apuesta 100 USDT y pierde, 100 USDT cuenta para el requisito de apuesta.\n\n Apuestas ganadoras: Solo cuentan si las cuotas son ≥ {{minOdds}}. Si apuesta 100 USDT con cuotas de 1.7 y gana, 100 se contará para el requisito de apuesta. Si las cuotas están por debajo de {{minOdds}} y gana, no cuenta para el requisito de apuesta.\n\n Apuestas cobradas (rendimiento anticipado): Solo cuentan si el monto cobrado es mayor que el monto de la apuesta original × {{minOdds}}. Si se cumple la condición, el monto de la apuesta cuenta para el requisito de apuesta. De lo contrario, no cuenta para el requisito de apuesta.",
+      "title": "¿Qué apuestas cuentan para los requisitos de apuesta?"
+    },
+    "q7": {
+      "body": "Sí, una vez que haya completado los requisitos de apuesta y su saldo alcance el monto mínimo de retiro. El saldo de su BONO DEPORTIVO se puede convertir a su billetera principal en la moneda que elija.",
+      "title": "¿Puedo retirar el saldo de mi Bono Deportivo?"
+    },
+    "q8": {
+      "body": "La cantidad máxima que puedes convertir en efectivo tiene un límite de un multiplicador del total de tu BONO DEPORTIVO obtenido. Por ejemplo, si su BONO DEPORTIVO obtenido es 150 y el multiplicador de reclamo máximo es 10x, el máximo que puede convertir en efectivo es 1500 USDT (convertido a la moneda elegida al tipo de cambio actual).",
+      "title": "¿Cuál es la cantidad máxima que puedo convertir en efectivo?"
+    },
+    "q9": {
+      "body": "No. Sólo puedes tener un Bono Deportivo activo a la vez. Primero debe completar el actual, ya sea retirándolo después de cumplir con el requisito de apuesta, perdiéndolo (cuando el saldo es ≤ equivalente a 0,1 USDT) o esperando a que caduque. Después de eso, puedes volver a comprar.",
+      "title": "¿Puedo volver a adquirir el Bono Deportivo mientras todavía tengo uno activo?"
+    },
+    "q10": {
+      "body": "Hay un período de recuperación entre compras. La duración del tiempo de recuperación se muestra en la página de bonificación deportiva.",
+      "title": "¿Con qué frecuencia puedo adquirir el Bono Deportivo?"
+    },
+    "q11": {
+      "body": "La Cartera de Bono Deportivo tiene un período de validez (por ejemplo, 30 días). Si no completa el requisito de apuesta dentro de este período, el saldo restante del BONO DEPORTIVO caducará y se eliminará.",
+      "title": "¿Qué sucede si no completo el requisito de apuesta a tiempo?"
+    },
+    "q12": {
+      "body": "R: Sí. Si el saldo de su bono deportivo es ≤ 0,1 USDT, puede perder su billetera de bono deportivo. Sin embargo, si tiene apuestas deportivas pendientes de liquidación realizadas con el Bono Deportivo, no podrá perderlas hasta que se liquiden todas las apuestas. Tenga en cuenta que cuando pierda su BONO DEPORTIVO, el saldo restante se eliminará y no podrá recuperarse. Algunos jugadores pierden su saldo para comprar otro BONO DEPORTIVO, ya que solo puede haber 1 BONO DEPORTIVO activo a la vez.",
+      "title": "¿Puedo renunciar a mi Bono Deportivo Monedero?"
+    },
+    "q13": {
+      "body": "Si está utilizando un proveedor de Internet de una región restringida como Singapur, Estados Unidos, Israel, etc., la BONIFICACIÓN DEPORTIVA no estará disponible en su región. Si cree que se trata de un error, comuníquese con el servicio de atención al cliente.",
+      "title": "¿Por qué no puedo ver la opción de Bono Deportivo?"
+    }
+  }
+}

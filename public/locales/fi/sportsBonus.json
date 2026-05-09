@@ -1,0 +1,58 @@
+{
+  "bonus": "Urheilu\nBonus",
+  "intro": "Pelaa Sports Bonuksella kuin oikealla rahalla! Jokainen vedonlyönti vie sinut lähemmäksi niiden täyden arvon avaamista. Täytä läpipelaamisen vaatimukset ja katso, kuinka urheilubonuksesi muuttuu nostettavissa oleviksi palkinnoiksi jo tänään!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Sports Bonus Wallet on erityinen lompakko urheiluvedonlyöntiin. Kun ostat, saat talletussummasi plus ylimääräisen bonuksen (esim. talleta 100 USDT 50 % bonuksella = 150 USDT urheilubonuslompakkoon). Kaikki tämän lompakon varat voidaan käyttää vain urheiluvedonlyöntiin.",
+      "title": "Mikä on urheilubonuslompakko?"
+    },
+    "q2": {
+      "body": "Mene Sports Bonus -sivulle, valitse bonustaso (esim. +50 %), syötä talletuksesi summa (täytyy olla sivulla näkyvä vähimmäissumma) ja napauta \"Osta nyt\". Talletuksesi ja bonuksesi lisätään Sports Bonus -lompakkoon välittömästi.",
+      "title": "Kuinka ostan Sports Bonuksen?"
+    },
+    "q3": {
+      "body": "Kyllä. Tarkista nykyiset minimi- ja enimmäistalletusrajat Sports Bonus -sivulta.",
+      "title": "Onko olemassa minimi- vai enimmäistalletus?"
+    },
+    "q4": {
+      "body": "Ei. Urheilubonusta voidaan käyttää vain urheiluvedonlyöntiin. Sitä ei voi käyttää kolikkopeleihin, kasinoihin, livekasinoihin tai muihin peleihin.",
+      "title": "Voinko käyttää Sports Bonusta kolikkopeleihin tai kasinopeleihin?"
+    },
+    "q5": {
+      "body": "Ennen kuin voit nostaa, sinun on täytettävä kierrätysvaatimus. Kaava on: Saatujen BONUSTEN kokonaismäärä × Kierrätyskerroin. Esimerkiksi jos ostat 100 USDT 50% URHEILUBONUKSILLA, jotta saat 150 URHEILUBONUSTA lisättyyn lompakkoosi ja kerroin on 10x, sinun on asetettava 150 × 10 = 1500 {{currency}} vastaava määrä kelpoisia urheiluvedonlyöntejä.",
+      "title": "Mikä on kierrätysvaatimus?"
+    },
+    "q6": {
+      "body": "Kolme sääntöä sovelletaan:\n\n Hävinneet vedot: Jos asetat 100 USDT vetoa ja häviät, 100 USDT lasketaan kierrätysvaatimukseen.\n\n Voittaneet vedot: Lasketaan mukaan vain, jos kerroin on ≥ {{minOdds}}. Jos asetat 100 USDT vetoa kertoimella 1.7 ja voitat, 100 lasketaan kierrätysvaatimukseen. Jos kerroin on alle {{minOdds}} ja voitat, sitä ei lasketa kierrätysvaatimukseen.\n\n Etukäteen lunastetut vedot (aikainen luovutus): Lasketaan mukaan vain, jos lunastettu summa on suurempi kuin alkuperäisen vedon määrä × {{minOdds}}. Jos ehto täyttyy, vedon määrä lasketaan kierrätysvaatimukseen. Muussa tapauksessa sitä ei lasketa kierrätysvaatimukseen.",
+      "title": "Mitkä vedot lasketaan mukaan kierrätysvaatimukseen?"
+    },
+    "q7": {
+      "body": "Kyllä, kun olet täyttänyt kierrätysvaatimuksen ja saldosi täyttää vähimmäisnostosumman. SPORTS BONUS -saldosi voidaan muuntaa päälompakoosi valitsemallasi valuutalla.",
+      "title": "Voinko nostaa Sports Bonus -saldoni?"
+    },
+    "q8": {
+      "body": "Enimmäismäärä, jonka voit muuntaa käteiseksi, on rajattu kertoimella saamastasi URHEILIPONUKSESTA. Esimerkiksi, jos saamasi SPORTS BONUSSI on 150 ja maksimikorvauskerroin on 10x, maksimi, jonka voit muuntaa käteiseksi, on 1500 USDT (muunnettu valitsemaksi valuutaksi nykyisellä valuuttakurssilla).",
+      "title": "Mikä on suurin summa, jonka voin muuttaa käteiseksi?"
+    },
+    "q9": {
+      "body": "Ei. Sinulla voi olla vain yksi aktiivinen urheilubonus kerrallaan. Sinun on ensin suoritettava nykyinen pelisi – joko nostamalla kierrätysvaatimuksen täyttymisen jälkeen, menettämällä se (kun saldo on ≤ 0,1 USDT vastaava) tai odottamalla sen vanhenemista. Tämän jälkeen voit ostaa uudelleen.",
+      "title": "Voinko ostaa Sports Bonuksen uudelleen, kun minulla on vielä aktiivinen bonus?"
+    },
+    "q10": {
+      "body": "Ostosten välillä on jäähdytysjakso. Jäähdytyksen kesto näkyy Sports Bonus -sivulla.",
+      "title": "Kuinka usein voin ostaa urheilubonuksen?"
+    },
+    "q11": {
+      "body": "Sports Bonus Walletilla on voimassaoloaika (esim. 30 päivää). Jos et täytä kierrätysvaatimusta tämän ajan kuluessa, jäljellä oleva SPORTS BONUS -saldo vanhenee ja poistetaan.",
+      "title": "Mitä tapahtuu, jos en täytä kierrätysvaatimusta ajoissa?"
+    },
+    "q12": {
+      "body": "V: Kyllä. Jos urheilubonussaldosi on ≤ 0,1 USDT, voit menettää urheilubonuslompakkosi. Jos sinulla on kuitenkin ratkaisemattomia urheiluvetoja, jotka on asetettu urheilubonuksella, et voi luovuttaa ennen kuin kaikki vedot on ratkaistu. Huomaa, että kun menetät SPORTS BONUSSI, jäljellä oleva saldo poistetaan, eikä sitä voida palauttaa. Jotkut pelaajat menettävät saldonsa ostaakseen toisen URHEILIPONUKSEN, koska kerralla voi olla aktiivinen vain yksi URHEILIPONUS.",
+      "title": "Voinko luopua / menettää urheilubonuslompakkoni?"
+    },
+    "q13": {
+      "body": "Jos käytät Internet-palveluntarjoajaa rajoitetulta alueelta, kuten Singapore, Yhdysvallat, Israel jne. SPORTS BONUS ei ole saatavilla alueellasi. Jos uskot tämän olevan virhe, ota yhteyttä asiakastukeen.",
+      "title": "Miksi en näe Sports Bonus -vaihtoehtoa?"
+    }
+  }
+}

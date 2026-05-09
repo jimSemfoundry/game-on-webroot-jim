@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonusas",
+  "conquests": "Užkariavimai",
+  "completed": "Įvykdyta",
+  "daily_cashback": "Kasdienis Cashback",
+  "expiration": "Galiojimo pabaiga",
+  "claimed": "Atsiimta",
+  "deposit_now": "Įneškite dabar",
+  "gameOver": "Žaidimo pabaiga",
+  "level": "Lygis",
+  "bonusHub": {
+    "ongoing": "{{count}} vykdoma",
+    "root": "Bonusų centras"
+  },
+  "details": {
+    "lastUpdate": "Paskutinis Atnaujinimas"
+  },
+  "transactionStatus": {
+    "expired": "Pasibaigęs",
+    "cancelled": "Atšaukta"
+  },
+  "notifications": "Pranešimai",
+  "read": "Skaityti",
+  "unread": "Neskaityta"
+}

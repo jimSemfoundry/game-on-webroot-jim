@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Spielen Sie mit dem Sportbonus wie mit echtem Geld! Mit jedem Einsatz kommen Sie der Ausschöpfung des vollen Werts näher. Erfüllen Sie die Durchspielanforderungen und sehen Sie zu, wie sich Ihr Sportbonus noch heute in auszahlbare Prämien verwandelt!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Das Sports Bonus Wallet ist ein spezielles Wallet für Sportwetten. Beim Kauf erhalten Sie Ihren Einzahlungsbetrag plus einen zusätzlichen Bonus (z. B. 100 USDT mit einem 50 %-Bonus einzahlen = 150 USDT in Ihr Sports Bonus Wallet). Alle Gelder in dieser Brieftasche können nur für Sportwetten verwendet werden.",
+      "title": "Was ist das Sports Bonus Wallet?"
+    },
+    "q2": {
+      "body": "Gehen Sie zur Seite „Sportbonus“, wählen Sie eine Bonusstufe (z. B. +50 %), geben Sie Ihren Einzahlungsbetrag ein (der dem auf der Seite angezeigten Mindestbetrag entsprechen muss) und tippen Sie auf „Jetzt kaufen“. Ihre Einzahlung und der Bonus werden sofort Ihrem Sports Bonus Wallet gutgeschrieben.",
+      "title": "Wie kaufe ich den Sportbonus?"
+    },
+    "q3": {
+      "body": "Ja. Die aktuellen Mindest- und Höchsteinzahlungslimits finden Sie auf der Seite „Sportbonus“.",
+      "title": "Gibt es eine Mindest- oder Höchsteinzahlung?"
+    },
+    "q4": {
+      "body": "Nein. Der Sportbonus kann nur für Sportwetten verwendet werden. Es kann nicht für Spielautomaten, Casino, Live-Casino oder andere Spiele verwendet werden.",
+      "title": "Kann ich Sports Bonus für Spielautomaten oder Casinospiele verwenden?"
+    },
+    "q5": {
+      "body": "Bevor Sie abheben können, müssen Sie eine Wettanforderung erfüllen. Die Formel lautet: Erhaltener Gesamtbonus × Wettmultiplikator. Wenn Sie beispielsweise 100 USDT für 50 % SPORTBONUS kaufen, um 150 SPORTBONUS in Ihrer Wallet zu erhalten, und der Multiplikator 10x beträgt, müssen Sie 150 × 10 = 1500 {{currency}} äquivalente qualifizierte Sportwetten platzieren.",
+      "title": "Was ist die Wettanforderung?"
+    },
+    "q6": {
+      "body": "Es gelten drei Regeln:\n\n Verlorene Wetten: Wenn Sie 100 USDT setzen und verlieren, zählen 100 USDT zur Umsatzanforderung.\n\n Gewonnene Wetten: Zählen nur, wenn die Quoten ≥ {{minOdds}} sind. Wenn Sie 100 USDT bei einer Quote von 1,7 setzen und gewinnen, zählen 100 zur Umsatzanforderung. Wenn die Quoten unter {{minOdds}} liegen und Sie gewinnen, zählt dies nicht zur Umsatzanforderung.\n\n Ausbezahlte Wetten (vorzeitige Aufgabe): Zählen nur, wenn der Auszahlungsbetrag größer ist als der ursprüngliche Einsatzbetrag × {{minOdds}}. Wenn die Bedingung erfüllt ist, zählt der Einsatzbetrag zur Umsatzanforderung. Andernfalls zählt er nicht zur Umsatzanforderung.",
+      "title": "Welche Wetten zählen zu den Umsatzbedingungen?"
+    },
+    "q7": {
+      "body": "Ja, sobald Sie die Wettanforderungen erfüllt haben und Ihr Guthaben den Mindestauszahlungsbetrag erreicht. Ihr SPORTS BONUS-Guthaben kann in der Währung Ihrer Wahl auf Ihr Hauptguthaben umgerechnet werden.",
+      "title": "Kann ich mein Sportbonus-Guthaben abheben?"
+    },
+    "q8": {
+      "body": "Der maximale Betrag, den Sie in Bargeld umwandeln können, ist auf einen Multiplikator Ihres insgesamt erhaltenen SPORTBONUS begrenzt. Wenn Ihr erhaltener SPORTBONUS beispielsweise 150 beträgt und der maximale Anspruchsmultiplikator das 10-fache beträgt, beträgt der Höchstbetrag, den Sie in Bargeld umwandeln können, 1500 USDT (umgerechnet in die von Ihnen gewählte Währung zum aktuellen Wechselkurs).",
+      "title": "Was ist der Höchstbetrag, den ich in Bargeld umwandeln kann?"
+    },
+    "q9": {
+      "body": "Nein. Sie können jeweils nur einen aktiven Sportbonus haben. Sie müssen zuerst Ihr aktuelles Konto abschließen – entweder indem Sie nach Erfüllung der Wettanforderungen eine Auszahlung vornehmen, es verfallen lassen (wenn das Guthaben ≤ 0,1 USDT-Äquivalent ist) oder indem Sie warten, bis es abläuft. Danach können Sie erneut kaufen.",
+      "title": "Kann ich Sports Bonus erneut kaufen, solange ich noch einen aktiven Bonus habe?"
+    },
+    "q10": {
+      "body": "Zwischen den Einkäufen gibt es eine Abklingzeit. Die Abklingzeit wird auf der Seite „Sportbonus“ angezeigt.",
+      "title": "Wie oft kann ich Sports Bonus kaufen?"
+    },
+    "q11": {
+      "body": "Das Sports Bonus Wallet hat eine Gültigkeitsdauer (z. B. 30 Tage). Wenn Sie die Wettanforderungen nicht innerhalb dieses Zeitraums erfüllen, verfällt das verbleibende SPORTS BONUS-Guthaben und wird entfernt.",
+      "title": "Was passiert, wenn ich die Wettanforderungen nicht rechtzeitig erfülle?"
+    },
+    "q12": {
+      "body": "A: Ja. Wenn Ihr Sports Bonus-Guthaben ≤ 0,1 USDT beträgt, können Sie Ihr Sports Bonus Wallet verlieren. Wenn Sie jedoch noch offene Sportwetten bei Sports Bonus platziert haben, können Sie diese nicht verfallen lassen, bis alle Wetten abgerechnet sind. Bitte beachten Sie, dass bei Verlust Ihres SPORTBONUS das verbleibende Guthaben abgezogen wird und nicht wiederhergestellt werden kann. Einige Spieler verlieren ihr Guthaben, um einen weiteren SPORTBONUS zu kaufen, da jeweils nur 1 SPORTBONUS aktiv sein kann.",
+      "title": "Kann ich mein Sports Bonus Wallet aufgeben/verfallen lassen?"
+    },
+    "q13": {
+      "body": "Wenn Sie einen Internetanbieter aus einer eingeschränkten Region wie Singapur, den Vereinigten Staaten, Israel usw. nutzen, ist SPORTS BONUS in Ihrer Region nicht verfügbar. Wenn Sie glauben, dass es sich hierbei um einen Fehler handelt, wenden Sie sich bitte an den Kundendienst.",
+      "title": "Warum kann ich die Option „Sportbonus“ nicht sehen?"
+    }
+  }
+}

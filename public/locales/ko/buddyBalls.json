@@ -1,0 +1,23 @@
+{
+  "go": "이동",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "일일 체크인",
+  "referFriend": "친구 추천",
+  "referralDeposit": "추천인 첫 입금",
+  "moreBalls": "Buddy Balls 더 받기",
+  "rewards": "Buddy Ball 보상",
+  "records": "Buddy Ball 기록",
+  "balls": "볼",
+  "type_deposit": "직접 FTD",
+  "type_user": "친구 추천",
+  "type_buddy_balls_daily_checkin": "일일 체크인",
+  "type_promo_code_buddy_balls": "프로모 코드",
+  "type_achievement_bb": "성취",
+  "accumulated": "보상은 누적되어 언제든지 수령할 수 있습니다. 모든 보상은 선택한 통화로 정산됩니다.",
+  "type_lucky_spin": "럭키 스핀",
+  "getMore": "더 보기",
+  "share": "공유",
+  "getMoreBuddyball": "더 많은 Buddy Balls 받기",
+  "shareBuddyball": "공유 Buddy Balls",
+  "quickShare": "빠른 공유"
+}

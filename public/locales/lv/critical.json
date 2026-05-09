@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonuss",
+  "conquests": "Iekarojumi",
+  "completed": "Pabeigts",
+  "daily_cashback": "Ikdienas Cashback",
+  "expiration": "Derīguma termiņš",
+  "claimed": "Saņemts",
+  "deposit_now": "Iemaksāt tagad",
+  "gameOver": "Spēle beigusies",
+  "level": "Līmenis",
+  "bonusHub": {
+    "ongoing": "{{count}} aktīvi",
+    "root": "Bonusu centrs"
+  },
+  "details": {
+    "lastUpdate": "Pēdējā Atjaunināšana"
+  },
+  "transactionStatus": {
+    "expired": "Beidzies",
+    "cancelled": "Atcelts"
+  },
+  "notifications": "Paziņojumi",
+  "read": "Lasīt",
+  "unread": "Nelasīts"
+}

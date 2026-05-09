@@ -1,0 +1,58 @@
+{
+  "bonus": "Thể thao\nTiền thưởng",
+  "intro": "Chơi với Tiền thưởng thể thao giống như tiền thật! Mỗi cuộc cá cược sẽ đưa bạn đến gần hơn với việc mở khóa toàn bộ giá trị của chúng. Đáp ứng các yêu cầu về lượt chơi và xem Tiền thưởng thể thao của bạn biến thành phần thưởng có thể rút ngay hôm nay!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Ví tiền thưởng thể thao là một ví đặc biệt dành cho cá cược thể thao. Khi mua hàng, bạn sẽ nhận được số tiền gửi cộng với tiền thưởng bổ sung (ví dụ: gửi 100 USDT với 50% tiền thưởng = 150 USDT trong Ví tiền thưởng thể thao của bạn). Tất cả số tiền trong ví này chỉ có thể được sử dụng để cá cược thể thao.",
+      "title": "Ví tiền thưởng thể thao là gì?"
+    },
+    "q2": {
+      "body": "Đi tới trang Tiền thưởng thể thao, chọn cấp thưởng (ví dụ: +50%), nhập số tiền gửi của bạn (phải đáp ứng số tiền tối thiểu được hiển thị trên trang) và nhấn \"Mua ngay\". Khoản tiền gửi của bạn cộng với tiền thưởng sẽ được thêm vào Ví tiền thưởng thể thao của bạn ngay lập tức.",
+      "title": "Làm cách nào để mua Tiền thưởng thể thao?"
+    },
+    "q3": {
+      "body": "Đúng. Vui lòng kiểm tra trang Tiền thưởng Thể thao để biết giới hạn tiền gửi tối thiểu và tối đa hiện tại.",
+      "title": "Có số tiền gửi tối thiểu hoặc tối đa không?"
+    },
+    "q4": {
+      "body": "Không. Tiền thưởng thể thao chỉ có thể được sử dụng để cá cược thể thao. Nó không thể được sử dụng cho Slots, Casino, Live Casino hoặc bất kỳ trò chơi nào khác.",
+      "title": "Tôi có thể sử dụng Tiền thưởng thể thao cho trò chơi đánh bạc hoặc trò chơi sòng bạc không?"
+    },
+    "q5": {
+      "body": "Trước khi bạn có thể rút tiền, bạn cần hoàn thành yêu cầu đặt cược. Công thức là: Tổng số tiền thưởng nhận được × Hệ số đặt cược. Ví dụ: nếu bạn mua 100 USDT để nhận 50% TIỀN THƯỞNG THỂ THAO để có 150 TIỀN THƯỞNG THỂ THAO được thêm vào ví của bạn và hệ số là 10 lần, bạn cần đặt cược 150 × 10 = 1500 {{currency}} tương đương trong các cược thể thao đủ điều kiện.",
+      "title": "Yêu cầu đặt cược là gì?"
+    },
+    "q6": {
+      "body": "Ba quy tắc được áp dụng:\n\n Cược thua: Nếu bạn đặt cược 100 USDT và thua, 100 USDT sẽ được tính vào yêu cầu đặt cược.\n\n Cược thắng: Chỉ được tính khi tỷ lệ cược ≥ {{minOdds}}. Nếu bạn đặt cược 100 USDT với tỷ lệ cược 1.7 và thắng, 100 sẽ được tính vào yêu cầu đặt cược. Nếu tỷ lệ cược dưới {{minOdds}} và bạn thắng, nó không được tính vào yêu cầu đặt cược.\n\n Cược rút tiền sớm (đầu hàng sớm): Chỉ được tính khi số tiền rút ra lớn hơn số tiền cược gốc × {{minOdds}}. Nếu điều kiện được đáp ứng, số tiền cược sẽ được tính vào yêu cầu đặt cược. Nếu không, nó không được tính vào yêu cầu đặt cược.",
+      "title": "Những cược nào được tính vào yêu cầu đặt cược?"
+    },
+    "q7": {
+      "body": "Có, khi bạn đã hoàn thành yêu cầu đặt cược và số dư của bạn đáp ứng số tiền rút tối thiểu. Số dư TIỀN THƯỞNG THỂ THAO của bạn có thể được chuyển đổi sang ví chính bằng loại tiền bạn chọn.",
+      "title": "Tôi có thể rút số dư Tiền thưởng thể thao của mình không?"
+    },
+    "q8": {
+      "body": "Số tiền tối đa bạn có thể chuyển đổi thành tiền mặt được giới hạn ở cấp số nhân của tổng TIỀN THƯỞNG THỂ THAO mà bạn nhận được. Ví dụ: nếu TIỀN THƯỞNG THỂ THAO của bạn nhận được là 150 và hệ số yêu cầu tối đa là 10 lần, thì số tiền tối đa bạn có thể chuyển đổi thành tiền mặt là 1500 USDT (được chuyển đổi sang loại tiền bạn đã chọn theo tỷ giá hối đoái hiện tại).",
+      "title": "Số tiền tối đa tôi có thể chuyển đổi thành tiền mặt là bao nhiêu?"
+    },
+    "q9": {
+      "body": "Không. Bạn chỉ có thể có một Tiền thưởng thể thao đang hoạt động tại một thời điểm. Trước tiên, bạn cần phải hoàn thành hồ sơ hiện tại của mình — bằng cách rút tiền sau khi đáp ứng yêu cầu đặt cược, mất số tiền đó (khi số dư tương đương ≤ 0,1 USDT) hoặc đợi số tiền đó hết hạn. Sau đó, bạn có thể mua lại.",
+      "title": "Tôi có thể mua lại Tiền thưởng thể thao khi tôi vẫn còn tiền thưởng thể thao không?"
+    },
+    "q10": {
+      "body": "Có một khoảng thời gian hồi chiêu giữa các lần mua. Thời gian hồi chiêu được hiển thị trên trang Tiền thưởng thể thao.",
+      "title": "Tôi có thể mua Tiền thưởng thể thao bao lâu một lần?"
+    },
+    "q11": {
+      "body": "Ví tiền thưởng thể thao có thời hạn hiệu lực (ví dụ: 30 ngày). Nếu bạn không hoàn thành yêu cầu đặt cược trong khoảng thời gian này, số dư TIỀN THƯỞNG THỂ THAO còn lại sẽ hết hạn và bị xóa.",
+      "title": "Điều gì xảy ra nếu tôi không hoàn thành yêu cầu đặt cược kịp thời?"
+    },
+    "q12": {
+      "body": "Đ: Vâng. Nếu số dư Tiền thưởng thể thao của bạn ≤ 0,1 USDT, bạn có thể bị mất Ví tiền thưởng thể thao của mình. Tuy nhiên, nếu bạn có bất kỳ cược thể thao chưa thanh toán nào được đặt bằng Tiền thưởng thể thao, bạn không thể bị hủy cho đến khi tất cả cược được thanh toán. Xin lưu ý rằng khi bạn mất TIỀN THƯỞNG THỂ THAO, số dư còn lại sẽ bị xóa và không thể lấy lại được. Một số người chơi mất số dư của mình để mua TIỀN THƯỞNG THỂ THAO khác vì mỗi lần chỉ có thể có 1 TIỀN THƯỞNG THỂ THAO hoạt động.",
+      "title": "Tôi có thể từ bỏ/bị mất Ví tiền thưởng thể thao của mình không?"
+    },
+    "q13": {
+      "body": "Nếu bạn đang sử dụng nhà cung cấp internet từ một khu vực bị hạn chế như Singapore, Hoa Kỳ, Israel, v.v. TIỀN THƯỞNG THỂ THAO sẽ không có sẵn ở khu vực của bạn. Nếu bạn cho rằng đây là lỗi, vui lòng liên hệ với bộ phận hỗ trợ khách hàng.",
+      "title": "Tại sao tôi không thể thấy tùy chọn Tiền thưởng thể thao?"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Valloitukset",
+  "completed": "Valmis",
+  "daily_cashback": "Päivittäinen Cashback",
+  "expiration": "Vanheneminen",
+  "claimed": "Lunastettu",
+  "deposit_now": "Talleta nyt",
+  "gameOver": "Peli päättyi",
+  "level": "Taso",
+  "bonusHub": {
+    "ongoing": "{{count}} käynnissä",
+    "root": "Bonus-keskus"
+  },
+  "details": {
+    "lastUpdate": "Viimeisin Päivitys"
+  },
+  "transactionStatus": {
+    "expired": "Vanhentunut",
+    "cancelled": "Peruutettu"
+  },
+  "notifications": "Ilmoitukset",
+  "read": "Lue",
+  "unread": "Lukematon"
+}

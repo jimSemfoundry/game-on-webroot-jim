@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Dusør",
+  "activeTab": "Aktive",
+  "completedTab": "Fullførte",
+  "myCompletedTab": "Mine fullførte",
+  "claimReward": "Krev",
+  "claiming": "Krever...",
+  "claimed": "Krevd",
+  "play": "Spill",
+  "challengeCompleted": "Utfordring fullført",
+  "hitMultiplier": "Nå {{multiplier}}×",
+  "rewardLabel": "Belønning",
+  "minBetLabel": "Min. innsats",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} igjen",
+  "noActiveChallenges": "Ingen aktive utfordringer akkurat nå.",
+  "noCompletedChallenges": "Ingen fullførte utfordringer ennå.",
+  "noMyChallenges": "Du har ikke vunnet noen bounty-utfordringer ennå.",
+  "branchDisabled": "Bounty-utfordringer er ikke tilgjengelige akkurat nå.",
+  "forbidden": "Kontoen din er for øyeblikket begrenset fra bounty-belønninger.",
+  "searchPlaceholder": "Søk spill...",
+  "filterProvider": "Filtrer etter leverandør",
+  "winnersLabel": "Vinnere",
+  "viewWinners": "Vis vinnere",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Belønningen din vil bli kreditert følgende konto:",
+    "continue": "Fortsett"
+  },
+  "claimYourReward": "Hent belønningen din: {{amount}} {{currency}}",
+  "sortOrder": "Sorteringsrekkefølge",
+  "congratulations": "Gratulerer!",
+  "bountyCompleted": "Bounty fullført, krev belønningen din nå!",
+  "youHitMultiplier": "Du nådde <0>{{multiplier}}×</0>! Bounty fullført, krev belønningen din nå!",
+  "newBountyAvailable": "Ny Bounty tilgjengelig",
+  "claimSuccess": "Belønning krevd",
+  "claimSuccessDetail": "{{amount}} {{currency}} lagt til i lommeboken din.",
+  "claimNow": "Krev nå",
+  "go": "Gå",
+  "winAmount": "Vinn {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplikator",
+  "sortByCreated": "Nylig lagt til",
+  "sortByReward": "Høyeste belønning",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonusdetaljer",
+    "intro": "Bounty-utfordringer belønner deg med premier for store gevinster. I noen av de listede spillene plasserer du bare en kvalifiserende innsats som oppfyller minste innsatsbeløp og når den nødvendige multiplikatoren — hvis du er blant de første til å gjøre det, er belønningen din.",
+    "howItWorks": {
+      "title": "Slik fungerer det",
+      "body": "  - Hver Bounty-utfordring er knyttet til et spesifikt spill\n  - Plasser en innsats som oppfyller minste innsatsbeløp\n  - Nå målmultiplikatoren eller høyere for å fullføre utfordringen\n  - De første spillerne som fullfører utfordringen vinner belønningen\n  - Du kan vinne flere ganger på samme utfordring hvis flere premier deles ut"
+    },
+    "claim": {
+      "title": "Krevdistribusjon",
+      "body": "Belønninger vil bli kreditert lommeboken din i valutaen spesifisert for hver utfordring. Du kan kreve belønningen din når som helst fra \"Mine fullførte\"-fanen på Bounty-siden. Det er ingen tidsbegrensning for å kreve."
+    },
+    "eligible": {
+      "title": "Kvalifiserende innsatser",
+      "body": "  - Bare ekte penger-innsatser teller. Innsatser plassert med Slot Bonus Wallet eller Free Spins kvalifiserer ikke.\n  - Innsatsbeløpet ditt må møte eller overstige minste innsatsbeløp vist på utfordringen."
+    },
+    "terms": {
+      "title": "Generelle vilkår",
+      "body": "  - Bounty-belønninger beregnes og krediteres i valutaen konfigurert for hver utfordring, og vises deretter i din foretrukne valuta for enkelhet. Vær oppmerksom på at valutakonverteringer er omtrentlige.\n  - Kasinoet forbeholder seg retten til å endre eller tilbakekalle berettigelse når som helst, uten forpligtelse til å begrunne. Misbruk eller bedragerske aktiviteter vil føre til diskvalifisering fra kampanjen."
+    }
+  },
+  "rewardTooltip": "Sats minst {{minBet}} {{currency}} (eller tilsvarende) med en multiplikator på {{multiplier}}× eller høyere. De første {{slots}} kvalifiserte spillerne vinner belønningen.",
+  "filterAll": "Alle",
+  "filterClaimable": "Kan kreves",
+  "filterClaimed": "Hentet"
+}

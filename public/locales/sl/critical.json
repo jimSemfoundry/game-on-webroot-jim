@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Osvajanja",
+  "completed": "Dokončano",
+  "daily_cashback": "Dnevni Cashback",
+  "expiration": "Veljavnost",
+  "claimed": "Prevzeto",
+  "deposit_now": "Vplačaj zdaj",
+  "gameOver": "Konec igre",
+  "level": "Stopnja",
+  "bonusHub": {
+    "ongoing": "{{count}} v teku",
+    "root": "Bonus center"
+  },
+  "details": {
+    "lastUpdate": "Zadnja posodobitev"
+  },
+  "transactionStatus": {
+    "expired": "Poteklo",
+    "cancelled": "Preklicano"
+  },
+  "notifications": "Obvestila",
+  "read": "Prebrano",
+  "unread": "Neprebrano"
+}

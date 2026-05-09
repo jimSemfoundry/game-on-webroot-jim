@@ -1,0 +1,17 @@
+{
+  "fortune": "Laimes\nrats",
+  "deposit": "Iemaksā {{amount}} par 1 griezienu",
+  "spin_now": "GRIEZT TAGAD",
+  "available": "Tev ir pieejami {{times}} griezieni!",
+  "lucky": "Lucky Spin",
+  "mega": "Mega Spin",
+  "spin": "Griezt",
+  "rakeback_booster": "Booster",
+  "buddy_balls": "Buddy Balls",
+  "free_spin": "Bezmaksas griezieni",
+  "winner": "UZVARĒTĀJS",
+  "better": "NĀKAMREIZ\nVEIKSME BŪS LIELĀKA",
+  "next_time": "NĀKAMREIZ",
+  "ready": "Sagatavojies griezt, griezt un vēlreiz griezt Laimes ratu — tavus vārtus uz aizraujošiem pārsteigumiem un neticamām balvām!\nKatrs grieziens dod iespēju laimēt īstu naudu, kripto balvas, boosterus, bezmaksas griezienus, buddy balls un ekskluzīvas balvas — pat iPhone.\nSajūti azartu, kamēr rats griežas un veiksme atrod nākamo uzvarētāju.",
+  "rewards": "Visas skaidras naudas un kripto balvas no Laimes rata tiek tieši ieskaitītas atbilstošajā konta bilancē. Piemēram, ja laimē ETH, balva automātiski tiks pievienota tava ETH maka bilancei.\nFizisku balvu vai luksusa preču gadījumā mūsu klientu apkalpošanas komanda personīgi sazināsies ar tevi, lai saskaņotu piegādi."
+}

@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Nagrada",
+  "activeTab": "Aktivni",
+  "completedTab": "Končani",
+  "myCompletedTab": "Moji končani",
+  "claimReward": "Prevzemi",
+  "claiming": "Prevzemam...",
+  "claimed": "Prevzeto",
+  "play": "Igraj",
+  "challengeCompleted": "Izziv končan",
+  "hitMultiplier": "Doseži {{multiplier}}×",
+  "rewardLabel": "Nagrada",
+  "minBetLabel": "Min. stava",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} preostalo",
+  "noActiveChallenges": "Trenutno ni aktivnih izzivov.",
+  "noCompletedChallenges": "Še ni končanih izzivov.",
+  "noMyChallenges": "Še niste osvojili nobenega bounty izziva.",
+  "branchDisabled": "Bounty izzivi trenutno niso na voljo.",
+  "forbidden": "Vaš račun je trenutno omejen pri bounty nagradah.",
+  "searchPlaceholder": "Iskanje iger...",
+  "filterProvider": "Filter po ponudniku",
+  "winnersLabel": "Zmagovalci",
+  "viewWinners": "Ogled zmagovalcev",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Nagrada bo nakazana na naslednji račun:",
+    "continue": "Nadaljuj"
+  },
+  "claimYourReward": "Prevzemi nagrado: {{amount}} {{currency}}",
+  "sortOrder": "Vrstni red razvrščanja",
+  "congratulations": "Čestitke!",
+  "bountyCompleted": "Bounty končan, prevzemite svojo nagrado zdaj!",
+  "youHitMultiplier": "Dosegli ste <0>{{multiplier}}×</0>! Bounty končan, prevzemite svojo nagrado zdaj!",
+  "newBountyAvailable": "Na voljo nov Bounty",
+  "claimSuccess": "Nagrada prevzeta",
+  "claimSuccessDetail": "{{amount}} {{currency}} dodano v vašo denarnico.",
+  "claimNow": "Prevzemi zdaj",
+  "go": "Pojdi",
+  "winAmount": "Zmagajte {{amount}} {{currency}}",
+  "multiplierLabel": "Množitelj",
+  "sortByCreated": "Nedavno dodani",
+  "sortByReward": "Najvišja nagrada",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Podrobnosti bonusa",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Stavite vsaj {{minBet}} {{currency}} (ali ekvivalent) z množiteljem {{multiplier}}× ali višjim. Prvih {{slots}} kvalificiranih igralcev osvoji nagrado.",
+  "filterAll": "Vse",
+  "filterClaimable": "Na voljo",
+  "filterClaimed": "Prejeto"
+}

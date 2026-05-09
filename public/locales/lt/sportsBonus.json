@@ -1,0 +1,58 @@
+{
+  "bonus": "Sportas\nPremija",
+  "intro": "Žaisk su „Sports Bonus“ kaip tikrais pinigais! Kiekvienas statymas priartina jus prie visos jų vertės atrakinimo. Vykdykite žaidimo reikalavimus ir stebėkite, kaip jūsų sporto premija šiandien pavirs atimamais prizais!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "„Sports Bonus Wallet“ yra speciali piniginė sporto lažyboms. Kai perkate, gausite indėlio sumą ir papildomą premiją (pvz., įneškite 100 USD su 50% premija = 150 USD į jūsų sporto premijų piniginę). Visos šioje piniginėje esančios lėšos gali būti naudojamos tik sporto lažyboms.",
+      "title": "Kas yra sporto premijų piniginė?"
+    },
+    "q2": {
+      "body": "Eikite į puslapį „Sporto premija“, pasirinkite premijos pakopą (pvz., +50%), įveskite indėlio sumą (turi atitikti minimalią puslapyje nurodytą sumą) ir bakstelėkite „Pirkti dabar“. Jūsų indėlis ir premija bus akimirksniu pridėta prie jūsų sporto premijų piniginės.",
+      "title": "Kaip įsigyti sporto premiją?"
+    },
+    "q3": {
+      "body": "Taip. Patikrinkite Sporto premijos puslapį, kad sužinotumėte esamus minimalius ir maksimalius įnašų limitus.",
+      "title": "Ar yra minimalus ar maksimalus depozitas?"
+    },
+    "q4": {
+      "body": "Ne. Sporto premija gali būti naudojama tik sporto lažyboms. Jis negali būti naudojamas lošimo automatams, kazino, gyvai kazino ar kitiems žaidimams.",
+      "title": "Ar galiu naudoti „Sports Bonus“ lošimo automatams ar kazino žaidimams?"
+    },
+    "q5": {
+      "body": "Prieš išimdami, turite įvykdyti lažybų reikalavimą. Formulė tokia: Visas gautas BONUSAS × Lažybų daugiklis. Pavyzdžiui, jei nusipirkote 100 USDT už 50% SPORTO BONUSĄ, kad turėtumėte 150 SPORTO BONUSO pridėtą į jūsų piniginę, o daugiklis yra 10x, turite padėti 150 × 10 = 1500 {{currency}} ekvivalentą kvalifikuotose sporto lažybose.",
+      "title": "Koks yra lažybų reikalavimas?"
+    },
+    "q6": {
+      "body": "Taikomos trys taisyklės:\n\n Pralaimėję statymai: Jei statote 100 USDT ir pralaimite, 100 USDT skaičiuojama į lažybų reikalavimą.\n\n Laimėję statymai: Skaičiuojami tik tada, kai koeficientai yra ≥ {{minOdds}}. Jei statote 100 USDT su koeficientu 1.7 ir laimite, 100 bus skaičiuojama į lažybų reikalavimą. Jei koeficientai yra žemesni nei {{minOdds}} ir laimite, tai nėra skaičiuojama į lažybų reikalavimą.\n\n Išmokėti statymai (anksčiau pasiduoti): Skaičiuojami tik tada, kai išmokėjimo suma yra didesnė už pradinį statymo sumą × {{minOdds}}. Jei sąlyga įvykdoma, statymo suma skaičiuojama į lažybų reikalavimą. Priešingu atveju ji nėra skaičiuojama į lažybų reikalavimą.",
+      "title": "Kurie statymai įskaičiuojami į lažybų reikalavimą?"
+    },
+    "q7": {
+      "body": "Taip, kai įvykdysite lažybų reikalavimą ir jūsų likutis atitiks minimalią išėmimo sumą. Jūsų SPORTS BONUS balansas gali būti konvertuojamas į pagrindinę piniginę jūsų pasirinkta valiuta.",
+      "title": "Ar galiu atsiimti savo sporto premijos likutį?"
+    },
+    "q8": {
+      "body": "Didžiausia suma, kurią galite konvertuoti į grynuosius, yra apribota viso gauto SPORTO PREMIUSO daugikliu. Pavyzdžiui, jei jūsų gautas SPORTO BONUSAS yra 150, o maksimalus žalos koeficientas yra 10 kartų, maksimali suma, kurią galite konvertuoti į grynuosius pinigus, yra 1500 USD (paskaičiuota į pasirinktą valiutą pagal dabartinį valiutos kursą).",
+      "title": "Kokią didžiausią sumą galiu konvertuoti į grynuosius pinigus?"
+    },
+    "q9": {
+      "body": "Ne. Vienu metu galite turėti tik vieną aktyvią sporto premiją. Pirmiausia turite užbaigti esamą – arba pasitraukdami po to, kai įvykdėte lažybų reikalavimą, prarasdami jį (kai likutis ≤ 0,1 USDT ekvivalentas), arba laukdami, kol baigsis jo galiojimo laikas. Po to vėl galėsite pirkti.",
+      "title": "Ar galiu vėl įsigyti sporto premiją, kol dar turiu aktyvų?"
+    },
+    "q10": {
+      "body": "Tarp pirkinių yra pertrauka. Atvėsimo trukmė rodoma sporto premijos puslapyje.",
+      "title": "Kaip dažnai galiu įsigyti sporto premiją?"
+    },
+    "q11": {
+      "body": "„Sports Bonus Wallet“ galioja (pvz., 30 dienų). Jei per šį laikotarpį neįvykdysite statymo reikalavimo, likęs SPORTS BONUS likutis nustos galioti ir bus pašalintas.",
+      "title": "Kas nutiks, jei laiku neįvykdysiu lažybų reikalavimo?"
+    },
+    "q12": {
+      "body": "A: Taip. Jei jūsų sporto premijos likutis yra ≤ 0,1 USD, galite netekti savo sporto premijos piniginės. Tačiau, jei turite kokių nors neapmokėtų sporto statymų, atliktų naudodami „Sporto premiją“, negalite prarasti, kol nebus išspręsti visi statymai. Atkreipkite dėmesį, kad praradus SPORTO BONUSĄ, likęs likutis bus pašalintas ir jo nebus galima susigrąžinti. Kai kurie žaidėjai praranda savo likutį, norėdami įsigyti kitą SPORTO BONUSĄ, nes vienu metu gali būti aktyvus tik 1 SPORTAS BONUSAS.",
+      "title": "Ar galiu atsisakyti / prarasti savo sporto premijų piniginę?"
+    },
+    "q13": {
+      "body": "Jei naudojatės interneto tiekėju iš riboto regiono, pvz., Singapūro, JAV, Izraelio ir kt. SPORTO PREMIOJAS jūsų regione nebus pasiekiamas. Jei manote, kad tai klaida, susisiekite su klientų aptarnavimo tarnyba.",
+      "title": "Kodėl nematau sporto premijos parinkties?"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Hadiah",
+  "activeTab": "Aktif",
+  "completedTab": "Selesai",
+  "myCompletedTab": "Milik Saya",
+  "claimReward": "Klaim",
+  "claiming": "Mengklaim...",
+  "claimed": "Diklaim",
+  "play": "Main",
+  "challengeCompleted": "Tantangan Selesai",
+  "hitMultiplier": "Capai {{multiplier}}×",
+  "rewardLabel": "Hadiah",
+  "minBetLabel": "Taruhan Min",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Sisa {{remaining}}",
+  "noActiveChallenges": "Tidak ada tantangan aktif saat ini.",
+  "noCompletedChallenges": "Belum ada tantangan yang selesai.",
+  "noMyChallenges": "Anda belum memenangkan bounty challenge apa pun.",
+  "branchDisabled": "Bounty challenges tidak tersedia saat ini.",
+  "forbidden": "Akun Anda saat ini dibatasi dari hadiah bounty.",
+  "searchPlaceholder": "Cari permainan...",
+  "filterProvider": "Filter berdasarkan Provider",
+  "winnersLabel": "Pemenang",
+  "viewWinners": "Lihat pemenang",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Hadiah Anda akan dikreditkan ke akun berikut:",
+    "continue": "Lanjutkan"
+  },
+  "claimYourReward": "Klaim hadiah Anda: {{amount}} {{currency}}",
+  "sortOrder": "Urutan",
+  "congratulations": "Selamat!",
+  "bountyCompleted": "Bounty selesai, klaim hadiah Anda sekarang!",
+  "youHitMultiplier": "Anda mencapai <0>{{multiplier}}×</0>! Bounty selesai, klaim hadiah Anda sekarang!",
+  "newBountyAvailable": "Bounty Baru Tersedia",
+  "claimSuccess": "Hadiah diklaim",
+  "claimSuccessDetail": "{{amount}} {{currency}} ditambahkan ke dompet Anda.",
+  "claimNow": "Klaim sekarang",
+  "go": "Mulai",
+  "winAmount": "Menang {{amount}} {{currency}}",
+  "multiplierLabel": "Pengganda",
+  "sortByCreated": "Baru Ditambahkan",
+  "sortByReward": "Hadiah Tertinggi",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detail Bonus",
+    "intro": "Bounty challenges memberi Anda hadiah karena memenangkan jumlah besar. Dalam permainan apa pun yang terdaftar, cukup pasang taruhan yang memenuhi syarat dengan jumlah taruhan minimum yang mencapai pengganda yang diperlukan — jika Anda termasuk yang pertama melakukannya, hadiahnya milik Anda.",
+    "howItWorks": {
+      "title": "Cara Kerjanya",
+      "body": "  - Setiap Bounty challenge terikat pada permainan tertentu\n  - Pasang taruhan yang memenuhi jumlah taruhan minimum\n  - Capai pengganda target atau lebih tinggi untuk menyelesaikan tantangan\n  - Pemain pertama yang menyelesaikan tantangan memenangkan hadiah\n  - Anda bisa menang beberapa kali pada tantangan yang sama jika ada beberapa hadiah yang diberikan"
+    },
+    "claim": {
+      "title": "Distribusi Klaim",
+      "body": "Hadiah akan dikreditkan ke dompet Anda dalam mata uang yang ditentukan untuk setiap tantangan. Anda dapat mengklaim hadiah Anda kapan saja dari tab \"Milik Saya\" di halaman Bounty. Tidak ada batas waktu untuk mengklaim."
+    },
+    "eligible": {
+      "title": "Taruhan yang Memenuhi Syarat",
+      "body": "  - Hanya taruhan uang asli yang dihitung. Taruhan yang dilakukan menggunakan Slot Bonus Wallet atau Free Spins tidak memenuhi syarat.\n  - Jumlah taruhan Anda harus memenuhi atau melebihi jumlah taruhan minimum yang ditampilkan pada tantangan."
+    },
+    "terms": {
+      "title": "Ketentuan Umum",
+      "body": "  - Hadiah Bounty dihitung dan dikreditkan dalam mata uang yang dikonfigurasi untuk setiap tantangan, lalu ditampilkan dalam mata uang pilihan Anda untuk kenyamanan. Harap dicatat, konversi mata uang adalah perkiraan.\n  - Kasino berhak memodifikasi atau mencabut kelayakan kapan saja, tanpa kewajiban untuk membenarkan. Setiap penyalahgunaan atau aktivitas penipuan akan menyebabkan diskualifikasi dari promosi."
+    }
+  },
+  "rewardTooltip": "Pasang taruhan minimal {{minBet}} {{currency}} (atau setara) dengan pengganda {{multiplier}}× atau lebih tinggi. Pemain pertama yang memenuhi syarat sebanyak {{slots}} orang memenangkan hadiah.",
+  "filterAll": "Semua",
+  "filterClaimable": "Dapat diklaim",
+  "filterClaimed": "Sudah diklaim"
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "獎金",
+  "conquests": "征服任務",
+  "completed": "已完成",
+  "daily_cashback": "每日返現",
+  "expiration": "到期",
+  "claimed": "已領取",
+  "deposit_now": "立即存款",
+  "gameOver": "遊戲結束",
+  "level": "等級",
+  "bonusHub": {
+    "ongoing": "{{count}} 進行中",
+    "root": "獎金中心"
+  },
+  "details": {
+    "lastUpdate": "最後更新"
+  },
+  "transactionStatus": {
+    "expired": "已過期",
+    "cancelled": "已取消"
+  },
+  "notifications": "通知",
+  "read": "閱讀",
+  "unread": "未閱讀"
+}

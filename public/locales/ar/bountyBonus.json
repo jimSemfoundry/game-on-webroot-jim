@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "مكافأة",
+  "activeTab": "نشط",
+  "completedTab": "مكتمل",
+  "myCompletedTab": "مكتمل لدي",
+  "claimReward": "استلام",
+  "claiming": "جاري الاستلام...",
+  "claimed": "تم الاستلام",
+  "play": "العب",
+  "challengeCompleted": "تم إكمال التحدي",
+  "hitMultiplier": "تحقيق {{multiplier}}×",
+  "rewardLabel": "المكافأة",
+  "minBetLabel": "الحد الأدنى للرهان",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "متبقي {{remaining}}",
+  "noActiveChallenges": "لا توجد تحديات نشطة في الوقت الحالي.",
+  "noCompletedChallenges": "لا توجد تحديات مكتملة بعد.",
+  "noMyChallenges": "لم تفز بأي تحدي bounty حتى الآن.",
+  "branchDisabled": "تحديات bounty غير متاحة في الوقت الحالي.",
+  "forbidden": "حسابك مقيد حاليًا من مكافآت bounty.",
+  "searchPlaceholder": "ابحث عن الألعاب...",
+  "filterProvider": "تصفية حسب المزود",
+  "winnersLabel": "الفائزون",
+  "viewWinners": "عرض الفائزين",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "سيتم إيداع جائزتك في الحساب التالي:",
+    "continue": "متابعة"
+  },
+  "claimYourReward": "احصل على مكافأتك: {{amount}} {{currency}}",
+  "sortOrder": "ترتيب الفرز",
+  "congratulations": "تهانينا!",
+  "bountyCompleted": "تم إكمال Bounty، استلم مكافأتك الآن!",
+  "youHitMultiplier": "لقد حققت <0>{{multiplier}}×</0>! تم إكمال Bounty، استلم مكافأتك الآن!",
+  "newBountyAvailable": "Bounty جديد متاح",
+  "claimSuccess": "تم استلام المكافأة",
+  "claimSuccessDetail": "تمت إضافة {{amount}} {{currency}} إلى محفظتك.",
+  "claimNow": "استلم الآن",
+  "go": "اذهب",
+  "winAmount": "اربح {{amount}} {{currency}}",
+  "multiplierLabel": "المضاعف",
+  "sortByCreated": "أحدث المضافة",
+  "sortByReward": "أعلى مكافأة",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "تفاصيل المكافأة",
+    "intro": "تكافئك تحديات Bounty بجوائز عند الفوز بمبالغ كبيرة. في أي من الألعاب المدرجة، ضع رهانًا مؤهلاً يفي بالحد الأدنى لمبلغ الرهان ويحقق المضاعف المطلوب — إذا كنت من أوائل من يحققون ذلك، فالمكافأة لك.",
+    "howItWorks": {
+      "title": "كيف يعمل",
+      "body": "  - كل تحدي Bounty مرتبط بلعبة محددة\n  - ضع رهانًا يفي بالحد الأدنى لمبلغ الرهان\n  - حقق المضاعف المستهدف أو أعلى لإكمال التحدي\n  - أول اللاعبين الذين يكملون التحدي يفوزون بالمكافأة\n  - يمكنك الفوز عدة مرات في نفس التحدي إذا كانت هناك جوائز متعددة"
+    },
+    "claim": {
+      "title": "توزيع الاستلام",
+      "body": "ستُضاف المكافآت إلى محفظتك بالعملة المحددة لكل تحدي. يمكنك استلام مكافأتك في أي وقت من علامة التبويب \"مكتمل لدي\" في صفحة Bounty. لا يوجد حد زمني للاستلام."
+    },
+    "eligible": {
+      "title": "الرهانات المؤهلة",
+      "body": "  - تُحتسب فقط الرهانات بالمال الحقيقي. الرهانات المُوضوعة باستخدام Slot Bonus Wallet أو Free Spins غير مؤهلة.\n  - يجب أن يفي مبلغ رهانك بالحد الأدنى لمبلغ الرهان المعروض في التحدي أو يتجاوزه."
+    },
+    "terms": {
+      "title": "الشروط العامة",
+      "body": "  - تُحسب مكافآت Bounty وتُضاف بالعملة المُهيأة لكل تحدي، ثم تُعرض بعملتك المفضلة للراحة. يُرجى ملاحظة أن تحويلات العملة تقريبية.\n  - يحتفظ الكازينو بالحق في تعديل أو إلغاء الأهلية في أي وقت، دون التزام بالتبرير. أي إساءة استخدام أو نشاط احتيالي سيؤدي إلى الاستبعاد من العرض الترويجي."
+    }
+  },
+  "rewardTooltip": "راهن بما لا يقل عن {{minBet}} {{currency}} (أو ما يعادلها) عند مضاعف {{multiplier}}× أو أعلى. أول {{slots}} لاعبين مؤهلين يفوزون بالجائزة.",
+  "filterAll": "الكل",
+  "filterClaimable": "قابل للمطالبة",
+  "filterClaimed": "تم الاستلام"
+}

@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Gantimpala",
+  "activeTab": "Aktibo",
+  "completedTab": "Tapos na",
+  "myCompletedTab": "Akin",
+  "claimReward": "I-claim",
+  "claiming": "Kinukuha...",
+  "claimed": "Na-claim",
+  "play": "Maglaro",
+  "challengeCompleted": "Tapos ang Hamon",
+  "hitMultiplier": "Naabot {{multiplier}}×",
+  "rewardLabel": "Gantimpala",
+  "minBetLabel": "Min Taya",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Natitirang {{remaining}}",
+  "noActiveChallenges": "Walang aktibong hamon sa kasalukuyan.",
+  "noCompletedChallenges": "Wala pang natapos na hamon.",
+  "noMyChallenges": "Hindi ka pa nananalo ng anumang bounty challenge.",
+  "branchDisabled": "Hindi available ang bounty challenges sa kasalukuyan.",
+  "forbidden": "Restricted ang iyong account sa pagtanggap ng bounty rewards sa kasalukuyan.",
+  "searchPlaceholder": "Maghanap ng laro...",
+  "filterProvider": "I-filter ayon sa Provider",
+  "winnersLabel": "Mga Nanalo",
+  "viewWinners": "Tingnan ang mga nanalo",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Ang iyong gantimpala ay i-kredito sa sumusunod na account:",
+    "continue": "Magpatuloy"
+  },
+  "claimYourReward": "Kunin ang iyong gantimpala: {{amount}} {{currency}}",
+  "sortOrder": "Ayos ng pag-uuri",
+  "congratulations": "Binabati kita!",
+  "bountyCompleted": "Tapos na ang Bounty, kunin ang iyong gantimpala ngayon!",
+  "youHitMultiplier": "Naabot mo ang <0>{{multiplier}}×</0>! Tapos na ang Bounty, kunin ang iyong gantimpala ngayon!",
+  "newBountyAvailable": "Bagong Bounty Available",
+  "claimSuccess": "Na-claim na ang gantimpala",
+  "claimSuccessDetail": "{{amount}} {{currency}} ay naidagdag sa iyong wallet.",
+  "claimNow": "I-claim ngayon",
+  "go": "Pumunta",
+  "winAmount": "Manalo ng {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplier",
+  "sortByCreated": "Bagong Idinagdag",
+  "sortByReward": "Pinakamataas na Gantimpala",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detalye ng Bonus",
+    "intro": "Ang mga bounty challenges ay nagbibigay ng mga premyo para sa malalaking panalo. Sa alinmang nakalistang laro, magtaya lamang ng kwalipikadong taya na umaabot sa minimum bet amount at umaabot sa kinakailangang multiplier — kung ikaw ay kasama sa mga unang nakagawa nito, ang gantimpala ay sa iyo.",
+    "howItWorks": {
+      "title": "Paano Ito Gumagana",
+      "body": "  - Ang bawat Bounty challenge ay nakatali sa isang partikular na laro\n  - Magtaya na umaabot sa minimum bet amount\n  - Maabot ang target na multiplier o mas mataas upang matapos ang hamon\n  - Ang mga unang manlalaro na makatapos ng hamon ay mananalo ng gantimpala\n  - Maaari kang manalo ng maraming beses sa parehong hamon kung may maraming premyong ibinibigay"
+    },
+    "claim": {
+      "title": "Pamamahagi ng Claim",
+      "body": "Ang mga gantimpala ay i-credit sa iyong wallet sa currency na nakasaad para sa bawat hamon. Maaari mong kunin ang iyong gantimpala anumang oras mula sa \"Akin\" tab sa Bounty page. Walang time limit upang mag-claim."
+    },
+    "eligible": {
+      "title": "Karapat-dapat na Taya",
+      "body": "  - Tanging totoong pera lang na taya ang binibilang. Ang mga taya gamit ang Slot Bonus Wallet o Free Spins ay hindi kwalipikado.\n  - Ang iyong bet amount ay dapat umabot o lumampas sa minimum bet amount na ipinapakita sa hamon."
+    },
+    "terms": {
+      "title": "Pangkalahatang Tuntunin",
+      "body": "  - Ang mga Bounty rewards ay kinakalkula at na-credit sa currency na na-configure para sa bawat hamon, pagkatapos ay ipinapakita sa iyong gustong currency para sa kaginhawahan. Pakitandaan, ang mga conversion ng currency ay tinatayang lamang.\n  - Ang casino ay may karapatan na baguhin o bawiin ang pagiging karapat-dapat anumang oras, nang walang obligasyon na bigyang katwiran. Anumang pang-aabuso o mapanlinlang na aktibidad ay magdudulot ng pag-disqualify mula sa promosyon."
+    }
+  },
+  "rewardTooltip": "Tumaya ng hindi bababa sa {{minBet}} {{currency}} (o katumbas) sa multiplier na {{multiplier}}× o mas mataas. Ang unang {{slots}} kwalipikadong manlalaro ang manananalo ng gantimpala.",
+  "filterAll": "Lahat",
+  "filterClaimable": "Maaaring i-claim",
+  "filterClaimed": "Na-claim"
+}

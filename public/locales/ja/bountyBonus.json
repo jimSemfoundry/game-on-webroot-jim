@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "賞金",
+  "activeTab": "アクティブ",
+  "completedTab": "完了",
+  "myCompletedTab": "マイ完了",
+  "claimReward": "受け取る",
+  "claiming": "受け取り中...",
+  "claimed": "受け取り済み",
+  "play": "プレイ",
+  "challengeCompleted": "チャレンジ完了",
+  "hitMultiplier": "{{multiplier}}× 達成",
+  "rewardLabel": "報酬",
+  "minBetLabel": "最小ベット",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "残り {{remaining}}",
+  "noActiveChallenges": "現在アクティブなチャレンジはありません。",
+  "noCompletedChallenges": "完了したチャレンジはまだありません。",
+  "noMyChallenges": "まだバウンティチャレンジに勝利していません。",
+  "branchDisabled": "現在バウンティチャレンジは利用できません。",
+  "forbidden": "現在お客様のアカウントはバウンティ報酬の受け取りが制限されています。",
+  "searchPlaceholder": "ゲームを検索...",
+  "filterProvider": "プロバイダーで絞り込み",
+  "winnersLabel": "勝者",
+  "viewWinners": "勝者を表示",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "報酬は以下のアカウントに入金されます：",
+    "continue": "続ける"
+  },
+  "claimYourReward": "報酬を受け取る：{{amount}} {{currency}}",
+  "sortOrder": "並び順",
+  "congratulations": "おめでとうございます！",
+  "bountyCompleted": "バウンティ完了、今すぐ報酬を受け取ろう！",
+  "youHitMultiplier": "<0>{{multiplier}}×</0> 達成！バウンティ完了、今すぐ報酬を受け取ろう！",
+  "newBountyAvailable": "新しいバウンティが利用可能",
+  "claimSuccess": "報酬を受け取りました",
+  "claimSuccessDetail": "{{amount}} {{currency}} がウォレットに追加されました。",
+  "claimNow": "今すぐ受け取る",
+  "go": "GO",
+  "winAmount": "{{amount}} {{currency}} を獲得",
+  "multiplierLabel": "倍率",
+  "sortByCreated": "新着順",
+  "sortByReward": "報酬の高い順",
+  "infoModal": {
+    "title": "バウンティ",
+    "detailsHeader": "ボーナスの詳細",
+    "intro": "バウンティチャレンジは、大勝利に対して賞金を提供します。リストにあるゲームのいずれかで、最低ベット額を満たして必要な倍率に到達する適格なベットを行うだけ — 最初に達成した方は報酬を獲得できます。",
+    "howItWorks": {
+      "title": "仕組み",
+      "body": "  - 各バウンティチャレンジは特定のゲームに関連付けられています\n  - 最低ベット額を満たすベットを行います\n  - 目標倍率以上を達成してチャレンジを完了します\n  - 最初にチャレンジを完了したプレイヤーが報酬を獲得します\n  - 複数の賞品が授与される場合、同じチャレンジで複数回勝つことができます"
+    },
+    "claim": {
+      "title": "受取分配",
+      "body": "報酬は各チャレンジで指定された通貨でウォレットに入金されます。バウンティページの「マイ完了」タブからいつでも報酬を受け取ることができます。受取期限はありません。"
+    },
+    "eligible": {
+      "title": "対象となるベット",
+      "body": "  - 実際の現金ベットのみカウントされます。スロットボーナスウォレットまたはフリースピンで行ったベットは対象外です。\n  - ベット額はチャレンジに表示される最低ベット額以上である必要があります。"
+    },
+    "terms": {
+      "title": "一般規約",
+      "body": "  - バウンティ報酬は各チャレンジに設定された通貨で計算・入金され、その後便宜のためお客様の優先通貨で表示されます。通貨換算は概算であることにご注意ください。\n  - カジノはいつでも、理由を説明する義務なく、対象資格を変更または取り消す権利を保持します。あらゆる悪用または不正行為はプロモーションからの失格につながります。"
+    }
+  },
+  "rewardTooltip": "{{minBet}} {{currency}}（またはそれに相当する額）以上を倍率 {{multiplier}}× 以上で賭けてください。最初に条件を満たした {{slots}} 名のプレイヤーが報酬を獲得します。",
+  "filterAll": "すべて",
+  "filterClaimable": "受取可能",
+  "filterClaimed": "受取済み"
+}

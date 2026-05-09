@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Missies",
+  "completed": "Voltooid",
+  "daily_cashback": "Dagelijkse cashback",
+  "expiration": "Vervaldatum",
+  "claimed": "Geclaimd",
+  "deposit_now": "Nu storten",
+  "gameOver": "Game over",
+  "level": "Niveau",
+  "bonusHub": {
+    "ongoing": "{{count}} Lopend",
+    "root": "Bonus-hub"
+  },
+  "details": {
+    "lastUpdate": "Laatste Update"
+  },
+  "transactionStatus": {
+    "expired": "Verlopen",
+    "cancelled": "Geannuleerd"
+  },
+  "notifications": "Meldingen",
+  "read": "Lezen",
+  "unread": "Ongelezen"
+}

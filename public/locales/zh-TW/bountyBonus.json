@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "賞金",
+  "activeTab": "進行中",
+  "completedTab": "已完成",
+  "myCompletedTab": "我的完成",
+  "claimReward": "領取",
+  "claiming": "領取中...",
+  "claimed": "已領取",
+  "play": "開始遊戲",
+  "challengeCompleted": "挑戰已完成",
+  "hitMultiplier": "達成 {{multiplier}}×",
+  "rewardLabel": "獎勵",
+  "minBetLabel": "最低投注",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "剩餘 {{remaining}}",
+  "noActiveChallenges": "目前沒有進行中的挑戰。",
+  "noCompletedChallenges": "尚未有已完成的挑戰。",
+  "noMyChallenges": "你還沒有完成任何賞金挑戰。",
+  "branchDisabled": "賞金挑戰暫未開放。",
+  "forbidden": "您的帳戶目前被限制參加賞金活動。",
+  "searchPlaceholder": "搜尋遊戲...",
+  "filterProvider": "依廠商篩選",
+  "winnersLabel": "獲勝者",
+  "viewWinners": "檢視獲勝者",
+  "claim": {
+    "title": "領取獎勵",
+    "from": "來源",
+    "selectCurrency": "選擇幣別",
+    "exchangeNote": "最終金額依當前匯率換算。",
+    "confirm": "確認",
+    "cancel": "取消",
+    "creditedToFollowing": "獎勵將記入以下帳戶：",
+    "continue": "繼續"
+  },
+  "claimYourReward": "領取獎勵：{{amount}} {{currency}}",
+  "sortOrder": "排序方向",
+  "congratulations": "恭喜！",
+  "bountyCompleted": "賞金挑戰完成，立即領取獎勵！",
+  "youHitMultiplier": "你達成了 <0>{{multiplier}}×</0>！賞金挑戰完成，立即領取獎勵！",
+  "newBountyAvailable": "新的賞金挑戰上線",
+  "claimSuccess": "獎勵已領取",
+  "claimSuccessDetail": "{{amount}} {{currency}} 已存入你的錢包。",
+  "claimNow": "立即領取",
+  "go": "前往",
+  "winAmount": "贏取 {{amount}} {{currency}}",
+  "multiplierLabel": "倍率",
+  "sortByCreated": "最新上線",
+  "sortByReward": "獎勵最高",
+  "infoModal": {
+    "title": "賞金",
+    "detailsHeader": "活動詳情",
+    "intro": "賞金挑戰讓你在大額獲勝時拿到獎勵。在列表中任何一款遊戲，下注金額達到最低門檻並達成所需倍率，只要你是最早完成的玩家之一，獎勵就歸你。",
+    "howItWorks": {
+      "title": "活動玩法",
+      "body": "  - 每項賞金挑戰對應一款指定遊戲\n  - 下注金額需達到最低投注門檻\n  - 達到或超過目標倍率即可完成挑戰\n  - 最先完成挑戰的玩家獲得獎勵\n  - 同一挑戰可多次中獎（如設有多份獎勵）"
+    },
+    "claim": {
+      "title": "獎勵發放",
+      "body": "獎勵將以挑戰指定的幣別發放至你的錢包。你可以隨時在賞金頁面的「我的完成」中領取，無領取時間限制。"
+    },
+    "eligible": {
+      "title": "有效投注",
+      "body": "  - 僅真實金額投注計入。使用「Slot 彩金錢包」或「免費旋轉」的投注不計入。\n  - 投注金額必須達到或超過挑戰顯示的最低金額。"
+    },
+    "terms": {
+      "title": "通用條款",
+      "body": "  - 賞金獎勵以各挑戰指定的幣別結算入帳，並依你的偏好幣別估算顯示。請注意，幣別換算為近似值。\n  - 平台保留隨時修改或取消活動資格的權利，無需另行說明。任何作弊或舞弊行為將導致取消活動資格。"
+    }
+  },
+  "rewardTooltip": "投注 ≥ {{minBet}} {{currency}} 等值，且賠率 ≥ {{multiplier}}×，前 {{slots}} 名達成條件的玩家可獲得獎勵。",
+  "filterAll": "全部",
+  "filterClaimable": "可領取",
+  "filterClaimed": "已領取"
+}

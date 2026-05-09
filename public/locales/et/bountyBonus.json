@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Preemia",
+  "activeTab": "Aktiivsed",
+  "completedTab": "Lõpetatud",
+  "myCompletedTab": "Minu lõpetatud",
+  "claimReward": "Nõudma",
+  "claiming": "Nõudmine...",
+  "claimed": "Nõutud",
+  "play": "Mängi",
+  "challengeCompleted": "Väljakutse lõpetatud",
+  "hitMultiplier": "Saavuta {{multiplier}}×",
+  "rewardLabel": "Auhind",
+  "minBetLabel": "Min. panus",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} järelejäänud",
+  "noActiveChallenges": "Hetkel aktiivseid väljakutseid pole.",
+  "noCompletedChallenges": "Veel pole lõpetatud väljakutseid.",
+  "noMyChallenges": "Te pole veel ühtegi bounty väljakutset võitnud.",
+  "branchDisabled": "Bounty väljakutsed pole hetkel saadaval.",
+  "forbidden": "Teie konto on hetkel bounty preemiatest piiratud.",
+  "searchPlaceholder": "Otsi mänge...",
+  "filterProvider": "Filtreeri pakkuja järgi",
+  "winnersLabel": "Võitjad",
+  "viewWinners": "Vaata võitjaid",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Sinu auhind kantakse järgmisele kontole:",
+    "continue": "Jätka"
+  },
+  "claimYourReward": "Lunasta auhind: {{amount}} {{currency}}",
+  "sortOrder": "Sortimise järjekord",
+  "congratulations": "Õnnitlused!",
+  "bountyCompleted": "Bounty lõpetatud, nõudke oma auhind kohe!",
+  "youHitMultiplier": "Saavutasid <0>{{multiplier}}×</0>! Bounty lõpetatud, nõudke oma auhind kohe!",
+  "newBountyAvailable": "Uus Bounty saadaval",
+  "claimSuccess": "Auhind nõutud",
+  "claimSuccessDetail": "{{amount}} {{currency}} lisatud teie rahakotti.",
+  "claimNow": "Nõudke kohe",
+  "go": "Mine",
+  "winAmount": "Võida {{amount}} {{currency}}",
+  "multiplierLabel": "Kordaja",
+  "sortByCreated": "Hiljuti lisatud",
+  "sortByReward": "Suurim auhind",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Boonuse üksikasjad",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Pane vähemalt {{minBet}} {{currency}} (või vaste) panus kordajaga {{multiplier}}× või kõrgem. Esimesed {{slots}} kvalifitseeritud mängijat võidavad auhinna.",
+  "filterAll": "Kõik",
+  "filterClaimable": "Lunastatav",
+  "filterClaimed": "Lunastatud"
+}

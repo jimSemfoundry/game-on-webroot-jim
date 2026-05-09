@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Výboje",
+  "completed": "Dokončené",
+  "daily_cashback": "Denný Cashback",
+  "expiration": "Platnosť",
+  "claimed": "Vyzdvihnuté",
+  "deposit_now": "Vložiť teraz",
+  "gameOver": "Hra skončila",
+  "level": "Úroveň",
+  "bonusHub": {
+    "ongoing": "{{count}} prebieha",
+    "root": "Bonusové centrum"
+  },
+  "details": {
+    "lastUpdate": "Posledná aktualizácia"
+  },
+  "transactionStatus": {
+    "expired": "Vypršalo",
+    "cancelled": "Zrušené"
+  },
+  "notifications": "Upozornenia",
+  "read": "Prečítané",
+  "unread": "Neprečítané"
+}

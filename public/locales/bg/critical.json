@@ -1,0 +1,25 @@
+{
+  "bonus": "Бонус",
+  "conquests": "Завоевания",
+  "completed": "Завършено",
+  "daily_cashback": "Ежедневен кешбек",
+  "expiration": "Изтичане",
+  "claimed": "Получен",
+  "deposit_now": "Депозирай сега",
+  "gameOver": "Край на играта",
+  "level": "Ниво",
+  "bonusHub": {
+    "ongoing": "{{count}} активни",
+    "root": "Център за бонуси"
+  },
+  "details": {
+    "lastUpdate": "Последна актуализация"
+  },
+  "transactionStatus": {
+    "expired": "Изтекло",
+    "cancelled": "Отменено"
+  },
+  "notifications": "Известия",
+  "read": "Прочетено",
+  "unread": "Непрочетено"
+}

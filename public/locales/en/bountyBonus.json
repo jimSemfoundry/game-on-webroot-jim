@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "BOUNTY",
+  "activeTab": "Active",
+  "completedTab": "Completed",
+  "myCompletedTab": "My Completed",
+  "claimReward": "Claim",
+  "claiming": "Claiming...",
+  "claimed": "Claimed",
+  "play": "Play",
+  "challengeCompleted": "Challenge Completed",
+  "hitMultiplier": "Hit {{multiplier}}×",
+  "rewardLabel": "Reward",
+  "minBetLabel": "Min Bet",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} left",
+  "noActiveChallenges": "No active challenges right now.",
+  "noCompletedChallenges": "No completed challenges yet.",
+  "noMyChallenges": "You haven't won any bounty challenges yet.",
+  "branchDisabled": "Bounty challenges are not available right now.",
+  "forbidden": "Your account is currently restricted from bounty rewards.",
+  "searchPlaceholder": "Search games...",
+  "filterProvider": "Filter by Provider",
+  "winnersLabel": "Winners",
+  "viewWinners": "View winners",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Your Reward will be credited to the following account:",
+    "continue": "Continue"
+  },
+  "claimYourReward": "Claim Your Reward: {{amount}} {{currency}}",
+  "sortOrder": "Sort order",
+  "congratulations": "Congratulations!",
+  "bountyCompleted": "Bounty completed, claim your reward now!",
+  "youHitMultiplier": "You hit <0>{{multiplier}}×</0>! Bounty completed, claim your reward now !",
+  "newBountyAvailable": "New Bounty Available",
+  "claimSuccess": "Reward claimed",
+  "claimSuccessDetail": "{{amount}} {{currency}} added to your wallet.",
+  "claimNow": "Claim now",
+  "go": "Go",
+  "winAmount": "Win {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplier",
+  "sortByCreated": "Newly Added",
+  "sortByReward": "Highest Reward",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonus Details",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Bet at least {{minBet}} {{currency}} (or equivalent) at a multiplier of {{multiplier}}× or higher. The first {{slots}} qualifying players win the reward.",
+  "filterAll": "All",
+  "filterClaimable": "Claimable",
+  "filterClaimed": "Claimed"
+}

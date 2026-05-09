@@ -1,0 +1,25 @@
+{
+  "bonus": "علاوة",
+  "conquests": "الفتوحات",
+  "completed": "مكتمل",
+  "daily_cashback": "استرداد النقود اليومي",
+  "expiration": "انتهاء",
+  "claimed": "ادعى",
+  "deposit_now": "قم بالإيداع الآن",
+  "gameOver": "انتهت اللعبة",
+  "level": "مستوى",
+  "bonusHub": {
+    "ongoing": "{{count}} مستمر",
+    "root": "مركز المكافأة"
+  },
+  "details": {
+    "lastUpdate": "آخر تحديث"
+  },
+  "transactionStatus": {
+    "expired": "منتهي",
+    "cancelled": "ملغى"
+  },
+  "notifications": "الإشعارات",
+  "read": "اقرأ",
+  "unread": "غير مقروء"
+}

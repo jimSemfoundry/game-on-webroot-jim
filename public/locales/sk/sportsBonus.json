@@ -1,0 +1,58 @@
+{
+  "bonus": "Šport\nBonus",
+  "intro": "Hrajte so športovým bonusom ako skutočné peniaze! Každá stávka vás približuje k odomknutiu ich plnej hodnoty. Splňte požiadavky na prehratie a sledujte, ako sa váš športový bonus zmení na odmeny, ktoré je možné vybrať už dnes!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Športová bonusová peňaženka je špeciálna peňaženka pre športové stávkovanie. Pri nákupe získate sumu svojho vkladu plus extra bonus (napr. vklad 100 USDT s 50% bonusom = 150 USDT do vašej peňaženky s bonusmi pre šport). Všetky prostriedky v tejto peňaženke je možné použiť iba na športové stávky.",
+      "title": "Čo je to športová bonusová peňaženka?"
+    },
+    "q2": {
+      "body": "Prejdite na stránku Športový bonus, vyberte úroveň bonusu (napr. +50 %), zadajte sumu svojho vkladu (musí spĺňať minimálnu sumu zobrazenú na stránke) a klepnite na „Kúpiť teraz“. Váš vklad plus bonus budú okamžite pridané do vašej peňaženky s bonusmi pre šport.",
+      "title": "Ako si kúpim športový bonus?"
+    },
+    "q3": {
+      "body": "áno. Aktuálny minimálny a maximálny vkladový limit nájdete na stránke Športový bonus.",
+      "title": "Existuje minimálny alebo maximálny vklad?"
+    },
+    "q4": {
+      "body": "Nie. Športový bonus možno použiť len na športové stávky. Nemožno ho použiť pre automaty, kasíno, živé kasíno ani žiadne iné hry.",
+      "title": "Môžem použiť športový bonus na hracie automaty alebo kasínové hry?"
+    },
+    "q5": {
+      "body": "Predtým, než môžete vybrať, musíte splniť požiadavku na stávkovanie. Vzorec je: Celkový získaný BONUS × Násobník stávkovania. Napríklad, ak kúpite 100 USDT za 50% ŠPORTOVÝ BONUS, aby ste mali 150 ŠPORTOVÝ BONUS pridaný do peňaženky a násobník je 10x, musíte umiestniť 150 × 10 = 1500 {{currency}} ekvivalent v kvalifikovaných športových stávkach.",
+      "title": "Aká je požiadavka na stávkovanie?"
+    },
+    "q6": {
+      "body": "Platia tri pravidlá:\n\n Prehrané stávky: Ak stávate 100 USDT a prehráte, 100 USDT sa započítava do požiadavky na stávkovanie.\n\n Výherné stávky: Započítavajú sa len vtedy, ak sú kurzy ≥ {{minOdds}}. Ak stávate 100 USDT pri kurze 1.7 a vyhráte, 100 sa započíta do požiadavky na stávkovanie. Ak sú kurzy pod {{minOdds}} a vyhráte, nezapočítava sa do požiadavky na stávkovanie.\n\n Vyplatené stávky (predčasné vzdanie sa): Započítavajú sa len vtedy, ak je výplatená suma väčšia ako pôvodná suma stávky × {{minOdds}}. Ak je podmienka splnená, suma stávky sa započíta do požiadavky na stávkovanie. Inak sa nezapočítava do požiadavky na stávkovanie.",
+      "title": "Ktoré stávky sa započítavajú do požiadavky na stávkovanie?"
+    },
+    "q7": {
+      "body": "Áno, akonáhle splníte požiadavku na stávkovanie a váš zostatok dosiahne minimálnu sumu výberu. Váš zostatok SPORTS BONUS je možné previesť do vašej hlavnej peňaženky v mene podľa vášho výberu.",
+      "title": "Môžem si vybrať zostatok športového bonusu?"
+    },
+    "q8": {
+      "body": "Maximálna suma, ktorú môžete previesť na hotovosť, je obmedzená na násobok vášho celkového získaného ŠPORTOVÉHO BONUSU. Napríklad, ak váš získaný ŠPORTOVÝ BONUS je 150 a maximálny násobiteľ nároku je 10x, maximum, ktoré môžete previesť na hotovosť, je 1500 USDT (prevedené na vami zvolenú menu podľa aktuálneho výmenného kurzu).",
+      "title": "Aká je maximálna suma, ktorú môžem previesť na hotovosť?"
+    },
+    "q9": {
+      "body": "Nie. Naraz môžete mať iba jeden aktívny športový bonus. Najprv musíte dokončiť svoju aktuálnu – buď výberom po splnení stávkovej požiadavky, prepadnutím (keď zostatok ≤ 0,1 USDT ekvivalent) alebo čakaním, kým vyprší platnosť. Potom môžete nakupovať znova.",
+      "title": "Môžem si znova zakúpiť športový bonus, kým mám ešte aktívny?"
+    },
+    "q10": {
+      "body": "Medzi nákupmi je obdobie ochladzovania. Trvanie cooldownu je zobrazené na stránke Športový bonus.",
+      "title": "Ako často si môžem kúpiť športový bonus?"
+    },
+    "q11": {
+      "body": "Športová bonusová peňaženka má dobu platnosti (napr. 30 dní). Ak nesplníte požiadavku na stávkovanie v tomto období, zostávajúci zostatok ŠPORTOVÉHO BONUSU vyprší a bude odstránený.",
+      "title": "Čo sa stane, ak nesplním požiadavku na stávkovanie včas?"
+    },
+    "q12": {
+      "body": "A: Áno. Ak je zostatok vášho športového bonusu ≤ 0,1 USDT, môžete stratiť svoju peňaženku s bonusom pre šport. Ak však máte nejaké nevyrovnané športové stávky podané so športovým bonusom, nemôžete prepadnúť, kým nebudú všetky stávky vyrovnané. Upozorňujeme, že keď prídete o svoj ŠPORTOVÝ BONUS, zostávajúci zostatok bude odstránený a nebude možné ho získať späť. Niektorí hráči prídu o svoj zostatok, aby si mohli kúpiť ďalší ŠPORTOVÝ BONUS, pretože v jednom okamihu môže byť aktívny iba 1 ŠPORTOVÝ BONUS.",
+      "title": "Môžem sa vzdať / stratiť svoju peňaženku so športovými bonusmi?"
+    },
+    "q13": {
+      "body": "Ak používate poskytovateľa internetu z obmedzeného regiónu, ako je Singapur, Spojené štáty americké, Izrael atď. ŠPORTOVÝ BONUS nebude vo vašom regióne dostupný. Ak si myslíte, že ide o chybu, kontaktujte zákaznícku podporu.",
+      "title": "Prečo nevidím možnosť Športový bonus?"
+    }
+  }
+}

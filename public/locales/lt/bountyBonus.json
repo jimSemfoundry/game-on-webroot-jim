@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Premija",
+  "activeTab": "Aktyvūs",
+  "completedTab": "Užbaigti",
+  "myCompletedTab": "Mano užbaigti",
+  "claimReward": "Atsiimti",
+  "claiming": "Atsiimama...",
+  "claimed": "Atsiimta",
+  "play": "Žaisti",
+  "challengeCompleted": "Iššūkis užbaigtas",
+  "hitMultiplier": "Pasiekti {{multiplier}}×",
+  "rewardLabel": "Apdovanojimas",
+  "minBetLabel": "Min. statymas",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} liko",
+  "noActiveChallenges": "Šiuo metu nėra aktyvių iššūkių.",
+  "noCompletedChallenges": "Dar nėra užbaigtų iššūkių.",
+  "noMyChallenges": "Dar nelaimėjote nė vieno bounty iššūkio.",
+  "branchDisabled": "Bounty iššūkiai šiuo metu negalimi.",
+  "forbidden": "Jūsų paskyra šiuo metu apribota nuo bounty apdovanojimų.",
+  "searchPlaceholder": "Ieškoti žaidimų...",
+  "filterProvider": "Filtruoti pagal teikėją",
+  "winnersLabel": "Nugalėtojai",
+  "viewWinners": "Peržiūrėti nugalėtojus",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Jūsų atlygis bus įskaitytas į šią sąskaitą:",
+    "continue": "Tęsti"
+  },
+  "claimYourReward": "Atsiimkite atlygį: {{amount}} {{currency}}",
+  "sortOrder": "Rūšiavimo tvarka",
+  "congratulations": "Sveikiname!",
+  "bountyCompleted": "Bounty užbaigtas, atsiimkite savo apdovanojimą dabar!",
+  "youHitMultiplier": "Jūs pasiekėte <0>{{multiplier}}×</0>! Bounty užbaigtas, atsiimkite savo apdovanojimą dabar!",
+  "newBountyAvailable": "Naujas Bounty galimas",
+  "claimSuccess": "Apdovanojimas atsiimtas",
+  "claimSuccessDetail": "{{amount}} {{currency}} pridėta į jūsų piniginę.",
+  "claimNow": "Atsiimti dabar",
+  "go": "Eiti",
+  "winAmount": "Laimėkite {{amount}} {{currency}}",
+  "multiplierLabel": "Daugiklis",
+  "sortByCreated": "Neseniai pridėti",
+  "sortByReward": "Didžiausias apdovanojimas",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Premijos informacija",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Statykite bent {{minBet}} {{currency}} (arba ekvivalentą) su {{multiplier}}× ar didesniu daugikliu. Pirmieji {{slots}} kvalifikuoti žaidėjai laimi atlygį.",
+  "filterAll": "Visi",
+  "filterClaimable": "Atsiimama",
+  "filterClaimed": "Atsiimta"
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "بونوس",
+  "conquests": "فتوحات",
+  "completed": "تکمیل شده",
+  "daily_cashback": "کش‌بک روزانه",
+  "expiration": "انقضا",
+  "claimed": "دریافت شد",
+  "deposit_now": "اکنون واریز کنید",
+  "gameOver": "بازی تمام شد",
+  "level": "سطح",
+  "bonusHub": {
+    "ongoing": "{{count}} در حال انجام",
+    "root": "مرکز بونوس"
+  },
+  "details": {
+    "lastUpdate": "آخرین به‌روزرسانی"
+  },
+  "transactionStatus": {
+    "expired": "منقضی شده",
+    "cancelled": "لغو شده"
+  },
+  "notifications": "اعلان‌ها",
+  "read": "خوانده شده",
+  "unread": "خوانده نشده"
+}

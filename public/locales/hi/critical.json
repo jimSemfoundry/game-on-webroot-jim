@@ -1,0 +1,25 @@
+{
+  "bonus": "बोनस",
+  "conquests": "विजय",
+  "completed": "पूर्ण",
+  "daily_cashback": "दैनिक कैशबैक",
+  "expiration": "समाप्ति",
+  "claimed": "दावा किया गया",
+  "deposit_now": "अभी डिपॉजिट करें",
+  "gameOver": "खेल समाप्त",
+  "level": "लेवल",
+  "bonusHub": {
+    "ongoing": "{{count}} चल रहा है",
+    "root": "बोनस हब"
+  },
+  "details": {
+    "lastUpdate": "अंतिम अपडेट"
+  },
+  "transactionStatus": {
+    "expired": "समय समाप्त",
+    "cancelled": "रद्द"
+  },
+  "notifications": "सूचनाएं",
+  "read": "पढ़ें",
+  "unread": "अविकसित"
+}

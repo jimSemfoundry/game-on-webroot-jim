@@ -1,0 +1,23 @@
+{
+  "go": "Go",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Araw-araw na Check-in",
+  "referFriend": "Mag-refer ng Kaibigan",
+  "referralDeposit": "Unang Deposit ng Referral",
+  "moreBalls": "Kumuha ng Higit pang Buddy Balls",
+  "rewards": "Mga Gantimpala ng Buddy Ball",
+  "records": "Mga Tala ng Buddy Ball",
+  "balls": "Mga Bola",
+  "type_deposit": "Direktang FTD",
+  "type_user": "Mag-refer ng Kaibigan",
+  "type_buddy_balls_daily_checkin": "Araw-araw na Check-in",
+  "type_promo_code_buddy_balls": "Promo Code",
+  "type_achievement_bb": "Tagumpay",
+  "accumulated": "Maaaring makolekta at makuha ang mga gantimpala anumang oras. Lahat ng gantimpala ay binabayaran sa napiling currency mo.",
+  "type_lucky_spin": "Lucky Spin",
+  "getMore": "Kumuha ng higit",
+  "share": "Ibahagi",
+  "getMoreBuddyball": "Kumuha ng mas maraming Buddyball",
+  "shareBuddyball": "Ibahagi ang Buddyball",
+  "quickShare": "Mabilisang Pagbabahagi"
+}

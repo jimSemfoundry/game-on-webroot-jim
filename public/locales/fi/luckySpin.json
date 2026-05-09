@@ -1,0 +1,17 @@
+{
+  "fortune": "Onnen\npyörä",
+  "deposit": "Talleta {{amount}} saadaksesi 1 pyöräytyksen",
+  "spin_now": "PYÖRÄYTÄ NYT",
+  "available": "Sinulla on {{times}} pyöräytystä käytettävissä!",
+  "lucky": "Lucky Spin",
+  "mega": "Mega Spin",
+  "spin": "Pyöräytä",
+  "rakeback_booster": "Booster",
+  "buddy_balls": "Buddy Balls",
+  "free_spin": "Ilmaispyöräytykset",
+  "winner": "VOITTAJA",
+  "better": "PAREMPI ONNI\nENSI KERRALLA",
+  "next_time": "ENSI KERRALLA",
+  "ready": "Valmistaudu pyöräyttämään, pyöräyttämään ja pyöräyttämään Onnen pyörää — porttiasi jännittäviin yllätyksiin ja uskomattomiin palkintoihin!\nJokainen pyöräytys antaa sinulle mahdollisuuden voittaa oikeaa rahaa, kryptopalkintoja, boostereita, ilmaispyöräytyksiä, buddy ballseja ja eksklusiivisia palkintoja — jopa iPhonen.\nTunne jännitys, kun pyörä pyörii ja onni löytää seuraavan voittajansa.",
+  "rewards": "Kaikki Onnen pyörän raha- ja kryptopalkinnot hyvitetään suoraan vastaavan tilin saldoon. Jos esimerkiksi voitat ETH:ta, palkinto lisätään automaattisesti ETH-lompakkosi saldoon.\nFyysisten palkintojen tai luksustuotteiden osalta asiakaspalvelutiimimme ottaa sinuun henkilökohtaisesti yhteyttä toimituksen järjestämiseksi."
+}

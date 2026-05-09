@@ -1,0 +1,58 @@
+{
+  "bonus": "Šport\nBonus",
+  "intro": "Igrajte s športnim bonusom kot pravi denar! Vsaka stava vas približa odklepanju njihove polne vrednosti. Izpolnite zahteve glede igranja in opazujte, kako se vaš športni bonus še danes spreminja v nagrade, ki jih je mogoče dvigniti!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Sports Bonus Wallet je posebna denarnica za športne stave. Ob nakupu prejmete znesek pologa in dodaten bonus (npr. polog 100 USDT s 50-odstotnim bonusom = 150 USDT v vašo Sports Bonus Wallet). Vsa sredstva v tej denarnici se lahko uporabljajo samo za športne stave.",
+      "title": "Kaj je Sports Bonus Wallet?"
+    },
+    "q2": {
+      "body": "Pojdite na stran Športni bonus, izberite stopnjo bonusa (npr. +50 %), vnesite znesek pologa (izpolnjevati mora najmanjši znesek, prikazan na strani) in tapnite »Kupi zdaj«. Vaš depozit in bonus bosta takoj dodana v vašo Sports Bonus Wallet.",
+      "title": "Kako kupim športni bonus?"
+    },
+    "q3": {
+      "body": "ja Preverite stran Športni bonus za trenutne najnižje in najvišje omejitve pologa.",
+      "title": "Ali obstaja minimalni ali maksimalni depozit?"
+    },
+    "q4": {
+      "body": "Športni bonus se lahko uporablja samo za športne stave. Ni ga mogoče uporabiti za igralne avtomate, kazino, kazino v živo ali katere koli druge igre.",
+      "title": "Ali lahko uporabim športni bonus za igralne avtomate ali igralniške igre?"
+    },
+    "q5": {
+      "body": "Preden lahko dvignete, morate izpolniti zahtevo za stavo. Formula je: Skupni pridobljeni BONUS × Množitelj stave. Na primer, če kupite 100 USDT za 50% ŠPORTNEGA BONUSA, da imate 150 ŠPORTNEGA BONUSA dodanega v vašo denarnico in množitelj je 10x, morate postaviti 150 × 10 = 1500 {{currency}} ekvivalent v kvalificirane športne stave.",
+      "title": "Kakšna je zahteva za stavo?"
+    },
+    "q6": {
+      "body": "Veljajo tri pravila:\n\n Izgubljene stave: Če stavite 100 USDT in izgubite, se 100 USDT šteje za zahtevo stave.\n\n Zmagovalne stave: Štejejo se samo, če so kvote ≥ {{minOdds}}. Če stavite 100 USDT pri kvoti 1.7 in zmagate, se 100 šteje za zahtevo stave. Če so kvote pod {{minOdds}} in zmagate, se ne šteje za zahtevo stave.\n\n Izplačane stave (predaja): Štejejo se samo, če je izplačani znesek večji od originalnega zneska stave × {{minOdds}}. Če je pogoj izpolnjen, se znesek stave šteje za zahtevo stave. V nasprotnem primeru se ne šteje za zahtevo stave.",
+      "title": "Katere stave se upoštevajo pri stavni zahtevi?"
+    },
+    "q7": {
+      "body": "Da, ko izpolnite zahtevo za stavo in vaše stanje doseže minimalni znesek dviga. Vaše SPORTS BONUS stanje se lahko pretvori v vašo glavno denarnico v valuti po vaši izbiri.",
+      "title": "Ali lahko dvignem stanje svojega športnega bonusa?"
+    },
+    "q8": {
+      "body": "Najvišji znesek, ki ga lahko pretvorite v denar, je omejen na množitelj vašega skupnega pridobljenega ŠPORTNEGA BONUSA. Na primer, če je vaš pridobljeni ŠPORTNI BONUS 150 in je največji množitelj zahtevkov 10x, je največ, kar lahko pretvorite v gotovino, 1500 USDT (pretvorjeno v izbrano valuto po trenutnem menjalnem tečaju).",
+      "title": "Kolikšen je najvišji znesek, ki ga lahko pretvorim v gotovino?"
+    },
+    "q9": {
+      "body": "Ne. Hkrati lahko imate samo en aktivni športni bonus. Najprej morate dokončati svojega trenutnega — bodisi z umikom, ko ste izpolnili zahtevo za stavo, jo izgubite (ko je stanje ≤ 0,1 protivrednosti USDT) ali počakate, da poteče. Po tem lahko ponovno kupite.",
+      "title": "Ali lahko ponovno kupim športni bonus, medtem ko imam še aktivnega?"
+    },
+    "q10": {
+      "body": "Med nakupi je obdobje ohlajanja. Trajanje ohlajanja je prikazano na strani Športni bonus.",
+      "title": "Kako pogosto lahko kupim športni bonus?"
+    },
+    "q11": {
+      "body": "Sports Bonus Wallet ima obdobje veljavnosti (npr. 30 dni). Če v tem obdobju ne izpolnite zahteve za stavo, bo preostalo stanje SPORTS BONUS poteklo in bo odstranjeno.",
+      "title": "Kaj se zgodi, če ne izpolnim pogojev za stavo pravočasno?"
+    },
+    "q12": {
+      "body": "O: Da. Če je stanje vašega športnega bonusa ≤ 0,1 USDT, lahko izgubite denarnico za športni bonus. Vendar, če imate kakršne koli neporavnane športne stave s Sports Bonusom, ne morete izgubiti, dokler niso vse stave poravnane. Upoštevajte, da ko izgubite ŠPORTNI BONUS, bo preostalo stanje odstranjeno in ga ni mogoče povrniti. Nekateri igralci izgubijo svoje dobroimetje, da bi kupili še en ŠPORTNI BONUS, saj je lahko naenkrat aktiven samo 1 ŠPORTNI BONUS.",
+      "title": "Ali se lahko odpovem / izgubim denarnico za športne bonuse?"
+    },
+    "q13": {
+      "body": "Če uporabljate internetnega ponudnika iz omejene regije, kot so Singapur, Združene države Amerike, Izrael itd. ŠPORTNI BONUS ne bo na voljo v vaši regiji. Če menite, da gre za napako, se obrnite na podporo strankam.",
+      "title": "Zakaj ne vidim možnosti Športni bonus?"
+    }
+  }
+}

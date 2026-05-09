@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Jutalom",
+  "activeTab": "Aktív",
+  "completedTab": "Befejezett",
+  "myCompletedTab": "Saját befejezett",
+  "claimReward": "Igénylés",
+  "claiming": "Igénylés...",
+  "claimed": "Igényelve",
+  "play": "Játék",
+  "challengeCompleted": "Kihívás teljesítve",
+  "hitMultiplier": "Érd el {{multiplier}}×",
+  "rewardLabel": "Jutalom",
+  "minBetLabel": "Min. tét",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} maradt",
+  "noActiveChallenges": "Jelenleg nincsenek aktív kihívások.",
+  "noCompletedChallenges": "Még nincsenek befejezett kihívások.",
+  "noMyChallenges": "Még nem nyertél bounty kihívást.",
+  "branchDisabled": "A bounty kihívások jelenleg nem elérhetők.",
+  "forbidden": "Fiókod jelenleg korlátozott a bounty jutalmaktól.",
+  "searchPlaceholder": "Játékok keresése...",
+  "filterProvider": "Szűrés szolgáltató szerint",
+  "winnersLabel": "Nyertesek",
+  "viewWinners": "Nyertesek megtekintése",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "A jutalmadat a következő számlára írjuk jóvá:",
+    "continue": "Folytatás"
+  },
+  "claimYourReward": "Vedd át a jutalmadat: {{amount}} {{currency}}",
+  "sortOrder": "Rendezési sorrend",
+  "congratulations": "Gratulálunk!",
+  "bountyCompleted": "Bounty teljesítve, igényeld jutalmadat most!",
+  "youHitMultiplier": "Elérted <0>{{multiplier}}×</0>! Bounty teljesítve, igényeld jutalmadat most!",
+  "newBountyAvailable": "Új Bounty elérhető",
+  "claimSuccess": "Jutalom igényelve",
+  "claimSuccessDetail": "{{amount}} {{currency}} hozzáadva a tárcádhoz.",
+  "claimNow": "Igényeld most",
+  "go": "Menj",
+  "winAmount": "Nyerj {{amount}} {{currency}}",
+  "multiplierLabel": "Szorzó",
+  "sortByCreated": "Nemrég hozzáadva",
+  "sortByReward": "Legmagasabb jutalom",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bónusz részletek",
+    "intro": "Bounty challenges reward you with prizes for winning big. In any of the listed games, simply place a qualifying bet that meets the minimum bet amount that hits the required multiplier — if you're among the first to do it, the reward is yours.",
+    "howItWorks": {
+      "title": "How It Works",
+      "body": "  - Each Bounty challenge is tied to a specific game\n  - Place a bet that meets the minimum bet amount\n  - Hit the target multiplier or higher to complete the challenge\n  - The first players to complete the challenge win the reward\n  - You can win multiple times on the same challenge if there are multiple prizes awarded"
+    },
+    "claim": {
+      "title": "Claim Distribution",
+      "body": "Rewards will be credited to your wallet in the currency specified for each challenge. You can claim your reward anytime from the \"My Completed\" tab in the Bounty page. There is no time limit to claim."
+    },
+    "eligible": {
+      "title": "Eligible Bets",
+      "body": "  - Only real money bets count. Bets placed using Slot Bonus Wallet or Free Spins do not qualify.\n  - Your bet amount must meet or exceed the minimum bet amount shown on the challenge."
+    },
+    "terms": {
+      "title": "General Terms",
+      "body": "  - Bounty rewards are calculated and credited in the currency configured for each challenge, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n  - The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    }
+  },
+  "rewardTooltip": "Tegyél legalább {{minBet}} {{currency}} (vagy ennek megfelelő) tétet {{multiplier}}× vagy magasabb szorzóval. Az első {{slots}} jogosult játékos nyeri a jutalmat.",
+  "filterAll": "Összes",
+  "filterClaimable": "Igényelhető",
+  "filterClaimed": "Igényelve"
+}

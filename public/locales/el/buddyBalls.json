@@ -1,0 +1,23 @@
+{
+  "go": "Πάμε",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Ημερήσιο check-in",
+  "referFriend": "Πρόσκληση φίλου",
+  "referralDeposit": "Πρώτη κατάθεση παραπομπής",
+  "moreBalls": "Πάρε περισσότερα Buddy Balls",
+  "rewards": "Ανταμοιβές Buddy Ball",
+  "records": "Ιστορικό Buddy Ball",
+  "balls": "Μπάλες",
+  "type_deposit": "Άμεσο FTD",
+  "type_user": "Προσκάλεσε έναν φίλο",
+  "type_buddy_balls_daily_checkin": "Καθημερινό check-in",
+  "type_promo_code_buddy_balls": "Κωδικός προώθησης",
+  "type_achievement_bb": "Επίτευγμα",
+  "accumulated": "Οι ανταμοιβές μπορούν να συσσωρευτούν και να διεκδικηθούν οποιαδήποτε στιγμή. Όλες οι ανταμοιβές εκκαθαρίζονται στο νόμισμα που έχετε επιλέξει.",
+  "type_lucky_spin": "Lucky Spin",
+  "getMore": "Πάρε περισσότερα",
+  "share": "Κοινοποίηση",
+  "getMoreBuddyball": "Πάρε περισσότερα Buddyball",
+  "shareBuddyball": "Κοινοποίηση Buddyball",
+  "quickShare": "Γρήγορη κοινοποίηση"
+}

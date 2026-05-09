@@ -1,0 +1,58 @@
+{
+  "bonus": "Esportes\nBônus",
+  "intro": "Jogue com bônus esportivos como se fosse dinheiro real! Cada aposta deixa você mais perto de desbloquear o valor total. Cumpra os requisitos de jogo e veja o seu Bônus Esportivo se transformar em recompensas que podem ser retiradas hoje mesmo!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "A Sports Bonus Wallet é uma carteira especial para apostas desportivas. Ao comprar, você recebe o valor do depósito mais um bônus extra (por exemplo, deposite 100 USDT com um bônus de 50% = 150 USDT na sua Carteira de Bônus Esportivo). Todos os fundos desta carteira só podem ser utilizados para apostas desportivas.",
+      "title": "O que é a Carteira de Bônus Esportivo?"
+    },
+    "q2": {
+      "body": "Vá para a página Bônus Esportivo, selecione um nível de bônus (por exemplo, +50%), insira o valor do seu depósito (deve atingir o valor mínimo mostrado na página) e toque em \"Comprar agora\". Seu depósito mais o bônus serão adicionados à sua carteira de bônus esportivos instantaneamente.",
+      "title": "Como posso adquirir Bônus Esportivo?"
+    },
+    "q3": {
+      "body": "Sim. Por favor, verifique a página de Bônus Esportivo para saber os limites de depósito mínimo e máximo atuais.",
+      "title": "Existe um depósito mínimo ou máximo?"
+    },
+    "q4": {
+      "body": "Não. O Bónus Desportivo só pode ser utilizado para apostas desportivas. Não pode ser usado para caça-níqueis, cassino, cassino ao vivo ou qualquer outro jogo.",
+      "title": "Posso usar o Bônus Esportivo para caça-níqueis ou jogos de cassino?"
+    },
+    "q5": {
+      "body": "Antes de poder sacar, você precisa completar um requisito de aposta. A fórmula é: BÔNUS Total Obtido × Multiplicador de Apostas. Por exemplo, se você comprar 100 USDT para 50% BÔNUS ESPORTIVO para ter 150 BÔNUS ESPORTIVO adicionado à sua carteira e o multiplicador for 10x, você precisa colocar 150 × 10 = 1500 {{currency}} equivalente em apostas esportivas qualificadas.",
+      "title": "Qual é o requisito de aposta?"
+    },
+    "q6": {
+      "body": "Três regras se aplicam:\n\n Apostas perdidas: Se você apostar 100 USDT e perder, 100 USDT conta para a aposta.\n\n Apostas vencedoras: Contam apenas se as chances forem ≥ {{minOdds}}. Se você apostar 100 USDT com chances de 1.7 e ganhar, 100 será contado para a aposta. Se as chances forem abaixo de {{minOdds}} e você ganhar, não conta para a aposta.\n\n Apostas resgatadas (rendição antecipada): Contam apenas se o valor resgatado for maior que o valor da aposta original × {{minOdds}}. Se a condição for atendida, o valor da aposta conta para a aposta. Caso contrário, não conta para a aposta.",
+      "title": "Quais apostas contam para o requisito de aposta?"
+    },
+    "q7": {
+      "body": "Sim, uma vez que você tenha cumprido o requisito de aposta e seu saldo atenda ao valor mínimo de saque. Seu saldo de BÔNUS ESPORTIVOS pode ser convertido para sua carteira principal na moeda de sua escolha.",
+      "title": "Posso sacar meu saldo de Bônus Esportivo?"
+    },
+    "q8": {
+      "body": "O valor máximo que você pode converter em dinheiro é limitado a um multiplicador do total de BÔNUS ESPORTIVOS obtidos. Por exemplo, se o seu BÔNUS ESPORTIVO obtido for 150 e o multiplicador máximo de reivindicação for 10x, o máximo que você pode converter em dinheiro é 1500 USDT (convertido para a moeda escolhida à taxa de câmbio atual).",
+      "title": "Qual é o valor máximo que posso converter em dinheiro?"
+    },
+    "q9": {
+      "body": "Não. Você só pode ter um Bônus Esportivo ativo por vez. Você precisa completar o seu atual primeiro - retirando-se após cumprir o requisito de aposta, desistindo (quando o saldo for ≤ 0,1 USDT equivalente) ou esperando que ele expire. Depois disso, você pode comprar novamente.",
+      "title": "Posso comprar Bônus Esportivo novamente enquanto ainda tenho um ativo?"
+    },
+    "q10": {
+      "body": "Há um período de espera entre as compras. A duração do resfriamento é mostrada na página Bônus Esportivo.",
+      "title": "Com que frequência posso comprar Bônus Esportivos?"
+    },
+    "q11": {
+      "body": "A Carteira de Bônus Esportivo tem um período de validade (por exemplo, 30 dias). Se você não completar o requisito de aposta dentro deste período, o saldo restante do BÔNUS ESPORTIVO irá expirar e ser removido.",
+      "title": "O que acontece se eu não completar o requisito de aposta a tempo?"
+    },
+    "q12": {
+      "body": "R: Sim. Se o saldo do seu Bônus Esportivo for ≤ 0,1 USDT, você poderá perder sua Carteira de Bônus Esportivo. No entanto, se você tiver apostas esportivas não liquidadas feitas com Bônus Esportivo, você não poderá desistir até que todas as apostas sejam liquidadas. Observe que quando você perder seu BÔNUS ESPORTIVO, o saldo restante será removido e não poderá ser recuperado. Alguns jogadores perdem o seu saldo para comprar outro BÔNUS ESPORTIVO, pois só pode haver 1 BÔNUS ESPORTIVO ativo por vez.",
+      "title": "Posso desistir/perder minha Carteira de Bônus Esportivo?"
+    },
+    "q13": {
+      "body": "Se você estiver usando um provedor de Internet de uma região restrita como Cingapura, Estados Unidos, Israel etc. O BÔNUS ESPORTIVO não estará disponível em sua região. Se você acredita que isso é um erro, entre em contato com o suporte ao cliente.",
+      "title": "Por que não consigo ver a opção Bônus Esportivo?"
+    }
+  }
+}

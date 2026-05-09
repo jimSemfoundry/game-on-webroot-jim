@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "انعام",
+  "activeTab": "فعال",
+  "completedTab": "مکمل",
+  "myCompletedTab": "میرے مکمل",
+  "claimReward": "حاصل کریں",
+  "claiming": "حاصل کیا جا رہا ہے...",
+  "claimed": "حاصل کر لیا",
+  "play": "کھیلیں",
+  "challengeCompleted": "چیلنج مکمل",
+  "hitMultiplier": "{{multiplier}}× حاصل کریں",
+  "rewardLabel": "انعام",
+  "minBetLabel": "کم سے کم شرط",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} باقی",
+  "noActiveChallenges": "اس وقت کوئی فعال چیلنج نہیں ہے۔",
+  "noCompletedChallenges": "ابھی تک کوئی مکمل چیلنج نہیں ہے۔",
+  "noMyChallenges": "آپ نے ابھی تک کوئی bounty چیلنج نہیں جیتا ہے۔",
+  "branchDisabled": "Bounty چیلنجز اس وقت دستیاب نہیں ہیں۔",
+  "forbidden": "آپ کا اکاؤنٹ فی الحال bounty انعامات سے محدود ہے۔",
+  "searchPlaceholder": "گیمز تلاش کریں...",
+  "filterProvider": "فراہم کنندہ کے ذریعے فلٹر کریں",
+  "winnersLabel": "فاتحین",
+  "viewWinners": "فاتحین دیکھیں",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "آپ کا انعام درج ذیل اکاؤنٹ میں جمع کر دیا جائے گا:",
+    "continue": "جاری رکھیں"
+  },
+  "claimYourReward": "اپنا انعام حاصل کریں: {{amount}} {{currency}}",
+  "sortOrder": "ترتیب",
+  "congratulations": "مبارک ہو!",
+  "bountyCompleted": "Bounty مکمل، اب اپنا انعام حاصل کریں!",
+  "youHitMultiplier": "آپ نے <0>{{multiplier}}×</0> حاصل کیا! Bounty مکمل، اب اپنا انعام حاصل کریں!",
+  "newBountyAvailable": "نیا Bounty دستیاب",
+  "claimSuccess": "انعام حاصل کر لیا",
+  "claimSuccessDetail": "{{amount}} {{currency}} آپ کے بٹوے میں شامل کر دیا گیا۔",
+  "claimNow": "ابھی حاصل کریں",
+  "go": "جائیں",
+  "winAmount": "{{amount}} {{currency}} جیتیں",
+  "multiplierLabel": "ضرب",
+  "sortByCreated": "حال ہی میں شامل",
+  "sortByReward": "اعلیٰ ترین انعام",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "بونس کی تفصیلات",
+    "intro": "Bounty چیلنجز آپ کو بڑی جیت کے لیے انعامات سے نوازتے ہیں۔ درج شدہ کسی بھی کھیل میں، صرف ایک اہل شرط لگائیں جو کم سے کم شرط کی رقم کو پورا کرے اور مطلوبہ ضرب کو حاصل کرے — اگر آپ ایسا کرنے والے پہلے لوگوں میں سے ہیں، تو انعام آپ کا ہے۔",
+    "howItWorks": {
+      "title": "یہ کیسے کام کرتا ہے",
+      "body": "  - ہر Bounty چیلنج کسی خاص گیم سے منسلک ہے\n  - کم سے کم شرط کی رقم کو پورا کرنے والی شرط لگائیں\n  - چیلنج مکمل کرنے کے لیے ہدف ضرب یا اس سے زیادہ حاصل کریں\n  - چیلنج مکمل کرنے والے پہلے کھلاڑی انعام جیتتے ہیں\n  - اگر متعدد انعامات دیے جاتے ہیں تو آپ ایک ہی چیلنج پر متعدد بار جیت سکتے ہیں"
+    },
+    "claim": {
+      "title": "حصول کی تقسیم",
+      "body": "انعامات آپ کے بٹوے میں ہر چیلنج کے لیے مخصوص کرنسی میں جمع کیے جائیں گے۔ آپ Bounty صفحے کے \"میرے مکمل\" ٹیب سے کسی بھی وقت اپنا انعام حاصل کر سکتے ہیں۔ حاصل کرنے کے لیے کوئی وقت کی حد نہیں ہے۔"
+    },
+    "eligible": {
+      "title": "اہل شرطیں",
+      "body": "  - صرف حقیقی رقم کی شرطیں شمار کی جاتی ہیں۔ Slot Bonus Wallet یا Free Spins کا استعمال کرتے ہوئے لگائی گئی شرطیں اہل نہیں ہیں۔\n  - آپ کی شرط کی رقم چیلنج پر دکھائی گئی کم سے کم شرط کی رقم کو پورا کرنا یا اس سے زیادہ ہونا چاہیے۔"
+    },
+    "terms": {
+      "title": "عام شرائط",
+      "body": "  - Bounty انعامات ہر چیلنج کے لیے ترتیب دی گئی کرنسی میں شمار اور جمع کیے جاتے ہیں، پھر سہولت کے لیے آپ کی پسندیدہ کرنسی میں دکھائے جاتے ہیں۔ براہ کرم نوٹ کریں کہ کرنسی کی تبدیلیاں تخمینی ہیں۔\n  - کیسینو کسی بھی وقت، جواز کی ذمہ داری کے بغیر، اہلیت میں ترمیم یا منسوخ کرنے کا حق محفوظ رکھتا ہے۔ کوئی بھی غلط استعمال یا دھوکہ دہی کی سرگرمی پروموشن سے نااہل ہونے کا باعث بنے گی۔"
+    }
+  },
+  "rewardTooltip": "کم از کم {{minBet}} {{currency}} (یا اس کے مساوی) کی شرط {{multiplier}}× یا اس سے زیادہ کے ضرب پر لگائیں۔ پہلے {{slots}} اہل کھلاڑی انعام جیتیں گے۔",
+  "filterAll": "تمام",
+  "filterClaimable": "دستیاب",
+  "filterClaimed": "وصول شدہ"
+}

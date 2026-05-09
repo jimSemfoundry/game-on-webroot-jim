@@ -1,0 +1,25 @@
+{
+  "bonus": "Bono",
+  "conquests": "Conquistas",
+  "completed": "Completado",
+  "daily_cashback": "Cashback Diario",
+  "expiration": "Caducidad",
+  "claimed": "Reclamado",
+  "deposit_now": "Deposita Ahora",
+  "gameOver": "Fin del juego",
+  "level": "Nivel",
+  "bonusHub": {
+    "ongoing": "{{count}} En Curso",
+    "root": "Centro de Bonos"
+  },
+  "details": {
+    "lastUpdate": "Última Actualización"
+  },
+  "transactionStatus": {
+    "expired": "Expirado",
+    "cancelled": "Cancelado"
+  },
+  "notifications": "Notificaciones",
+  "read": "Leer",
+  "unread": "No leído"
+}

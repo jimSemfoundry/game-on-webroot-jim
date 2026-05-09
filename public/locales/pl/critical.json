@@ -1,0 +1,25 @@
+{
+  "bonus": "Premia",
+  "conquests": "Podboje",
+  "completed": "Zakończone",
+  "daily_cashback": "Codzienny zwrot gotówki",
+  "expiration": "Data wygaśnięcia",
+  "claimed": "Zgłoszony",
+  "deposit_now": "Wpłać teraz",
+  "gameOver": "Koniec gry",
+  "level": "Poziom",
+  "bonusHub": {
+    "ongoing": "{{count}} W trakcie",
+    "root": "Centrum bonusów"
+  },
+  "details": {
+    "lastUpdate": "Ostatnia Aktualizacja"
+  },
+  "transactionStatus": {
+    "expired": "Wygasło",
+    "cancelled": "Anulowane"
+  },
+  "notifications": "Powiadomienia",
+  "read": "Przeczytane",
+  "unread": "Nieprzeczytane"
+}

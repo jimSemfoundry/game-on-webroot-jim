@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBoonus",
+  "intro": "Mängige spordiboonusega nagu pärisraha! Iga panus viib teid lähemale nende täisväärtuse avamisele. Täitke läbimängimise nõuded ja vaadake, kuidas teie spordiboonus muutub juba täna väljavõetavateks auhindadeks!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Spordiboonuse rahakott on spetsiaalne rahakott spordiennustuste jaoks. Ostmisel saate oma sissemakse summa pluss lisaboonuse (nt sissemakse 100 USDT koos 50% boonusega = 150 USDT teie spordiboonuse rahakotis). Kõiki selles rahakotis olevaid vahendeid saab kasutada ainult spordiennustuste tegemiseks.",
+      "title": "Mis on spordiboonuse rahakott?"
+    },
+    "q2": {
+      "body": "Minge lehele Spordiboonus, valige boonuse tase (nt +50%), sisestage oma sissemakse summa (peab vastama lehel näidatud miinimumsummale) ja puuduta \"Osta kohe\". Teie sissemakse ja boonus lisatakse koheselt teie spordiboonuse rahakotti.",
+      "title": "Kuidas osta spordiboonust?"
+    },
+    "q3": {
+      "body": "Jah. Kontrollige Spordiboonuse lehelt kehtivaid minimaalseid ja maksimaalseid sissemakse limiite.",
+      "title": "Kas sissemakse on minimaalne või maksimaalne?"
+    },
+    "q4": {
+      "body": "Ei. Spordiboonust saab kasutada ainult spordiennustuste tegemiseks. Seda ei saa kasutada mänguautomaatide, kasiinode, live-kasiinode ega muude mängude jaoks.",
+      "title": "Kas ma saan kasutada spordiboonust teenindusaegade või kasiinomängude jaoks?"
+    },
+    "q5": {
+      "body": "Enne kui saate välja võtta, peate täitma läbimängimisnõude. Valem on: Kogu saadud BOONUS × Panuste kordaja. Näiteks kui ostate 100 USDT 50% SPORDIBOONUSE eest, et teil oleks 150 SPORDIBOONUS lisatud teie rahakotti ja kordaja on 10x, peate panustama 150 × 10 = 1500 {{currency}} väärtuses sobivaid spordipanuseid.",
+      "title": "Mis on läbimängimise nõue?"
+    },
+    "q6": {
+      "body": "Kehtib kolm reeglit:\n\n Kaotatud panused: Kui panustate 100 USDT ja kaotate, loetakse 100 USDT läbimängimisnõude arvesse.\n\n Võidetud panused: Loetakse arvesse ainult siis, kui kordajad on ≥ {{minOdds}}. Kui panustate 100 USDT kordajaga 1.7 ja võidate, loetakse 100 läbimängimisnõude arvesse. Kui kordajad on alla {{minOdds}} ja võidate, seda ei loeta läbimängimisnõude arvesse.\n\n Varem välja makstud panused (enneaegane loobumine): Loetakse arvesse ainult siis, kui väljamakse summa on suurem kui algne panuse summa × {{minOdds}}. Kui tingimus on täidetud, loetakse panuse summa läbimängimisnõude arvesse. Vastasel juhul ei loeta seda läbimängimisnõude arvesse.",
+      "title": "Milliseid panuseid läbimängimisnõude arvestamisel arvestatakse?"
+    },
+    "q7": {
+      "body": "Jah, kui olete läbimängimisnõude täitnud ja teie saldo vastab minimaalsele väljamaksesummale. Teie SPORDIBOONUSE saldo saab konverteerida teie põhirahakotti teie valitud valuutas.",
+      "title": "Kas ma saan oma spordiboonuse saldo välja võtta?"
+    },
+    "q8": {
+      "body": "Maksimaalne summa, mille saate sularahaks konverteerida, on ülempiiriks teie kogutud SPORDIBOONUSE kordaja. Näiteks kui teie saadud SPORDIBOONUS on 150 ja maksimaalne nõude kordaja on 10x, on maksimaalne summa, mida saate sularahaks konverteerida, on 1500 USDT (teie valitud valuutasse ümber arvutatuna praeguse vahetuskursi alusel).",
+      "title": "Kui suur on maksimaalne summa, mida saan sularahaks konverteerida?"
+    },
+    "q9": {
+      "body": "Ei. Sul võib korraga olla ainult üks aktiivne spordiboonus. Esmalt peate lõpetama oma praeguse – kas taganema pärast läbimängimisnõude täitmist, kaotades selle (kui saldo on ≤ 0,1 USDT ekvivalent) või oodates, kuni see aegub. Pärast seda saate uuesti osta.",
+      "title": "Kas ma saan spordiboonust uuesti osta, kui mul on veel aktiivne boonus?"
+    },
+    "q10": {
+      "body": "Ostude vahel on jahtumisperiood. Jahutamise kestus on näidatud spordiboonuse lehel.",
+      "title": "Kui sageli saan spordiboonust osta?"
+    },
+    "q11": {
+      "body": "Spordiboonuse rahakotil on kehtivusaeg (nt 30 päeva). Kui te selle perioodi jooksul läbimängimisnõuet ei täida, siis järelejäänud SPORDIBOONUUSE saldo aegub ja see eemaldatakse.",
+      "title": "Mis juhtub, kui ma ei täida läbimängimisnõuet õigeaegselt?"
+    },
+    "q12": {
+      "body": "V: Jah. Kui teie spordiboonuse saldo on ≤ 0,1 USDT, võite oma spordiboonuse rahakotist ilma jääda. Siiski, kui teil on spordiboonusega tehtud lahendamata spordiennustusi, ei saa te loobuda enne, kui kõik panused on lahendatud. Pange tähele, et kui kaotate oma SPORDIBOONUSE, siis ülejäänud saldo eemaldatakse ja seda ei saa tagasi nõuda. Mõned mängijad kaotavad oma saldo, et osta veel üks SPORDIBOONUS, kuna korraga saab olla aktiivne ainult 1 SPORDIBOONUS.",
+      "title": "Kas ma saan spordiboonuse rahakotist loobuda/loobuda?"
+    },
+    "q13": {
+      "body": "Kui kasutate Interneti-teenuse pakkujat piiratud piirkonnast, nagu Singapur, Ameerika Ühendriigid, Iisrael jne, ei ole SPORDIBOONUS teie piirkonnas saadaval. Kui arvate, et tegemist on veaga, võtke ühendust klienditoega.",
+      "title": "Miks ma ei näe spordiboonuse valikut?"
+    }
+  }
+}

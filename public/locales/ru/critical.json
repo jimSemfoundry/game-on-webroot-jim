@@ -1,0 +1,25 @@
+{
+  "bonus": "Бонус",
+  "conquests": "Испытания",
+  "completed": "Завершено",
+  "daily_cashback": "Ежедневный кэшбэк",
+  "expiration": "Срок действия",
+  "claimed": "Получено",
+  "deposit_now": "Пополнить сейчас",
+  "gameOver": "Игра окончена",
+  "level": "Уровень",
+  "bonusHub": {
+    "ongoing": "{{count}} В процессе",
+    "root": "Центр Бонусов"
+  },
+  "details": {
+    "lastUpdate": "Последнее обновление"
+  },
+  "transactionStatus": {
+    "expired": "Истекло",
+    "cancelled": "Отменено"
+  },
+  "notifications": "Уведомления",
+  "read": "Читать",
+  "unread": "Непрочитанное"
+}

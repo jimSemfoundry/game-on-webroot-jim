@@ -1,0 +1,25 @@
+{
+  "bonus": "Бонус",
+  "conquests": "Завоювання",
+  "completed": "Завершено",
+  "daily_cashback": "Щоденний кешбек",
+  "expiration": "Термін дії",
+  "claimed": "Отримано",
+  "deposit_now": "Поповнити зараз",
+  "gameOver": "Гру закінчено",
+  "level": "Рівень",
+  "bonusHub": {
+    "ongoing": "{{count}} триває",
+    "root": "Бонус-центр"
+  },
+  "details": {
+    "lastUpdate": "Останнє оновлення"
+  },
+  "transactionStatus": {
+    "expired": "Термін дії закінчився",
+    "cancelled": "Скасовано"
+  },
+  "notifications": "Сповіщення",
+  "read": "Прочитано",
+  "unread": "Непрочитано"
+}

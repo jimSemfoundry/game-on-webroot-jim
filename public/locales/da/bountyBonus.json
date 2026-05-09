@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Dusør",
+  "activeTab": "Aktive",
+  "completedTab": "Fuldførte",
+  "myCompletedTab": "Mine fuldførte",
+  "claimReward": "Indløs",
+  "claiming": "Indløser...",
+  "claimed": "Indløst",
+  "play": "Spil",
+  "challengeCompleted": "Udfordring fuldført",
+  "hitMultiplier": "Nå {{multiplier}}×",
+  "rewardLabel": "Belønning",
+  "minBetLabel": "Min. indsats",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} tilbage",
+  "noActiveChallenges": "Ingen aktive udfordringer i øjeblikket.",
+  "noCompletedChallenges": "Ingen fuldførte udfordringer endnu.",
+  "noMyChallenges": "Du har ikke vundet nogen bounty-udfordringer endnu.",
+  "branchDisabled": "Bounty-udfordringer er ikke tilgængelige i øjeblikket.",
+  "forbidden": "Din konto er i øjeblikket begrænset fra bounty-belønninger.",
+  "searchPlaceholder": "Søg spil...",
+  "filterProvider": "Filtrer efter udbyder",
+  "winnersLabel": "Vindere",
+  "viewWinners": "Se vindere",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Din belønning vil blive krediteret til følgende konto:",
+    "continue": "Fortsæt"
+  },
+  "claimYourReward": "Hent din belønning: {{amount}} {{currency}}",
+  "sortOrder": "Sorteringsrækkefølge",
+  "congratulations": "Tillykke!",
+  "bountyCompleted": "Bounty fuldført, indløs din belønning nu!",
+  "youHitMultiplier": "Du nåede <0>{{multiplier}}×</0>! Bounty fuldført, indløs din belønning nu!",
+  "newBountyAvailable": "Ny Bounty tilgængelig",
+  "claimSuccess": "Belønning indløst",
+  "claimSuccessDetail": "{{amount}} {{currency}} tilføjet til din pung.",
+  "claimNow": "Indløs nu",
+  "go": "Gå",
+  "winAmount": "Vind {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplikator",
+  "sortByCreated": "Nyligt tilføjet",
+  "sortByReward": "Højeste belønning",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonusoplysninger",
+    "intro": "Bounty-udfordringer belønner dig med præmier for store gevinster. I et hvilket som helst af de listede spil placerer du blot en kvalificerende indsats, der opfylder minimumsindsatsen og når den krævede multiplikator — hvis du er blandt de første til at gøre det, er belønningen din.",
+    "howItWorks": {
+      "title": "Sådan fungerer det",
+      "body": "  - Hver Bounty-udfordring er knyttet til et specifikt spil\n  - Placer en indsats, der opfylder minimumsindsatsen\n  - Nå målmultiplikatoren eller højere for at fuldføre udfordringen\n  - De første spillere, der fuldfører udfordringen, vinder belønningen\n  - Du kan vinde flere gange på samme udfordring, hvis der uddeles flere præmier"
+    },
+    "claim": {
+      "title": "Indløsningsfordeling",
+      "body": "Belønninger krediteres din pung i den valuta, der er angivet for hver udfordring. Du kan indløse din belønning når som helst fra fanen \"Mine fuldførte\" på Bounty-siden. Der er ingen tidsbegrænsning for indløsning."
+    },
+    "eligible": {
+      "title": "Berettigede indsatser",
+      "body": "  - Kun rigtige penge-indsatser tæller. Indsatser placeret med Slot Bonus Wallet eller Free Spins kvalificerer ikke.\n  - Dit indsatsbeløb skal opfylde eller overstige minimumsindsatsen vist på udfordringen."
+    },
+    "terms": {
+      "title": "Generelle vilkår",
+      "body": "  - Bounty-belønninger beregnes og krediteres i den valuta, der er konfigureret for hver udfordring, og vises derefter i din foretrukne valuta for nemheds skyld. Bemærk venligst, at valutakonverteringer er omtrentlige.\n  - Kasinoet forbeholder sig retten til at ændre eller tilbagekalde berettigelse på ethvert tidspunkt uden forpligtelse til at begrunde. Misbrug eller svigagtig aktivitet vil føre til diskvalifikation fra kampagnen."
+    }
+  },
+  "rewardTooltip": "Sats mindst {{minBet}} {{currency}} (eller tilsvarende) ved en multiplikator på {{multiplier}}× eller højere. De første {{slots}} kvalificerede spillere vinder belønningen.",
+  "filterAll": "Alle",
+  "filterClaimable": "Kan afhentes",
+  "filterClaimed": "Hentet"
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Erövringar",
+  "completed": "Slutförd",
+  "daily_cashback": "Daglig återbetalning",
+  "expiration": "Utgång",
+  "claimed": "Inhämtad",
+  "deposit_now": "Sätt in nu",
+  "gameOver": "Spelet är slut",
+  "level": "Nivå",
+  "bonusHub": {
+    "ongoing": "{{count}} Pågående",
+    "root": "Bonus Hub"
+  },
+  "details": {
+    "lastUpdate": "Senaste Uppdatering"
+  },
+  "transactionStatus": {
+    "expired": "Utgången",
+    "cancelled": "Avbruten"
+  },
+  "notifications": "Meddelanden",
+  "read": "Lästa",
+  "unread": "Olästa"
+}

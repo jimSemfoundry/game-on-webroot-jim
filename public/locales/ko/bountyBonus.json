@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "현상금",
+  "activeTab": "진행 중",
+  "completedTab": "완료",
+  "myCompletedTab": "내 완료",
+  "claimReward": "수령",
+  "claiming": "수령 중...",
+  "claimed": "수령 완료",
+  "play": "플레이",
+  "challengeCompleted": "챌린지 완료",
+  "hitMultiplier": "{{multiplier}}× 달성",
+  "rewardLabel": "보상",
+  "minBetLabel": "최소 베팅",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} 남음",
+  "noActiveChallenges": "현재 진행 중인 챌린지가 없습니다.",
+  "noCompletedChallenges": "완료된 챌린지가 아직 없습니다.",
+  "noMyChallenges": "아직 바운티 챌린지에서 승리하지 못했습니다.",
+  "branchDisabled": "현재 바운티 챌린지를 이용할 수 없습니다.",
+  "forbidden": "현재 귀하의 계정은 바운티 보상 수령이 제한되어 있습니다.",
+  "searchPlaceholder": "게임 검색...",
+  "filterProvider": "공급자별 필터",
+  "winnersLabel": "당첨자",
+  "viewWinners": "당첨자 보기",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "보상이 다음 계정에 적립됩니다:",
+    "continue": "계속"
+  },
+  "claimYourReward": "보상 받기: {{amount}} {{currency}}",
+  "sortOrder": "정렬 순서",
+  "congratulations": "축하합니다!",
+  "bountyCompleted": "바운티 완료, 지금 보상을 수령하세요!",
+  "youHitMultiplier": "<0>{{multiplier}}×</0> 달성! 바운티 완료, 지금 보상을 수령하세요!",
+  "newBountyAvailable": "새 바운티 이용 가능",
+  "claimSuccess": "보상 수령 완료",
+  "claimSuccessDetail": "{{amount}} {{currency}}이(가) 지갑에 추가되었습니다.",
+  "claimNow": "지금 수령",
+  "go": "이동",
+  "winAmount": "{{amount}} {{currency}} 획득",
+  "multiplierLabel": "배율",
+  "sortByCreated": "최신순",
+  "sortByReward": "최고 보상순",
+  "infoModal": {
+    "title": "바운티",
+    "detailsHeader": "보너스 세부사항",
+    "intro": "바운티 챌린지는 큰 승리에 대한 상품을 제공합니다. 나열된 게임 중 어느 것에서든 최소 베팅 금액을 충족하고 필요한 배율에 도달하는 적격 베팅만 하면 됩니다 — 가장 먼저 달성한 사람에게 보상이 주어집니다.",
+    "howItWorks": {
+      "title": "작동 방식",
+      "body": "  - 각 바운티 챌린지는 특정 게임과 연결되어 있습니다\n  - 최소 베팅 금액을 충족하는 베팅을 하세요\n  - 챌린지를 완료하려면 목표 배율 이상을 달성하세요\n  - 챌린지를 가장 먼저 완료한 플레이어가 보상을 획득합니다\n  - 여러 상품이 수여되는 경우 동일한 챌린지에서 여러 번 이길 수 있습니다"
+    },
+    "claim": {
+      "title": "수령 분배",
+      "body": "보상은 각 챌린지에 지정된 통화로 지갑에 입금됩니다. 바운티 페이지의 \"내 완료\" 탭에서 언제든지 보상을 수령할 수 있습니다. 수령 기한은 없습니다."
+    },
+    "eligible": {
+      "title": "적격 베팅",
+      "body": "  - 실제 머니 베팅만 카운트됩니다. 슬롯 보너스 지갑 또는 무료 스핀을 사용한 베팅은 자격이 없습니다.\n  - 베팅 금액은 챌린지에 표시된 최소 베팅 금액 이상이어야 합니다."
+    },
+    "terms": {
+      "title": "일반 약관",
+      "body": "  - 바운티 보상은 각 챌린지에 구성된 통화로 계산 및 입금되며, 편의를 위해 선호 통화로 표시됩니다. 통화 변환은 근사치임을 유의하세요.\n  - 카지노는 정당화 의무 없이 언제든지 자격을 변경하거나 취소할 권리를 보유합니다. 모든 남용 또는 사기 활동은 프로모션 자격 박탈로 이어집니다."
+    }
+  },
+  "rewardTooltip": "{{minBet}} {{currency}}(또는 그에 상응하는 금액) 이상을 배수 {{multiplier}}× 이상으로 베팅하세요. 조건을 충족하는 처음 {{slots}}명의 플레이어가 보상을 받습니다.",
+  "filterAll": "전체",
+  "filterClaimable": "수령 가능",
+  "filterClaimed": "수령 완료"
+}

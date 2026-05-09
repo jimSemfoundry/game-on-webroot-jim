@@ -1,0 +1,25 @@
+{
+  "bonus": "ボーナス",
+  "conquests": "征服",
+  "completed": "完了",
+  "daily_cashback": "デイリーキャッシュバック",
+  "expiration": "有効期限",
+  "claimed": "請求済み",
+  "deposit_now": "今すぐ入金",
+  "gameOver": "ゲームオーバー",
+  "level": "レベル",
+  "bonusHub": {
+    "ongoing": "{{count}} 継続中",
+    "root": "ボーナスハブ"
+  },
+  "details": {
+    "lastUpdate": "最終更新"
+  },
+  "transactionStatus": {
+    "expired": "期限切れ",
+    "cancelled": "キャンセル"
+  },
+  "notifications": "通知",
+  "read": "読む",
+  "unread": "未読"
+}

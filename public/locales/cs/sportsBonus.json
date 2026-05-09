@@ -1,0 +1,58 @@
+{
+  "bonus": "Sport\nBonus",
+  "intro": "Hrajte se sportovním bonusem jako skutečné peníze! Každá sázka vás přiblíží k odemknutí jejich plné hodnoty. Splňte požadavky na hraní a sledujte, jak se váš sportovní bonus promění v odměny, které lze vybrat ještě dnes!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Sportovní bonusová peněženka je speciální peněženka pro sportovní sázení. Při nákupu obdržíte částku svého vkladu plus bonus navíc (např. vklad 100 USDT s 50% bonusem = 150 USDT do vaší peněženky s bonusy pro sport). Všechny prostředky v této peněžence lze použít pouze na sportovní sázení.",
+      "title": "Co je to sportovní bonusová peněženka?"
+    },
+    "q2": {
+      "body": "Přejděte na stránku Sportovní bonus, vyberte úroveň bonusu (např. +50 %), zadejte částku svého vkladu (musí splňovat minimální částku uvedenou na stránce) a klepněte na „Koupit nyní“. Váš vklad plus bonus budou okamžitě přidány do vaší peněženky s bonusy pro sport.",
+      "title": "Jak si koupím sportovní bonus?"
+    },
+    "q3": {
+      "body": "Ano. Aktuální minimální a maximální limity vkladu naleznete na stránce Sportovní bonus.",
+      "title": "Existuje minimální nebo maximální vklad?"
+    },
+    "q4": {
+      "body": "Ne. Sportovní bonus lze použít pouze pro sportovní sázení. Nelze jej použít pro automaty, kasino, živé kasino ani žádné jiné hry.",
+      "title": "Mohu použít sportovní bonus pro automaty nebo kasinové hry?"
+    },
+    "q5": {
+      "body": "Než můžete vybrat, musíte splnit požadavek na sázení. Vzorec je: Celkový získaný BONUS × Sázecí násobitel. Například pokud zakoupíte 100 USDT pro 50% SPORTOVNÍ BONUS, abyste měli 150 SPORTOVNÍ BONUS přidáno do vaší peněženky a násobitel je 10x, musíte umístit 150 × 10 = 1500 {{currency}} ekvivalent v kvalifikovaných sportovních sázkách.",
+      "title": "Jaký je požadavek na sázení?"
+    },
+    "q6": {
+      "body": "Platí tři pravidla:\n\n Prohrané sázky: Pokud vsadíte 100 USDT a prohrajete, 100 USDT se započítá do požadavku na sázení.\n\n Výherní sázky: Započítávají se pouze tehdy, pokud jsou kurzy ≥ {{minOdds}}. Pokud vsadíte 100 USDT při kurzu 1.7 a vyhrajete, 100 se započítá do požadavku na sázení. Pokud jsou kurzy pod {{minOdds}} a vyhrajete, nezapočítává se do požadavku na sázení.\n\n Předčasně vyplacené sázky (předčasné vzdání se): Započítávají se pouze tehdy, pokud je vyplacená částka větší než původní částka sázky × {{minOdds}}. Pokud je podmínka splněna, částka sázky se započítá do požadavku na sázení. Jinak se nezapočítává do požadavku na sázení.",
+      "title": "Které sázky se započítávají do požadavku na sázení?"
+    },
+    "q7": {
+      "body": "Ano, jakmile splníte požadavek na sázení a váš zůstatek dosáhne minimální částky výběru. Váš zůstatek SPORTS BONUS lze převést do vaší hlavní peněženky v měně dle vašeho výběru.",
+      "title": "Mohu vybrat svůj zůstatek sportovního bonusu?"
+    },
+    "q8": {
+      "body": "Maximální částka, kterou můžete převést na hotovost, je omezena na násobek vašeho celkového získaného SPORTOVNÍHO BONUSU. Pokud je například váš získaný SPORTOVNÍ BONUS 150 a maximální násobitel nároku je 10x, maximum, které můžete převést na hotovost, je 1500 USDT (přepočteno na vámi zvolenou měnu aktuálním směnným kurzem).",
+      "title": "Jaká je maximální částka, kterou mohu převést na hotovost?"
+    },
+    "q9": {
+      "body": "Ne. Najednou můžete mít pouze jeden aktivní sportovní bonus. Nejprve musíte dokončit svou současnou – buď výběrem po splnění sázkových požadavků, propadnutím (když zůstatek ≤ ekvivalent 0,1 USDT) nebo čekáním, až vyprší. Poté můžete nakupovat znovu.",
+      "title": "Mohu si sportovní bonus zakoupit znovu, když mám ještě aktivní?"
+    },
+    "q10": {
+      "body": "Mezi nákupy je období ochlazení. Doba trvání cooldownu je uvedena na stránce Sportovní bonus.",
+      "title": "Jak často si mohu zakoupit Sportovní bonus?"
+    },
+    "q11": {
+      "body": "Sportovní bonusová peněženka má dobu platnosti (např. 30 dní). Pokud nesplníte požadavek na sázení v tomto období, zbývající zůstatek SPORTS BONUS vyprší a bude odstraněn.",
+      "title": "Co se stane, když nesplním požadavek na sázení včas?"
+    },
+    "q12": {
+      "body": "A: Ano. Pokud je váš zůstatek sportovního bonusu ≤ 0,1 USDT, můžete propadnout peněženku s bonusem sportu. Pokud však máte nějaké nevyřízené sportovní sázky uzavřené se Sportovním bonusem, nemůžete propadnout, dokud nebudou všechny sázky vyrovnány. Vezměte prosím na vědomí, že když svůj SPORTOVNÍ BONUS propadnete, zbývající zůstatek bude odstraněn a nebude možné jej získat zpět. Někteří hráči propadnou svůj zůstatek, aby si mohli zakoupit další SPORTOVNÍ BONUS, protože v jednu chvíli může být aktivní pouze 1 SPORTOVNÍ BONUS.",
+      "title": "Mohu se vzdát/ztratit svou peněženku se sportovními bonusy?"
+    },
+    "q13": {
+      "body": "Pokud používáte poskytovatele internetu z omezené oblasti, jako je Singapur, Spojené státy americké, Izrael atd. SPORTOVNÍ BONUS nebude ve vašem regionu dostupný. Pokud se domníváte, že se jedná o chybu, kontaktujte zákaznickou podporu.",
+      "title": "Proč nevidím možnost Sportovní bonus?"
+    }
+  }
+}

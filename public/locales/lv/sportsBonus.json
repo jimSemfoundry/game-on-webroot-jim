@@ -1,0 +1,58 @@
+{
+  "bonus": "Sports\nBonuss",
+  "intro": "Spēlējiet ar sporta bonusu tāpat kā īstu naudu! Katra likme tuvina to pilnas vērtības atbloķēšanai. Izpildiet spēles prasības un skatieties, kā jūsu sporta bonuss šodien pārvēršas par izņemamām balvām!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Sports Bonus Wallet ir īpašs maks sporta derībām. Veicot pirkumu, jūs saņemat savu depozīta summu plus papildu bonusu (piemēram, iemaksājiet 100 USD ar 50% bonusu = 150 USDT jūsu sporta bonusa makā). Visus līdzekļus šajā makā var izmantot tikai sporta derībām.",
+      "title": "Kas ir sporta bonusa maciņš?"
+    },
+    "q2": {
+      "body": "Dodieties uz lapu Sporta bonuss, izvēlieties bonusa līmeni (piemēram, +50%), ievadiet savu depozīta summu (jāatbilst lapā norādītajai minimālajai summai) un pieskarieties “Pirkt tūlīt”. Jūsu depozīts un bonuss tiks uzreiz pievienots jūsu sporta bonusa makam.",
+      "title": "Kā es varu iegādāties sporta bonusu?"
+    },
+    "q3": {
+      "body": "Jā. Lūdzu, pārbaudiet sporta bonusa lapu, lai uzzinātu pašreizējos minimālos un maksimālos depozīta limitus.",
+      "title": "Vai ir minimālais vai maksimālais depozīts?"
+    },
+    "q4": {
+      "body": "Nē. Sporta bonusu var izmantot tikai sporta derībām. To nevar izmantot spēļu automātiem, kazino, tiešraides kazino vai citām spēlēm.",
+      "title": "Vai es varu izmantot sporta bonusu spēļu automātiem vai kazino spēlēm?"
+    },
+    "q5": {
+      "body": "Pirms varat izņemt, jums jāpabeidz derību prasība. Formula ir: Kopējais iegūtais BONUSS × Derību reizinātājs. Piemēram, ja iegādājaties 100 USDT par 50% SPORTA BONUSU, lai pievienotu 150 SPORTA BONUSU savā makā, un reizinātājs ir 10x, jums jāievieto 150 × 10 = 1500 {{currency}} ekvivalents kvalificētās sporta derībās.",
+      "title": "Kāda ir derību prasība?"
+    },
+    "q6": {
+      "body": "Pielieto trīs noteikumi:\n\n Zaudētās likmes: Ja likmējat 100 USDT un zaudējat, 100 USDT tiek ņemts vērā izpildot likmju prasību.\n\n Uzvarošās likmes: Tiek ņemtas vērā tikai tad, ja koeficients ir ≥ {{minOdds}}. Ja likmējat 100 USDT ar koeficientu 1.7 un uzvarat, 100 tiks ņemts vērā izpildot likmju prasību. Ja koeficients ir zem {{minOdds}} un uzvarat, tas netiek ņemts vērā izpildot likmju prasību.\n\n Izņemtās likmes (priekšlaicīga padoties): Tiek ņemtas vērā tikai tad, ja izņemšanas summa ir lielāka par sākotnējo likmes summu × {{minOdds}}. Ja nosacījums ir izpildīts, likmes summa tiek ņemta vērā izpildot likmju prasību. Pretējā gadījumā tā netiek ņemta vērā izpildot likmju prasību.",
+      "title": "Kuras likmes tiek ņemtas vērā, izpildot likmju prasību?"
+    },
+    "q7": {
+      "body": "Jā, kad esat izpildījis derību prasību un jūsu atlikums atbilst minimālajai izņemšanas summai. Jūsu SPORTA BONUSA bilance var tikt konvertēta jūsu galvenajā makā jūsu izvēlētajā valūtā.",
+      "title": "Vai es varu izņemt savu sporta bonusa atlikumu?"
+    },
+    "q8": {
+      "body": "Maksimālā summa, ko varat konvertēt naudā, ir ierobežota ar jūsu kopējā iegūtā SPORTA BONUSA reizinātāju. Piemēram, ja jūsu iegūtais SPORTA BONUSS ir 150 un maksimālais prasības reizinātājs ir 10x, maksimālā summa, ko varat konvertēt skaidrā naudā, ir 1500 USD (pārrēķināta jūsu izvēlētajā valūtā pēc pašreizējā valūtas kursa).",
+      "title": "Kāda ir maksimālā summa, ko varu konvertēt skaidrā naudā?"
+    },
+    "q9": {
+      "body": "Nē. Jums vienlaikus var būt tikai viens aktīvs sporta bonuss. Vispirms jums ir jāpabeidz pašreizējais — vai nu izstājoties pēc derību prasības izpildes, to zaudējot (ja atlikums ir ≤ 0,1 USDT ekvivalents), vai arī gaidot, līdz beigsies derīguma termiņš. Pēc tam jūs varat iegādāties vēlreiz.",
+      "title": "Vai es varu atkārtoti iegādāties sporta bonusu, kamēr man vēl ir aktīvs bonuss?"
+    },
+    "q10": {
+      "body": "Starp pirkumiem ir atdzišanas periods. Atdzesēšanas ilgums ir parādīts sporta bonusa lapā.",
+      "title": "Cik bieži es varu iegādāties sporta bonusu?"
+    },
+    "q11": {
+      "body": "Sporta bonusa makam ir derīguma termiņš (piemēram, 30 dienas). Ja šajā periodā neizpildīsit likmju prasību, atlikušā SPORTA BONUSA bilance beigsies un tiks noņemta.",
+      "title": "Kas notiek, ja es savlaicīgi neizpildīšu likmju prasību?"
+    },
+    "q12": {
+      "body": "A: Jā. Ja jūsu sporta bonusa atlikums ir ≤ 0,1 USD, jūs varat zaudēt savu sporta bonusa maku. Tomēr, ja jums ir kādas nenokārtotas sporta likmes, kas veiktas ar sporta bonusu, jūs nevarat zaudēt, kamēr visas likmes nav nokārtotas. Lūdzu, ņemiet vērā, ka, zaudējot savu SPORTA BONUSU, atlikusī summa tiks noņemta un to nevarēs atgūt. Daži spēlētāji zaudē savu bilanci, lai iegādātos citu SPORTA BONUSU, jo vienlaikus var būt aktīvs tikai 1 SPORTA BONUSS.",
+      "title": "Vai es varu atteikties/zaudēt savu sporta bonusa maku?"
+    },
+    "q13": {
+      "body": "Ja izmantojat interneta pakalpojumu sniedzēju no ierobežota reģiona, piemēram, Singapūras, ASV, Izraēlas utt., SPORTA BONUSS jūsu reģionā nebūs pieejams. Ja uzskatāt, ka tā ir kļūda, lūdzu, sazinieties ar klientu atbalsta dienestu.",
+      "title": "Kāpēc es neredzu sporta bonusa opciju?"
+    }
+  }
+}

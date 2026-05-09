@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Dusör",
+  "activeTab": "Aktiva",
+  "completedTab": "Slutförda",
+  "myCompletedTab": "Mina slutförda",
+  "claimReward": "Hämta",
+  "claiming": "Hämtar...",
+  "claimed": "Hämtat",
+  "play": "Spela",
+  "challengeCompleted": "Utmaning slutförd",
+  "hitMultiplier": "Nå {{multiplier}}×",
+  "rewardLabel": "Belöning",
+  "minBetLabel": "Min. insats",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} kvar",
+  "noActiveChallenges": "Inga aktiva utmaningar för tillfället.",
+  "noCompletedChallenges": "Inga slutförda utmaningar än.",
+  "noMyChallenges": "Du har inte vunnit några bounty-utmaningar än.",
+  "branchDisabled": "Bounty-utmaningar är inte tillgängliga just nu.",
+  "forbidden": "Ditt konto är för närvarande begränsat från bounty-belöningar.",
+  "searchPlaceholder": "Sök spel...",
+  "filterProvider": "Filtrera efter leverantör",
+  "winnersLabel": "Vinnare",
+  "viewWinners": "Visa vinnare",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Din belöning krediteras till följande konto:",
+    "continue": "Fortsätt"
+  },
+  "claimYourReward": "Hämta din belöning: {{amount}} {{currency}}",
+  "sortOrder": "Sorteringsordning",
+  "congratulations": "Grattis!",
+  "bountyCompleted": "Bounty slutförd, hämta din belöning nu!",
+  "youHitMultiplier": "Du nådde <0>{{multiplier}}×</0>! Bounty slutförd, hämta din belöning nu!",
+  "newBountyAvailable": "Ny Bounty tillgänglig",
+  "claimSuccess": "Belöning hämtad",
+  "claimSuccessDetail": "{{amount}} {{currency}} tillagt i din plånbok.",
+  "claimNow": "Hämta nu",
+  "go": "Gå",
+  "winAmount": "Vinn {{amount}} {{currency}}",
+  "multiplierLabel": "Multiplikator",
+  "sortByCreated": "Nyligen tillagda",
+  "sortByReward": "Högsta belöning",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonusdetaljer",
+    "intro": "Bounty-utmaningar belönar dig med priser för stora vinster. I något av de listade spelen placerar du bara en kvalificerande insats som uppfyller minimiinsatsen och når den nödvändiga multiplikatorn — om du är bland de första att göra det är belöningen din.",
+    "howItWorks": {
+      "title": "Så fungerar det",
+      "body": "  - Varje Bounty-utmaning är kopplad till ett specifikt spel\n  - Placera en insats som uppfyller minimiinsatsen\n  - Nå målmultiplikatorn eller högre för att slutföra utmaningen\n  - De första spelarna som slutför utmaningen vinner belöningen\n  - Du kan vinna flera gånger på samma utmaning om flera priser delas ut"
+    },
+    "claim": {
+      "title": "Hämtningsfördelning",
+      "body": "Belöningar krediteras din plånbok i den valuta som anges för varje utmaning. Du kan hämta din belöning när som helst från fliken \"Mina slutförda\" på Bounty-sidan. Det finns ingen tidsbegränsning för att hämta."
+    },
+    "eligible": {
+      "title": "Kvalificerande insatser",
+      "body": "  - Endast riktiga pengar-insatser räknas. Insatser placerade med Slot Bonus Wallet eller Free Spins kvalificerar inte.\n  - Ditt insatsbelopp måste uppfylla eller överstiga minimiinsatsen som visas på utmaningen."
+    },
+    "terms": {
+      "title": "Allmänna villkor",
+      "body": "  - Bounty-belöningar beräknas och krediteras i den valuta som konfigurerats för varje utmaning och visas sedan i din föredragna valuta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.\n  - Kasinot förbehåller sig rätten att när som helst ändra eller återkalla berättigande utan skyldighet att motivera. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
+    }
+  },
+  "rewardTooltip": "Satsa minst {{minBet}} {{currency}} (eller motsvarande) med en multiplikator på {{multiplier}}× eller högre. De första {{slots}} kvalificerade spelarna vinner belöningen.",
+  "filterAll": "Alla",
+  "filterClaimable": "Att hämta",
+  "filterClaimed": "Hämtad"
+}

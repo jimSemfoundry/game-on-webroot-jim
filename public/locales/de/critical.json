@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Eroberungen",
+  "completed": "Abgeschlossen",
+  "daily_cashback": "Tägliches Cashback",
+  "expiration": "Ablauf",
+  "claimed": "Eingefordert",
+  "deposit_now": "Jetzt einzahlen",
+  "gameOver": "Spiel vorbei",
+  "level": "Ebene",
+  "bonusHub": {
+    "ongoing": "{{count}} Laufend",
+    "root": "Bonus-Hub"
+  },
+  "details": {
+    "lastUpdate": "Letzte Aktualisierung"
+  },
+  "transactionStatus": {
+    "expired": "Abgelaufen",
+    "cancelled": "Storniert"
+  },
+  "notifications": "Benachrichtigungen",
+  "read": "Gelesen",
+  "unread": "Ungelesen"
+}

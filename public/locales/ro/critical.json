@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonus",
+  "conquests": "Cuceriri",
+  "completed": "Finalizat",
+  "daily_cashback": "Cashback Zilnic",
+  "expiration": "Expirare",
+  "claimed": "Revendicat",
+  "deposit_now": "Depune acum",
+  "gameOver": "Joc terminat",
+  "level": "Nivel",
+  "bonusHub": {
+    "ongoing": "{{count}} în desfășurare",
+    "root": "Centru de Bonusuri"
+  },
+  "details": {
+    "lastUpdate": "Ultima Actualizare"
+  },
+  "transactionStatus": {
+    "expired": "Expirat",
+    "cancelled": "Anulat"
+  },
+  "notifications": "Notificări",
+  "read": "Citește",
+  "unread": "Necitit"
+}

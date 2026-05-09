@@ -1,0 +1,23 @@
+{
+  "go": "前往",
+  "buddyBalls": "幸运球",
+  "dailyCheck": "每日签到",
+  "referFriend": "推荐好友",
+  "referralDeposit": "推荐人首次充值",
+  "moreBalls": "获取更多幸运球",
+  "rewards": "幸运球奖励",
+  "records": "幸运球记录",
+  "balls": "球",
+  "type_deposit": "直推用户首存",
+  "type_user": "推荐好友",
+  "type_buddy_balls_daily_checkin": "每日签到",
+  "type_promo_code_buddy_balls": "优惠码",
+  "type_achievement_bb": "成就",
+  "accumulated": "奖励可累计，并可随时领取。所有奖励将以您选择的结算币种进行结算。",
+  "getMore": "获取更多",
+  "share": "分享",
+  "getMoreBuddyball": "获取更多幸运球",
+  "shareBuddyball": "分享幸运球",
+  "type_lucky_spin": "幸运转盘",
+  "quickShare": "快速分享"
+}

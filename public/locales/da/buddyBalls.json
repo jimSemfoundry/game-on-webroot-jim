@@ -1,0 +1,23 @@
+{
+  "go": "Gå",
+  "buddyBalls": "Buddy Balls",
+  "dailyCheck": "Daglig check-in",
+  "referFriend": "Henvis en ven",
+  "referralDeposit": "Henvisnings første indbetaling",
+  "moreBalls": "Få flere Buddy Balls",
+  "rewards": "Buddy Ball-belønninger",
+  "records": "Buddy Ball-historik",
+  "balls": "Bolde",
+  "type_deposit": "Direkte FTD",
+  "type_user": "Henvis en ven",
+  "type_buddy_balls_daily_checkin": "Daglig check-in",
+  "type_promo_code_buddy_balls": "Promo-kode",
+  "type_achievement_bb": "Præstation",
+  "accumulated": "Belønninger kan akkumuleres og kræves når som helst. Alle belønninger udbetales i valgte valuta.",
+  "type_lucky_spin": "Lucky Spin",
+  "getMore": "Få flere",
+  "share": "Del",
+  "getMoreBuddyball": "Få flere Buddyball",
+  "shareBuddyball": "Del Buddyball",
+  "quickShare": "Hurtig deling"
+}

@@ -1,0 +1,25 @@
+{
+  "bonus": "Bónusz",
+  "conquests": "Hódítások",
+  "completed": "Befejezve",
+  "daily_cashback": "Napi Cashback",
+  "expiration": "Lejárat",
+  "claimed": "Igényelve",
+  "deposit_now": "Befizetés most",
+  "gameOver": "Játék vége",
+  "level": "Szint",
+  "bonusHub": {
+    "ongoing": "{{count}} folyamatban",
+    "root": "Bónusz Központ"
+  },
+  "details": {
+    "lastUpdate": "Utolsó Frissítés"
+  },
+  "transactionStatus": {
+    "expired": "Lejárt",
+    "cancelled": "Törölve"
+  },
+  "notifications": "Értesítések",
+  "read": "Olvasott",
+  "unread": "Olvasatlan"
+}

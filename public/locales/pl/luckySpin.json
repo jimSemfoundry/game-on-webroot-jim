@@ -1,0 +1,17 @@
+{
+  "fortune": "Koło\nFortuny",
+  "deposit": "Wpłać {{amount}} za 1 Obrót",
+  "spin_now": "ZAKRĘĆ TERAZ",
+  "available": "Masz {{times}} dostępnych obrotów!",
+  "lucky": "Szczęśliwy Spin",
+  "mega": "Mega Spin",
+  "spin": "Zakręć",
+  "rakeback_booster": "Booster",
+  "buddy_balls": "Buddy Balls",
+  "free_spin": "Darmowe Spiny",
+  "winner": "ZWYCIĘZCA",
+  "better": "WIĘCEJ SZCZĘŚCIA\nNASTĘPNYM RAZEM",
+  "next_time": "NASTĘPNYM RAZEM",
+  "ready": "Przygotuj się, by kręcić, kręcić i jeszcze raz kręcić Kołem Fortuny — Twoją bramą do ekscytujących niespodzianek i niesamowitych nagród!\nKażdy obrót daje Ci szansę na wygranie prawdziwej gotówki, nagród krypto, boosterów, darmowych spinów, buddy balls i ekskluzywnych nagród — nawet iPhone’a.\nPoczuj dreszczyk emocji, gdy koło się obraca, a fortuna wybiera kolejnego zwycięzcę.",
+  "rewards": "Wszystkie nagrody pieniężne i kryptowalutowe z Koła Fortuny są automatycznie dopisywane do odpowiedniego salda konta. Na przykład, jeśli wygrasz ETH, nagroda zostanie automatycznie dodana do salda Twojego portfela ETH.\nW przypadku nagród rzeczowych lub luksusowych przedmiotów nasz zespół obsługi klienta skontaktuje się z Tobą osobiście, aby ustalić dostawę."
+}

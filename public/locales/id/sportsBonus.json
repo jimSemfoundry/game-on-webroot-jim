@@ -1,0 +1,58 @@
+{
+  "bonus": "Olahraga\nBonusnya",
+  "intro": "Mainkan dengan Bonus Olahraga seperti uang sungguhan! Setiap taruhan membawa Anda lebih dekat untuk membuka nilai penuhnya. Penuhi persyaratan permainan dan saksikan Bonus Olahraga Anda berubah menjadi hadiah yang dapat ditarik hari ini!",
+  "sportsBonusFaq": {
+    "q1": {
+      "body": "Dompet Bonus Olahraga adalah dompet khusus untuk taruhan olahraga. Saat Anda membeli, Anda menerima jumlah deposit ditambah bonus tambahan (misalnya deposit 100 USDT dengan bonus 50% = 150 USDT di Dompet Bonus Olahraga Anda). Semua dana di dompet ini hanya dapat digunakan untuk taruhan olahraga.",
+      "title": "Apa itu Dompet Bonus Olahraga?"
+    },
+    "q2": {
+      "body": "Buka halaman Bonus Olahraga, pilih tingkat bonus (misalnya +50%), masukkan jumlah deposit Anda (harus memenuhi jumlah minimum yang ditampilkan di halaman), dan ketuk \"Beli Sekarang\". Deposit Anda ditambah bonus akan langsung ditambahkan ke Dompet Bonus Olahraga Anda.",
+      "title": "Bagaimana cara membeli Bonus Olahraga?"
+    },
+    "q3": {
+      "body": "Ya. Silakan periksa halaman Bonus Olahraga untuk mengetahui batas setoran minimum dan maksimum saat ini.",
+      "title": "Apakah ada minimum atau maksimum deposit?"
+    },
+    "q4": {
+      "body": "Tidak. Bonus Olahraga hanya dapat digunakan untuk taruhan olahraga. Tidak dapat digunakan untuk Slot, Kasino, Live Kasino, atau permainan lainnya.",
+      "title": "Bisakah saya menggunakan Bonus Olahraga untuk permainan slot atau kasino?"
+    },
+    "q5": {
+      "body": "Sebelum Anda dapat menarik, Anda perlu menyelesaikan persyaratan taruhan. Rumusnya adalah: Total BONUS yang Diperoleh × Pengali Taruhan. Misalnya, jika Anda membeli 100 USDT untuk 50% BONUS OLAHRAGA agar 150 BONUS OLAHRAGA ditambahkan ke dompet Anda dan pengalinya adalah 10x, Anda perlu menempatkan 150 × 10 = 1500 {{currency}} setara dalam taruhan olahraga yang memenuhi syarat.",
+      "title": "Apa persyaratan taruhannya?"
+    },
+    "q6": {
+      "body": "Tiga aturan berlaku:\n\n Taruhan kalah: Jika Anda bertaruh 100 USDT dan kalah, 100 USDT dihitung ke dalam persyaratan taruhan.\n\n Taruhan menang: Hanya dihitung jika peluang ≥ {{minOdds}}. Jika Anda bertaruh 100 USDT dengan peluang 1.7 dan menang, 100 akan dihitung ke dalam persyaratan taruhan. Jika peluang di bawah {{minOdds}} dan Anda menang, itu tidak dihitung ke dalam persyaratan taruhan.\n\n Taruhan yang dicairkan (menyerah lebih awal): Hanya dihitung jika jumlah yang dicairkan lebih besar dari jumlah taruhan asli × {{minOdds}}. Jika kondisi terpenuhi, jumlah taruhan dihitung ke dalam persyaratan taruhan. Jika tidak, itu tidak dihitung ke dalam persyaratan taruhan.",
+      "title": "Taruhan manakah yang diperhitungkan dalam persyaratan taruhan?"
+    },
+    "q7": {
+      "body": "Ya, setelah Anda menyelesaikan persyaratan taruhan dan saldo Anda memenuhi jumlah penarikan minimum. Saldo BONUS OLAHRAGA Anda dapat dikonversi ke dompet utama Anda dalam mata uang pilihan Anda.",
+      "title": "Bisakah saya menarik saldo Bonus Olahraga saya?"
+    },
+    "q8": {
+      "body": "Jumlah maksimum yang dapat Anda konversi menjadi uang tunai dibatasi pada pengali dari total BONUS OLAHRAGA yang Anda peroleh. Misalnya, jika BONUS OLAHRAGA yang Anda peroleh adalah 150 dan pengganda klaim maksimum adalah 10x, jumlah maksimum yang dapat Anda konversi menjadi uang tunai adalah 1500 USDT (dikonversi ke mata uang pilihan Anda dengan nilai tukar saat ini).",
+      "title": "Berapa jumlah maksimum yang dapat saya konversi menjadi uang tunai?"
+    },
+    "q9": {
+      "body": "Tidak. Anda hanya dapat memiliki satu Bonus Olahraga aktif dalam satu waktu. Anda harus menyelesaikan yang sekarang terlebih dahulu — baik dengan menarik diri setelah memenuhi persyaratan taruhan, membatalkannya (jika saldo setara dengan ≤ 0,1 USDT), atau menunggu hingga habis masa berlakunya. Setelah itu, Anda dapat membeli lagi.",
+      "title": "Bisakah saya membeli Bonus Olahraga lagi selagi saya masih memiliki Bonus Olahraga yang aktif?"
+    },
+    "q10": {
+      "body": "Ada periode cooldown di antara pembelian. Durasi cooldown ditampilkan di halaman Bonus Olahraga.",
+      "title": "Seberapa sering saya dapat membeli Bonus Olahraga?"
+    },
+    "q11": {
+      "body": "Dompet Bonus Olahraga memiliki masa berlaku (misalnya 30 hari). Jika Anda tidak menyelesaikan persyaratan taruhan dalam periode ini, sisa saldo BONUS OLAHRAGA akan kedaluwarsa dan dihapus.",
+      "title": "Apa yang terjadi jika saya tidak menyelesaikan persyaratan taruhan tepat waktu?"
+    },
+    "q12": {
+      "body": "J: Ya. Jika saldo Bonus Olahraga Anda ≤ 0,1 USDT, Anda dapat kehilangan Dompet Bonus Olahraga Anda. Namun, jika Anda mempunyai taruhan olahraga yang belum diselesaikan dengan Bonus Olahraga, Anda tidak dapat membatalkan sampai semua taruhan diselesaikan. Harap dicatat bahwa ketika Anda kehilangan BONUS OLAHRAGA Anda, sisa saldo akan dihapus dan tidak dapat dipulihkan. Beberapa pemain kehilangan saldonya untuk membeli BONUS OLAHRAGA lainnya karena hanya ada 1 BONUS OLAHRAGA yang aktif pada satu waktu.",
+      "title": "Bisakah saya menyerahkan/menghilangkan Dompet Bonus Olahraga saya?"
+    },
+    "q13": {
+      "body": "Jika Anda menggunakan penyedia internet dari wilayah terlarang seperti Singapura, Amerika Serikat, Israel, dll. BONUS OLAHRAGA tidak akan tersedia di wilayah Anda. Jika Anda yakin ini adalah kesalahan, silakan hubungi dukungan pelanggan.",
+      "title": "Mengapa saya tidak dapat melihat opsi Bonus Olahraga?"
+    }
+  }
+}

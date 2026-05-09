@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Odměna",
+  "activeTab": "Aktivní",
+  "completedTab": "Dokončeno",
+  "myCompletedTab": "Moje dokončené",
+  "claimReward": "Vyzvednout",
+  "claiming": "Vyzvedávání...",
+  "claimed": "Vyzvednuto",
+  "play": "Hrát",
+  "challengeCompleted": "Výzva dokončena",
+  "hitMultiplier": "Dosáhněte {{multiplier}}×",
+  "rewardLabel": "Odměna",
+  "minBetLabel": "Min. sázka",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "Zbývá {{remaining}}",
+  "noActiveChallenges": "Momentálně žádné aktivní výzvy.",
+  "noCompletedChallenges": "Zatím žádné dokončené výzvy.",
+  "noMyChallenges": "Ještě jste nevyhráli žádnou bounty výzvu.",
+  "branchDisabled": "Bounty výzvy nejsou momentálně k dispozici.",
+  "forbidden": "Váš účet je momentálně omezen z bounty odměn.",
+  "searchPlaceholder": "Hledat hry...",
+  "filterProvider": "Filtr podle poskytovatele",
+  "winnersLabel": "Vítězové",
+  "viewWinners": "Zobrazit vítěze",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Vaše odměna bude připsána na následující účet:",
+    "continue": "Pokračovat"
+  },
+  "claimYourReward": "Vyzvedněte si odměnu: {{amount}} {{currency}}",
+  "sortOrder": "Pořadí řazení",
+  "congratulations": "Gratulujeme!",
+  "bountyCompleted": "Bounty dokončeno, vyzvedněte si odměnu nyní!",
+  "youHitMultiplier": "Dosáhli jste <0>{{multiplier}}×</0>! Bounty dokončeno, vyzvedněte si odměnu nyní!",
+  "newBountyAvailable": "Nové Bounty k dispozici",
+  "claimSuccess": "Odměna vyzvednuta",
+  "claimSuccessDetail": "{{amount}} {{currency}} přidáno do vaší peněženky.",
+  "claimNow": "Vyzvednout nyní",
+  "go": "Jít",
+  "winAmount": "Vyhrajte {{amount}} {{currency}}",
+  "multiplierLabel": "Násobitel",
+  "sortByCreated": "Nedávno přidané",
+  "sortByReward": "Nejvyšší odměna",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Detaily bonusu",
+    "intro": "Bounty výzvy vás odměňují cenami za velké výhry. V kterékoli z uvedených her stačí umístit kvalifikační sázku, která splňuje minimální sázku a dosahuje požadovaného násobitele — pokud jste mezi prvními, kdo to udělá, odměna je vaše.",
+    "howItWorks": {
+      "title": "Jak to funguje",
+      "body": "  - Každá Bounty výzva je vázána na konkrétní hru\n  - Umístěte sázku splňující minimální sázku\n  - Dosáhněte cílového násobitele nebo vyššího pro dokončení výzvy\n  - První hráči, kteří dokončí výzvu, vyhrají odměnu\n  - Můžete vyhrát vícekrát na stejné výzvě, pokud je uděleno více cen"
+    },
+    "claim": {
+      "title": "Distribuce vyzvednutí",
+      "body": "Odměny budou připsány do vaší peněženky v měně specifikované pro každou výzvu. Odměnu si můžete vyzvednout kdykoli z karty \"Moje dokončené\" na stránce Bounty. Není žádný časový limit pro vyzvednutí."
+    },
+    "eligible": {
+      "title": "Způsobilé sázky",
+      "body": "  - Počítají se pouze sázky skutečnými penězi. Sázky umístěné pomocí Slot Bonus Wallet nebo Free Spins nesplňují podmínky.\n  - Vaše sázková částka musí splňovat nebo překročit minimální sázku zobrazenou na výzvě."
+    },
+    "terms": {
+      "title": "Obecné podmínky",
+      "body": "  - Bounty odměny jsou vypočítány a připsány v měně nakonfigurované pro každou výzvu, poté zobrazeny ve vaší preferované měně pro pohodlí. Vezměte prosím na vědomí, že konverze měn jsou přibližné.\n  - Kasino si vyhrazuje právo kdykoli upravit nebo odvolat způsobilost, bez povinnosti odůvodnění. Jakékoli zneužití nebo podvodná činnost povede k diskvalifikaci z promo akce."
+    }
+  },
+  "rewardTooltip": "Vsaďte alespoň {{minBet}} {{currency}} (nebo ekvivalent) při násobiteli {{multiplier}}× nebo vyšším. Prvních {{slots}} kvalifikovaných hráčů získá odměnu.",
+  "filterAll": "Vše",
+  "filterClaimable": "K vyzvednutí",
+  "filterClaimed": "Vyzvednuto"
+}

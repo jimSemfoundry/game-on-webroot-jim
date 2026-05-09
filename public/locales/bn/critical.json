@@ -1,0 +1,25 @@
+{
+  "bonus": "বোনাস",
+  "conquests": "বিজয়",
+  "completed": "সম্পন্ন",
+  "daily_cashback": "দৈনিক ক্যাশব্যাক",
+  "expiration": "মেয়াদ শেষ",
+  "claimed": "দাবি করেছে",
+  "deposit_now": "এখনই জমা দিন",
+  "gameOver": "খেলা শেষ",
+  "level": "স্তর",
+  "bonusHub": {
+    "ongoing": "{{count}} Ongoing",
+    "root": "বোনাস হাব"
+  },
+  "details": {
+    "lastUpdate": "শেষ আপডেট"
+  },
+  "transactionStatus": {
+    "expired": "মেয়াদ শেষ",
+    "cancelled": "বাতিল"
+  },
+  "notifications": "বিজ্ঞপ্তিসমূহ",
+  "read": "পড়া",
+  "unread": "অপঠিত"
+}

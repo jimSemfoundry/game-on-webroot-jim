@@ -1,0 +1,25 @@
+{
+  "bonus": "Bonusnya",
+  "conquests": "Tantangan",
+  "completed": "Selesai",
+  "daily_cashback": "Cashback Harian",
+  "expiration": "Kedaluwarsa",
+  "claimed": "Telah Diklaim",
+  "deposit_now": "Deposit Sekarang",
+  "gameOver": "Permainan Berakhir",
+  "level": "Tingkat",
+  "bonusHub": {
+    "ongoing": "{{count}} Berlangsung",
+    "root": "Pusat Bonus"
+  },
+  "details": {
+    "lastUpdate": "Pembaruan Terakhir"
+  },
+  "transactionStatus": {
+    "expired": "Kedaluwarsa",
+    "cancelled": "Dibatalkan"
+  },
+  "notifications": "Notifikasi",
+  "read": "Baca",
+  "unread": "Belum dibaca"
+}

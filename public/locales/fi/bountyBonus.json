@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Palkkio",
+  "activeTab": "Aktiiviset",
+  "completedTab": "Suoritetut",
+  "myCompletedTab": "Omat suoritetut",
+  "claimReward": "Lunasta",
+  "claiming": "Lunastetaan...",
+  "claimed": "Lunastettu",
+  "play": "Pelaa",
+  "challengeCompleted": "Haaste suoritettu",
+  "hitMultiplier": "Saavuta {{multiplier}}×",
+  "rewardLabel": "Palkinto",
+  "minBetLabel": "Vähimmäispanos",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} jäljellä",
+  "noActiveChallenges": "Ei aktiivisia haasteita juuri nyt.",
+  "noCompletedChallenges": "Ei vielä suoritettuja haasteita.",
+  "noMyChallenges": "Et ole vielä voittanut yhtään bounty-haastetta.",
+  "branchDisabled": "Bounty-haasteet eivät ole tällä hetkellä saatavilla.",
+  "forbidden": "Tilisi on tällä hetkellä rajoitettu bounty-palkinnoista.",
+  "searchPlaceholder": "Hae pelejä...",
+  "filterProvider": "Suodata tarjoajan mukaan",
+  "winnersLabel": "Voittajat",
+  "viewWinners": "Näytä voittajat",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Palkintosi hyvitetään seuraavalle tilille:",
+    "continue": "Jatka"
+  },
+  "claimYourReward": "Lunasta palkintosi: {{amount}} {{currency}}",
+  "sortOrder": "Lajittelujärjestys",
+  "congratulations": "Onnittelut!",
+  "bountyCompleted": "Bounty suoritettu, lunasta palkintosi nyt!",
+  "youHitMultiplier": "Saavutit <0>{{multiplier}}×</0>! Bounty suoritettu, lunasta palkintosi nyt!",
+  "newBountyAvailable": "Uusi Bounty saatavilla",
+  "claimSuccess": "Palkinto lunastettu",
+  "claimSuccessDetail": "{{amount}} {{currency}} lisätty lompakkoosi.",
+  "claimNow": "Lunasta nyt",
+  "go": "Mene",
+  "winAmount": "Voita {{amount}} {{currency}}",
+  "multiplierLabel": "Kerroin",
+  "sortByCreated": "Äskettäin lisätyt",
+  "sortByReward": "Suurin palkinto",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonustiedot",
+    "intro": "Bounty-haasteet palkitsevat sinut palkinnoilla suurista voitoista. Missä tahansa luetelluista peleistä aseta vain hyväksyttävä panos, joka täyttää vähimmäispanoksen ja saavuttaa vaaditun kertoimen — jos olet yksi ensimmäisistä, jotka tekevät sen, palkinto on sinun.",
+    "howItWorks": {
+      "title": "Miten se toimii",
+      "body": "  - Jokainen Bounty-haaste on sidottu tiettyyn peliin\n  - Aseta panos, joka täyttää vähimmäispanoksen\n  - Saavuta tavoitekerroin tai korkeampi suorittaaksesi haasteen\n  - Ensimmäiset pelaajat, jotka suorittavat haasteen, voittavat palkinnon\n  - Voit voittaa useita kertoja samassa haasteessa, jos useita palkintoja jaetaan"
+    },
+    "claim": {
+      "title": "Lunastusjakelu",
+      "body": "Palkinnot hyvitetään lompakkoosi kunkin haasteen valuutassa. Voit lunastaa palkintosi milloin tahansa Bounty-sivun \"Omat suoritetut\" -välilehdeltä. Lunastamiselle ei ole aikarajaa."
+    },
+    "eligible": {
+      "title": "Hyväksyttävät panokset",
+      "body": "  - Vain oikealla rahalla tehdyt panokset lasketaan. Slot Bonus Wallet- tai Free Spins -panoksia ei hyväksytä.\n  - Panoksesi on täytettävä tai ylitettävä haasteessa näkyvä vähimmäispanos."
+    },
+    "terms": {
+      "title": "Yleiset ehdot",
+      "body": "  - Bounty-palkinnot lasketaan ja hyvitetään kunkin haasteen valuutassa, ja sitten näytetään suosimassasi valuutassa mukavuuden vuoksi. Huomaa, että valuutan muunnokset ovat likimääräisiä.\n  - Kasino pidättää oikeuden muuttaa tai peruuttaa kelpoisuus milloin tahansa ilman velvollisuutta perustella. Mikä tahansa väärinkäyttö tai vilpillinen toiminta johtaa diskvalifiointiin kampanjasta."
+    }
+  },
+  "rewardTooltip": "Lyö vetoa vähintään {{minBet}} {{currency}} (tai vastaava) kertoimella {{multiplier}}× tai korkeammalla. Ensimmäiset {{slots}} ehdot täyttävää pelaajaa voittavat palkinnon.",
+  "filterAll": "Kaikki",
+  "filterClaimable": "Lunastettava",
+  "filterClaimed": "Lunastettu"
+}

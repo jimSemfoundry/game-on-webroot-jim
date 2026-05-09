@@ -1,0 +1,74 @@
+{
+  "bountyTitle": "Premie",
+  "activeTab": "Actief",
+  "completedTab": "Voltooid",
+  "myCompletedTab": "Mijn voltooid",
+  "claimReward": "Claimen",
+  "claiming": "Claimen...",
+  "claimed": "Geclaimd",
+  "play": "Spelen",
+  "challengeCompleted": "Uitdaging voltooid",
+  "hitMultiplier": "{{multiplier}}× behalen",
+  "rewardLabel": "Beloning",
+  "minBetLabel": "Min. inzet",
+  "progress": "{{completed}} / {{total}}",
+  "remaining": "{{remaining}} resterend",
+  "noActiveChallenges": "Momenteel geen actieve uitdagingen.",
+  "noCompletedChallenges": "Nog geen voltooide uitdagingen.",
+  "noMyChallenges": "Je hebt nog geen bounty-uitdagingen gewonnen.",
+  "branchDisabled": "Bounty-uitdagingen zijn momenteel niet beschikbaar.",
+  "forbidden": "Je account is momenteel beperkt voor bounty-beloningen.",
+  "searchPlaceholder": "Zoek spellen...",
+  "filterProvider": "Filter op aanbieder",
+  "winnersLabel": "Winnaars",
+  "viewWinners": "Bekijk winnaars",
+  "claim": {
+    "title": "Claim Reward",
+    "from": "From",
+    "selectCurrency": "Select currency",
+    "exchangeNote": "Final amount converted at current exchange rate.",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "creditedToFollowing": "Je beloning wordt op het volgende account bijgeschreven:",
+    "continue": "Doorgaan"
+  },
+  "claimYourReward": "Claim je beloning: {{amount}} {{currency}}",
+  "sortOrder": "Sorteervolgorde",
+  "congratulations": "Gefeliciteerd!",
+  "bountyCompleted": "Bounty voltooid, claim nu je beloning!",
+  "youHitMultiplier": "Je hebt <0>{{multiplier}}×</0> behaald! Bounty voltooid, claim nu je beloning!",
+  "newBountyAvailable": "Nieuwe Bounty beschikbaar",
+  "claimSuccess": "Beloning geclaimd",
+  "claimSuccessDetail": "{{amount}} {{currency}} toegevoegd aan je portemonnee.",
+  "claimNow": "Nu claimen",
+  "go": "Ga",
+  "winAmount": "Win {{amount}} {{currency}}",
+  "multiplierLabel": "Vermenigvuldiger",
+  "sortByCreated": "Onlangs toegevoegd",
+  "sortByReward": "Hoogste beloning",
+  "infoModal": {
+    "title": "Bounty",
+    "detailsHeader": "Bonusdetails",
+    "intro": "Bounty-uitdagingen belonen je met prijzen voor het winnen van grote bedragen. In elk van de vermelde spellen plaats je gewoon een gekwalificeerde inzet die voldoet aan het minimum inzetbedrag en de vereiste vermenigvuldiger bereikt — als je een van de eersten bent die dit doet, is de beloning van jou.",
+    "howItWorks": {
+      "title": "Hoe het werkt",
+      "body": "  - Elke Bounty-uitdaging is gekoppeld aan een specifiek spel\n  - Plaats een inzet die voldoet aan het minimum inzetbedrag\n  - Bereik de doelvermenigvuldiger of hoger om de uitdaging te voltooien\n  - De eerste spelers die de uitdaging voltooien winnen de beloning\n  - Je kunt meerdere keren winnen op dezelfde uitdaging als er meerdere prijzen worden uitgereikt"
+    },
+    "claim": {
+      "title": "Claim distributie",
+      "body": "Beloningen worden bijgeschreven op je portemonnee in de valuta die voor elke uitdaging is opgegeven. Je kunt je beloning op elk moment claimen via het tabblad \"Mijn voltooid\" op de Bounty-pagina. Er is geen tijdslimiet om te claimen."
+    },
+    "eligible": {
+      "title": "Kwalificerende inzetten",
+      "body": "  - Alleen echte geld inzetten tellen. Inzetten geplaatst met Slot Bonus Wallet of Free Spins komen niet in aanmerking.\n  - Je inzetbedrag moet voldoen aan of hoger zijn dan het minimum inzetbedrag dat op de uitdaging wordt weergegeven."
+    },
+    "terms": {
+      "title": "Algemene voorwaarden",
+      "body": "  - Bounty-beloningen worden berekend en bijgeschreven in de valuta die voor elke uitdaging is geconfigureerd, en vervolgens weergegeven in je voorkeursvaluta voor het gemak. Houd er rekening mee dat valutaconversies bij benadering zijn.\n  - Het casino behoudt zich het recht voor om op elk moment, zonder verplichting tot rechtvaardiging, de geschiktheid te wijzigen of in te trekken. Elke vorm van misbruik of frauduleuze activiteit leidt tot diskwalificatie van de promotie."
+    }
+  },
+  "rewardTooltip": "Zet minstens {{minBet}} {{currency}} (of gelijkwaardig) in met een vermenigvuldiger van {{multiplier}}× of hoger. De eerste {{slots}} gekwalificeerde spelers winnen de beloning.",
+  "filterAll": "Alle",
+  "filterClaimable": "Op te halen",
+  "filterClaimed": "Opgehaald"
+}

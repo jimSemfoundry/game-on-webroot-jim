@@ -1,0 +1,25 @@
+{
+  "bonus": "보너스",
+  "conquests": "도전",
+  "completed": "완료됨",
+  "daily_cashback": "일일 캐시백",
+  "expiration": "만료",
+  "claimed": "청구됨",
+  "deposit_now": "지금 입금하기",
+  "gameOver": "게임 오버",
+  "level": "레벨",
+  "bonusHub": {
+    "ongoing": "{{count}} 진행 중",
+    "root": "보너스 허브"
+  },
+  "details": {
+    "lastUpdate": "마지막 업데이트"
+  },
+  "transactionStatus": {
+    "expired": "만료됨",
+    "cancelled": "취소됨"
+  },
+  "notifications": "알림",
+  "read": "읽음",
+  "unread": "읽지 않음"
+}

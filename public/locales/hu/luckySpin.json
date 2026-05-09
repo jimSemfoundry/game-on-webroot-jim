@@ -1,0 +1,17 @@
+{
+  "fortune": "Szerencse\nkerék",
+  "deposit": "Fizess be {{amount}} összeget 1 pörgetésért",
+  "spin_now": "PÖRGESS MOST",
+  "available": "{{times}} pörgetésed érhető el!",
+  "lucky": "Lucky Spin",
+  "mega": "Mega Spin",
+  "spin": "Pörgetés",
+  "rakeback_booster": "Booster",
+  "buddy_balls": "Buddy Balls",
+  "free_spin": "Ingyenes pörgetések",
+  "winner": "NYERTES",
+  "better": "LEGKÖZELEBB\nTÖBB SZERENCSÉT",
+  "next_time": "LEGKÖZELEBB",
+  "ready": "Készülj fel, hogy megpörgesd, újra megpörgesd, és még egyszer megpörgesd a Szerencsekereket — ez a kapud az izgalmas meglepetésekhez és a hihetetlen jutalmakhoz!\nMinden pörgetés esélyt ad arra, hogy valódi pénzt, kriptojutalmakat, boostereket, ingyenes pörgetéseket, buddy ballokat és exkluzív jutalmakat nyerj — akár egy iPhone-t is.\nÉrezd az izgalmat, ahogy a kerék forog, és a szerencse kiválasztja a következő nyertest.",
+  "rewards": "A Szerencsekerék összes készpénzes és kriptojutalma közvetlenül a megfelelő számlaegyenlegre kerül jóváírásra. Ha például ETH-t nyersz, a jutalom automatikusan hozzáadódik az ETH tárcád egyenlegéhez.\nFizikai nyeremények vagy luxuscikkek esetén ügyfélszolgálati csapatunk személyesen felveszi veled a kapcsolatot a szállítás egyeztetése érdekében."
+}

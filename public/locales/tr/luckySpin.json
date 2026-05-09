@@ -1,0 +1,17 @@
+{
+  "fortune": "Şans\nÇarkı",
+  "deposit": "{{amount}} yatır, 1 Çevirme kazan",
+  "spin_now": "ŞİMDİ ÇEVİR",
+  "available": "{{times}} Çevirme hakkın var!",
+  "lucky": "Şanslı Çevirme",
+  "mega": "Mega Çevirme",
+  "spin": "Çevir",
+  "rakeback_booster": "Booster",
+  "buddy_balls": "Buddy Balls",
+  "free_spin": "Ücretsiz Çevirme",
+  "winner": "KAZANAN",
+  "better": "BİR SONRAKİ SEFERE\nDAHA İYİ ŞANS",
+  "next_time": "BİR SONRAKİ SEFER",
+  "ready": "Şans Çarkı’nı çevirmeye, çevirmeye, çevirmeye hazır ol — heyecan verici sürprizlere ve inanılmaz ödüllere açılan kapın burada!\nHer çevirme; gerçek para, kripto ödülleri, booster’lar, ücretsiz çevirme hakları, buddy balls ve özel ödüller kazanma şansı sunar — hatta bir iPhone bile.\nÇark dönerken ve şans bir sonraki kazananı seçerken heyecanı hisset.",
+  "rewards": "Şans Çarkı’ndan kazanılan tüm nakit ve kripto ödülleri doğrudan ilgili hesap bakiyesine yatırılır. Örneğin ETH kazanırsan, ödül otomatik olarak ETH cüzdan bakiyene eklenir.\nFiziksel ödüller veya lüks ürünler için müşteri hizmetleri ekibimiz teslimatı koordine etmek üzere seninle doğrudan iletişime geçecektir."
+}
