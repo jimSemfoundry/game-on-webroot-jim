@@ -5,27 +5,28 @@ import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import dayjs from "dayjs";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import Iconify from "@/components/iconify";
 import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
 import { deposit_bonus_static_info } from "@/sections/bonus/deposit-bonus/helper.ts";
 import Decimal from "decimal.js";
+import { useNavigate } from "@tanstack/react-router";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusDepositHelpModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/deposit-bonus.png";
-
 export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModalProps) => {
+  const navigate  = useNavigate()
+
   const { t } = useTranslation(['popup', 'bonus']);
   const { status: authStatus } = useAuth();
-  const { openUserFinanceModal } = useFinanceModal();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const { data: bonusConfig } = useDepositBonusConfig(isOpen);
+  const ILLUSTRATION_URL = useBonusDetailsImage("deposit_bonus", 256);
 
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient: "radial-gradient(100% 308% at 100% 0%, rgba(255, 215, 0, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -80,28 +81,28 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
                           <span className="countdown text-lg font-bold">
                             <span style={{ "--value": time.days } as React.CSSProperties}></span>
                           </span>
-                          <p className="text-[8px] text-base-content/70">days</p>
+                          <p className="text-[8px] text-base-content/70">{t("tournament:days")}</p>
                         </div>
                         <div
                           className="bg-base-400/50 rounded-field px-2 py-1 h-12 flex flex-col items-center justify-center">
                           <span className="countdown text-lg font-bold">
                             <span style={{ "--value": time.hours } as React.CSSProperties}></span>
                           </span>
-                          <p className="text-[8px] text-base-content/70">hours</p>
+                          <p className="text-[8px] text-base-content/70">{t("tournament:hours")}</p>
                         </div>
                         <div
                           className="bg-base-400/50 rounded-field px-2 py-1 h-12 flex flex-col items-center justify-center">
                           <span className="countdown text-lg font-bold">
                             <span style={{ "--value": time.minutes } as React.CSSProperties}></span>
                           </span>
-                          <p className="text-[8px] text-base-content/70">minutes</p>
+                          <p className="text-[8px] text-base-content/70">{t("tournament:minutes")}</p>
                         </div>
                         <div
                           className="bg-base-400/50 rounded-field px-2 py-1 h-12 flex flex-col items-center justify-center">
                           <span className="countdown text-lg font-bold">
                             <span style={{ "--value": time.seconds } as React.CSSProperties}></span>
                           </span>
-                          <p className="text-[8px] text-base-content/70">seconds</p>
+                          <p className="text-[8px] text-base-content/70">{t("tournament:seconds")}</p>
                         </div>
                       </div>
                     )}
@@ -155,7 +156,7 @@ export const BonusDepositHelpModal = ({ isOpen, onClose }: BonusDepositHelpModal
                 className="btn btn-primary w-full btn-lg font-bold text-base mb-2"
                 onClick={() => {
                   onClose();
-                  openUserFinanceModal();
+                  void navigate({to:'/finance'});
                 }}
               >
                 {t("popup:deposit.depositNow")}

@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "手机号已被使用，请使用其他手机号。",
     "mobileAlreadyBound": "该手机号已绑定至此账号。",
     "fullscreen": "全屏",
-    "exitFullscreen": "退出全屏"
+    "exitFullscreen": "退出全屏",
+    "draw": "平局"
   },
   "bonus_pool": "奖金池",
   "pleaseEnterValidUsernameOrEmail": "请输入有效的用户名或邮箱",

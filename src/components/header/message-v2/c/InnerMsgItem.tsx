@@ -7,7 +7,7 @@ import { InnerCountdown, msg_type_need_countdown } from "./InnerCountdown.tsx";
 import { parser, InnerMsgLink } from "./InnerMsgLink.tsx";
 import { Trans, useTranslation } from "react-i18next";
 import { Decimal } from "decimal.js";
-import getSymbolFromCurrency from "@/utils/currencySymbol";
+import { useFiatSymbol } from "@/utils/currencySymbol";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import {
@@ -15,6 +15,23 @@ import {
   InnerDisplayContent,
   InnerIsRead
 } from "@/components/header/message-v2/c/InnerComponents.tsx";
+
+// 提取硬编码常量
+const ACHIEVEMENT_COUNT_TYPES_TIMES = [
+  "achievement_bet_count",
+  "achievement_deposit_count",
+  "achievement_slots_win_count",
+  "achievement_talkative",
+  "achievement_slots_multiplier"
+] as const;
+
+const ACHIEVEMENT_COUNT_TYPES_LEVEL = [
+  "achievement_game_explorer",
+  "achievement_super_spreader",
+  "achievement_conquistador"
+] as const;
+
+const ALL_ACHIEVEMENT_TYPES = [...ACHIEVEMENT_COUNT_TYPES_TIMES, ...ACHIEVEMENT_COUNT_TYPES_LEVEL] as const;
 
 export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose, dataMatching }: {
   i: number,
@@ -101,7 +118,7 @@ export const InnerMsgItem = ({ i, item, handle, statement, resetAnimate, onClose
           </div>
         </m.div>}
       </AnimatePresence>
-    </>) }
+    </>)}
   </InfoTheme>);
 };
 
@@ -111,17 +128,55 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
   display?: 1 | 2,
   language_match: string
 }) => {
-  const { user } = useAuth();
-
   const { t } = useTranslation();
 
+  const { user } = useAuth();
+
   const { convertCurrency, isLoading, formatCurrency, exchangeRates } = useCurrencyData();
+
+  // TODO: 使用服务端提供的法币缩写符号
+  const { showFiatSymbol } = useFiatSymbol();
+
+  // 提取通用的货币转换逻辑
+  const formatAmount = useMemo(() => {
+    const targetCurrency = user?.currency_fiat ?? "USD";
+    return (amount: number, fromCurrency: string = "USDT") => {
+      if (isLoading) return "0.00";
+      return formatCurrency({
+        amount: convertCurrency({
+          amount,
+          fromCurrency,
+          toCurrency: targetCurrency,
+          exchangeRates
+        }),
+        currency: targetCurrency,
+        showSymbol: true,
+        showCode: false
+      }).formatted;
+    };
+  }, [user?.currency_fiat, isLoading, convertCurrency, formatCurrency, exchangeRates]);
 
   const source = useMemo(() => {
     if (!payload) return;
 
     const parsed_payload = parser(payload);
-    const targetCurrency = (user?.currency_fiat ?? "USD");
+    const targetCurrency = user?.currency_fiat ?? "USD";
+
+    // 幸运盘模版
+    if (type === "luck_spin_normal") {
+      return {
+        ...parsed_payload,
+        number: parsed_payload?.times || 0,
+      };
+    }
+
+    // 成就送幸运球
+    if (type === "achievement_bb") {
+      return {
+        ...parsed_payload,
+        ball: parsed_payload?.reward_buddy_balls || 0,
+      };
+    }
 
     if (type.includes("promo_code")) {
       const min_amount = convertCurrency({
@@ -131,22 +186,13 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
         exchangeRates
       });
       const min_amount_final = targetCurrency !== "USD"
-        ? `${getSymbolFromCurrency(targetCurrency) ?? ""}${Decimal(String(min_amount).replace(/,/g, ""))
+        ? `${showFiatSymbol(targetCurrency) ?? ""}${Decimal(String(min_amount).replace(/,/g, ""))
           .toDP(0, Decimal.ROUND_CEIL).toNumber().toLocaleString()}`
         : `$${min_amount}`;
       return {
         ...parsed_payload,
         min_amount: isLoading ? "0.00" : min_amount_final,
-        bonus_amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.extra_data?.bonus_amount || 0,
-            fromCurrency: "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
+        bonus_amount: formatAmount(parsed_payload?.extra_data?.bonus_amount || 0),
         currency: targetCurrency
       };
     }
@@ -154,50 +200,19 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
     if (type.includes("conquest")) {
       return {
         ...parsed_payload,
-        reward_amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.reward_amount || 0,
-            fromCurrency: "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
+        reward_amount: formatAmount(parsed_payload?.reward_amount || 0),
         currency: "",
         conquest_key: i18n.getDataByLanguage(language_match)?.bonus?.item?.[parsed_payload?.key] ?? parsed_payload?.key
       };
     }
 
     if (type.includes("achievement")) {
-      const with_count_types_times = [
-        "achievement_bet_count",
-        "achievement_deposit_count",
-        "achievement_slots_win_count",
-        "achievement_talkative",
-        "achievement_slots_multiplier"
-      ];
-      const with_count_types_level = [
-        "achievement_game_explorer",
-        "achievement_super_spreader",
-        "achievement_conquistador"
-      ];
-
       return {
         ...parsed_payload,
-        step: [...with_count_types_times, ...with_count_types_level].includes(parsed_payload?.key)
-          ? `${with_count_types_level.includes(parsed_payload?.key) ? t("bonus:level") : ""} ${parsed_payload?.step}`
+        step: ALL_ACHIEVEMENT_TYPES.includes(parsed_payload?.key as any)
+          ? `${ACHIEVEMENT_COUNT_TYPES_LEVEL.includes(parsed_payload?.key as any) ? t("bonus:level") : ""} ${parsed_payload?.step}`
           : "",
-        reward_amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.reward_amount || 0,
-            fromCurrency: "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
+        reward_amount: formatAmount(parsed_payload?.reward_amount || 0),
         currency: "",
         achievement_key: (i18n.getDataByLanguage(language_match)?.bonus?.[parsed_payload?.key] as any)?.name ?? parsed_payload?.key
       };
@@ -214,16 +229,7 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
       return {
         ...parsed_payload,
         amount: Decimal(parsed_payload?.amount || 0).toDP(8, Decimal.ROUND_DOWN),
-        pool_amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.rakeback_log?.amount || 0,
-            fromCurrency: parsed_payload?.rakeback_log?.currency ?? "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
+        pool_amount: formatAmount(parsed_payload?.rakeback_log?.amount || 0, parsed_payload?.rakeback_log?.currency ?? "USDT"),
         pool_currency: ""
       };
     }
@@ -231,62 +237,46 @@ const DisplayDifferentMessages = ({ type, content, payload, display = 1, languag
     if (type.includes("recovery_bonus")) {
       return {
         ...parsed_payload,
-        amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.extra_data?.bonus_amount || 0,
-            fromCurrency: parsed_payload?.extra_data?.currency ?? "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
+        amount: formatAmount(parsed_payload?.extra_data?.bonus_amount || 0, parsed_payload?.extra_data?.currency ?? "USDT"),
         currency: ""
       };
     }
 
+    // 彩金钱包站内信模版
     if (type.includes("bonus_wallet")) {
       return {
         ...parsed_payload,
-        amount: isLoading ? "0.00" : formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.init_amount || 0,
-            fromCurrency: parsed_payload?.currency ?? "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
-        wagering: formatCurrency({
-          amount: convertCurrency({
-            amount: parsed_payload?.wager_require || 0,
-            fromCurrency: parsed_payload?.currency ?? "USDT",
-            toCurrency: targetCurrency,
-            exchangeRates
-          }),
-          currency: targetCurrency,
-          showSymbol: true, showCode: false
-        }).formatted,
-        currency: '',
+        amount: formatAmount(parsed_payload?.init_amount || 0, parsed_payload?.currency ?? "USDT"),
+        wagering: formatAmount(parsed_payload?.wager_require || 0, parsed_payload?.currency ?? "USDT"),
+        currency: ""
+      };
+    }
+
+    // 锦标赛站内信模版
+    if (type.includes("rakerace")) {
+      return {
+        ...parsed_payload,
+        rank: parsed_payload?.rank || 0,
+        prize_amount: Decimal(parsed_payload?.prize_amount || 0).toDP(2, Decimal.ROUND_DOWN),
+        currency: ""
+      };
+    }
+
+    // 幸运球模版
+    if (type.includes("buddyballs")) {
+      return {
+        ...parsed_payload,
+        amount: parsed_payload?.amount || 0,
+        reason: parsed_payload?.reason
       };
     }
 
     return {
       ...parsed_payload,
-      amount: isLoading ? "0.00" : formatCurrency({
-        amount: convertCurrency({
-          amount: parsed_payload?.amount || 0,
-          fromCurrency: parsed_payload?.currency ?? "USDT",
-          toCurrency: targetCurrency,
-          exchangeRates
-        }),
-        currency: targetCurrency,
-        showSymbol: true, showCode: false
-      }).formatted,
+      amount: formatAmount(parsed_payload?.amount || 0, parsed_payload?.currency ?? "USDT"),
       currency: ""
     };
-  }, [i18n, isLoading, user?.currency_fiat, language_match]);
+  }, [i18n, formatAmount, language_match, payload, type, user?.currency_fiat]);
 
   return (display === 1
     ? (<>

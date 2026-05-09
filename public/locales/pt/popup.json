@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Os ganhos de giros grátis não expirarão até serem desbloqueados e reclamados.",
     "general_terms": "Termos Gerais",
     "general_terms_desc": "As recompensas de Giros Grátis são calculadas e creditadas em BUCK, e depois exibidas na sua moeda fiduciária preferida para conveniência. Observe que as conversões de moeda são aproximadas.",
-    "general_terms_desc_2": "O cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção."
+    "general_terms_desc_2": "O cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção.",
+    "redeem_count_free_spins": "RESGATAR {{freeSpinsCount}} GIROS GRÁTIS?"
   },
   "mysteryBox": {
     "description": "Quanto mais você joga, maiores são as chances de ganhar alto. Abra sua Mystery Box todo mês para revelar bônus surpresa personalizados para sua atividade. Gire, jogue e resgate o que está lá dentro!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Bônus em Dinheiro",
   "none": "Nenhum",
   "bonus_limit": "Limite de Bônus",
-  "minimum_deposit": "Depósito Mínimo"
+  "minimum_deposit": "Depósito Mínimo",
+  "get_buck": "OBTER BUCK",
+  "what_is_buck": "O que é BUCK?",
+  "what_is_buck_description": "BUCK é um token exclusivo para todas as recompensas da plataforma, avaliado em 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "O BUCK é trocável?",
+  "is_buck_exchangeable_description": "Sim. Você pode converter BUCK em criptomoedas ou moedas fiduciárias suportadas a qualquer momento, diretamente na plataforma.",
+  "expiration_description": "Não. O BUCK nunca expira e permanece no seu saldo até que você o utilize.",
+  "general_terms_description": "As recompensas são calculadas e creditadas em USDT, e depois exibidas na sua moeda fiduciária preferida para conveniência. Por favor, note que as conversões de moeda são aproximadas. \n\n O cassino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem a obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Obtenha mais Buddy Balls",
+    "daily_check_in": "Check-in diário",
+    "refer_a_friend": "Indique um amigo",
+    "referral_first_deposit": "Primeiro depósito por indicação"
+  },
+  "bonus_details_modal": {
+    "description": "Bem-vindo à Loja de Bônus, onde você pode converter seu dinheiro em Dólares de Bônus e receber um extra de 20%-180%, sujeito aos requisitos de requisito de apostas (apostas). Dólares de Bônus são créditos especiais de jogo disponíveis para determinados jogos de slots selecionados. Os Dólares de Bônus podem ser convertidos em dinheiro sacável assim que você concluir o requisito de requisito de apostas.",
+    "claim_distribution": "Quando você concluir o requisito de requisito de apostas (aposta), poderá converter seu saldo de Dólares de Bônus para a moeda de sua escolha clicando no botão de resgatar.",
+    "expiration_description": "Os Dólares de Bônus devem ser usados dentro do período de validade exibido na aba Loja de Bônus. Saldos de Dólares de Bônus não utilizados serão perdidos após o término da validade. Observe que você só pode ter uma promoção de Dólares de Bônus ativa por vez.",
+    "generalTerms_description": "Os Dólares de Bônus são calculados e creditados em BONUS e, em seguida, exibidos na moeda de exibição escolhida para sua conveniência. Observe que as conversões de moeda são aproximadas. O Cassino se reserva o direito de modificar ou revogar a elegibilidade sem obrigação de justificativa. Qualquer abuso ou atividade fraudulenta resultará em desqualificação da promoção."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Bem-vindo ao Bônus Esportivo, onde você pode converter seu dinheiro em Dólares de Bônus Esportivo e obter 50% extras sujeitos aos requisitos de apostas. Os dólares de bônus esportivos são créditos especiais de jogo disponíveis para uso em apostas esportivas. Os dólares de bônus esportivos podem ser convertidos em dinheiro sacável assim que você completar o requisito de aposta.",
+    "claim_distribution": "Ao completar o requisito de aposta, você pode converter seu saldo de Bônus Esportivo em uma moeda de sua escolha clicando no botão de reivindicação.",
+    "wagering_rules": "- Apostas perdidas: O valor total da sua aposta conta integralmente para o requisito de aposta.\n- Apostas vencedoras: Apenas contam se as odds forem ≥ {{minOdds}}. Se as odds forem inferiores a {{minOdds}}, a aposta não conta para o requisito de aposta.\n- Apostas com cash out: Apenas contam se o valor do cash out for superior ao valor original da aposta × {{minOdds}}.\n- Apenas o valor apostado conta para o requisito de aposta, nunca os ganhos.",
+    "expiration_description": "Os dólares de bônus esportivos devem ser usados ​​dentro do período de validade exibido na guia Bônus Esportivo. Os saldos em dólares de bônus esportivos não utilizados serão perdidos após o período de validade.",
+    "generalTerms_description": "- As recompensas do Bônus Esportivo são calculadas e creditadas em BÔNUS ESPORTIVO e, em seguida, exibidas na moeda de sua preferência para sua conveniência. Observe que as conversões de moeda são aproximadas.\n- O casino reserva-se o direito de modificar ou revogar a elegibilidade a qualquer momento, sem obrigação de justificar. Qualquer abuso ou atividade fraudulenta levará à desqualificação da promoção."
+  }
 }

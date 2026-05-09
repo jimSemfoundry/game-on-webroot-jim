@@ -18,6 +18,11 @@ import SocialLogin from "@/components/socialLogin";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
 import type { Country } from "react-phone-number-input";
 import { getAuthErrorMessageKey } from "./errorCodes";
+import { Eye, EyeOff } from "lucide-react";
+import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
+import clsx from "clsx";
+import { ConfirmBox } from "./UserFinanceModal/c/ConfirmBox";
+
 
 type SignInModalProps = {
   isOpen: boolean;
@@ -25,6 +30,22 @@ type SignInModalProps = {
 };
 
 type FormMode = "signin" | "forgot-password" | "reset-password";
+
+interface IStatus {
+  current_password: string,
+  confirm_password: string,
+  is_pending: boolean,
+  current_password_view: boolean,
+  confirm_password_view: boolean,
+}
+
+const initStatus: IStatus = {
+  current_password: "",
+  confirm_password: "",
+  is_pending: false,
+  current_password_view: false,
+  confirm_password_view: false
+};
 
 export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
   const { t } = useTranslation('profile');
@@ -59,8 +80,7 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
   // Forgot password form
   const [resetUsername, setResetUsername] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [isResetLoading, setIsResetLoading] = useState(false);
   const [isResetUsernameValid, setIsResetUsernameValid] = useState(false);
 
@@ -87,11 +107,11 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
     setIsUsernameValid(false);
     setResetUsername("");
     setVerificationCode("");
-    setNewPassword("");
-    setConfirmPassword("");
+
     setIsResetLoading(false);
     setIsResetUsernameValid(false);
     resetCaptchaRef.current?.resetCaptcha?.();
+    setStatus(initStatus);
   }, []);
 
   useEffect(() => {
@@ -118,8 +138,18 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
       return;
     }
 
+    if (!username.trim()) {
+      toast.error(t("login:pleaseEnterValidUsernameOrEmail"));
+      return;
+    }
+
     if (!password.trim()) {
       toast.error(t("login:pleaseEnterPassword"));
+      return;
+    }
+
+    if (password.length < 6) {
+      toast.error(t("login:passwordTooShort"));
       return;
     }
 
@@ -152,9 +182,18 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
     // Reset form fields
     setResetUsername("");
     setVerificationCode("");
-    setNewPassword("");
-    setConfirmPassword("");
+    setStatus(initStatus);
   };
+
+  const [status, setStatus] = useState<IStatus>(initStatus);
+
+  const verificationCodeNullError = useMemo(() => verificationCode === "" || verificationCode === null, [verificationCode]);
+
+  const input_null_error = useMemo(() => status.current_password === "" || status.confirm_password === "", [status.current_password, status.confirm_password]);
+
+  const confirm_password_match_error = useMemo(() => status.confirm_password !== "" && status.confirm_password !== status.current_password, [status.current_password, status.confirm_password]);
+
+  const current_password_length_error = useMemo(() => status.current_password !== "" && status.current_password.length < 6 || status.current_password.length > 64, [status.current_password]);
 
   const handleSendResetCode = async () => {
     console.info(`isOpen=${isOpen}`);
@@ -242,41 +281,32 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
   };
 
   const handleResetPassword = async () => {
-    if (!verificationCode.trim()) {
-      toast.error(t("login:invalidVerificationCode"));
-      return;
-    }
-    if (!newPassword.trim()) {
-      toast.error(t("login:passwordTooShort"));
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      toast.error("login:passwordsDoNotMatch");
-      return;
-    }
-    if (newPassword.length < 6) {
-      toast.error("login:passwordTooShort");
-      return;
-    }
 
-    setIsResetLoading(true);
-    authService.resetPassword(resetUsername, verificationCode, newPassword).then((res) => {
+    setStatus((old) => ({ ...old, is_pending: true }));
+
+    authService.resetPassword(resetUsername, verificationCode, status.current_password).then((res) => {
       if (res.code === 0 || res.code === 200) {
         toast.success(t("login:passwordResetSuccess"));
         setFormMode("signin");
         // Clear form fields
         setResetUsername("");
         setVerificationCode("");
-        setNewPassword("");
-        setConfirmPassword("");
+        setStatus((old) => ({
+          ...old,
+          is_pending: false,
+          current_password: "",
+          confirm_password: ""
+        }));
       } else {
         toast.error(t(getAuthErrorMessageKey(res.code)));
+        setStatus((old) => ({ ...old, is_pending: false }));
       }
     }).catch((error) => {
       console.error(error);
+      setStatus((old) => ({ ...old, is_pending: false }));
       toast.error(t("login:failed_to_reset_password"));
     }).finally(() => {
-      setIsResetLoading(false);
+      setStatus((old) => ({ ...old, is_pending: false }));
     });
   };
 
@@ -385,8 +415,8 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
 
   const renderForgotPasswordForm = () => (
     <div
-      className="p-5 sm:p-6 flex flex-col gap-4 flex-1 relative h-full min-h-[400px] sm:min-h-[455px] justify-between">
-      <div className="flex items-center gap-2">
+      className="p-5 sm:p-6 flex flex-col gap-4 flex-1 relative h-full min-h-[400px] sm:min-h-[455px]">
+      <div className="flex items-center gap-2 p">
         <Iconify icon="custom:question" className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
         <h2 className="text-base sm:text-xl font-semibold">{t("login:recoverPassword")}</h2>
         <button
@@ -397,7 +427,7 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
         </button>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 py-2">
         <p className="text-sm text-base-content/70">{t("login:forgotPasswordDescription")}</p>
 
         <form
@@ -477,36 +507,74 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
           </div>
         </div>
 
-        <form
+        {/* <form
           className="mt-4"
           onSubmit={(e) => {
             e.preventDefault();
             handleResetPassword();
           }}
-        >
+        > */}
+        <div className="mt-4">
           <h3 className="text-base font-semibold mb-2">{t("login:resetPassword")}</h3>
           <div className="flex flex-col gap-2">
             <div className="relative">
-              <input
-                type="password"
-                placeholder={t("login:newPassword")}
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full"
-              />
+              {/* <label className="text-xs font-bold">{t("login:newPassword")}</label> */}
+              <div className={"relative flex items-center "}>
+                <input
+                  type={status.current_password_view ? "text" : "password"}
+                  value={status.current_password}
+                  onChange={(e) => setStatus((old) => ({
+                    ...old,
+                    current_password: e.target.value.trim()
+                  }))}
+                  placeholder={t("login:newPassword")}
+                  className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full pr-8"
+                />
+                <InnerPasswordView onClick={(v) => {
+                  setStatus((old) => ({
+                    ...old,
+                    current_password_view: v
+                  }));
+                }} />
+              </div>
+
+              {/* 当前密码 - 密码长度不在范围 - 错误 */}
+              <ErrorMessageBox
+                sample
+                content={t('profile:passwordLengthRequirement')}
+                show={current_password_length_error} />
             </div>
             <div className="relative">
-              <input
-                type="password"
-                placeholder={t("login:confirmPassword")}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full"
-              />
+              {/* <label className="text-xs font-bold">{t("login:confirmPassword")}</label> */}
+
+              <div className={"relative flex items-center "}>
+                <input
+                  type={status.confirm_password_view ? "text" : "password"}
+                  value={status.confirm_password}
+                  onChange={(e) => setStatus((old) => ({
+                    ...old,
+                    confirm_password: e.target.value.trim()
+                  }))}
+                  placeholder={t("login:confirmPassword")}
+                  className="input input-md sm:input-lg input-ghost bg-base-300 text-base-content w-full pr-8"
+                />
+                <InnerPasswordView onClick={(v) => {
+                  setStatus((old) => ({
+                    ...old,
+                    confirm_password_view: v
+                  }));
+                }} />
+              </div>
+
+              {/* 两次输入的密码不一致 - 错误 */}
+              <ErrorMessageBox
+                sample
+                content={t("profile:passwordDoNotMatch")}
+                show={confirm_password_match_error} />
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 mt-4">
+          {/* <div className="flex flex-col gap-2 mt-4">
             <button type="submit" className="btn btn-primary btn-md sm:btn-lg" disabled={isResetLoading}>
               {isResetLoading ? (
                 <div className="flex items-center gap-2">
@@ -517,8 +585,19 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
                 t("login:resetPassword")
               )}
             </button>
-          </div>
-        </form>
+          </div> */}
+          <ConfirmBox
+            loading={status.is_pending}
+            onClick={() => {
+              if (verificationCodeNullError || input_null_error || confirm_password_match_error || current_password_length_error) return;
+              void handleResetPassword();
+            }}
+            className={clsx("btn-primary mt-4 btn-primary btn-md sm:btn-lg", { "bg-base-300 border-none text-base-content/50": verificationCodeNullError || input_null_error || confirm_password_match_error || current_password_length_error })}
+          >
+            {t("login:resetPassword")}
+          </ConfirmBox>
+          {/* </form> */}
+        </div>
       </div>
 
       <p className="text-sm text-base-content/70 text-center flex-nowrap">
@@ -568,6 +647,9 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
             size="invisible"
             onVerify={handleResetCaptchaVerify}
             onError={handleResetCaptchaError}
+            onClose={() => {
+              setIsResetLoading(false);
+            }}
             ref={resetCaptchaRef}
             custom
             theme="dark"
@@ -576,4 +658,16 @@ export const SignInModal = ({ isOpen, onClose }: SignInModalProps) => {
         )}
     </>
   );
+};
+
+const InnerPasswordView = ({ onClick }: { onClick: (view: boolean) => void }) => {
+  const [view, setView] = useState<boolean>(false);
+  return (<div className="z-1 absolute right-3 cursor-pointer rtl:left-4 rtl:right-auto" onClick={() => {
+    setView(!view);
+    onClick(!view);
+  }}>
+    {view
+      ? <Eye className={clsx("w-4 h-4 text-primary")} />
+      : <EyeOff className={clsx("w-4 h-4 text-base-content/50")} />}
+  </div>);
 };

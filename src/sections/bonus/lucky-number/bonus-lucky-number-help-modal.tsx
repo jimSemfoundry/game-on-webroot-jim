@@ -1,35 +1,28 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusLuckyNumberHelpModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/bdff680c12dae6bd01b27ff35cb22ad0cd656f89.png";
-
 export const BonusLuckyNumberHelpModal = ({ isOpen, onClose }: BonusLuckyNumberHelpModalProps) => {
   const { t } = useTranslation(['popup', 'bonus']);
   const { formatWithConversion } = useDisplayCurrencyFormatter()
-  const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
-    fallbackGradient:
-      "radial-gradient(120% 260% at 100% 0%, rgba(173, 0, 0, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
-    opacity: 0.45,
-    colorTypes: ['DarkMuted']
-  });
+  const ILLUSTRATION_URL = useBonusDetailsImage("lucky_number_seven", 256);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
       <div className="flex flex-col gap-1">
         {/* Top highlight card */}
         <div
-          className="rounded-box px-7 py-4 relative overflow-hidden h-[180px] flex items-center justify-center"
+          className="rounded-box px-7 py-4 relative overflow-hidden h-[140px] flex items-center justify-center"
           style={{
-            background: `${vibrantGradient}, linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
+            background: `radial-gradient(100% 308% at 100% 0%, rgba(173, 0, 0, 0.5) 0%, rgba(15, 20, 26, 0.5) 100%), linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
           }}
         >
           <div className="relative z-10 flex items-center justify-between w-full">
@@ -40,7 +33,7 @@ export const BonusLuckyNumberHelpModal = ({ isOpen, onClose }: BonusLuckyNumberH
               <img
                 src={ILLUSTRATION_URL}
                 alt="Lucky Sevens"
-                className="w-36 h-36 object-contain"
+                className="w-auto h-[128px] object-contain"
               />
             </div>
           </div>
@@ -58,7 +51,7 @@ export const BonusLuckyNumberHelpModal = ({ isOpen, onClose }: BonusLuckyNumberH
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[420px] overflow-y-auto pb-12">
+            <div className="max-h-[420px] overflow-y-auto pb-12 hide-scrollbar">
               <p className="text-xs text-base-content/50 leading-5">
                 <Trans
                   i18nKey={`popup:luckySeven.description`}

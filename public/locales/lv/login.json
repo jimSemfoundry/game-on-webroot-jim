@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Lūdzu, ievadiet paroli",
   "verification_code_sent_to_your": "Verifikācijas kods nosūtīts uz jūsu e-pastu/tālruņa numuru",
   "one_min_error": "Saņemiet verifikācijas kodu vēlreiz pēc 1 minūtes.",
-  "signInWith": "Reģistrēties ar"
+  "must_agree": "Jums jāpiekrīt noteikumiem un nosacījumiem",
+  "signInWith": "Reģistrēties ar",
+  "usernameTooShort": "Lietotājvārdam jābūt vismaz 6 rakstzīmes garam"
 }

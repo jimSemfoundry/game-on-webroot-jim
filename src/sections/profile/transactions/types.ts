@@ -34,4 +34,4 @@ export interface TransactionFilters {
   period: string;
 }
 
-export type TransactionType = "Deposit" | "Withdraw" | "Bonus" | "Swap" | "Referral" | "Commission";
+export type TransactionType = "Deposit" | "Withdraw" | "Bonus" | "Bounty" | "Swap" | "Referral" | "Commission";

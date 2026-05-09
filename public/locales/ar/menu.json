@@ -34,6 +34,8 @@
   "upToReferral": "حتى {{amount}} لكل إحالة",
   "language": "اللغة",
   "gameCurrency": "عملة اللعبة",
-  "hideBlockedGames": "إخفاء الألعاب المحظورة",
-  "settings": "الإعدادات"
+  "hideBlockedGames": "إخفاء \n<0>الألعاب المحظورة</0>",
+  "settings": "الإعدادات",
+  "problemReport": "تقرير المشكلة",
+  "logging_key": "تسجيل"
 }

@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">Slå de lyckliga sjuorna och hämta din omedelbara bonus! Om ditt Bet ID slutar på 7777 när du spelar PG Soft eller JILI slots, får du tillbaka ditt insatsbelopp som en bonus - upp till <span class=\"font-bold\">500 SEK.</span>            </p>\n\n             <p class=\"mt-5 leading-5\">Inga omsättningskrav, inga villkor - bara gratis pengar! Besök bara din bonussida och klicka på Kräv för att få din belöning.            </p>\n\n             <h4 class=\"mt-5 leading-5\">Regler och villkor:</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                <span class=\"font-medium\"></span>Kvalificering: Endast spel som placeras på PG- och JILI-slots kvalificerar sig för denna kampanj.\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Vinnande villkor: Om ditt spel-ID slutar på 7777 får du 100% of ditt insatsbelopp som en bonus (upp till $50).\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Anspråk frekvens: Användare kan göra anspråk på denna bonus en gång per dag om de uppfyller kriterierna.\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Maximal bonus: Bonusbeloppet är begränsat till $50 USD per kvalificerande Bet ID.\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Hur man gör anspråk:\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     <span class=\"\">• </span>Besök bonussidan efter att du har uppfyllt villkoret.\n                   </li>\n                   <li>\n                     <span class=\"\">• </span>Klicka på Kräv-knappen för att få din bonus.\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Inget omsättningskrav: Pengar är omedelbart tillgängliga för uttag eller ytterligare spel.\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Automatisk kvalificering: Systemet spårar kvalificerade spel-ID och gör bonusen tillgänglig för anspråk.\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>Allmänna villkor: Kasinot förbehåller sig rätten att ändra eller avsluta denna kampanj när som helst. Missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen.\n               </li>\n             </ol>\n         </div>",
   "beginnerTitle": "Nybörjarlycka",
   "beginnerDescription": "Regler & villkor",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Är du ny på kasinot? Nybörjarlycka är här för att ge dig en daglig chans till stora belöningar! Denna VIP 1-exklusiva turnering är utformad bara för nya spelare och låter dig tävla om kontantpriser, gratissnurr och bonuskrediter genom att helt enkelt spela spelautomater.</p>\n       <p class=\"mt-5 leading-5\">Alla VIP 1-spelares satsningar räknas automatiskt till turneringen, vilket innebär inga extra steg - bara snurra och spela som vanligt! Om du går upp i nivå under turneringen kommer du att vara med till 23:59 GMT, men du kommer inte att vara berättigad att delta igen nästa dag.</p>\n       <p class=\"mt-5 leading-5 font-medium\">Hur det fungerar:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">Spela spelautomater:</span> Endast spel som placeras på spelautomater räknas i turneringen.\n           </li>\n           <li>\n              <span class=\"font-medium\">Automatiskt deltagande:</span> Alla VIP 1-spelares insatser räknas automatiskt till turneringen.\n           </li>\n           <li>\n              <span class=\"font-medium\">Engångsinträde per spelare:</span> Om du går upp i nivå under turneringen förblir du en deltagare för den dagen, men du är inte berättigad att delta igen nästa dag.\n           </li>\n           <li>\n              <span class=\"font-medium\">Rankning på ledartavlan:</span> Spelarna rankas baserat på totala insatsbelopp (inte vinster eller förluster).\n           </li>\n           <li>\n              <span class=\"font-medium\">Turneringens varaktighet:</span> Körs dagligen från 00:00 GMT till 23:59 GMT.\n           </li>\n           <li>\n               De <span class=\"font-medium\">10 bästa spelarna vinner:</span> De 10 bästa spelarna kommer att få kontantpriser, gratissnurr eller bonuskrediter.\n           </li>\n           <li>\n              <span class=\"font-medium\">Live Leaderboard:</span> Följ din ranking och utmana toppen med uppdateringar i realtid.\n           </li>\n           <li>\n              <span class=\"font-medium\">Omedelbara utbetalningar:</span> Priserna krediteras automatiskt efter att turneringen har avslutats.\n           </li>\n           <li>\n              <span class=\"font-medium\">Rättvis spelpolicy:</span> All bedräglig aktivitet eller missbruk kommer att leda till diskvalificering.\n           </li>\n           <li>\n              <span class=\"font-medium\">Allmänna villkor:</span> Kasinot förbehåller sig rätten att ändra eller avbryta denna kampanj när som helst.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Bara snurra, satsa och låt nybörjarlycka göra resten!</p>\n    </div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Är du ny på kasinot? Nybörjarlycka är här för att ge dig en daglig chans till stora belöningar! Denna VIP 1-exklusiva turnering är utformad bara för nya spelare och låter dig tävla om kontantpriser, gratissnurr och bonuskrediter genom att helt enkelt spela spelautomater.</p>\n       <p class=\"mt-5 leading-5\">Alla VIP 1-spelares satsningar räknas automatiskt till turneringen, vilket innebär inga extra steg - bara snurra och spela som vanligt! Om du går upp i nivå under turneringen kommer du att vara med till 23:59 GMT, men du kommer inte att vara berättigad att delta igen nästa dag.</p>\n       <p class=\"mt-5 leading-5 font-medium\">Hur det fungerar:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">Spela spelautomater:</span> Endast spel som placeras på spelautomater räknas i turneringen.\n           </li>\n           <li>\n              <span class=\"font-medium\">Automatiskt deltagande:</span> Alla VIP 1-spelares insatser räknas automatiskt till turneringen.\n           </li>\n           <li>\n              <span class=\"font-medium\">Engångsinträde per spelare:</span> Om du går upp i nivå under turneringen förblir du en deltagare för den dagen, men du är inte berättigad att delta igen nästa dag.\n           </li>\n           <li>\n              <span class=\"font-medium\">Rankning på ledartavlan:</span> Spelarna rankas baserat på totala insatsbelopp (inte vinster eller förluster).\n           </li>\n           <li>\n              <span class=\"font-medium\">Turneringens varaktighet:</span> Körs dagligen från 00:00 GMT till 23:59 GMT.\n           </li>\n           <li>\n               De <span class=\"font-medium\">10 bästa spelarna vinner:</span> De 10 bästa spelarna kommer att få kontantpriser, gratissnurr eller bonuskrediter.\n           </li>\n           <li>\n              <span class=\"font-medium\">Live Leaderboard:</span> Följ din ranking och utmana toppen med uppdateringar i realtid.\n           </li>\n           <li>\n              <span class=\"font-medium\">Omedelbara utbetalningar:</span> Priserna krediteras automatiskt efter att turneringen har avslutats.\n           </li>\n           <li>\n              <span class=\"font-medium\">Rättvis spelpolicy:</span> All bedräglig aktivitet eller missbruk kommer att leda till diskvalificering.\n           </li>\n           <li>\n              <span class=\"font-medium\">Allmänna villkor:</span> Kasinot förbehåller sig rätten att ändra eller avbryta denna kampanj när som helst.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Bara snurra, satsa och låt nybörjarlycka göra resten!</p>\n    </div>",
+  "jiliSlot": "JILI Slots",
+  "MegaBonanza": "Mega Bonanza",
+  "pgSoft": "PG Soft",
+  "Races": "TÄVLINGAR",
+  "days": "dagar",
+  "RakeRace": "Rake Race",
+  "drops_races": "DROPS & TÄVLINGAR",
+  "arena": "ARENA",
+  "howToParticipate": "Hur man deltar",
+  "howToParticipateContent": {
+    "rules1": "Spela vilket deltagande spel som helst under turneringsperioden",
+    "rules2": "Varje insats bidrar till ditt totala insatsbelopp",
+    "rules3": "Klättra på topplistan genom att satsa mer"
+  },
+  "prizeDistribution": "Prisfördelning",
+  "prizeDistributionContent": {
+    "prize1": "Priser fördelas baserat på din slutliga placering",
+    "prize2": "Vinnare meddelas efter att turneringen avslutas",
+    "prize3": "Prispotten är progressiv och ökar med deltagandet"
+  },
+  "termsAndConditions": "Allmänna villkor",
+  "termsAndConditionsContent": {
+    "term1": "Bara riktiga pengar-insatser räknas för turneringen",
+    "term2": "Ledningen förbehåller sig rätten att ändra eller avbryta turneringen",
+    "term3": "Allmänna villkor gäller"
+  },
+  "unranked": "Ej rankad",
+  "rakerace": {
+    "title": "Turbo Rake Race",
+    "desc": "Förbered dig för Turbo Rake Race, där de bästa <0>{{players}}</0> spelarna vinner enorma belöningar från vår minimiprispool på <0>{{prize}}</0> varje vecka!",
+    "p0_title": "Turneringsschema",
+    "p0_desc": "Turneringen löper från söndag <0>{{start}}</0> till följande söndag <0>{{end}}</0>, vilket ger dig sju dagar att klättra på leaderboardet och säkra din plats bland vinnarna.",
+    "p1_title": "Berättigande",
+    "p1_desc": "Alla insatser (med undantag för free spins och bonus plånbok) kommer att räknas med i rake race.\n Rankingen baseras på din viktade totala insatsbelopp (insatsbelopp * speltyp) - spelresultat påverkar inte din position. Mer information om speltyper nedan:",
+    "p2_title": "Speltyp",
+    "p2_desc": "",
+    "p3_title": "Leaderboard Ranking",
+    "p3_desc": "<0>{{places}}</0> platser betalda \n De bästa <0>{{players}}</0> spelarna kommer att ta emot attraktiva belöningar som anges nedan.",
+    "p4_title": "Fair Play Policy",
+    "p4_desc": "All bedräglig aktivitet eller missbruk kommer att leda till diskvalificering.",
+    "p5_title": "Utgångsdatum",
+    "p5_desc": "Inget - Turneringens belöningar ackumuleras tills de krävs.",
+    "p6_title": "Allmänna Villkor",
+    "p6_desc": "Belöningar beräknas och krediteras i {{token}}, visas sedan i din föredragna fiat-valuta för bekvämlighet. Observera att valutaväxlingar är ungefärliga. \n\n Kasinot förbehåller sig rätten att ändra eller avsluta denna kampanj när som helst. Missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen."
+  },
+  "rank": "Ranking",
+  "jump": "Hoppa",
+  "pastLeaderboard": "Tidigare topplista",
+  "showMore": "visa mer",
+  "lastWeeksLeaderboard": "Förra veckans topplista"
 }

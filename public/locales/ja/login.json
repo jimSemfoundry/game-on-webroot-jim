@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "パスワードを入力してください",
   "verification_code_sent_to_your": "認証コードがあなたのメール/電話に送信されました",
   "one_min_error": "1分後に再度認証コードを取得してください。",
-  "signInWith": "以下で登録"
+  "must_agree": "利用規約に同意する必要があります",
+  "signInWith": "以下で登録",
+  "usernameTooShort": "ユーザー名は6文字以上である必要があります"
 }

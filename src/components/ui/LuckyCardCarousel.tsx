@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { AnimatePresence, m, Variants } from 'motion/react';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useNavigate } from '@tanstack/react-router';
 import { getImgCompressParams } from "@/utils/helper.ts";
 import { useTranslation } from "react-i18next";
+import { FavoriteButton } from "@/components/ui/FavoriteButton";
+import { useAuth } from "@/contexts/AuthContext";
 
 // ==========================================
 // Types
@@ -23,6 +25,8 @@ interface LuckyGameCarouselProps {
   isShuffling: boolean
   onGameSelected: (game: Game) => void
   onAnimationComplete: () => void
+  isFavoriteDisabled: boolean
+  handleToggleFavorite: () => void | Promise<void>
 }
 
 export type AnimationPhase = 'idle' | 'gathering' | 'shuffling' | 'flipping' | 'revealing';
@@ -226,6 +230,65 @@ const Card: React.FC<CardProps> = React.memo(({
 Card.displayName = 'Card';
 
 // ==========================================
+// Sub-Component: GamePlayActions (Internal)
+// ==========================================
+
+interface GamePlayActionsProps {
+  game: Game;
+  isFavoriteDisabled: boolean;
+  handleToggleFavorite: () => void | Promise<void>;
+}
+
+const GamePlayActions: React.FC<GamePlayActionsProps> = ({
+  game,
+  isFavoriteDisabled,
+  handleToggleFavorite,
+}) => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { status, isAuthenticated } = useAuth();
+
+  // 每个实例根据自身 game.inner_game_id 独立计算收藏态
+  // (Initial State 与 Winner Overlay 两处传入不同 game, 收藏态不应共用一个外部值)
+  const isGameFavorite = useMemo(() => {
+    if (!game?.inner_game_id || !status?.favorites_game) return false;
+    const favoritesList = status.favorites_game
+      .split(",")
+      .filter((item: string) => item.trim().length > 0);
+    return favoritesList.includes(game.inner_game_id);
+  }, [game?.inner_game_id, status?.favorites_game]);
+
+  const handlePlayClick = () => {
+    if (game.inner_game_id) {
+      const gameId = game.game_provider
+        ? `${game.game_provider}:${game.inner_game_id}`
+        : game.inner_game_id;
+      navigate({ to: `/games/${gameId}` });
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-center">
+      {game.inner_game_id && <div className="w-10 h-10 mr-5" />}
+      <button className="btn btn-accent btn-lg w-36 shadow-lg" onClick={handlePlayClick}>
+        {t('common:common.play')}
+      </button>
+      {isAuthenticated && game.inner_game_id ? (
+        <FavoriteButton
+          initialLiked={isGameFavorite}
+          onToggle={handleToggleFavorite}
+          size="md"
+          className={`bg-primary/10 ml-5 ${isFavoriteDisabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+          disabled={isFavoriteDisabled}
+        />
+      ) : (
+        <div className="w-10 h-10 ml-5" />
+      )}
+    </div>
+  );
+};
+
+// ==========================================
 // Main Component: LuckyGameCarousel
 // ==========================================
 
@@ -233,10 +296,10 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
   games,
   isShuffling,
   onGameSelected,
-  onAnimationComplete
+  onAnimationComplete,
+  isFavoriteDisabled,
+  handleToggleFavorite,
 }) => {
-  const { t } = useTranslation()
-  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [winnerId, setWinnerId] = useState<string | null>(null);
   const [animationPhase, setAnimationPhase] = useState<AnimationPhase>('idle');
@@ -347,7 +410,7 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
         </AnimatePresence>
       </m.div>
 
-      {/* Initial State Play Button - Shows for active card when no winner */}
+      {/* Initial State Play + Favorite - Shows for active card when no winner */}
       <AnimatePresence>
         {!winnerId && activeGame && animationPhase === 'idle' && (
           <m.div
@@ -360,19 +423,11 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
               ease: "easeOut",
             }}
           >
-            <button
-              className="btn btn-accent btn-lg w-36 shadow-lg"
-              onClick={() => {
-                if (activeGame?.inner_game_id) {
-                  const gameId = activeGame.game_provider
-                    ? `${activeGame.game_provider}:${activeGame.inner_game_id}`
-                    : activeGame.inner_game_id
-                  navigate({ to: `/games/${gameId}` })
-                }
-              }}
-            >
-              {t('common:common.play')}
-            </button>
+            <GamePlayActions
+              game={activeGame}
+              isFavoriteDisabled={isFavoriteDisabled}
+              handleToggleFavorite={handleToggleFavorite}
+            />
           </m.div>
         )}
       </AnimatePresence>
@@ -403,19 +458,11 @@ export const LuckyCardCarousel: React.FC<LuckyGameCarouselProps> = ({
                 />
               </div>
               <div className="absolute hidden sm:flex bottom-0 translate-y-1/2 z-10 mx-auto left-0 right-0 items-center justify-center">
-                <button
-                  className="btn btn-accent btn-lg w-36 shadow-lg"
-                  onClick={() => {
-                    if (selectedGame?.inner_game_id) {
-                      const gameId = selectedGame.game_provider
-                        ? `${selectedGame.game_provider}:${selectedGame.inner_game_id}`
-                        : selectedGame.inner_game_id
-                      navigate({ to: `/games/${gameId}` })
-                    }
-                  }}
-                >
-                  {t('common:common.play')}
-                </button>
+                <GamePlayActions
+                  game={selectedGame}
+                  isFavoriteDisabled={isFavoriteDisabled}
+                  handleToggleFavorite={handleToggleFavorite}
+                />
               </div>
             </div>
           </m.div>

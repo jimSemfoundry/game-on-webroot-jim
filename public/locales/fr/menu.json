@@ -34,6 +34,8 @@
   "upToReferral": "Jusqu'à {{amount}} par parrainage",
   "language": "Langue",
   "gameCurrency": "Devise du jeu",
-  "hideBlockedGames": "Masquer les jeux bloqués",
-  "settings": "Paramètres"
+  "hideBlockedGames": "Masquer \n<0>les jeux bloqués</0>",
+  "settings": "Paramètres",
+  "problemReport": "Rapport de problème",
+  "logging_key": "Journalisation"
 }

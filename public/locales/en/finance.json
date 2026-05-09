@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Please fill in your fiat currency withdrawal information.",
   "updating_withdrawal_address": "Updating withdrawal address, please wait...",
   "please_select_withdrawal_method": "Please select a withdrawal method.",
-  "integer_deposit": "This channel requires a amount that is {{value}}X the integer value.",
+  "integer_deposit": "The channel requires deposit in unit of {{value}}.",
   "enter_string_en_only": "Only English letters, numbers, and spaces can be entered.",
-  "enter_string_min_length": "The length must be at least {{length}}."
+  "enter_string_min_length": "The length must be at least {{length}}.",
+  "met_eligibility": "*You have met the eligibility criteria for the special offer. Top up now to receive your reward.",
+  "read_carefully": "Please Read Carefully",
+  "no_channel": "No channels available at the moment"
 }

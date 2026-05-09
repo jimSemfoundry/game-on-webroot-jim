@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Telefonnummeret ditt er verifisert. Du kan fortsette.",
   "email_address_has_been_verified": "E-postadressen din er verifisert. Du kan fortsette.",
   "setNewPassword": "Angi nytt passord",
-  "passwordLengthRequirement": "Vennligst skriv inn et passord mellom 6 og 64 tegn."
+  "passwordLengthRequirement": "Vennligst skriv inn et passord mellom 6 og 64 tegn.",
+  "re_enter_new_password": "Skriv inn nytt passord på nytt",
+  "change_withdrawal_pin": "Endre uttaks-PIN",
+  "confirm_withdrawal_pin": "Bekreft uttaks-PIN",
+  "enter_email": "Skriv inn e-post",
+  "rolloverDetails": "Rollover-detaljer",
+  "verified_email": "Verifisert e-post",
+  "verified_phone_number": "Verifisert telefonnummer",
+  "change_key": "Endre",
+  "update_successfully": "Oppdatering vellykket. Vennligst bruk {<1>{{value}}</1>} for din neste innlogging.",
+  "understand_key": "Forstått",
+  "ensure_email_valid": "Sørg for at e-postadressen din er gyldig og tilgjengelig for deg.",
+  "ensure_phone_valid": "Sørg for at telefonnummeret ditt er gyldig og tilgjengelig for deg.",
+  "enter_phone_number_to_receive_verification_code": "Skriv inn telefonnummeret ditt nedenfor for å motta en bekreftelseskode.",
+  "enter_email_address_to_receive_verification_code": "Skriv inn e-postadressen din nedenfor for å motta en bekreftelseskode."
 }

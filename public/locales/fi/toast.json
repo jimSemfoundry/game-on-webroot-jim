@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Ole hyvä ja syötä kiinteä pituus {{length}} merkkiä",
   "disabledCharNotAllowed": "Merkkiä {{char}} ei sallita",
   "space": "välilyönti",
-  "thisWalletIsAlreadyUsed": "Tätä lompakkoa käytetään jo"
+  "thisWalletIsAlreadyUsed": "Tätä lompakkoa käytetään jo",
+  "login_failed": "Kirjautuminen epäonnistui",
+  "login_error_code_1": "Käyttäjänimen tulee olla kelvollinen puhelinnumero (alkaa +-merkillä ja käyttää - maakoodin jälkeen) tai sähköpostiosoite",
+  "account_created_and_logged_in_successfully": "Tili luotu ja kirjautuminen onnistui!",
+  "requests_later": "Liian monta pyyntöä tästä IP-osoitteesta. Yritä myöhemmin uudelleen.",
+  "booster_activated_successfully": "Tehostin aktivoitu onnistuneesti!",
+  "depositNameEntered": "Talletukseen syötetty nimen on vastattava täysin nimeä<0>（Etunimi + Sukunimi）</0> nostoon käytettävällä pankkitilillä, petosten ja rahanpesun vastaisten säännösten mukaisesti.\n\n Jos tarvitset vaihtaa pankkitiliäsi, ota yhteyttä asiakaspalveluun ja suorita KYC-tarkistus.",
+  "user_not_found_or_password_incorrect": "Käyttäjää ei löytynyt tai salasana on virheellinen",
+  "free_spin_record_enabled_successfully": "Ilmaiskierrostietue aktivoitu onnistuneesti!",
+  "check_in_success": "Sisäänkirjautuminen onnistui!",
+  "check_in_failed": "Sisäänkirjautuminen epäonnistui!",
+  "check_in_already": "Sisäänkirjautuminen on jo tehty tälle päivälle.",
+  "ballsClaimed": "Kaveripallo saatu onnistuneesti",
+  "cannotBetby": "Urheilubonuslompakko on vain urheiluvedonlyöntiä varten."
 }

@@ -147,7 +147,7 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
           </div>
           <div className="rounded-field bg-base-300 px-4 py-3 flex flex-col gap-1">
             <span className="text-xs uppercase font-semibold text-base-content/50">
-              {t("referral:referralReceives", "Referral")}
+              {t("transaction:transactionTypes.referral", "Referral")}
             </span>
             <span className="text-2xl font-bold text-base-content">{referralReceive}%</span>
           </div>
@@ -160,7 +160,6 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
                 <span className="text-xs uppercase font-semibold text-base-content/60">
                   {t("referral:commissionSplit", "Commission Split")}
                 </span>
-                <Iconify icon="mdi:information-outline" width={16} height={16} className="text-base-content/40" />
               </div>
 
               <div className="grid grid-cols-4 gap-2">
@@ -288,13 +287,13 @@ export const CreateCampaignModal: React.FC<CreateCampaignModalProps> = ({ isOpen
         <button
           type="submit"
           className={cn(
-            "btn btn-lg w-full rounded-field border-0 font-bold text-black bg-primary hover:bg-primary/80 transition-colors",
+            "btn btn-lg w-full rounded-field border-0 font-bold text-black bg-primary hover:bg-primary/80 transition-colors capitalize",
             isSubmitDisabled && "pointer-events-none opacity-60"
           )}
           disabled={isSubmitDisabled}
         >
           {createCampaign.isPending ? (
-            <span className="loading loading-spinner loading-sm" />
+            <span className="loading loading-spinner loading-sm " />
           ) : (
             compaignDetail ? t("referral:save", "Save") : t("referral:createNewCampaign", "Create Campaign")
           )}

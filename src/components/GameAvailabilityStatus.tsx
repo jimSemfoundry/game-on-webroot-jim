@@ -1,5 +1,5 @@
 import { GlobeLock, LockKeyhole } from "lucide-react";
-import { type PointerEvent, useCallback, useMemo, useState } from "react";
+import { type PointerEvent, useCallback, useEffect, useMemo, useState } from "react";
 import {
   fn_ban_regions,
   fn_ban_support_settlement_currencies, fn_regions,
@@ -16,6 +16,7 @@ export const GameAvailabilityStatus = (
   {
     data, sample, className, enabledBanGameList
   }: { data: Record<string, any>, sample?: boolean, className?: string, enabledBanGameList?: boolean }) => {
+
   const { t } = useTranslation();
 
   const { user } = useAuth();
@@ -85,6 +86,18 @@ export const GameAvailabilityStatus = (
     return limit1 || limit2;
   }, [banGameList?.data, country?.data?.country_code, data?.inner_game_id, data?.ban_regions, data?.regions, enabledBanGameList]);
 
+  useEffect(() => {
+    if (data?.inner_game_id === "wi17jwsu4de7c") {
+      console.info(data?.display_game_name);
+      console.info("regions=", data?.regions);
+      console.info("ban_regions=", data?.ban_regions);
+      console.info("support_settlement_currencies=", data?.support_settlement_currencies);
+      console.info("ban_support_settlement_currencies=", data?.ban_support_settlement_currencies);
+      console.info("is_regional_access_prohibited=", is_regional_access_prohibited);
+      console.info("is_currency_settlement_prohibited=", is_currency_settlement_prohibited);
+    }
+  }, [data, is_currency_settlement_prohibited, is_regional_access_prohibited]);
+
   return (!sample && (is_currency_settlement_prohibited || is_regional_access_prohibited) && <div
       onClick={(e) => {
         e.stopPropagation();
@@ -104,7 +117,8 @@ export const GameAvailabilityStatus = (
         </InnerContentVisible>
         <div className="text-center w-full h-full flex items-center justify-center">
           <InnerContentVisible show={visibleKey === "is_currency_settlement_prohibited"}>
-            <div className={"flex flex-col items-center justify-center gap-1 leading-tight m-1"}>
+            <div
+              className={"flex flex-col items-center justify-center gap-1 leading-tight m-1 whitespace-break-spaces"}>
               <LockKeyhole className={"w-5 h-5 m-auto"} />
               {t("common:common.gameAccessibleToCurrencies", "This game is accessible to currencies without active bonuses.")}
             </div>
@@ -124,9 +138,11 @@ export const GameAvailabilityStatus = (
         </InnerContentVisible>
         <div className="text-center w-full h-full flex items-center justify-center">
           <InnerContentVisible show={visibleKey === "is_regional_access_prohibited"}>
-            <div className={"flex flex-col items-center justify-center gap-1 leading-4 leading-tight m-1"}>
-              <GlobeLock className={"w-5 h-5 m-auto"} />
-              {t("common:common.gameNotAccessibleInYourRegion", "This game is not accessible in your region.")}
+            <div
+              className={"flex w-full max-w-full flex-col items-center justify-center gap-1 overflow-hidden px-2 py-1 text-center text-[10px] leading-tight whitespace-normal"}>
+              <GlobeLock className={"w-5 h-5 shrink-0"} />
+              <span
+                className="block w-full max-w-full whitespace-normal wrap-break-word hyphens-auto">{t("common:common.gameNotAccessibleInYourRegion", "This game is not accessible in your region.")}</span>
             </div>
           </InnerContentVisible>
         </div>

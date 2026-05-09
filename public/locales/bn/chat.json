@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "কাস্টমার সার্ভিস চ্যাট লোড হতে ব্যর্থ হয়েছে",
   "read": "পড়া",
   "unread": "অপঠিত",
-  "customerService": "গ্রাহক সেবা"
+  "customerService": "গ্রাহক সেবা",
+  "today": "আজ",
+  "earlier": "আগে",
+  "older": "পুরানো"
 }

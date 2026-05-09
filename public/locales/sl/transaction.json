@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat umik",
     "cryptoWithdraw": "Kripto umik",
     "bonus": "Bonus",
+    "bounty": "Nagrada",
     "win": "Zmaga",
     "bet": "Stava",
     "refund": "Vračilo",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback bonus",
     "cashbackbonus": "Cashback bonus",
     "referral": "Priporočilo",
-    "commission": "Komisija"
+    "commission": "Komisija",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Igralni avtomati",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Odklenjena sredstva",
     "rolloverMul": "Množitelj stave"
   },
-  "assistance": "Preverite svoje podatke in poskusite znova ali se obrnite na službo za stranke za pomoč"
+  "assistance": "Vaše ime se ne ujema z imenom, ki ste ga prvič uporabili za ta kanal. Obrnite se na službo za stranke."
 }

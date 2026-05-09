@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">Tabage õnnelik seitse ja nõudke kohest boonust! Kui teie panuse ID lõpeb PG Soft või JILI slotte mängides numbriga 7777, saate oma panuse summa boonuksena tagasi – kuni <span class=\"font-bold\">₱2,868.20</span>.</p>\n\n             <p class=\"mt-5 leading-5\">Ilma panustamisnõueteta, ilma tingimusteta – puhas boonusraha! Külastage oma boonuste lehte ja klõpsake „Nõua“, et saada oma auhind.</p>\n\n             <h4 class=\"mt-5 leading-5\">Reeglid ja tingimused:</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                 <span class=\"font-medium\"></span>Kõlblikkus: Ainult PG ja JILI slottidel tehtud panused kvalifitseeruvad sellele kampaaniaga.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Võidutingimus: Kui teie panuse ID lõpeb numbriga 7777, saate 100% oma panuse summast boonuksena (kuni $50).\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Nõudmise sagedus: Kasutajad saavad seda boonust nõuda üks kord päevas, kui tingimused on täidetud.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Maksimaalne boonus: Boonuse summa on piiratud $50 USD kvalifitseeruva panuse ID kohta.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Kuidas nõuda:\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     <span class=\"\">• </span>Külastage boonuste lehte pärast tingimuse täitmist.\n                   </li>\n                   <li>\n                     <span class=\"\">• </span>Klõpsake nupul „Nõua“, et saada oma boonus.\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Panustamisnõue puudub: Raha on kohe saadaval väljamaksmiseks või edasiseks mängimiseks.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Automaatne kvalifitseerumine: Süsteem jälgib sobivaid panuse ID-sid ja teeb boonuse nõudmiseks kättesaadavaks.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Üldtingimused: Kasiino jätab endale õiguse seda kampaaniat igal ajal muuta või lõpetada. Pettus või kuritarvitamine toob kaasa diskvalifitseerimise.\n               </li>\n             </ol>\n         </div>",
   "beginnerTitle": "Algaja Õnn",
   "beginnerDescription": "Reeglid ja tingimused",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Uus kasiinos? Algaja Õnn annab teile iga päev võimaluse võita suuri auhindu! See VIP 1 eksklusiivne turniir on loodud just uutele mängijatele, võimaldades võistelda rahaliste auhindade, tasuta keerutuste ja boonuskrediidi nimel, mängides slotimänge.</p>\n       <p class=\"mt-5 leading-5\">Kõik VIP 1 mängijate panused arvestatakse turniiril automaatselt, ilma lisatoiminguteta – lihtsalt mängige slotte nagu tavaliselt! Kui tõusete turniiri ajal tasemele, jääte osalejaks kuni 23:59 GMT, kuid järgmisel päeval te uuesti osaleda ei saa.</p>\n       <p class=\"mt-5 leading-5 font-medium\">Kuidas see toimib:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Mängige slotimänge:</span> Ainult slottidel tehtud panused arvestatakse turniiril.\n           </li>\n           <li>\n               <span class=\"font-medium\">Automaatne osalemine:</span> Kõik VIP 1 mängijate panused arvestatakse turniiril automaatselt.\n           </li>\n           <li>\n               <span class=\"font-medium\">Ühekordne osalemine:</span> Kui tõusete turniiri ajal tasemele, jääte selle päeva osalejaks, kuid järgmisel päeval ei saa uuesti osaleda.\n           </li>\n           <li>\n               <span class=\"font-medium\">Edetabeli järjestus:</span> Mängijad reastatakse panuste kogusumma järgi (mitte võitude või kaotuste järgi).\n           </li>\n           <li>\n               <span class=\"font-medium\">Turniiri kestus:</span> Toimub iga päev 00:00 GMT kuni 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">10 parimat võitjat:</span> 10 parimat mängijat saavad rahalisi auhindu, tasuta keerutusi või boonuskrediiti.\n           </li>\n           <li>\n               <span class=\"font-medium\">Reaalajas edetabel:</span> Jälgige oma positsiooni reaalajas uuendustega.\n           </li>\n           <li>\n               <span class=\"font-medium\">Kohene väljamakse:</span> Auhinnad kantakse automaatselt üle pärast turniiri lõppu.\n           </li>\n           <li>\n               <span class=\"font-medium\">Ausa mängu poliitika:</span> Pettus või kuritarvitamine toob kaasa diskvalifitseerimise.\n           </li>\n           <li>\n               <span class=\"font-medium\">Üldtingimused:</span> Kasiino jätab endale õiguse seda kampaaniat igal ajal muuta või tühistada.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Pöörake, panustage ja laske algaja õnnel teha ülejäänu!</p>\n    </div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Uus kasiinos? Algaja Õnn annab teile iga päev võimaluse võita suuri auhindu! See VIP 1 eksklusiivne turniir on loodud just uutele mängijatele, võimaldades võistelda rahaliste auhindade, tasuta keerutuste ja boonuskrediidi nimel, mängides slotimänge.</p>\n       <p class=\"mt-5 leading-5\">Kõik VIP 1 mängijate panused arvestatakse turniiril automaatselt, ilma lisatoiminguteta – lihtsalt mängige slotte nagu tavaliselt! Kui tõusete turniiri ajal tasemele, jääte osalejaks kuni 23:59 GMT, kuid järgmisel päeval te uuesti osaleda ei saa.</p>\n       <p class=\"mt-5 leading-5 font-medium\">Kuidas see toimib:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Mängige slotimänge:</span> Ainult slottidel tehtud panused arvestatakse turniiril.\n           </li>\n           <li>\n               <span class=\"font-medium\">Automaatne osalemine:</span> Kõik VIP 1 mängijate panused arvestatakse turniiril automaatselt.\n           </li>\n           <li>\n               <span class=\"font-medium\">Ühekordne osalemine:</span> Kui tõusete turniiri ajal tasemele, jääte selle päeva osalejaks, kuid järgmisel päeval ei saa uuesti osaleda.\n           </li>\n           <li>\n               <span class=\"font-medium\">Edetabeli järjestus:</span> Mängijad reastatakse panuste kogusumma järgi (mitte võitude või kaotuste järgi).\n           </li>\n           <li>\n               <span class=\"font-medium\">Turniiri kestus:</span> Toimub iga päev 00:00 GMT kuni 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">10 parimat võitjat:</span> 10 parimat mängijat saavad rahalisi auhindu, tasuta keerutusi või boonuskrediiti.\n           </li>\n           <li>\n               <span class=\"font-medium\">Reaalajas edetabel:</span> Jälgige oma positsiooni reaalajas uuendustega.\n           </li>\n           <li>\n               <span class=\"font-medium\">Kohene väljamakse:</span> Auhinnad kantakse automaatselt üle pärast turniiri lõppu.\n           </li>\n           <li>\n               <span class=\"font-medium\">Ausa mängu poliitika:</span> Pettus või kuritarvitamine toob kaasa diskvalifitseerimise.\n           </li>\n           <li>\n               <span class=\"font-medium\">Üldtingimused:</span> Kasiino jätab endale õiguse seda kampaaniat igal ajal muuta või tühistada.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Pöörake, panustage ja laske algaja õnnel teha ülejäänu!</p>\n    </div>",
+  "jiliSlot": "JILI Slots",
+  "MegaBonanza": "Mega Bonanza",
+  "pgSoft": "PG Soft",
+  "Races": "VÕISTLUSED",
+  "days": "päeva",
+  "RakeRace": "Rake Race",
+  "drops_races": "DROPS JA VÕISTLUSED",
+  "arena": "ARENA",
+  "howToParticipate": "Kuidas osaleda",
+  "howToParticipateContent": {
+    "rules1": "Mängi mis tahes osalevat mängu turniiri perioodi jooksul",
+    "rules2": "Iga panus aitab kaasa teie kogupanuse summale",
+    "rules3": "Ronige edetabelis ülespoole rohkem panustades"
+  },
+  "prizeDistribution": "Auhinnajagamine",
+  "prizeDistributionContent": {
+    "prize1": "Auhinnad jaotatakse vastavalt teie lõplikule kohale",
+    "prize2": "Võitjatele teatatakse pärast turniiri lõppu",
+    "prize3": "Auhinnapool on progressiivne ja kasvab koos osalemisega"
+  },
+  "termsAndConditions": "Tingimused ja eeskirjad",
+  "termsAndConditionsContent": {
+    "term1": "Turniiri arvestuses loevad ainult pärisraha panused",
+    "term2": "Juhtkond jätab endale õiguse turniiri muuta või tühistada",
+    "term3": "Kehtivad üldised tingimused ja eeskirjad"
+  },
+  "unranked": "Hinnanguta",
+  "rakerace": {
+    "title": "Turbo Rake Race",
+    "desc": "Valmistuge Turbo Rake Race'iks, kus parimad <0>{{players}}</0> mängijad võidavad iga nädal suuri auhindu meie minimaalse auhinnafondist <0>{{prize}}</0>!",
+    "p0_title": "Turniiri Ajakava",
+    "p0_desc": "Turniir kestab pühapäevast <0>{{start}}</0> järgmise pühapäevani <0>{{end}}</0>, andes teile seitse päeva, et tõusta edetabelis ja kindlustada oma koht võitjate seas.",
+    "p1_title": "Õigus",
+    "p1_desc": "Kõik panused (välja arvatud tasuta spinnid ja boonuse rahakott) arvestatakse rake race'i.\n Aste põhineb teie kaalutud kogupanusummal (panuse summa * mängu tüüp) - mängu tulemused ei mõjuta teie positsiooni. Lisateave mängu tüüpide allpool:",
+    "p2_title": "Mängu Tüüp",
+    "p2_desc": "",
+    "p3_title": "Edetabeli Aste",
+    "p3_desc": "<0>{{places}}</0> kohta tasutud \n Parimad <0>{{players}}</0> mängijad saavad atraktiivseid auhindu, nagu allpool näidatud.",
+    "p4_title": "Õiglase Mängu Poliitika",
+    "p4_desc": "Iga petlik tegevus või kuritarvitamine viib diskvalifitseerimiseni.",
+    "p5_title": "Aegumine",
+    "p5_desc": "Puudub - Turniiri auhinnad kogunevad nõudmiseni.",
+    "p6_title": "Üldised Tingimused",
+    "p6_desc": "Auhinnad arvutatakse ja krediteeritakse {{token}}-is, seejärel kuvatakse teie eelistatud fiat valuutas mugavuse huvides. Palun pange tähele, et valuutavahetused on ligikaudsed. \n\n Kasiino reserveerib endale õiguse muuta või lõpetada seda promotsiooni igal ajal. Kuritarvitamine või petlik tegevus viib diskvalifitseerimiseni promotsioonist."
+  },
+  "rank": "Aste",
+  "jump": "Hüppa",
+  "pastLeaderboard": "Eelmise nädala edetabel",
+  "showMore": "näita rohkem",
+  "lastWeeksLeaderboard": "Eelmise nädala edetabel"
 }

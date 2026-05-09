@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useAuth } from "@/contexts/AuthContext.tsx";
+import { getImgCompressParams } from "@/utils/helper.ts";
 
 export default function ExtraReferralBonusModal(
   {
@@ -37,7 +38,11 @@ export default function ExtraReferralBonusModal(
             components={[<div className={"text-primary"} />]}
           />
         </div>
-        <img src="https://1stgame.imgix.net/banner/public/images/casino/banner/first-referral.png?w=209&auto=format,compress&q=80" className={"h-full absolute right-0 rtl:left-0 rtl:right-auto"} alt={""} />
+        <img
+          src={
+            import.meta.env.VITE_FIRST_REFERRAL_MODAL_IMAGE ||
+            getImgCompressParams("https://1stgame.imgix.net/banner/public/images/casino/banner/first-referral.png", 209, 80)}
+          className={"h-full absolute right-0 rtl:left-0 rtl:right-auto"} alt={""} />
       </RadialGradientContainer>
       <section className={"text-xs font-semibold bg-base-300 p-4 rounded-t-2xl flex-1 leading-4"}>
         <div className={"flex items-center justify-between mb-4"}>

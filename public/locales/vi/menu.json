@@ -34,6 +34,8 @@
   "upToReferral": "Lên đến {{amount}} cho mỗi lượt giới thiệu",
   "language": "Ngôn ngữ",
   "gameCurrency": "Tiền tệ trò chơi",
-  "hideBlockedGames": "Ẩn các trò chơi bị chặn",
-  "settings": "Cài đặt"
+  "hideBlockedGames": "Ẩn \n<0>các trò chơi bị chặn</0>",
+  "settings": "Cài đặt",
+  "problemReport": "Báo cáo sự cố",
+  "logging_key": "Ghi nhật ký"
 }

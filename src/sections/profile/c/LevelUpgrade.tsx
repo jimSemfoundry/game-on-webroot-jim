@@ -1,16 +1,12 @@
-import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useVipNextLevelData } from "@/hooks/api/useAuth.ts";
-import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 import { FastFinanceLink, FastViewDataLink } from "@/sections/profile/c/FastFinanceLink.tsx";
 import Decimal from "decimal.js";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 export function LevelUpgrade({ onClick }: { onClick: () => void }) {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-
   const { t } = useTranslation('vip');
 
   const { status } = useAuth();
@@ -67,20 +63,20 @@ export function LevelUpgrade({ onClick }: { onClick: () => void }) {
         className={"!bg-base-200 w-30"}
         content={
           <div className="flex justify-between font-semibold text-xs sm:text-xl text-base-content/50">
-            {t("vip:lessThan")} {xpToNextVip[1]}XP to VIP {(status?.vip || 0) + 1}
+            {t("vip:lessThan")} {xpToNextVip[1]} xp to VIP {(status?.vip || 0) + 1}
           </div>
         }
       ></SmallLoading>
 
       {/* 唤起存款取款操作 */}
-      <DisplayContent status={isMobile}>
+      <div className={"block sm:hidden"}>
         <FastFinanceLink />
-      </DisplayContent>
+      </div>
 
       {/* 快捷跳转操作 */}
-      <DisplayContent status={isMobile}>
+      <div className={'block sm:hidden'}>
         <FastViewDataLink />
-      </DisplayContent>
+      </div>
     </div>
   );
 }

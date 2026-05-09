@@ -34,5 +34,12 @@
   "depositNow": "Indbetal Nu",
   "free_spins": "Gratis Spins",
   "play_with_balance_in": "Spil med saldo i",
-  "the_selected_currency_will_be_displayed_in": "Den valgte valuta vil blive vist i"
+  "the_selected_currency_will_be_displayed_in": "Den valgte valuta vil blive vist i",
+  "activity": "Aktivitet",
+  "come_join_me_now_at": "DELTAG NU PÅ",
+  "invite_friends_to_join_play": "Inviter venner til at deltage & Spille",
+  "earn_up_to_50_commission_bonus": "Tjen op til 50% provision <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Download mislykkedes. Prøv venligst igen.",
+  "image_downloaded": "Billede downloadet!",
+  "share_text_1": "Jeg fik lige en {{multiplier}}x STOR GEVINST! 🔥"
 }

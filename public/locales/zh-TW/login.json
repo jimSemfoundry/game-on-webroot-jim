@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "請輸入密碼",
   "verification_code_sent_to_your": "驗證碼已發送到您的電子郵件/電話",
   "one_min_error": "1分鐘後再次獲取驗證碼。",
-  "signInWith": "注册"
+  "must_agree": "您必須同意條款和條件",
+  "signInWith": "注册",
+  "usernameTooShort": "使用者名稱至少需要6個字元"
 }

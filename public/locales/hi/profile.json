@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "आपका फोन नंबर सत्यापित हो गया है। आप आगे बढ़ सकते हैं।",
   "email_address_has_been_verified": "आपका ईमेल पता सत्यापित हो गया है। आप आगे बढ़ सकते हैं।",
   "setNewPassword": "नया पासवर्ड सेट करें",
-  "passwordLengthRequirement": "कृपया 6 से 64 अक्षरों के बीच एक पासवर्ड दर्ज करें।"
+  "passwordLengthRequirement": "कृपया 6 से 64 अक्षरों के बीच एक पासवर्ड दर्ज करें।",
+  "re_enter_new_password": "नया पासवर्ड फिर से दर्ज करें",
+  "change_withdrawal_pin": "निकासी PIN बदलें",
+  "confirm_withdrawal_pin": "निकासी PIN की पुष्टि करें",
+  "enter_email": "ईमेल दर्ज करें",
+  "rolloverDetails": "रोलओवर विवरण",
+  "verified_email": "सत्यापित ईमेल",
+  "verified_phone_number": "सत्यापित फोन नंबर",
+  "change_key": "बदलें",
+  "update_successfully": "अपडेट सफल। कृपया अपने अगले लॉगिन के लिए {<1>{{value}}</1>} का उपयोग करें।",
+  "understand_key": "समझ गया",
+  "ensure_email_valid": "सुनिश्चित करें कि आपका ईमेल पता वैध है और आपके द्वारा पहुँच योग्य है।",
+  "ensure_phone_valid": "सुनिश्चित करें कि आपका फोन नंबर वैध है और आपके द्वारा पहुँच योग्य है।",
+  "enter_phone_number_to_receive_verification_code": "सत्यापन कोड प्राप्त करने के लिए नीचे अपना फोन नंबर दर्ज करें।",
+  "enter_email_address_to_receive_verification_code": "सत्यापन कोड प्राप्त करने के लिए नीचे अपना ईमेल पता दर्ज करें।"
 }

@@ -6,6 +6,7 @@ import { isMobile } from "@/utils/browser";
 import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "@tanstack/react-router";
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 type FeaturedGamesProps = {
   country_code?: string;
@@ -15,6 +16,9 @@ type FeaturedGamesProps = {
 export const FeaturedGames = ({ games, country_code }: FeaturedGamesProps) => {
   const { t } = useTranslation();
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
 
   const navigate = useNavigate();
 
@@ -40,7 +44,7 @@ export const FeaturedGames = ({ games, country_code }: FeaturedGamesProps) => {
   }, [navigate]);
 
   // 过滤掉加载失败的游戏
-  const validGames = (games ?? []).filter((game) => !failedImages.has(game.id));
+  const validGames = (games ?? []).filter((game) => !isGameBanned(game) && !failedImages.has(game.id));
 
   const lazyOnMobile = isMobile();
 

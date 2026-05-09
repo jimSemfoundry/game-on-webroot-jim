@@ -7,10 +7,10 @@ import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useCryptoDepositAddress } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { BadgeAlert } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Loading as L, SmallLoading } from "./Loading.tsx";
 import { TinyQR } from "@/components/modal/UserFinanceModal/c/QrCode.tsx";
+import { Alert } from "@/components/icons/Alert.tsx";
 
 export const AddressCard = () => {
   const { isAuthenticated } = useAuth();
@@ -123,7 +123,7 @@ const MinAmount = () => {
           loading={isGatewaysLoading}
           content={
             <>
-              <BadgeAlert
+              <Alert
                 className="w-4 h-4 cursor-pointer"
                 onClick={() => {
                   setSyncAction("OPEN_DEPOSIT_MIN_AMOUNT_MODAL");

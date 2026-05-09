@@ -64,6 +64,7 @@
     "fiatWithdraw": "Retirada Fiat",
     "cryptoWithdraw": "Retirada Cripto",
     "bonus": "Bônus",
+    "bounty": "Recompensa",
     "win": "Vitória",
     "bet": "Aposta",
     "refund": "Reembolso",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Bônus de Rakeback",
     "cashbackbonus": "Bônus de Cashback",
     "referral": "Indicação",
-    "commission": "Comissão"
+    "commission": "Comissão",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Caça-Níqueis",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Fundos desbloqueados",
     "rolloverMul": "Multiplicador de aposta"
   },
-  "assistance": "Por favor, verifique seus dados e tente novamente ou entre em contato com o atendimento ao cliente para obter ajuda"
+  "assistance": "Seu nome não corresponde ao nome que você usou pela primeira vez neste canal. Por favor, entre em contato com o atendimento ao cliente."
 }

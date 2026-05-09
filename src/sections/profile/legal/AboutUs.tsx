@@ -1,6 +1,8 @@
+import { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 import { Container } from "./Container.tsx";
-import { TFunction } from "i18next";
+
+const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
 
 const content = (t: TFunction) => [
   {
@@ -8,13 +10,13 @@ const content = (t: TFunction) => [
     text: {
       open: true,
       title: t("aboutUs:aboutUs.title"),
-      content: t("aboutUs:aboutUs.content", {
+      content: t(shouldHideAlliancePartnerships ? "aboutUs:aboutUs.contentWithoutAlliance" : "aboutUs:aboutUs.contentWithAlliance", {
         companyRegistrationNumber: "165406",
         registeredAddress: "9",
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
-        allianceLink: `<a target="_blank" href="${"https://okvipay.com"}" class="text-primary font-bold text-sm">${"okvipay.com"}</a>`,
-        supportName: import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP"
-      })
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
+        allianceLink: `<a target="_blank" href="https://okvipay.com" class="text-primary font-bold">okvipay.com</a>`,
+        supportName: import.meta.env.VITE_WEBSITE_SUPPORT_NAME || "OKVIP",
+      }),
       // content: `
       //     <p class="leading-7">
       //       At {{gameLink}} Alliance, we have assembled a team to bring you the latest in online entertainment, fun-filled experiences and instantaneous access to your funds. Our mission is to become the ultimate crypto gaming destination for our audience worldwide.
@@ -33,12 +35,12 @@ const content = (t: TFunction) => [
       //      {{gameLink}} Alliance has passed all regulatory compliance and is legally authorized to conduct gaming operations for any and all online games of chance and wagering.
       //     </p>
       // `,
-    }
-  }
+    },
+  },
 ];
 
 export default function Index() {
-  const { t } = useTranslation('aboutUs');
+  const { t } = useTranslation("aboutUs");
   return (
     <div>
       {content(t).map((item) => (

@@ -19,6 +19,9 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
     { value: "Deposit", label: t("transaction:transactionTypes.deposit") },
     { value: "Withdraw", label: t("transaction:transactionTypes.withdrawal") },
     { value: "Bonus", label: t("transaction:transactionTypes.bonus") },
+    { value: "Bounty", label: t("transaction:transactionTypes.bounty", "Bounty") },
+    { value: "BonusStore", label: t("bonus:bonusStore") },
+    { value: "SportsBonusStore", label: t("bonus:sportsBonusStore", "Sports Bonus Wallet") },
     { value: "Swap", label: t("finance:swap", "Swap") },
     { value: "Referral", label: t("transaction:transactionTypes.referral") },
     { value: "Commission", label: t("transaction:transactionTypes.commission") },
@@ -53,11 +56,12 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
     return [allOption, ...options];
   }, [userBalance, t]);
 
-  const showStatusFilter = !["Referral", "Commission"].includes(filters.type);
+  const showStatusFilter = !["Referral", "Commission", "BonusStore", "SportsBonusStore", "Bounty"].includes(filters.type);
+  const showCurrencyFilter = !["BonusStore", "SportsBonusStore", "Bounty"].includes(filters.type);
   const isReferralOrCommission = !showStatusFilter;
 
   return (
-    <div className={cn("grid grid-cols-2 gap-2 sm:gap-3", showStatusFilter && "sm:grid-cols-4")}>
+    <div className={cn("grid grid-cols-2 gap-2 sm:gap-3", showStatusFilter && "sm:grid-cols-4", !showCurrencyFilter && "grid-cols-1 sm:grid-cols-3")}>
       <div className={cn("flex flex-col gap-2", isReferralOrCommission && "col-span-2")}>
         <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.type", "Type")}</label>
         <Select
@@ -69,7 +73,7 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
           dropdownClassName="bg-base-300"
           onChange={(value) => {
             const nextType = value as string;
-            const shouldResetStatus = ["Referral", "Commission"].includes(nextType);
+            const shouldResetStatus = ["Referral", "Commission", "Bounty"].includes(nextType);
             onFiltersChange({
               ...filters,
               type: nextType,
@@ -107,8 +111,10 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
         </div>
       )}
 
-      <div className="flex flex-col gap-2">
-        <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.asset", "Asset")}</label>
+      {showCurrencyFilter && (
+        <div className="flex flex-col gap-2">
+        <label
+          className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.asset", "Asset")}</label>
         <Select
           options={currencyOptions}
           value={filters.asset}
@@ -140,6 +146,7 @@ export function TransactionFilters({ filters, onFiltersChange, userBalance }: Tr
           }
         />
       </div>
+      )}
 
       <div className="flex flex-col gap-2">
         <label className="text-xs sm:text-sm font-medium text-base-content/50">{t("transaction:filters.period", "Period")}</label>

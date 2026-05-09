@@ -1,6 +1,7 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { useTranslation } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusFreeSpinsHelpModalProps {
   isOpen: boolean;
@@ -9,30 +10,33 @@ interface BonusFreeSpinsHelpModalProps {
 
 export const BonusFreeSpinsHelpModal = ({ isOpen, onClose }: BonusFreeSpinsHelpModalProps) => {
   const { t } = useTranslation(['popup', 'casino', 'bonus']);
+  const ILLUSTRATION_URL = useBonusDetailsImage("free_spins", 256);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
       <div className="flex flex-col gap-1">
         {/* 上方带渐变的独立卡片 */}
         <div
-          className="rounded-box pl-8 pr-4 text-center relative overflow-hidden max-h-[140px] flex items-center"
+          className="rounded-box px-8 text-center relative overflow-hidden h-[140px] flex items-center"
           style={{
             background: `
-              radial-gradient(100% 308% at 100% 0%, rgba(42, 207, 4, 0.5) 0%, var(--color-base-300) 100%),
+              radial-gradient(100% 308% at 100% 0%, rgba(123, 18, 228, 0.5) 0%, rgba(15, 20, 26, 0.5) 100%),
               linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
             `,
           }}
         >
           <div className="relative z-10 flex items-center h-full justify-between w-full">
-            <h2 className="text-xl md:text-2xl font-bold text-base-content mb-2 text-start leading-6 text-nowrap">
+            <h2 className="text-xl font-bold text-base-content text-start leading-5 text-nowrap uppercase">
               {t("casino:freeSpins")}
               <br />
               <span className="text-primary uppercase">{t("bonus:bonus")}</span>
             </h2>
             <img
-              src="/images/illustrations/08fb6136f804423bc7c787dffd61015d6a46771b.png"
-              alt="Free Spins"
-              className="w-[150px] h-[150px] -rotate-6 translate-y-1"
+              src={ILLUSTRATION_URL}
+              alt={t("casino:freeSpins")}
+              loading="lazy"
+              decoding="async"
+              className="w-auto h-[128px] object-contain"
             />
           </div>
         </div>
@@ -51,7 +55,7 @@ export const BonusFreeSpinsHelpModal = ({ isOpen, onClose }: BonusFreeSpinsHelpM
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto pb-12">
+            <div className="max-h-[400px] overflow-y-auto pb-12 hide-scrollbar">
               {/* 描述文本 */}
               <p className="text-xs text-base-content/50 leading-5">
                 {t("bonus:freeSpinsBonusDetails")}

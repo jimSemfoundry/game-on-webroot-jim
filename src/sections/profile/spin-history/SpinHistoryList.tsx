@@ -113,7 +113,7 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
               <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:bonusWins", "Bonus Amount")}</th>
               <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:progress", "Progress")}</th>
               <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:goal", "Goal")}</th>
-              <th className="px-4 py-3 text-right rtl:text-left">{t("common:status", "State")}</th>
+              <th className="px-4 py-3 text-right rtl:text-left">{t("bonus:state", "State")}</th>
             </tr>
           </thead>
           <tbody>
@@ -158,7 +158,7 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
                         <span className="text-xs text-base-content/50 font-semibold">{turnoverDisplay}</span>
                       </div>
                     ) : (
-                      <span className="text-xs text-base-content/50">{t("bonus:progressComplete", "Requirement Met")}</span>
+                      <span className="text-xs text-base-content/50">{t("bonus:progressComplete",  t("bonus:requirement_met", "Requirement Met"))}</span>
                     )}
                   </td>
                   <td className="px-4 py-4 align-middle">
@@ -326,7 +326,7 @@ export const SpinHistoryList = ({ rows, isLoading, isEmpty, statusClass, formatS
             </div>
           </div>
           <form method="dialog" className="modal-backdrop">
-            <button onClick={() => setCancelTarget(null)}>close</button>
+            <button onClick={() => setCancelTarget(null)}>{t("common:common.close", "close")}</button>
           </form>
         </dialog>
       )}

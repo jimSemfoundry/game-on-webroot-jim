@@ -6,16 +6,17 @@ import { useTranslation } from "react-i18next";
 import Iconify from "../iconify/iconify";
 import { useAuth } from "@/contexts/AuthContext";
 import { getLanguageDisplayName } from "@/utils/languages";
-import getSymbolFromCurrency from "@/utils/currencySymbol";
+import { useFiatSymbol } from "@/utils/currencySymbol";
 import { useDisplayCurrency } from "@/contexts/DisplayCurrencyContext";
 import { useChatwootContext } from "@/contexts/ChatwootContext";
 import { useTheme } from "@/contexts/ThemeContext.tsx";
 import { useSidebar } from "@/contexts/SidebarContext";
 import { EnvVariablesGuard } from "@/components/EnvVariablesGuard.tsx";
-// import { ClearCache } from "@/components/sidebar/ClearCache.tsx";
 import { ExpandButton } from "@/components/sidebar/ExpandButton.tsx";
 import { LastUpdate } from "@/components/sidebar/LastUpdate.tsx";
 import { ClearCache } from "@/components/sidebar/ClearCache.tsx";
+import { HideGames } from "@/components/sidebar/HideGames.tsx";
+import { ProblemReport } from "@/components/sidebar/ProblemReport";
 
 export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
   const { user } = useAuth();
@@ -30,6 +31,9 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
   const { openModal: openThemeSwitcherModal } = useThemeSwitcherModal();
   const { t, i18n } = useTranslation();
   const { state } = useTheme();
+
+  // TODO: 使用服务端提供的法币缩写符号
+  const { showFiatSymbol } = useFiatSymbol()
 
   // 获取当前显示的货币（优先用户设置，其次CurrencyContext选择）
   const displayCurrency = user?.currency_fiat || selectedCurrency;
@@ -98,11 +102,11 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
               }}
               className="btn flex w-full items-center justify-between btn-md md:btn-lg"
             >
-              <div className="flex items-center gap-x-3">
+              <div className="flex items-center gap-x-3 min-w-0 overflow-hidden">
                 <Iconify icon="custom:headphone" className="w-5 h-5 shrink-0 text-base-content/70" />
-                <span className="text-sm font-semibold">{t("menu:support")}</span>
+                <span className="text-sm font-semibold truncate">{t("menu:support")}</span>
               </div>
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center gap-x-2 shrink-0">
                 <span className="badge badge-soft badge-primary badge-sm md:badge-md rounded-md">24/7</span>
                 <ChevronRight size={16} className="rtl:rotate-z-180" />
               </div>
@@ -120,11 +124,11 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                 >
                   <button className="flex items-center justify-between btn btn-md md:btn-lg w-full"
                           onClick={openLanguageModal}>
-                    <div className="flex items-center gap-x-3">
+                    <div className="flex items-center gap-x-3 min-w-0 overflow-hidden text-left">
                       <Iconify icon="custom:global" className="w-5 h-5 shrink-0 text-base-content/70" />
-                      <div className="flex flex-col items-start">
-                        <span className="text-xs text-base-content/50">{t("menu:language")}</span>
-                        <span className="text-sm font-semibold">
+                      <div className="flex flex-col items-start min-w-0">
+                        <span className="text-xs text-base-content/50 truncate w-full">{t("menu:language")}</span>
+                        <span className="text-sm font-semibold truncate w-full">
                           {getLanguageDisplayName(i18n.language)}
                         </span>
                       </div>
@@ -133,12 +137,12 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                   </button>
                   <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
                           onClick={openWalletModal}>
-                    <div className="flex items-center gap-x-3">
+                    <div className="flex items-center gap-x-3 min-w-0 overflow-hidden text-left">
                       <CircleDollarSign size={20} className="w-5 h-5 shrink-0 opacity-50" />
-                      <div className="flex flex-col items-start">
-                        <span className="text-xs text-base-content/50">{t("menu:gameCurrency")}</span>
-                        <span className="text-xs font-semibold">
-                          {getSymbolFromCurrency(displayCurrency || "")} {displayCurrency || "USD"}
+                      <div className="flex flex-col items-start min-w-0">
+                        <span className="text-xs text-base-content/50 truncate w-full">{t("menu:gameCurrency")}</span>
+                        <span className="text-xs font-semibold truncate w-full">
+                          {showFiatSymbol(displayCurrency || "")} {displayCurrency || "USD"}
                         </span>
                       </div>
                     </div>
@@ -147,12 +151,12 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                   <EnvVariablesGuard name={"VITE_ENABLE_THEME_SWITCHER"}>
                     <button className="flex items-center justify-between bg-base-200 btn btn-md md:btn-lg w-full"
                             onClick={openThemeSwitcherModal}>
-                      <div className="flex items-center gap-x-3">
+                      <div className="flex items-center gap-x-3 min-w-0 overflow-hidden text-left">
                         <SwatchBook size={20} className="w-5 h-5 shrink-0 opacity-50" />
-                        <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-start min-w-0">
                           <span
-                            className="text-xs text-base-content/50">{t("theme:theme_switching", "Theme Switching")}</span>
-                          <span className="text-xs font-semibold">
+                            className="text-xs text-base-content/50 truncate w-full">{t("theme:theme_switching", "Theme Switching")}</span>
+                          <span className="text-xs font-semibold truncate w-full">
                             {state.currentTheme}
                           </span>
                         </div>
@@ -160,15 +164,21 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                       <ExpandButton />
                     </button>
                   </EnvVariablesGuard>
+                  {/*游戏隐藏*/}
+                  <HideGames onClose={closeDrawer} />
+                  {/*api数据刷新*/}
                   <ClearCache />
+                  {/*问题反馈*/}
+                  <ProblemReport />
+                  {/*打包时间显示*/}
                   <LastUpdate />
                 </m.div>
-              )}
+                )}
             </AnimatePresence>
 
             <div className="flex items-center justify-between rounded-lg"
                  onClick={() => setSettingsOpen(!isSettingsOpen)}>
-              <span className="px-2 text-sm md:text-base font-semibold text-base-content/50">{t("menu:settings")}</span>
+              <span className="px-2 text-sm md:text-base font-semibold text-base-content/50 truncate">{t("menu:settings")}</span>
               <div className="items-center rounded-lg grid grid-cols-2 bg-base-200">
                 <button className="flex items-center justify-center btn btn-square btn-ghost btn-sm md:btn-md">
                   <Iconify icon="custom:setting" className="w-5 h-5 shrink-0 text-base-content/70" />
@@ -177,7 +187,7 @@ export const SidebarFooter = ({ isMini }: { isMini: boolean }) => {
                   <Iconify icon="custom:global" className="w-5 h-5 shrink-0 text-base-content/70" />
                 </button>
               </div>
-            </div>
+                </div>
           </div>
         )}
       </div>

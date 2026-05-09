@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Compila le tue informazioni per il prelievo in valuta fiat.",
   "updating_withdrawal_address": "Aggiornamento dell’indirizzo di prelievo, attendi...",
   "please_select_withdrawal_method": "Seleziona un metodo di prelievo.",
-  "integer_deposit": "Questo canale richiede che l'importo del deposito sia un multiplo intero di {{value}}.",
+  "integer_deposit": "Questo canale richiede che l'importo del deposito sia in unità di {{value}}.",
   "enter_string_en_only": "È possibile inserire solo lettere inglesi, numeri e spazi.",
-  "enter_string_min_length": "La lunghezza deve essere di almeno {{length}}."
+  "enter_string_min_length": "La lunghezza deve essere di almeno {{length}}.",
+  "met_eligibility": "*Hai soddisfatto i criteri di idoneità per l'offerta speciale. Ricarica ora per ricevere la tua ricompensa!",
+  "read_carefully": "Si prega di leggere attentamente",
+  "no_channel": "Al momento non ci sono canali disponibili"
 }

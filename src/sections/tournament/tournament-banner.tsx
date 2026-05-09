@@ -2,44 +2,30 @@ import { useCarousel } from "@/components/carousel/hooks/use-carousel";
 import { Carousel } from "@/components/carousel";
 import { CarouselArrowFloatButtons } from "@/components/carousel/components/carousel-arrow-buttons";
 import { TournamentCard, TournamentCardData } from "./tournament-card";
-import { useTranslation } from "react-i18next";
 import type { ITournament } from "@/types/tournament";
 import { useEffect } from "react";
+import clsx from "clsx";
+import { TournamentCardV2 } from "./tournament-card-v2";
+import { getTournamentImage, getTournamentVisual } from "./tournament-visuals";
 
 interface TournamentBannerProps {
   tournaments: ITournament[];
   selectedIndex: number;
   onIndexChange: (index: number) => void;
+  searchParams?: { id?: string; provider?: string };
 }
 
 export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: TournamentBannerProps) {
-  const { t } = useTranslation('tournament');
 
   const mapTournamentToCard = (item: ITournament): TournamentCardData => {
     const provider = (item.game_provider || "").toLowerCase();
     const userInfo = (item.user_info || {}) as any;
 
-    let titleHighlight: string | undefined;
-    let title: string = item.name || t("tournament:tournaments", "TOURNAMENTS");
-    let image = "";
+    const visual = getTournamentVisual(provider);
 
-    if (provider === "jili") {
-      titleHighlight = t("tournament:jiliSlots.highlight", "JILI SLOTS");
-      title = t("tournament:jiliSlots.title", "MEGA BONANZA");
-      image = "/images/illustrations/b86472b94bfc1f088505f51d6f75ba056fc9a941.png";
-    } else if (provider === "pg") {
-      titleHighlight = t("tournament:pgSoft.highlight", "PG SOFT");
-      title = t("tournament:pgSoft.title", "RACES");
-      image = "/images/illustrations/d3ce708b54cb1aabdb69a027f29a744e4713e26c.png";
-    } else if (provider === "pp") {
-      titleHighlight = t("tournament:pragmatic.highlight", "PRAGMATIC");
-      title = t("tournament:pragmatic.title", "CHALLENGE");
-      image = "/images/illustrations/abb5d0ea3c88e4d91831509b2c26c42a3640d29c.png";
-    } else if (provider === "newbie") {
-      titleHighlight = t("tournament:beginnersLuck.highlight", "BEGINNER'S");
-      title = t("tournament:beginnersLuck.title", "LUCK");
-      image = "/images/illustrations/7c071064d635fd1324952f1ec987cc948da6fe4a.png";
-    }
+    const titleHighlight: string | undefined = visual.titleHighlight;
+    const title: string = visual.title || item.name  ;
+    const image = getTournamentImage(provider, "desktop");
 
     return {
       id: (item as any).id ?? `${item.game_provider}-${item.end_time}`,
@@ -88,12 +74,27 @@ export function TournamentBanner({ tournaments, selectedIndex, onIndexChange }: 
         {tournaments.map((tournament, index) => {
           const cardData = mapTournamentToCard(tournament);
           return (
-            <TournamentCard
-              key={cardData.id}
-              data={cardData}
-              onClick={() => onIndexChange(index)}
-              className="rounded-t-2xl rounded-b-none"
-            />
+            cardData.provider?.toLowerCase() !== 'rakerace' ? (
+              <TournamentCard
+                key={cardData.id}
+                data={cardData}
+                hover={false}
+                onClick={() => onIndexChange(index)}
+                className={clsx("rounded-2xl")}
+                contentClsx={'sm:flex-row sm:items-center sm:justify-start'}
+                bannerHeight={"340"}
+              />
+            ) : (
+              <TournamentCardV2
+                key={cardData.id}
+                data={cardData}
+                hover={false}
+                onClick={() => onIndexChange(index)}
+                className={clsx("rounded-2xl")}
+                contentClsx={'sm:flex-row sm:items-center sm:justify-between'}
+                bannerHeight={"340"}
+              />
+            )
           );
         })}
       </Carousel>

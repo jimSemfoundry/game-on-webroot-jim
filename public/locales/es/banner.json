@@ -36,5 +36,5 @@
   "vip_monday": "Lunes VIP",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONO \n <0>DÓLARES</0>",
-  "super_everyday": "<0>1er Depósito del Día</0><br/><0>Cripto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Impulsa Tus<br/>Depósitos Cada Día"
+  "super_everyday": "<0>1er Depósito del Día</0><br/>Cripto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

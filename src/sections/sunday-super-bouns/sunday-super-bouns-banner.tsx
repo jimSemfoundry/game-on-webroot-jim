@@ -149,8 +149,7 @@ export const SundaySuperBounsBanner = ({ currentPromo }: { currentPromo: ICurren
       <div className="relative px-4 pt-4">
         <div className="flex-inline flex-col justify-center relative z-10">
           <div className="flex items-center gap-4">
-            <p
-              className="text-lg test-base text-white font-bold whitespace-pre-line leading-5">{t("bonus:super_sunday")}</p>
+            <p className="text-lg test-base text-base-content font-bold whitespace-pre-line leading-5">{t('bonus:super_sunday')}</p>
             <BadgeAlert
               strokeWidth={3}
               className="w-5 h-5 cursor-pointer"
@@ -283,8 +282,7 @@ export const SundaySuperBounsBannerPC = ({ currentPromo }: { currentPromo: any }
       <div className="relative p-4">
         <div className="flex-inline flex-col justify-center">
           <div className="flex items-center gap-4 mb-2">
-            <p
-              className="text-lg test-base text-white font-bold whitespace-pre-line leading-5">{t("bonus:super_sunday")}</p>
+            <p className="text-lg test-base text-base-content font-bold whitespace-pre-line leading-5">{t('bonus:super_sunday')}</p>
             <BadgeAlert
               strokeWidth={3}
               className="w-5 h-5 cursor-pointer"

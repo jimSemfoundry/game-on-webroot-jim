@@ -1,13 +1,21 @@
-import React, { PropsWithChildren, ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import React, { PropsWithChildren, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { cn } from "@/utils/cn.ts";
 import { useThemeSystem } from "@/hooks/useThemeSystem";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { emitter } from "@/store/emitter.ts";
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, X } from "lucide-react";
+import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import { useGetPromoByPage } from "@/query/promo.tsx";
+import { TabItemsType } from "@/contexts/ModalsContext.ts";
+import { TFunction } from "i18next";
+import Iconify from "@/components/iconify";
+import { DepositIcon } from "@/components/modal/UserFinanceModal/c/IconDeposit.tsx";
+import { SwapIcon } from "@/components/modal/UserFinanceModal/c/IconSwap.tsx";
+import { WithdrawIcon } from "@/components/modal/UserFinanceModal/c/IconWithdraw.tsx";
 
 export const DisplayContent = ({ children, status, className }: PropsWithChildren<{
   status: boolean,
@@ -47,7 +55,7 @@ export const InputBox = ({ type, ignore, detect, label, className, ...props }: R
 
   return (
     <FormBox label={label}>
-      <div className="relative flex items-center">
+      <div className="relative flex items-center" id={props?.id}>
         <input
           {...props}
           className={clsx("input bg-base-300 w-full border-0 !outline-0 font-semibold px-4", className)} />
@@ -115,7 +123,7 @@ export const InnerFieldItem = ({ name, field, onChange }: {
         };
       }
       // 有些没有长度要求，需要自行控制
-      if (field.label === "mobile_number" || field.name === "mobile_number") {
+      if (field.label === "mobile_number") {
         return {
           error: "MIN_MAX_LENGTH",
           regexp: /^[0-9]{7,15}$/,
@@ -203,45 +211,44 @@ export const InnerFieldItem = ({ name, field, onChange }: {
     }
   };
 
+  const handleResetForm = useCallback(() => {
+    let final_value = "";
+    if (field?.default) {
+      const check_value = field?.type === "number" && Number(field?.default) === 0;
+      final_value = check_value ? "" : field?.default;
+    }
+    setAccount({ value: final_value, error: false, error_content: null });
+    onChange({ value: final_value, [`${name}_error`]: false });
+    cancelDebounce();
+  }, [field, name, onChange]);
+
   useEffect(() => {
-    return () => {
-      cancelDebounce();
-    };
+    return () => cancelDebounce();
   }, []);
 
   // ‼️‼️‼️ 事件通知 & 重置表单状态‼
   useEffect(() => {
-    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
-      setAccount({
-        value: "",
-        error: false,
-        error_content: null
-      });
-      onChange({ value: "", [`${name}_error`]: false });
-      cancelDebounce();
-    });
-
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", handleResetForm);
     return () => em?.remove();
-  }, [name, onChange]);
+  }, [handleResetForm]);
 
   // 如果带了默认值则默认填充
   useEffect(() => {
-    if (field?.default) {
-      const check_value = field?.type === "number" && Number(field?.default) === 0;
-      const final_value = check_value ? "" : field?.default
-      onChange({ value: final_value, [`${name}_error`]: false });
-      setAccount((old) => ({ ...old, value: final_value, error: false, error_content: null }));
-    }
+    if (field?.default) handleResetForm();
   }, [field]);
 
   return (
     <div className={"relative"} key={name} onClick={(e) => e.stopPropagation()}>
       <InputBox
+        id={name?.toUpperCase()}
         type="text"
         label={<RequireItem label={t(`finance:${field.label}`)} required={field?.required} />}
         value={account.value}
         detect={account}
         onChange={(e) => {
+          // TODO: 当姓名有值的时候禁止用户修改姓名
+          if (name === "name" && field?.default !== "" && field?.required) return;
+
           const base = {
             value: e.target.value,
             error: !regexp.regexp.test(e.target.value),
@@ -250,6 +257,8 @@ export const InnerFieldItem = ({ name, field, onChange }: {
           setAccount((old) => ({ ...old, ...base }));
           debouncedChange({ value: base.value, [`${name}_error`]: base.error });
         }}
+        // TODO: 当姓名有值的时候禁止用户修改姓名
+        readOnly={name === "name" && field?.default !== "" && field?.required}
         placeholder={`${t("finance:enter")} ${t(`finance:${field.label}`)}`}
       />
       {/* 有长度范围的手机号 */}
@@ -424,24 +433,27 @@ export const InnerOptions = ({ name, field, onChange }: {
   </FormBox>);
 };
 
-export const InnerPayment = ({ method, gateway, onClick }: {
+export const InnerPayment = ({ method, gateway, onClick, hideAmountRange }: {
   method: Record<string, any> | null,
   gateway: Record<string, any>,
-  onClick: () => void
+  onClick: (e: React.MouseEvent) => void,
+  hideAmountRange?: boolean
 }) => {
   const { isDarkTheme } = useThemeSystem();
+
   const isDark = isDarkTheme();
+
   const gatewayIcon = isDark ? gateway?.icon : (gateway?.icon_light ?? gateway?.icon);
 
   return (<div
     className={clsx(
-      "tracking-tighter relative cursor-pointer bg-base-400 border-1 border-base-400 flex flex-col rounded-lg p-2.5 justify-center text-[12px] text-base-content/50 text-center font-semibold overflow-hidden",
+      "tracking-tighter relative cursor-pointer bg-base-400 border-1 border-base-400 flex flex-col rounded-lg p-2 justify-center text-[11px] text-base-content/50 text-center font-semibold overflow-hidden",
       { "border-primary text-primary": method?.id === gateway?.id }
     )}
     onClick={onClick}
   >
     <InnerMaintenance show={gateway?.status === 0} className="top-0 left-0 right-0" />
-    <div className="flex h-10 items-center justify-center">
+    <div className="flex h-8 items-center justify-center">
       {gatewayIcon ? (
         <ImageWithPlaceholder src={gatewayIcon} className="max-h-10"
                               alt={gateway?.display_name || gateway?.channel_class} />
@@ -454,8 +466,8 @@ export const InnerPayment = ({ method, gateway, onClick }: {
     </div>
     <div>
       <p className="truncate">{gateway?.display_name || gateway?.channel_class}</p>
-      <p className="truncate"><InnerProviderAmountRangeFormat min={gateway?.min} max={gateway?.max} /></p>
-      {/*<p>ETA: {Math.ceil(gateway?.timeout / 60)} min</p>*/}
+      {!hideAmountRange &&
+        <p className="truncate"><InnerProviderAmountRangeFormat min={gateway?.min} max={gateway?.max} /></p>}
     </div>
   </div>);
 };
@@ -495,17 +507,18 @@ export const InnerMaintenance = ({ show, className }: { show: boolean, className
   );
 };
 
-export const InnerProviderIcon = ({
-  icon,
-  thumbnail,
-  iconLight,
-  thumbnailLight
-}: {
-  icon?: string;
-  thumbnail?: string;
-  iconLight?: string;
-  thumbnailLight?: string;
-}) => {
+export const InnerProviderIcon = (
+  {
+    icon,
+    thumbnail,
+    iconLight,
+    thumbnailLight
+  }: {
+    icon?: string;
+    thumbnail?: string;
+    iconLight?: string;
+    thumbnailLight?: string;
+  }) => {
   const { isDarkTheme } = useThemeSystem();
   const isDark = isDarkTheme();
 
@@ -515,13 +528,13 @@ export const InnerProviderIcon = ({
   const src = effectiveThumbnail || effectiveIcon;
   if (!src) return null;
 
-  return <img src={src} className={clsx("h-7 rounded-sm", { "h-4!": !!effectiveThumbnail })} alt="" loading="lazy" />;
+  return <img src={src} className={clsx("rounded-sm max-h-5")} alt="" loading="lazy" />;
 };
 
 export const ImageWithPlaceholder = ({ src, alt, className, ...props }: React.ComponentProps<"img">) => {
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
-  return <div className="w-25 bg-base-400 rounded-lg p-1 overflow-hidden">
+  return <div className="h-full w-25 bg-base-400 rounded-lg p-1 overflow-hidden">
     {/* 加载中的skeleton */}
     {!imageLoaded && (
       <div className="skeleton bg-base-300 w-full rounded-lg h-10" />
@@ -532,7 +545,7 @@ export const ImageWithPlaceholder = ({ src, alt, className, ...props }: React.Co
       src={src}
       alt={alt}
       loading="lazy"
-      className={cn("object-cover", {
+      className={cn("m-auto h-full object-cover", {
         "opacity-0": !imageLoaded,
         "opacity-100": imageLoaded,
         "transition-opacity duration-200": true
@@ -592,10 +605,119 @@ export const InnerRangeSlider = ({ max, step, disabled, value, onPointerUp }: {
     className="range range-xs w-full mt-6" />;
 };
 
-export const InnerErrorWrapper = ({ children }: { children: ReactNode }) => {
-  return <div className="relative">{children}</div>;
+export const InnerErrorWrapper = ({ children, id }: { children: ReactNode, id?: string }) => {
+  return <div className="relative" id={id}>{children}</div>;
 };
 
 export const InnerErrorGapWrapper = ({ children }: { children: ReactNode }) => {
   return <div className="flex flex-col gap-4">{children}</div>;
 };
+
+// 优惠充值活动
+export const InnerSpecialOffersWrapper = ({ children }: { mode?: string, children: ReactNode }) => {
+  const { currentPromo } = useGetPromoByPage();
+  return <InnerDisplayContent show={currentPromo}>
+    {children}
+  </InnerDisplayContent>;
+};
+
+const tabItems: {
+  label: TabItemsType;
+  trans: string;
+  getIcon: (active: boolean) => ReactNode;
+}[] = [
+  {
+    label: "deposit",
+    trans: "common:common.deposit",
+    getIcon: function(active: boolean) {
+      return <DepositIcon customCls={active ? "" : "text-primary"} className={"w-4 h-4 md:w-5 md:h-5"} />;
+    }
+  },
+  {
+    label: "swap",
+    trans: "finance:swap",
+    getIcon: function(active: boolean) {
+      return <SwapIcon customCls={active ? "" : "text-primary"} className={"w-4 h-4 md:w-5 md:h-5"} />;
+    }
+  },
+  {
+    label: "withdraw",
+    trans: "common:common.withdraw",
+    getIcon: function(active: boolean) {
+      return <WithdrawIcon customCls={active ? "" : "text-primary"} className={"w-4 h-4 md:w-5 md:h-5"} />;
+    }
+  }
+];
+
+export const InnerTabItems = ({ t, tab, setTab, cls }: {
+  t: TFunction;
+  cls?: string;
+  tab: TabItemsType;
+  setTab: (label: TabItemsType) => void
+}) => {
+  return tabItems.map(({ label, trans, getIcon }) => (
+    <button
+      key={label}
+      onClick={() => setTab(label)}
+      className={cn("flex-1 btn btn-md font-bold border-0", cls, tab === label ? "btn-primary" : "btn-ghost")}
+    >
+      {getIcon(tab === label)}
+      {t(trans)}
+    </button>
+  ));
+};
+
+export const InnerModalHeader = ({ t }: { t: TFunction }) => {
+  return (
+    <div className="flex items-center gap-x-2">
+      <Iconify icon="custom:wallet" className={"w-4.5 h-4.5 md:w-5 md:h-5 text-primary"} />
+      <p className="text-base md:text-xl font-bold">{t("finance:wallet")}</p>
+    </div>
+  );
+};
+
+export const InnerCustomModalHeader = ({ t, onClose }: { t: TFunction; onClose: () => void }) => {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <Iconify icon="custom:wallet" className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-primary" />
+        <h2 className="text-md font-extrabold">{t("finance:wallet")}</h2>
+      </div>
+      <button className={"btn btn-sm btn-square rounded-lg h-8 w-8 z-50"}
+              onClick={onClose}>
+        <X size={16} />
+      </button>
+    </div>
+  );
+};
+
+export const InnerResetFinanceStatus = ({ status, children }: PropsWithChildren<{ status: boolean }>) => {
+  // finance有部分数据的状态重置无法照顾到，需要通知
+  useEffect(() => {
+    emitter.emit(!status ? "CLOSE_FINANCE_MODAL" : "OPEN_FINANCE_MODAL");
+  }, [status]);
+
+  return <>{children}</>;
+};
+
+export const InnerDepositProviderError = (
+  {
+    show, channel
+  }: { show: boolean, channel: string }) => {
+  return (
+    // 通道在维护
+    <InnerDisplayContent show={show}>
+      <div className="bg-base-300 rounded-lg p-2">
+        <ErrorMessageBox
+          sample
+          className={"!mt-0"}
+          content={<Trans
+            i18nKey={"finance:channel_under_maintenance"}
+            values={{ channel: channel }}
+            components={[<span className="underline font-bold" />]} />}
+          show={show} />
+      </div>
+    </InnerDisplayContent>);
+};
+
+export const SPECIAL_OFFER_DEPOSIT_SET = new Set(["special_offer_first_deposit", "special_offer_second_deposit"]);

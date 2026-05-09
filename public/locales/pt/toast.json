@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Por favor, insira um comprimento fixo de {{length}} caracteres",
   "disabledCharNotAllowed": "O caractere {{char}} não é permitido",
   "space": "espaço",
-  "thisWalletIsAlreadyUsed": "Esta carteira já está em uso"
+  "thisWalletIsAlreadyUsed": "Esta carteira já está em uso",
+  "login_failed": "Falha no login",
+  "login_error_code_1": "O nome de usuário deve ser um número de telefone válido (começando com + e usando - após o código do país) ou um endereço de e-mail",
+  "account_created_and_logged_in_successfully": "Conta criada e login efetuado com sucesso!",
+  "requests_later": "Muitas solicitações deste IP. Por favor, tente novamente mais tarde.",
+  "booster_activated_successfully": "Booster ativado com sucesso!",
+  "depositNameEntered": "O nome informado para depósito deve corresponder ao nome completo<0>（Nome + Sobrenome）</0> na conta bancária usada para saque, em conformidade com as regulamentações anti-fraude e anti-lavagem de dinheiro.\n\n Se precisar alterar sua conta bancária, entre em contato com o suporte ao cliente e conclua a verificação KYC.",
+  "user_not_found_or_password_incorrect": "Usuário não encontrado ou senha incorreta",
+  "free_spin_record_enabled_successfully": "Registro de giros grátis ativado com sucesso!",
+  "check_in_success": "Check-in realizado com sucesso!",
+  "check_in_failed": "Falha no check-in!",
+  "check_in_already": "O check-in para esta data já foi concluído.",
+  "ballsClaimed": "Bola do parceiro resgatada com sucesso",
+  "cannotBetby": "A carteira de bônus esportivos é apenas para apostas esportivas."
 }

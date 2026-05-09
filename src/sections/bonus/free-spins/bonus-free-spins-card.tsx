@@ -1,9 +1,7 @@
-import type React from "react";
-import Iconify from "@/components/iconify";
+import { PropsWithChildren } from "react";
 import { Countdown } from "@/components/ui";
 import { ImageColorCard } from "@/components/ui/ImageColorCard";
 import { LazyImage } from "@/components/ui/LazyImage";
-import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useClaimReward } from "@/query/free-spins";
@@ -14,6 +12,9 @@ import { Trans, useTranslation } from "react-i18next";
 import { createBonusGradient, gradientStyles } from "../styles";
 import { BonusFreeSpinsHelpModal } from "./bonus-free-spins-help-modal";
 import { FreeSpinStatus, resolveFreeSpinStatus } from "@/types/freeSpins";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import Iconify from "@/components/iconify";
+import { hasAuth } from "@/utils/auth.ts";
 
 const gameAccentMap: Record<string, string> = {
   "Starlight Princess 1000": "#A855F7",
@@ -42,26 +43,25 @@ interface FreeSpinsProps {
 }
 
 export function BonusFreeSpinsCard({
-                                     gameTitle = "Starlight Princess 1000",
-                                     gameIcon = "/images/illustrations/1857b3c3960b034ca7ae8715066f61f100c62d43.png",
-                                     available = 20,
-                                     total = 20,
-                                     maxWin = 570.47,
-                                     expiration = 0,
-                                     gameId,
-                                     handleStatus,
-                                     freeSpinCode,
-                                     turnoverLimit = 0,
-                                     currentTurnover = 0,
-                                     winAmount = 0,
-                                     currency = "USDT",
-                                     isExpired = false,
-                                     isAvailable = false,
-                                     recordId,
-                                     isTurnoverMet
-                                   }: FreeSpinsProps) {
-  const { t } = useTranslation(['bonus','transaction', 'gameDetail']);
-  const { isAuthenticated } = useAuth();
+  gameTitle = "Starlight Princess 1000",
+  gameIcon = "/images/illustrations/1857b3c3960b034ca7ae8715066f61f100c62d43.png",
+  available = 20,
+  total = 20,
+  maxWin = 570.47,
+  expiration = 0,
+  gameId,
+  handleStatus,
+  freeSpinCode,
+  turnoverLimit = 0,
+  currentTurnover = 0,
+  winAmount = 0,
+  currency = "USDT",
+  isExpired = false,
+  isAvailable = false,
+  recordId,
+  isTurnoverMet
+}: FreeSpinsProps) {
+  const { t } = useTranslation(["bonus", "transaction", "gameDetail"]);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const navigate = useNavigate();
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
@@ -170,7 +170,7 @@ export function BonusFreeSpinsCard({
   })();
   const actionDisabled = resolvedStatus !== FreeSpinStatus.CLAIM;
 
-  if (!isAuthenticated) {
+  if (!hasAuth()) {
     return (
       <ImageColorCard
         gradientMode="linear"
@@ -184,10 +184,11 @@ export function BonusFreeSpinsCard({
           <span className="text-primary block">{t("bonus:bonus")}</span>
         </p>
         <LazyImage src="/images/illustrations/08fb6136f804423bc7c787dffd61015d6a46771b.png" alt="free spins"
-                   className="w-[150px] h-[150px] sm:w-[185px] sm:h-[185px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto" />
+          className="w-[150px] h-[150px] sm:w-[185px] sm:h-[185px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto" />
       </ImageColorCard>
     );
   }
+
   return (
     <ImageColorCard
       imageUrl={gameIcon}
@@ -196,17 +197,6 @@ export function BonusFreeSpinsCard({
       gradientMode="radial"
       colorOpacity={0.6}
     >
-      {/* Info Button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsInfoModalOpen(true);
-        }}
-        className="btn btn-square btn-xs bg-base-200 hover:bg-base-300 absolute right-4 rtl:right-auto rtl:left-4 top-4 transition-colors"
-      >
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
-
       {/* Content */}
       {isProgressCard ? (
         <div className="flex flex-col gap-3">
@@ -222,14 +212,14 @@ export function BonusFreeSpinsCard({
                 target.src = "/images/illustrations/isometric9.svg";
               }}
             />
-            <div className="flex flex-col gap-1 flex-1 text-base-content/70">
+            <div className="flex flex-col gap-4 flex-1 text-base-content/70">
               <p className="text-sm sm:text-base font-bold text-base-content">
                 {t("bonus:freeSpins")} {freeSpinCode || gameTitle || t("bonus:freeSpins")}
               </p>
               <p className="text-xs sm:text-sm leading-snug">
                 <Trans i18nKey="bonus:wager_free_spin"
-                       values={{ value1: formattedTurnoverTotal, value2: formattedWinAmount }}
-                       components={[<span className="text-primary font-semibold" />]} />
+                  values={{ value1: formattedTurnoverTotal, value2: formattedWinAmount }}
+                  components={[<span className="text-primary font-semibold" />]} />
               </p>
             </div>
           </div>
@@ -293,7 +283,7 @@ export function BonusFreeSpinsCard({
                     target={expiration * 1000}
                     onComplete={() => set(true)}
                     renderCustom={(time) => (
-                      <div className={"font-mono text-xs sm:text-sm flex items-center"}>
+                      <div className={"text-xs sm:text-sm flex items-center"}>
                         <span className="countdown">
                           <span style={{ "--value": time.days } as React.CSSProperties}></span>
                         </span>
@@ -319,9 +309,19 @@ export function BonusFreeSpinsCard({
               </p>
             </div>
           </div>
-          <button onClick={handlePlayClick} className="btn btn-primary btn-md px-5 rounded-field self-center">
-            {t("common:common.play")}
-          </button>
+          <div className="flex flex-col items-end self-stretch gap-2">
+            {/* Info Button */}
+            <Info
+              className=""
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsInfoModalOpen(true);
+              }} />
+            <button onClick={handlePlayClick} className="btn btn-primary btn-md px-5 rounded-field self-center"
+            >
+              {t("common:common.play")}
+            </button>
+          </div>
         </div>
       )}
 
@@ -330,3 +330,23 @@ export function BonusFreeSpinsCard({
     </ImageColorCard>
   );
 }
+
+export const InnerFreeSpinsTitle = (props: PropsWithChildren<{ hasNav?: boolean, hasTitle?: boolean }>) => {
+  const navigate = useNavigate();
+
+  const { t } = useTranslation();
+
+  return <div className="flex items-center gap-2">
+    <Iconify icon="custom:free-spin" width={20} height={20} className="text-primary" />
+    <p className="text-sm font-semibold">{t("bonus:freeSpins")}</p>
+    {props?.hasNav && <button
+      type="button"
+      className="ml-auto text-sm sm:text-base font-semibold text-base-content/50 underline"
+      onClick={() =>
+        navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "free-spin" }) })
+      }
+    >
+      {t("common:common.history")}
+    </button>}
+  </div>;
+};

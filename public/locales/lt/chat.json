@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Klientų aptarnavimo pokalbis nepavyko įkelti",
   "read": "Skaityti",
   "unread": "Neskaityta",
-  "customerService": "Klientų aptarnavimas"
+  "customerService": "Klientų aptarnavimas",
+  "today": "šiandien",
+  "earlier": "anksčiau",
+  "older": "senesni"
 }

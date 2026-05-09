@@ -205,6 +205,8 @@ export const QuickActions = ({ games = [] }: QuickActionsProps) => {
           isShuffling={isShuffling}
           onGameSelected={handleGameSelected}
           onAnimationComplete={handleAnimationComplete}
+          isFavoriteDisabled={isFavoriteDisabled}
+          handleToggleFavorite={handleToggleFavorite}
         />
       </div>
     </div>

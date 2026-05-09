@@ -190,5 +190,13 @@
   "programAccessUpdate": "Programmi ligipääsu uuendus",
   "referralProgramPrivileges": "Sinu soovitusprogrammi privileegid on pärast sinu konto ja programmis osalemise ülevaatamist tühistatud. Tuvastasime tegevuse, mis ei vasta meie soovitusprogrammi tingimustele või ettenähtud kasutusele. See võib hõlmata kahtlaseid soovitusmustreid, volitamata turundusmeetodeid, stiimulite väärkasutust või katseid õiglase kasutuse juhistest mööda hiilida.",
   "referralRewardsPrivileges": "Selle tulemusena on sinu võimalus luua uusi soovituspreemiaid, jagada soovituslinke või saada soovitustest kasu keelatud. Soovitusprogrammiga seotud ootel või tulevased preemiad peetakse kinni ja tühistatakse vastavalt meie poliitikatele. <0>Kõik teised sinu konto funktsioonid jäävad alles ja see muudatus neid ei mõjuta</0>.",
-  "understandDisappointing": "Mõistame, et see võib olla pettumust valmistav. Kui arvad, et otsus on ekslik või soovid lisateavet, võta palun ühendust meie tugitiimiga ning esita asjakohane info — vaatame sinu juhtumi üle."
+  "understandDisappointing": "Mõistame, et see võib olla pettumust valmistav. Kui arvad, et otsus on ekslik või soovid lisateavet, võta palun ühendust meie tugitiimiga ning esita asjakohane info — vaatame sinu juhtumi üle.",
+  "spread_the_Love": "Levitage armastust",
+  "need": "Vajate",
+  "new_friends": "Uusi sõpru?",
+  "timeToRecruit": "Aeg värvata! Puudutage nuppu, et rääkida meist WhatsAppis täiesti võõrale inimesele.",
+  "date": "kuupäev",
+  "save": "salvesta",
+  "enterCampaignName": "Sisestage kampaania nimi",
+  "shareText": "🎮 Liitu minuga sellel suurepärasel platvormil!"
 }

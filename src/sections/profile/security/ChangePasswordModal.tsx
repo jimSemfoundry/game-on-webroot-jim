@@ -65,9 +65,9 @@ export const ChangePasswordModal = (
   const confirm_password_match_error = useMemo(() => status.confirm_password !== "" && status.confirm_password !== status.new_password, [status.new_password, status.confirm_password]);
   const new_password_match_error = useMemo(() => status.new_password !== "" && status.current_password === status.new_password, [status.new_password, status.current_password]);
   const input_null_error = useMemo(() =>
-      status.new_password === "" ||
-      status.current_password === "" ||
-      status.confirm_password === ""
+    status.new_password === "" ||
+    status.current_password === "" ||
+    status.confirm_password === ""
     , [status.new_password, status.current_password, status.confirm_password]);
 
   // 修改密码
@@ -86,8 +86,8 @@ export const ChangePasswordModal = (
           toast.error(t(matchResponseCodeError(res.code)));
         }
       }).catch((error) => {
-      console.info(error);
-    })
+        console.info(error);
+      })
       .finally(() => {
         setStatus((old) => ({ ...old, loading: false }));
       });
@@ -113,6 +113,7 @@ export const ChangePasswordModal = (
                 type={status.current_password_view ? "text" : "password"}
                 className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4"
                 value={status.current_password}
+                placeholder={t("profile:enterPassword")}
                 onChange={(v) => {
                   const current_password = v.target.value.replace(password_reg_exp, "");
                   setStatus((old) => ({
@@ -147,6 +148,7 @@ export const ChangePasswordModal = (
                   type={status.new_password_view ? "text" : "password"}
                   className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4"
                   value={status.new_password}
+                  placeholder={t("profile:newPassword")}
                   onChange={(v) => {
                     const new_password = v.target.value.replace(password_reg_exp, "");
                     setStatus((old) => ({
@@ -183,6 +185,7 @@ export const ChangePasswordModal = (
                   type={status.confirm_password_view ? "text" : "password"}
                   className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4"
                   value={status.confirm_password}
+                  placeholder={t("profile:re_enter_new_password")}
                   onChange={(v) => {
                     const confirm_password = v.target.value.replace(password_reg_exp, "");
                     setStatus((old) => ({
@@ -230,7 +233,7 @@ export const ChangePasswordModal = (
             <div className="flex flex-col gap-4 items-center">
               <p className="text-sm">{t("profile:passwordUpdatedSuccessfully")}</p>
               <p className="text-base-content/50 text-xs text-center">
-              <Trans i18nKey="profile:passwordUpdatedDescription" />
+                <Trans i18nKey="profile:passwordUpdatedDescription" />
               </p>
             </div>
             <ConfirmBox onClick={() => {

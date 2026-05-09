@@ -1,7 +1,6 @@
 /**
  * Bonus page Mystery Box card, used to open the actual content of Mystery Box.
  */
-import Iconify from "@/components/iconify";
 import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useMemo, useState } from "react";
@@ -12,9 +11,10 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useNavigate } from "@tanstack/react-router";
 import { useHasMysteryBox } from "@/query/bouns";
 import { MysteryBoxModal } from "./bonus-mystery-box-modal";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
-const ILLUSTRATION_URL = "/images/illustrations/a0460e0b128df2ab73ba3a735212bd9d95c841b1.png";
 const DEFAULT_ACCENT = "#4F9437";
 
 const buildBackground = (accentStop: string, isMobile: boolean) =>
@@ -34,6 +34,7 @@ export function MysteryBoxCard() {
   const { openTipsModal } = useTipsModal();
   const { data: conquestsReward } = useHasMysteryBox();
   const [isOpenMysteryBoxModal, setIsOpenMysteryBoxModal] = useState(false);
+  const ILLUSTRATION_URL = useBonusDetailsImage("mystery_box", 96);
 
   // const { status } = useAuth();
   const isMobile = useMediaQuery("(max-width: 640px)");
@@ -80,24 +81,32 @@ export function MysteryBoxCard() {
           background,
         }}
       >
-        <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-          <Iconify icon="custom:info" className="text-base-content/50" />
-        </button>
+        <Info className="absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips} />
         <div className="flex w-full items-center gap-4 sm:flex-1 sm:flex-col sm:items-center sm:gap-3 sm:text-center">
           <div className="w-16 h-16 sm:size-[82px] grid place-items-center rounded-xl">
             <img src={ILLUSTRATION_URL} alt={t("bonus:mystery_box")} className="w-full h-full object-contain" loading="lazy" decoding="async" />
           </div>
-          <div className="flex flex-1 flex-col gap-1 sm:gap-2 sm:items-center">
+          <div className="flex flex-1 flex-col gap-2 sm:gap-2 sm:items-center">
             <p className="text-sm font-bold sm:text-base text-left w-full">{t("bonus:mystery_box")}</p>
             <p className="text-xs text-base-content/60 leading-5 sm:flex-1 text-left w-full">
               <Trans i18nKey="bonus:mystery_box_description2" values={{ vip: requiredVipLevel }} />
             </p>
             <div className="hidden sm:flex sm:w-full sm:justify-center sm:mt-auto">
-              <VipButton requiredLevel={requiredVipLevel} onClick={handleButtonClick} />
+              <VipButton
+                requiredLevel={requiredVipLevel}
+                onClick={handleButtonClick}
+                claimable={isClaimable}
+                useClaimStateWhenUnlocked
+              />
             </div>
           </div>
           <div className="flex sm:hidden">
-            <VipButton requiredLevel={requiredVipLevel} onClick={handleButtonClick} />
+            <VipButton
+              requiredLevel={requiredVipLevel}
+              onClick={handleButtonClick}
+              claimable={isClaimable}
+              useClaimStateWhenUnlocked
+            />
           </div>
         </div>
       </div>

@@ -190,5 +190,13 @@
   "programAccessUpdate": "Actualización de acceso al programa",
   "referralProgramPrivileges": "Tus privilegios del programa de referidos han sido revocados tras una revisión de tu cuenta y tu participación en el programa. Identificamos actividad que no cumple con los términos, condiciones o el uso previsto de nuestro programa de referidos. Esto puede incluir patrones de referidos sospechosos, métodos promocionales no autorizados, uso indebido de incentivos o intentos de eludir las directrices de uso justo.",
   "referralRewardsPrivileges": "Como resultado, se ha deshabilitado tu capacidad para generar nuevas recompensas por referidos, compartir enlaces de referido o recibir beneficios de los referidos. Las recompensas pendientes o futuras asociadas al programa de referidos serán retenidas y canceladas de acuerdo con nuestras políticas. <0>El resto de las funcionalidades de tu cuenta permanecen intactas y no se ven afectadas por este cambio</0>.",
-  "understandDisappointing": "Entendemos que esto puede ser decepcionante. Si crees que esta decisión es un error o deseas más detalles, ponte en contacto con nuestro equipo de soporte con cualquier información relevante y revisaremos tu caso."
+  "understandDisappointing": "Entendemos que esto puede ser decepcionante. Si crees que esta decisión es un error o deseas más detalles, ponte en contacto con nuestro equipo de soporte con cualquier información relevante y revisaremos tu caso.",
+  "spread_the_Love": "Comparte el amor",
+  "need": "¿Necesitas",
+  "new_friends": "Nuevos amigos?",
+  "timeToRecruit": "¡Es hora de reclutar! Toca el botón para contarle a un completo desconocido sobre nosotros en WhatsApp.",
+  "date": "fecha",
+  "save": "guardar",
+  "enterCampaignName": "Ingrese el nombre de la campaña",
+  "shareText": "🎮 ¡Únete a mí en esta increíble plataforma!"
 }

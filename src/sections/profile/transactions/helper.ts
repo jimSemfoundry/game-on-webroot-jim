@@ -1,3 +1,4 @@
+
 type TKeys = "PENDING" | "PROCESSING" | "SUCCESS" | "COMPLETED" | "FAILED" | "EXPIRED" | "CANCELLED" | "DEFAULT"
 
 // 样式匹配
@@ -57,7 +58,16 @@ const general_match = {
   "8": "FAILED"
 };
 
+// TODO: 有些记录是需要直接完成的
+const SPECIAL_TYPE_JUST_COMPLETED_SET = new Set(["Referral", "Commission", "BonusStore", "SportsBonusStore", "Bounty"]);
+
 export const getTransactionStatus = (type: string, status: any) => {
+  if (SPECIAL_TYPE_JUST_COMPLETED_SET.has(type)) {
+    return {
+      cls: cls_match.COMPLETED,
+      trans: trans_match.COMPLETED
+    };
+  }
   if (!type || !/^\d+$/.test(String(status))) return {
     cls: cls_match.DEFAULT,
     trans: String(status).toUpperCase()

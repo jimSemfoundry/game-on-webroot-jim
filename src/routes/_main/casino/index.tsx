@@ -1,31 +1,44 @@
 import { useCasinoHomeGameList } from "@/hooks/api/usePublic.ts";
+// 首屏可见 / 关键内容 → 同步 import（保 LCP 不受影响）
 import { FeaturedGames, RecentBigWins } from "@/sections/casino";
-import { AcceptCurrencies } from "@/sections/casino/AccpetCurrencies.tsx";
-import { AlliancePartnerships } from "@/sections/casino/AlliancePartnerships.tsx";
+import { BetbyLinkGuard } from "@/components/sidebar/BetbyLinkGuard.tsx";
 import { CategoryGames } from "@/sections/casino/CategoryGames.tsx";
-import { Footer } from "@/sections/casino/Footer.tsx";
-import { GameProviders } from "@/sections/casino/GameProviders.tsx";
 import HeroBanner from "@/sections/casino/hero-banner";
-import { LiveBets } from "@/sections/casino/live-bets";
 import { PromotionalSection } from "@/sections/casino/PromotionalSection.tsx";
 import { QuickActions } from "@/sections/casino/QuickActions.tsx";
+import { AcceptCurrencies } from "@/sections/casino/AccpetCurrencies.tsx";
 import { LazySection } from "@/components/ui/LazySection";
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
-import { memo, useEffect } from "react";
+import { lazy, memo, Suspense, useEffect } from "react";
 import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { getBroadcastChannel } from "@/utils/helper.ts";
 import { isTelegramWebApp } from "@/utils/telegramWebApp";
-import { toast } from "sonner";
-import { useTranslation } from "react-i18next";
-import { BonusWalletActivityActivationCheck } from "@/sections/casino/BonusWalletActivityActivationCheck.tsx";
 import { LimitOfferPromoCheck } from "@/sections/casino/LimitOfferPromoCheck.tsx";
 
+// t110774 §3.4 / PR4: 折叠以下大体积 / 重依赖的 section 改成 React.lazy，
+// 让首页 entry chunk 只装首屏关键代码。fallback 撑高度匹配 LazySection.minHeight=200，
+// 避免布局跳动；不要 spinner（用户会以为出错）。
+const SportsPromoCarousel = lazy(() =>
+  import("@/sections/casino/SportsPromoCarousel.tsx").then((m) => ({ default: m.SportsPromoCarousel }))
+);
+const GameProviders = lazy(() =>
+  import("@/sections/casino/GameProviders.tsx").then((m) => ({ default: m.GameProviders }))
+);
+const LiveBets = lazy(() =>
+  import("@/sections/casino/live-bets").then((m) => ({ default: m.LiveBets }))
+);
+const AlliancePartnerships = lazy(() =>
+  import("@/sections/casino/AlliancePartnerships.tsx").then((m) => ({ default: m.AlliancePartnerships }))
+);
+const Footer = lazy(() =>
+  import("@/sections/casino/Footer.tsx").then((m) => ({ default: m.Footer }))
+);
+
+const LazyFallback = () => <div className="min-h-[200px]" />;
+// import { TelegramStartupDebugPanel } from "@/components/TelegramStartupDebugPanel";
+
 const RouteComponent = memo(function RouteComponent() {
-  const { t } = useTranslation();
   const { data: casinoHomeGameListResponse } = useCasinoHomeGameList();
-  const { openUserFinanceModal } = useFinanceModal();
   const { openSignInModal, openSignUpModal } = useAuthModals();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -80,103 +93,68 @@ const RouteComponent = memo(function RouteComponent() {
 
     if (!should_open_finance) return;
 
-    openUserFinanceModal();
-
-    void navigate({
-      to: "/casino",
-      search: {
-        redirect: undefined,
-        startapp: undefined,
-        openLogin: undefined,
-        openSignUp: undefined,
-        openFinance: undefined
-      },
-      replace: true
-    });
-  }, [navigate, openUserFinanceModal, search.openFinance]);
-
-  // FIXME: PWA 应用更新消息，需要用户确认是否更新
-  useEffect(() => {
-    let toast_id: string | number = "";
-
-    const channel = getBroadcastChannel();
-
-    if (toast_id) toast.dismiss(toast_id);
-
-    if (channel) channel.onmessage = () => {
-      // 防止重复提示
-      const pwa_prompt_lock = "pwa_update_prompt_lock";
-      const last_prompt = sessionStorage.getItem(pwa_prompt_lock);
-      if (last_prompt) return;
-
-      toast_id = toast.info(t("common.newVersionDiscovered", "We have an update!"), {
-        description: t("common.refreshToLatestVersionImmediately", "Reload the page to enjoy a new gaming experience."),
-        duration: Infinity,
-        action: {
-          label: t("common.pressToUpdate", "Refresh"),
-          onClick: () => {
-            toast.dismiss(toast_id);
-            // 标记已提示，避免重复
-            sessionStorage.setItem(pwa_prompt_lock, Date.now().toString());
-            // 延迟刷新，确保 toast 完全关闭
-            setTimeout(() => {
-              window.location.reload();
-            }, 300);
-          }
-        },
-        richColors: false
-      });
-    };
-
-    // clear broadcastChannel
-    return () => channel?.close();
-  }, []);
+    void navigate({ to: "/finance" });
+  }, [navigate, search.openFinance]);
 
   // if (!casinoHomeGameList) return null;
 
   return (
-    <BonusWalletActivityActivationCheck>
-      <LimitOfferPromoCheck>
-        <div className="flex flex-col gap-4 sm:gap-6 px-5 py-3 w-full">
+    <LimitOfferPromoCheck>
+      <div className="flex flex-col gap-4 sm:gap-6 px-5 py-3 w-full">
+        {/*<TelegramStartupDebugPanel />*/}
+        <LazySection>
+          <HeroBanner />
+        </LazySection>
+        <LazySection>
+          <RecentBigWins />
+        </LazySection>
+        <LazySection>
+          <PromotionalSection />
+        </LazySection>
+        <FeaturedGames
+          games={casinoHomeGameList?.home_data?.hot_game || []}
+          country_code={casinoHomeGameList?.country_code}
+        />
+        <BetbyLinkGuard>
           <LazySection>
-            <HeroBanner />
+            <Suspense fallback={<LazyFallback />}>
+              <SportsPromoCarousel />
+            </Suspense>
           </LazySection>
-          <LazySection>
-            <RecentBigWins />
-          </LazySection>
-          <LazySection>
-            <PromotionalSection />
-          </LazySection>
-          <FeaturedGames
-            games={casinoHomeGameList?.home_data?.hot_game || []}
-            country_code={casinoHomeGameList?.country_code}
-          />
-          {(casinoHomeGameList?.home_data?.game_category ?? [])?.map((c: any) => (
-            <CategoryGames key={c.category} games={c.games} category={c.category} />
-          ))}
-          <LazySection>
+        </BetbyLinkGuard>
+        {(casinoHomeGameList?.home_data?.game_category ?? [])?.map((c: any) => (
+          <CategoryGames key={c.category} games={c.games} category={c.category} />
+        ))}
+        <LazySection>
+          <Suspense fallback={<LazyFallback />}>
             <GameProviders />
-          </LazySection>
-          <LazySection>
-            <QuickActions games={casinoHomeGameList?.home_data?.hot_game || []} />
-          </LazySection>
-          <LazySection>
+          </Suspense>
+        </LazySection>
+        <LazySection>
+          <QuickActions games={casinoHomeGameList?.home_data?.hot_game || []} />
+        </LazySection>
+        <LazySection>
+          <Suspense fallback={<LazyFallback />}>
             <LiveBets />
-          </LazySection>
+          </Suspense>
+        </LazySection>
+        <LazySection>
+          <AcceptCurrencies />
+        </LazySection>
+        {!shouldHideAlliancePartnerships && (
           <LazySection>
-            <AcceptCurrencies />
-          </LazySection>
-          {!shouldHideAlliancePartnerships && (
-            <LazySection>
+            <Suspense fallback={<LazyFallback />}>
               <AlliancePartnerships />
-            </LazySection>
-          )}
-          <LazySection>
-            <Footer />
+            </Suspense>
           </LazySection>
-        </div>
-      </LimitOfferPromoCheck>
-    </BonusWalletActivityActivationCheck>
+        )}
+        <LazySection>
+          <Suspense fallback={<LazyFallback />}>
+            <Footer />
+          </Suspense>
+        </LazySection>
+      </div>
+    </LimitOfferPromoCheck>
   );
 });
 

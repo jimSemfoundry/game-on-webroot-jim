@@ -1,24 +1,15 @@
-import { ComponentProps } from "react";
+import { type ButtonHTMLAttributes } from "react";
 import { useBaseConfig } from "@/hooks/api/usePublic.ts";
 import clsx from "clsx";
-import { isIOS, isMobile } from "@/utils/browser";
+import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
+import {
+  buildOfficialChannelTarget,
+  type OfficialPlatform,
+} from "@/features/social/lib/socialTargets";
+import { openSocialTarget } from "@/features/social/lib/socialNavigation";
 
- const isStandalonePwa = () => {
-   const isIosStandalone = typeof (navigator as any)?.standalone === 'boolean' && (navigator as any).standalone;
-   const isDisplayModeStandalone = typeof window !== 'undefined' && window.matchMedia?.('(display-mode: standalone)')?.matches;
-   return Boolean(isIosStandalone || isDisplayModeStandalone);
- }
-
- const getExternalLinkTarget = () => {
-   return (isStandalonePwa() || (isMobile() && isIOS())) ? '_self' : '_blank';
- }
-
-type TMedia = 'telegram' |
-  'twitter' |
-  'facebook' |
-  'youtube' |
-  'whatsapp' |
-  'instagram'
+type TMedia = OfficialPlatform;
 
 const media_info_match: {
   [key in TMedia]: { icon: string }
@@ -33,18 +24,64 @@ const media_info_match: {
 
 export const SocialMedia = ({className}:{className?: string}) => {
   const { data: baseConf } = useBaseConfig()
-  return (<div className={clsx("flex gap-1.5", className)}>
+  const { t } = useTranslation("common");
+
+  const handleSocialClick = async (media: TMedia, rawUrl: string) => {
+    const target = buildOfficialChannelTarget({
+      platform: media,
+      rawUrl,
+    });
+    const result = await openSocialTarget(target);
+
+    if (result.status === "opened") {
+      return;
+    }
+
+    if (result.status === "blocked") {
+      toast.error(
+        t(
+          "socialLinkPopupBlocked",
+          "Unable to open the link. Please allow pop-ups or open it in your browser."
+        )
+      );
+      return;
+    }
+
+    if (result.status === "failed" && result.reason === "telegram-open-failed") {
+      toast.error(
+        t(
+          "socialLinkTelegramFailed",
+          "Unable to open this link from Telegram right now."
+        )
+      );
+      return;
+    }
+
+    toast.error(
+      t(
+        "socialLinkUnavailable",
+        "This social link is unavailable right now."
+      )
+    );
+  };
+
+  return (<div className={clsx("flex gap-1", className)}>
     {baseConf?.data?.media_links && Object.entries(baseConf?.data?.media_links).map(([a, b]) => {
-      const url = typeof b === 'string' ? b : '';
-      if (url) {
-        const target = getExternalLinkTarget();
+      if (!(a in media_info_match)) {
+        return null;
+      }
+
+      const url = typeof b === "string" ? b : "";
+      if (url.trim()) {
+        const media = a as TMedia;
         return (
-          <InnerLink
+          <InnerButton
             key={a}
-            icon={media_info_match[a as TMedia]?.icon}
-            href={url}
-            target={target}
-            rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+            icon={media_info_match[media].icon}
+            onClick={() => {
+              void handleSocialClick(media, url);
+            }}
+            aria-label={`Open ${media} official channel`}
           />
         )
       }
@@ -54,8 +91,21 @@ export const SocialMedia = ({className}:{className?: string}) => {
   </div>)
 }
 
-const InnerLink = (props: ComponentProps<'a'> & { icon: string }) => {
-  return (<a {...props} className="btn btn-ghost btn-lg bg-base-100 p-0 w-12">
-    <img src={`https://image.1st.game/public/social-logo/${props.icon}`} alt=""/>
-  </a>)
+const InnerButton = (
+  props: ButtonHTMLAttributes<HTMLButtonElement> & { icon: string }
+) => {
+  const { icon, className, type, ...rest } = props;
+
+  return (
+    <button
+      {...rest}
+      type={type ?? "button"}
+      className={clsx("btn btn-ghost btn-lg bg-base-100 p-0 w-12", className)}
+    >
+      <img
+        src={`https://image.1st.game/public/social-logo/${icon}`}
+        alt=""
+      />
+    </button>
+  );
 }

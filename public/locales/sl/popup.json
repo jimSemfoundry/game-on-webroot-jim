@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Dobitki iz brezplačnih spinov ne bodo potekli, dokler ne bodo odklenjeni in zahtevani.",
     "general_terms": "Splošni pogoji",
     "general_terms_desc": "Nagrade brezplačnih spinov se izračunajo in pripišejo v BUCK, nato pa se prikažejo v vaši izbrani fiat valuti za udobje. Upoštevajte, da so pretvorbe valut približne.",
-    "general_terms_desc_2": "Kasino si pridržuje pravico do spremembe ali preklica upravičenosti kadarkoli, brez obveznosti pojasnila. Vsaka zloraba ali goljufiva dejavnost bo vodila do diskvalifikacije iz promocije."
+    "general_terms_desc_2": "Kasino si pridržuje pravico do spremembe ali preklica upravičenosti kadarkoli, brez obveznosti pojasnila. Vsaka zloraba ali goljufiva dejavnost bo vodila do diskvalifikacije iz promocije.",
+    "redeem_count_free_spins": "UNOVČITE {{freeSpinsCount}} BREZPLAČNIH SPINOV?"
   },
   "mysteryBox": {
     "description": "Več ko igrate, večja je možnost za velik dobitek. Odprite Mystery Box vsak mesec in odkrijte presenečenja, prilagojena vaši aktivnosti. Zavrtite, igrajte in prevzemite nagrado!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Denarni bonus",
   "none": "Brez",
   "bonus_limit": "Omejitev bonusa",
-  "minimum_deposit": "Minimalni polog"
+  "minimum_deposit": "Minimalni polog",
+  "get_buck": "PRIDOBI BUCK",
+  "what_is_buck": "Kaj je BUCK?",
+  "what_is_buck_description": "BUCK je ekskluzivni žeton za vse nagrade platforme, vrednoten pri 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "Ali je BUCK zamenljiv?",
+  "is_buck_exchangeable_description": "Da. BUCK lahko kadar koli pretvorite v podprte kripto ali fiat valute neposredno na platformi.",
+  "expiration_description": "Ne. BUCK nikoli ne poteče in ostane na vašem stanju, dokler ga ne uporabite.",
+  "general_terms_description": "Nagrade se izračunajo in pripišejo v USDT, nato pa se prikažejo v vaši prednostni fiat valuti za udobje. Prosimo, upoštevajte, da so pretvorbe valut približne. \n\n Igralnica si pridržuje pravico, da kadarkoli spremeni ali prekliče upravičenost, brez obveznosti, da to utemelji. Vsaka zloraba ali goljufiva dejavnost bo pripeljala do diskvalifikacije iz promocije.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Pridobite več Buddy Ball",
+    "daily_check_in": "Dnevna prijava",
+    "refer_a_friend": "Priporoči prijatelja",
+    "referral_first_deposit": "Prvi polog prek napotitve"
+  },
+  "bonus_details_modal": {
+    "description": "Dobrodošli v Bonus Trgovina, kjer lahko svoj denar pretvorite v Bonus dolarji in prejmete dodatnih 20%-180%, skladno z zahtevami za obračanje (pogoj preigravanja). Bonus dolarji so posebni igralni krediti, ki so na voljo za izbrane igre na igralnih avtomatih. Bonus dolarji lahko pretvorite v izplačljiv denar, ko izpolnite zahtevo za obračanje.",
+    "claim_distribution": "Ko izpolnite zahtevo pogoj preigravanja (stavljanje), lahko s klikom na gumb za prevzem pretvorite svoj saldo Bonus dolarji v izbrano valuto.",
+    "expiration_description": "Bonus dolarji je treba uporabiti v obdobju veljavnosti, prikazanem v zavihku Bonus Trgovina. Neuporabljeni saldi Bonus dolarji bodo po izteku veljavnosti zaplenjeni. Upoštevajte, da lahko imate hkrati le eno aktivno promocijo Bonus dolarji.",
+    "generalTerms_description": "Bonus dolarji se izračunajo in pripšejo v BONUS ter nato za vaše udobje prikažejo v izbrani prikazni valuti. Pretvorbe valut so približne. Casino si pridržuje pravico do spremembe ali preklica upravičenosti brez obveznosti utemeljitve. Kakšnakoli zloraba ali goljufiva dejavnost bo povzročila diskvalifikacijo iz promocije."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Dobrodošli v Sports Bonus, kjer lahko svoj denar pretvorite v dolarje Sports Bonus in prejmete dodatnih 50 % glede na zahteve glede stav. Športni bonus dolarji so posebni igralni krediti, ki so na voljo za uporabo pri športnih stavah. Dolarje športnih bonusov lahko pretvorite v dvigljivo gotovino, ko izpolnite zahtevo za stavo.",
+    "claim_distribution": "Ko izpolnite zahtevo za stavo, lahko svoje stanje športnega bonusa pretvorite v valuto po vaši izbiri s klikom na gumb za prevzem.",
+    "wagering_rules": "- Izgubljene stave: Celoten znesek vaše stave se v celoti šteje k zahtevam za stavo.\n- Zmagovalne stave: Štejejo se le, če so kvote ≥ {{minOdds}}. Če so kvote nižje od {{minOdds}}, se stava ne šteje k zahtevam za stavo.\n- Stave s cash out: Štejejo se le, če je znesek cash out večji od prvotnega zneska stave × {{minOdds}}.\n- K zahtevam za stavo se šteje le znesek stave, nikoli dobitki.",
+    "expiration_description": "Dolarje športnih bonusov morate porabiti v obdobju veljavnosti, prikazanem na zavihku Športni bonusi. Neuporabljena sredstva Sports Bonus Dollar bodo po obdobju veljavnosti zasežena.",
+    "generalTerms_description": "- Nagrade športnih bonusov se izračunajo in pripišejo v SPORTS BONUS, nato pa se zaradi priročnosti prikažejo v vaši želeni valuti. Upoštevajte, da so pretvorbe valut približne.\n- Igralnica si pridržuje pravico, da kadar koli spremeni ali prekliče upravičenost, brez obveznosti utemeljitve. Kakršna koli zloraba ali goljufiva dejavnost bo povzročila diskvalifikacijo iz promocije."
+  }
 }

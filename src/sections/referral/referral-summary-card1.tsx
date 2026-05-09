@@ -23,6 +23,7 @@ export const ReferralSummaryCard1 = () => {
   } = useReferralRewards();
 
   const { referralLink } = useReferralLink();
+  const hasShareableLink = /^https?:\/\//i.test(referralLink);
 
   const stripedBackground = `repeating-linear-gradient(
     -45deg,
@@ -139,11 +140,13 @@ export const ReferralSummaryCard1 = () => {
           <div className="rounded-field flex-1 min-w-0 h-10 sm:h-full bg-base-400 flex items-center px-2 sm:px-4 gap-2 sm:gap-3">
             <div className="flex-1 min-w-0 overflow-x-auto hide-scrollbar">
               <span className="text-base-content/50 text-xs sm:text-base font-semibold whitespace-nowrap">
-                {referralLink || t("referral:loadingLink", "Loading link...")}
+                {hasShareableLink
+                  ? referralLink
+                  : t("referral:loadingLink", "Loading link...")}
               </span>
             </div>
             <Copy
-              text={referralLink}
+              text={hasShareableLink ? referralLink : ""}
               trigger={
                 <button className="btn btn-primary btn-soft btn-square btn-xs sm:btn-sm shrink-0">
                   <Iconify icon="custom:copied" />
@@ -154,6 +157,7 @@ export const ReferralSummaryCard1 = () => {
           <button
             className="btn btn-primary btn-soft btn-sm sm:btn-lg shrink-0 justify-center"
             onClick={() => setIsShareModalOpen(true)}
+            disabled={!hasShareableLink}
           >
             <Iconify icon="custom:share" />
             <span>{t("bonus:share")}</span>

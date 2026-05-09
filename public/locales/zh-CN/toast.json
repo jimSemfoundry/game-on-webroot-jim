@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "请输入固定长度为{{length}}个字符",
   "disabledCharNotAllowed": "字符{{char}}不允许使用",
   "space": "空格",
-  "thisWalletIsAlreadyUsed": "此钱包已被使用"
+  "thisWalletIsAlreadyUsed": "此钱包已被使用",
+  "login_failed": "登录失败",
+  "login_error_code_1": "用户名必须是有效的电话号码（以 + 开头，国家代码后使用 -）或电子邮箱地址",
+  "account_created_and_logged_in_successfully": "账户已创建并成功登录！",
+  "requests_later": "此 IP 请求过多。请稍后再试。",
+  "booster_activated_successfully": "加速器激活成功！",
+  "depositNameEntered": "充值时填写的姓名需与提现银行卡账户的<0>**姓氏 + 名字（全名）**</0>保持一致，以符合反诈骗及反洗钱要求。\n\n如需更换银行卡，请联系客服并配合 KYC 认证。",
+  "user_not_found_or_password_incorrect": "用户不存在或密码错误",
+  "free_spin_record_enabled_successfully": "免费旋转记录已成功启用！",
+  "check_in_success": "签到成功！",
+  "check_in_failed": "签到失败！",
+  "check_in_already": "该日期的签到已完成。",
+  "ballsClaimed": "成功领取伙伴球",
+  "cannotBetby": "体育彩金仅用于体育博彩。"
 }

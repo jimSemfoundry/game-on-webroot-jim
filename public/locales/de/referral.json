@@ -190,5 +190,13 @@
   "programAccessUpdate": "Aktualisierung des Programmzugriffs",
   "referralProgramPrivileges": "Deine Berechtigungen für das Empfehlungsprogramm wurden nach einer Überprüfung deines Kontos und deiner Teilnahme am Programm widerrufen. Wir haben Aktivitäten festgestellt, die nicht mit den Bedingungen oder der vorgesehenen Nutzung unseres Empfehlungsprogramms vereinbar sind. Dazu können verdächtige Empfehlungsmuster, nicht autorisierte Werbemethoden, Missbrauch von Anreizen oder Versuche, Fair-Use-Richtlinien zu umgehen, gehören.",
   "referralRewardsPrivileges": "Infolgedessen wurde deine Möglichkeit, neue Empfehlungsbelohnungen zu generieren, Empfehlungslinks zu teilen oder Vorteile aus Empfehlungen zu erhalten, deaktiviert. Ausstehende oder zukünftige Belohnungen im Zusammenhang mit dem Empfehlungsprogramm werden gemäß unseren Richtlinien einbehalten und storniert. <0>Alle anderen Funktionen deines Kontos bleiben intakt und sind von dieser Änderung nicht betroffen</0>.",
-  "understandDisappointing": "Wir verstehen, dass das enttäuschend sein kann. Wenn du glaubst, dass diese Entscheidung ein Fehler ist oder du weitere Details wünschst, wende dich bitte mit relevanten Informationen an unser Support-Team; wir werden deinen Fall prüfen."
+  "understandDisappointing": "Wir verstehen, dass das enttäuschend sein kann. Wenn du glaubst, dass diese Entscheidung ein Fehler ist oder du weitere Details wünschst, wende dich bitte mit relevanten Informationen an unser Support-Team; wir werden deinen Fall prüfen.",
+  "spread_the_Love": "Verbreite die Liebe",
+  "need": "Brauchst du",
+  "new_friends": "Neue Freunde?",
+  "timeToRecruit": "Zeit zu rekrutieren! Tippe auf den Button, um einem völlig Fremden auf WhatsApp von uns zu erzählen.",
+  "date": "Datum",
+  "save": "speichern",
+  "enterCampaignName": "Kampagnenname eingeben",
+  "shareText": "🎮 Komm zu mir auf dieser großartigen Plattform!"
 }

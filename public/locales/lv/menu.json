@@ -34,6 +34,8 @@
   "upToReferral": "Līdz {{amount}} par ieteikumu",
   "language": "Valoda",
   "gameCurrency": "Spēles valūta",
-  "hideBlockedGames": "Paslēpt bloķētās spēles",
-  "settings": "Iestatījumi"
+  "hideBlockedGames": "Slēpt \n<0>bloķētās spēles</0>",
+  "settings": "Iestatījumi",
+  "problemReport": "Problēmas ziņojums",
+  "logging_key": "Žurnālēšana"
 }

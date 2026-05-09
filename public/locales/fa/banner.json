@@ -36,5 +36,5 @@
   "vip_monday": "دوشنبه VIP",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "پاداش \n <0>دلار</0>",
-  "super_everyday": "<0>اولین واریز روز</0><br/><0>کریپتو {{crypto_bonus}}</0><br/><0>فیات {{fiat_bonus}}</0><br/>واریزهای خود را<br/>هر روز افزایش دهید"
+  "super_everyday": "<0>اولین واریز روز</0><br/>کریپتو {{crypto_bonus}}<br/>فیات {{fiat_bonus}}"
 }

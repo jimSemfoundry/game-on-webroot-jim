@@ -163,7 +163,7 @@ export const GameCurrencySelectModal = ({ isOpen, onClose }: GameCurrencySelectM
               })}
               {filteredCurrencies.length === 0 && !currencyLoading && (
                 <li>
-                  <div className="text-center text-base-content/50 py-8">{t('common:noResultsFound')}</div>
+                  <div className="text-center text-base-content/50 py-8">{t('explore:noResultsFound')}</div>
                 </li>
               )}
             </ul>

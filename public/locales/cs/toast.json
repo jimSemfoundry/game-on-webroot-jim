@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Prosím zadejte pevnou délku {{length}} znaků",
   "disabledCharNotAllowed": "Znak {{char}} není povolen",
   "space": "mezera",
-  "thisWalletIsAlreadyUsed": "Tato peněženka je již používána"
+  "thisWalletIsAlreadyUsed": "Tato peněženka je již používána",
+  "login_failed": "Přihlášení se nezdařilo",
+  "login_error_code_1": "Uživatelské jméno musí být platné telefonní číslo (začínající + a s - za kódem země) nebo e-mailová adresa",
+  "account_created_and_logged_in_successfully": "Účet byl vytvořen a úspěšně přihlášen!",
+  "requests_later": "Příliš mnoho požadavků z této IP adresy. Zkuste to prosím znovu později.",
+  "booster_activated_successfully": "Booster úspěšně aktivován!",
+  "depositNameEntered": "Jméno zadané pro vklad musí odpovídat celému jménu<0>（Jméno + Příjmení）</0> na bankovním účtu použitém pro výběr, v souladu s předpisy proti podvodům a praní špinavých peněz.\n\n Pokud potřebujete změnit svůj bankovní účet, kontaktujte zákaznickou podporu a dokončete KYC ověření.",
+  "user_not_found_or_password_incorrect": "Uživatel nebyl nalezen nebo je heslo nesprávné",
+  "free_spin_record_enabled_successfully": "Záznam o free spinech byl úspěšně aktivován!",
+  "check_in_success": "Check-in proběhl úspěšně!",
+  "check_in_failed": "Check-in se nezdařil!",
+  "check_in_already": "Check-in pro toto datum je již dokončen.",
+  "ballsClaimed": "Kamarádova míč byla úspěšně získána",
+  "cannotBetby": "Sportovní bonusová peněženka je pouze pro sportovní sázení."
 }

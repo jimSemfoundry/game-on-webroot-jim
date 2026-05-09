@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Ca o alianță globală de jocuri de top, reunim forța și rafinamentul platformelor de elită sub o singură viziune. În toate mărcile din portofoliul nostru, ne mișcăm ca un tot unitar — oferind divertisment, recompense personalizate și conectivitate fără cusur între monede, țări și culturi.",
   "footerDescriptionThree": "Nu doar juca jocul. Provoacă totul.",
   "footerDescriptionFour": "O caracteristică semnătură a {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Toate drepturile rezervate.",
+  "footerDescriptionFive": "© {{year}}. Toate drepturile rezervate.",
   "banner": {
     "oneDescription": "FII PRIMUL.",
     "oneDescriptionTwo": "PROVOCĂ\nTOTUL",
@@ -127,5 +127,6 @@
   "addHomeScreen": "Adaugă la ecranul de start",
   "latestWins": "Ultimele Câștiguri",
   "spinPlayAndWinAcrossTopCasinoHits": "Rotește, joacă și câștigă în cele mai bune jocuri de cazino",
-  "scoreBigOnSportsFromAroundTheWorld": "Câștigă mult la sporturi din întreaga lume"
+  "scoreBigOnSportsFromAroundTheWorld": "Câștigă mult la sporturi din întreaga lume",
+  "show_less": "Afișează mai puțin"
 }

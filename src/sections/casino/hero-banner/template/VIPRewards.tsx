@@ -2,18 +2,19 @@ import { useMemo } from "react";
 import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import {
   InnerBannerButtonV2,
-  InnerBannerContent,
-  InnerBannerWrapper, InnerDataTranslation, useNavigateGuard
+  InnerBannerContent, InnerBannerTitleV2,
+  InnerBannerWrapper, useNavigateGuard
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import {
-  InnerBannerPerson,
+  InnerBannerPerson
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
-import clsx from "clsx";
 import { useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
+import i18n from "@/i18n.ts";
 
-export const VIPRewards = ({ content }: {
+export const VIPRewards = ({ content, extra_content }: {
   content: string
+  extra_content: string
 }) => {
   const navigate = useNavigate();
 
@@ -23,17 +24,17 @@ export const VIPRewards = ({ content }: {
 
   const banner = useMemo(() => parser(content), [content]);
 
+  // 根据用户的语言匹配相应的模版内容
+  const banner_extra_content = useMemo(() => {
+    const keys = JSON.parse(extra_content)
+    return keys.find((l: Record<string, any>) => l?.language === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
+
   return (
     <InnerBannerWrapper>
       <InnerBannerContent>
-        <div className="flex flex-col whitespace-pre-line font-black leading-5">
-          <p className={clsx("text-base-content rtl:ml-auto")}>
-            <InnerDataTranslation
-              text={`${banner?.title}`}
-              value={banner?.value || 0}
-              percent={((banner?.percent || 0) * 100) + "%"} />
-          </p>
-        </div>
+        <InnerBannerTitleV2 banner={banner_extra_content} value={banner?.value || 0}
+                            percent={((banner?.percent || 0) * 100) + "%"} />
 
         <InnerBannerButtonV2 text={t(`banner:MORE_INFO`)} onClick={() => {
           navigateCallback(() => {
@@ -47,11 +48,11 @@ export const VIPRewards = ({ content }: {
               search: searchParams
             });
           }, true);
-        }} className={'btn-outline'} />
+        }} className={"btn-outline"} />
       </InnerBannerContent>
 
       {/* 人物 */}
-      <InnerBannerPerson src={banner?.picture} />
+      <InnerBannerPerson src={banner_extra_content?.picture} />
     </InnerBannerWrapper>
   );
 };

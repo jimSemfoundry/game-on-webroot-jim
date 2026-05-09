@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef, useMemo } from "react";
 import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import { useTranslation } from "react-i18next";
 import { InnerConfirmBox } from "@/sections/dollars/components.tsx";
@@ -9,33 +9,39 @@ import {
   InnerTimeDesc,
   InnerTimeLabel,
   InnerContainer,
-  InnerBannerWrapper, InnerBannerContent, InnerDataTranslation, useNavigateGuard
+  InnerBannerWrapper, InnerBannerContent, useNavigateGuard, InnerBannerTitleV2
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import { emitter } from "@/store/emitter.ts";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
-import clsx from "clsx";
+import i18n from "@/i18n.ts";
+import { useNavigate } from "@tanstack/react-router";
 
 dayjs.extend(duration);
 
 const init = [0, 0, 0, 0];
 
-export const DepositSunday = ({ content }: {
+export const DepositSunday = ({ content, extra_content }: {
   content: string
+  extra_content: string
 }) => {
   const timerRef = useRef<any>(null);
+
+  const navigate = useNavigate();
 
   const { t } = useTranslation(["common", "banner", "bonus"]);
 
   const { navigateCallback } = useNavigateGuard();
-
-  const { openUserFinanceModalWithTab } = useFinanceModal();
 
   const banner = parser(content);
   const expired_at = banner?.expired_at ?? 0;
 
   const [_timeFinished, setTimeFinished] = useState<boolean>(false);
   const [estimatedTime, setEstimatedTime] = useState<number[]>(init);
+
+  // 根据用户的语言匹配相应的模版内容
+  const banner_extra_content = useMemo(() => {
+    const keys = JSON.parse(extra_content);
+    return keys.find((l: Record<string, any>) => l?.language === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
 
   // 钱包数据不是实时更新，有些情况下需要自己监听过期时间--start
   const stopTimer = () => {
@@ -87,14 +93,7 @@ export const DepositSunday = ({ content }: {
   return (
     <InnerBannerWrapper>
       <InnerBannerContent>
-        <div className="flex flex-col whitespace-pre-line font-black leading-5">
-          <p className={clsx("text-base-content rtl:ml-auto")}>
-            <InnerDataTranslation
-              text={`${banner?.title}`}
-              value=""
-              percent={(banner?.bonus_rate || 0) * 100 + "%"} />
-          </p>
-        </div>
+        <InnerBannerTitleV2 banner={banner_extra_content} percent={(banner?.bonus_rate || 0) * 100 + "%"} />
 
         {/* 倒计时 */}
         <InnerContainer className="relative w-50 rounded-lg p-2 mt-2">
@@ -113,9 +112,9 @@ export const DepositSunday = ({ content }: {
               navigateCallback(() => {
                 // 周日充值，需要主动激活法币存款Tab项目
                 emitter.emit("FROM_DEPOSIT_PROMOTION_SUNDAY");
-                
+
                 // 打开存款窗口
-                openUserFinanceModalWithTab(`deposit_${randomString()}`);
+                void navigate({ to: "/finance" });
               }, true);
             }}>
             {t(`banner:DEPOSIT_NOW`)}
@@ -124,7 +123,7 @@ export const DepositSunday = ({ content }: {
       </InnerBannerContent>
 
       {/* 人物 */}
-      <InnerBannerPerson src={banner?.picture} />
+      <InnerBannerPerson src={banner_extra_content?.picture} />
     </InnerBannerWrapper>
   );
 };

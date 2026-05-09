@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Jako přední globální herní aliance spojujeme sílu a sofistikovanost špičkových platforem pod jednou vizí. Napříč všemi značkami v našem portfoliu působíme jako jeden celek — poskytujeme zábavu, personalizované odměny a bezproblémové propojení napříč měnami, zeměmi a kulturami.",
   "footerDescriptionThree": "Nejen hrajte hru. Zpochybněte vše.",
   "footerDescriptionFour": "Charakteristický rys {{supportName}} Aliance",
-  "footerDescriptionFive": "© 2025. Všechna práva vyhrazena.",
+  "footerDescriptionFive": "© {{year}}. Všechna práva vyhrazena.",
   "banner": {
     "oneDescription": "BUĎTE PRVNÍ.",
     "oneDescriptionTwo": "VYZVĚTE\nVŠECHNO",
@@ -127,5 +127,6 @@
   "addHomeScreen": "Přidat na domovskou obrazovku",
   "latestWins": "Nejnovější Výhry",
   "spinPlayAndWinAcrossTopCasinoHits": "Točte, hrajte a vyhrávejte na nejlepších kasinových hitech",
-  "scoreBigOnSportsFromAroundTheWorld": "Získejte velké výhry na sportech z celého světa"
+  "scoreBigOnSportsFromAroundTheWorld": "Získejte velké výhry na sportech z celého světa",
+  "show_less": "zobrazit méně"
 }

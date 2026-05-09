@@ -34,5 +34,12 @@
   "depositNow": "Депозит зараз",
   "free_spins": "Безкоштовні обертання",
   "play_with_balance_in": "Грати з балансом у",
-  "the_selected_currency_will_be_displayed_in": "Вибрана валюта буде відображена в"
+  "the_selected_currency_will_be_displayed_in": "Вибрана валюта буде відображена в",
+  "activity": "Активність",
+  "come_join_me_now_at": "ПРИЄДНУЙТЕСЯ ЗАРАЗ ДО",
+  "invite_friends_to_join_play": "Запросіть друзів приєднатися та Грати",
+  "earn_up_to_50_commission_bonus": "Заробляйте до 50% комісії <0>+{{bonus}}</0> Бонус",
+  "download_failed": "Помилка завантаження. Будь ласка, спробуйте знову.",
+  "image_downloaded": "Зображення завантажено!",
+  "share_text_1": "Я щойно зірвав BIG WIN x{{multiplier}}! 🔥"
 }

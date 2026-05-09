@@ -1,4 +1,5 @@
 // Explore页面的菜单配置
+
 export interface MenuConfig {
   value: string;
   label: string;
@@ -46,9 +47,13 @@ export const PRIMARY_MENUS: MenuConfig[] = [
   },
 ];
 
+
+const bonus_wallet_supported_games_menu = { value: "bonus", label: "explore:bonus", icon: "custom:dollars" };
+
 // 二级菜单配置 (Tabs) - 映射到 game_category_2
 export const SECONDARY_MENUS: Record<string, TabConfig[]> = {
   casino: [
+    bonus_wallet_supported_games_menu,
     { value: "hot", label: "explore:hot", icon: "custom:hot" },
     { value: "recent", label: "explore:recents", icon: "custom:recent" },
     { value: "favorites", label: "explore:favorites", icon: "custom:favorites" },
@@ -58,6 +63,7 @@ export const SECONDARY_MENUS: Record<string, TabConfig[]> = {
     { value: "fishing", label: "explore:fishing", icon: "custom:fishing" },
   ],
   slots: [
+    bonus_wallet_supported_games_menu,
     { value: "all", label: "casino:all", icon: "custom:explore" },
     { value: "hot", label: "explore:hot", icon: "custom:hot" },
     { value: "new", label: "explore:new", icon: "custom:new" },
@@ -71,6 +77,7 @@ export const SECONDARY_MENUS: Record<string, TabConfig[]> = {
     { value: "other-slots", label: "explore:others", icon: "custom:more" },
   ],
   liveCasino: [
+    bonus_wallet_supported_games_menu,
     { value: "all", label: "explore:all", icon: "custom:explore" },
     { value: "hot", label: "explore:hot", icon: "custom:hot" },
     { value: "new", label: "explore:new", icon: "custom:new" },
@@ -81,6 +88,7 @@ export const SECONDARY_MENUS: Record<string, TabConfig[]> = {
     { value: "other-live", label: "explore:others", icon: "custom:more" },
   ],
   fast: [
+    bonus_wallet_supported_games_menu,
     { value: "all", label: "explore:all", icon: "custom:explore" },
     { value: "hot", label: "explore:hot", icon: "custom:hot" },
     { value: "new", label: "explore:new", icon: "custom:new" },
@@ -114,18 +122,18 @@ export const getDefaultSecondaryValue = (primaryValue: string): string => {
   const secondaryMenus = SECONDARY_MENUS[primaryValue];
   if (!secondaryMenus || secondaryMenus.length === 0) return "";
 
-  // slots 和 sports 默认显示 'all'，其他显示第一个选项
-  if (primaryValue === "slots" || primaryValue === "sports" || primaryValue === "hot") {
+  // slots/liveCasino/fast/sports 默认显示 'all'，其他显示第一个选项
+  if (primaryValue === "slots" || primaryValue === "liveCasino" || primaryValue === "fast" || primaryValue === "sports" || primaryValue === "hot") {
     return "all";
   }
   return secondaryMenus[0].value;
 };
 
 // 根据主菜单值获取API的game_category_1参数
-export const getPrimaryApiCategory = (primaryValue: string, secondaryValue?: string): string => {
+export const getPrimaryApiCategory = (primaryValue: string): string => {
   // 默认casino不传参数
   if (primaryValue === "casino") {
-    return secondaryValue === 'bonus' ? "slots" : "";
+    return "";
   }
   const menu = PRIMARY_MENUS.find((m) => m.value === primaryValue);
   return menu?.apiCategory || "";
@@ -134,7 +142,7 @@ export const getPrimaryApiCategory = (primaryValue: string, secondaryValue?: str
 // 根据二级菜单值获取API的game_category_2参数
 export const getSecondaryApiCategory = (secondaryValue: string): string => {
   // casino + hot 的默认组合不传参数
-  if (secondaryValue === "hot" || secondaryValue === "new" || secondaryValue === "recent" || secondaryValue === "favorites" || secondaryValue === "bonus") {
+  if (secondaryValue === "hot" || secondaryValue === "new" || secondaryValue === "recent" || secondaryValue === "favorites") {
     return "";
   }
   // 'all' 表示不限制二级分类

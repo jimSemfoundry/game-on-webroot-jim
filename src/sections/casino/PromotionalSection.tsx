@@ -3,10 +3,12 @@ import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import { ReactNode } from "react";
+import { useBaseConfig } from "@/hooks/api/usePublic.ts";
 
 export const PromotionalSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
   return (
     <div
       className="flex sm:gap-4 min-h-[130px] sm:min-h-[160px] gap-2 sm:gap-4">
@@ -18,27 +20,7 @@ export const PromotionalSection = () => {
         {/* Background grid mask - full coverage */}
         <InnerBgMask />
       </InnerWrapper>
-      <InnerWrapper onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })}>
-        <InnerSlogan title={t("common:common.sports")} subTitle={t("casino:scoreBigOnSportsFromAroundTheWorld")} />
-        <InnerNavLink onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })} />
-        {/* Main illustration - responsive sizing */}
-        <InnerPicture name="sport" />
-        {/* Background grid mask - full coverage */}
-        <InnerBgMask />
-      </InnerWrapper>
-
-      {/*<InnerWrapper onClick={() => navigate({ to: "/bonus", search: { tab: undefined } })}>*/}
-      {/*  <p className="font-bold text-base lg:text-xl xl:text-2xl text-center px-2 z-10 relative">{t("bonus:bonusHub.root")}</p>*/}
-      {/*  <button*/}
-      {/*    className="btn btn-primary btn-sm lg:btn-md xl:btn-lg z-20 w-10/12 max-w-32 text-xs lg:text-sm"*/}
-      {/*    onClick={() => navigate({ to: "/bonus", search: { tab: undefined } })}*/}
-      {/*  >*/}
-      {/*    Claim*/}
-      {/*  </button>*/}
-      {/*  /!* Responsive bonus illustration *!/*/}
-      {/*  <InnerPicture name="promotion" />*/}
-      {/*  <InnerBgMask />*/}
-      {/*</InnerWrapper>*/}
+      <InnerBetbyGuard />
     </div>
   );
 };
@@ -51,7 +33,6 @@ const InnerBgMask = () => {
     className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-20 object-cover"
   />;
 };
-
 
 const InnerSlogan = ({ title, subTitle }: { title: string, subTitle: string }) => {
   return (
@@ -87,12 +68,42 @@ const InnerPicture = ({ name }: { name: string }) => {
   />;
 };
 
-const InnerNavLink = ({onClick}:{onClick:() => void}) => {
+const InnerNavLink = ({ onClick }: { onClick: () => void }) => {
   return <button
     className="btn btn-primary btn-square btn-soft btn-sm z-10 relative"
     onClick={onClick}
   >
     {/*<span className="hidden sm:inline text-xs lg:text-base">{t("common:common.explore")}</span>*/}
     <ChevronRight className="rtl:rotate-y-180 w-4 h-4" strokeWidth={3} />
-  </button>
+  </button>;
+};
+
+/**
+ * 在 Betby 不支持的地区和被体育禁止的用户将体育替换为“Live（Casino）”
+ */
+const InnerBetbyGuard = () => {
+  const navigate = useNavigate();
+
+  const { t } = useTranslation();
+
+  // 基础配置数据
+  const { data: baseConfig } = useBaseConfig();
+
+  return baseConfig?.data?.is_show_betby === 0
+    ? (<InnerWrapper onClick={() => navigate({ to: "/explore", search: { type: "liveCasino", category: "all" } })}>
+      <InnerSlogan title={t("explore:live")} subTitle={t("casino:liveDealers")} />
+      <InnerNavLink onClick={() => navigate({ to: "/explore", search: { type: "liveCasino", category: "all" } })} />
+      {/* Main illustration - responsive sizing */}
+      <InnerPicture name="live_casino" />
+      {/* Background grid mask - full coverage */}
+      <InnerBgMask />
+    </InnerWrapper>)
+    : (<InnerWrapper onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })}>
+      <InnerSlogan title={t("common:common.sports")} subTitle={t("casino:scoreBigOnSportsFromAroundTheWorld")} />
+      <InnerNavLink onClick={() => navigate({ to: "/sports", search: { "bt-path": "/" } })} />
+      {/* Main illustration - responsive sizing */}
+      <InnerPicture name="sport" />
+      {/* Background grid mask - full coverage */}
+      <InnerBgMask />
+    </InnerWrapper>);
 };

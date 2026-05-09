@@ -34,6 +34,8 @@
   "upToReferral": "تا {{amount}} برای هر ارجاع",
   "language": "زبان",
   "gameCurrency": "ارز بازی",
-  "hideBlockedGames": "پنهان کردن بازی‌های مسدودشده",
-  "settings": "تنظیمات"
+  "hideBlockedGames": "پنهان کردن \n<0>بازی‌های مسدودشده</0>",
+  "settings": "تنظیمات",
+  "problemReport": "گزارش مشکل",
+  "logging_key": "ثبت لاگ"
 }

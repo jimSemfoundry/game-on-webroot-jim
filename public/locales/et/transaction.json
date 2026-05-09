@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Väljamakse",
     "cryptoWithdraw": "Krüpto Väljamakse",
     "bonus": "Boonus",
+    "bounty": "Auhind",
     "win": "Võit",
     "bet": "Panus",
     "refund": "Tagasimakse",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Boonus",
     "cashbackbonus": "Cashback Boonus",
     "referral": "Soovitus",
-    "commission": "Komisjon"
+    "commission": "Komisjon",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Automaadid",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Avatud vahendid",
     "rolloverMul": "Panuse kordaja"
   },
-  "assistance": "Palun kontrollige oma andmeid ja proovige uuesti või võtke abi saamiseks ühendust klienditeenindusega"
+  "assistance": "Teie nimi ei ühti nimega, mida kasutasite selle kanali jaoks esimest korda. Palun võtke ühendust klienditeenindusega."
 }

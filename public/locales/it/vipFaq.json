@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Cos'è un Booster?",
-    "content": "<p class=\"leading-7\">I Booster raddoppiano il tuo Rakeback per un'ora ogni volta che un referral effettua un deposito.</p><p class=\"leading-7\">Tasso di Sblocco Potenziato:</p><p class=\"leading-7\">Tasso di Sblocco:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">I Booster raddoppiano il tuo Rakeback per tre ore ogni volta che un referral effettua un deposito.</p><p class=\"leading-7\">Tasso di Sblocco Potenziato:</p><p class=\"leading-7\">Tasso di Sblocco:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Cos'è il Calendario dei Bonus?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Cosa sono i Risultati?",
-    "content": "<p class=\"leading-7\">I Risultati sono il nostro modo di riconoscere la tua attività sulla nostra piattaforma. Quando richiedi il tuo bonus di risultato, verrà pagato nel tuo Calendario dei Bonus e può essere richiesto ogni 8 ore e scadere in 24 ore se non richiesto.</p>"
+    "content": "<p class=\"leading-7\">I Risultati sono il nostro modo di riconoscere la tua attività sulla nostra piattaforma. I Risultati sono disponibili per essere richiesti quando raggiungi VIP 2 e oltre.</p>"
   }
 }

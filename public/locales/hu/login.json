@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Kérjük, adjon meg egy jelszót",
   "verification_code_sent_to_your": "A megerősítő kódot elküldtük az e-mail címére/telefonjára",
   "one_min_error": "Kérjük, várjon 1 percet, hogy újra megkapja a megerősítő kódot.",
-  "signInWith": "Regisztráljon ezzel"
+  "must_agree": "El kell fogadnia az általános szerződési feltételeket",
+  "signInWith": "Regisztráljon ezzel",
+  "usernameTooShort": "A felhasználónévnek legalább 6 karakter hosszúnak kell lennie"
 }

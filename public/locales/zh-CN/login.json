@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "请输入密码",
   "verification_code_sent_to_your": "验证码已发送到您的电子邮件/电话",
   "one_min_error": "1分钟后再次获取验证码。",
-  "signInWith": "使用以下方式注册"
+  "must_agree": "您必须同意条款和条件",
+  "signInWith": "使用以下方式注册",
+  "usernameTooShort": "用户名至少需要6个字符"
 }

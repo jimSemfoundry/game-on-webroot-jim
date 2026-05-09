@@ -34,6 +34,8 @@
   "upToReferral": "Opptil {{amount}} per henvisning",
   "language": "Språk",
   "gameCurrency": "Spillvaluta",
-  "hideBlockedGames": "Skjul blokkerte spill",
-  "settings": "Innstillinger"
+  "hideBlockedGames": "Skjul \n<0>blokkerte spill</0>",
+  "settings": "Innstillinger",
+  "problemReport": "Problemerapport",
+  "logging_key": "Logging"
 }

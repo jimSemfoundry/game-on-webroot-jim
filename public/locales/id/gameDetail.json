@@ -34,5 +34,12 @@
   "depositNow": "Setor Sekarang",
   "free_spins": "Putaran Gratis",
   "play_with_balance_in": "Bermain dengan Saldo Dalam",
-  "the_selected_currency_will_be_displayed_in": "Mata uang yang dipilih akan ditampilkan dalam"
+  "the_selected_currency_will_be_displayed_in": "Mata uang yang dipilih akan ditampilkan dalam",
+  "activity": "Aktivitas",
+  "come_join_me_now_at": "BERGABUNGLAH SEKARANG DI",
+  "invite_friends_to_join_play": "Undang teman untuk bergabung & Bermain",
+  "earn_up_to_50_commission_bonus": "Dapatkan hingga 50% komisi <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Unduhan gagal. Silakan coba lagi.",
+  "image_downloaded": "Gambar berhasil diunduh!",
+  "share_text_1": "Saya baru saja mendapatkan {{multiplier}}x BIG WIN! 🔥"
 }

@@ -14,10 +14,11 @@ import { IVipBonusClaim } from "@/types/bonus";
 import { toast } from 'sonner';
 import { useClaimBonusMutation } from "@/hooks/api/useAuth";
 import { useBoundStore } from "@/store";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
-const ILLUSTRATION_URL = "/images/illustrations/isometric2.svg";
 const DEFAULT_ACCENT = "rgba(255, 0, 102, 0.8)";
 
 const buildBackground = (accentStop: string, isMobile: boolean) =>
@@ -40,6 +41,7 @@ export function BonusLuckyNumberCard() {
   const { status, user } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { setSyncAction } = useBoundStore();
+  const ILLUSTRATION_URL = useBonusDetailsImage("lucky_number_seven", 96);
 
   const requiredVipLevel = VIP_REQUIREMENTS.luckyNumber.requiredLevel;
 
@@ -124,14 +126,12 @@ export function BonusLuckyNumberCard() {
         background,
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
+      <Info className="absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips} />
       <div className="flex w-full items-center gap-4 sm:flex-1 sm:flex-col sm:items-center sm:gap-3 sm:text-center">
         <div className="w-16 h-16 sm:size-[82px] grid place-items-center rounded-xl">
           <img src={ILLUSTRATION_URL} alt={t("bonus:lucky_number")} className="w-full h-full object-contain" loading="lazy" decoding="async" />
         </div>
-        <div className="flex flex-1 flex-col gap-1 sm:gap-2 sm:items-center">
+        <div className="flex flex-1 flex-col gap-2 sm:gap-2 sm:items-center">
           <p className="text-sm font-bold sm:text-base text-left w-full">{t("bonus:lucky_number_seven")}</p>
           <p className="text-xs text-base-content/60 leading-5 sm:flex-1 text-left w-full">
             <Trans i18nKey="bonus:lucky_number_seven_description" values={{ number: "7'" }} />
@@ -154,7 +154,7 @@ export function BonusLuckyNumberCard() {
             <Iconify icon="custom:cash" />
             <input
               type="text"
-              className="grow border-none outline-none h-10"
+              className="grow border-none outline-none h-10 font-semibold"
               readOnly
               value={formatWithConversion(objVipBonusClaim?.value ?? 0, 'USD', { showCode: false }).formatted}
             />

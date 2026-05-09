@@ -4,7 +4,7 @@ import { cn } from "@/utils/cn.ts";
 import { useClickAway } from "@/hooks/useClickAway";
 import { useToggle } from "@/hooks/useToggle";
 import { ChevronDown, ChevronLeft } from "lucide-react";
-import { m, LazyMotion, domMax } from "motion/react";
+import { m, LazyMotion, domMax, AnimatePresence } from "motion/react";
 import { useEffect, useMemo, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
@@ -107,52 +107,61 @@ export const WithdrawMethodSelectV1 = (
 
         {/*桌面端*/}
         <LazyMotion features={domMax}>
-          {!isMobile && (
-            <m.div
-              initial={false}
-              animate={status ? "open" : "closed"}
-              variants={{
-                open: { height: "auto", opacity: 1, pointerEvents: "auto" as const, display: "block" },
-                closed: { height: 0, opacity: 0, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
-              }}
-              transition={{ duration: 0.1 }}
-              className={cn(`
-          bg-base-300 absolute z-10 mt-1 w-full rounded-lg shadow-xs 
-          w-[calc(100vw-3rem)] md:w-[calc(200%+8px)] overflow-hidden ltr:-left-[calc(100%+8px)] rtl:-right-[calc(100%+8px)]`)}
-            >
-              <div className="h-2 bg-base-300 sticky top-0" />
-              <div className="flex max-h-[412px] flex-col gap-3 px-3 py-1 overflow-y-auto hide-scrollbar">
-                <p className="h-5 text-xs font-semibold">{t("finance:paymentProviders")}</p>
-                {memoProviders}
-              </div>
-              <div className="h-2 bg-base-300 sticky bottom-0" />
-            </m.div>
-          )}</LazyMotion>
+          <AnimatePresence>
+            {!isMobile && status && (
+              <m.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={{
+                  open: { height: "auto", opacity: 1, pointerEvents: "auto" as const, display: "block" },
+                  closed: { height: 0, opacity: 0, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
+                }}
+                transition={{ duration: 0.1 }}
+                className={cn(`
+            bg-base-300 absolute z-10 mt-1 w-full rounded-lg shadow-xs 
+            w-[calc(100vw-3rem)] md:w-[calc(200%+8px)] overflow-hidden ltr:-left-[calc(100%+8px)] rtl:-right-[calc(100%+8px)]`)}
+              >
+                <div className="h-2 bg-base-300 sticky top-0" />
+                <div className="flex max-h-[412px] flex-col gap-3 px-3 py-1 overflow-y-auto hide-scrollbar">
+                  <p className="h-5 text-xs font-semibold">{t("finance:paymentProviders")}</p>
+                  {memoProviders}
+                </div>
+                <div className="h-2 bg-base-300 sticky bottom-0" />
+              </m.div>
+            )}
+          </AnimatePresence>
+        </LazyMotion>
       </div>
 
       {/* 移动端 */}
       {isMobile &&
         createPortal(
           <LazyMotion features={domMax}>
-            <m.div
-              initial={false}
-              animate={status ? "open" : "closed"}
-              variants={{
-                open: { opacity: 1, y: 0, pointerEvents: "auto" as const, display: "flex" },
-                closed: { opacity: 0, y: -8, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
-              }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="px-4 py-4 bg-base-300 fixed w-full z-1002 top-0 bottom-0 flex flex-col"
-              style={{ paddingTop: "max(1rem, var(--safe-area-inset-top))" }}
-            >
-              <p className="flex items-center justify-center relative text-lg font-semibold h-7">
-                <button className={"absolute left-0 btn btn-square rounded-lg"} onClick={() => set(false)}>
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-                {t("finance:paymentProviders")}
-              </p>
-              <div className="mt-4 overflow-y-auto flex-1 hide-scrollbar">{memoProviders}</div>
-            </m.div>
+            <AnimatePresence>
+              {status && (
+                <m.div
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={{
+                    open: { opacity: 1, y: 0, pointerEvents: "auto" as const, display: "flex" },
+                    closed: { opacity: 0, y: -8, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
+                  }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="px-4 py-4 bg-base-300 fixed w-full z-1002 top-0 bottom-0 flex flex-col"
+                  style={{ paddingTop: "max(1rem, var(--safe-area-inset-top))" }}
+                >
+                  <p className="flex items-center justify-center relative text-lg font-semibold h-7">
+                    <button className={"absolute left-0 btn btn-square rounded-lg"} onClick={() => set(false)}>
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    {t("finance:paymentProviders")}
+                  </p>
+                  <div className="mt-4 overflow-y-auto flex-1 hide-scrollbar">{memoProviders}</div>
+                </m.div>
+              )}
+            </AnimatePresence>
           </LazyMotion>,
           document.body
         )}

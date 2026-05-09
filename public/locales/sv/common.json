@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Mobilnumret har redan använts. Vänligen använd ett annat nummer.",
     "mobileAlreadyBound": "Mobilnumret är redan kopplat till det här kontot.",
     "fullscreen": "Helskärm",
-    "exitFullscreen": "Avsluta helskärm"
+    "exitFullscreen": "Avsluta helskärm",
+    "draw": "Oavgjort"
   },
   "bonus_pool": "Bonuspool",
   "pleaseEnterValidUsernameOrEmail": "Vänligen ange ett giltigt användarnamn eller e-post",

@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Bilang nangungunang pandaigdigang alyansa sa paglalaro, pinagsasama-sama namin ang lakas at sopistikasyon ng mga top-tier na platform sa ilalim ng isang pananaw. Sa lahat ng brand sa aming portfolio, gumagalaw kami bilang isa — naghahatid ng libangan, personalized na gantimpala, at walang putol na koneksyon sa mga pera, bansa, at kultura.",
   "footerDescriptionThree": "Huwag lang laruin ang laro. Hamunin ang lahat.",
   "footerDescriptionFour": "Isang natatanging katangian ng {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Lahat ng karapatan ay nakalaan.",
+  "footerDescriptionFive": "© {{year}}. Lahat ng karapatan ay nakalaan.",
   "banner": {
     "oneDescription": "MAGING UNA.",
     "oneDescriptionTwo": "HAMONIN\nANG LAHAT",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Idagdag sa Home Screen",
   "latestWins": "Pinakabagong Panalo",
   "spinPlayAndWinAcrossTopCasinoHits": "Mag-spin, maglaro, at manalo sa mga nangungunang hit ng casino",
-  "scoreBigOnSportsFromAroundTheWorld": "Magtala ng malaking puntos sa mga sports mula sa buong mundo"
+  "scoreBigOnSportsFromAroundTheWorld": "Magtala ng malaking puntos sa mga sports mula sa buong mundo",
+  "liveDealers": "Mga live dealer para sa iyong paboritong table games",
+  "show_less": "ipakita ang mas kaunti"
 }

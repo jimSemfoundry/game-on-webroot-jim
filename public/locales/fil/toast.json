@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Mangyaring maglagay ng nakatakdang haba ng {{length}} na mga karakter",
   "disabledCharNotAllowed": "Ang karakter na {{char}} ay hindi pinapayagan",
   "space": "espasyo",
-  "thisWalletIsAlreadyUsed": "Ang wallet na ito ay ginagamit na"
+  "thisWalletIsAlreadyUsed": "Ang wallet na ito ay ginagamit na",
+  "login_failed": "Nabigong mag-login",
+  "login_error_code_1": "Ang username ay dapat na isang wastong numero ng telepono (nagsisimula sa + at gumagamit ng - pagkatapos ng country code) o email address",
+  "account_created_and_logged_in_successfully": "Matagumpay na nagawa ang account at naka-login!",
+  "requests_later": "Masyadong maraming kahilingan mula sa IP na ito. Pakisubukan muli mamaya.",
+  "booster_activated_successfully": "Matagumpay na na-activate ang Booster!",
+  "depositNameEntered": "Ang pangalan na ipinasok para sa deposit ay dapat tumugma sa buong pangalan<0>（First Name + Last Name）</0> sa bank account na ginamit para sa withdrawal, ayon sa mga regulasyon laban sa pandaraya at anti-money laundering.\n\n Kung kailangan mong baguhin ang iyong bank account, mangyaring makipag-ugnayan sa customer support at kumpletuhin ang KYC verification.",
+  "user_not_found_or_password_incorrect": "Hindi nahanap ang user o mali ang password",
+  "free_spin_record_enabled_successfully": "Matagumpay na na-enable ang free spin record!",
+  "check_in_success": "Matagumpay ang check-in!",
+  "check_in_failed": "Nabigo ang check-in!",
+  "check_in_already": "Nakumpleto na ang check-in para sa petsang ito.",
+  "ballsClaimed": "Matagumpay na nakuha ang bola ng kaibigan",
+  "cannotBetby": "Ang Sports Bonus Wallet ay para lang sa sports betting."
 }

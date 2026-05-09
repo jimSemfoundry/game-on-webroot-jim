@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Veuillez entrer une longueur fixe de {{length}} caractères",
   "disabledCharNotAllowed": "Le caractère {{char}} n'est pas autorisé",
   "space": "espace",
-  "thisWalletIsAlreadyUsed": "Ce portefeuille est déjà utilisé"
+  "thisWalletIsAlreadyUsed": "Ce portefeuille est déjà utilisé",
+  "login_failed": "Échec de la connexion",
+  "login_error_code_1": "Le nom d'utilisateur doit être un numéro de téléphone valide (commençant par + et utilisant - après l'indicatif du pays) ou une adresse e-mail",
+  "account_created_and_logged_in_successfully": "Compte créé et connecté avec succès !",
+  "requests_later": "Trop de requêtes depuis cette IP. Veuillez réessayer plus tard.",
+  "booster_activated_successfully": "Booster activé avec succès !",
+  "depositNameEntered": "Le nom saisi pour le dépôt doit correspondre au nom complet<0>（Prénom + Nom）</0> sur le compte bancaire utilisé pour le retrait, conformément aux réglementations anti-fraude et anti-blanchiment d'argent.\n\n Si vous devez modifier votre compte bancaire, veuillez contacter le service client et terminer la vérification KYC.",
+  "user_not_found_or_password_incorrect": "Utilisateur introuvable ou mot de passe incorrect",
+  "free_spin_record_enabled_successfully": "Enregistrement de tours gratuits activé avec succès !",
+  "check_in_success": "Pointage réussi !",
+  "check_in_failed": "Échec du pointage !",
+  "check_in_already": "Le pointage est déjà terminé pour cette date.",
+  "ballsClaimed": "Balle du partenaire réclamée avec succès",
+  "cannotBetby": "Le portefeuille de bonus sportifs est réservé aux paris sportifs uniquement."
 }

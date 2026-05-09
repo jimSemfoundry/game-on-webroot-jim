@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Mobiilinumber on juba kasutusel. Palun kasutage teist numbrit.",
     "mobileAlreadyBound": "Mobiilinumber on juba selle kontoga seotud.",
     "fullscreen": "Täisekraan",
-    "exitFullscreen": "Välju täisekraanist"
+    "exitFullscreen": "Välju täisekraanist",
+    "draw": "Viik"
   },
   "bonus_pool": "Boonuste bassein",
   "pleaseEnterValidUsernameOrEmail": "Palun sisestage kehtiv kasutajanimi või e-post",

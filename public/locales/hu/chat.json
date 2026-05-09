@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Az ügyfélszolgálati csevegés nem töltődött be",
   "read": "Olvasott",
   "unread": "Olvasatlan",
-  "customerService": "Ügyfélszolgálat"
+  "customerService": "Ügyfélszolgálat",
+  "today": "ma",
+  "earlier": "korábban",
+  "older": "régebbi"
 }

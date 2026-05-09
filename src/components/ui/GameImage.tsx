@@ -216,7 +216,7 @@ export function GameImage(
       {enableHoverEffects && displayName && (
         <p
           className={cn(
-            "tracking-tighter text-base-content absolute top-4 leading-3.5 font-bold w-full text-center opacity-0 group-hover:opacity-100 transition-all duration-300",
+            "tracking-tighter text-white absolute top-4 leading-3.5 font-bold w-full text-center opacity-0 group-hover:opacity-100 transition-all duration-300",
             displayName.length > 30
               ? "tracking-normal text-[10px]"
               : "text-xs sm:text-sm wrap-break-word"

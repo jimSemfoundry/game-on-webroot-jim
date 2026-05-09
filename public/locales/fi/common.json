@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Puhelinnumero on jo käytössä. Käytä toista numeroa.",
     "mobileAlreadyBound": "Puhelinnumero on jo liitetty tähän tiliin.",
     "fullscreen": "Koko näyttö",
-    "exitFullscreen": "Poistu koko näytöstä"
+    "exitFullscreen": "Poistu koko näytöstä",
+    "draw": "Tasapeli"
   },
   "bonus_pool": "Bonus Pool",
   "pleaseEnterValidUsernameOrEmail": "Ole hyvä ja syötä voimassa oleva käyttäjänimi tai sähköposti",

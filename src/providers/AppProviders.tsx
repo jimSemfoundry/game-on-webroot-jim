@@ -31,13 +31,13 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
         <ThemeProvider>
           <SidebarProvider>
             <AdProvider>
-              <AppProvider>
-                <ChatwootProvider>
-                  <MqttServiceProvider>
+              <MqttServiceProvider>
+                <AppProvider>
+                  <ChatwootProvider>
                     {children}
-                  </MqttServiceProvider>
-                </ChatwootProvider>
-              </AppProvider>
+                  </ChatwootProvider>
+                </AppProvider>
+              </MqttServiceProvider>
             </AdProvider>
           </SidebarProvider>
         </ThemeProvider>

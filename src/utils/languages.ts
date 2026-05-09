@@ -1,3 +1,21 @@
+const BETBY_LANG_REGEX = /^[a-zA-Z-]{1,10}$/;
+
+/**
+ * 后端 / Betby / aggregation 接口期望的 lang 归一化形式：
+ *   - 不合法 → "en"
+ *   - 合法 → 小写（"ZH-CN" → "zh-cn"，"VI" → "vi"）
+ *
+ * 以前 useAggregationConfig 用 toUpperCase()、SportsPromoCarousel 用此 lowercase 方案，
+ * 导致同一语言两次大小写不同请求 + React Query 不去重。统一到 lowercase 后共用 query key。
+ */
+export const normalizeBackendLang = (lang?: string): string => {
+  const rawLang = lang?.trim() ?? "";
+  if (!BETBY_LANG_REGEX.test(rawLang)) {
+    return "en";
+  }
+  return rawLang.toLowerCase();
+};
+
 /**
  * 语言代码到本地名称的映射
  */

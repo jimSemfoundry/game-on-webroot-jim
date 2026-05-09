@@ -146,11 +146,6 @@ export const SettlementCurrencyProvider: React.FC<SettlementCurrencyProviderProp
     }
   }, [user?.currency]); // 只依赖user.currency，避免循环
 
-  useEffect(() => {
-    console.info(user?.currency);
-    console.info(selectedCurrency);
-  }, [user, selectedCurrency]);
-
   const contextValue: SettlementCurrencyContextType = {
     selectedCurrency,
     setSelectedCurrency,

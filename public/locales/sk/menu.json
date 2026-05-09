@@ -34,6 +34,8 @@
   "upToReferral": "Až {{amount}} za odporúčanie",
   "language": "Jazyk",
   "gameCurrency": "Herná mena",
-  "hideBlockedGames": "Skryť zablokované hry",
-  "settings": "Nastavenia"
+  "hideBlockedGames": "Skryť \n<0>zablokované hry</0>",
+  "settings": "Nastavenia",
+  "problemReport": "Hlásenie problému",
+  "logging_key": "Zaznamenávanie"
 }

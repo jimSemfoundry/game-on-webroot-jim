@@ -1,4 +1,5 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useBaseConfig, useIsLeagueEnabled } from "@/hooks/api/usePublic";
 import { InnerBannerItem } from "@/sections/casino/hero-banner/InnerBannerItem.tsx";
 import { Carousel, CarouselDotButtons, useCarousel } from "@/components/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -25,6 +26,9 @@ import { SlotsTournament } from "@/sections/casino/hero-banner/template/SlotsTou
 import { FirstReferralBonus } from "@/sections/casino/hero-banner/template/FirstReferralBonus.tsx";
 import { VIPMonday } from "@/sections/casino/hero-banner/template/VIPMonday.tsx";
 import { DollarsBonusBannerItem } from "@/sections/dollars/bonus-banner-content.tsx";
+import { getImgCompressParams } from "@/utils/helper.ts";
+import { useMemo } from "react";
+import { CommonBanner } from "@/sections/casino/hero-banner/template/CommonBanner.tsx";
 
 const Index = () => {
   const isMobile = useMediaQuery("(max-width: 460px)");
@@ -32,8 +36,18 @@ const Index = () => {
   const { user, isLoading: userLoading } = useAuth();
 
   const { data, isLoading: bannerLoading } = useBannerContentList();
+  const { isLeagueEnabled } = useIsLeagueEnabled();
 
-  const banners = (data?.data ?? []);
+  // 根据 is_league 过滤 slots_tournament banner
+  const banners = useMemo(() => {
+    const rawBanners = data?.data ?? [];
+    if (!isLeagueEnabled) {
+      return rawBanners.filter((item: Record<string, any>) =>
+        !item?.name?.includes("slots_tournament")
+      );
+    }
+    return rawBanners;
+  }, [data?.data, isLeagueEnabled]);
 
   const carousel = useCarousel(
     {
@@ -57,10 +71,12 @@ const Index = () => {
           {banners.map((item: Record<string, any>) => {
 
               if (item?.name?.endsWith("_v2")) {
+                
                 if (item?.name?.endsWith("_sunday_v2")) {
                   return <DepositSunday
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
@@ -68,20 +84,23 @@ const Index = () => {
                   return <DepositThursday
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_bonus_wallet_v2")) {
                   return <BonusWallet
                     key={item?.id}
+                    data={item}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_vip_monday_v2")) {
                   return <VIPMonday
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
@@ -89,13 +108,14 @@ const Index = () => {
                   return <VIPMondayBonus
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_be_the_first_v2")) {
                   return <BeTheFirst
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
@@ -103,6 +123,7 @@ const Index = () => {
                   return <Welcome
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
@@ -110,13 +131,14 @@ const Index = () => {
                   return <Referral
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_regional_v2")) {
                   return <Regional
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
@@ -124,34 +146,148 @@ const Index = () => {
                   return <VIPRewards
                     key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_betting_partner_v2")) {
                   return <BettingPartner
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_slots_tournament_v2")) {
                   return <SlotsTournament
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_first_referral_bonus_v2")) {
                   return <FirstReferralBonus
                     key={item?.id}
-                    content={item?.banner_content}
+                    content={item?.content}
                   />;
                 }
 
                 if (item?.name?.endsWith("_vip_monday_v2")) {
                   return <VIPMonday
                     key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_common_banner_v2")) {
+                  return <CommonBanner
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+              } else if (item?.name?.endsWith("_v3")) {
+                if (item?.name?.endsWith("_sunday_v3")) {
+                  return <DepositSunday
+                    key={item?.id}
                     content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_thursday_v3")) {
+                  return <DepositThursday
+                    key={item?.id}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_bonus_wallet_v3")) {
+                  return <BonusWallet
+                    key={item?.id}
+                    data={item}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_vip_monday_v3")) {
+                  return <VIPMonday
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_monday_vip_bonus_v3")) {
+                  return <VIPMondayBonus
+                    key={item?.id}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_be_the_first_v3")) {
+                  return <BeTheFirst
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_welcome_v3")) {
+                  return <Welcome
+                    key={item?.id}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_referral_v3")) {
+                  return <Referral
+                    key={item?.id}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_regional_v3")) {
+                  return <Regional
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_exclusive_vip_rewards_v3")) {
+                  return <VIPRewards
+                    key={item?.id}
+                    content={item?.banner_content}
+                    extra_content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_betting_partner_v3")) {
+                  return <BettingPartner
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_slots_tournament_v3")) {
+                  return <SlotsTournament
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_first_referral_bonus_v3")) {
+                  return <FirstReferralBonus
+                    key={item?.id}
+                    content={item?.content}
+                  />;
+                }
+
+                if (item?.name?.endsWith("_vip_monday_v3")) {
+                  return <VIPMonday
+                    key={item?.id}
+                    content={item?.content}
                   />;
                 }
               } else {
@@ -203,21 +339,44 @@ export default Index;
 export const images_static = "https://images.1st.game/banner/public/images/casino/banner";
 
 const InnerDefaultBanner = () => {
-  const { t } = useTranslation(["banner", "login"]);
+  const { t, i18n } = useTranslation(["banner", "login"]);
 
   const { openSignInModal, openSignUpModal } = useAuthModals();
 
-  const desktopImageUrl = import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_DESKTOP_URL
-    || `${images_static}/single-suarez.png?w=343&auto=format,compress&q=60`;
-  const mobileImageUrl = import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_MOBILE_URL
-    || `${images_static}/single-suarez-small1.png?w=209&auto=format,compress&q=80`;
+  const { data: baseConfigResp } = useBaseConfig();
+  const baseConfig = baseConfigResp?.data;
+
+  const rawMainBannerText = baseConfig?.main_banner_text;
+  const mainBannerText: Record<string, string> =
+    rawMainBannerText && typeof rawMainBannerText === "object" && !Array.isArray(rawMainBannerText)
+      ? rawMainBannerText
+      : {};
+  const mainBannerPortraitUrl: string = baseConfig?.main_banner_img_portrait_url || "";
+  const mainBannerLandscapeUrl: string = baseConfig?.main_banner_img_landscape_url || "";
+
+  const customBannerText = mainBannerText[i18n.language] || mainBannerText["en"] || "";
+
+  const desktopImageUrl = mainBannerLandscapeUrl
+    ? getImgCompressParams(mainBannerLandscapeUrl, 345, 60)
+    : import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_DESKTOP_URL
+    || getImgCompressParams(`${images_static}/single-suarez.png`, 345, 60);
+  const mobileImageUrl = mainBannerPortraitUrl
+    ? getImgCompressParams(mainBannerPortraitUrl, 209, 80)
+    : import.meta.env.VITE_CASINO_UNAUTH_BANNER_IMAGE_MOBILE_URL
+    || getImgCompressParams(`${images_static}/single-suarez-small1.png`, 209, 80);
 
   return <div className={"h-full flex justify-between banner-background"}>
     <div className="z-1">
       <div className={"h-full pl-5 md:pl-10 py-5 md:py-10 flex flex-col items-start justify-between"}>
-        <div className={"text-base lg:text-lg xl:text-xl leading-5 max-w-[76%] break-word"}>
-          <p><Trans i18nKey={"banner:BE_THE_FIRST"} /></p>
-          <p className={"text-primary"}><Trans i18nKey={"banner:CHALLENGE_EVERYTHING"} /></p>
+        <div className={"text-base lg:text-lg xl:text-xl leading-5 max-w-[76%] break-word whitespace-pre-line"}>
+          {customBannerText ? (
+            <Trans i18nKey={customBannerText} components={[<span className="text-primary" />]} />
+          ) : (
+            <>
+              <p><Trans i18nKey={"banner:BE_THE_FIRST"} /></p>
+              <p className={"text-primary"}><Trans i18nKey={"banner:CHALLENGE_EVERYTHING"} /></p>
+            </>
+          )}
         </div>
         <div className={"banner-desktop-only"}>
           <div className={"flex gap-2 rounded"}>
@@ -232,7 +391,7 @@ const InnerDefaultBanner = () => {
         </div>
       </div>
     </div>
-    <picture className="min-w-[209px] absolute right-0 rtl:left-0 rtl:right-auto rtl:sm:ml-6">
+    <picture className="h-full min-w-[209px] absolute right-0 rtl:left-0 rtl:right-auto rtl:sm:ml-6">
       <source
         media="(min-width: 461px)"
         srcSet={desktopImageUrl}

@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Lider bir küresel oyun ittifakı olarak, en üst düzey platformların gücünü ve inceliğini tek bir vizyon altında birleştiriyoruz. Portföyümüzdeki tüm markalarda bir bütün olarak hareket ediyoruz — eğlence, kişiselleştirilmiş ödüller ve para birimleri, ülkeler ve kültürler arasında kesintisiz bağlantı sunuyoruz.",
   "footerDescriptionThree": "Sadece oyunu oynamayın. Her şeyi sorgulayın.",
   "footerDescriptionFour": "{{supportName}} İttifakı'nın ayırt edici bir özelliği",
-  "footerDescriptionFive": "© 2025. Tüm hakları saklıdır.",
+  "footerDescriptionFive": "© {{year}}. Tüm hakları saklıdır.",
   "banner": {
     "oneDescription": "İLK OLUN.",
     "oneDescriptionTwo": "HER ŞEYİ\nMÜCADELE ET",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Ana Ekrana Ekle",
   "latestWins": "Son Kazançlar",
   "spinPlayAndWinAcrossTopCasinoHits": "Dön, oyna ve en iyi casino oyunlarında kazan",
-  "scoreBigOnSportsFromAroundTheWorld": "Dünyanın dört bir yanındaki sporlarda büyük kazançlar elde et"
+  "scoreBigOnSportsFromAroundTheWorld": "Dünyanın dört bir yanındaki sporlarda büyük kazançlar elde et",
+  "liveDealers": "Favori masa oyunlarınız için canlı krupiyeler",
+  "show_less": "daha az göster"
 }

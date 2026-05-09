@@ -34,6 +34,8 @@
   "upToReferral": "Tavsiye başına {{amount}}'a kadar",
   "language": "Dil",
   "gameCurrency": "Oyun para birimi",
-  "hideBlockedGames": "Engellenmiş oyunları gizle",
-  "settings": "Ayarlar"
+  "hideBlockedGames": "Gizle \n<0>engellenmiş oyunları</0>",
+  "settings": "Ayarlar",
+  "problemReport": "Sorun raporu",
+  "logging_key": "Kayıt Tutma"
 }

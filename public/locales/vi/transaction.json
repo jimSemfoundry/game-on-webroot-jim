@@ -64,6 +64,7 @@
     "fiatWithdraw": "Rút tiền Fiat",
     "cryptoWithdraw": "Rút tiền Crypto",
     "bonus": "Thưởng",
+    "bounty": "Tiền thưởng",
     "win": "Thắng",
     "bet": "Cược",
     "refund": "Hoàn tiền",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Thưởng Rakeback",
     "cashbackbonus": "Thưởng Cashback",
     "referral": "Giới thiệu",
-    "commission": "Hoa hồng"
+    "commission": "Hoa hồng",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Máy đánh bạc",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Tiền đã mở khóa",
     "rolloverMul": "Hệ số cược"
   },
-  "assistance": "Vui lòng kiểm tra thông tin của bạn và thử lại hoặc liên hệ dịch vụ khách hàng để được hỗ trợ"
+  "assistance": "Tên của bạn không khớp với tên bạn đã sử dụng lần đầu cho kênh này. Vui lòng liên hệ dịch vụ khách hàng."
 }

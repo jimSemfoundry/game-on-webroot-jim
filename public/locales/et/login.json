@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Palun sisestage parool",
   "verification_code_sent_to_your": "Kinnituskood saadeti teie e-posti/telefonile",
   "one_min_error": "Saate kinnituskoodi uuesti 1 minuti pärast.",
-  "signInWith": "Registreeru kasutades"
+  "must_agree": "Peate nõustuma tingimustega",
+  "signInWith": "Registreeru kasutades",
+  "usernameTooShort": "Kasutajanimi peab olema vähemalt 6 tähemärki pikk"
 }

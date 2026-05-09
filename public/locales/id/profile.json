@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Nomor telepon Anda telah diverifikasi. Anda dapat melanjutkan.",
   "email_address_has_been_verified": "Alamat email kamu telah diverifikasi. Kamu bisa lanjut.",
   "setNewPassword": "Atur Kata Sandi Baru",
-  "passwordLengthRequirement": "Silakan masukkan kata sandi antara 6 hingga 64 karakter."
+  "passwordLengthRequirement": "Silakan masukkan kata sandi antara 6 hingga 64 karakter.",
+  "re_enter_new_password": "Masukkan Ulang Kata Sandi Baru",
+  "change_withdrawal_pin": "Ubah PIN Penarikan",
+  "confirm_withdrawal_pin": "Konfirmasi PIN Penarikan",
+  "enter_email": "Masukkan Email",
+  "rolloverDetails": "Detail Rollover",
+  "verified_email": "Email terverifikasi",
+  "verified_phone_number": "Nomor telepon terverifikasi",
+  "change_key": "Ubah",
+  "update_successfully": "Pembaruan berhasil. Silakan gunakan {<1>{{value}}</1>} untuk login berikutnya.",
+  "understand_key": "Mengerti",
+  "ensure_email_valid": "Pastikan alamat email Anda valid dan dapat diakses oleh Anda.",
+  "ensure_phone_valid": "Pastikan nomor telepon Anda valid dan dapat diakses oleh Anda.",
+  "enter_phone_number_to_receive_verification_code": "Masukkan nomor telepon Anda di bawah untuk menerima kode verifikasi.",
+  "enter_email_address_to_receive_verification_code": "Masukkan alamat email Anda di bawah untuk menerima kode verifikasi."
 }

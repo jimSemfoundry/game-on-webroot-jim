@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "世界をリードするゲームアライアンスとして、私たちはトップクラスのプラットフォームの力と洗練を一つのビジョンの下に集結させます。私たちのポートフォリオのすべてのブランドを通じて、私たちは一体となって動きます — エンターテインメント、パーソナライズされた報酬、そして通貨、国、文化を越えたシームレスな接続を提供します。",
   "footerDescriptionThree": "ゲームをただプレイするだけではありません。すべてに挑戦してください。",
   "footerDescriptionFour": "{{supportName}}アライアンスの特徴的な資産",
-  "footerDescriptionFive": "© 2025. すべての権利を保有。",
+  "footerDescriptionFive": "© {{year}}. すべての権利を保有。",
   "banner": {
     "oneDescription": "最初の一人になろう。",
     "oneDescriptionTwo": "すべてに挑戦しよう\n",
@@ -127,5 +127,7 @@
   "addHomeScreen": "ホーム画面に追加",
   "latestWins": "最新の勝利",
   "spinPlayAndWinAcrossTopCasinoHits": "スピンして、プレイして、トップカジノヒットで勝とう",
-  "scoreBigOnSportsFromAroundTheWorld": "世界中のスポーツで大勝ちしよう"
+  "scoreBigOnSportsFromAroundTheWorld": "世界中のスポーツで大勝ちしよう",
+  "liveDealers": "お気に入りのテーブルゲームのライブディーラー",
+  "show_less": "表示を減らす"
 }

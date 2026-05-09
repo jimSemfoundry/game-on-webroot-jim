@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Som en ledande global spelallians förenar vi styrkan och raffinemanget hos topp-plattformar under en gemensam vision. Över alla varumärken i vår portfölj rör vi oss som en enhet — levererar underhållning, personliga belöningar och sömlös uppkoppling över valutor, länder och kulturer.",
   "footerDescriptionThree": "Spela inte bara spelet. Utmana allt.",
   "footerDescriptionFour": "En signaturfunktion hos {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Alla rättigheter förbehållna.",
+  "footerDescriptionFive": "© {{year}}. Alla rättigheter förbehållna.",
   "banner": {
     "oneDescription": "VAR FÖRST.",
     "oneDescriptionTwo": "UTMANA\nALLT",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Lägg till på hemskärmen",
   "latestWins": "Senaste Vinster",
   "spinPlayAndWinAcrossTopCasinoHits": "Snurra, spela och vinn på topp casinospel",
-  "scoreBigOnSportsFromAroundTheWorld": "Sätt stort på sport från hela världen"
+  "scoreBigOnSportsFromAroundTheWorld": "Sätt stort på sport från hela världen",
+  "liveDealers": "Live dealers för dina favoritbordsspel",
+  "show_less": "visa mindre"
 }

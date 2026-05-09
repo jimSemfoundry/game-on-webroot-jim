@@ -3,9 +3,10 @@ import { Modal } from "@/components/ui/Modal.tsx";
 import { useTranslation } from "react-i18next";
 import { useCallback, useState } from "react";
 import { authService } from "@/services/authService.ts";
-import { useBonusWallet } from "@/query/dollars.ts";
-import { useUserBonusLatestHistory } from "@/hooks/api/useAuth.ts";
+import { useUserBonusWallet } from "@/query/dollars.ts";
 import { useNavigate } from "@tanstack/react-router";
+import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext.tsx";
+import { useUserSportWallet } from "@/query/sports-bonus.ts";
 
 export const GiveUpBonusModal = (
   {
@@ -21,33 +22,47 @@ export const GiveUpBonusModal = (
 
   const { t } = useTranslation();
 
+  // 设置结算币种
+  const { updateSettlementCurrency } = useSettlementCurrency();
+
   const [isPending, setPending] = useState<boolean>(false);
 
+  const isSports = data?.kind === "sports";
+
   // 彩金钱包数据
-  const { refetch: refetchBonusWallet } = useBonusWallet();
-  const { refetch: refetchBonusLatest } = useUserBonusLatestHistory();
+  const { refetch: refetchBonusWallet } = useUserBonusWallet();
+  const { refetch: refetchSportsBonusWallet } = useUserSportWallet();
 
   const handle = useCallback(async () => {
     setPending(true);
 
     try {
-      // 放弃彩金活动
-      await authService.userAbandonBonus(data?.id);
-
-      // 更新彩金钱包数据
-      await refetchBonusWallet();
-      await refetchBonusLatest();
+      // 放弃彩金活动（区分体育彩金 vs slots 彩金）
+      if (isSports) {
+        await authService.userAbandonSport(data?.id);
+        await refetchSportsBonusWallet();
+      } else {
+        await authService.userAbandonBonus(data?.id);
+        await refetchBonusWallet();
+      }
 
       void navigate({
-        to: "/casino",
+        to: isSports ? "/sports" : "/casino",
         search: {
           openLogin: undefined,
           openSignUp: undefined,
           redirect: undefined,
           startapp: undefined,
           openFinance: undefined
-        }
+        } as any
       });
+
+      // 切换彩金币种为其他结算币种
+      const targetCurrency = await authService.getCurrencyOtherThanBonusCoin();
+      if (targetCurrency?.data?.currency) {
+        console.info(`Switch the invalid bonus currency to = ${targetCurrency?.data?.currency}`);
+        void updateSettlementCurrency(targetCurrency?.data?.currency);
+      }
 
       onClose();
     } catch (_error) {
@@ -55,7 +70,7 @@ export const GiveUpBonusModal = (
     } finally {
       setPending(false);
     }
-  }, [data?.id]);
+  }, [data?.id, isSports]);
 
   return (
     <Modal

@@ -16,6 +16,7 @@ import dayjs from "dayjs";
 import { matchResponseCodeError } from "@/sections/profile/security/response_code.ts";
 import { useQueryClient } from "@tanstack/react-query";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { useCurrentUser } from "@/hooks/api/useAuth";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -52,6 +53,8 @@ export const EmailVerificationModal = (
   const inputRef = useRef<HTMLInputElement>(null);
 
   const queryClient = useQueryClient();
+  
+  const { refetch } = useCurrentUser();
 
   const { t } = useTranslation("profile");
 
@@ -111,6 +114,7 @@ export const EmailVerificationModal = (
     authService.bindEmail({ email: status.email, code: status.opt_code })
       .then((res) => {
         if (res.code === 0) {
+          void refetch();
           setStatus((old) => ({ ...old, step: "STEP3", opt_code: "" }));
         } else if (res.code === 400) {
           toast.error(t("common:invalid_or_expired_verification_code"));
@@ -139,7 +143,7 @@ export const EmailVerificationModal = (
           <InnerImg name="security-email-verification" className="md:w-auto md:h-auto w-25 h-25" />
 
           <p className="text-base-content/50 text-sm font-semibold">
-            {t("profile:emailVerificationDescription")}
+            {t("profile:enter_email_address_to_receive_verification_code")}
           </p>
 
           <div className="relative flex flex-col gap-2 w-full">
@@ -152,7 +156,7 @@ export const EmailVerificationModal = (
               <input
                 type="text"
                 className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 pl-11"
-                placeholder="Enter Email"
+                placeholder={t("profile:enter_email")}
                 value={status.email}
                 onChange={(v) => {
                   setStatus((old) => ({
@@ -192,7 +196,7 @@ export const EmailVerificationModal = (
             {t("profile:codeSentTo")}: {status.email}
           </p>
 
-          <div className="relative flex flex-col gap-2 w-full">
+          <div className="relative flex flex-col gap-2 w-full overflow-hidden">
             {/* 输入邮箱验证码 */}
             <OTPInput
               ref={inputRef}
@@ -233,13 +237,13 @@ export const EmailVerificationModal = (
           </ConfirmBox>
 
           {/* 验证码发送倒计时 */}
-          <div className="text-[10px] text-base-content/50 font-extrabold flex items-center gap-1">
+          <div className="text-sm text-base-content/50 flex items-center gap-1">
             {t("profile:notReceiveCode")}
             {status.finished && <div className="text-primary cursor-pointer flex items-center gap-1"
-                                     onClick={sendCode}>Resend {status.send_code_loading && (
+                                     onClick={sendCode}>{t("profile:resend")} {status.send_code_loading && (
               <span className="loading loading-spin w-2.5 h-2.5" />)}.</div>}
             {!status.finished && status.end_timestamp > 0 && (<div className="inline-flex items-center gap-1">
-              Resend in
+              {t("profile:resendIn")}
               <Countdown end={status.end_timestamp} onFinished={(v) => {
                 if (v) setStatus((old) => ({
                   ...old,
@@ -261,13 +265,14 @@ export const EmailVerificationModal = (
             <div className="flex flex-col gap-4 items-center">
               <p className="text-md">{t("profile:verificationSuccess")}</p>
               <p className="text-base-content/50 text-sm text-center">
-                <Trans i18nKey={t("profile:email_address_has_been_verified")} />
+                {/* <Trans i18nKey={t("profile:email_address_has_been_verified")} /> */}
+                <Trans i18nKey="profile:update_successfully" values={{ value: status.email }} components={{ 1: <span className="text-warning" /> }} />
               </p>
             </div>
             <ConfirmBox onClick={() => {
               onClose();
               setStatus(initStatus);
-            }}>{t("common:common.close")}</ConfirmBox>
+            }}>{t("profile:understand_key")}</ConfirmBox>
           </div>} />
       </DisplayContent>
     </Modal>
@@ -299,7 +304,7 @@ function matchResponseCodeErrorForEmail(code: number): string {
     case 60001:
       return "common:common.emailAlreadyBound";
     case 429:
-      return "common:common.tooManyRequests";
+      return "toast:requests_later";
     default:
       return "common:common.emailSendError";
   }

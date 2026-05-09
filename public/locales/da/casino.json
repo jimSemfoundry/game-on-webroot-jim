@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Som en førende global spillealliance samler vi styrken og raffinementet fra topplatforme under én vision. På tværs af alle brands i vores portefølje bevæger vi os som én — leverer underholdning, personlige belønninger og sømløs forbindelse på tværs af valutaer, lande og kulturer.",
   "footerDescriptionThree": "Spil ikke bare spillet. Udfordr alt.",
   "footerDescriptionFour": "Et kendetegn ved {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Alle rettigheder forbeholdes.",
+  "footerDescriptionFive": "© {{year}}. Alle rettigheder forbeholdes.",
   "banner": {
     "oneDescription": "VÆR DEN FØRSTE.",
     "oneDescriptionTwo": "UDFORDR ALT",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Tilføj til startskærm",
   "latestWins": "Seneste Gevinster",
   "spinPlayAndWinAcrossTopCasinoHits": "Spin, spil og vind på top casino hits",
-  "scoreBigOnSportsFromAroundTheWorld": "Score stort på sport fra hele verden"
+  "scoreBigOnSportsFromAroundTheWorld": "Score stort på sport fra hele verden",
+  "liveDealers": "Live dealere til dine favorit bordspil",
+  "show_less": "vis mindre"
 }

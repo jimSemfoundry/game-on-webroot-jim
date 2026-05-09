@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Puhelinnumerosi on vahvistettu. Voit jatkaa.",
   "email_address_has_been_verified": "Sähköpostiosoitteesi on vahvistettu. Voit jatkaa.",
   "setNewPassword": "Aseta uusi salasana",
-  "passwordLengthRequirement": "Syötä salasana, joka on 6-64 merkkiä pitkä."
+  "passwordLengthRequirement": "Syötä salasana, joka on 6-64 merkkiä pitkä.",
+  "re_enter_new_password": "Syötä uusi salasana uudelleen",
+  "change_withdrawal_pin": "Vaihda noston PIN",
+  "confirm_withdrawal_pin": "Vahvista noston PIN",
+  "enter_email": "Syötä sähköposti",
+  "rolloverDetails": "Kierrätysvaatimuksen tiedot",
+  "verified_email": "Vahvistettu sähköposti",
+  "verified_phone_number": "Vahvistettu puhelinnumero",
+  "change_key": "Vaihda",
+  "update_successfully": "Päivitys onnistui. Käytä {<1>{{value}}</1>} seuraavaan kirjautumiseen.",
+  "understand_key": "Ymmärretty",
+  "ensure_email_valid": "Varmista, että sähköpostiosoitteesi on voimassa ja sinulla on pääsy siihen.",
+  "ensure_phone_valid": "Varmista, että puhelinnumerosi on voimassa ja sinulla on pääsy siihen.",
+  "enter_phone_number_to_receive_verification_code": "Syötä puhelinnumerosi alle saadaksesi vahvistuskoodin.",
+  "enter_email_address_to_receive_verification_code": "Syötä sähköpostiosoitteesi alle saadaksesi vahvistuskoodin."
 }

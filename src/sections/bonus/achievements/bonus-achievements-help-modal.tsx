@@ -2,6 +2,7 @@ import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusAchievementsHelpModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface BonusAchievementsHelpModalProps {
 
 export const BonusAchievementsHelpModal = ({ isOpen, onClose }: BonusAchievementsHelpModalProps) => {
   const { t } = useTranslation(['vipBonusPopup', 'bonus', 'popup']);
+  const ILLUSTRATION_URL = useBonusDetailsImage("achievements", 256);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
@@ -33,7 +35,7 @@ export const BonusAchievementsHelpModal = ({ isOpen, onClose }: BonusAchievement
             </div>
             {/* Achievement medal illustration */}
             <div className="shrink-0">
-              <img src="/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png" alt="Achievement Award" className="w-34 h-34" />
+              <img src={ILLUSTRATION_URL} alt="Achievement Award" className="w-34 h-34" />
             </div>
           </div>
         </div>
@@ -52,7 +54,7 @@ export const BonusAchievementsHelpModal = ({ isOpen, onClose }: BonusAchievement
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto pb-12">
+            <div className="max-h-[400px] overflow-y-auto pb-12 hide-scrollbar">
               {/* 描述文本 */}
               <p className="text-xs text-base-content/50 leading-5">{t("vipBonusPopup:achievements.achievementDescription")}</p>
 

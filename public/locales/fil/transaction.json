@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat na Pag-withdraw",
     "cryptoWithdraw": "Crypto na Pag-withdraw",
     "bonus": "Bonus",
+    "bounty": "Bounty",
     "win": "Panalo",
     "bet": "Taya",
     "refund": "Refund",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bonus",
     "cashbackbonus": "Cashback Bonus",
     "referral": "Rekomendasyon",
-    "commission": "Komisyon"
+    "commission": "Komisyon",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Slots",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Na-unlock na Pondo",
     "rolloverMul": "Multiplier ng Taya"
   },
-  "assistance": "Pakisuri ang iyong mga detalye at subukang muli o makipag-ugnayan sa customer service para sa tulong"
+  "assistance": "Ang iyong pangalan ay hindi tumutugma sa pangalan na unang ginamit mo para sa channel na ito. Mangyaring makipag-ugnayan sa customer service."
 }

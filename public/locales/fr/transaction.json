@@ -64,6 +64,7 @@
     "fiatWithdraw": "Retrait Fiat",
     "cryptoWithdraw": "Retrait Crypto",
     "bonus": "Bonus",
+    "bounty": "Prime",
     "win": "Gain",
     "bet": "Pari",
     "refund": "Remboursement",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Bonus Rakeback",
     "cashbackbonus": "Bonus Cashback",
     "referral": "Référence",
-    "commission": "Commission"
+    "commission": "Commission",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Machines à Sous",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Fonds débloqués",
     "rolloverMul": "Multiplicateur de mise"
   },
-  "assistance": "Veuillez vérifier vos informations et réessayer ou contacter le service client pour obtenir de l'aide"
+  "assistance": "Votre nom ne correspond pas au nom que vous avez utilisé pour la première fois sur ce canal. Veuillez contacter le service client."
 }

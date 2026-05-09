@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Come alleanza globale di gioco leader, uniamo la forza e la raffinatezza delle piattaforme di alto livello sotto un'unica visione. Attraverso tutti i marchi del nostro portafoglio, ci muoviamo come un unico ente — offrendo intrattenimento, ricompense personalizzate e connettività senza soluzione di continuità tra valute, paesi e culture.",
   "footerDescriptionThree": "Non giocare solo il gioco. Sfida tutto.",
   "footerDescriptionFour": "Una caratteristica distintiva di {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Tutti i diritti riservati.",
+  "footerDescriptionFive": "© {{year}}. Tutti i diritti riservati.",
   "banner": {
     "oneDescription": "ESSERE I PRIMI.",
     "oneDescriptionTwo": "SFIDA\nTUTTO",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Aggiungi alla schermata iniziale",
   "latestWins": "Ultime Vincite",
   "spinPlayAndWinAcrossTopCasinoHits": "Gira, gioca e vinci nei migliori giochi da casinò",
-  "scoreBigOnSportsFromAroundTheWorld": "Fai il colpaccio nello sport da tutto il mondo"
+  "scoreBigOnSportsFromAroundTheWorld": "Fai il colpaccio nello sport da tutto il mondo",
+  "liveDealers": "Dealer dal vivo per i tuoi giochi da tavolo preferiti",
+  "show_less": "mostra meno"
 }

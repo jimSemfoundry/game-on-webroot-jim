@@ -68,6 +68,18 @@ export interface IFinanceSlice {
   modals: Record<string, { open: boolean; data?: any }>;
   openModal: (type: TActions, data?: any) => void;
   closeModal: (type: TActions) => void;
+
+  bonusSwapFrom: {
+    currency: Record<string, any> | null;
+    inAmount: string;
+  };
+  setBonusSwapFrom: (params: { currency?: Record<string, any>; inAmount?: string }) => void;
+
+  bonusSwapTo: {
+    currency: Record<string, any> | null;
+    outAmount: string;
+  };
+  setBonusSwapTo: (params: { currency?: Record<string, any>; outAmount?: string }) => void;
 }
 
 export type TActions =
@@ -97,12 +109,20 @@ export type TActions =
   | "OPEN_DOUBLE_OR_NOTHING_MODAL"
   | "OPEN_VIP_MONDAY_BONUS_MODAL"
   | "OPEN_FINANCE_AML_MODAL"
-  | "OPEN_FREE_PLAY_BONUS_MODAL"
-  | "OPEN_MINI_SLOT_BONUS_MODAL"
-  | "OPEN_MEGA_SLOT_BONUS_MODAL"
-  | "OPEN_OPTIONAL_BONUS_MODAL"
+  | "OPEN_PLAY_BONUS_MODAL"
   | "OPEN_GIVE_UP_BONUS_MODAL"
   | "OPEN_LIMIT_OFFER_MODAL"
+  | "OPEN_GET_PROMO_CODE_MODAL"
+  | "OPEN_BUDDY_BALLS_MODAL"
+  | "OPEN_BONUS_STORE_MODAL"
+  | "OPEN_BONUS_SWAP_MODAL"
+  | "OPEN_BONUS_CLAIM_MODAL"
+  | "OPEN_LUCKY_SPIN_MODAL"
+  | "OPEN_WHEEL_FORTUNE_WIN_MODAL"
+  | "OPEN_FIAT_CHANNEL_MODAL"
+  | "OPEN_REFERRAL_SHARE_BIG_WIN_MODAL"
+  | "OPEN_SPORTS_BONUS_SWAP_MODAL"
+  | "OPEN_PLAY_SPORTS_BONUS_MODAL"
   | "CLOSE_FINANCE_MODAL";
 
 export type TPublicProfileKeys =

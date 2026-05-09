@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "แชทบริการลูกค้าไม่สามารถโหลดได้",
   "read": "อ่าน",
   "unread": "ยังไม่ได้อ่าน",
-  "customerService": "บริการลูกค้า"
+  "customerService": "บริการลูกค้า",
+  "today": "วันนี้",
+  "earlier": "ก่อนหน้า",
+  "older": "เก่ากว่า"
 }

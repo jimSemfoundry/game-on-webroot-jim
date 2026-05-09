@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "カスタマーサービスのチャットが読み込めませんでした",
   "read": "読む",
   "unread": "未読",
-  "customerService": "カスタマーサービス"
+  "customerService": "カスタマーサービス",
+  "today": "今日",
+  "earlier": "以前",
+  "older": "古い"
 }

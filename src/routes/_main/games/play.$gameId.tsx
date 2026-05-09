@@ -100,25 +100,30 @@ const GamePlay = () => {
             launchType: response.launch_type,
           });
         } else {
-          toast.error(response.msg || "Failed to launch game");
-          navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
+          if (response.code === 30009) {
+            toast.error(t('toast:cannotBetby'));
+          } else {
+            toast.error(response.msg || "Failed to launch game");
+          }
+
+          void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
         }
       },
       onError: () => {
-        navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined , startapp: undefined, openFinance: undefined} });
+        void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined , startapp: undefined, openFinance: undefined} });
       },
     });
   }, [isAuthenticated, user, gameId, launchGame, navigate, i18n.language, t, searchParams?.currency]);
 
   const handleGameError = () => {
-    navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
+    void navigate({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined } });
   };
 
   // Loading state
   if (isLaunching || !gameData) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black">
-        <div className="flex flex-col items-center gap-6 text-white">
+        <div className="flex flex-col items-center gap-6 text-base-content">
           <div className="relative">
             <span className="loading loading-spinner loading-lg text-primary"></span>
             <div className="absolute inset-0 loading loading-ring loading-lg text-primary/30"></div>
@@ -131,11 +136,10 @@ const GamePlay = () => {
     );
   }
 
-  // MainLayout reserves header space via `pt-[calc(<header>+env(safe-area-inset-top))]`.
-  // This route renders an iframe-heavy view where parent scrolling is effectively blocked,
-  // so we must match the same subtraction to avoid clipping the bottom of the game.
-  const playerViewportHeight = "h-[calc(100dvh-3rem-env(safe-area-inset-top))] md:h-[calc(100dvh-4.5rem-env(safe-area-inset-top))]";
-  const playerViewportMinHeight = "min-h-[calc(100dvh-3rem-env(safe-area-inset-top))] md:min-h-[calc(100dvh-4.5rem-env(safe-area-inset-top))]";
+  const playerViewportHeight =
+    "h-[calc(var(--app-viewport-height,100dvh)-3rem-var(--safe-area-inset-top)-var(--safe-area-inset-bottom))] md:h-[calc(var(--app-viewport-height,100dvh)-4.5rem-var(--safe-area-inset-top))]";
+  const playerViewportMinHeight =
+    "min-h-[calc(var(--app-viewport-height,100dvh)-3rem-var(--safe-area-inset-top)-var(--safe-area-inset-bottom))] md:min-h-[calc(var(--app-viewport-height,100dvh)-4.5rem-var(--safe-area-inset-top))]";
 
   return (
     <div className={cn("bg-black overflow-hidden", playerViewportMinHeight)}>

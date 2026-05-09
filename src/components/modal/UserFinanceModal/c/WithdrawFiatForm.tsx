@@ -14,10 +14,10 @@ export const WithdrawFiatForm = () => {
   return (
     <>
       {isLoading
-        ? <Loading className={'h-52'} />
-        : (gatewaysV2?.data?.length > 0 && (gatewaysV2?.is_new === 0
+        ? <Loading className={"h-52"} />
+        : (gatewaysV2?.is_new === 0
           ? <WithdrawFiatFormV1 />
-          : <WithdrawFiatFormV2 />))
+          : <WithdrawFiatFormV2 />)
       }
     </>
   );

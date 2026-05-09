@@ -2,13 +2,19 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dayjs from "dayjs";
 import { BonusDollarsState, BonusNotAvailable, BonusWaitingActive } from "@/sections/dollars/components.tsx";
 import { useBaseConfig } from "@/hooks/api/usePublic.ts";
-import { useBonusWallet } from "@/query/dollars.ts";
+import { useUserBonusWallet } from "@/query/dollars.ts";
 import { useNavigate } from "@tanstack/react-router";
 import clsx from "clsx";
 import Iconify from "@/components/iconify";
 import { useTranslation } from "react-i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext.tsx";
 import { useUserBalance } from "@/hooks/api/useAuth.ts";
+
+// TODO: 每个彩金活动币种的开关key配置
+const bonus_switch_config_key: Record<string, any> = {
+  "BONUS": "slot_bonus_wallet",
+  "SPORT": "sports_bonus_wallet"
+};
 
 export const BonusWallet = (
   {
@@ -24,9 +30,9 @@ export const BonusWallet = (
   const { data: baseConfig } = useBaseConfig();
 
   // bonus 的总开关是否开启
-  const slot_bonus_wallet = baseConfig?.data?.bonus_switch?.slot_bonus_wallet !== 0;
+  const is_bonus_open = baseConfig?.data?.bonus_switch?.[bonus_switch_config_key[currency?.currency]] !== 0;
 
-  return slot_bonus_wallet
+  return is_bonus_open
     ? <InnerTokenInfo
       currency={currency}
       onSelect={() => onSelect(currency?.currency)}
@@ -37,7 +43,10 @@ export const BonusWallet = (
 
 export const bonus_dollars_router_path: Record<string, any> = {
   "BONUS": "/dollars/bonus",
+  "SPORT": "/dollars/sports-bonus"
 };
+
+// TODO: 有必要检测倒计时之类的吗?
 
 const InnerTokenInfo = (
   {
@@ -57,12 +66,12 @@ const InnerTokenInfo = (
   const { t } = useTranslation("bonus");
 
   // 彩金钱包数据
-  const { data: bonusWallet } = useBonusWallet();
+  const { data: bonusWallet } = useUserBonusWallet();
 
   const [isFinished, setFinished] = useState<boolean>(false);
 
   // 匹配彩金币种状态信息 打码的数据 奖励的数据等
-  const status = bonusWallet?.data
+  const status = bonusWallet?.data;
 
   // 钱包数据不是实时更新，有些情况下需要自己监听过期时间--start
   const stopTimer = () => {
@@ -109,7 +118,6 @@ const InnerTokenInfo = (
       onClick={(e) => {
         e.stopPropagation();
         onSelect(currency.currency);
-        void navigate({ to: bonus_dollars_router_path[currency.currency] });
       }}>
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-2">
@@ -117,7 +125,11 @@ const InnerTokenInfo = (
           <p className="font-medium">{currency.currency}</p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2"
+             onClick={(e) => {
+               e.stopPropagation();
+               void navigate({ to: bonus_dollars_router_path[currency.currency] });
+             }}>
           <label className="btn btn-primary rounded-md btn-soft btn-xs px-2 mx-2 uppercase">
             {t("bonus:claim")}
           </label>
@@ -167,7 +179,7 @@ const InnerTokenBalance = (
   }, [balance, currency]);
 
   return (<div className="flex flex-col items-end">
-    <p className="text-sm font-bold">{output_balance[0]}</p>
-    <p className="text-base-content/50 text-xs font-semibold">{output_balance[1]}</p>
+    <p className="text-sm font-bold">{output_balance[1]}</p>
+    <p className="text-base-content/50 text-xs font-semibold">{output_balance[0]}</p>
   </div>);
 };

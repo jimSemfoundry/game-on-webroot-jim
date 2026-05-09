@@ -42,6 +42,11 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
 
   const [show, { set }] = useToggle<boolean>(false);
 
+  const getFlagAsset = (countryCode?: Country): string => {
+    if (!countryCode) return ''
+    return `/icons/flags/country/${countryCode.toLowerCase()}.png`
+  }
+
   /**
    * 组装区号选择数据格式
    */
@@ -51,7 +56,16 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
       return ({
         value: code,
         label: <>
-          <span>{getUnicodeFlagIcon(code)}{" "}{locale[code]}</span>
+          {/* <span>{getUnicodeFlagIcon(code)}{" "}{locale[code]}</span> */}
+          <span className="flex items-center gap-1.5">
+            <img
+              loading="lazy"
+              src={getFlagAsset(code)}
+              alt={locale[code]}
+              className="w-3 h-3 rounded-sm object-cover"
+            />
+            <span>{locale[code]}</span>
+          </span>
           <span>+{getCountryCallingCode(code)}</span>
         </>,
         search: [code, getUnicodeFlagIcon(code), locale[code], getCountryCallingCode(code)]
@@ -113,8 +127,8 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
       <div className="relative flex items-center gap-2">
         <input
           type="text"
-          className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 pl-28 text-white"
-          placeholder="Enter"
+          className="input w-full bg-base-300 !outline-0 border-0 font-semibold px-4 pl-28 text-base-content"
+          placeholder={t("profile:enterPhoneNumber")}
           value={status.phone || defaultValue}
           onChange={(v) => {
             const phone = v.target.value;
@@ -140,8 +154,17 @@ export const PhoneAreaCodeSelect = ({ loading, defaultCode, defaultValue = '', o
               <>
                 <p className={cn("text-xs truncate font-extrabold text-base-content")}>
                   {status.area_code
-                    ? <span
-                      className="flex gap-2"><span>{status.area_code?.split("#")[0]}</span><span>+{status.area_code?.split("#")[1]}</span></span>
+                    ? <span className="flex items-center gap-2">
+                      <span>
+                        <img
+                          loading="lazy"
+                          src={getFlagAsset((status.area_code?.split("#")[0] || "") as Country)}
+                          alt={locale[(status.area_code?.split("#")[0] || "") as Country] || ""}
+                          className="w-3 h-3 rounded-sm object-cover"
+                        />
+                      </span>
+                      <span>+{status.area_code?.split("#")[1]}</span>
+                    </span>
                     : t("finance:select")}
                 </p>
                 <ChevronDown
@@ -243,5 +266,5 @@ export const InnerSearch = forwardRef<HTMLInputElement, {
 });
 
 function combineCode(o: { value: Country }): string {
-  return `${getUnicodeFlagIcon(o.value)}#${getCountryCallingCode(o.value)}`;
+  return `${o.value}#${getCountryCallingCode(o.value)}`;
 }

@@ -36,5 +36,5 @@
   "vip_monday": "VIP Pazartesi",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONUS \n <0>DOLAR</0>",
-  "super_everyday": "<0>Günün İlk Yatırımı</0><br/><0>Kripto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Yatırımlarınızı<br/>Her Gün Artırın"
+  "super_everyday": "<0>Günün İlk Yatırımı</0><br/>Kripto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

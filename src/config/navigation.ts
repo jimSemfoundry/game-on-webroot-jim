@@ -128,3 +128,12 @@ export function getNavItems(type: "main" | "sidebar" | "user"): NavItem[] {
       return MAIN_NAV_ITEMS;
   }
 }
+
+/**
+ * 在 Betby 不支持的地区和被体育禁止的用户将体育替换为“Live（Casino）”
+ */
+export const LIVE_NAV_ITEMS: NavItem =   {
+  href: "/explore?type=liveCasino&category=all",
+  label: "explore:live",
+  icon: "custom:live-casino",
+}

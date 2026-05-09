@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { parseAmount, resolveFirstString, resolveTimestamp } from "./utils";
+import Decimal from "decimal.js";
 
 export interface BetHistoryTableProps {
   records: BetHistoryRecord[];
@@ -47,12 +48,16 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       const betId = primaryBetId ?? "--";
       const currency = resolveFirstString(record.currency, record.asset, record.account_currency, record.real_currency);
       const accountCurrency = resolveFirstString(record.real_currency, record.account_currency, record.currency);
-      const betAmount = parseAmount(
+      // bet 和 win 需要减去 f6
+      const f6Value = new Decimal(record.f6 as string | number || 0);
+      const rawBetAmount = parseAmount(
         record.bet_amount ?? record.amount_in ?? record.amountIn ?? record.betIn ?? record.stake ?? record.amount,
       );
-      const winAmount = parseAmount(
+      const rawWinAmount = parseAmount(
         record.win_amount ?? record.bet_out ?? record.amount_out ?? record.reward ?? record.payout ?? record.winAmount,
       );
+      const betAmount = rawBetAmount !== undefined ? new Decimal(rawBetAmount).minus(f6Value).toNumber() : undefined;
+      const winAmount = rawWinAmount !== undefined ? new Decimal(rawWinAmount).minus(f6Value).toNumber() : undefined;
       const timestamp = resolveTimestamp(
         record.order_time,
         record.created_at,
@@ -80,8 +85,8 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
           <td className="px-4 py-3 align-middle text-xs text-base-content/80 rtl:text-right min-w-0">
             <div className="flex items-center gap-2 rtl:flex-row-reverse min-w-0 w-full">
               <div className="min-w-0 flex-1">
-                <span className="font-mono text-xs truncate max-w-full sm:hidden" dir="ltr">{betId}</span>
-                <span className="font-mono text-xs truncate max-w-full hidden sm:block" dir="ltr" title={betId}>
+                <span className="text-xs truncate max-w-full sm:hidden" dir="ltr">{betId}</span>
+                <span className="text-xs truncate max-w-full hidden sm:block" dir="ltr" title={betId}>
                   {betId}
                 </span>
               </div>
@@ -145,12 +150,16 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       const betId = primaryBetId ?? "--";
       const currency = resolveFirstString(record.currency, record.asset, record.account_currency, record.real_currency);
       const accountCurrency = resolveFirstString(record.real_currency, record.account_currency, record.currency);
-      const betAmount = parseAmount(
+      // bet 和 win 需要减去 f6
+      const f6Value = new Decimal(record.f6 as string | number || 0);
+      const rawBetAmount = parseAmount(
         record.bet_amount ?? record.amount_in ?? record.amountIn ?? record.betIn ?? record.stake ?? record.amount,
       );
-      const winAmount = parseAmount(
+      const rawWinAmount = parseAmount(
         record.win_amount ?? record.bet_out ?? record.amount_out ?? record.reward ?? record.payout ?? record.winAmount,
       );
+      const betAmount = rawBetAmount !== undefined ? new Decimal(rawBetAmount).minus(f6Value).toNumber() : undefined;
+      const winAmount = rawWinAmount !== undefined ? new Decimal(rawWinAmount).minus(f6Value).toNumber() : undefined;
       const timestamp = resolveTimestamp(
         record.order_time,
         record.created_at,
@@ -165,11 +174,13 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
         winAmount && winAmount > 0 ? "text-success" : winAmount && winAmount < 0 ? "text-error" : "text-base-content/70";
 
       return (
-        <div key={rowKey} className={cn("rounded-field px-4 py-3 flex flex-col gap-2 bg-base-300 w-full overflow-hidden")}>
+        <div key={rowKey}
+             className={cn("rounded-field px-4 py-3 flex flex-col gap-2 bg-base-300 w-full overflow-hidden")}>
           {/* Row 1: game name | provider name */}
           <div className="flex items-center justify-between gap-4 w-full">
             <div className="flex items-center gap-1 min-w-0">
-              <Iconify icon={`custom:${record.game_category_2?.toLowerCase()}`} className="h-4 w-4 text-base-content/50" />
+              <Iconify icon={`custom:${record.game_category_2?.toLowerCase()}`}
+                       className="h-4 w-4 text-base-content/50" />
               <span className="text-xs font-semibold text-base-content truncate">{gameName}</span>
             </div>
             <div className="badge badge-ghost">
@@ -181,20 +192,22 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
           <div className="flex items-center justify-between gap-4 w-full">
             <div className="flex flex-col gap-1 min-w-0">
               <span className="text-xs text-base-content/50 font-semibold">{timestamp ?? "--"}</span>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs text-base-content/50 font-semibold break-all">{betId}</span>
-                {primaryBetId && <Copy text={primaryBetId} className="w-3 h-3" />}
-              </div>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
-              <div className="flex flex-col items-end gap-1">
+              <div className="flex flex-col items-end">
                 <span className={cn("text-xs font-semibold", winColor)}>
                   {renderAmount(winAmount, currency, false, true)}
                 </span>
-                <span className="text-xs text-base-content/50 font-semibold">{renderAmount(betAmount, currency, true)}</span>
+                <span
+                  className="text-xs text-base-content/50 font-semibold">{renderAmount(betAmount, currency, true)}</span>
               </div>
-              {accountCurrency && <CurrencyIcon currency={accountCurrency} className="h-4 w-4" />}
+              {accountCurrency && <CurrencyIcon currency={accountCurrency} className="h-5 w-5" />}
             </div>
+          </div>
+
+          <div className="flex items-center gap-2 justify-between">
+            <span className="text-xs text-base-content/50 font-semibold break-all">{betId}</span>
+            {primaryBetId && <button className={"btn btn-sm btn-square bg-base-200"}><Copy text={primaryBetId} /></button>}
           </div>
         </div>
       );
@@ -206,7 +219,7 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
       {/* Desktop Table */}
       <div className="hidden sm:block flex-1 overflow-y-auto">
         <table className="w-full table-fixed text-sm text-base-content border-separate border-spacing-y-1">
-          <colgroup>
+        <colgroup>
             <col className="w-[36%]" />
             <col className="w-[16%]" />
             <col className="w-[18%]" />
@@ -235,7 +248,7 @@ const BetHistoryTableComponent = ({ records, isLoading, isFetchingMore, showNoMo
           <>
             <div className="flex items-center justify-between px-2 text-[11px] font-semibold uppercase text-base-content/50 text-xs">
               <span>{t("profile:betHistory.headers.game", "Game")} | {t("profile:betHistory.headers.date", "Date")}</span>
-              <span>{t("profile:betHistory.headers.amount", "Amount")} | {t("profile:betHistory.headers.provider", "Provider")}</span>
+              <span>{t("profile:betHistory.headers.provider", "Provider")} | {t("profile:betHistory.headers.amount", "Amount")}</span>
             </div>
             {renderMobileCards()}
           </>

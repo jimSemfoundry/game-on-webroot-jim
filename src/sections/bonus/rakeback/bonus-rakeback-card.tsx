@@ -12,6 +12,10 @@ import { useTranslation } from "react-i18next";
 import { useBoundStore } from "@/store";
 import { useNavigate } from "@tanstack/react-router";
 import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
+import { hasAuth } from "@/utils/auth.ts";
+import { CardLoading } from "@/sections/bonus/components/CardLoading.tsx";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
@@ -24,16 +28,15 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
-const ILLUSTRATION_URL = "/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png";
-
 export function BonusRakebackCard() {
-  const { t } = useTranslation(['popup', 'bonus']);
+  const { t } = useTranslation(["popup", "bonus"]);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { status, isInitialized, isAuthenticated } = useAuth();
+  const { status, isInitialized } = useAuth();
   const { openTipsModal } = useTipsModal();
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
   const { mutate: activateBooster, isPending: isActivatePending } = useActivateBoosterMutation();
   const navigate = useNavigate();
+  const ILLUSTRATION_URL = useBonusDetailsImage("super_rakeback", 192);
 
   const { setSyncAction } = useBoundStore();
 
@@ -75,12 +78,12 @@ export function BonusRakebackCard() {
       { item: "rakeback" },
       {
         onSuccess: (response) => {
-          if (response.code !== 0 ) {
+          if (response.code !== 0) {
             setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
               code: response.code,
               tryAgain: handleClaim
             });
-            return
+            return;
           }
           openDoubleOrNothingModal({
             don_record_id: response?.data?.don_record_id,
@@ -88,8 +91,8 @@ export function BonusRakebackCard() {
           });
         },
         onError: () => {
-        },
-      },
+        }
+      }
     );
   };
 
@@ -107,59 +110,24 @@ export function BonusRakebackCard() {
   // Convert Unix timestamp to milliseconds for Countdown component
   const batteryExpireMs = status?.battery_expire ? status.battery_expire * 1000 : 0;
 
+  if (isLoading) return <CardLoading />;
 
-  if (isLoading) {
-    return (
-      <div
-        className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative overflow-hidden border border-base-200"
-        style={{
-          background: DEFAULT_GRADIENT,
-        }}
-      >
-        <div className="skeleton w-6 h-6 absolute right-4 rtl:right-auto rtl:left-4 top-4 rounded-btn"></div>
-        <div className="flex items-center gap-2 h-15">
-          <div className="skeleton w-15 h-15 rounded-box"></div>
-          <div className="flex flex-col justify-between h-full w-full">
-            <div className="skeleton h-4 w-32 rounded-box"></div>
-            <div className="flex items-center gap-1 w-full justify-end">
-              <div className="skeleton h-8 w-24 rounded-btn"></div>
-              <div className="skeleton h-8 w-16 rounded-btn"></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-1 w-full">
-          <div className="flex-1 bg-base-300 rounded-btn h-12 flex items-center px-3 gap-2">
-            <div className="skeleton w-4 h-4 rounded-box"></div>
-            <div className="skeleton h-4 flex-1 rounded-box"></div>
-          </div>
-          <div className="skeleton w-20 h-12 rounded-btn"></div>
-        </div>
-
-        <div className="flex items-center justify-between px-1">
-          <div className="skeleton h-3 w-20 rounded-box"></div>
-          <div className="skeleton h-3 w-4 rounded-box"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
+  if (!isLoading && !hasAuth()) {
     return (
       <ImageColorCard
         gradientMode="linear"
-        imageUrl="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
+        imageUrl={ILLUSTRATION_URL}
         colorOpacity={0.6}
         paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
         className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
       >
         <p className="text-2xl sm:text-4xl font-bold uppercase leading-6 sm:leading-8 text-start">
-          <span className="text-base-content block">{t("popup:super")}</span>
-          <span className="text-primary block">{t("bonus:rakeback")}</span>
+          <span className="text-base-content block">{t("popup:rakeback.super")}</span>
+          <span className="text-primary block">{t("bonus:item.rakeback")}</span>
           <span className="text-primary block">{t("bonus:program")}</span>
         </p>
         <LazyImage
-          src="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png"
+          src={ILLUSTRATION_URL}
           alt="free spins"
           className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
@@ -172,18 +140,19 @@ export function BonusRakebackCard() {
 
   return (
     <div
-      className={`flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative overflow-hidden border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
+      className={`flex flex-col p-4 gap-4 rounded-field w-full relative overflow-hidden border ${isClaimable ? "border-warning" : "border-base-200"}`}
       style={{
-        background,
+        background
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
-      <div className="flex items-center gap-2 h-15">
-        <img src={ILLUSTRATION_URL} alt={t("bonus:super_rakeback")} className="w-15 h-15" loading="lazy" decoding="async" />
-        <div className="flex flex-col justify-between h-full w-full">
-          <p className="text-sm font-bold sm:text-base">{t("bonus:super_rakeback")}</p>
+      <div className="flex items-center gap-2">
+        <img src={ILLUSTRATION_URL} alt={t("bonus:super_rakeback")} className="w-15 h-15" loading="lazy"
+             decoding="async" />
+        <div className="flex flex-col justify-between h-full w-full gap-4">
+          <div className="flex justify-between">
+            <p className="text-sm font-bold sm:text-base">{t("bonus:super_rakeback")}</p>
+            <Info onClick={handleOpenTips} />
+          </div>
           <div className="flex items-center gap-1 w-full justify-end">
             <button
               className="btn btn-primary btn-soft btn-sm"
@@ -199,21 +168,25 @@ export function BonusRakebackCard() {
                 t("bonus:activate_booster")
               )}
             </button>
-            <button className="btn btn-sm flex-1 text-base-content/50 px-0 w-20 max-w-20">x&nbsp;{status?.battery ?? 0}</button>
+            <button
+              className="btn btn-sm flex-1 text-base-content/50 px-0 w-20 max-w-20">x&nbsp;{status?.battery ?? 0}</button>
           </div>
         </div>
       </div>
 
       {
         1 > Number(claimableAmount) && (
-          <div className="flex w-full items-end justify-between gap-1">
+          <div className="flex w-full items-end justify-between gap-2">
             <div className="flex flex-col flex-1 gap-1.5">
               <div className="flex items-center justify-between text-base-content/50">
                 <p className="text-xs font-semibold">
-                  {t('bonus:claim')}:
+                  {t("bonus:claim")}:
                 </p>
                 <p className="text-xs font-semibold">
-                  {formatWithConversion(claimableAmount, currency, { showCode: false,minimizeDecimals: false }).formatted} / {formatWithConversion(1, 'USD', { showCode: false }).formatted}
+                  {formatWithConversion(claimableAmount, currency, {
+                    showCode: false,
+                    minimizeDecimals: false
+                  }).formatted} / {formatWithConversion(1, "USD", { showCode: false }).formatted}
                 </p>
               </div>
               <progress
@@ -225,7 +198,7 @@ export function BonusRakebackCard() {
             <button
               className="btn btn-primary btn-soft text-sm font-semibold max-w-20"
               onClick={() => navigate({ to: "/explore" })}>
-              {t('bonus:ongoing')}
+              {t("bonus:ongoing")}
             </button>
           </div>
         )
@@ -238,9 +211,9 @@ export function BonusRakebackCard() {
               <Iconify icon="custom:cash" />
               <input
                 type="text"
-                className="grow border-none outline-none"
+                className="grow border-none outline-none font-semibold"
                 readOnly
-                value={formatWithConversion(claimableAmount, currency).formatted}
+                value={formatWithConversion(claimableAmount, currency, { showCode: false }).formatted}
               />
             </label>
 

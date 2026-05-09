@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">ラッキーセブンを当てて、インスタントボーナスを受け取りましょう！PG SoftまたはJILIスロットをプレイ中、ベットIDの末尾が7777の場合、ベット額をボーナスとして受け取れます - 最大 ₱2,868.20 まで。             </p>\n\n             <p class=\"mt-5 leading-5\">条件なしのフリーボーナスです！ボーナスページにアクセスし、「ボーナスを受け取る」をクリックするだけです。            </p>\n\n             <h4 class=\"mt-5 leading-5\">ルールと条件</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                <span class=\"font-medium\"></span>参加資格 PGおよびJILIスロットへのベットのみがこのプロモーションの対象となります。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>勝利条件 ベットIDの末尾が7777の場合、ベット額の100%をボーナスとして受け取ります（最高$50）。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>請求頻度：条件を満たした場合、1日1回ボーナスを受け取ることができます。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>最大ボーナス額：ボーナス額は、対象となるベットID1つにつき50 USDが上限となります。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>請求方法\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     - 条件を満たした後、ボーナスページに<span class=\"\">アクセスして </span>ください。\n                   </li>\n                   <li>\n                     - ボーナスを受け取るには、請求ボタンを<span class=\"\">クリックして </span>ください。\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>賭け条件はありません：資金は即座に引き出しまたはゲームプレイにご利用いただけます。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>自動クオリフィケーション：システムは対象となるベットIDを追跡し、ボーナスを請求できるようにします。\n               </li>\n               <li>\n                <span class=\"font-medium\"></span>一般条件：当カジノは、当プロモーションをいつでも変更または終了する権利を有します。不正使用または詐欺行為は、当プロモーションの対象外となります。\n               </li>\n             </ol>\n         </div>",
   "beginnerTitle": "ビギナーズラック",
   "beginnerDescription": "ルールと規約",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">カジノは初めてですか？ビギナーズラックは、大きな報酬を毎日獲得できるチャンスです！このVIP 1限定トーナメントは、スロットゲームをプレイするだけで、賞金、フリースピン、ボーナスクレジットを獲得できる、新規プレイヤー専用のトーナメントです。</p>\n       <p class=\"mt-5 leading-5\">全ての VIP 1 プレイヤーの賭け金は自動的にトーナメントにカウントされます。トーナメント中にレベルアップした場合、GMT 23:59まで参加できますが、翌日には再参加できません。</p>\n       <p class=\"mt-5 leading-5 font-medium\">仕組み</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">スロットゲームをプレイする：</span>スロットゲームでのベットのみがトーナメントにカウントされます。\n           </li>\n           <li>\n              <span class=\"font-medium\">自動参加：</span>全ての VIP 1 プレイヤーの賭け金は自動的にトーナメントにカウントされます。\n           </li>\n           <li>\n              <span class=\"font-medium\">プレイヤー1人につき1回の参加：</span>トーナメント中にレベルアップした場合、その日の参加者としての資格は残りますが、翌日の再参加資格はありません。\n           </li>\n           <li>\n              <span class=\"font-medium\">リーダーボードランキング：</span>プレイヤーは合計ベット額に基づいてランク付けされます（勝敗ではありません）。\n           </li>\n           <li>\n              <span class=\"font-medium\">トーナメント期間：</span>毎日00:00 GMTから23:59 GMTまで開催されます。\n           </li>\n           <li>\n              <span class=\"font-medium\">上位10名に賞金:</span>上位10名に賞金、フリースピン、ボーナスクレジットが贈られます。\n           </li>\n           <li>\n              <span class=\"font-medium\">ライブリーダーボード：</span>リアルタイムアップデートでランキングを確認し、上位を目指しましょう。\n           </li>\n           <li>\n              <span class=\"font-medium\">即時ペイアウト：</span>トーナメント終了後、自動的に賞金が加算されます。\n           </li>\n           <li>\n              <span class=\"font-medium\">フェアプレーポリシー：</span>不正行為や悪用があった場合は失格となります。\n           </li>\n           <li>\n              <span class=\"font-medium\">一般条件：</span>当カジノは、当プロモーションをいつでも変更またはキャンセルする権利を有します。\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">スピン、ベット、後はビギナーズラックにお任せください！</p>\n    </div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">カジノは初めてですか？ビギナーズラックは、大きな報酬を毎日獲得できるチャンスです！このVIP 1限定トーナメントは、スロットゲームをプレイするだけで、賞金、フリースピン、ボーナスクレジットを獲得できる、新規プレイヤー専用のトーナメントです。</p>\n       <p class=\"mt-5 leading-5\">全ての VIP 1 プレイヤーの賭け金は自動的にトーナメントにカウントされます。トーナメント中にレベルアップした場合、GMT 23:59まで参加できますが、翌日には再参加できません。</p>\n       <p class=\"mt-5 leading-5 font-medium\">仕組み</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">スロットゲームをプレイする：</span>スロットゲームでのベットのみがトーナメントにカウントされます。\n           </li>\n           <li>\n              <span class=\"font-medium\">自動参加：</span>全ての VIP 1 プレイヤーの賭け金は自動的にトーナメントにカウントされます。\n           </li>\n           <li>\n              <span class=\"font-medium\">プレイヤー1人につき1回の参加：</span>トーナメント中にレベルアップした場合、その日の参加者としての資格は残りますが、翌日の再参加資格はありません。\n           </li>\n           <li>\n              <span class=\"font-medium\">リーダーボードランキング：</span>プレイヤーは合計ベット額に基づいてランク付けされます（勝敗ではありません）。\n           </li>\n           <li>\n              <span class=\"font-medium\">トーナメント期間：</span>毎日00:00 GMTから23:59 GMTまで開催されます。\n           </li>\n           <li>\n              <span class=\"font-medium\">上位10名に賞金:</span>上位10名に賞金、フリースピン、ボーナスクレジットが贈られます。\n           </li>\n           <li>\n              <span class=\"font-medium\">ライブリーダーボード：</span>リアルタイムアップデートでランキングを確認し、上位を目指しましょう。\n           </li>\n           <li>\n              <span class=\"font-medium\">即時ペイアウト：</span>トーナメント終了後、自動的に賞金が加算されます。\n           </li>\n           <li>\n              <span class=\"font-medium\">フェアプレーポリシー：</span>不正行為や悪用があった場合は失格となります。\n           </li>\n           <li>\n              <span class=\"font-medium\">一般条件：</span>当カジノは、当プロモーションをいつでも変更またはキャンセルする権利を有します。\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">スピン、ベット、後はビギナーズラックにお任せください！</p>\n    </div>",
+  "jiliSlot": "JILIスロット",
+  "MegaBonanza": "メガボナンザ",
+  "pgSoft": "PGソフト",
+  "Races": "レース",
+  "days": "日",
+  "RakeRace": "レーキレース",
+  "drops_races": "ドロップ＆レース",
+  "arena": "ARENA",
+  "howToParticipate": "参加方法",
+  "howToParticipateContent": {
+    "rules1": "トーナメント期間中に参加ゲームをプレイする",
+    "rules2": "各ベットは合計ベット額に貢献します",
+    "rules3": "より多くのベットでリーダーボードを登る"
+  },
+  "prizeDistribution": "賞金配分",
+  "prizeDistributionContent": {
+    "prize1": "賞金は最終ランクに基づいて分配されます",
+    "prize2": "トーナメント終了後に勝者に通知されます",
+    "prize3": "賞金プールはプログレッシブで参加に応じて増加します"
+  },
+  "termsAndConditions": "利用規約",
+  "termsAndConditionsContent": {
+    "term1": "リアルマネーのベットのみがトーナメントに算入されます",
+    "term2": "運営側はトーナメントを修正または中止する権利を留保します",
+    "term3": "一般利用規約が適用されます"
+  },
+  "unranked": "未ランキング",
+  "rakerace": {
+    "title": "ターボ レーキ レース",
+    "desc": "ターボ レーキ レースの準備をしてください。上位<0>{{players}}</0>名のプレイヤーが、最低賞金プール<0>{{prize}}</0>から毎週巨大な報酬を獲得します！",
+    "p0_title": "トーナメントスケジュール",
+    "p0_desc": "トーナメントは日曜日<0>{{start}}</0>から次の日曜日<0>{{end}}</0>まで開催され、リーダーボードを上昇し、勝者の中であなたの場所を確保するために7日間与えられます。",
+    "p1_title": "資格",
+    "p1_desc": "すべてのベット（フリースピンとボーナスウォレットを除く）がレーキレースにカウントされます。\n ランキングはあなたの加重合計ベット額（ベット額 * ゲームタイプ）に基づいています - ゲーム結果はあなたの位置に影響しません。ゲームタイプの詳細は以下：",
+    "p2_title": "ゲームタイプ",
+    "p2_desc": "",
+    "p3_title": "リーダーボードランキング",
+    "p3_desc": "<0>{{places}}</0>位支払い \n 上位<0>{{players}}</0>名のプレイヤーは、以下に記載されている魅力的な報酬を受け取ります。",
+    "p4_title": "フェアプレーポリシー",
+    "p4_desc": "詐欺的な活動または悪用は失格となります。",
+    "p5_title": "有効期限",
+    "p5_desc": "なし - トーナメント報酬は請求されるまで蓄積されます。",
+    "p6_title": "一般条件",
+    "p6_desc": "報酬は{{token}}で計算され、クレジットされ、その後便宜のためにあなたの好みの法定通貨で表示されます。通貨換算は概算であることにご注意ください。 \n\n カジノは、このプロモーションをいつでも変更または終了する権利を留保します。悪用または詐欺的な活動はプロモーションからの失格となります。"
+  },
+  "rank": "ランク",
+  "jump": "ジャンプ",
+  "pastLeaderboard": "過去のランキング",
+  "showMore": "もっと見る",
+  "lastWeeksLeaderboard": "先週のランキング"
 }

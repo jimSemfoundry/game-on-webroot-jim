@@ -34,5 +34,12 @@
   "depositNow": "Déposer Maintenant",
   "free_spins": "Tours Gratuits",
   "play_with_balance_in": "Jouer avec le Solde En",
-  "the_selected_currency_will_be_displayed_in": "La devise sélectionnée sera affichée en"
+  "the_selected_currency_will_be_displayed_in": "La devise sélectionnée sera affichée en",
+  "activity": "Activité",
+  "come_join_me_now_at": "REJOIGNEZ-NOUS MAINTENANT SUR",
+  "invite_friends_to_join_play": "Invitez des amis à rejoindre & Jouer",
+  "earn_up_to_50_commission_bonus": "Gagnez jusqu'à 50% de commission <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Échec du téléchargement. Veuillez réessayer.",
+  "image_downloaded": "Image téléchargée !",
+  "share_text_1": "Je viens de gagner un BIG WIN de {{multiplier}}x ! 🔥"
 }

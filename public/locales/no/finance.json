@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Vennligst fyll inn informasjonen din for uttak av fiatvaluta.",
   "updating_withdrawal_address": "Oppdaterer uttaksadresse, vennligst vent...",
   "please_select_withdrawal_method": "Vennligst velg en uttaksmetode.",
-  "integer_deposit": "Denne kanalen krever at innskuddsbeløpet er et heltallsmultiplikum av {{value}}.",
+  "integer_deposit": "Denne kanalen krever at innskuddsbeløpet er i enheter av {{value}}.",
   "enter_string_en_only": "Kun engelske bokstaver, tall og mellomrom kan angis.",
-  "enter_string_min_length": "Lengden må være minst {{length}}."
+  "enter_string_min_length": "Lengden må være minst {{length}}.",
+  "met_eligibility": "*Du har oppfylt kriteriene for spesialtilbudet. Lade opp nå for å motta belønningen din!",
+  "read_carefully": "Vennligst les nøye",
+  "no_channel": "Ingen kanaler tilgjengelige for øyeblikket"
 }

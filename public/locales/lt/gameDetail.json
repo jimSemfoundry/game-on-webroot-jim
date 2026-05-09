@@ -34,5 +34,12 @@
   "depositNow": "Įnešti Dabar",
   "free_spins": "Nemokami Sukimai",
   "play_with_balance_in": "Žaisti su Balansu",
-  "the_selected_currency_will_be_displayed_in": "Pasirinkta valiuta bus rodoma"
+  "the_selected_currency_will_be_displayed_in": "Pasirinkta valiuta bus rodoma",
+  "activity": "Veikla",
+  "come_join_me_now_at": "PRISIJUNKITE DABAR",
+  "invite_friends_to_join_play": "Kvieskite draugus prisijungti ir Žaisti",
+  "earn_up_to_50_commission_bonus": "Uždirbkite iki 50% komisinių <0>+{{bonus}}</0> Premija",
+  "download_failed": "Atsisiuntimas nepavyko. Bandykite dar kartą.",
+  "image_downloaded": "Vaizdas atsisiųstas!",
+  "share_text_1": "Ką tik laimėjau {{multiplier}}x DIDĮ LAIMĖJIMĄ! 🔥"
 }

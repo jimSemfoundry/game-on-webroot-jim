@@ -4,14 +4,13 @@ import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
 // import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { ICurrentPromo } from "@/types/double-or-nothing";
-import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useCurrencyData } from "@/hooks/useCurrency";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useSupportedCurrencyV2Filter } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useNavigate } from "@tanstack/react-router";
 
 export const Boost = ({ open, onClose, modalData }: { open: boolean; onClose: () => void; modalData: ICurrentPromo }) => {
+  const navigate = useNavigate();
 
-  const { openUserFinanceModalWithTab } = useFinanceModal();
   const { t } = useTranslation(['gameDetail', 'bonus']);
   // const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { user } = useAuth();
@@ -117,7 +116,7 @@ export const Boost = ({ open, onClose, modalData }: { open: boolean; onClose: ()
           <button className="btn btn-primary h-12 w-50 mt-[10px]"
             onClick={() => {
               onClose()
-              openUserFinanceModalWithTab(`deposit_${randomString()}`)
+              void navigate({to:'/finance'})
             }
             }>{t('bonus:continue')}</button>
         </div>

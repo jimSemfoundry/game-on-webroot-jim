@@ -34,5 +34,12 @@
   "depositNow": "Κατάθεση Τώρα",
   "free_spins": "Δωρεάν Περιστροφές",
   "play_with_balance_in": "Παίξτε με Υπόλοιπο Σε",
-  "the_selected_currency_will_be_displayed_in": "Το επιλεγμένο νόμισμα θα εμφανίζεται σε"
+  "the_selected_currency_will_be_displayed_in": "Το επιλεγμένο νόμισμα θα εμφανίζεται σε",
+  "activity": "Δραστηριότητα",
+  "come_join_me_now_at": "ΕΛΑΤΕ ΤΩΡΑ ΣΤΟ",
+  "invite_friends_to_join_play": "Προσκαλέστε φίλους να συμμετάσχουν και να Παίξουν",
+  "earn_up_to_50_commission_bonus": "Κερδίστε έως 50% προμήθεια <0>+{{bonus}}</0> Μπόνους",
+  "download_failed": "Η λήψη απέτυχε. Παρακαλώ δοκιμάστε ξανά.",
+  "image_downloaded": "Η εικόνα λήφθηκε!",
+  "share_text_1": "Μόλις κέρδισα {{multiplier}}x ΜΕΓΑΛΗ ΝΙΚΗ! 🔥"
 }

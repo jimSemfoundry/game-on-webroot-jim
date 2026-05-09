@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Lütfen {{length}} karakter uzunluğunda bir değer girin",
   "disabledCharNotAllowed": "Karakter {{char}} kullanılamaz",
   "space": "boşluk",
-  "thisWalletIsAlreadyUsed": "Bu cüzdan zaten kullanılıyor"
+  "thisWalletIsAlreadyUsed": "Bu cüzdan zaten kullanılıyor",
+  "login_failed": "Giriş başarısız oldu",
+  "login_error_code_1": "Kullanıcı adı geçerli bir telefon numarası (+ ile başlayan ve ülke kodundan sonra - kullanan) veya e-posta adresi olmalıdır",
+  "account_created_and_logged_in_successfully": "Hesap oluşturuldu ve başarıyla giriş yapıldı!",
+  "requests_later": "Bu IP'den çok fazla istek. Lütfen daha sonra tekrar deneyin.",
+  "booster_activated_successfully": "Booster başarıyla etkinleştirildi!",
+  "depositNameEntered": "Para yatırma için girilen isim, çekim için kullanılan banka hesabındaki tam isimle<0>（Ad + Soyad）</0> eşleşmelidir, dolandırıcılık ve kara para aklama karşı düzenlemelere uymak için.\n\n Banka hesabınızı değiştirmeniz gerekiyorsa, lütfen müşteri desteği ile iletişime geçin ve KYC doğrulamasını tamamlayın.",
+  "user_not_found_or_password_incorrect": "Kullanıcı bulunamadı veya şifre yanlış",
+  "free_spin_record_enabled_successfully": "Ücretsiz dönüş kaydı başarıyla etkinleştirildi!",
+  "check_in_success": "Giriş başarılı!",
+  "check_in_failed": "Giriş başarısız oldu!",
+  "check_in_already": "Bu tarih için giriş zaten tamamlandı.",
+  "ballsClaimed": "Arkadaş topu başarıyla talep edildi",
+  "cannotBetby": "Spor bonus cüzdanı sadece spor bahisleri içindir."
 }

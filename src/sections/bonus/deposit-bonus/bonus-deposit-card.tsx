@@ -3,16 +3,16 @@ import { Countdown } from "@/components/ui";
 import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useFinanceModal, useTipsModal } from "@/contexts/ModalsProvider";
+import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useDepositBonusConfig } from "@/hooks/api/usePublic";
 import { m } from "motion/react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useClaimBonus } from "@/hooks/api/useAuth.ts";
 import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 import clsx from "clsx";
+import { useNavigate } from "@tanstack/react-router";
 
 interface BonusStage {
   id: number;
@@ -22,11 +22,12 @@ interface BonusStage {
 }
 
 export function BonusDepositCard() {
+  const navigate = useNavigate();
+
   const { t } = useTranslation('bonus');
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { status, isAuthenticated, isLoading: isAuthLoading } = useAuth();
-  const { openUserFinanceModalWithTab } = useFinanceModal();
   const { openTipsModal } = useTipsModal();
   const { data: depositBonusConfig } = useDepositBonusConfig();
   const { data: claimBonus } = useClaimBonus("rakeback");
@@ -326,7 +327,7 @@ export function BonusDepositCard() {
         {/* `deposit_${randomString()}` 防止切换失效 */}
         <button
           className="btn btn-primary btn-lg text-sm font-bold sm:btn-xl sm:text-base sm:mt-2 z-10 relative pointer-events-auto"
-          onClick={() => openUserFinanceModalWithTab(`deposit_${randomString()}`)}
+          onClick={() => void navigate({to:'/finance'})}
         >
           {t("bonus:deposit_now")}
         </button>

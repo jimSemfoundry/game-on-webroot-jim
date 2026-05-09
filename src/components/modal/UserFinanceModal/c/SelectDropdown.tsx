@@ -5,12 +5,13 @@ import { forwardRef, ReactNode, useEffect, useImperativeHandle, useMemo, useRef,
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { NoData } from "@/components/modal/UserFinanceModal/c/NoData.tsx";
-import { LazyMotion, domMax, m } from "motion/react";
+import { LazyMotion, domMax, m, AnimatePresence } from "motion/react";
 
 export interface SelectOption {
   id: string;
   value: string | number;
   label?: string | ReactNode;
+  extra?:ReactNode;
   icon?: string | ReactNode;
   spare?: string | number;
   disabled?: boolean;
@@ -81,7 +82,7 @@ export const SelectDropdown = forwardRef<
       height = "md",
       variant = "filled",
       className = "",
-      dropdownClassName = "",
+      // dropdownClassName = "",
       dropdownContainerClassName = "",
       showSearch = false,
       searchPlaceholder,
@@ -212,7 +213,10 @@ export const SelectDropdown = forwardRef<
             ) : (
               <span className="flex-shrink-0">{option.icon}</span>
             )))}
-          <span>{option.label || option.value}</span>
+          <div className={'flex justify-between items-center w-full'}>
+            {option.label || option.value}
+            <span className={'text-base-content/50 text-[11px]'}>{option?.extra}</span>
+          </div>
         </div>
       );
     };
@@ -289,77 +293,91 @@ export const SelectDropdown = forwardRef<
           </>}
         </button>
 
-        {/*桌面端*/}
-        <LazyMotion features={domMax}>
-          {!isMobile && (
-            <m.div
-              initial={false}
-              animate={isOpen ? "open" : "closed"}
-              variants={{
-                open: { height: "auto", opacity: 1, pointerEvents: "auto" as const, display: "block" },
-                closed: { height: 0, opacity: 0, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
-              }}
-              transition={{ duration: 0.1 }}
-              className={clsx(
-                "bg-base-300 absolute z-[1001] mt-1 w-full overflow-hidden rounded-lg shadow-lg",
-                dropdownClassName
+        {/*桌面端 - 使用 AnimatePresence 优化加载 */}
+        {!isMobile && (
+          <LazyMotion features={domMax}>
+            <AnimatePresence>
+              {isOpen && (
+                <m.div
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={{
+                    open: { height: "auto", opacity: 1, pointerEvents: "auto" as const, display: "block" },
+                    closed: { height: 0, opacity: 0, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
+                  }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className={clsx(
+                    "absolute top-full left-0 right-0 mt-2 bg-base-400 rounded-field shadow-lg z-[1001] overflow-hidden",
+                    dropdownContainerClassName
+                  )}
+                >
+                  <div className="p-2">
+                    {/* 搜索框 */}
+                    <Wrapper show={showSearch && options.length > 0}>
+                      <InnerSearch
+                        className="mb-2 bg-base-300"
+                        ref={searchInputRef}
+                        placeholder={finalSearchPlaceholder}
+                        value={searchText}
+                        onChange={setSearchText}
+                      />
+                    </Wrapper>
+
+                    {/* 选项内容 */}
+                    <div className="max-h-60 overflow-y-auto p-1 hide-scrollbar">
+                      {filteredOptions.length > 0 ? renderOptionWrap : (
+                        <NoData text={finalEmptyText} className="p-3 text-xs" />
+                      )}
+                    </div>
+                  </div>
+                </m.div>
               )}
-            >
-              {/* 搜索框 */}
-              <Wrapper show={showSearch && options.length > 0}>
-                <InnerSearch
-                  className="mx-1 mt-1"
-                  ref={searchInputRef}
-                  placeholder={finalSearchPlaceholder}
-                  value={searchText}
-                  onChange={setSearchText}
-                />
-              </Wrapper>
+            </AnimatePresence>
+          </LazyMotion>
+        )}
 
-              {/* 选项内容 */}
-              <div className="max-h-60 overflow-y-auto p-1 hide-scrollbar">
-                {filteredOptions.length > 0 ? renderOptionWrap : (
-                  <NoData text={finalEmptyText} className="p-3 text-xs" />
-                )}
-              </div>
-            </m.div>
-          )}</LazyMotion>
-
-        {/* H5模式选项列表 */}
+        {/* H5模式选项列表 - 使用 AnimatePresence 优化加载 */}
         {isMobile && createPortal(
           <LazyMotion features={domMax}>
-            <m.div
-              initial={false}
-              animate={isOpen ? "open" : "closed"}
-              variants={{
-                open: { opacity: 1, y: 0, pointerEvents: "auto" as const, display: "flex" },
-                closed: { opacity: 0, y: -8, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
-              }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              style={{ marginTop: "var(--safe-area-inset-top)" }}
-              className="px-4 py-4 bg-base-400 fixed w-full z-[1002] top-0 bottom-0 flex flex-col">
-              <div className="flex items-center justify-center relative text-lg font-semibold h-10">
-                <Close close={setIsOpen} />{title}
-              </div>
+            <AnimatePresence>
+              {isOpen && (
+                <m.div
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={{
+                    open: { opacity: 1, y: 0, pointerEvents: "auto" as const, display: "flex" },
+                    closed: { opacity: 0, y: -8, pointerEvents: "none" as const, transitionEnd: { display: "none" } }
+                  }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  style={{ marginTop: "var(--safe-area-inset-top)" }}
+                  className="px-4 py-4 bg-base-400 fixed w-full z-[1002] top-0 bottom-0 flex flex-col"
+                >
+                  <div className="flex items-center justify-center relative text-lg font-semibold h-10">
+                    <Close close={setIsOpen} />{title}
+                  </div>
 
-              {/* 搜索框 */}
-              <Wrapper show={showSearch && options.length > 0}>
-                <InnerSearch
-                  className="mt-4 bg-base-300"
-                  ref={searchInputRef}
-                  placeholder={finalSearchPlaceholder}
-                  value={searchText}
-                  onChange={setSearchText}
-                />
-              </Wrapper>
+                  {/* 搜索框 */}
+                  <Wrapper show={showSearch && options.length > 0}>
+                    <InnerSearch
+                      className="mt-4 bg-base-300"
+                      ref={searchInputRef}
+                      placeholder={finalSearchPlaceholder}
+                      value={searchText}
+                      onChange={setSearchText}
+                    />
+                  </Wrapper>
 
-              {/* 选项内容 */}
-              <div className="mt-2 overflow-y-auto flex-1 hide-scrollbar rounded-lg flex flex-col gap-1">
-                {filteredOptions.length > 0 ? renderOptionWrap : (
-                  <NoData text={finalEmptyText} className="text-sm" />
-                )}
-              </div>
-            </m.div>
+                  {/* 选项内容 */}
+                  <div className="mt-2 overflow-y-auto flex-1 hide-scrollbar rounded-lg flex flex-col gap-1">
+                    {filteredOptions.length > 0 ? renderOptionWrap : (
+                      <NoData text={finalEmptyText} className="text-sm" />
+                    )}
+                  </div>
+                </m.div>
+              )}
+            </AnimatePresence>
           </LazyMotion>
           , document.body)}
       </div>
@@ -417,8 +435,8 @@ const ImageWithPlaceholder = ({ src, alt, className, ...props }: React.Component
 };
 
 const Icon = ({ isOpen }: { isOpen: boolean }) => {
-  return <ChevronDown strokeWidth={3} className={clsx(
-    "w-3 h-3 md:transition-transform md:duration-200 text-base-content/50",
+  return <ChevronDown strokeWidth={2} className={clsx(
+    "w-4 h-4 md:transition-transform md:duration-200 text-base-content/50",
     isOpen ? "md:rotate-180" : ""
   )} />;
 };

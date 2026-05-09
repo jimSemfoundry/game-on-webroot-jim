@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface CountdownTimerProps {
   expireTime: number; // 过期时间戳（秒）
   className?: string;
-  onFinished?: (v: boolean) => void
+  onFinished?: (v: boolean) => void;
 }
 
-export const CountdownTimer = ({ onFinished, expireTime, className = '' }: CountdownTimerProps) => {
+export const CountdownTimer = ({ onFinished, expireTime, className = "" }: CountdownTimerProps) => {
   // 使用 useRef 存储倒计时值避免重新渲染
   const timeLeftRef = useRef({
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 0
   });
-  
+
   // 使用 useState 仅用于触发重新渲染
   const [, setForceUpdate] = useState<number>(0);
 
@@ -34,7 +34,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
         clearTimeout(timerId);
         timeLeftRef.current = { days: 0, hours: 0, minutes: 0, seconds: 0 };
         setForceUpdate(prev => prev + 1);
-        onFinished?.(true)
+        onFinished?.(true);
         return;
       }
 
@@ -46,7 +46,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
 
       timeLeftRef.current = { days, hours, minutes, seconds };
       setForceUpdate(prev => prev + 1);
-      
+
       // 每秒更新一次
       timerId = setTimeout(updateRemainingTime, 1000);
     };
@@ -64,7 +64,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.days } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.days}
+          {timeLeftRef.current.days}
           {/*</span>*/}
         </span>
         d
@@ -72,7 +72,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.hours } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.hours}
+          {timeLeftRef.current.hours}
           {/*</span>*/}
         </span>
         h
@@ -80,7 +80,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.minutes } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.minutes}
+          {timeLeftRef.current.minutes}
           {/*</span>*/}
         </span>
         m
@@ -88,7 +88,7 @@ export const CountdownTimer = ({ onFinished, expireTime, className = '' }: Count
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.seconds } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.seconds}
+          {timeLeftRef.current.seconds}
           {/*</span>*/}
         </span>
         s

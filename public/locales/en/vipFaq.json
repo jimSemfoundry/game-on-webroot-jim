@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "What is a Booster?",
-    "content": "<p class=\"leading-7\">Boosters double your Rakeback for one hour every time a referral makes a deposit.</p><p class=\"leading-7\">Boosted Unlock Rate:</p><p class=\"leading-7\">Unlock Rate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters double your Rakeback for three hours every time a referral makes a deposit.</p><p class=\"leading-7\">Boosted Unlock Rate:</p><p class=\"leading-7\">Unlock Rate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "What is the Bonus Calendar?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "What are Achievements?",
-    "content": "<p class=\"leading-7\">Achievements are our way of recognizing your activity on our platform. When you claim your achievement bonus, it will be paid to your Bonus Calender and can be claimed every 8 hours and expire in 24 hours if unclaimed.</p>"
+    "content": "<p class=\"leading-7\">Achievements are our way of recognizing your activity on our platform. Achievements are available for claiming when you reach VIP 2 and above.</p>"
   }
 }

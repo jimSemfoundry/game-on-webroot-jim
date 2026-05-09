@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Klepet s podporo strankam se ni naložil",
   "read": "Prebrano",
   "unread": "Neprebrano",
-  "customerService": "Podpora strankam"
+  "customerService": "Podpora strankam",
+  "today": "danes",
+  "earlier": "prej",
+  "older": "starejše"
 }

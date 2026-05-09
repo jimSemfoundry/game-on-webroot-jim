@@ -34,6 +34,8 @@
   "upToReferral": "До {{amount}} за реферала",
   "language": "Мова",
   "gameCurrency": "Ігрова валюта",
-  "hideBlockedGames": "Приховати заблоковані ігри",
-  "settings": "Налаштування"
+  "hideBlockedGames": "Сховати \n<0>заблоковані ігри</0>",
+  "settings": "Налаштування",
+  "problemReport": "Звіт про проблему",
+  "logging_key": "Журналювання"
 }

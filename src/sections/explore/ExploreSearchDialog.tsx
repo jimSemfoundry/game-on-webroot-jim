@@ -3,13 +3,13 @@ import Iconify from "@/components/iconify";
 import { GameImage } from "@/components/ui/GameImage";
 import { LiquidGlassEffect } from "@/components/ui/LiquidGlassEffect";
 import { Modal } from "@/components/ui/Modal";
-import { useSidebar } from "@/contexts/SidebarContext";
 import { useCasinoGameList, useCasinoGameListInfinite } from "@/hooks/api/usePublic";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useNavigate } from "@tanstack/react-router";
 import { Loader2, Search, Trash2, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useBannedGameForceCheck } from "@/hooks/useBannedGameCheck.ts";
 
 const MIN_SEARCH_LENGTH = 3;
 const PAGE_SIZE = 24;
@@ -22,13 +22,15 @@ export interface ExploreSearchDialogProps {
 
 export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSearchDialogProps) {
   const { t } = useTranslation();
-  const { isMobile } = useSidebar();
   const navigate = useNavigate();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue, 300);
   const trimmedDebouncedQuery = debouncedValue.trim();
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameForceCheck();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -75,8 +77,8 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
 
   const hotGames = useMemo(() => {
     const list = Array.isArray((hotGamesData as any)?.data) ? (hotGamesData as any).data : [];
-    return list.slice(0, 12);
-  }, [hotGamesData]);
+    return list.filter((game: Record<string, any>) => !isGameBanned(game)).slice(0, 12);
+  }, [hotGamesData, isGameBanned]);
 
   const {
     data: searchGameListData,
@@ -92,8 +94,8 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
 
   const displayResults = useMemo(() => {
     if (!meetsMinLength || !searchGameListData?.pages) return [];
-    return searchGameListData.pages.flatMap((page: any) => page?.data || []);
-  }, [meetsMinLength, searchGameListData]);
+    return searchGameListData.pages.flatMap((page: any) => page?.data || [])?.filter((game: Record<string, any>) => !isGameBanned(game));
+  }, [meetsMinLength, searchGameListData, isGameBanned]);
 
   // 只在首次加载时显示 loading（没有任何数据时）
   const isInitialLoading = meetsMinLength && isSearchFetching && displayResults.length === 0;
@@ -103,11 +105,11 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
   const showCarousel = meetsMinLength && displayResults.length > 0;
 
   const resultsCarousel = useCarousel({
-    slidesToShow: isMobile ? 2.5 : 6,
+    slidesToShow: "auto",
     slideSpacing: "8px",
     align: "start",
     dragFree: true,
-    containScroll: "trimSnaps",
+    containScroll: "keepSnaps",
   });
 
   // 监听 Carousel 滚动，接近末尾时加载更多
@@ -133,12 +135,21 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
   }, [resultsCarousel.mainApi, handleScrollEnd]);
 
   const hotGamesCarousel = useCarousel({
-    slidesToShow: isMobile ? 2.5 : 6,
+    slidesToShow: "auto",
     slideSpacing: "8px",
     align: "start",
     dragFree: true,
-    containScroll: "trimSnaps",
+    containScroll: "keepSnaps",
   });
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const rafId = window.requestAnimationFrame(() => {
+      resultsCarousel.mainApi?.reInit();
+      hotGamesCarousel.mainApi?.reInit();
+    });
+    return () => window.cancelAnimationFrame(rafId);
+  }, [isOpen, displayResults.length, hotGames.length, resultsCarousel.mainApi, hotGamesCarousel.mainApi]);
 
   const handleClear = () => {
     setInputValue("");
@@ -166,7 +177,7 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
       position="modal-middle"
     >
       <LiquidGlassEffect
-        className="!flex w-full min-h-[560px] flex-col gap-6 rounded-3xl bg-base-300/55 backdrop-blur-lg !p-6 md:min-h-[640px] md:p-10"
+        className="!flex w-full min-h-[560px] max-h-[85dvh] flex-col gap-6 rounded-3xl bg-base-300/55 backdrop-blur-lg !p-6 md:min-h-[640px] md:max-h-[90dvh] md:p-10"
         backgroundElements={<div className="absolute inset-0" />}
       >
         <div className="flex items-start justify-between">
@@ -207,13 +218,13 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
                   <div className="flex flex-col gap-2 w-full">
                     <div className="flex items-center gap-2">
                       <Iconify icon="custom:explore" className="w-4 h-4 text-primary" />
-                      <p className="text-base-content font-semibold text-sm">Result</p>
+                      <p className="text-base-content font-semibold text-sm">{t("gameDetail:result")}</p>
                     </div>
-                    <Carousel carousel={resultsCarousel} className="w-full overflow-visible will-change-transform">
+                    <Carousel carousel={resultsCarousel} className="w-full will-change-transform">
                       {displayResults.map((game: any, index: number) => {
                         const key = game?.id ?? `${game?.game_provider ?? "provider"}-${game?.inner_game_id ?? index}`;
                         return (
-                          <div key={key}>
+                          <div key={key} className="w-[120px]">
                             <GameImage
                               data={game}
                               game={{
@@ -246,11 +257,11 @@ export function ExploreSearchDialog({ isOpen, onClose, baseFilters }: ExploreSea
                     <Iconify icon="custom:heart" className="w-4 h-4 text-primary" />
                     <p className="text-base-content font-semibold text-sm">{t("explore:gamesYouShouldTry")}</p>
                   </div>
-                  <Carousel carousel={hotGamesCarousel} className="w-full overflow-visible will-change-transform">
+                  <Carousel carousel={hotGamesCarousel} className="w-full will-change-transform">
                     {hotGames.map((game: any, index: number) => {
                       const key = game?.id ?? `${game?.game_provider ?? "provider"}-${game?.inner_game_id ?? index}`;
                       return (
-                        <div key={key}>
+                        <div key={key} className="w-[120px]">
                           <GameImage
                             data={game}
                             game={{

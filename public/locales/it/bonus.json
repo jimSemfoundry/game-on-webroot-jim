@@ -133,7 +133,7 @@
   "progress": "Progresso",
   "achievement_reward": "Ricompensa per il traguardo",
   "level": "Livello",
-  "download": "Download",
+  "download": "Scaricamento",
   "setavatar": "Imposta avatar",
   "deposit": "Deposito",
   "play": "Gioca",
@@ -156,7 +156,7 @@
   },
   "achievement_super_spreader": {
     "name": "Super Diffusore",
-    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno riferito con successo <0>{{count}} nuovi utenti</0>. Un vero costruttore di comunità, espandono il cerchio e portano nuova energia al gioco. La loro influenza cresce con ogni connessione che fanno."
+    "description": "Questo riconoscimento viene assegnato ai giocatori che hanno presentato con successo <0>{{count}} nuovi utenti</0> che hanno completato il loro primo acquisto. Veri costruttori di comunità, ampliano il cerchio attraverso una condivisione autentica e portano nuova energia nel gioco. La loro influenza cresce con ogni connessione significativa che creano."
   },
   "achievement_conquistador": {
     "name": "Conquistatore",
@@ -223,7 +223,7 @@
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato almeno <0>10 scommesse valide</0> nella loro storia di gioco. Il Challenger si alza di fronte a ogni opportunità, spinto dalla determinazione e dal brivido della competizione. Audace e instancabile, dimostrano che i veri contendenti non si tirano indietro dal gioco — avanzano, pronti a mettere alla prova i propri limiti e a rivendicare il loro posto tra i temerari."
   },
   "achievement_dynamo": {
-    "name": "Dynamo",
+    "name": "Dinamo",
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato <0>1 deposito</0> di almeno <0>{{amount}}</0> in un'unica transazione. Un Dynamo diventa più forte con ogni ricarica, dimostrando la propria coerenza e determinazione nel percorso verso la maestria."
   },
   "achievement_face_of_fortune": {
@@ -247,7 +247,7 @@
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno ottenuto un moltiplicatore <0>20x</0> su qualsiasi slot. Con le fiamme che ardono, un Inferno trasforma una singola scommessa in una tempesta di fortuna."
   },
   "achievement_money_maverick": {
-    "name": "Money Maverick",
+    "name": "Soldi anticonformisti",
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un deposito di almeno <0>{{amount}}</0> in un'unica transazione, utilizzando gateway di pagamento fiat o locali. Un Money Maverick traccia il proprio cammino con audace fiducia, trasformando il denaro quotidiano in opportunità straordinarie. Senza paura e avventuroso, dimostrano che i veri maverick non seguono semplicemente le regole — le ridefiniscono."
   },
   "achievement_money_master": {
@@ -255,15 +255,15 @@
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato un prelievo fiat di almeno <0>{{amount}}</0> in un'unica transazione. Un Master del Denaro si erge fiero all'incrocio tra gioco e ricompensa, convertendo le proprie vincite in valore reale. Con mani ferme e tempismo preciso, dimostrano che la vera maestria non è solo nel gioco — è nel portare a casa le ricompense."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "Criptofratello",
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno effettuato un deposito di almeno <0>{{amount}}</0> in un'unica transazione, con qualsiasi criptovaluta. Un Crypto Maestro dirige i propri fondi come un vero artista, orchestrando asset digitali con precisione e stile. Sicuro sul palcoscenico della blockchain, sono pionieri del gioco che dimostrano che la fortuna favorisce i audaci."
   },
   "achievement_crypto_baron": {
-    "name": "Crypto Baron",
+    "name": "Barone cripto",
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato un prelievo di criptovaluta di almeno <0>{{amount}}</0> in un'unica transazione, con qualsiasi criptovaluta. Un Blockchain Baron regna nel regno degli asset digitali, muovendo fondi attraverso la catena con fiducia e autorità. Con ogni prelievo riuscito, dimostrano che la fortuna può essere guadagnata, assicurata e portata a casa sulla blockchain."
   },
   "achievement_chain_shifter": {
-    "name": "Chain Shifter",
+    "name": "Cambio catena",
     "description": "Questo riconoscimento viene assegnato ai giocatori che hanno completato con successo una <0>transazione di scambio crypto</0>. Un Chain Shifter è qualcuno che sa come muoversi tra i token con fiducia, adattandosi alle maree del mercato con facilità. Maestri del momentum, prosperano sulla flessibilità e sulla trasformazione, sempre pronti a cambiare marcia e cogliere l'opportunità."
   },
   "achievement_first_swap_non_buck": {
@@ -309,7 +309,7 @@
     "achievement_slots_multiplier": "Riconoscimento Moltiplicatore Slot",
     "level_up": "Livello Su",
     "rakeback": "Rakeback",
-    "cashback": "Cashback",
+    "cashback": "Rimborso",
     "group": "Commissione",
     "referral": "Riferimento",
     "tournament": "Torneo",
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Offerta Speciale Primo Deposito",
     "monday_vip_bonus": "Bonus VIP di Lunedì",
     "special_offer_thursday": "Bonus Crypto del Giovedì",
-    "special_offer_sunday": "Boost Primo Deposito",
+    "special_offer_sunday": "Primo Deposito del Giorno",
     "conquest_bonus": "Bonus Conquista",
-    "dollars_bonus": "Bonus"
+    "dollars_bonus": "Bonus",
+    "buddy_balls": "Palle degli Amici",
+    "special_offer": "Offerta Speciale"
   },
   "achievements_description": "Sbloccato al VIP {{vip}}, queste ricompense celebrano i tuoi traguardi con entusiasmanti sorprese lungo il percorso!",
   "lucky_number_seven_description": "Colpisci i Fortunati {{number}} e ottieni un dolce bonus ogni giorno!",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "Posso rinunciare alla promozione Dollari Bonus in qualsiasi momento?",
-      "desc": "Sì. Puoi scegliere di rinunciare alla promozione Dollari Bonus in qualsiasi momento durante il suo periodo di validità. Si prega di notare che una volta rinunciato, il saldo attuale dei tuoi Dollari Bonus verrà cancellato e non potrà essere ripristinato o prelevato. Puoi ancora partecipare a future promozioni bonus se disponibili."
+      "desc": "Puoi scegliere di rinunciare alla promozione Dollari Bonus solo quando il saldo del tuo Portafoglio Bonus è inferiore all'equivalente di {{amount}}USDT durante il suo periodo di validità.\nSi prega di notare che una volta rinunciato, il saldo residuo del tuo Portafoglio Bonus verrà cancellato e non potrà essere ripristinato o prelevato.\nPoiché può esserci solo una promozione Portafoglio Bonus attiva alla volta, sarai idoneo a partecipare e acquistare altre promozioni Portafoglio Bonus dopo aver rinunciato alla tua attuale promozione Portafoglio Bonus."
     },
     "r1": {
       "title": "Cos'è il Dollaro Bonus?",
@@ -554,6 +556,10 @@
       "title": "Posso continuare a giocare anche dopo aver raggiunto il limite di prelievo?",
       "desc": "Sì, puoi continuare a giocare con il tuo saldo bonus per divertimento - ma la tua richiesta sarà comunque limitata al limite di prelievo."
     },
+    "r11": {
+      "title": "Quando scadono i dollari bonus / Posso rinunciare alla promozione?",
+      "desc": "I dollari bonus scadono 30 giorni dopo essere stati emessi, quindi hai 30 giorni per completare il requisito di turnover. Puoi anche scegliere di rinunciare alla Promozione Dollari Bonus in qualsiasi momento.\n Quando rinunci alla promozione, il tuo saldo attuale di Dollari Bonus verrà cancellato e nessun rimborso sarà dato. Potrai partecipare alle future Promozioni Dollari Bonus.\n Può esserci solo 1 Promozione Dollari Bonus attiva in qualsiasi momento."
+    },
     "free": "Entra con soldi bonus gratuiti — nessun deposito richiesto. Gira giochi reali, metti alla prova la tua fortuna e vedi fin dove puoi arrivare prima di prelevare.\n\n Perfetto per iniziare senza rischi.",
     "mini": "Effettua un piccolo deposito e ricevi un bonus slot con requisiti di scommessa leggeri. Progettato per un gioco veloce e progressi più rapidi verso il prelievo.\n\n Ideale per giocatori occasionali che desiderano un'esperienza bonus fluida.",
     "mega": "Gioca con i Dollari Bonus proprio come soldi veri! Ogni scommessa ti avvicina a sbloccare il loro pieno valore. Soddisfa i requisiti di gioco e guarda i tuoi Dollari Bonus trasformarsi in premi prelevabili oggi!",
@@ -570,8 +576,8 @@
   "bonus_credited2": "<0>{{bonus}}</0> verrà accreditato sul seguente account",
   "welcomeBonus": "Bonus di Benvenuto",
   "skip": "Salta",
-  "megaSlotBonus": "Mega Slot \n Bonus",
-  "miniSlotBonus": "Mini Slot \n Bonus",
+  "megaSlotBonus": "Mega-Slot \n Bonus",
+  "miniSlotBonus": "Mini slot \n Bonus",
   "freePlayBonus": "Gioco Gratuito \n Bonus",
   "depositSlotBonus": "Deposito {{amount}}+ \n {{value}} Bonus Slot",
   "noDepositBonus": "Senza Deposito \n Ottieni {{amount}} Bonus",
@@ -589,5 +595,82 @@
   "bonus_expired": "Scaduto",
   "bonus_claimed": "Richiesto",
   "bonus_failure_end": "Fallito",
-  "bonus_give_up": "Rinunciare"
+  "bonus_give_up": "Rinunciare",
+  "goal": "OBIETTIVO",
+  "state": "STATO",
+  "requirement_met": "Requisito soddisfatto",
+  "enjoy": "goditi",
+  "achievement_details": "Dettagli del Traguardo",
+  "promo_expired": "Questo codice promozionale è scaduto.",
+  "claim_successful": "Richiesta riuscita!",
+  "promo_claimed": "Hai già richiesto questo codice promozionale.",
+  "invalid_parameter": "Parametro non valido.",
+  "promo_invalid": "Codice promozionale non valido. Per favore, verifica e riprova.",
+  "promo_format_error": "Per favore, inserisci un codice composto da numeri e lettere, con una lunghezza minima di {{length}} caratteri.",
+  "redeem_promotional": "Riscatta il tuo codice promozionale per sbloccare ricompense esclusive, sconti o benefici aggiuntivi!\n Seguici sui nostri canali social per ottenere codici promozionali ogni giorno.",
+  "promo_unavailable": "Questo codice promozionale non è attualmente disponibile.",
+  "promo_claim_limit": "Questo codice promozionale ha raggiunto il suo limite di richiesta.",
+  "similar_event": "Hai già una promozione simile in corso.",
+  "abnormality": "Anomalia dell'account, si prega di contattare il servizio clienti.",
+  "not_started_yet": "Questa promozione non è ancora iniziata.",
+  "not_eligible": "Non idoneo a richiedere.",
+  "cannot_claim": "Attualmente hai un saldo nel Portafoglio Bonus e non puoi richiedere una promozione Freespin.",
+  "bonus_store": "Negozio Bonus",
+  "bonus_store_title": "Negozio \n Bonus",
+  "wagering_in_progress": "Wagering in corso",
+  "buddy_ball": "Palla Buddy",
+  "buddy_ball_title": "Palla\nBuddy",
+  "prize_pool": "Montepremi",
+  "lifetime_bonus_claimed": "Bonus a vita riscosso",
+  "successful": "Riuscito",
+  "purchased": "Hai acquistato con successo \n <0>{{amount}}</0>. Buona fortuna!",
+  "bonusStore": "Negozio \n Bonus",
+  "buyAmount": "Importo Acquisto",
+  "selectBonus": "Seleziona il bonus da giocare",
+  "buyNow": "Acquista ora",
+  "bonusExists": "Esiste già un bonus attivo",
+  "notAllowed": "Il riacquisto non è ancora consentito",
+  "amountLow": "Importo troppo basso",
+  "amountHigh": "Importo troppo alto",
+  "failedCreate": "Impossibile creare il record",
+  "buyBonus": "Acquista bonus",
+  "bonusHistory": "Cronologia bonus",
+  "wagerCompleted": "Il wagering è completato!",
+  "wageringProgress": "Wagering in corso",
+  "bonus_store_welcome": "Benvenuto nel Negozio Bonus, dove puoi convertire il tuo denaro in Dollari Bonus e ottenere un extra {{value}} soggetto ai requisiti di requisito di puntata. I Dollari Bonus sono crediti di gioco speciali disponibili per giocare su alcune slot selezionate. I Dollari Bonus possono essere convertiti in denaro prelevabile una volta completato il requisito di requisito di puntata.",
+  "bonus_store_wagering": "Quando completi il requisito di requisito di puntata (puntata), puoi convertire il tuo saldo di Dollari Bonus nella valuta che preferisci cliccando sul pulsante di riscatto.",
+  "bonus_store_validity": "I Dollari Bonus devono essere utilizzati entro il periodo di validità mostrato nella scheda Negozio Bonus. I saldi di Dollari Bonus non utilizzati verranno forfeitati dopo la scadenza. Nota: puoi avere una sola promozione Dollari Bonus attiva alla volta.",
+  "bonus_store_calculated": "I Dollari Bonus vengono calcolati e accreditati in BONUS e poi mostrati nella valuta di visualizzazione scelta per tua comodità. Le conversioni di valuta sono approssimative. Il Casinò si riserva il diritto di modificare o revocare l'idoneità senza obbligo di giustificazione. Qualsiasi abuso o attività fraudolenta comporterà la squalifica dalla promozione.",
+  "youPay": "Tu paghi",
+  "extraBonus": "Bonus extra",
+  "bonusReceived": "Bonus ricevuto",
+  "youGet": "Tu ottieni",
+  "extraBonusGet": "Ottieni {{value}} di bonus extra",
+  "minimumBuy": "Acquisto minimo",
+  "periodComplete": "Periodo per completare",
+  "bonusObtained": "BONUS ottenuto x {{value}}",
+  "bonusGameplay": "Gioca alle slot con Bonus e ottieni più chip. Progettato per un gameplay veloce e prelievi più rapidi. \n\n Ideale per i giocatori occasionali che vogliono un’esperienza bonus fluida.",
+  "sportGameplay": "Gioca agli sport con Bonus e ottieni più chip. Progettato per un gameplay veloce e prelievi più rapidi. \n\n Ideale per i giocatori occasionali che vogliono un'esperienza bonus fluida.",
+  "day_streak": "serie di <0>{{value}}</0> giorni",
+  "check_in": "check-in",
+  "get_more": "ottieni di più",
+  "missed_key": "perso",
+  "daily_check_in": "check-in giornaliero",
+  "check_in_today": "Fai il check-in oggi",
+  "get_more_buddy_balls": "Ottieni più Buddy Balls",
+  "checked_in": "Check-in effettuato",
+  "no_games_available": "Non ci sono giochi disponibili nella tua regione.",
+  "daily_reset": "Reset giornaliero alle {{time}}",
+  "withdrawal": "Prelievo minimo",
+  "wagering_rules": "Regole di puntata",
+  "sports_bonus_title": "BONUS \n SPORTIVO",
+  "switch_prompt_title": "Il tuo Bonus Sport è pronto \n Passa per usarlo",
+  "switch_prompt_more": "Di più",
+  "switch_prompt_switch": "Interruttore",
+  "switched_back_wallet": "Switched back to your {{currency}} wallet",
+  "sportsBonusStore": "Bonus sportivo",
+  "sportsBonusActivate": "Bonus Sport attivato",
+  "sportsBonus": "Bonus sportivo",
+  "buySportsBonus": "Acquista bonus sportivo",
+  "sportsBonusGameplay": "Piazza scommesse sportive con il tuo bonus sportivo e sblocca più valore. Progettato per gli appassionati di sport che cercano scommesse migliori e prelievi più rapidi. \n\n Ideale per gli scommettitori che desiderano un'esperienza bonus fluida e su misura per lo sport."
 }

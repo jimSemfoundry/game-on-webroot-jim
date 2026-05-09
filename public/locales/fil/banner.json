@@ -36,5 +36,5 @@
   "vip_monday": "VIP Lunes",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONUS \n <0>DOLYAR</0>",
-  "super_everyday": "<0>Unang Deposito Ngayong Araw</0><br/><0>Crypto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Palakasin ang Iyong<br/>Deposito Araw-araw"
+  "super_everyday": "<0>Unang Deposito Ngayong Araw</0><br/>Crypto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

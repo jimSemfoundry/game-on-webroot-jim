@@ -1,7 +1,8 @@
 import { MotionLazy } from "@/components/animate";
 import { Dock } from "@/components/Dock";
 import { useSidebar } from "@/contexts/SidebarContext";
-import { FreeSpinContainer } from "@/sections/free-spins";
+import { FreeSpinContainerV2 } from "@/sections/free-spins";
+import { BountyMqttListener } from "@/sections/bounty/BountyMqttListener";
 import { cn } from "@/utils/themeMerger";
 import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
 import React from "react";
@@ -10,9 +11,10 @@ import Header from "../components/header/Header";
 import { Sidebar } from "../components/sidebar/Sidebar";
 import { ChatwootWrapper } from "../components/ui/ChatwootFloatingButton";
 import { NavItem } from "@/config/navigation";
+import { LuckySpinContainer } from "@/sections/lucky-spin/lucky-spin-container.tsx";
 
 export const Route = createFileRoute("/_main")({
-  component: MainLayout,
+  component: MainLayout
 });
 
 /**
@@ -29,6 +31,7 @@ export default function MainLayout() {
 
   // Sports 页面需要全屏显示，不受 container 限制
   const isSportsPage = location.pathname === '/sports';
+  const isBuddyBallsPage = location.pathname.startsWith('/buddy-balls');
   const isGamePlayPage = location.pathname.startsWith("/games/play/");
   const isGameDetailPage = location.pathname.startsWith("/games/");
   // When an in-page game iframe is active, game detail sets a custom back action.
@@ -38,6 +41,18 @@ export default function MainLayout() {
   // 路由切换时滚动到顶部
   React.useEffect(() => {
     if (mainRef.current) {
+      const shouldScrollBonusCheckToBottom = location.pathname === "/bonus/check"
+        && sessionStorage.getItem("bonusCheckScrollToBottom") === "1";
+
+      if (shouldScrollBonusCheckToBottom) {
+        sessionStorage.removeItem("bonusCheckScrollToBottom");
+        mainRef.current.scrollTo({
+          top: mainRef.current.scrollHeight,
+          behavior: "smooth"
+        });
+        return;
+      }
+
       mainRef.current.scrollTo(0, 0);
     }
   }, [location.pathname, location.search]);
@@ -54,28 +69,28 @@ export default function MainLayout() {
     {
       href: "#",
       label: "common:common.menu",
-      icon: "custom:menu",
+      icon: "custom:menu"
     },
     {
       href: "/explore",
       label: "common:common.explore",
-      icon: "custom:explore",
+      icon: "custom:explore"
     },
     {
       href: "/casino",
       label: "common:common.casino",
-      icon: "custom:casino",
+      icon: "custom:casino"
     },
     {
       href: "/sports",
       label: "common:common.sports",
-      icon: "custom:sports",
+      icon: "custom:sports"
     },
     {
       href: "/bonus",
       label: "common:common.bonus",
-      icon: "custom:bonus",
-    },
+      icon: "custom:bonus"
+    }
   ];
 
   return (
@@ -83,7 +98,7 @@ export default function MainLayout() {
       <div
         className="fixed inset-0 flex bg-base-300"
         style={{
-          overscrollBehavior: "none",
+          overscrollBehavior: "none"
         }}
       >
         <Sidebar />
@@ -93,17 +108,26 @@ export default function MainLayout() {
           <main
             ref={mainRef}
             className={cn(
-              "flex-1 w-full overflow-y-auto hide-scrollbar",
+              "flex-1 w-full hide-scrollbar",
+              "overflow-y-auto",
               // 为固定 Header 预留顶部空间
-              isMobile ? "pt-[calc(3rem+var(--safe-area-inset-top))]" : "pt-[calc(3rem+var(--safe-area-inset-top))] md:pt-[calc(4.5rem+var(--safe-area-inset-top))]",
+              isBuddyBallsPage
+                ? (isMobile
+                  ? "pt-[calc(3rem+var(--safe-area-inset-top))]"
+                  : "pt-[calc(3rem+var(--safe-area-inset-top))] md:pt-[calc(4.5rem+var(--safe-area-inset-top))]")
+                : (isMobile
+                  ? "pt-[calc(3rem+var(--safe-area-inset-top))]"
+                  : "pt-[calc(3rem+var(--safe-area-inset-top))] md:pt-[calc(4.5rem+var(--safe-area-inset-top))]"),
               // 为移动端 Dock 预留空间 (Dock高度 + safe-area-inset-bottom)
-              isMobile && shouldShowDock ? "pb-[calc(4.5rem+var(--safe-area-inset-bottom))]" : "",
+              isMobile && shouldShowDock ? "pb-[calc(4.5rem+var(--safe-area-inset-bottom))]" : ""
             )}
             style={{ overscrollBehavior: "contain", WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
           >
-            {isSportsPage ? (
-              // Sports 页面：全宽显示，无容器限制
-              <Outlet />
+            {isSportsPage || isBuddyBallsPage ? (
+              // Sports / Buddy Balls 页面：全宽显示，无通用 container 限制
+              <div className={cn("w-full", isBuddyBallsPage ? "h-full" : undefined)}>
+                <Outlet />
+              </div>
             ) : (
               // 其他页面：使用标准容器
               <div className="container mx-auto md:max-w-7xl">
@@ -115,7 +139,10 @@ export default function MainLayout() {
         {shouldShowDock ? <Dock scrollContainer={mainRef.current} items={MAIN_NAV_ITEMS} /> : null}
         <ChatwootWrapper />
         {/* Free Spin 全局容器 - 会在用户登录15秒后自动检查待处理的Free Spin */}
-        <FreeSpinContainer />
+        <FreeSpinContainerV2 />
+        <BountyMqttListener />
+        {/* Lucky Spin 抽奖次数发放通知*/}
+        <LuckySpinContainer />
       </div>
     </MotionLazy>
   );

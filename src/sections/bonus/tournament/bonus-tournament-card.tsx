@@ -10,6 +10,10 @@ import ImageColorCard from "@/components/ui/ImageColorCard";
 import { LazyImage } from "@/components/ui/LazyImage";
 import { useBoundStore } from "@/store";
 import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
+import { CardLoading } from "@/sections/bonus/components/CardLoading.tsx";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { hasAuth } from "@/utils/auth.ts";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -21,14 +25,13 @@ const DEFAULT_GRADIENT = `
   linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
 `;
 
-const ILLUSTRATION_URL = "/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png";
-
 export function BonusTournamentCard() {
   const { t } = useTranslation('bonus');
-  const { isInitialized, isAuthenticated } = useAuth();
+  const { isInitialized } = useAuth();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [background, setBackground] = useState<string>(DEFAULT_GRADIENT);
+  const ILLUSTRATION_URL = useBonusDetailsImage("tournament_reward", 192);
 
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
 
@@ -83,48 +86,23 @@ export function BonusTournamentCard() {
     setIsHelpModalOpen(true);
   };
 
-  if (isLoading) {
-    return (
-      <div
-        className="flex flex-col p-4 gap-2 rounded-field h-[140px] w-full relative overflow-hidden border border-base-200"
-        style={{
-          background: DEFAULT_GRADIENT,
-        }}
-      >
-        <div className="skeleton w-6 h-6 absolute right-4 rtl:right-auto rtl:left-4 top-4 rounded-btn"></div>
-        <div className="flex items-center gap-2 h-15">
-          <div className="skeleton w-15 h-15 rounded-box"></div>
-          <div className="flex flex-col justify-start h-full w-full">
-            <div className="skeleton h-4 w-32 rounded-box"></div>
-          </div>
-        </div>
+  if (isLoading) return <CardLoading />;
 
-        <div className="flex items-center gap-1 w-full">
-          <div className="flex-1 bg-base-300 rounded-btn h-12 flex items-center px-3 gap-2">
-            <div className="skeleton w-4 h-4 rounded-box"></div>
-            <div className="skeleton h-4 flex-1 rounded-box"></div>
-          </div>
-          <div className="skeleton w-20 h-12 rounded-btn"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
+  if (!isLoading && !hasAuth()) {
     return (
       <ImageColorCard
         gradientMode="linear"
-        imageUrl="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
+        imageUrl={ILLUSTRATION_URL}
         colorOpacity={0.6}
         paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
         className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
       >
         <p className="text-xl sm:text-2xl font-bold uppercase leading-6 sm:leading-8 text-start">
-          <span className="text-base-content block">{t("bonus:tournaments")}</span>
+          <span className="text-base-content block">{t("casino:tournaments")}</span>
           <span className="block text-base-content">& {t("bonus:races")}</span>
         </p>
         <LazyImage
-          src="/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png"
+          src={ILLUSTRATION_URL}
           alt="free spins"
           className="w-[130px] h-[130px] sm:w-[170px] sm:h-[170px] -rotate-12 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
@@ -137,31 +115,32 @@ export function BonusTournamentCard() {
 
   return (
     <div
-      className={`flex flex-col p-4 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
+      className={`flex flex-col p-4 gap-4 rounded-field w-full relative overflow-hidden border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
       style={{
         background,
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
       <div className="flex items-center gap-2 h-15">
         <img
           src={ILLUSTRATION_URL}
           alt={t("bonus:tournament_reward")}
-          className="w-15 h-15 -rotate-8"
+          className="w-15 h-15"
           loading="lazy"
           decoding="async"
         />
-        <div className="flex flex-col justify-start h-full w-full">
-          <p className="text-sm font-bold sm:text-base">{t("bonus:tournament_reward")}</p>
+        <div className="flex flex-col justify-start h-full w-full flex-1">
+          <div className="flex justify-between">
+            <p className="text-sm font-bold sm:text-base">{t("bonus:tournament_reward")}</p>
+            <Info onClick={handleOpenTips} />
+          </div>
         </div>
       </div>
 
       <div className="flex items-center gap-1 w-full">
         <label className="input input-md disabled:bg-base-300 bg-base-300 border-none flex-1">
           <Iconify icon="custom:cash" />
-          <input type="text" className="grow border-none outline-none" readOnly value={formatWithConversion(claimableAmount, currency).formatted} />
+          <input type="text" className="grow border-none outline-none font-semibold" readOnly
+                 value={formatWithConversion(claimableAmount, currency,{ showCode:false }).formatted} />
         </label>
 
         <button

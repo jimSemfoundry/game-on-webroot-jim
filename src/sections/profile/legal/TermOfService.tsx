@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
 import { Container } from "@/sections/profile/legal/Container.tsx";
 import { TFunction } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const content = (t: TFunction) => [
   {
@@ -8,8 +8,8 @@ const content = (t: TFunction) => [
     text: {
       title: t("termOfService:introduction.title"),
       content: t("termOfService:introduction.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
-      })
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
+      }),
       //   open: false,
       // content: `
       //   <p class="leading-7">
@@ -20,20 +20,20 @@ const content = (t: TFunction) => [
       //       The {{gameLink}} Alliance is owned by <span class="text-base font-bold">Omnispect B.V.</span>, a limited liability company registered in Curacao with company registration number <span class="text-base font-bold">165406</span>, with a registered address at <span class="text-base font-bold">Abraham de Veerstraat 9, Willemstad ("Company")</span> for the provision of online games of chance.
       //   </p>
       //   `,
-    }
+    },
   },
   {
     id: "generalTerms",
     text: {
       title: t("termOfService:generalTerms.title"),
       content: t("termOfService:generalTerms.content"),
-      open: false
+      open: false,
       //   content: `
       //       <p class="leading-7">
       //         We reserve the right to revise and amend the Terms (including any documents referred to and linked below) at any time. You should visit this page periodically to review the Terms and Conditions. Amendments will be binding and effective immediately upon publication on this Website. If you object to any such changes, you must immediately stop using the Service. Your continued use of the Website following such publication will indicate your agreement to be bound by the Terms as amended. Any bets not settled prior to the changed Terms taking effect will be subject to the pre-existing Terms.          </p>
       //       <br />
       //     `,
-    }
+    },
   },
   {
     id: "yourObligations",
@@ -41,9 +41,9 @@ const content = (t: TFunction) => [
       title: t("termOfService:yourObligations.title"),
       content: t("termOfService:yourObligations.content", {
         age: 18,
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //         <p class="leading-7">
       //             You acknowledge that at all times when accessing the Website and using the Service:
@@ -120,7 +120,7 @@ const content = (t: TFunction) => [
       //             3.20.1. The user is obliged to communicate politely with the support service of the platform. Any display of disrespect, insults, humiliation, and other manifestations of aggression will be considered a violation of these Terms. In this case, the user may be denied support with subsequent possible blocking of the account.
       //         </p>
       //     `,
-    }
+    },
   },
   {
     id: "restrictedUse",
@@ -128,9 +128,9 @@ const content = (t: TFunction) => [
       title: t("termOfService:restrictedUse.title"),
       content: t("termOfService:restrictedUse.content", {
         age: 18,
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //      <p class="leading-7">
       //      4.1. You must not use the Service:
@@ -178,16 +178,16 @@ const content = (t: TFunction) => [
       //      4.4. Restrictions to the use of third-party products (Live, Table Games and Slots, etc.) are set on the side of the product provider and are not under the control of the {{gameLink}} Alliance.
       //      </p>
       //     `,
-    }
+    },
   },
   {
     id: "registration",
     text: {
       title: t("termOfService:registration.title"),
       content: t("termOfService:registration.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //   You agree that at all times when using the Service:
@@ -247,17 +247,17 @@ const content = (t: TFunction) => [
       //   5.17. Providing false and/or non-existent and/or misleading information by the user at the moment of registration and during the term of validity of this agreement is considered a gross violation of these Terms and is considered a fraud on the part of the User by the {{gameLink}} Alliance. In this case, or if we have a reasonable suspicion that you did so, we may, with or without prior notice, terminate your account without any compensation from us and without returning the remainder of the real money balance of your account to you.
       //   </p>
       //   `,
-    }
+    },
   },
   {
     id: "yourAccount",
     text: {
       title: t("termOfService:yourAccount.title"),
       content: t("termOfService:yourAccount.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
-        age: 18
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
+        age: 18,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     6.1. Accounts could use several currencies, in this case, all Account balances and transactions appear in the currency used for the transaction.
@@ -302,16 +302,16 @@ const content = (t: TFunction) => [
       //     6.14. An account that is not used by the user for 12 twelve calendar months may be frozen by the service's decision. If the user wants to unfreeze such an account, he must pass the verification and confirm that the frozen account belongs to him.
       //   </p>
       // `,
-    }
+    },
   },
   {
     id: "web3Registration",
     text: {
       title: t("termOfService:web3Registration.title"),
       content: t("termOfService:web3Registration.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     7.1. As a Web 3.0 application, the Telegram interface {{gameLink}} Alliance operates without direct access or control over user authentication processes. Users are solely responsible for safeguarding the security of their Telegram accounts, which serve as the primary access point for the service. This includes maintaining secure login practices, monitoring for unauthorized access, and using Telegram's security features such as two-factor authentication where possible.
@@ -320,16 +320,16 @@ const content = (t: TFunction) => [
       //     7.2. The platform is not liable for any loss, unauthorized access, or damages resulting from compromised Telegram accounts. Due to the decentralized nature of authentication, the service cannot assist in restoring account access or verifying identity in the event of a lost or compromised Telegram login. Users acknowledge that the {{gameLink}} Alliance's role is limited to platform operations and excludes account recovery.
       //   </p>
       //   `,
-    }
+    },
   },
   {
     id: "depositOfFunds",
     text: {
       title: t("termOfService:depositOfFunds.title"),
       content: t("termOfService:depositOfFunds.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     8.1. Platform has a minimum deposit amount for every currency. Sending any amount below the minimum will result in funds loss and is not refundable. The maximum deposit amount is not limited. The {{gameLink}} Alliance doesn't have any fees for deposits. Some of the deposits may take some time related to the network hash rate.
@@ -350,7 +350,7 @@ const content = (t: TFunction) => [
       //     8.6. We do not offer refunds for deposits made on the service. By depositing money, you agree not to make any charge-backs, reversals, refunds, or otherwise cancel any deposits into your Account, and agree to refund and compensate us for unpaid deposits.
       //   </p>
       // `,
-    }
+    },
   },
   {
     id: "withdrawalOfFunds",
@@ -358,9 +358,9 @@ const content = (t: TFunction) => [
       title: t("termOfService:withdrawalOfFunds.title"),
       content: t("termOfService:withdrawalOfFunds.content", {
         dollars: 300000,
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //         <p class="leading-7">
       //         9.1. Due to the workflow of our anti-fraud system, the waiting time for your withdrawal can be prolonged up to the point when all the needed procedures will be conducted to supply a decent level of financial security for users (up to seven (7) days and more if needed).
@@ -405,16 +405,16 @@ const content = (t: TFunction) => [
       //         You acknowledge your understanding that in this case, transactions may take longer to be processed than these terms allow. In any case, such transaction processing time cannot be longer than 48 hours.
       //         </p>
       //     `,
-    }
+    },
   },
   {
     id: "paymentTransactionsAndProcessors",
     text: {
       title: t("termOfService:paymentTransactionsAndProcessors.title"),
       content: t("termOfService:paymentTransactionsAndProcessors.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //  10.1. You are fully responsible for paying all monies owed to us. You must make all payments to us in good faith and not attempt to reverse a payment made or take any action which will cause such payment to be reversed by a third party in order to avoid a liability legitimately incurred. You will reimburse us for any charge-backs, denial, or reversal of payment you make and any loss suffered by us as a consequence thereof.
@@ -426,14 +426,14 @@ const content = (t: TFunction) => [
       //  10.3. All transactions made on our site might be checked to prevent money laundering or terrorism financing activity. Suspicious transactions will be reported to the relevant authority.
       //  </p>
       //  `,
-    }
+    },
   },
   {
     id: "errors",
     text: {
       title: t("termOfService:errors.title"),
       content: t("termOfService:errors.content"),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //         11.1. In the event of an error or malfunction of our system or processes, all bets are rendered void. You are under an obligation to inform us immediately as soon as you become aware of any error with the Service. In the event of communication or system errors or bugs or viruses occurring in connection with the Service and/or payments made to you as a result of a defect or error in the Service, we will not be liable to you or to any third party for any direct or indirect costs, expenses, losses or claims arising or resulting from such errors, and we reserve the right to void all games/bets in question and take any other action to correct such errors.
@@ -445,14 +445,14 @@ const content = (t: TFunction) => [
       //         11.3. We have the right to recover from you any amount overpaid and to adjust your Account to rectify any mistake. An example of such a mistake might be where a price is incorrect or where we enter a result of an event incorrectly. If there are insufficient funds in your Account, we may demand that you pay us the relevant outstanding amount relating to any erroneous bets or wagers. Accordingly, we reserve the right to cancel, reduce or delete any pending plays, whether placed with funds resulting from the error or not.
       //     </p>
       //     `,
-    }
+    },
   },
   {
     id: "rulesOfPlayRefundsAndCancellationsInSportsBetting",
     text: {
       title: t("termOfService:rulesOfPlayRefundsAndCancellationsInSportsBetting.title"),
       content: t("termOfService:rulesOfPlayRefundsAndCancellationsInSportsBetting.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     12.1. The winner of an event will be determined on the date of the event's settlement, and we will not recognize protested or overturned decisions for wagering purposes.
@@ -494,14 +494,14 @@ const content = (t: TFunction) => [
       //     12.13. Bets canceled by the provider for reasons provided in the Sports Betting terms, as well as bets for which the user used the cashout function, will not be taken into account either in tournaments and other events.
       //   </p>
       //   `,
-    }
+    },
   },
   {
     id: "communicationsAndNotices",
     text: {
       title: t("termOfService:communicationsAndNotices.title"),
       content: t("termOfService:communicationsAndNotices.content"),
-      open: false
+      open: false,
       // content: `
       // <p class="leading-7">
       // 13.1. All communications and notices to be given under these Terms by you to us shall be sent using a Customer Support form on the platform.
@@ -516,27 +516,27 @@ const content = (t: TFunction) => [
       // 13.4. From time to time, we may contact you by email for the purpose of offering you information about betting, unique promotional offerings, and other information from the platform You agree to receive such emails when you agree to these Terms when registering at the Website.
       // </p>
       // `
-    }
+    },
   },
   {
     id: "mattersBeyondOurControl",
     text: {
       title: t("termOfService:mattersBeyondOurControl.title"),
       content: t("termOfService:mattersBeyondOurControl.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     We cannot be held liable for any failure or delay in providing the Service due to an event of Force Majeure which could reasonably be considered to be outside our control despite our execution of reasonable preventative measures such as: an act of God; trade or labor dispute; power cut; act, failure or omission of any government or authority; obstruction or failure of telecommunication services; or any other delay or failure caused by a third party, and we will not be liable for any resulting loss or damage that you may suffer. In such an event, we reserve the right to cancel or suspend the Service without incurring any liability.
       //   </p>
       //   `
-    }
+    },
   },
   {
     id: "liability",
     text: {
       title: t("termOfService:liability.title"),
       content: t("termOfService:liability.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //   15.1. To the extent permitted by applicable law, we will not compensate you for any reasonably foreseeable loss or damage (either direct or indirect) you may suffer if we fail to carry out our obligations under these terms unless we breach any duties imposed on us by law (including if we cause death or personal injury by our negligence) in which case we shall not be liable to you if that failure is attributed to: (I) Your own fault; (II) A third party unconnected with our performance of these terms (for instance problems due to communications network performance, congestion, and connectivity or the performance of your computer equipment); or (III) Any other events which neither we nor our suppliers could have foreseen or forestalled even if we or they had taken reasonable care. As this service is for consumer use only we will not be liable for any business losses of any kind.
@@ -545,14 +545,14 @@ const content = (t: TFunction) => [
       //   15.2. We strongly recommend that You: (I) Take care to verify the suitability and compatibility of the service with your own computer equipment prior to use; and (II) Take reasonable precautions to protect yourself against harmful programs or devices including through installation of antivirus software.
       //   </p>
       //   `,
-    }
+    },
   },
   {
     id: "gamblingByThoseUnderAge",
     text: {
       title: t("termOfService:gamblingByThoseUnderAge.title"),
       content: t("termOfService:gamblingByThoseUnderAge.content", { years: 18 }),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //     16.1. If we suspect that you are currently under {{years}} years or were under {{years}} years (or below the age of majority as stipulated in the laws of the jurisdiction applicable to you) when you placed any bets through the Service your Account will be suspended (locked) to prevent you placing any further bets or making any withdrawals from your Account. We will then investigate the matter, including whether you have been betting as an agent for, or otherwise on behalf of, of a person under {{years}} years (or below the age of majority as stipulated in the laws of the jurisdiction applicable to you). If have found that you: (a) are currently; (b) were under 18 years or below the majority age which applies to you at the relevant time; or (c) have been betting as an agent for or at the behest of a person under {{years}} years or below the majority age which applies: all winnings currently or due to be credited to your Account will be retained; all winnings gained from betting through the Service whilst under age must be paid to us on demand (if you fail to comply with this provision we will seek to recover all costs associated with recovery of such sums); and/or any monies deposited in your Account which are not winnings will be returned to you OR retained until you turn 18 years old at our sole discretion. We reserve the right to deduct payment transaction fees from the amount to return, including transaction fees for deposits to your account which we covered.
@@ -564,7 +564,7 @@ const content = (t: TFunction) => [
       //     16.3. In the event we suspect you are in breach of the provisions of this Clause or are attempting to rely on them for a fraudulent purpose, we reserve the right to take any action necessary in order to investigate the matter, including informing the relevant law enforcement agencies.
       //     </p>
       //    `,
-    }
+    },
   },
   {
     id: "antiFraudPolicy",
@@ -572,9 +572,9 @@ const content = (t: TFunction) => [
       title: t("termOfService:antiFraudPolicy.title"),
       content: t("termOfService:antiFraudPolicy.content", {
         dollars: "$100",
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //     17.1. The {{gameLink}} Alliance prohibits and rejects the use of the Service for any form of illicit activity, including money laundering, terrorist financing, or trade sanctions violations. Accounts suspected of Money Laundering by using the Service may be blocked, and transactions may be stopped until the Risk department finishes all the required procedures. According to the service AML policy, all deposits must meet a basic rollover requirement. A rollover means that all users must do a 100% wager for all coming deposits before a withdrawal can be made . That means if your deposit is {{dollars}} in USDT, for example, you should wager at least {{dollars}} in USDT (for gaming activity) before withdrawal may be approved. This rule is applied to every User's balance. The Risk department is eligible to stop every suspicious transaction to prevent money laundering. Users' accounts may be under investigation by the Risk Department until all requirements are met, and payment will be stopped at the time of the investigation.
@@ -620,14 +620,14 @@ const content = (t: TFunction) => [
       //     17.3. We will seek criminal and contractual sanctions against any Customer involved in fraud, dishonesty, or criminal acts. We will withhold payment to any Customer where any of these are suspected. The Customer shall identify and shall be liable to pay to us on demand all costs, charges, or losses sustained or incurred by us (including any direct, indirect, or consequential losses, loss of profit, loss of business, and loss of reputation) arising directly or indirectly from the Customer’s fraud, dishonesty or criminal act.
       //     </p>
       //     `,
-    }
+    },
   },
   {
     id: "intellectualProperty",
     text: {
       title: t("termOfService:intellectualProperty.title"),
       content: t("termOfService:intellectualProperty.content"),
-      open: false
+      open: false,
       //     content: `
       //     <p class="leading-7">
       //   18.1. Any unauthorized use of our name and logo may result in legal action being taken against you.
@@ -642,14 +642,14 @@ const content = (t: TFunction) => [
       //   18.4. Except as expressly provided in these Terms, we and our licensors do not grant you any express or implied rights, license, title, or interest in or to the Systems or the Marks and all such rights, license, title, and interest specifically retained by us and our licensors. You agree not to use any automatic or manual device to monitor or copy web pages or content within the Service. Any unauthorized use or reproduction may result in legal action being taken against you.
       //   </p>
       //   `
-    }
+    },
   },
   {
     id: "yourLicense",
     text: {
       title: t("termOfService:yourLicense.title"),
       content: t("termOfService:yourLicense.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //   19.1. Subject to these Terms and your compliance with them, we grant to you a non-exclusive, limited, non-transferable, and non-sublicensable license to access and use the Service for your personal non-commercial purposes only. Our license to you terminates if our agreement with you under these Terms ends.
@@ -661,14 +661,14 @@ const content = (t: TFunction) => [
       //   19.3. Any non-compliance by you with this Clause may also be a violation of our or third parties’ intellectual property and other proprietary rights which may subject you to civil liability and/or criminal prosecution.
       //   </p>
       //   `
-    }
+    },
   },
   {
     id: "yourConductAndSafety",
     text: {
       title: t("termOfService:yourConductAndSafety.title"),
       content: t("termOfService:yourConductAndSafety.content"),
-      open: false
+      open: false,
       //             content: `
       //             <p class="leading-7">
       //        20.1. For your protection and protection of all our Customers, the posting of any content on the Service, as well as conduct in connection therewith and/or the Service, which is in any way unlawful, inappropriate or undesirable is strictly prohibited (“Prohibited Behaviour”).
@@ -703,27 +703,27 @@ const content = (t: TFunction) => [
       //        20.5. The above list of Prohibited Behaviour is not exhaustive and may be modified by us at any time or from time to time. We reserve the right to investigate and to take all such actions as we in our sole discretion deem appropriate or necessary under the circumstances, including without limitation deleting the Customer’s posting(s) from the Service and/or terminating their Account, and take any action against any Customer or third party who directly or indirectly in, or knowingly permits any third party to directly or indirectly engage in Prohibited Behaviour, with or without notice to such Customer or third party.
       //             </p>
       //             `
-    }
+    },
   },
   {
     id: "linksToOtherWebsites",
     text: {
       title: t("termOfService:linksToOtherWebsites.title"),
       content: t("termOfService:linksToOtherWebsites.content"),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //     The Service may contain links to third-party websites that are not maintained by, or related to, us, and over which we have no control. Links to such websites are provided solely as a convenience to Customers and are in no way investigated, monitored, or checked for accuracy or completeness by us. Links to such websites do not imply any endorsement by us of, and/or any affiliation with, the linked websites or their content or their owner(s). We have no control over or responsibility for the availability nor their accuracy, completeness, accessibility, and usefulness. Accordingly, when accessing such websites, we recommend that you take the usual precautions when visiting a new website, including reviewing their privacy policy and terms of use.
       //     </p>
       //     `,
-    }
+    },
   },
   {
     id: "complaints",
     text: {
       title: t("termOfService:complaints.title"),
       content: t("termOfService:complaints.content"),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //     22.1. If you have any concerns or questions regarding these Terms you should contact our Customer Service Department via the links on the Website to start a communication with us.
@@ -742,42 +742,42 @@ const content = (t: TFunction) => [
       //     22.5. In the event of a dispute arising between you and us our Customer Service Department will attempt to reach an agreed solution. Should our Customer Service Department be unable to reach an agreed solution with you, the matter will be escalated to our management.
       //     </p>
       //   `,
-    }
+    },
   },
   {
     id: "assignment",
     text: {
       title: t("termOfService:assignment.title"),
       content: t("termOfService:assignment.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     Neither these Terms nor any of the rights or obligations hereunder may be assigned by you without the prior written consent of us, where consent will not be unreasonably withheld. We may, without your consent, assign all or any portion of our rights and obligations hereunder to any third party provided such third party is able to provide a service of substantially similar quality to the Service by posting written notice to this effect on the Service.
       //   </p>
       //   `
-    }
+    },
   },
   {
     id: "severability",
     text: {
       title: t("termOfService:severability.title"),
       content: t("termOfService:severability.content"),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     In the event that any provision of these Terms is deemed by any competent authority to be unenforceable or invalid, the relevant provision shall be modified to allow it to be enforced in line with the intention of the original text to the fullest extent permitted by applicable law. The validity and enforceability of the remaining provisions of these Terms shall not be affected.
       //   </p>
       //     `,
-    }
+    },
   },
   {
     id: "breachOfTheseTerms",
     text: {
       title: t("termOfService:breachOfTheseTerms.title"),
       content: t("termOfService:breachOfTheseTerms.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //     <p class="leading-7">
       //     25.1. Without limiting our other remedies, we may suspend or terminate your Account and refuse to continue to provide you with the Service, in either case without giving you prior notice, if, in our reasonable opinion, you breach any material term of these Terms. Notice of any such action taken will, however, be promptly provided to you.
@@ -786,16 +786,16 @@ const content = (t: TFunction) => [
       //     25.2. You agree to fully indemnify, defend and hold harmless {{gameLink}} and its shareholders, directors, agents, and employees from and against all claims, demands, liabilities, damages, losses, costs, and expenses, including legal fees and any other charges whatsoever, howsoever caused, that may arise as a result of: (i) your breach of this Agreement, in whole or in part; (ii) violation by you of any law or any third party rights; and (iii) use by you of the Service.
       //     </p>
       //     `,
-    }
+    },
   },
   {
     id: "generalProvisions",
     text: {
       title: t("termOfService:generalProvisions.title"),
       content: t("termOfService:generalProvisions.content", {
-        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold text-sm">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`
+        gameLink: `<a target="_blank" href="${import.meta.env.VITE_WEBSITE_URL || "https://1st.game"}" class="text-primary font-bold">${import.meta.env.VITE_WEBSITE_NICKNAME || "1st.game"}</a>`,
       }),
-      open: false
+      open: false,
       //   content: `
       //   <p class="leading-7">
       //     26.1. <span class="text-base font-bold">Term of agreement.</span> These Terms shall remain in full force and effect while you access or use the Service or are a Customer or visitor of the Website. These Terms will survive the termination of your Account for any reason.
@@ -819,15 +819,15 @@ const content = (t: TFunction) => [
       //     26.7. <span class="text-base font-bold">Entire agreement.</span> These Terms constitute the entire agreement between you and us with respect to your access to and use of the Service and supersede all other prior agreements and communications, whether oral or written with respect to the subject matter hereof.
       //     </p>
       // `,
-    }
-  }
+    },
+  },
 ];
 
 export default function Index() {
-  const { t } = useTranslation('termOfService');
+  const { t } = useTranslation("termOfService");
 
   return (
-    <div className={'flex flex-col gap-2'}>
+    <div className={"flex flex-col gap-2"}>
       {content(t).map((item) => (
         <Container key={item.id} text={item.text} />
       ))}

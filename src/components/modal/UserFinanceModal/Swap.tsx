@@ -28,7 +28,7 @@ export const Swap = ({ open }: { open: boolean }) => {
 
   // 可用余额
   const {
-    available= '0',
+    available = "0",
     userBalanceLoading,
     userBalanceExtensionLoading,
     userBalanceRefetch,
@@ -84,38 +84,39 @@ export const Swap = ({ open }: { open: boolean }) => {
 
   return (
     <div className="flex flex-col gap-4 mt-4">
-      <div className="flex flex-col">
-        {/* You send */}
-        <SwapSend open={open} available={available} loading={userBalanceLoading || userBalanceExtensionLoading} />
+      <div className="flex flex-col gap-4 bg-base-400 rounded-2xl p-3">
+        <div className="flex flex-col">
+          {/* You send */}
+          <SwapSend open={open} available={available} loading={userBalanceLoading || userBalanceExtensionLoading} />
 
-        <ExchangeIcon />
+          <ExchangeIcon />
 
-        {/* You receive */}
-        <SwapReceive />
+          {/* You receive */}
+          <SwapReceive />
+        </div>
+
+        {/* 交易按钮状态 - 可交易 */}
+        <MessageBox
+          show={new Decimal(swapFrom.inAmount || 0).gt(0) && new Decimal(available).gte(Number(swapFrom.inAmount || 0))}>
+          <ConfirmBox onClick={createOrder} loading={loading}>
+            <p className="font-bold">{t("finance:swap")}</p>
+          </ConfirmBox>
+        </MessageBox>
+
+        {/* 交易按钮状态 - 余额不足 */}
+        <MessageBox show={new Decimal(available).lt(swapFrom.inAmount || 0)}>
+          <ConfirmBox disabled>
+            <span className="text-base-content/50">{t("finance:insufficient_balance")}</span>
+          </ConfirmBox>
+        </MessageBox>
+
+        {/* 交易按钮状态 - 未输入 */}
+        <MessageBox show={new Decimal(swapFrom.inAmount || 0).lte(0)}>
+          <ConfirmBox disabled>
+            <span className="text-base-content/50">{t("finance:enter_amount")}</span>
+          </ConfirmBox>
+        </MessageBox>
       </div>
-
-      {/* 交易按钮状态 - 可交易 */}
-      <MessageBox
-        show={new Decimal(swapFrom.inAmount || 0).gt(0) && new Decimal(available).gte(Number(swapFrom.inAmount || 0))}>
-        <ConfirmBox onClick={createOrder} loading={loading}>
-          <p className="font-bold">{t("finance:swap")}</p>
-        </ConfirmBox>
-      </MessageBox>
-
-      {/* 交易按钮状态 - 余额不足 */}
-      <MessageBox show={new Decimal(available).lt(swapFrom.inAmount || 0)}>
-        <ConfirmBox disabled>
-          <span className="text-base-content/50">{t("finance:insufficient_balance")}</span>
-        </ConfirmBox>
-      </MessageBox>
-
-      {/* 交易按钮状态 - 未输入 */}
-      <MessageBox show={new Decimal(swapFrom.inAmount || 0).lte(0)}>
-        <ConfirmBox disabled>
-          <span className="text-base-content/50">{t("finance:enter_amount")}</span>
-        </ConfirmBox>
-      </MessageBox>
-
       <WarningCard>
         <p className="text-xs leading-4 flex-1">{t("finance:swap_terms_service")}</p>
       </WarningCard>
@@ -123,11 +124,11 @@ export const Swap = ({ open }: { open: boolean }) => {
   );
 };
 
-const MessageBox = ({ show, children }: { show: boolean; children: ReactNode }) => {
+export const MessageBox = ({ show, children }: { show: boolean; children: ReactNode }) => {
   return show ? children : null;
 };
 
-const ExchangeIcon = () => {
+export const ExchangeIcon = () => {
   return (
     <div className="relative my-1 flex justify-center items-center">
       <button className="absolute btn btn-sm btn-square bg-base-200 text-base-content/50">

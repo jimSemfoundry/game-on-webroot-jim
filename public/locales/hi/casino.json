@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "एक प्रमुख वैश्विक गेमिंग गठबंधन के रूप में, हम एक दृष्टि के तहत शीर्ष स्तर के प्लेटफॉर्मों की ताकत और परिष्कार को एक साथ लाते हैं। हमारे पोर्टफोलियो में हर ब्रांड में, हम एक के रूप में आगे बढ़ते हैं — मनोरंजन, व्यक्तिगत रिवार्ड्स, और मुद्राओं, देशों और संस्कृतियों में सहज कनेक्टिविटी प्रदान करते हैं।",
   "footerDescriptionThree": "खेल सिर्फ खेलें नहीं। सब कुछ चुनौती दें।",
   "footerDescriptionFour": "{{supportName}} गठबंधन की एक सिग्नेचर संपत्ति",
-  "footerDescriptionFive": "© 2025. सभी अधिकार सुरक्षित।",
+  "footerDescriptionFive": "© {{year}}. सभी अधिकार सुरक्षित।",
   "banner": {
     "oneDescription": "पहले बनें।",
     "oneDescriptionTwo": "चुनौती\nसब कुछ",
@@ -127,5 +127,7 @@
   "addHomeScreen": "होम स्क्रीन में जोड़ें",
   "latestWins": "नवीनतम जीत",
   "spinPlayAndWinAcrossTopCasinoHits": "स्पिन करें, खेलें, और शीर्ष कैसीनो हिट्स पर जीतें",
-  "scoreBigOnSportsFromAroundTheWorld": "दुनिया भर के खेलों पर बड़ा स्कोर करें"
+  "scoreBigOnSportsFromAroundTheWorld": "दुनिया भर के खेलों पर बड़ा स्कोर करें",
+  "liveDealers": "आपके पसंदीदा टेबल गेम्स के लिए लाइव डीलर्स",
+  "show_less": "कम दिखाएं"
 }

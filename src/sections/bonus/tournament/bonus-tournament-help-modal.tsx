@@ -1,32 +1,25 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
-import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useTranslation } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/976143dfd2c953990ba4fcb7aec3cf7b471c5beb.png";
-
 export const BonusTournamentHelpModal = ({ isOpen, onClose }: Props) => {
   const { t } = useTranslation(['popup' , 'bonus', 'casino']);
-  const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
-    fallbackGradient:
-      "radial-gradient(120% 260% at 100% 0%, rgba(255, 138, 76, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
-    opacity: 0.45,
-    colorTypes: ['DarkMuted']
-  });
+  const ILLUSTRATION_URL = useBonusDetailsImage("tournament_reward", 256);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
       <div className="flex flex-col gap-1">
         {/* Top highlight card */}
         <div
-          className="rounded-box px-7 py-4 relative overflow-hidden h-[180px] flex items-center justify-center"
+          className="rounded-box px-7 py-4 relative overflow-hidden h-[140px] flex items-center justify-center"
           style={{
-            background: `${vibrantGradient}, linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
+            background: `radial-gradient(100% 308% at 100% 0%, rgba(227, 106, 26, 0.5) 0%, rgba(15, 20, 26, 0.5) 100%), linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
           }}
         >
           <div className="relative z-10 flex items-center justify-between w-full">
@@ -40,7 +33,7 @@ export const BonusTournamentHelpModal = ({ isOpen, onClose }: Props) => {
               <img
                 src={ILLUSTRATION_URL}
                 alt="Tournaments & Races"
-                className="w-36 h-36 object-contain"
+                className="w-auto h-[128px] object-contain -rotate-12"
               />
             </div>
           </div>
@@ -58,7 +51,7 @@ export const BonusTournamentHelpModal = ({ isOpen, onClose }: Props) => {
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[420px] overflow-y-auto pb-12">
+            <div className="max-h-[420px] overflow-y-auto pb-12 hide-scrollbar">
               <p className="text-xs text-base-content/50 leading-5">
                 {t("popup:tournament.description")}
               </p>

@@ -167,7 +167,8 @@
     "gameAccessibleToCurrencies": "Restricted for bonus account.",
     "gameNotAccessibleInYourRegion": "Unavailable in your region.",
     "mobileAlreadyBound": "Mobile is already bound to this account.",
-    "mobileHasBeenUsed": "Mobile has been used. Please use another Mobile."
+    "mobileHasBeenUsed": "Mobile has been used. Please use another Mobile.",
+    "draw": "Draw"
   },
   "bonus_pool": "Bonus Pool",
   "pleaseEnterValidUsernameOrEmail": "Please enter a valid username or email",

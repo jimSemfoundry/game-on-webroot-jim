@@ -34,12 +34,12 @@ function RouteComponent() {
   const shouldHideAlliancePartnerships = import.meta.env.VITE_HIDE_ALLIANCE_PARTNERSHIPS === "true";
 
   return (
-    <div className="flex flex-col gap-3 pb-26">
+    <div className="mx-5 flex flex-col gap-3 pb-26">
       <div className="relative">
         <TournamentHeroSection />
       </div>
 
-      <div className="px-5 sm:px-0 flex flex-col gap-3 min-h-[600px]">
+      <div className="flex flex-col gap-3 md:mb-10">
         <div className="flex items-center gap-2">
           <Iconify icon="custom:tournament" className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
           <p className="text-md sm:text-lg font-bold">{t("casino:tournaments")}</p>

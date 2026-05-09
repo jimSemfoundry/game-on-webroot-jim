@@ -28,6 +28,7 @@ export interface UserGameListResponse {
 export type ICachePaymentIcons = {
   currency_icon: string;
   fiat_icons: string[];
+  fiat_icons_light?: string[];
   crypto_icons: string[];
 };
 

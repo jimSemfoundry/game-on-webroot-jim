@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Je telefoonnummer is geverifieerd. Je kunt doorgaan.",
   "email_address_has_been_verified": "Je e-mailadres is geverifieerd. Je kunt nu doorgaan.",
   "setNewPassword": "Nieuw wachtwoord instellen",
-  "passwordLengthRequirement": "Voer een wachtwoord in van 6 tot 64 tekens."
+  "passwordLengthRequirement": "Voer een wachtwoord in van 6 tot 64 tekens.",
+  "re_enter_new_password": "Voer het nieuwe wachtwoord opnieuw in",
+  "change_withdrawal_pin": "Opname-PIN wijzigen",
+  "confirm_withdrawal_pin": "Opname-PIN bevestigen",
+  "enter_email": "E-mail invoeren",
+  "rolloverDetails": "Rolloverdetails",
+  "verified_email": "Geverifieerd e-mailadres",
+  "verified_phone_number": "Geverifieerd telefoonnummer",
+  "change_key": "Wijzigen",
+  "update_successfully": "Update geslaagd. Gebruik {<1>{{value}}</1>} voor uw volgende login.",
+  "understand_key": "Begrepen",
+  "ensure_email_valid": "Zorg ervoor dat uw e-mailadres geldig is en toegankelijk voor u.",
+  "ensure_phone_valid": "Zorg ervoor dat uw telefoonnummer geldig is en toegankelijk voor u.",
+  "enter_phone_number_to_receive_verification_code": "Voer hieronder uw telefoonnummer in om een verificatiecode te ontvangen.",
+  "enter_email_address_to_receive_verification_code": "Voer hieronder uw e-mailadres in om een verificatiecode te ontvangen."
 }

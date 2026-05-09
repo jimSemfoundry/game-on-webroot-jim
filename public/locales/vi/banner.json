@@ -36,5 +36,5 @@
   "vip_monday": "Thứ Hai VIP",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "THƯỞNG \n <0>ĐÔ LA</0>",
-  "super_everyday": "<0>Nạp Tiền Đầu Tiên Trong Ngày</0><br/><0>Tiền Điện Tử {{crypto_bonus}}</0><br/><0>Tiền Fiat {{fiat_bonus}}</0><br/>Tăng Cường<br/>Tiền Gửi Mỗi Ngày"
+  "super_everyday": "<0>Nạp Tiền Đầu Tiên Trong Ngày</0><br/>Tiền Điện Tử {{crypto_bonus}}<br/>Tiền Fiat {{fiat_bonus}}"
 }

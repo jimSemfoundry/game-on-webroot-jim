@@ -3,14 +3,21 @@ import { Suspense, lazy, useMemo } from "react";
 import { useBoundStore } from "@/store";
 import { TActions } from "@/store/type.ts";
 import {
-  OptionalBonusModalWrapper,
-  MegaSlotBonusModalWrapper,
-  MiniSlotBonusModalWrapper,
-  FreePlayBonusModalWrapper, WithdrawAMLModalWrapper
+  BuddyBallsDetailsModalWrapper,
+  BonusSwapModalWrapper,
+  FinanceAMLModalWrapper,
+  GetPromoCodeModalWrapper,
+  PlayBonusDetailsModalWrapper,
+  LuckySpinDetailsModalWrapper,
+  WheelFortuneModalWrapper,
+  FiatChannelModalWrapper,
+  SportsBonusSwapModalWrapper,
+  ReferralShareModalBigWinWrapper,
+  SportsBonusDetailsModalWrapper
 } from "./MultiModalWrappers.tsx";
 
 const WithdrawOkModal = lazy(() => import("./WithdrawOkModal.tsx"));
-const GiveUpBonusModal = lazy(() => import("@/components/modal/GiveUpBonusModal.tsx"));
+const GiveUpBonusModal = lazy(() => import("@/components/modal/BonusWallet/GiveUpBonusModal.tsx"));
 const WithdrawPinModal = lazy(() => import("./WithdrawPinModal.tsx"));
 const WithdrawMinAmountModal = lazy(() => import("./WithdrawMinAmountModal.tsx"));
 const WithdrawAddressAddModal = lazy(() => import("./WithdrawAddressAddModal.tsx"));
@@ -152,11 +159,17 @@ const FinanceModalManager = () => {
       </Suspense>
 
       {/* 支持多窗口 */}
-      <WithdrawAMLModalWrapper />
-      <OptionalBonusModalWrapper />
-      <MegaSlotBonusModalWrapper />
-      <MiniSlotBonusModalWrapper />
-      <FreePlayBonusModalWrapper />
+      <BonusSwapModalWrapper />
+      <FinanceAMLModalWrapper />
+      <BuddyBallsDetailsModalWrapper />
+      <GetPromoCodeModalWrapper />
+      <PlayBonusDetailsModalWrapper />
+      <LuckySpinDetailsModalWrapper />
+      <WheelFortuneModalWrapper />
+      <FiatChannelModalWrapper />
+      <ReferralShareModalBigWinWrapper />
+      <SportsBonusSwapModalWrapper />
+      <SportsBonusDetailsModalWrapper />
     </>
   );
 };

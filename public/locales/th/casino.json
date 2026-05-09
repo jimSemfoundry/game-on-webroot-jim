@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "ในฐานะพันธสัญญาการเล่นเกมระดับโลกชั้นนำ เรารวบรวมความแข็งแกร่งและความซับซ้อนของแพลตฟอร์มชั้นนำภายใต้วิสัยทัศน์เดียวกัน ในทุกแบรนด์ในพอร์ตโฟลิโอของเรา เราเคลื่อนไหวเป็นหนึ่งเดียว — มอบความบันเทิง รางวัลที่ปรับแต่งเฉพาะบุคคล และการเชื่อมต่อที่ราบรื่นข้ามสกุลเงิน ประเทศ และวัฒนธรรม",
   "footerDescriptionThree": "อย่าเพียงแค่เล่นเกม จงท้าทายทุกสิ่ง",
   "footerDescriptionFour": "คุณสมบัติอันเป็นเอกลักษณ์ของ {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025 สงวนลิขสิทธิ์",
+  "footerDescriptionFive": "© {{year}} สงวนลิขสิทธิ์",
   "banner": {
     "oneDescription": "เป็นคนแรก.",
     "oneDescriptionTwo": "ท้าทาย\nทุกอย่าง",
@@ -127,5 +127,7 @@
   "addHomeScreen": "เพิ่มไปยังหน้าจอหลัก",
   "latestWins": "ชัยชนะล่าสุด",
   "spinPlayAndWinAcrossTopCasinoHits": "หมุน เล่น และชนะในเกมคาสิโนยอดนิยม",
-  "scoreBigOnSportsFromAroundTheWorld": "ทำคะแนนใหญ่ในกีฬาจากทั่วโลก"
+  "scoreBigOnSportsFromAroundTheWorld": "ทำคะแนนใหญ่ในกีฬาจากทั่วโลก",
+  "liveDealers": "ดีลเลอร์สดสำหรับเกมโต๊ะที่คุณชื่นชอบ",
+  "show_less": "แสดงน้อยลง"
 }

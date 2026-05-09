@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "چت خدمات مشتری بارگیری نشد",
   "read": "خوانده شده",
   "unread": "خوانده نشده",
-  "customerService": "خدمات مشتری"
+  "customerService": "خدمات مشتری",
+  "today": "امروز",
+  "earlier": "قبلاً",
+  "older": "قدیمی‌تر"
 }

@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Prašome įvesti fiksuotą ilgį: {{length}} simbolių",
   "disabledCharNotAllowed": "Simbolis {{char}} nėra leidžiamas",
   "space": "tarpas",
-  "thisWalletIsAlreadyUsed": "Ši piniginė jau naudojama"
+  "thisWalletIsAlreadyUsed": "Ši piniginė jau naudojama",
+  "login_failed": "Prisijungimas nepavyko",
+  "login_error_code_1": "Vartotojo vardas turi būti galiojantis telefono numeris (prasidedantis + ir naudojant - po šalies kodo) arba el. pašto adresas",
+  "account_created_and_logged_in_successfully": "Paskyra sukurta ir sėkmingai prisijungta!",
+  "requests_later": "Per daug užklausų iš šio IP. Bandykite dar kartą vėliau.",
+  "booster_activated_successfully": "Stiprintuvas sėkmingai aktyvuotas!",
+  "depositNameEntered": "Įvestas depozito vardas turi atitikti pilną vardą<0>（Vardas + Pavardė）</0> banko sąskaitoje, naudojamoje išėmimui, atitinkant antiapgaudėlinių ir pinigų plovimo prevencijos taisykles.\n\n Jei jums reikia pakeisti banko sąskaitą, prašome susisiekti su klientų aptarnavimu ir užbaigti KYC patikrinimą.",
+  "user_not_found_or_password_incorrect": "Vartotojas nerastas arba neteisingas slaptažodis",
+  "free_spin_record_enabled_successfully": "Nemokamų sukimų įrašas sėkmingai aktyvuotas!",
+  "check_in_success": "Prisiregistravimas sėkmingas!",
+  "check_in_failed": "Prisiregistravimas nepavyko!",
+  "check_in_already": "Šios datos prisiregistravimas jau baigtas.",
+  "ballsClaimed": "Draugo kamuolys sėkmingai atsiimtas",
+  "cannotBetby": "Sporto bonuso piniginė skirta tik sporto statymams."
 }

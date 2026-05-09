@@ -1,16 +1,16 @@
-import Iconify from "@/components/iconify";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTipsModal } from "@/contexts/ModalsProvider";
 import { useUserAchievements } from "@/hooks/api/useAuth";
+import { useNavigate } from "@tanstack/react-router";
 import { Trans, useTranslation } from "react-i18next";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { VipButton } from "../shared/VipButton";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { BonusAchievementsModal } from "./bonus-achievements-modal";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
-const ILLUSTRATION_URL = "/images/illustrations/0bfb7eed784e639b1f6c07fda138122d67b96eef.png";
 const DEFAULT_ACCENT = "#D21D3B";
 
 const buildBackground = (accentStop: string, isMobile: boolean) =>
@@ -28,11 +28,12 @@ const buildBackground = (accentStop: string, isMobile: boolean) =>
 export function BonusAchievementsCard() {
   const { t } = useTranslation();
   const { openTipsModal } = useTipsModal();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const [showAchievementsModal, setShowAchievementsModal] = useState(false);
 
   const { isInitialized } = useAuth();
   const { data: achievementsData, isLoading: isAchievementsLoading } = useUserAchievements("asc");
+  const ILLUSTRATION_URL = useBonusDetailsImage("achievements", 96);
 
   const isClaimable = useMemo(() => {
     if (!isInitialized || isAchievementsLoading) return false;
@@ -65,7 +66,7 @@ export function BonusAchievementsCard() {
   };
 
   const handleButtonClick = () => {
-    setShowAchievementsModal(true);
+    void navigate({ to: "/bonus/achievements" });
   };
 
   return (
@@ -75,37 +76,31 @@ export function BonusAchievementsCard() {
         background,
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
+      <Info className="absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips} />
       <div className="flex w-full items-center gap-4 sm:flex-1 sm:flex-col sm:items-center sm:gap-3 sm:text-center">
         <div className="w-16 h-16 sm:size-[82px] grid place-items-center rounded-xl">
           <img
             src={ILLUSTRATION_URL}
             alt={t("bonus:achievements")}
-            className="w-full h-full object-contain -rotate-6 rtl:rotate-6"
+            className="w-full h-full object-contain"
             loading="lazy"
             decoding="async"
           />
         </div>
-        <div className="flex flex-1 flex-col gap-1 sm:gap-2 sm:items-center">
+        <div className="flex flex-1 flex-col gap-2 sm:gap-2 sm:items-center">
           <p className="text-sm font-bold sm:text-base text-left w-full">{t("bonus:achievements")}</p>
           <p className="text-xs text-base-content/60 leading-5 sm:flex-1 text-left w-full">
             <Trans i18nKey="bonus:achievements_card_description" />
           </p>
           <div className="hidden sm:flex sm:w-full sm:justify-center sm:mt-auto">
-            <VipButton requiredLevel={0} onClick={handleButtonClick}/>
+            <VipButton requiredLevel={0} onClick={handleButtonClick} claimable={isClaimable} useClaimStateWhenUnlocked={isClaimable} />
           </div>
         </div>
         <div className="flex sm:hidden">
-          <VipButton requiredLevel={0} onClick={handleButtonClick}/>
+          <VipButton requiredLevel={0} onClick={handleButtonClick} claimable={isClaimable} useClaimStateWhenUnlocked={isClaimable} />
         </div>
       </div>
 
-      <BonusAchievementsModal
-        isOpen={showAchievementsModal}
-        onClose={() => setShowAchievementsModal(false)}
-      />
     </div>
   );
 }

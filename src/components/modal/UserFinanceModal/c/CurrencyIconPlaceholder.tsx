@@ -34,3 +34,25 @@ export const CurrencyIconPlaceholder = (
     <div className={clsx("skeleton bg-base-200 w-5 h-5 rounded-full", className)} />
   );
 };
+
+// TODO: 简化版币种图标展示
+export const SimpleCurrencyIconPlaceholder = (
+  {
+    alt,
+    className,
+    ...props
+  }: React.ComponentProps<"img">) => {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  useEffect(() => {
+    if (!props.src) return;
+    setImageLoaded(false);
+    const img = new Image();
+    img.src = props.src;
+    img.onload = () => setImageLoaded(true);
+  }, [props.src]);
+  return imageLoaded ? (
+    <img {...props} src={props.src} className={clsx("w-6 h-6 rounded-full", className)} alt={alt} loading="lazy" />
+  ) : (
+    <div className={clsx("skeleton bg-base-200 w-6 h-6 rounded-full", className)} />
+  );
+};

@@ -134,7 +134,7 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
         {/* Loading 状态 */}
         {isLoading && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50">
-            <div className="flex flex-col items-center gap-4 text-white">
+            <div className="flex flex-col items-center gap-4 text-base-content">
               <span className="loading loading-spinner loading-xl text-primary" />
               <p className="text-lg font-medium">{t("common:common.loading")}</p>
             </div>
@@ -180,7 +180,7 @@ export function GameIframe({ launchData, launchType, isFullScreen = false, onErr
       {/* Loading 状态 */}
       {isLoading && (
         <div className="absolute inset-0 z-[100] flex items-center justify-center bg-black/50 rounded-lg">
-          <div className="flex flex-col items-center gap-4 text-white">
+          <div className="flex flex-col items-center gap-4 text-base-content">
             <span className="loading loading-spinner loading-xl text-primary" />
             <p className="text-lg font-medium">{t("common:common.loading")}</p>
           </div>

@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface CountdownTimerProps {
   expireTime: number; // 过期时间戳（秒）
   className?: string;
 }
 
-export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerProps) => {
+export const CountdownTimer = ({ expireTime, className = "" }: CountdownTimerProps) => {
   // 使用 useRef 存储倒计时值避免重新渲染
   const timeLeftRef = useRef({
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 0
   });
 
   // 使用 useState 仅用于触发重新渲染
@@ -62,7 +62,7 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.days } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.days}
+          {timeLeftRef.current.days}
           {/*</span>*/}
         </span>
         d
@@ -70,7 +70,7 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.hours } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.hours}
+          {timeLeftRef.current.hours}
           {/*</span>*/}
         </span>
         h
@@ -78,7 +78,7 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.minutes } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.minutes}
+          {timeLeftRef.current.minutes}
           {/*</span>*/}
         </span>
         m
@@ -86,7 +86,7 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
       <div>
         <span className="countdown font-mono">
           {/*<span style={{ '--value': timeLeftRef.current.seconds } as React.CSSProperties} aria-live="polite">*/}
-            {timeLeftRef.current.seconds}
+          {timeLeftRef.current.seconds}
           {/*</span>*/}
         </span>
         s
@@ -98,6 +98,7 @@ export const CountdownTimer = ({ expireTime, className = '' }: CountdownTimerPro
 interface CountdownTimerPropsStatic {
   expireTime: number; // 过期时间戳（秒）
   className?: string;
+  timeClassName?: string;
   isEndFun?: () => void;
 }
 
@@ -135,18 +136,18 @@ const isGreaterThanOneSecond = (time: CountdownTimeProps) => {
   return false;
 };
 
-export const CountdownTimerThree = ({ expireTime, className = '', isEndFun }: CountdownTimerPropsStatic) => {
+export const CountdownTimerThree = ({ expireTime, className = "", timeClassName = "", isEndFun }: CountdownTimerPropsStatic) => {
   // 使用 useRef 存储倒计时值避免重新渲染
   const timeLeftRef = useRef({
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 0
   });
 
   const expireTimeRef = useRef<number>(expireTime);
   const endedRef = useRef(false);
-  const isEndFunRef = useRef<CountdownTimerPropsStatic['isEndFun']>(isEndFun);
+  const isEndFunRef = useRef<CountdownTimerPropsStatic["isEndFun"]>(isEndFun);
 
   const [timeLeft, setTimeLeft] = useState<CountdownTimeProps>(timeLeftRef.current);
 
@@ -225,41 +226,33 @@ export const CountdownTimerThree = ({ expireTime, className = '', isEndFun }: Co
   return (
     <div className={`flex items-center justify-center gap-1 ${className}`}>
       {isGreaterThanOneDay(timeLeft) && (
-        <div>
-          <span className="countdown font-mono">
-            <span style={{ '--value': timeLeft.days } as React.CSSProperties} aria-live="polite">
+        <div className={timeClassName}>
+          <span className="countdown">
               {timeLeft.days}
-            </span>
           </span>
           d
         </div>
       )}
       {isGreaterThanOneHour(timeLeft) && (
-        <div>
-          <span className="countdown font-mono">
-            <span style={{ '--value': timeLeft.hours } as React.CSSProperties} aria-live="polite">
+        <div className={timeClassName}>
+          <span className="countdown">
               {timeLeft.hours}
-            </span>
           </span>
           h
         </div>
       )}
       {isGreaterThanOneMinute(timeLeft) && (
-        <div>
-          <span className="countdown font-mono">
-            <span style={{ '--value': timeLeft.minutes } as React.CSSProperties} aria-live="polite">
+        <div className={timeClassName}>
+          <span className="countdown">
               {timeLeft.minutes}
-            </span>
           </span>
           m
         </div>
       )}
       {isGreaterThanOneSecond(timeLeft) && (
-        <div>
-          <span className="countdown font-mono">
-            <span style={{ '--value': timeLeft.seconds } as React.CSSProperties} aria-live="polite">
+        <div className={timeClassName}>
+          <span className="countdown">
               {timeLeft.seconds}
-            </span>
           </span>
           s
         </div>

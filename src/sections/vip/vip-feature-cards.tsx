@@ -116,7 +116,7 @@ const FEATURE_CARDS = [
     vipLevel: 2,
     titleKey: "bonus:achievements",
     descriptionKey: "bonus:achievements_card_description",
-    link: "/bonus?tab=achievements",
+    link: "/bonus/achievements",
   },
   {
     illustration: "/images/illustrations/a0460e0b128df2ab73ba3a735212bd9d95c841b1.png",

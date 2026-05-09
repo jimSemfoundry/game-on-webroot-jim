@@ -4,7 +4,7 @@ import { SECONDARY_MENUS, PRIMARY_MENUS, TabConfig, hasSecondaryMenu } from "@/c
 import { useAuth } from "@/contexts/AuthContext";
 import { t } from "i18next";
 import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext.tsx";
-import { bonus_currencies, bonus_wallet_supported_games_menu } from "@/sections/explore/index.ts";
+import { bonus_currencies } from "@/sections/explore/index.ts";
 import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 
 interface ExploreTabsProps {
@@ -58,6 +58,7 @@ export function ExploreTabs({ value, onChange, gameType, showBackButton = false,
     ? secondaryMenuItems
     : secondaryMenuItems.filter((item: TabConfig) => item.value !== "recent" && item.value !== "favorites");
 
+  // Bonus Wallet
   // Generate tabs from configuration
   const generateTab = (item: TabConfig) => ({
     value: item.value,
@@ -69,8 +70,12 @@ export function ExploreTabs({ value, onChange, gameType, showBackButton = false,
     ),
   });
   
-  const tabs = filteredMenuItems.map(generateTab);
-  if (is_bonus_currency) tabs.unshift(generateTab(bonus_wallet_supported_games_menu));
+  // Generate tabs array
+  const baseTabs = filteredMenuItems.map(generateTab);
+  // 登录之后可见Bonus Wallet游戏
+  const tabs = !is_bonus_currency
+    ? baseTabs.filter((b) => b.value !== "bonus")
+    : baseTabs;
 
   return (
     <div className="flex items-center gap-2 w-full">

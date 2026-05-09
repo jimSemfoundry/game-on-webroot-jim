@@ -190,5 +190,13 @@
   "programAccessUpdate": "Aktualizace přístupu k programu",
   "referralProgramPrivileges": "Vaše oprávnění v doporučovacím programu byla po kontrole vašeho účtu a účasti v programu zrušena. Zjistili jsme aktivitu, která není v souladu s podmínkami nebo zamýšleným využitím našeho doporučovacího programu. Může jít například o podezřelé vzorce doporučení, neautorizované propagační metody, zneužívání pobídek nebo pokusy obejít zásady férového používání.",
   "referralRewardsPrivileges": "V důsledku toho byla deaktivována vaše možnost vytvářet nové doporučovací odměny, sdílet doporučovací odkazy nebo získávat výhody z doporučení. Nevyřízené nebo budoucí odměny spojené s doporučovacím programem budou v souladu s našimi zásadami zadrženy a zrušeny. <0>Veškeré ostatní funkce vašeho účtu zůstávají zachovány a nejsou touto změnou ovlivněny</0>.",
-  "understandDisappointing": "Chápeme, že to může být zklamáním. Pokud se domníváte, že je toto rozhodnutí chybné, nebo chcete více informací, kontaktujte prosím náš tým podpory s relevantními údaji a váš případ prověříme."
+  "understandDisappointing": "Chápeme, že to může být zklamání. Pokud se domníváte, že toto rozhodnutí je chybné, nebo byste chtěli další podrobnosti, kontaktujte prosím náš tým podpory s veškerými relevantními informacemi a váš případ přezkoumáme.",
+  "spread_the_Love": "Šiřte lásku",
+  "need": "Potřebujete",
+  "new_friends": "Nové přátele?",
+  "timeToRecruit": "Čas nabírat! Klepněte na tlačítko a řekněte o nás úplně cizímu člověku na WhatsAppu.",
+  "date": "datum",
+  "save": "uložit",
+  "enterCampaignName": "Zadejte název kampaně",
+  "shareText": "🎮 Přidej se ke mně na této skvělé platformě!"
 }

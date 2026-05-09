@@ -34,5 +34,12 @@
   "depositNow": "Şimdi Yatır",
   "free_spins": "Ücretsiz Dönüşler",
   "play_with_balance_in": "Bakiyenizle Oynayın",
-  "the_selected_currency_will_be_displayed_in": "Seçilen para birimi şu şekilde görüntülenecektir"
+  "the_selected_currency_will_be_displayed_in": "Seçilen para birimi şu şekilde görüntülenecektir",
+  "activity": "Etkinlik",
+  "come_join_me_now_at": "ŞİMDİ KATILIN",
+  "invite_friends_to_join_play": "Arkadaşlarınızı katılmaya davet edin ve Oynayın",
+  "earn_up_to_50_commission_bonus": "%50'ye kadar komisyon kazanın <0>+{{bonus}}</0> Bonus",
+  "download_failed": "İndirme başarısız oldu. Lütfen tekrar deneyin.",
+  "image_downloaded": "Resim indirildi!",
+  "share_text_1": "Az önce {{multiplier}}x BÜYÜK KAZANÇ elde ettim! 🔥"
 }

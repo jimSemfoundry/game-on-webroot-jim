@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Телефонният ви номер е потвърден. Можете да продължите.",
   "email_address_has_been_verified": "Имейл адресът ви е потвърден. Можете да продължите.",
   "setNewPassword": "Задайте нова парола",
-  "passwordLengthRequirement": "Моля, въведете парола между 6 и 64 знака."
+  "passwordLengthRequirement": "Моля, въведете парола между 6 и 64 знака.",
+  "re_enter_new_password": "Въведете отново новата парола",
+  "change_withdrawal_pin": "Промяна на PIN за теглене",
+  "confirm_withdrawal_pin": "Потвърдете PIN за теглене",
+  "enter_email": "Въведете имейл",
+  "rolloverDetails": "Детайли за превъртане",
+  "verified_email": "Потвърден имейл",
+  "verified_phone_number": "Потвърден телефонен номер",
+  "change_key": "Промяна",
+  "update_successfully": "Успешно обновяване. Моля, използвайте {<1>{{value}}</1>} за следващото си влизане.",
+  "understand_key": "Разбрах",
+  "ensure_email_valid": "Уверете се, че имейл адресът ви е валиден и достъпен за вас.",
+  "ensure_phone_valid": "Уверете се, че телефонният ви номер е валиден и достъпен за вас.",
+  "enter_phone_number_to_receive_verification_code": "Въведете телефонния си номер по-долу, за да получите код за потвърждение.",
+  "enter_email_address_to_receive_verification_code": "Въведете имейл адреса си по-долу, за да получите код за потвърждение."
 }

@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "หมายเลขโทรศัพท์ของคุณได้รับการยืนยันแล้ว คุณสามารถดำเนินการต่อได้",
   "email_address_has_been_verified": "อีเมลของคุณได้รับการยืนยันแล้ว คุณสามารถดำเนินการต่อได้",
   "setNewPassword": "ตั้งรหัสผ่านใหม่",
-  "passwordLengthRequirement": "กรุณาใส่รหัสผ่านระหว่าง 6 ถึง 64 ตัวอักษร"
+  "passwordLengthRequirement": "กรุณาใส่รหัสผ่านระหว่าง 6 ถึง 64 ตัวอักษร",
+  "re_enter_new_password": "กรอกรหัสผ่านใหม่อีกครั้ง",
+  "change_withdrawal_pin": "เปลี่ยน PIN การถอน",
+  "confirm_withdrawal_pin": "ยืนยัน PIN การถอน",
+  "enter_email": "กรอกอีเมล",
+  "rolloverDetails": "รายละเอียด โรลโอเวอร์",
+  "verified_email": "อีเมลที่ยืนยันแล้ว",
+  "verified_phone_number": "หมายเลขโทรศัพท์ที่ยืนยันแล้ว",
+  "change_key": "เปลี่ยน",
+  "update_successfully": "อัปเดตสำเร็จ กรุณาใช้ {<1>{{value}}</1>} สำหรับการเข้าสู่ระบบครั้งถัดไป",
+  "understand_key": "เข้าใจแล้ว",
+  "ensure_email_valid": "ตรวจสอบให้แน่ใจว่าที่อยู่อีเมลของคุณถูกต้องและสามารถเข้าถึงได้",
+  "ensure_phone_valid": "ตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ของคุณถูกต้องและสามารถเข้าถึงได้",
+  "enter_phone_number_to_receive_verification_code": "กรอกหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสยืนยัน",
+  "enter_email_address_to_receive_verification_code": "กรอกที่อยู่อีเมลของคุณด้านล่างเพื่อรับรหัสยืนยัน"
 }

@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Palun sisestage fikseeritud pikkus {{length}} tähemärki",
   "disabledCharNotAllowed": "Täht {{char}} ei ole lubatud",
   "space": "tühik",
-  "thisWalletIsAlreadyUsed": "Seda rahakotti on juba kasutatud"
+  "thisWalletIsAlreadyUsed": "Seda rahakotti on juba kasutatud",
+  "login_failed": "Sisselogimine ebaõnnestus",
+  "login_error_code_1": "Kasutajanimi peab olema kehtiv telefoninumber (algab märgiga + ja kasutab - riigikoodist) või e-posti aadress",
+  "account_created_and_logged_in_successfully": "Konto on loodud ja edukalt sisse logitud!",
+  "requests_later": "Liiga palju päringuid sellelt IP-aadressilt. Palun proovige hiljem uuesti.",
+  "booster_activated_successfully": "Võimendi edukalt aktiveeritud!",
+  "depositNameEntered": "Sisestatud deposiidinimi peab vastama täielikule nimele<0>（Eesnimi + Perekonnanimi）</0> väljamaksmiseks kasutataval pangakontol, vastavalt pettusevastase ja rahapesu vastase seadustikule.\n\n Kui peate muutma oma pangakontot, palun võtke ühendust klienditoe ja lõpetage KYC kinnitamine.",
+  "user_not_found_or_password_incorrect": "Kasutajat ei leitud või parool on vale",
+  "free_spin_record_enabled_successfully": "Tasuta keerutuste kirje edukalt aktiveeritud!",
+  "check_in_success": "Sisseregistreerimine õnnestus!",
+  "check_in_failed": "Sisseregistreerimine ebaõnnestus!",
+  "check_in_already": "Selle kuupäeva sisseregistreerimine on juba lõpetatud.",
+  "ballsClaimed": "Sõbrapall on edukalt kätte saadud",
+  "cannotBetby": "Spordibonusi rahakott on ainult spordipanuste jaoks."
 }

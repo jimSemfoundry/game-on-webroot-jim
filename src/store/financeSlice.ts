@@ -65,7 +65,7 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     method: null,
     currency: null,
     formItem: null,
-    extraItem: null,
+    extraItem: null
   },
   setWithdrawFiat: (params) =>
     set((state) => {
@@ -166,7 +166,6 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
       };
     }),
 
-
   // withdraw fiat
   withdrawCrypto: {
     network: null,
@@ -224,5 +223,13 @@ export const createFinanceSlice: StateCreator<Store, [], [], IFinanceSlice> = (s
     set((state) => {
       const { [type]: _, ...rest } = state.modals;
       return { modals: rest };
-    })
+    }),
+
+  // bonus swap send
+  bonusSwapFrom: { currency: null, inAmount: "" },
+  setBonusSwapFrom: (params) => set((state) => ({ bonusSwapFrom: { ...state.bonusSwapFrom, ...params } })),
+
+  // bonus swap receive
+  bonusSwapTo: { currency: null, outAmount: "" },
+  setBonusSwapTo: (params) => set((state) => ({ bonusSwapTo: { ...state.bonusSwapTo, ...params } }))
 });

@@ -109,12 +109,12 @@ export const ReferralRewards = () => {
           </div>
         ) : (
           <>
-            <div ref={scrollContainerRef} className="flex-1 overflow-y-auto px-4">
-              <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-1">
+            <div ref={scrollContainerRef} className="flex-1 overflow-y-auto px-4 hide-scrollbar">
+              <table className="w-full table-auto text-sm text-base-content border-separate border-spacing-y-0">
                 <thead className="sticky top-0 z-10 bg-base-200 text-xs font-semibold uppercase text-base-content/60">
                   <tr>
                     <th className="px-4 py-3 sm:text-sm text-xs text-left rtl:text-right font-bold" colSpan={4}>{t("referral:user")}</th>
-                    <th className="px-4 py-3 sm:text-sm text-xs text-left rtl:text-right font-bold" colSpan={3}>{t("referral:vipLevel")}</th>
+                    <th className="hidden sm:block px-4 py-3 sm:text-sm text-xs text-left rtl:text-right font-bold" colSpan={3}>{t("referral:vipLevel")}</th>
                     <th className="px-4 py-3 sm:text-sm text-xs text-right rtl:text-left font-bold" colSpan={2}>{t("referral:amount")}</th>
                   </tr>
                 </thead>
@@ -138,19 +138,24 @@ export const ReferralRewards = () => {
                             alt={`VIP ${item.downLineUserStatus.vip}`}
                             className="w-5 h-5 flex-shrink-0"
                           />
-                          <div className="text-sm sm:text-base font-semibold text-base-content/50 truncate max-w-full sm:hidden">
+                          <div
+                            className="text-xs sm:text-base font-semibold text-base-content/50 truncate max-w-full sm:hidden">
                             {item.downLineUser.nickname}
                           </div>
-                          <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full" data-tip={item.downLineUser.nickname}>
-                            <div className="text-sm sm:text-base font-semibold text-base-content/50 truncate max-w-full block">
+                          <div className="tooltip tooltip-top hidden sm:block min-w-0 max-w-full">
+                            <div
+                              className="text-xs sm:text-base font-semibold text-base-content/50 truncate max-w-full block">
                               {item.downLineUser.nickname}
                             </div>
                           </div>
                         </div>
+                        <div
+                          className="block sm:hidden mt-1 text-xs sm:text-base text-base-content/50 font-medium capitalize">{t("referral:vipLevel")} {item.downLineUserStatus.vip}</div>
                       </td>
 
-                      <td className="px-4 py-2.5 text-sm sm:text-base text-base-content/50 font-medium capitalize" colSpan={3}>
-                        {item.downLineUserStatus.vip}
+                      <td className="hidden sm:block px-4 py-2.5 text-sm sm:text-base text-base-content/50 font-medium capitalize"
+                          colSpan={3}>
+                      {item.downLineUserStatus.vip}
                       </td>
 
                       <td className="px-4 py-2.5 text-right rtl:text-left rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg" colSpan={2}>

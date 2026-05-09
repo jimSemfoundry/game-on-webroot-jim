@@ -96,7 +96,7 @@ export const Countdown = ({
   }
 
   return (
-    <div className={clsx("font-mono text-2xl flex items-baseline gap-x-1 rtl:flex-row-reverse", className)}>
+    <div className={clsx("text-2xl flex items-baseline gap-x-1 rtl:flex-row-reverse", className)}>
       <span className="flex items-baseline gap-x-0.5 rtl:flex-row-reverse">
         <span className="countdown overflow-hidden">
           {/*<span style={{ '--value': time.days } as React.CSSProperties}>*/}

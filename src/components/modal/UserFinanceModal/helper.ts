@@ -13,6 +13,8 @@ import { useBoundStore } from "@/store";
 import { orderBy } from "es-toolkit";
 import { emitter } from "@/store/emitter.ts";
 import { useCurrencyExchangeRate } from "@/hooks/api/usePublic.ts";
+import { EBonus, ESport } from "@/sections/dollars/components.tsx";
+import { o as numericFormatFun } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
 
 export const useSupportedSwapFromCurrenciesFilter = () => {
   const { data, isLoading } = useSupportedCurrencyV2();
@@ -200,11 +202,13 @@ export const useAvailableBalance = (currency: string) => {
     const lockedBalance = extensionBalance ? new Decimal(extensionBalance.locked_balance || 0) : new Decimal(0);
 
     const calculatedAvailable = totalBalance.minus(lockedBalance);
-    const availableAmount = Decimal.max(calculatedAvailable, withdrawAble);
+    const availableMax = Decimal.max(calculatedAvailable, withdrawAble);
+    const availableAmount = Decimal.min(availableMax, totalBalance);
 
     return {
       locked: lockedBalance.toFixed(18, Decimal.ROUND_UP),
       available: open_debug ? "200" : availableAmount.toFixed(18, Decimal.ROUND_DOWN),
+      totalBalance: totalBalance.toFixed(18, Decimal.ROUND_DOWN),
       userBalanceLoading,
       userBalanceExtensionLoading,
       userBalanceRefetch,
@@ -272,6 +276,21 @@ export const useSupportedFiatWithdrawGatewaysV2 = (currency: string) => {
     queryKey: ["supportedFiatWithdrawGatewaysV2", currency],
     queryFn: async () => {
       return authService.getSupportedFiatWithdrawGatewaysV2(currency);
+    },
+    enabled: !!currency && !!user
+  });
+};
+
+/**
+ * 法币存款通道分类支持
+ * @param currency
+ */
+export const useDepositChannelClassList = (currency: string) => {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: ["depositChannelClassList", currency],
+    queryFn: async () => {
+      return authService.getDepositChannelClassList(currency);
     },
     enabled: !!currency && !!user
   });
@@ -514,6 +533,119 @@ export const useWithdrawSelectedFirstTime = () => {
 /*******************************/
 /*******************************/
 /*******************************/
+
+// TODO: 彩金购买
+export const useSupportedBonusSwapFromCurrenciesFilter = () => {
+  // 按照U的价值排好序的数据
+  const { balances } = useAllAvailableBalance();
+
+  const { data: currencies, isLoading } = useSupportedCurrencyV2();
+
+  return useMemo(() => {
+    const output: Record<string, any>[] = [];
+    const transform = currencies?.data ?? [];
+    balances.forEach((item: Record<string, any>) => {
+      // if (item.equivalentU > 0 && item?.token !== EBonus.TOKEN) {
+      // TODO: 目前彩金币种只有: BONUS SPORT
+      if (item?.token !== EBonus.TOKEN && item?.token !== ESport.TOKEN) {
+        const target = transform.find((o: Record<string, any>) => o.currency === item?.token);
+        target && output.push({ ...target, ...item });
+      }
+    });
+
+    return [
+      isLoading,
+      output,
+      output.filter((item) => item?.balance > 0).map((item) => {
+        return ({
+          id: item.currency,
+          value: item.currency,
+          label: item.display_name,
+          extra: numericFormatFun(item?.balance || 0, item?.decimal),
+          icon: item.icon || `/icons/currency/${item?.currency?.toLowerCase()}.png`
+        });
+      })
+    ] as [boolean, Record<string, any>[], Record<string, any>[]]; // 返回 [原始数据, 处理后的数据]
+  }, [isLoading, balances, currencies]);
+};
+
+// TODO: 普通彩金购买币种处理
+export const useBonusSwapSelectedFirstTime = () => {
+  // from data store, share common data
+  const { setBonusSwapTo, setBonusSwapFrom, bonusSwapFrom } = useBoundStore();
+
+  // prevent re-initialization in the same mount
+  const initFromRef = useRef(false);
+
+  // 支持swap from的币种
+  const [, swap_from_currencies] = useSupportedBonusSwapFromCurrenciesFilter();
+
+  // 支持swap to的币种
+  const { data: swap_to_currencies } = useSupportedCurrencyV2();
+
+  // 设置默认的 swap to = BONUS
+  useEffect(() => {
+    if (swap_to_currencies?.data?.length === 0) return;
+
+    const currency = (swap_to_currencies?.data ?? []).find((o: { currency: string }) => o?.currency === EBonus.TOKEN);
+
+    setBonusSwapTo({ currency });
+  }, [swap_to_currencies]);
+
+  // 设置默认的 swap from
+  useEffect(() => {
+    if (swap_from_currencies?.length === 0) return;
+
+    if (bonusSwapFrom.currency) return;
+
+    if (initFromRef.current) return;
+
+    initFromRef.current = true;
+
+    setBonusSwapFrom({ currency: swap_from_currencies[0] });
+  }, [bonusSwapFrom.currency, swap_from_currencies?.length]);
+};
+
+// TODO: 体育彩金购买币种处理
+export const useSportSwapSelectedFirstTime = () => {
+  // from data store, share common data
+  const { setBonusSwapTo, setBonusSwapFrom, bonusSwapFrom } = useBoundStore();
+
+  // prevent re-initialization in the same mount
+  const initFromRef = useRef(false);
+
+  // 支持swap from的币种
+  const [, swap_from_currencies] = useSupportedBonusSwapFromCurrenciesFilter();
+
+  // 支持swap to的币种
+  const { data: swap_to_currencies } = useSupportedCurrencyV2();
+
+  // 设置默认的 swap to = SPORT
+  useEffect(() => {
+    if (swap_to_currencies?.data?.length === 0) return;
+
+    const currency = (swap_to_currencies?.data ?? []).find((o: { currency: string }) => o?.currency === ESport.TOKEN);
+
+    setBonusSwapTo({ currency });
+  }, [swap_to_currencies]);
+
+  // 设置默认的 swap from
+  useEffect(() => {
+    if (swap_from_currencies?.length === 0) {
+      // TODO: 防止用户切换账号时候导致一些数据污染
+      setBonusSwapFrom({ currency: undefined });
+      return;
+    }
+
+    if (bonusSwapFrom.currency) return;
+
+    if (initFromRef.current) return;
+
+    initFromRef.current = true;
+
+    setBonusSwapFrom({ currency: swap_from_currencies[0] });
+  }, [bonusSwapFrom.currency, swap_from_currencies?.length]);
+};
 
 /**
  * 兑换

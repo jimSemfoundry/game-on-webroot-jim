@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Indtast venligst en fast længde på {{length}} tegn",
   "disabledCharNotAllowed": "Tegnet {{char}} er ikke tilladt",
   "space": "mellemrum",
-  "thisWalletIsAlreadyUsed": "Denne tegnebog er allerede i brug"
+  "thisWalletIsAlreadyUsed": "Denne tegnebog er allerede i brug",
+  "login_failed": "Login mislykkedes",
+  "login_error_code_1": "Brugernavn skal være et gyldigt telefonnummer (starter med + og bruger - efter landekode) eller e-mailadresse",
+  "account_created_and_logged_in_successfully": "Konto oprettet og logget ind!",
+  "requests_later": "For mange anmodninger fra denne IP. Prøv venligst igen senere.",
+  "booster_activated_successfully": "Booster aktiveret!",
+  "depositNameEntered": "Navnet indtastet til indbetaling skal matche det fulde navn<0>（Fornavn + Efternavn）</0> på bankkontoen brugt til udbetaling, i overensstemmelse med regler mod svindel og hvidvaskning.\n\n Hvis du har brug for at ændre din bankkonto, kontakt venligst kundeservice og gennemfør KYC-verifikation.",
+  "user_not_found_or_password_incorrect": "Bruger ikke fundet eller adgangskode forkert",
+  "free_spin_record_enabled_successfully": "Free spin-registrering aktiveret!",
+  "check_in_success": "Check-in lykkedes!",
+  "check_in_failed": "Check-in mislykkedes!",
+  "check_in_already": "Check-in er allerede gennemført for denne dato.",
+  "ballsClaimed": "Venbold er hentet med succes",
+  "cannotBetby": "Sports bonus wallet er kun til sportsvæddemål."
 }

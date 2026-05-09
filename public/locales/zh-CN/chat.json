@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "客户服务聊天未能加载",
   "read": "已读",
   "unread": "未读",
-  "customerService": "客服"
+  "customerService": "客服",
+  "today": "今天",
+  "earlier": "早些时候",
+  "older": "更早"
 }

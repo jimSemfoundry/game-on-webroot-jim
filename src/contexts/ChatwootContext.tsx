@@ -4,9 +4,11 @@ import { useChatwoot } from "@/hooks/useChatwoot";
 import dayjs from "dayjs";
 import { createContext, ReactNode, useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { emitter } from "@/store/emitter.ts";
 
 interface ChatwootContextType {
   toggleWidget: () => void;
+  openWidget: () => void;
   setUser: (userId: string | number, userAttributes: any) => void;
   setCustomAttributes: (attributes: any) => void;
   reset: () => void;
@@ -26,57 +28,39 @@ export { ChatwootContext };
 
 interface ChatwootProviderProps {
   children: ReactNode;
-  fallbackToken?: string; // 备用token，当API获取失败时使用
   baseUrl?: string;
 }
 
 export function ChatwootProvider({
   children,
-  fallbackToken = "mvrqCVQb4uqZmh6Jb5uQdirw", // 备用token
   baseUrl = "https://app.openchats.online",
 }: ChatwootProviderProps) {
   const { user, status } = useAuth();
-  const [enabled, setEnabled] = useState(false);
   const [websiteToken, setWebsiteToken] = useState<string>("");
   const [inboxUserId, setInboxUserId] = useState<string>(""); // 动态获取的secret
   const [isTokenLoading, setIsTokenLoading] = useState(false);
   const [visible, setVisible] = useState(true);
   const attributesSetRef = useRef(false);
-  const pendingToggleRef = useRef(false);
+  const pendingActionRef = useRef<null | "toggle" | "open">(null);
   const { i18n } = useTranslation();
   const { data: chatwootInboxIdResponse } = useChatwootInboxId();
   const { inbox_id, inbox_user_id } = chatwootInboxIdResponse?.data ?? {};
 
-  // 获取动态token
+  // 获取动态token - 当 API 返回 inbox_id 时更新
   useEffect(() => {
-    const fetchChatwootToken = async () => {
-      if (!enabled) return;
-      if (isTokenLoading || websiteToken) return;
-
-      setIsTokenLoading(true);
-      try {
-        // 如果有用户ID，传递给接口；否则不传递（接口也会返回websiteToken）
-        if (inbox_id && inbox_user_id) {
-          setWebsiteToken(inbox_id);
-          setInboxUserId(inbox_user_id || ""); // 设置动态secret
-        } else {
-          setWebsiteToken(fallbackToken);
-          setInboxUserId("DbSjqt917QGgyy1WGfYthmNo"); // 备用secret
-        }
-      } catch (error) {
-        console.error("获取 chatwoot token 失败，使用备用token:", error);
-        setWebsiteToken(fallbackToken);
-        setInboxUserId("DbSjqt917QGgyy1WGfYthmNo"); // 备用secret
-      } finally {
-        setIsTokenLoading(false);
+    // API 数据已返回，使用动态 token
+    if (inbox_id && inbox_user_id) {
+      // 只有当 token 不同时才更新，避免不必要的重渲染
+      if (websiteToken !== inbox_id) {
+        setWebsiteToken(inbox_id);
+        setInboxUserId(inbox_user_id);
       }
-    };
-
-    fetchChatwootToken();
-  }, [enabled, user?.id, fallbackToken, isTokenLoading, websiteToken]);
+    }
+  }, [inbox_id, inbox_user_id, websiteToken]);
 
   const {
     toggleWidget: sdkToggleWidget,
+    openWidget: sdkOpenWidget,
     setLocale,
     setUser,
     setCustomAttributes,
@@ -85,7 +69,6 @@ export function ChatwootProvider({
     setConversationCustomAttributes,
   } = useChatwoot({
     websiteToken,
-    enabled,
     baseUrl,
     hideMessageBubble: true,
     darkMode: "auto",
@@ -95,11 +78,19 @@ export function ChatwootProvider({
   });
 
   useEffect(() => {
-    if (pendingToggleRef.current && isInitialized) {
-      pendingToggleRef.current = false;
-      sdkToggleWidget();
+    if (!isInitialized) return;
+    if (!pendingActionRef.current) return;
+
+    const action = pendingActionRef.current;
+    pendingActionRef.current = null;
+
+    if (action === "open") {
+      sdkOpenWidget();
+      return;
     }
-  }, [isInitialized, sdkToggleWidget]);
+
+    sdkToggleWidget();
+  }, [isInitialized, sdkToggleWidget, sdkOpenWidget]);
 
   // 当用户信息变化时，仅更新Chatwoot中的用户信息（contact）
   useEffect(() => {
@@ -182,16 +173,19 @@ export function ChatwootProvider({
   }, [isInitialized, user, status, setCustomAttributes, setConversationCustomAttributes]);
 
   const toggleWidget = () => {
-    if (!enabled) {
-      pendingToggleRef.current = true;
-      setEnabled(true);
-      return;
-    }
     if (!isInitialized) {
-      pendingToggleRef.current = true;
+      pendingActionRef.current = "toggle";
       return;
     }
     sdkToggleWidget();
+  };
+
+  const openWidget = () => {
+    if (!isInitialized) {
+      pendingActionRef.current = "open";
+      return;
+    }
+    sdkOpenWidget();
   };
 
   const updateToken = (newToken: string) => {
@@ -213,10 +207,20 @@ export function ChatwootProvider({
     }
   };
 
+  // 收到外部通知激活chat
+  useEffect(() => {
+    const em = emitter.addListener("OPEN_CHAT", () => {
+      openWidget();
+    });
+
+    return () => em?.remove();
+  }, [openWidget]);
+
   const value = {
     visible,
     setVisible,
     toggleWidget,
+    openWidget,
     setUser,
     setCustomAttributes,
     reset,

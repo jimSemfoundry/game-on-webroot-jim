@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Jūsu tālruņa numurs ir apstiprināts. Varat turpināt.",
   "email_address_has_been_verified": "Tava e-pasta adrese ir apstiprināta. Vari turpināt.",
   "setNewPassword": "Iestatīt jaunu paroli",
-  "passwordLengthRequirement": "Lūdzu ievadiet paroli no 6 līdz 64 rakstzīmēm."
+  "passwordLengthRequirement": "Lūdzu ievadiet paroli no 6 līdz 64 rakstzīmēm.",
+  "re_enter_new_password": "Atkārtoti ievadiet jauno paroli",
+  "change_withdrawal_pin": "Mainīt izmaksas PIN",
+  "confirm_withdrawal_pin": "Apstiprināt izmaksas PIN",
+  "enter_email": "Ievadiet e-pastu",
+  "rolloverDetails": "Rollover informācija",
+  "verified_email": "Apstiprināts e-pasts",
+  "verified_phone_number": "Apstiprināts tālruņa numurs",
+  "change_key": "Mainīt",
+  "update_successfully": "Atjaunināšana veiksmīga. Lūdzu, izmantojiet {<1>{{value}}</1>} nākamajai pieteikšanās reizei.",
+  "understand_key": "Sapratu",
+  "ensure_email_valid": "Pārliecinieties, ka jūsu e-pasta adrese ir derīga un jums pieejama.",
+  "ensure_phone_valid": "Pārliecinieties, ka jūsu tālruņa numurs ir derīgs un jums pieejams.",
+  "enter_phone_number_to_receive_verification_code": "Ievadiet savu tālruņa numuru zemāk, lai saņemtu verifikācijas kodu.",
+  "enter_email_address_to_receive_verification_code": "Ievadiet savu e-pasta adresi zemāk, lai saņemtu verifikācijas kodu."
 }

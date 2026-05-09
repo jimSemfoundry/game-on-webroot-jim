@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "您的手机号已验证成功，可以继续操作。",
   "email_address_has_been_verified": "你的邮箱地址已验证成功。现在可以继续了。",
   "setNewPassword": "设置新密码",
-  "passwordLengthRequirement": "请输入6到64个字符之间的密码。"
+  "passwordLengthRequirement": "请输入6到64个字符之间的密码。",
+  "re_enter_new_password": "再次输入新密码",
+  "change_withdrawal_pin": "修改提现 PIN",
+  "confirm_withdrawal_pin": "确认提现 PIN",
+  "enter_email": "输入邮箱",
+  "rolloverDetails": "流水详情",
+  "verified_email": "已验证邮箱",
+  "verified_phone_number": "已验证手机号",
+  "change_key": "更改",
+  "update_successfully": "更新成功。请使用 {<1>{{value}}</1>} 进行下次登录。",
+  "understand_key": "知道了",
+  "ensure_email_valid": "请确保您的邮箱地址有效且您可以访问。",
+  "ensure_phone_valid": "请确保您的手机号有效且您可以访问。",
+  "enter_phone_number_to_receive_verification_code": "请在下方输入您的手机号以接收验证码。",
+  "enter_email_address_to_receive_verification_code": "请在下方输入您的邮箱地址以接收验证码。"
 }

@@ -2,7 +2,7 @@ import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
 import { Modal } from "@/components/ui/Modal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDisplayCurrency, useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useFinanceModal, useWalletModal } from "@/contexts/ModalsProvider";
+import { useWalletModal } from "@/contexts/ModalsProvider";
 import { useCurrentUser, useUserBalance } from "@/hooks/api/useAuth";
 import { useSupportedSettlementCurrencies } from "@/hooks/api/usePublic";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -12,10 +12,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Iconify from "../iconify";
 import { emitter } from "@/store/emitter.ts";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import Decimal from "decimal.js";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { BonusWallet } from "@/sections/dollars/bonus-wallet.tsx";
+import { useNavigate } from "@tanstack/react-router";
 
 interface CurrencySelectorProps {
   selectedCurrency: string;
@@ -33,7 +33,8 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     showBalance = true,
     className = ""
   }) => {
-  const { openUserFinanceModal, openUserFinanceModalWithTab } = useFinanceModal();
+  const navigate = useNavigate();
+
   const { openModal: openWalletModal } = useWalletModal();
   const { t } = useTranslation();
   const { user, status } = useAuth();
@@ -61,8 +62,6 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
   const currentDisplayCurrency = user?.currency_fiat || displayCurrency;
   const fiatCurrencies = groupedCurrencies?.fiat || [];
   const currentDisplayCurrencyData = fiatCurrencies.find((c: any) => c.currency === currentDisplayCurrency);
-
-  const { closeUserFinanceModal } = useFinanceModal();
 
   // Click outside to close dropdown
   useEffect(() => {
@@ -104,8 +103,6 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
         setTimeout(() => searchInputRef.current?.focus(), 100);
       }
     }
-
-    closeUserFinanceModal();
   };
 
   // Get user balance by currency
@@ -133,7 +130,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     return formatWithoutConversion(amount, currency, {
       showSymbol: true,
       showCode: false,
-      compact: false,
+      compact: true,
       minimizeDecimals: true,
       displayDecimal
     }).formatted;
@@ -147,7 +144,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     return formatWithConversion(amount, fromCurrency, {
       showSymbol: true,
       showCode: false,
-      compact: false,
+      compact: true,
       minimizeDecimals: true,
       displayDecimal: currentDisplayCurrencyData?.display_decimal
     }).formatted;
@@ -173,7 +170,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     const fiatCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "FIAT");
     const cryptoCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "CRYPTO");
     const rewardsCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "REWARDS");
-    const bonusCurrencies = filteredCurrencies.filter((c: any) => c.currency === "BONUS");
+    const bonusCurrencies = filteredCurrencies.filter((c: any) => c.currency_type === "BONUS");
 
     const groups = {
       FIAT: fiatCurrencies,
@@ -217,7 +214,7 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
             const isRewards = currency.currency_type === "REWARDS";
 
             // TODO: 彩金钱包活动支持
-            if (currency.currency === "BONUS") {
+            if (currency.currency_type === "BONUS") {
               return <BonusWallet
                 key={currency.currency}
                 currency={currency}
@@ -249,12 +246,13 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
                   {isRewards && (
                     <div className="flex items-center gap-2">
                       <button
-                        className="btn btn-primary rounded-md btn-soft btn-xs px-2 mx-2"
+                        className="btn btn-primary rounded-md btn-soft btn-xs px-2 mx-2 uppercase"
                         onClick={(e) => {
                           e.stopPropagation();
                           if (modalOpen) setModalOpen(false);
                           if (dropdownOpen) setDropdownOpen(false);
-                          openUserFinanceModalWithTab(`swap_${randomString()}`);
+
+                          void navigate({to:'/finance', state: { activeTab: "swap" } as any});
 
                           emitter.emit("SWAP", currency.currency);
                         }}
@@ -275,14 +273,14 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
 
                   {/* Amount display */}
                   {showBalance && (
-                    <div className="text-right rtl:text-left">
+                    <div className="text-right rtl:text-left font-semibold">
                       {displayAmount ? (
                         <div className="flex flex-col">
-                          <span className="text-sm font-semibold text-base-content">{displayAmount}</span>
                           {currency.currency !== currentDisplayCurrency && (
                             <span
-                              className="text-xs text-base-content/50">{formatAmount(balance, currency.currency)}</span>
+                              className="text-sm text-base-content">{formatAmount(balance, currency.currency)}</span>
                           )}
+                          <span className="text-xs text-base-content/50">{displayAmount}</span>
                         </div>
                       ) : (
                         <span className="text-sm text-base-content/70">{formatAmount(balance, currency.currency)}</span>
@@ -309,13 +307,12 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
     >
       <CurrencyIcon currency={selectedCurrency} className="w-6 h-6" />
       <SmallLoading
-        className={"!min-w-12 h-5"}
+        className={"!min-w-12 h-5 flex items-center justify-center"}
         loading={isBalanceLoading || isCurrencyLoading}
         content={
           <InnerGuideDeposits
             amount={formatDisplayCurrencyAmount(currentBalance, selectedCurrency) || formatAmount(currentBalance, selectedCurrency)}
             currency={selectedCurrency}
-            balances={userBalanceData}
             showBalance={showBalance}
           />
         }>
@@ -412,7 +409,10 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
                 >
                   {hideZeroBalances ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
-                <button className="btn btn-primary btn-square btn-md btn-soft" onClick={openUserFinanceModal}>
+                <button className="btn btn-primary btn-square btn-md btn-soft" onClick={() => {
+                  void navigate({to:'/finance'})
+                  setDropdownOpen(false)
+                }}>
                   <Iconify icon="custom:wallet" className="w-5 h-5" />
                 </button>
               </div>
@@ -496,7 +496,8 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
               </button>
               <button className="btn btn-primary btn-square btn-md btn-soft" onClick={() => {
                 setModalOpen(false);
-                openUserFinanceModal();
+
+                void navigate({ to:'/finance' })
               }}>
                 <Iconify icon="custom:wallet" className="w-5 h-5" />
               </button>
@@ -555,17 +556,12 @@ export const CurrencySelector: React.FC<CurrencySelectorProps> = (
   );
 };
 
-const InnerGuideDeposits = ({ amount, currency, balances, showBalance }: {
+const InnerGuideDeposits = ({ amount, currency, showBalance }: {
   amount: string,
   currency: string,
-  balances: Record<string, any>,
   showBalance: boolean
 }) => {
-  const is_all_zero = useMemo(() => {
-    if (balances.length === 0) return true;
-    return balances.every((b: { balance: string }) => Number(b.balance) === 0);
-  }, [balances]);
-  return !is_all_zero && <div className="text-[13px] font-bold tracking-tighter text-base-content/60">
+  return <div className="text-[13px] font-bold tracking-tighter text-base-content/60 flex-1 text-center">
     {showBalance ? amount : currency}
   </div>;
 };

@@ -63,6 +63,7 @@ jobs:
         id: review
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || env.GEMINI_MODEL }}
           FORCE_GEMINI: ${{ secrets.FORCE_GEMINI || env.FORCE_GEMINI }}
         run: |
           echo "🤖 调用 Gemini API 进行代码审查..."
@@ -87,7 +88,19 @@ jobs:
             exit 0
           fi
 
-          API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}"
+          if [ -z "$GEMINI_API_KEY" ]; then
+            REVIEW_TEXT="⚠️ Gemini API key is not configured. Please set GEMINI_API_KEY (secret)."
+            {
+              echo 'review_content<<EOF'
+              echo "$REVIEW_TEXT"
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
+            echo "review_decision=unknown" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          MODEL_NAME="${GEMINI_MODEL:-gemini-2.5-flash-lite}"
+          API_URL="https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent"
 
           JSON_PAYLOAD=$(jq -n --rawfile diff diff.json '
           {
@@ -119,8 +132,35 @@ jobs:
 
           echo "📦 JSON payload 构建成功。"
 
-          REVIEW_RESPONSE=$(echo "$JSON_PAYLOAD" | curl -s -H "Content-Type: application/json" -d @- "$API_URL")
-          REVIEW_TEXT=$(echo "$REVIEW_RESPONSE" | jq -r '.candidates[0].content.parts[0].text // "⚠️ No valid AI response."')
+          HTTP_CODE=$(echo "$JSON_PAYLOAD" | curl -sS -o gemini_response.json -w "%{http_code}" -H "Content-Type: application/json" -H "x-goog-api-key: ${GEMINI_API_KEY}" -d @- "$API_URL" || echo "curl_failed")
+
+          echo "🌐 Gemini HTTP status: ${HTTP_CODE}"
+
+          if [ "$HTTP_CODE" = "curl_failed" ]; then
+            REVIEW_TEXT="⚠️ Gemini request failed (curl error)."
+          elif [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            ERR_MSG=$(jq -r '.error.message // empty' gemini_response.json 2>/dev/null)
+            if [ -n "$ERR_MSG" ]; then
+              REVIEW_TEXT="⚠️ Gemini API error (HTTP ${HTTP_CODE}): ${ERR_MSG}"
+            else
+              REVIEW_TEXT="⚠️ Gemini API error (HTTP ${HTTP_CODE})."
+            fi
+          else
+            REVIEW_TEXT=$(jq -r '.candidates[0].content.parts[0].text // empty' gemini_response.json 2>/dev/null)
+            if [ -z "$REVIEW_TEXT" ] || [ "$REVIEW_TEXT" = "null" ]; then
+              FINISH_REASON=$(jq -r '.candidates[0].finishReason // empty' gemini_response.json 2>/dev/null)
+              if [ -n "$FINISH_REASON" ]; then
+                REVIEW_TEXT="⚠️ No valid AI response. finishReason=${FINISH_REASON}"
+              else
+                REVIEW_TEXT="⚠️ No valid AI response."
+              fi
+            fi
+          fi
+
+          if [ -f gemini_response.json ]; then
+            PREVIEW=$(head -c 1200 gemini_response.json | tr '\n' ' ' | tr '\r' ' ')
+            echo "🧾 Gemini response preview (first 1200 chars): ${PREVIEW}"
+          fi
 
           # ✅ 正确输出多行内容，保持换行
           {

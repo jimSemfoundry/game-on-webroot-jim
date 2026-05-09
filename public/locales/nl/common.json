@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Het mobiele nummer is al gebruikt. Gebruik een ander nummer.",
     "mobileAlreadyBound": "Het mobiele nummer is al aan dit account gekoppeld.",
     "fullscreen": "Volledig scherm",
-    "exitFullscreen": "Volledig scherm verlaten"
+    "exitFullscreen": "Volledig scherm verlaten",
+    "draw": "Gelijkspel"
   },
   "bonus_pool": "Bonus Pool",
   "pleaseEnterValidUsernameOrEmail": "Voer een geldige gebruikersnaam of e-mailadres in",

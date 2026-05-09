@@ -34,6 +34,8 @@
   "upToReferral": "Έως {{amount}} ανά παραπομπή",
   "language": "Γλώσσα",
   "gameCurrency": "Νόμισμα παιχνιδιού",
-  "hideBlockedGames": "Απόκρυψη αποκλεισμένων παιχνιδιών",
-  "settings": "Ρυθμίσεις"
+  "hideBlockedGames": "Απόκρυψη \n<0>αποκλεισμένων παιχνιδιών</0>",
+  "settings": "Ρυθμίσεις",
+  "problemReport": "Αναφορά προβλήματος",
+  "logging_key": "Καταγραφή"
 }

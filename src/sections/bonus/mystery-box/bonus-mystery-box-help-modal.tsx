@@ -1,32 +1,25 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
-import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useTranslation } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface HelpModalMysteryBoxProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/a0460e0b128df2ab73ba3a735212bd9d95c841b1.png";
-
 export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProps) => {
   const { t } = useTranslation(['popup', 'bonus']);
-  const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
-    fallbackGradient:
-      "radial-gradient(120% 260% at 100% 0%, rgba(190, 242, 100, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
-    opacity: 0.45,
-    colorTypes: ['DarkMuted']
-  });
+  const ILLUSTRATION_URL = useBonusDetailsImage("mystery_box", 256);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
       <div className="flex flex-col gap-1">
         {/* Top highlight card */}
         <div
-          className="rounded-box px-7 py-4 relative overflow-hidden h-[180px] flex items-center justify-center"
+          className="rounded-box px-7 py-4 relative overflow-hidden h-[140px] flex items-center justify-center"
           style={{
-            background: `${vibrantGradient}, linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
+            background: `radial-gradient(100% 308% at 100% 0%, rgba(44, 134, 46, 0.5) 0%, rgba(15, 20, 26, 0.5) 100%), linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
           }}
         >
           <div className="relative z-10 flex items-center justify-between w-full">
@@ -37,7 +30,7 @@ export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProp
               <img
                 src={ILLUSTRATION_URL}
                 alt="Mystery Box"
-                className="w-36 h-36 object-contain"
+                className="w-auto h-[128px] object-contain"
               />
             </div>
           </div>
@@ -55,7 +48,7 @@ export const HelpModalMysteryBox = ({ isOpen, onClose }: HelpModalMysteryBoxProp
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[420px] overflow-y-auto pb-12">
+            <div className="max-h-[420px] overflow-y-auto pb-12 hide-scrollbar">
               <p className="text-xs text-base-content/50 leading-5">{t("popup:mysteryBox.description")}</p>
 
               <div className="py-3 bg-base-300 rounded-field px-4 mt-4">

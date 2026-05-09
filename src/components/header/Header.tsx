@@ -16,6 +16,9 @@ import Logo from "../Logo";
 import { WalletFinance } from "./WalletFinance";
 import { useBoundStore } from "@/store";
 import { MqttSubscriptionsEntry } from "@/contexts/mqtt/MqttSubscriptions.tsx";
+import { useRumSdkUserLog } from "@/utils/helper.ts";
+import { useEffect } from "react";
+import FinanceModalManager from "@/components/modal/UserFinanceModal/c/FinanceModalManager.tsx";
 
 function AuthSection() {
   const { isAuthenticated, user, isLoading } = useAuth();
@@ -60,6 +63,12 @@ export default function Header() {
   const router = useRouter();
   const location = useLocation();
   const { toggleDrawer, isMobileDevice } = useSidebar();
+
+  // TODO: 添加全局日志信息
+  const { rumSetConfig } = useRumSdkUserLog();
+  useEffect(() => {
+    rumSetConfig();
+  }, [rumSetConfig]);
 
   return (
     <m.header
@@ -113,7 +122,16 @@ export default function Header() {
             )}
           </button>
           <div className="ms-0 md:me-12">
-            <Link to="/" search={{ openLogin: undefined, redirect: undefined, startapp: undefined }}>
+            <Link
+              to="/casino"
+              search={{
+                openLogin: undefined,
+                openSignUp: undefined,
+                redirect: undefined,
+                startapp: undefined,
+                openFinance: undefined
+              }}
+            >
               <Logo />
             </Link>
           </div>
@@ -168,6 +186,9 @@ export default function Header() {
 
       {/* wss全局订阅入口 */}
       <MqttSubscriptionsEntry />
+
+      {/*懒加载弹窗管理*/}
+      <FinanceModalManager />
     </m.header>
   );
 }

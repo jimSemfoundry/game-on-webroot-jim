@@ -27,15 +27,15 @@ const statusVariants: Record<string, string> = {
 
 export function RolloverList({ records, isLoading, isFetching }: RolloverListProps) {
   const { t } = useTranslation();
-  const { formatWithoutConversion } = useDisplayCurrencyFormatter();
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [selectedRecord, setSelectedRecord] = useState<EnrichedRolloverRecord | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const mapRolloverDetail = useRolloverDetailMapper();
 
   const formatAmount = (value: number, currency: string) => {
     if (!Number.isFinite(value)) return "0.00";
-    return formatWithoutConversion(value, currency, {
-      showSymbol: false,
+    return formatWithConversion(value, currency, {
+      showSymbol: true,
       showCode: false,
       minimizeDecimals: true,
     }).formatted;
@@ -113,7 +113,7 @@ export function RolloverList({ records, isLoading, isFetching }: RolloverListPro
             <tr>
               <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:tableHeaders.type")}</th>
               <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:tableHeaders.time")}</th>
-              <th className="px-4 py-3 text-left rtl:text-right">{t("transaction:rollover.progress", "Progress")}</th>
+              <th className="px-4 py-3 text-left rtl:text-right">{t("bonus:progress", "Progress")}</th>
               <th className="px-4 py-3 text-right rtl:text-left">{t("transaction:rollover.totalWagerRequired", "Goal")}</th>
               <th className="px-4 py-3 text-right rtl:text-left">{t("transaction:tableHeaders.status")}</th>
             </tr>

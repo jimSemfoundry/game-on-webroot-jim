@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Prosimo, vnesite fiksno dolžino {{length}} znakov",
   "disabledCharNotAllowed": "Znak {{char}} ni dovoljen",
   "space": "presledek",
-  "thisWalletIsAlreadyUsed": "Ta denarnica je že v uporabi"
+  "thisWalletIsAlreadyUsed": "Ta denarnica je že v uporabi",
+  "login_failed": "Prijava ni uspela",
+  "login_error_code_1": "Uporabniško ime mora biti veljavna telefonska številka (začenši z + in z - za kodo države) ali e-poštni naslov",
+  "account_created_and_logged_in_successfully": "Račun ustvarjen in uspešno prijavljen!",
+  "requests_later": "Preveč zahtev s tega IP naslova. Poskusite znova pozneje.",
+  "booster_activated_successfully": "Ojačevalnik uspešno aktiviran!",
+  "depositNameEntered": "Ime, vneseno za depozit, se mora ujemati s polnim imenom<0>（Ime + Priimek）</0> na bančnem računu, uporabljenem za dvig, v skladu s predpisi proti goljufiji in pranju denarja.\n\n Če morate spremeniti svoj bančni račun, se obrnite na podporo strankam in dokončajte preverjanje KYC.",
+  "user_not_found_or_password_incorrect": "Uporabnik ni najden ali je geslo napačno",
+  "free_spin_record_enabled_successfully": "Zapis brezplačnih vrtljajev uspešno aktiviran!",
+  "check_in_success": "Prijava je bila uspešna!",
+  "check_in_failed": "Prijava ni uspela!",
+  "check_in_already": "Prijava za ta datum je že zaključena.",
+  "ballsClaimed": "Žogica prijatelja uspešno zahtevana",
+  "cannotBetby": "Športni bonusni denarnica je samo za športne stave."
 }

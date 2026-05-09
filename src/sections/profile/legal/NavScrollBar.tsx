@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { useRef, useState, useEffect, ReactNode } from "react";
 import Measure, { Rect } from "react-measure";
 import { useTranslation } from "react-i18next";
+import { useSearch } from "@tanstack/react-router";
 
 export type TBar =
   "aboutUs" |
@@ -37,6 +38,24 @@ export const NavScrollBar = ({ setNavIndex }: { setNavIndex: (v: TBar) => void }
   const ref = useRef<HTMLDivElement | null>(null);
 
   const [_navIndex, _setNavIndex] = useState<TBar>("aboutUs");
+  const search = useSearch({ from: "/_main/_authenticated/profile" }) as {
+    tab?: string;
+    legalTab?: TBar;
+  };
+
+  useEffect(() => {
+    if (search.tab !== "legal" || !search.legalTab) {
+      return;
+    }
+
+    const matched = items.find((item) => item.value === search.legalTab);
+    if (!matched) {
+      return;
+    }
+
+    setNavIndex(search.legalTab);
+    _setNavIndex(search.legalTab);
+  }, [search.legalTab, search.tab, setNavIndex]);
 
   /**
    * 选中则滚动

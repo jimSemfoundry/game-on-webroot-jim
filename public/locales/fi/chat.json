@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Asiakaspalvelun chat ei latautunut",
   "read": "Lue",
   "unread": "Lukematon",
-  "customerService": "Asiakaspalvelu"
+  "customerService": "Asiakaspalvelu",
+  "today": "tänään",
+  "earlier": "aiemmin",
+  "older": "vanhemmat"
 }

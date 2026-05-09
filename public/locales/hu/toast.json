@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Kérjük, adjon meg egy rögzített hosszúságú {{length}} karaktert",
   "disabledCharNotAllowed": "A(z) {{char}} karakter nem megengedett",
   "space": "szóköz",
-  "thisWalletIsAlreadyUsed": "Ez a pénztárca már használatban van"
+  "thisWalletIsAlreadyUsed": "Ez a pénztárca már használatban van",
+  "login_failed": "Bejelentkezés sikertelen",
+  "login_error_code_1": "A felhasználónévnek érvényes telefonszámnak kell lennie (+ jellel kezdődik és - jelet használ az országkód után) vagy e-mail címnek",
+  "account_created_and_logged_in_successfully": "Fiók létrehozva és sikeresen bejelentkezve!",
+  "requests_later": "Túl sok kérés erről az IP-címről. Kérjük, próbálja újra később.",
+  "booster_activated_successfully": "Booster sikeresen aktiválva!",
+  "depositNameEntered": "A befizetéskor megadott névnek meg kell egyeznie a teljes névvel<0>（Keresztnév + Vezetéknév）</0> a kifizetéshez használt bankszámlán, a csalás és pénzmosás elleni előírásoknak megfelelően.\n\n Ha bankszámláját módosítania kell, kérem, vegye fel a kapcsolatot az ügyfélszolgálattal és fejezze be a KYC ellenőrzést.",
+  "user_not_found_or_password_incorrect": "A felhasználó nem található, vagy a jelszó helytelen",
+  "free_spin_record_enabled_successfully": "Az ingyenes pörgetés rekordja sikeresen aktiválva!",
+  "check_in_success": "A bejelentkezés sikeres!",
+  "check_in_failed": "A bejelentkezés sikertelen!",
+  "check_in_already": "Erre a dátumra a bejelentkezés már megtörtént.",
+  "ballsClaimed": "Barát labda sikeresen igényelve",
+  "cannotBetby": "A sportbónusz pénztárca csak sportfogadásra szolgál."
 }

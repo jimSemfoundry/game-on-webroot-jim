@@ -68,6 +68,7 @@ const PROVIDER_ALLOWLIST_BY_TYPE: Record<string, string[]> = {
     "belatra",
     "habanero",
     "spinomenal",
+    "endorphina",
   ],
   livecasino: [
     "pp",
@@ -293,8 +294,8 @@ export function ExploreSearchBar({
       </button>
 
       {isMobile ? (
-        <div ref={providerScrollRef} className="flex-1 overflow-x-auto hide-scrollbar">
-          <div className="flex items-center gap-1 min-w-max">
+        <div ref={providerScrollRef} className="flex-1 overflow-x-auto hide-scrollbar overflow-y-visible">
+          <div className="flex items-center gap-1 min-w-max py-1">
             {providerOptions.map((option: ProviderOption) => {
               const isSelected = selectedProviders.includes(option.value);
               const logoUrl = resolveQuickProviderLogo(option);
@@ -307,7 +308,7 @@ export function ExploreSearchBar({
                   }}
                   type="button"
                   className={cn(
-                    "w-26 h-10 md:w-30 md:h-12 px-1 rounded-field bg-base-200 flex items-center justify-center",
+                    "w-26 h-10 md:w-30 md:h-12 px-1 rounded-field bg-base-200 flex items-center justify-center transition-all duration-200 ease-out hover:-translate-y-1",
                     isSelected ? "border border-primary" : "hover:bg-base-300"
                   )}
                   onClick={() => handleQuickProviderClick(option.value)}
@@ -323,8 +324,8 @@ export function ExploreSearchBar({
           </div>
         </div>
       ) : (
-        <SimpleBar ref={simpleBarRef} className="flex-1 provider-simplebar" autoHide={true} forceVisible="x">
-          <div className="flex items-center gap-1 min-w-max">
+        <SimpleBar ref={simpleBarRef} className="flex-1 provider-simplebar overflow-y-visible" autoHide={true} forceVisible="x">
+          <div className="flex items-center gap-1 min-w-max py-1">
             {providerOptions.map((option: ProviderOption) => {
               const isSelected = selectedProviders.includes(option.value);
               const logoUrl = resolveQuickProviderLogo(option);
@@ -337,7 +338,7 @@ export function ExploreSearchBar({
                   }}
                   type="button"
                   className={cn(
-                    "w-26 h-10 md:w-30 md:h-12 md:px-2 rounded-field bg-base-200 flex items-center justify-center transition-colors",
+                    "w-26 h-10 md:w-30 md:h-12 md:px-2 rounded-field bg-base-200 flex items-center justify-center transition-all duration-200 ease-out hover:-translate-y-1",
                     isSelected ? "border border-primary" : "hover:bg-base-300"
                   )}
                   onClick={() => handleQuickProviderClick(option.value)}
@@ -397,6 +398,7 @@ function ExploreProviderModal({
   resolveProviderLogo,
 }: ExploreProviderModalProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone === true;
 
   const { t } = useTranslation();
 
@@ -404,7 +406,7 @@ function ExploreProviderModal({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      className="bg-base-400 mx-auto overflow-hidden"
+      className={cn("bg-base-400 mx-auto overflow-hidden", isPWA ? "!max-h-[90vh]" : "!max-h-[80vh]")}
       position={isMobile ? 'modal-bottom' : 'modal-middle'}
       title={
         <div className="flex items-center gap-2">
@@ -413,8 +415,8 @@ function ExploreProviderModal({
         </div>
       }
     >
-      <div className="flex flex-col max-h-[75vh] overflow-hidden">
-        <div className="flex-1 min-h-0 flex flex-col gap-4 overflow-y-auto hide-scrollbar">
+      <div className="flex flex-col overflow-hidden" style={{ maxHeight: isMobile ? (isPWA ? 'calc(90vh - 100px)' : 'calc(80vh - 120px)') : '60vh' }}>
+        <div className="overflow-y-auto hide-scrollbar">
           <div className="bg-base-300 rounded-field p-2">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               <div

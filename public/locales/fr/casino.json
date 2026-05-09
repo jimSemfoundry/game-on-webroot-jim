@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "En tant qu'alliance mondiale de jeux de premier plan, nous réunissons la force et la sophistication des plateformes de haut niveau sous une seule vision. À travers toutes les marques de notre portefeuille, nous agissons comme un seul — offrant du divertissement, des récompenses personnalisées et une connectivité fluide à travers les devises, les pays et les cultures.",
   "footerDescriptionThree": "Ne jouez pas seulement le jeu. Défiez tout.",
   "footerDescriptionFour": "Une caractéristique signature de l'{{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Tous droits réservés.",
+  "footerDescriptionFive": "© {{year}}. Tous droits réservés.",
   "banner": {
     "oneDescription": "SOYEZ LE PREMIER.",
     "oneDescriptionTwo": "RELEVEZ LE DÉFI\nTOUT",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Ajouter à l'écran d'accueil",
   "latestWins": "Derniers Gains",
   "spinPlayAndWinAcrossTopCasinoHits": "Tournez, jouez et gagnez sur les meilleurs succès de casino",
-  "scoreBigOnSportsFromAroundTheWorld": "Gagnez gros sur les sports du monde entier"
+  "scoreBigOnSportsFromAroundTheWorld": "Gagnez gros sur les sports du monde entier",
+  "liveDealers": "Croupiers en direct pour vos jeux de table préférés",
+  "show_less": "afficher moins"
 }

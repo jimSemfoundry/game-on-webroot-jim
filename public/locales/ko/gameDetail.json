@@ -34,5 +34,12 @@
   "depositNow": "지금 입금",
   "free_spins": "무료 스핀",
   "play_with_balance_in": "잔액으로 플레이하기",
-  "the_selected_currency_will_be_displayed_in": "선택한 통화는 다음에 표시됩니다"
+  "the_selected_currency_will_be_displayed_in": "선택한 통화는 다음에 표시됩니다",
+  "activity": "활동",
+  "come_join_me_now_at": "지금 바로 참여하세요",
+  "invite_friends_to_join_play": "친구를 초대하고 플레이하세요",
+  "earn_up_to_50_commission_bonus": "최대 50% 커미션 <0>+{{bonus}}</0> 보너스 획득",
+  "download_failed": "다운로드에 실패했습니다. 다시 시도해 주세요.",
+  "image_downloaded": "이미지가 다운로드되었습니다!",
+  "share_text_1": "방금 {{multiplier}}x 빅윈을 터뜨렸어요! 🔥"
 }

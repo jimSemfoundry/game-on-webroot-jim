@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Palun täitke oma fiatraha väljamakse andmed.",
   "updating_withdrawal_address": "Väljamakse aadressi värskendamine, palun oodake...",
   "please_select_withdrawal_method": "Palun valige väljamakse meetod.",
-  "integer_deposit": "See kanal nõuab, et sissemakse summa oleks täisarvuline kordaja {{value}}.",
+  "integer_deposit": "See kanal nõuab, et sissemakse summa oleks {{value}} ühikutes.",
   "enter_string_en_only": "Sisestada saab ainult ingliskeelseid tähti, numbreid ja tühikuid.",
-  "enter_string_min_length": "Pikkus peab olema vähemalt {{length}}."
+  "enter_string_min_length": "Pikkus peab olema vähemalt {{length}}.",
+  "met_eligibility": "*Olete täitnud eripakkumise kõlblikkuse kriteeriumid. Laadige kohe, et saada oma auhind.",
+  "read_carefully": "Palun lugege hoolikalt",
+  "no_channel": "Praeguses ei ole saadaval ühtegi kanalit"
 }

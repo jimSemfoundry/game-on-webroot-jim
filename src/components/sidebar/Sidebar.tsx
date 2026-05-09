@@ -1,10 +1,11 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { useRTLContext } from "@/contexts/RTLContext";
 import { useSidebar } from "@/contexts/SidebarContext";
+import { useIsLeagueEnabled } from "@/hooks/api/usePublic";
 import { useLocation } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { m } from "motion/react";
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Drawer } from "vaul";
 import { NAVIGATION_ITEMS, SPORTS_NAVIGATION_ITEMS } from "./config";
@@ -44,13 +45,23 @@ function DesktopSidebar() {
   const isMini = mode === "mini";
   const { isRTL } = useRTLContext();
   const { isAuthenticated, isLoading } = useAuth();
+  const { isLeagueEnabled } = useIsLeagueEnabled();
 
   const { t } = useTranslation(["common"]);
 
-  // 根据 activeTab 选择导航项
-  const navigationItems = activeTab === "sport" 
-    ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
-    : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
+  // 根据 activeTab 选择导航项，并根据 is_league 过滤 tournament 相关项
+  const navigationItems = useMemo(() => {
+    const items = activeTab === "sport" 
+      ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
+      : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
+    
+    if (!isLeagueEnabled) {
+      return items.filter(item => 
+        item.type === 'divider' || !item.id?.includes('tournament')
+      );
+    }
+    return items;
+  }, [activeTab, t, isAuthenticated, isLoading, isLeagueEnabled]);
 
   return (
     <m.aside
@@ -59,7 +70,7 @@ function DesktopSidebar() {
         duration: 0.3,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className={`hide-scrollbar hidden md:flex flex-col bg-base-400 h-auto relative card md:card-sm mb-2 ${isRTL ? "mr-2" : "ml-2"}`}
+      className={`hidden md:flex flex-col bg-base-400 h-auto relative z-50 card md:card-sm mb-2 ${isRTL ? "mr-2" : "ml-2"} ${isMini ? "" : "w-[270px]"}`}
       style={{ 
         overflow: "visible",
         marginTop: "calc(4.5rem + var(--safe-area-inset-top))"
@@ -85,7 +96,7 @@ function DesktopSidebar() {
         )}
       </div>
 
-      <div className="card-body overflow-y-auto">
+      <div className="card-body overflow-y-auto hide-scrollbar">
         <div className="flex-1 flex flex-col">
           <SidebarHeader />
 
@@ -147,12 +158,22 @@ function MobileDrawer() {
   const location = useLocation();
   const { isRTL } = useRTLContext();
   const { isAuthenticated, isLoading } = useAuth();
+  const { isLeagueEnabled } = useIsLeagueEnabled();
   const { t } = useTranslation(["common"]);
 
-  // 根据 activeTab 选择导航项
-  const navigationItems = activeTab === "sport" 
-    ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
-    : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
+  // 根据 activeTab 选择导航项，并根据 is_league 过滤 tournament 相关项
+  const navigationItems = useMemo(() => {
+    const items = activeTab === "sport" 
+      ? SPORTS_NAVIGATION_ITEMS(t, isAuthenticated, isLoading)
+      : NAVIGATION_ITEMS(t, isAuthenticated, isLoading);
+    
+    if (!isLeagueEnabled) {
+      return items.filter(item => 
+        item.type === 'divider' || !item.id?.includes('tournament')
+      );
+    }
+    return items;
+  }, [activeTab, t, isAuthenticated, isLoading, isLeagueEnabled]);
 
   return (
     <Drawer.Root

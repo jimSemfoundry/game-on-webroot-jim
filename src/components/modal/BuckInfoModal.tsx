@@ -1,5 +1,6 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
+import { useTranslation } from "react-i18next";
 
 interface HelpModalBuckInfoProps {
   isOpen: boolean;
@@ -7,22 +8,22 @@ interface HelpModalBuckInfoProps {
 }
 
 export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) => {
+  const { t } = useTranslation();
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle" zIndex={1002}>
       <div className="flex flex-col gap-1">
         {/* 上方带渐变的独立卡片 */}
         <div
-          className="pl-8 pr-4 text-center relative overflow-hidden h-[140px] flex items-center"
+          className="pl-8 pr-4 text-center relative overflow-hidden h-[140px] flex items-center rounded-box"
           style={{
-            borderRadius: "16px",
             background: `
-              radial-gradient(123.83% 141.42% at 100% 0%, color(display-p3 0.6824 0.7922 0.2784 / 0.50) 0%, color(display-p3 0.0627 0.0784 0.098 / 0.50) 100%), 
-              color(display-p3 0.0627 0.0784 0.098)
+              radial-gradient(123.83% 141.42% at 100% 0%, color(display-p3 0.6824 0.7922 0.2784 / 0.50) 0%, color(display-p3 0.063 0.078 0.098 / 0.5) 100%),
+              linear-gradient(0deg, var(--color-base-300), var(--color-base-300))
             `,
           }}
         >
           <div className="relative z-10 flex items-center h-full justify-between w-full">
-            <h2 className="text-xl md:text-2xl font-bold text-base-content mb-2 text-start leading-6 text-nowrap">GET BUCK</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-base-content mb-2 text-start leading-6 text-nowrap">{t("popup:get_buck")}</h2> 
             <div className="flex items-center -space-x-6">
               <img src="/images/illustrations/8eb77e26320d092b03e700eb23d717c408ef3995.png" className="w-23 h-25 rotate-y-180" />
               <img src="/images/illustrations/buck.png" className="w-26 h-26 z-10" />
@@ -43,39 +44,34 @@ export const HelpModalBuckInfo = ({ isOpen, onClose }: HelpModalBuckInfoProps) =
               <div className="mb-4">
                 <div className="flex items-center gap-2 mb-2">
                   <img src="/images/illustrations/buck.png" className="w-4 h-4" />
-                  <h3 className="text-sm font-bold text-base-content">What is BUCK?</h3>
+                  <h3 className="text-sm font-bold text-base-content">{t("popup:what_is_buck")}</h3> 
                 </div>
                 <p className="text-xs text-base-content/50 leading-5">
-                  BUCK is an exclusive token for all platform rewards, valued at 1 BUCK = 1 USDT.
+                  {t("popup:what_is_buck_description")}
                 </p>
               </div>
 
               {/* Is BUCK exchangeable? */}
               <div className="mb-4">
-                <h3 className="text-sm font-bold text-base-content mb-2">Is BUCK exchangeable?</h3>
+                <h3 className="text-sm font-bold text-base-content mb-2">{t("popup:is_buck_exchangeable")}</h3>
                 <p className="text-xs text-base-content/50 leading-5">
-                  Yes. You can convert BUCK into supported crypto or fiat currencies anytime, directly on the platform.
+                  {t("popup:is_buck_exchangeable_description")}
                 </p>
               </div>
 
               {/* Expiration */}
               <div className="mb-4">
-                <h3 className="text-sm font-bold text-base-content mb-2">Expiration</h3>
+                <h3 className="text-sm font-bold text-base-content mb-2">{t("popup:expiration")}</h3> 
                 <p className="text-xs text-base-content/50 leading-5">
-                  None. BUCK never expires and stays in your balance until you use it.
+                  {t("popup:expiration_description")}
                 </p>
               </div>
 
               {/* General Terms */}
               <div className="mb-4">
-                <h3 className="text-sm font-bold text-base-content mb-2">General Terms</h3>
-                <p className="text-xs text-base-content/50 leading-5 mb-2">
-                  Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note,
-                  currency conversions are approximate.
-                </p>
-                <p className="text-xs text-base-content/50 leading-5">
-                  The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or
-                  fraudulent activity will lead to disqualification from the promotion.
+                <h3 className="text-sm font-bold text-base-content mb-2">{t("popup:freeSpins.general_terms")}</h3>
+                <p className="text-xs text-base-content/50 leading-5 mb-2 whitespace-pre-line">
+                  {t("popup:general_terms_description")}
                 </p>
               </div>
             </div>

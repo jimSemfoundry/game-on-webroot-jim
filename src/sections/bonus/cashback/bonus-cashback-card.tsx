@@ -13,6 +13,7 @@ import { useBoundStore } from "@/store";
 import dayjs from "dayjs";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
 const DEFAULT_GRADIENT = `
@@ -30,18 +31,17 @@ interface CashbackOption extends SelectOption {
   currency: string;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png";
-
 export function BonusCashbackCard() {
-  const { t } = useTranslation('bonus');
+  const { t } = useTranslation("bonus");
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { isInitialized, isAuthenticated } = useAuth();
+  const { isInitialized } = useAuth();
   const { openTipsModal } = useTipsModal();
   const { mutate: claimBonus, isPending: isClaimPending } = useClaimBonusMutation();
   // 查询是否有待领取的cashback bonus
   const { data: claimData, isLoading: isDataLoading } = useClaimBonus("cashback");
   const { setSyncAction } = useBoundStore();
   const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
+  const ILLUSTRATION_URL = useBonusDetailsImage("cashback", 192);
 
   // 优化的loading状态：未初始化或数据加载中时显示骨架屏
   const isLoading = !isInitialized || isDataLoading;
@@ -63,7 +63,7 @@ export function BonusCashbackCard() {
         label: item.currency,
         value: item.currency,
         amount: item.value,
-        currency: item.currency,
+        currency: item.currency
       }));
   }, [claimData]);
 
@@ -110,16 +110,16 @@ export function BonusCashbackCard() {
             if (response.code !== 0) {
               setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
                 code: response.code,
-                tryAgain: () => handleClaim(),
+                tryAgain: () => handleClaim()
               });
               return;
             }
             openDoubleOrNothingModal({
               don_record_id: response?.data?.don_record_id,
-              amount: response?.data?.amount,
+              amount: response?.data?.amount
             });
-          },
-        },
+          }
+        }
       );
     }
   };
@@ -137,7 +137,10 @@ export function BonusCashbackCard() {
         {/* <span className="flex-1">{cashbackOpt.currency}</span> */}
         <span className="text-xs text-base-content/70">
           {
-            formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency, { showCode: false, minimizeDecimals: true })
+            formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency, {
+              showCode: false,
+              minimizeDecimals: true
+            })
               .formatted
           }
         </span>
@@ -151,62 +154,31 @@ export function BonusCashbackCard() {
     return (
       <div className="flex items-center gap-2">
         <CurrencyIcon currency={cashbackOpt.currency} className="w-4 h-4" />
-        <span className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency,{ showCode: false, minimizeDecimals: true }).formatted}</span>
+        <span className="font-semibold">{formatWithConversion(parseFloat(cashbackOpt.amount), cashbackOpt.currency, {
+          showCode: false,
+          minimizeDecimals: true
+        }).formatted}</span>
       </div>
     );
   };
 
-  if (isLoading) {
-    return (
-      <div
-        className="flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border border-base-200"
-        style={{
-          background: DEFAULT_GRADIENT,
-        }}
-      >
-        <div className="skeleton w-6 h-6 absolute right-4 rtl:right-auto rtl:left-4 top-4 rounded-btn"></div>
-        <div className="flex items-center gap-2 h-15">
-          <div className="skeleton w-15 h-15 rounded-box"></div>
-          <div className="flex flex-col justify-between h-full w-full">
-            <div className="skeleton h-4 w-32 rounded-box"></div>
-            <div className="flex items-center gap-1 w-full">
-              <div className="skeleton h-4 w-8 rounded-box"></div>
-              <div className="skeleton h-4 w-4 rounded-box"></div>
-              <div className="skeleton h-4 w-8 rounded-box"></div>
-            </div>
-          </div>
-        </div>
+  if (isLoading) return <CardLoading />;
 
-        <div className="flex items-center gap-1 w-full">
-          <div className="flex-1 bg-base-300 rounded-btn h-12 flex items-center px-3 gap-2">
-            <div className="skeleton w-4 h-4 rounded-box"></div>
-            <div className="skeleton h-4 flex-1 rounded-box"></div>
-          </div>
-          <div className="skeleton w-20 h-12 rounded-btn"></div>
-        </div>
-
-        <div className="flex items-center justify-center px-1">
-          <div className="skeleton h-3 w-24 rounded-box"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
+  if (!isLoading && !hasAuth()) {
     return (
       <ImageColorCard
         gradientMode="linear"
-        imageUrl="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
+        imageUrl={ILLUSTRATION_URL}
         colorOpacity={0.6}
         paletteOrder={["DarkVibrant", "Vibrant", "Muted"]}
         className="flex items-center p-8 gap-2 rounded-field h-[140px] sm:h-[170px] w-full relative overflow-hidden border border-base-200 transition-all duration-500"
       >
         <p className="text-2xl sm:text-4xl font-bold uppercase leading-6 sm:leading-8 text-start">
           <span className="text-base-content block">{t("casino:daily")}</span>
-          <span className="block text-primary">{t("casino:cashback")}</span>
+          <span className="block text-primary">{t("bonus:item.cashback")}</span>
         </p>
         <LazyImage
-          src="/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png"
+          src={ILLUSTRATION_URL}
           alt="free spins"
           className="w-[150px] h-[150px] sm:w-[170px] sm:h-[170px] -rotate-4 absolute right-0 top-0 rtl:rotate-y-180 rtl:left-0 rtl:right-auto"
         />
@@ -219,30 +191,33 @@ export function BonusCashbackCard() {
 
   return (
     <div
-      className={`flex flex-col p-4 gap-2 rounded-field h-[170px] w-full relative border ${isClaimable ? 'border-warning' : 'border-base-200'}`}
+      className={`flex flex-col p-4 gap-4 rounded-field w-full relative border ${isClaimable ? "border-warning" : "border-base-200"}`}
       style={{
-        background,
+        background
       }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={handleOpenTips}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
-      <div className="flex items-center gap-2 h-15">
-        <img src={ILLUSTRATION_URL} alt={t("bonus:daily_cashback")} className="w-15 h-15" loading="lazy" decoding="async" />
-        <div className="flex flex-col justify-between h-full w-full">
-          <p className="text-sm font-bold sm:text-base">{t("bonus:daily_cashback")}</p>
-          <div className="flex items-center gap-1 w-full">
-            {claimData?.data?.thisMedalVipConfig && claimData?.data?.nextMedalVipConfig && (
-              <div className="flex items-center gap-1">
+      <div className="flex items-center gap-2">
+        <img src={ILLUSTRATION_URL} alt={t("bonus:daily_cashback")} className="w-15 h-15" loading="lazy"
+             decoding="async" />
+        <div className="flex flex-col justify-between h-full w-full flex-1">
+          <div className="flex justify-between">
+            <div>
+              <p className="text-sm font-bold sm:text-base">{t("bonus:daily_cashback")}</p>
+              <div className="flex items-center gap-1 w-full">
+                {claimData?.data?.thisMedalVipConfig && claimData?.data?.nextMedalVipConfig && (
+                  <div className="flex items-center gap-1">
                 <span className="text-lg font-bold sm:text-xl text-base-content/50">
                   {(claimData.data.thisMedalVipConfig.cashback_other * 100).toFixed(1)}%
                 </span>
-                <span className="text-sm font-bold text-primary sm:text-xl">{">>"}</span>
-                <span className="text-sm text-primary font-bold  sm:text-xl">
+                    <span className="text-sm font-bold text-primary sm:text-xl">{">>"}</span>
+                    <span className="text-sm text-primary font-bold  sm:text-xl">
                   {(claimData.data.nextMedalVipConfig.cashback_other * 100).toFixed(1)}%
                 </span>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
+            <Info onClick={handleOpenTips} />
           </div>
         </div>
       </div>
@@ -264,7 +239,7 @@ export function BonusCashbackCard() {
         ) : (
           <label className="input input-md disabled:bg-base-300 bg-base-300 border-none flex-1">
             <Iconify icon="custom:cash" />
-            <input type="text" className="grow border-none outline-none" readOnly value="0.00" />
+            <input type="text" className="grow border-none outline-none font-semibold" readOnly value="0.00" />
           </label>
         )}
 
@@ -286,6 +261,10 @@ export function BonusCashbackCard() {
 }
 
 import utc from "dayjs/plugin/utc";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { CardLoading } from "@/sections/bonus/components/CardLoading.tsx";
+import { hasAuth } from "@/utils/auth.ts";
+
 dayjs.extend(utc);
 
 // 获取下一个UTC午夜时间

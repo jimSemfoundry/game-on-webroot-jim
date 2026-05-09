@@ -1,8 +1,6 @@
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox.tsx";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import {
-  debug_target,
-  open_debug,
   useAvailableBalance,
   useSupportedCryptoWithdrawGatewaysFilter
 } from "@/components/modal/UserFinanceModal/helper.ts";
@@ -42,7 +40,7 @@ export const WithdrawCryptoAmount = () => {
   const [withdrawRangeOptionsReset, setWithdrawRangeOptionsReset] = useState<number>(0);
 
   // rum 日志推送
-  const { rumCustomLog, rumException } = useRumSdkUserLog();
+  const { rumCustomLog, rumException, rumResource } = useRumSdkUserLog();
 
   // finance 弹窗控制开关
   const { closeUserFinanceModal } = useFinanceModal();
@@ -137,19 +135,6 @@ export const WithdrawCryptoAmount = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      console.info("Withdraw Crypto Order Data");
-      console.info({
-        // pin: md5(syncAction?.data),
-        amount: withdrawCrypto.inputAmount,
-        network: withdrawCrypto.network?.network,
-        comment: withdrawCrypto.comment,
-        currency: withdrawCrypto.currency?.currency,
-        wallet_address: withdrawCrypto.toWallet
-      });
-      // return;
-    }
-
     set(true);
 
     const params = {
@@ -161,9 +146,15 @@ export const WithdrawCryptoAmount = () => {
       wallet_address: withdrawCrypto.toWallet
     };
 
+    let url = "";
+    let name = "";
+
     authService
       .createWithdrawCryptoOrder(params)
       .then((res) => {
+        url = res?._request_url || "";
+        name = res?._request_name || "";
+
         fn_withdraw_common_status(() => {
 
           // 提款订单提交成功
@@ -176,6 +167,9 @@ export const WithdrawCryptoAmount = () => {
               toWallet: "",
               inputAmount: ""
             });
+
+            // TODO rum 下单成功推送
+            rumCustomLog(`Withdraw ${withdrawCrypto.currency?.currency} ✅`, { url });
           }
 
           // 提款AML措施-错误提示
@@ -189,10 +183,17 @@ export const WithdrawCryptoAmount = () => {
         set(false);
 
         // 异常推送
-        rumException(error, params);
+        rumException(`Withdraw ${withdrawCrypto.currency?.currency} ❌`, error);
       })
       .finally(() => {
         set(false);
+
+        // TODO rum 资源访问推送
+        rumResource({
+          url,
+          name,
+          event: `Withdraw ${withdrawCrypto.currency?.currency}`
+        });
       });
   }, [t, withdrawCrypto]);
 
@@ -200,14 +201,6 @@ export const WithdrawCryptoAmount = () => {
   // useEffect(() => {
   //   if (syncAction.type === "SYNC_WITHDRAW_CRYPTO_CREATE") void createOrder();
   // }, [syncAction]);
-
-  useEffect(() => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      // console.info("************ V2 withdrawCrypto start ************");
-      // console.info(withdrawCrypto);
-      // console.info("************ V2 withdrawCrypto ended ************");
-    }
-  }, [withdrawCrypto]);
 
   // FIXME: 目的 -> 切换网络/币种/关闭finance 的时候需要重置快捷按钮状态
   useEffect(() => {
@@ -219,11 +212,6 @@ export const WithdrawCryptoAmount = () => {
 
     return () => em?.remove();
   }, [withdrawCrypto.network?.network, withdrawCrypto.currency?.id]);
-
-  // 数据推送 - 延迟
-  useEffect(() => {
-    rumCustomLog("withdrawCrypto", { ...withdrawCrypto, available: availableAndLocked.available });
-  }, [rumCustomLog, withdrawCrypto]);
 
   return (
     <>

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "什麼是增強器？",
-    "content": "<p class=\"leading-7\">每當推薦人存款時，增強器會將您的返佣翻倍一小時。</p><p class=\"leading-7\">增強的解鎖率：</p><p class=\"leading-7\">解鎖率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">每當推薦人存款時，增強器會將您的返佣翻倍三小時。</p><p class=\"leading-7\">增強的解鎖率：</p><p class=\"leading-7\">解鎖率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "什麼是獎金日曆？",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "什麼是成就？",
-    "content": "<p class=\"leading-7\">成就是我們對您在我們平台上活動的認可方式。當您索取成就獎金時，將支付到您的獎金日曆中，可以每8小時索取，若未索取則在24小時內過期。</p>"
+    "content": "<p class=\"leading-7\">成就是我們對您在平台上活動的認可方式。成就在您達到VIP 2及以上時可領取。</p>"
   }
 }

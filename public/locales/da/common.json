@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Telefonnummeret er allerede brugt. Brug venligst et andet nummer.",
     "mobileAlreadyBound": "Telefonnummeret er allerede knyttet til denne konto.",
     "fullscreen": "Fuld skærm",
-    "exitFullscreen": "Afslut fuld skærm"
+    "exitFullscreen": "Afslut fuld skærm",
+    "draw": "Uafgjort"
   },
   "bonus_pool": "Bonuspulje",
   "pleaseEnterValidUsernameOrEmail": "Indtast venligst et gyldigt brugernavn eller e-mail",

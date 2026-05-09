@@ -1,9 +1,10 @@
 import { useCurrentUser, useLogin, useLogout } from "@/hooks/api/useAuth";
+import { useBaseConfig } from "@/hooks/api/usePublic";
 import type { User, UserStatus } from "@/types/auth";
 import { clearUserAvatar, getOrAssignUserAvatar } from "@/utils/avatar";
 import { createContext, Dispatch, SetStateAction, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { uuidv4Generate } from "@/utils/helper.ts";
+import { trackCustomEvent, uuidv4Generate } from "@/utils/helper.ts";
 
 type AuthContextType = {
   user: User | null;
@@ -28,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { i18n } = useTranslation();
 
   const { data: currentUser, isLoading: isUserLoading } = useCurrentUser();
+  const { data: baseConfig } = useBaseConfig();
   const loginMutation = useLogin();
   const logoutMutation = useLogout();
 
@@ -76,13 +78,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  // 分离语言设置逻辑，避免过度依赖
+  // 语言优先级:用户个人语言 > 用户主动选择标记 > 站点默认语言(default_lang) > i18next 默认流程
   useEffect(() => {
     const userLanguage = currentUser?.user?.language_code;
-    if (userLanguage && userLanguage !== i18n.language) {
-      i18n.changeLanguage(userLanguage);
+    if (userLanguage) {
+      if (userLanguage !== i18n.language) {
+        void i18n.changeLanguage(userLanguage);
+      }
+      return;
     }
-  }, [currentUser?.user?.language_code, i18n.language]);
+
+    const defaultLang = baseConfig?.data?.default_lang;
+    if (!defaultLang) return;
+
+    // 若用户曾通过语言切换器主动选择过语言，则尊重用户选择，不做覆盖
+    if (localStorage.getItem("userSelectedLang") === "true") return;
+
+    if (defaultLang !== i18n.language) {
+      void i18n.changeLanguage(defaultLang);
+    }
+  }, [currentUser?.user?.language_code, baseConfig?.data?.default_lang, i18n.language]);
 
   const login = useCallback(
     async (username: string, password: string) => {
@@ -105,11 +120,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (userData.language_code && userData.language_code !== i18n.language) {
           i18n.changeLanguage(userData.language_code);
         }
+
+        // GTM 记录推送
+        trackCustomEvent("login", "userLogin", {
+          id: userData?.id,
+          username: userData?.username,
+          nick_name: userData?.nickname,
+          country: userData?.country
+        });
       } catch (error) {
         throw error;
       }
     },
-    [loginMutation, i18n],
+    [loginMutation, i18n]
   );
 
   const logout = useCallback(async () => {
@@ -139,9 +162,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       loginError: loginMutation.error?.message,
       isLoginLoading: loginMutation.isPending,
       setUser,
-      setStatus,
+      setStatus
     }),
-    [user, status, isUserLoading, isInitialized, login, logout, loginMutation.error?.message, loginMutation.isPending],
+    [user, status, isUserLoading, isInitialized, login, logout, loginMutation.error?.message, loginMutation.isPending]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

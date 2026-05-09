@@ -32,9 +32,9 @@ export const ClearCache = () => {
       onClick={() => void handleClear()}
       className="flex items-center justify-between btn btn-md md:btn-lg w-full"
     >
-      <div className="flex items-center gap-x-3">
-        <RefreshCcw className="w-5 h-5 text-base-content/70" />
-        <span className="text-sm">{t('common:clearCache')}</span>
+      <div className="flex items-center gap-x-3 min-w-0 overflow-hidden">
+        <RefreshCcw className="w-5 h-5 shrink-0 text-base-content/70" />
+        <span className="text-sm truncate">{t('common:clearCache')}</span>
       </div>
     </button>
   );

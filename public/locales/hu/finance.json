@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Kérjük, adja meg a fiat pénznem kifizetéséhez szükséges adatait.",
   "updating_withdrawal_address": "Kifizetési cím frissítése, kérjük várjon...",
   "please_select_withdrawal_method": "Kérjük, válasszon kifizetési módot.",
-  "integer_deposit": "Ez a csatorna azt követeli meg, hogy a befizetési összeg {{value}} egész számú többszöröse legyen.",
+  "integer_deposit": "Ez a csatorna azt követeli meg, hogy a befizetési összeg {{value}} egységekben legyen.",
   "enter_string_en_only": "Csak angol betűk, számok és szóközök adhatók meg.",
-  "enter_string_min_length": "A hosszának legalább {{length}}nek kell lennie."
+  "enter_string_min_length": "A hosszának legalább {{length}}nek kell lennie.",
+  "met_eligibility": "*Teljesítette a különleges ajánlat jogosultsági feltételeit. Töltse fel most, hogy megkapja jutalmát!",
+  "read_carefully": "Kérjük, figyelmesen olvassa el",
+  "no_channel": "Jelenleg nincsenek elérhető csatornák"
 }

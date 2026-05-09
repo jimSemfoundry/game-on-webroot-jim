@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Seu número de telefone foi verificado. Você já pode continuar.",
   "email_address_has_been_verified": "Seu endereço de e-mail foi verificado. Você já pode continuar.",
   "setNewPassword": "Definir Nova Senha",
-  "passwordLengthRequirement": "Por favor, insira uma senha entre 6 e 64 caracteres."
+  "passwordLengthRequirement": "Por favor, insira uma senha entre 6 e 64 caracteres.",
+  "re_enter_new_password": "Reinsira a Nova Senha",
+  "change_withdrawal_pin": "Alterar PIN de Saque",
+  "confirm_withdrawal_pin": "Confirmar PIN de Saque",
+  "enter_email": "Inserir e-mail",
+  "rolloverDetails": "Detalhes do rollover",
+  "verified_email": "E-mail verificado",
+  "verified_phone_number": "Número de telefone verificado",
+  "change_key": "Alterar",
+  "update_successfully": "Atualização bem-sucedida. Use {<1>{{value}}</1>} para seu próximo login.",
+  "understand_key": "Entendido",
+  "ensure_email_valid": "Certifique-se de que seu endereço de e-mail é válido e acessível por você.",
+  "ensure_phone_valid": "Certifique-se de que seu número de telefone é válido e acessível por você.",
+  "enter_phone_number_to_receive_verification_code": "Insira seu número de telefone abaixo para receber um código de verificação.",
+  "enter_email_address_to_receive_verification_code": "Insira seu endereço de e-mail abaixo para receber um código de verificação."
 }

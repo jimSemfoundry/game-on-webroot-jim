@@ -14,7 +14,7 @@ export const ConfirmBox = ({
   return (
     <button
       {...props}
-      className={cn(`btn btn-primary flex items-center justify-center w-full`, className)}
+      className={cn(`btn btn-primary flex items-center justify-center w-full whitespace-nowrap`, className)}
       onClick={(e) => !loading && onClick?.(e)}
     >
       {children}

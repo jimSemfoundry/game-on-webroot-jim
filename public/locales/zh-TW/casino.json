@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "作為領先的全球遊戲聯盟，我們將頂級平台的實力與精緻融為一體，置於統一願景之下。在我們投資組合中的所有品牌中，我們作為一個整體行動——提供娛樂、個性化獎勵以及跨貨幣、國家和文化的無縫連接。",
   "footerDescriptionThree": "不要只是玩遊戲。挑戰一切。",
   "footerDescriptionFour": "{{supportName}}聯盟的標誌性特徵",
-  "footerDescriptionFive": "© 2025. 保留所有權利。",
+  "footerDescriptionFive": "© {{year}}. 保留所有權利。",
   "banner": {
     "oneDescription": "成為第一。",
     "oneDescriptionTwo": "挑戰\n一切",
@@ -127,5 +127,7 @@
   "addHomeScreen": "添加到主畫面",
   "latestWins": "最新勝利",
   "spinPlayAndWinAcrossTopCasinoHits": "旋轉、遊玩並贏取頂級賭場熱門遊戲",
-  "scoreBigOnSportsFromAroundTheWorld": "在全球體育賽事中大獲全勝"
+  "scoreBigOnSportsFromAroundTheWorld": "在全球體育賽事中大獲全勝",
+  "liveDealers": "為您最喜愛的桌面遊戲提供真人荷官",
+  "show_less": "收起"
 }

@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Kā vadošā globālā spēļu alianse mēs apvienojam augstākā līmeņa platformu spēku un izsmalcinātību zem vienas vīzijas. Visās mūsu portfeļa zīmolos mēs darbojamies kā viens — piedāvājot izklaidi, personalizētas atlīdzības un nevainojamu savienojamību starp valūtām, valstīm un kultūrām.",
   "footerDescriptionThree": "Nespēlējiet tikai spēli. Izaiciniet visu.",
   "footerDescriptionFour": "{{supportName}} alianses raksturīga iezīme",
-  "footerDescriptionFive": "© 2025. Visas tiesības aizsargātas.",
+  "footerDescriptionFive": "© {{year}}. Visas tiesības aizsargātas.",
   "banner": {
     "oneDescription": "Esi pirmais.",
     "oneDescriptionTwo": "IZSAAUC\nVISU",
@@ -127,5 +127,6 @@
   "addHomeScreen": "Pievienot sākuma ekrānam",
   "latestWins": "Jaunākie Laimesti",
   "spinPlayAndWinAcrossTopCasinoHits": "Griez, spēlē un uzvari labākajos kazino hitos",
-  "scoreBigOnSportsFromAroundTheWorld": "Gūsti lielus panākumus sportā no visas pasaules"
+  "scoreBigOnSportsFromAroundTheWorld": "Gūsti lielus panākumus sportā no visas pasaules",
+  "show_less": "rādīt mazāk"
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "¿Qué es un Booster?",
-    "content": "<p class=\"leading-7\">Los boosters duplican tu Rakeback durante una hora cada vez que un referido realiza un depósito.</p><p class=\"leading-7\">Tasa de Desbloqueo Aumentada:</p><p class=\"leading-7\">Tasa de Desbloqueo:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Los boosters duplican tu Rakeback durante tres horas cada vez que un referido realiza un depósito.</p><p class=\"leading-7\">Tasa de Desbloqueo Aumentada:</p><p class=\"leading-7\">Tasa de Desbloqueo:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "¿Qué es el Calendario de Bonos?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "¿Qué son los Logros?",
-    "content": "<p class=\"leading-7\">Los logros son nuestra forma de reconocer tu actividad en nuestra plataforma. Cuando reclamas tu bono de logro, se pagará a tu Calendario de Bonos y se puede reclamar cada 8 horas y caduca en 24 horas si no se reclama.</p>"
+    "content": "<p class=\"leading-7\">Los logros son nuestra forma de reconocer tu actividad en nuestra plataforma. Los logros están disponibles para reclamar cuando alcanzas VIP 2 o superior.</p>"
   }
 }

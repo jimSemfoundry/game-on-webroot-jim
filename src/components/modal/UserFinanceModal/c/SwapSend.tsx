@@ -2,7 +2,6 @@ import { useSupportedSwapFromCurrenciesFilter } from "@/components/modal/UserFin
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
-import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
 import clsx from "clsx";
 import Decimal from "decimal.js";
@@ -24,18 +23,6 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
   const { closeUserFinanceModal } = useFinanceModal();
 
   const { swapFrom, setSwapFrom } = useBoundStore();
-
-  const { isLoading: l2, convertCurrency, exchangeRates } = useCurrencyData();
-
-  const exchangeUSD = useMemo(() => {
-    if (l2 || !swapFrom.currency?.currency) return "0.00";
-    return convertCurrency({
-      amount: swapFrom.inAmount,
-      fromCurrency: swapFrom.currency.currency,
-      toCurrency: "USDT",
-      exchangeRates
-    }).toString();
-  }, [l2, swapFrom, exchangeRates]);
 
   const insufficient = useMemo(() => {
     const d_available = Decimal(available);
@@ -64,7 +51,7 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function () {
       setSwapFrom({ inAmount: "" });
     });
 
@@ -72,71 +59,70 @@ export const SwapSend = ({ open, loading, available }: { open: boolean; loading:
   }, []);
 
   return (
-    <div className="bg-base-300 p-4 flex items-center justify-between rounded-xl gap-2">
-      <div>
-        <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_send")}</span>
+    <div className="bg-base-300 p-4 rounded-xl gap-2">
+      <div className="flex justify-between">
+        <div className="flex flex-col">
+          <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_send")}</span>
 
-        {/* swap send amount control */}
-        <NumericFormat
-          wrapCls={"!px-0"}
-          className={clsx("!px-0 !text-lg !h-7", { "text-error": insufficient })}
-          placeholder="0.00"
-          value={swapFrom.inAmount}
-          thousandSeparator
-          onValueChange={(values) => {
-            setSwapFrom({ inAmount: values.value });
-          }}
-          decimalScale={swapFrom.currency?.decimal}
-        />
+          {/* swap send amount control */}
+          <NumericFormat
+            wrapCls={"!px-0"}
+            className={clsx("!px-0 !text-lg !h-10 !py-2", { "text-error": insufficient })}
+            placeholder="0.00"
+            value={swapFrom.inAmount}
+            thousandSeparator
+            onValueChange={(values) => {
+              setSwapFrom({ inAmount: values.value });
+            }}
+            decimalScale={swapFrom.currency?.decimal}
+          />
+        </div>
 
-        <ExchangeUSD amount={exchangeUSD} />
+        <div className="flex-shrink-0 flex flex-col">
+          {/* currency select options */}
+          <div className="flex flex-col items-end">
+            <span
+              className="cursor-pointer text-xs font-extrabold underline uppercase"
+              onClick={() => {
+                if (Decimal(available).gt(0)) setSwapFrom({ inAmount: available });
+              }}
+            >
+              {t("finance:max")}
+            </span>
+            <SelectDropdown
+              title={t("common.selectCurrency")}
+              height="sm"
+              options={currencies}
+              value={swapFrom.currency?.currency}
+              onChange={(v) => {
+                setSwapFrom({ currency: origin.find((o: Record<string, any>) => o.currency === v) });
+              }}
+              placeholder={t("common.selectCurrency")}
+              className="!w-[120px]"
+              buttonClassName="rounded-full !p-2 !bg-base-400"
+              showSearch
+              loading={l1}
+            />
+          </div>
+        </div>
       </div>
+      {/* 可用余额 */}
+      <div className="flex justify-end">
+        <SmallLoading
+          loading={loading}
+          className="bg-base-400 !rounded-full"
+          content={
+            <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
+              void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
 
-      <div className="flex-shrink-0 flex flex-col gap-2">
-        {/* currency select options */}
-        <div className="flex items-center gap-2 justify-end">
-          <span
-            className="cursor-pointer text-xs font-extrabold underline uppercase"
-            onClick={() => {
-              if (Decimal(available).gt(0)) setSwapFrom({ inAmount: available });
-            }}
-          >
-            {t("finance:max")}
-          </span>
-          <SelectDropdown
-            title={t("common.selectCurrency")}
-            height="sm"
-            options={currencies}
-            value={swapFrom.currency?.currency}
-            onChange={(v) => {
-              setSwapFrom({ currency: origin.find((o: Record<string, any>) => o.currency === v) });
-            }}
-            placeholder={t("common.selectCurrency")}
-            className="!w-[160px]"
-            buttonClassName="rounded-full !p-2 !bg-base-400"
-            showSearch
-            loading={l1}
-          />
-        </div>
-
-        {/* 可用余额 */}
-        <div className="flex justify-end">
-          <SmallLoading
-            loading={loading}
-            className="bg-base-400 !rounded-full"
-            content={
-              <span className="text-base-content/50 text-xs font-semibold underline cursor-pointer" onClick={() => {
-                void navigate({ to: "/profile", search: (prev) => ({ ...prev, tab: "rollover" }) });
-
-                closeUserFinanceModal();
-              }}>
-                {t("finance:available")}: <FormatAmount amount={available} local
-                                                        decimals={swapFrom.currency?.decimal} />{" "}
-                {swapFrom.currency?.currency}
-              </span>
-            }
-          />
-        </div>
+              closeUserFinanceModal();
+            }}>
+              {t("finance:available")}: <FormatAmount amount={available} local
+                decimals={swapFrom.currency?.decimal} />{" "}
+              {swapFrom.currency?.currency}
+            </span>
+          }
+        />
       </div>
     </div>
   );

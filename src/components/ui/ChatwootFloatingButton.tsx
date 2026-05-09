@@ -2,9 +2,8 @@ import { useChatwootContext } from "@/contexts/ChatwootContext";
 import Iconify from "../iconify";
 import { useLocation } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
-import { PointerEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { PointerEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext.tsx";
-import { emitter } from "@/store/emitter.ts";
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
@@ -23,6 +22,86 @@ export const ChatFloatingButton = () => {
   const cleanupGlobalListenersRef = useRef<null | (() => void)>(null);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const positionRef = useRef(position);
+  positionRef.current = position;
+
+  // 计算并应用未读气泡位置（仅未读预览态生效）
+  const applyBubblePosition = useCallback(() => {
+    const holder = document.getElementById("cw-widget-holder");
+    if (!holder) return;
+
+    const isUnread =
+      holder.classList.contains("has-unread-view") &&
+      !holder.classList.contains("woot-widget--expanded");
+
+    // 非未读预览态：清理 inline 定位，让 CSS/SDK 接管
+    if (!isUnread) {
+      for (const p of ["top", "bottom", "left", "right", "transform", "max-width", "width", "height", "position", "z-index"]) {
+        holder.style.removeProperty(p);
+      }
+      return;
+    }
+
+    const pos = positionRef.current;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const btnSize = 40;
+    const gap = 8;
+    const edge = 4;
+    const bw = Math.min(320, vw - edge * 2);
+    const bh = holder.offsetHeight || 280;
+
+    // X 轴：始终在按钮左侧，clamp 保证不超出视口
+    const left = clamp(pos.x - gap - bw, edge, Math.max(edge, vw - bw - edge));
+
+    // Y 轴：PC 底部对齐，移动端垂直居中对齐按钮
+    const isMobile = vw <= 768;
+    const rawTop = isMobile
+      ? pos.y + btnSize / 2 - bh / 2
+      : pos.y + btnSize - bh;
+    const top = clamp(rawTop, edge, Math.max(edge, vh - bh - edge));
+
+    holder.style.setProperty("position", "fixed", "important");
+    holder.style.setProperty("z-index", "1000", "important");
+    holder.style.setProperty("top", `${top}px`, "important");
+    holder.style.setProperty("left", `${left}px`, "important");
+    holder.style.setProperty("bottom", "auto", "important");
+    holder.style.setProperty("right", "auto", "important");
+    holder.style.setProperty("transform", "none", "important");
+    holder.style.setProperty("max-width", `${bw}px`, "important");
+    holder.style.setProperty("width", "auto", "important");
+    holder.style.setProperty("height", "auto", "important");
+  }, []);
+
+  // position 变化时同步 CSS 变量和气泡位置
+  useLayoutEffect(() => {
+    document.documentElement.style.setProperty("--chatwoot-btn-x", `${position.x}px`);
+    document.documentElement.style.setProperty("--chatwoot-btn-y", `${position.y}px`);
+    applyBubblePosition();
+  }, [position, applyBubblePosition]);
+
+  // 监听 widget holder class 变化，状态切换时及时清理/重算
+  useEffect(() => {
+    let observer: MutationObserver | null = null;
+    let timer: ReturnType<typeof setTimeout>;
+    const setup = () => {
+      const holder = document.getElementById("cw-widget-holder");
+      if (!holder) {
+        timer = setTimeout(setup, 1000);
+        return;
+      }
+      observer = new MutationObserver(() => {
+        applyBubblePosition();
+        requestAnimationFrame(applyBubblePosition);
+      });
+      observer.observe(holder, { attributes: true, attributeFilter: ["class"] });
+    };
+    setup();
+    return () => {
+      observer?.disconnect();
+      clearTimeout(timer);
+    };
+  }, [applyBubblePosition]);
 
   useLayoutEffect(() => {
     const button = btnRef.current;
@@ -45,8 +124,8 @@ export const ChatFloatingButton = () => {
       if (!hasInitRef.current) {
         hasInitRef.current = true;
         setPosition({
-          x: boundsRef.current.maxX - 20,
-          y: boundsRef.current.maxY - 100
+          x: boundsRef.current.maxX - 40,
+          y: boundsRef.current.maxY - 60
         });
       }
     };
@@ -55,15 +134,6 @@ export const ChatFloatingButton = () => {
     const resizeObserver = new ResizeObserver(updateBounds);
     resizeObserver.observe(document.documentElement);
     return () => resizeObserver.disconnect();
-  }, []);
-
-  // 收到外部通知激活chat
-  useEffect(() => {
-    const em =  emitter.addListener("OPEN_CHAT", () => {
-      toggleWidget();
-    });
-
-    return () => em?.remove();
   }, []);
 
   const handlePointerDown = (event: PointerEvent<HTMLButtonElement>) => {
@@ -184,9 +254,12 @@ export const ChatFloatingButton = () => {
       ref={btnRef}
       onClick={() => {
         if (isDraggingRef.current) return;
+        // 点击前清理 inline 定位，防止残留影响对话框
+        const h = document.getElementById("cw-widget-holder");
+        if (h) for (const p of ["top","bottom","left","right","transform","max-width","width","height","position","z-index"]) h.style.removeProperty(p);
         toggleWidget();
       }}
-      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-sm btn-square z-10000 border-3 border-secondary"
+      className="fixed cursor-grab active:cursor-grabbing btn btn-primary btn-sm btn-square z-1001 border-3 border-secondary"
       style={{
         top: `${position.y}px`,
         left: `${position.x}px`,

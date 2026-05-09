@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Telefon numaranız doğrulandı. Devam edebilirsiniz.",
   "email_address_has_been_verified": "E-posta adresiniz doğrulandı. Devam edebilirsiniz.",
   "setNewPassword": "Yeni Şifre Belirle",
-  "passwordLengthRequirement": "Lütfen 6 ile 64 karakter arasında bir şifre girin."
+  "passwordLengthRequirement": "Lütfen 6 ile 64 karakter arasında bir şifre girin.",
+  "re_enter_new_password": "Yeni şifreyi tekrar girin",
+  "change_withdrawal_pin": "Çekim PIN'ini değiştir",
+  "confirm_withdrawal_pin": "Çekim PIN'ini onayla",
+  "enter_email": "E-posta girin",
+  "rolloverDetails": "Rollover Detayları",
+  "verified_email": "Doğrulanmış e-posta",
+  "verified_phone_number": "Doğrulanmış telefon numarası",
+  "change_key": "Değiştir",
+  "update_successfully": "Güncelleme başarılı. Bir sonraki girişiniz için lütfen {<1>{{value}}</1>} kullanın.",
+  "understand_key": "Anladım",
+  "ensure_email_valid": "E-posta adresinizin geçerli olduğundan ve erişebildiğinizden emin olun.",
+  "ensure_phone_valid": "Telefon numaranızın geçerli olduğundan ve erişebildiğinizden emin olun.",
+  "enter_phone_number_to_receive_verification_code": "Doğrulama kodu almak için telefon numaranızı aşağıya girin.",
+  "enter_email_address_to_receive_verification_code": "Doğrulama kodu almak için e-posta adresinizi aşağıya girin."
 }

@@ -34,5 +34,12 @@
   "depositNow": "Sisesta nüüd",
   "free_spins": "Tasuta keerutused",
   "play_with_balance_in": "Mängi saldoga",
-  "the_selected_currency_will_be_displayed_in": "Valitud valuuta kuvatakse"
+  "the_selected_currency_will_be_displayed_in": "Valitud valuuta kuvatakse",
+  "activity": "Tegevus",
+  "come_join_me_now_at": "LIITU KOHE",
+  "invite_friends_to_join_play": "Kutsu sõpru liituma ja Mängima",
+  "earn_up_to_50_commission_bonus": "Teenida kuni 50% vahendustasu <0>+{{bonus}}</0> Boonus",
+  "download_failed": "Allalaadimine ebaõnnestus. Palun proovige uuesti.",
+  "image_downloaded": "Pilt alla laaditud!",
+  "share_text_1": "Sain just {{multiplier}}x SUURE VÕIDU! 🔥"
 }

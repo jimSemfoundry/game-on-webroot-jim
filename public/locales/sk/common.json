@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Telefónne číslo už bolo použité. Prosím, použite iné číslo.",
     "mobileAlreadyBound": "Telefónne číslo je už priradené k tomuto účtu.",
     "fullscreen": "Celá obrazovka",
-    "exitFullscreen": "Ukončiť celú obrazovku"
+    "exitFullscreen": "Ukončiť celú obrazovku",
+    "draw": "Remíza"
   },
   "bonus_pool": "Bonusový fond",
   "pleaseEnterValidUsernameOrEmail": "Zadajte platné používateľské meno alebo e-mail",

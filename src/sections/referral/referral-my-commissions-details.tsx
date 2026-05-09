@@ -21,7 +21,7 @@ export default function ReferralMyCommissionsDetails({ item, isOpen, onClose }: 
     }
   }, [item]);
 
-  const { formatWithoutConversion } = useDisplayCurrencyFormatter();
+  const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={
@@ -110,7 +110,7 @@ export default function ReferralMyCommissionsDetails({ item, isOpen, onClose }: 
                           targetCurrency: user?.currency_fiat ?? '',
                           decimalPoint: 8,
                         })} */}
-                    {formatWithoutConversion(commissionDetail?.rewards_unlocked ?? 0, "USD", {
+                    {formatWithConversion(commissionDetail?.rewards_unlocked ?? 0, "USD", {
                       showSymbol: false,
                       showCode: true,
                       minimizeDecimals: true,

@@ -19,7 +19,7 @@ export const WithdrawType = () => {
   const { withdrawType, setWithdrawType } = useBoundStore();
 
   return (
-    <div className="flex justify-between gap-2 sticky md:top-0 -top-5 bg-base-400 z-11 py-4">
+    <div className="flex justify-between gap-2 sticky top-0 bg-base-300 z-11 py-4">
       {tabItems.map(({ label }) => (
         <button
           key={label}

@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Prosím zadajte presnú dĺžku {{length}} znakov",
   "disabledCharNotAllowed": "Znak {{char}} nie je povolený",
   "space": "medzera",
-  "thisWalletIsAlreadyUsed": "Táto peňaženka je už použitá"
+  "thisWalletIsAlreadyUsed": "Táto peňaženka je už použitá",
+  "login_failed": "Prihlásenie zlyhalo",
+  "login_error_code_1": "Používateľské meno musí byť platné telefónne číslo (začínajúce znakom + a s - za kódom krajiny) alebo e-mailová adresa",
+  "account_created_and_logged_in_successfully": "Účet bol vytvorený a úspešne prihlásený!",
+  "requests_later": "Príliš veľa požiadaviek z tejto IP adresy. Skúste to prosím znova neskôr.",
+  "booster_activated_successfully": "Booster úspešne aktivovaný!",
+  "depositNameEntered": "Meno zadané pre vklad musí zodpovedať celému menu<0>（Meno + Priezvisko）</0> na bankovom účte použitom na výber, v súlade s predpismi proti podvodom a praniu špinavých peňazí.\n\n Ak potrebujete zmeniť svoj bankový účet, prosím kontaktujte zákaznícku podporu a dokončite KYC overenie.",
+  "user_not_found_or_password_incorrect": "Používateľ sa nenašiel alebo heslo je nesprávne",
+  "free_spin_record_enabled_successfully": "Záznam o bezplatných točeniach bol úspešne aktivovaný!",
+  "check_in_success": "Check-in bol úspešný!",
+  "check_in_failed": "Check-in zlyhal!",
+  "check_in_already": "Check-in pre tento dátum už bol dokončený.",
+  "ballsClaimed": "Lopta priateľa úspešne získaná",
+  "cannotBetby": "Športový bonusový peňaženka je len na športové stávky."
 }

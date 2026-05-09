@@ -1,15 +1,24 @@
 import { createFileRoute, redirect, useNavigate, useSearch } from "@tanstack/react-router";
 import { publicService } from "@/services/publicService";
 import { useTournamentList } from "@/hooks/api/useAuth";
-import { TournamentBanner, TournamentRulesSection, TournamentMyProgress, TournamentLeaderboard, TournamentParticipatingGames } from "@/sections/tournament";
-import { useState, useEffect } from "react";
+import {
+  TournamentBanner,
+  TournamentMyProgress,
+  TournamentMyProgressV2,
+  TournamentLeaderboard,
+  TournamentParticipatingGames,
+  TournamentRulesSectionV2,
+  TournamentRulesSectionV3,
+  TournamentLeaderboardV2
+} from "@/sections/tournament";
+import { useState, useEffect, PropsWithChildren } from "react";
 import { requireAuth } from "@/lib/auth-guards";
 import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/_main/tournament/arena")({
   validateSearch: (search: Record<string, unknown>) => ({
     id: (search.id as string) || undefined,
-    provider: (search.provider as string) || undefined,
+    provider: (search.provider as string) || undefined
   }),
   async beforeLoad({ context, location }) {
     // 1. 首先检查用户是否已登录
@@ -19,15 +28,24 @@ export const Route = createFileRoute("/_main/tournament/arena")({
     const baseConfig = await context.queryClient.fetchQuery({
       queryKey: ["baseConfig"],
       queryFn: () => publicService.getBaseConfig(),
-      staleTime: 60 * 1000,
+      staleTime: 60 * 1000
     });
 
     const isLeagueEnabled = baseConfig?.data?.is_league === 1;
     if (!isLeagueEnabled) {
-      throw redirect({ to: "/casino", search: { openLogin: undefined, openSignUp: undefined, redirect: undefined , startapp: undefined, openFinance: undefined} });
+      throw redirect({
+        to: "/casino",
+        search: {
+          openLogin: undefined,
+          openSignUp: undefined,
+          redirect: undefined,
+          startapp: undefined,
+          openFinance: undefined
+        }
+      });
     }
   },
-  component: TournamentArenaPage,
+  component: TournamentArenaPage
 });
 
 function TournamentArenaPage() {
@@ -64,7 +82,7 @@ function TournamentArenaPage() {
       navigate({
         to: "/tournament/arena",
         search: { id: String(tournament.id), provider: undefined },
-        replace: true,
+        replace: true
       });
     }
   };
@@ -101,7 +119,7 @@ function TournamentArenaPage() {
 
   return (
     <>
-      <div className="flex flex-col gap-3 pb-26 px-5 sm:px-0">
+      <div className="flex flex-col gap-3 pb-26 px-5 sm:px-0 mt-4">
         {/* Tournament Banner and Rules - No gap between them */}
         <div className="relative">
           <TournamentBanner
@@ -109,18 +127,29 @@ function TournamentArenaPage() {
             selectedIndex={selectedIndex}
             onIndexChange={handleBannerChange}
           />
-          <TournamentRulesSection tournament={selectedTournament} />
         </div>
 
         {/* Tournament Details */}
         <div className="flex flex-col gap-3">
           {/* My Progress */}
-          {selectedTournament?.user_info && (
-            <TournamentMyProgress data={selectedTournament.user_info} />
+          {selectedTournament?.user_info && selectedTournament.id && (
+            selectedTournament.game_provider === "RakeRace" ? (
+              <TournamentMyProgressV2 id={selectedTournament.id} data={selectedTournament.user_info}>
+                <TournamentRulesSectionV3 data={selectedTournament} />
+              </TournamentMyProgressV2>
+            ) : (
+              <TournamentMyProgress data={selectedTournament.user_info}>
+                <TournamentRulesSectionV2 data={selectedTournament} />
+              </TournamentMyProgress>
+            )
           )}
 
           {/* Leaderboard */}
-          <TournamentLeaderboard tournament={selectedTournament} />
+          {selectedTournament?.game_provider === "RakeRace" ? (
+            <TournamentLeaderboardV2 tournament={selectedTournament} />
+          ) : (
+            <TournamentLeaderboard tournament={selectedTournament} />
+          )}
 
           {/* Participating Games */}
           <TournamentParticipatingGames tournament={selectedTournament} />
@@ -130,4 +159,13 @@ function TournamentArenaPage() {
   );
 }
 
-// placeholder removed; real component is imported from sections
+// 新版本锦标赛
+// 300016 = Rake Race
+export const TOURNAMENT_SET = new Set(["300016", "200015"]);
+export const TournamentRulesSectionGuard = ({ reverse = false, children }: PropsWithChildren<{
+  reverse?: boolean
+}>) => {
+  const searchParams = Route.useSearch();
+  return (reverse ? TOURNAMENT_SET.has(searchParams?.id!) : !TOURNAMENT_SET.has(searchParams?.id!)) && children;
+};
+

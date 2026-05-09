@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "手機號碼已被使用，請使用其他手機號碼。",
     "mobileAlreadyBound": "此手機號碼已綁定至此帳號。",
     "fullscreen": "全螢幕",
-    "exitFullscreen": "退出全螢幕"
+    "exitFullscreen": "退出全螢幕",
+    "draw": "平手"
   },
   "bonus_pool": "獎金池",
   "pleaseEnterValidUsernameOrEmail": "請輸入有效的用戶名或電子郵件",

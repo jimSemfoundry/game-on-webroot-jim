@@ -190,5 +190,13 @@
   "programAccessUpdate": "Uppdatering av programåtkomst",
   "referralProgramPrivileges": "Dina privilegier i värvningsprogrammet har återkallats efter en granskning av ditt konto och ditt deltagande i programmet. Vi har identifierat aktivitet som inte följer villkoren eller den avsedda användningen av vårt värvningsprogram. Detta kan omfatta misstänkta värvningsmönster, otillåtna marknadsföringsmetoder, missbruk av incitament eller försök att kringgå riktlinjer för skälig användning.",
   "referralRewardsPrivileges": "Som ett resultat har din möjlighet att skapa nya värvningsbelöningar, dela värvningslänkar eller ta emot förmåner från värvningar inaktiverats. Väntande eller framtida belöningar kopplade till värvningsprogrammet kommer att hållas inne och annulleras i enlighet med våra policyer. <0>All annan funktionalitet på ditt konto förblir intakt och påverkas inte av denna förändring</0>.",
-  "understandDisappointing": "Vi förstår att detta kan vara en besvikelse. Om du anser att beslutet är felaktigt eller vill ha fler detaljer, vänligen kontakta vårt supportteam med relevant information så granskar vi ditt ärende."
+  "understandDisappointing": "Vi förstår att detta kan vara en besvikelse. Om du anser att beslutet är felaktigt eller vill ha fler detaljer, vänligen kontakta vårt supportteam med relevant information så granskar vi ditt ärende.",
+  "spread_the_Love": "Sprid kärleken",
+  "need": "Behöver du",
+  "new_friends": "Nya vänner?",
+  "timeToRecruit": "Dags att rekrytera! Tryck på knappen för att berätta om oss för en helt okänd person på WhatsApp.",
+  "date": "datum",
+  "save": "spara",
+  "enterCampaignName": "Ange kampanjnamn",
+  "shareText": "🎮 Gå med mig på den här fantastiska plattformen!"
 }

@@ -34,5 +34,12 @@
   "depositNow": "Iemaksāt tagad",
   "free_spins": "Bezmaksas griezieni",
   "play_with_balance_in": "Spēlēt ar bilanci valūtā",
-  "the_selected_currency_will_be_displayed_in": "Izvēlētā valūta tiks rādīta"
+  "the_selected_currency_will_be_displayed_in": "Izvēlētā valūta tiks rādīta",
+  "activity": "Aktivitāte",
+  "come_join_me_now_at": "PIEVENOJIES TAGAD",
+  "invite_friends_to_join_play": "Aicini draugus pievienoties un Spēlēt",
+  "earn_up_to_50_commission_bonus": "Pelni līdz 50% komisijas <0>+{{bonus}}</0> Bonuss",
+  "download_failed": "Lejupielāde neizdevās. Lūdzu, mēģiniet vēlreiz.",
+  "image_downloaded": "Attēls lejupielādēts!",
+  "share_text_1": "Es tikko ieguvu {{multiplier}}x LIELU LAIMESTU! 🔥"
 }

@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Bitte geben Sie ein Passwort ein",
   "verification_code_sent_to_your": "Bestätigungscode wurde an Ihre E-Mail/Telefon gesendet",
   "one_min_error": "Erhalten Sie den Bestätigungscode in 1 Minute erneut.",
-  "signInWith": "Registrieren mit"
+  "must_agree": "Sie müssen den Geschäftsbedingungen zustimmen",
+  "signInWith": "Registrieren mit",
+  "usernameTooShort": "Der Benutzername muss mindestens 6 Zeichen lang sein"
 }

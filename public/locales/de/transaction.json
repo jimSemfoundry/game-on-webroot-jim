@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat-Abhebung",
     "cryptoWithdraw": "Krypto-Abhebung",
     "bonus": "Bonus",
+    "bounty": "Kopfgeld",
     "win": "Gewinn",
     "bet": "Wette",
     "refund": "Rückerstattung",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback-Bonus",
     "cashbackbonus": "Cashback-Bonus",
     "referral": "Empfehlung",
-    "commission": "Kommission"
+    "commission": "Kommission",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Spielautomaten",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Freigeschaltete Mittel",
     "rolloverMul": "Wetteinsatz-Multiplikator"
   },
-  "assistance": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut oder kontaktieren Sie den Kundenservice für Unterstützung"
+  "assistance": "Ihr Name stimmt nicht mit dem Namen überein, den Sie zuerst für diesen Kanal verwendet haben. Bitte kontaktieren Sie den Kundenservice."
 }

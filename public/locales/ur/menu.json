@@ -34,6 +34,8 @@
   "upToReferral": "{{amount}} فی حوالہ تک",
   "language": "زبان",
   "gameCurrency": "گیم کرنسی",
-  "hideBlockedGames": "بند شدہ گیمز چھپائیں",
-  "settings": "ترتیبات"
+  "hideBlockedGames": "چھپائیں \n<0>مسدود کردہ گیمز</0>",
+  "settings": "ترتیبات",
+  "problemReport": "مسئلے کی رپورٹ",
+  "logging_key": "لاگنگ"
 }

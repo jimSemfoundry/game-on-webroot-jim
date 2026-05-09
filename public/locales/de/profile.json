@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Ihre Telefonnummer wurde verifiziert. Sie können fortfahren.",
   "email_address_has_been_verified": "Deine E-Mail-Adresse wurde verifiziert. Du kannst jetzt fortfahren.",
   "setNewPassword": "Neues Passwort festlegen",
-  "passwordLengthRequirement": "Bitte geben Sie ein Passwort zwischen 6 und 64 Zeichen ein."
+  "passwordLengthRequirement": "Bitte geben Sie ein Passwort zwischen 6 und 64 Zeichen ein.",
+  "re_enter_new_password": "Neues Passwort erneut eingeben",
+  "change_withdrawal_pin": "Auszahlungs-PIN ändern",
+  "confirm_withdrawal_pin": "Auszahlungs-PIN bestätigen",
+  "enter_email": "E-Mail eingeben",
+  "rolloverDetails": "Rollover-Details",
+  "verified_email": "Verifizierte E-Mail",
+  "verified_phone_number": "Verifizierte Telefonnummer",
+  "change_key": "Ändern",
+  "update_successfully": "Aktualisierung erfolgreich. Bitte verwenden Sie {<1>{{value}}</1>} für Ihre nächste Anmeldung.",
+  "understand_key": "Verstanden",
+  "ensure_email_valid": "Stellen Sie sicher, dass Ihre E-Mail-Adresse gültig ist und Sie darauf zugreifen können.",
+  "ensure_phone_valid": "Stellen Sie sicher, dass Ihre Telefonnummer gültig ist und Sie darauf zugreifen können.",
+  "enter_phone_number_to_receive_verification_code": "Geben Sie unten Ihre Telefonnummer ein, um einen Bestätigungscode zu erhalten.",
+  "enter_email_address_to_receive_verification_code": "Geben Sie unten Ihre E-Mail-Adresse ein, um einen Bestätigungscode zu erhalten."
 }

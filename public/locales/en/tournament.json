@@ -13,7 +13,7 @@
   "myPosition": "My Position",
   "wagered": "Wagered",
   "prize": "Prize",
-  "leagueLeaderboard": "League Leaderboard",
+  "leagueLeaderboard": "Leaderboard",
   "player": "Player",
   "participatingGames": "Participating Games",
   "jiliSlotsMegaBonanza": "JILI Slots\nMega Bonanza",
@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">Hit the lucky sevens and claim your instant bonus! If your Bet ID ends in 7777 while playing PG Soft or JILI slots, you'll receive your bet amount back as a bonus - up to <span class=\"font-bold\">₱2,868.20</span>.             </p>\n\n             <p class=\"mt-5 leading-5\">No wagering requirements, no strings attached - just free cash! Simply visit your Bonus page and click Claim to receive your reward.            </p>\n\n             <h4 class=\"mt-5 leading-5\">Rules & Terms:</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                 <span class=\"font-medium\"></span>Eligibility: Only bets placed on PG and JILI slots qualify for this promotion.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Winning Condition: If your Bet ID ends in 7777, you'll receive 100% of your bet amount as a bonus (up to $50).\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Claim Frequency: Users can claim this bonus once per day if they meet the criteria.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Maximum Bonus: The bonus amount is capped at $50 USD per qualifying Bet ID.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>How to Claim:\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     <span class=\"\">• </span>Visit the Bonus Page after meeting the condition.\n                   </li>\n                   <li>\n                     <span class=\"\">• </span>Click the Claim button to receive your bonus.\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>No Wagering Requirement: Funds are instantly available for withdrawal or further gameplay.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Automatic Qualification: The system tracks eligible Bet IDs and makes the bonus available for claiming.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>General Terms: The casino reserves the right to modify or terminate this promotion at any time. Abuse or fraudulent activity will result in disqualification from the promotion.\n               </li>\n             </ol>\n         </div>",
   "beginnerTitle": "Beginner's Luck",
   "beginnerDescription": "Rules & Terms",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">New to the casino? Beginner's Luck is here to give you a daily shot at big rewards! This VIP 1-exclusive tournament is designed just for new players, letting you compete for cash prizes, free spins, and bonus credits by simply playing slot games.</p>\n       <p class=\"mt-5 leading-5\">All VIP 1 players' wagers automatically count toward the tournament, meaning no extra steps—just spin and play as usual! If you level up during the tournament, you'll stay in until 23:59 GMT, but you won't be eligible to enter again the next day.</p>\n       <p class=\"mt-5 leading-5 font-medium\">How It Works:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Play Slot Games:</span> Only bets placed on slot games count toward the tournament.\n           </li>\n           <li>\n               <span class=\"font-medium\">Automatic Participation:</span> All VIP 1 players' wagers automatically count toward the tournament.\n           </li>\n           <li>\n               <span class=\"font-medium\">One-Time Entry Per Player:</span> If you level up during the tournament, you remain a participant for that day, but you won't be eligible to re-enter the next day.\n           </li>\n           <li>\n               <span class=\"font-medium\">Leaderboard Ranking:</span> Players are ranked based on total bet amounts (not wins or losses).\n           </li>\n           <li>\n               <span class=\"font-medium\">Tournament Duration:</span> Runs daily from 00:00 GMT to 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">Top 10 Players Win:</span> The top 10 players will receive cash prizes, free spins, or bonus credits.\n           </li>\n           <li>\n               <span class=\"font-medium\">Live Leaderboard:</span> Track your ranking and push for the top with real-time updates.\n           </li>\n           <li>\n               <span class=\"font-medium\">Instant Payouts:</span> Prizes are automatically credited after the tournament ends.\n           </li>\n           <li>\n               <span class=\"font-medium\">Fair Play Policy:</span> Any fraudulent activity or abuse will result in disqualification.\n           </li>\n           <li>\n               <span class=\"font-medium\">General Terms:</span> The casino reserves the right to modify or cancel this promotion at any time.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Just spin, bet, and let beginner's luck do the rest!</p>\n    </div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">New to the casino? Beginner's Luck is here to give you a daily shot at big rewards! This VIP 1-exclusive tournament is designed just for new players, letting you compete for cash prizes, free spins, and bonus credits by simply playing slot games.</p>\n       <p class=\"mt-5 leading-5\">All VIP 1 players' wagers automatically count toward the tournament, meaning no extra steps—just spin and play as usual! If you level up during the tournament, you'll stay in until 23:59 GMT, but you won't be eligible to enter again the next day.</p>\n       <p class=\"mt-5 leading-5 font-medium\">How It Works:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Play Slot Games:</span> Only bets placed on slot games count toward the tournament.\n           </li>\n           <li>\n               <span class=\"font-medium\">Automatic Participation:</span> All VIP 1 players' wagers automatically count toward the tournament.\n           </li>\n           <li>\n               <span class=\"font-medium\">One-Time Entry Per Player:</span> If you level up during the tournament, you remain a participant for that day, but you won't be eligible to re-enter the next day.\n           </li>\n           <li>\n               <span class=\"font-medium\">Leaderboard Ranking:</span> Players are ranked based on total bet amounts (not wins or losses).\n           </li>\n           <li>\n               <span class=\"font-medium\">Tournament Duration:</span> Runs daily from 00:00 GMT to 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">Top 10 Players Win:</span> The top 10 players will receive cash prizes, free spins, or bonus credits.\n           </li>\n           <li>\n               <span class=\"font-medium\">Live Leaderboard:</span> Track your ranking and push for the top with real-time updates.\n           </li>\n           <li>\n               <span class=\"font-medium\">Instant Payouts:</span> Prizes are automatically credited after the tournament ends.\n           </li>\n           <li>\n               <span class=\"font-medium\">Fair Play Policy:</span> Any fraudulent activity or abuse will result in disqualification.\n           </li>\n           <li>\n               <span class=\"font-medium\">General Terms:</span> The casino reserves the right to modify or cancel this promotion at any time.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Just spin, bet, and let beginner's luck do the rest!</p>\n    </div>",
+  "jiliSlot": "JILI SLOTS",
+  "MegaBonanza": "MEGA BONANZA",
+  "pgSoft": "PG SOFT",
+  "Races": "RACES",
+  "days": "days",
+  "RakeRace": "RakeRace",
+  "drops_races": "DROPS & RACES",
+  "arena": "ARENA",
+  "howToParticipate": "How to Participate",
+  "howToParticipateContent": {
+    "rules1": "Play any participating game during the tournament period",
+    "rules2": "Each bet contributes to your total wagered amount",
+    "rules3": "Climb the leaderboard by wagering more"
+  },
+  "prizeDistribution": "Prize Distribution",
+  "prizeDistributionContent": {
+    "prize1": "Prizes are distributed based on your final rank",
+    "prize2": "Winners will be notified after the tournament ends",
+    "prize3": "Prize pool is progressive and increases with participation"
+  },
+  "termsAndConditions": "Terms and Conditions",
+  "termsAndConditionsContent": {
+    "term1": "Only real money bets count towards the tournament",
+    "term2": "Management reserves the right to modify or cancel the tournament",
+    "term3": "General terms and conditions apply"
+  },
+  "unranked": "Unranked",
+  "rakerace": {
+    "title": "Turbo Rake Race",
+    "desc": "Get ready for the Turbo Rake Race, where the top <0>{{players}}</0> players win massive rewards from our minimum prize pool of <0>{{prize}}</0> every week!",
+    "p0_title": "Tournament Schedule",
+    "p0_desc": "The tournament runs from Sunday <0>{{start}}</0> to the following Sunday <0>{{end}}</0>, giving you seven days to climb the leaderboard and secure your spot among the winners.",
+    "p1_title": "Eligibility",
+    "p1_desc": "All bets placed (with the exception of free spins and bonus wallet) will be counted towards the rakerace.\n Rankings are based on your weighted total bet amount (wager amount * game type) - game outcomes do not affect your position. More information on game types below:",
+    "p2_title": "Game Type",
+    "p2_desc": "",
+    "p3_title": "Leaderboard Ranking",
+    "p3_desc": "<0>{{places}}</0> places paid \n The top <0>{{players}}</0> players will receive attractive rewards as listed below.",
+    "p4_title": "Fair Play Policy",
+    "p4_desc": "Any fraudulent activity or abuse will result in disqualification.",
+    "p5_title": "Expiration",
+    "p5_desc": "None - Tournament Rewards accumulate until claimed.",
+    "p6_title": "General Terms",
+    "p6_desc": "Rewards are calculated and credited in {{token}}, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate. \n\n The casino reserves the right to modify or terminate this promotion at any time. Abuse or fraudulent activity will result in disqualification from the promotion."
+  },
+  "rank": "Rank",
+  "jump": "Jump",
+  "pastLeaderboard": "Past Leaderboard",
+  "showMore": "show more",
+  "lastWeeksLeaderboard": "Last Week’s Leaderboard"
 }

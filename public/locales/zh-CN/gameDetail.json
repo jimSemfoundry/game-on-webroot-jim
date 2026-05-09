@@ -34,5 +34,12 @@
   "depositNow": "立即存款",
   "free_spins": "免费旋转",
   "play_with_balance_in": "使用余额进行游戏",
-  "the_selected_currency_will_be_displayed_in": "所选货币将显示在"
+  "the_selected_currency_will_be_displayed_in": "所选货币将显示在",
+  "activity": "活动",
+  "come_join_me_now_at": "现在加入我们",
+  "invite_friends_to_join_play": "邀请好友加入并游戏",
+  "earn_up_to_50_commission_bonus": "赚取高达50%佣金 <0>+{{bonus}}</0> 奖金",
+  "download_failed": "下载失败，请重试。",
+  "image_downloaded": "图片已下载！",
+  "share_text_1": "我刚中了 {{multiplier}}x 大奖！🔥"
 }

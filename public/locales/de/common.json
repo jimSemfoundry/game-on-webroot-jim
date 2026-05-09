@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Die Mobilnummer wurde bereits verwendet. Bitte verwenden Sie eine andere Mobilnummer.",
     "mobileAlreadyBound": "Die Mobilnummer ist bereits mit diesem Konto verknüpft.",
     "fullscreen": "Vollbild",
-    "exitFullscreen": "Vollbild beenden"
+    "exitFullscreen": "Vollbild beenden",
+    "draw": "Unentschieden"
   },
   "bonus_pool": "Bonus-Pool",
   "pleaseEnterValidUsernameOrEmail": "Bitte geben Sie einen gültigen Benutzernamen oder eine E-Mail-Adresse ein",

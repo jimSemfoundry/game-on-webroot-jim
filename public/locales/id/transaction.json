@@ -64,6 +64,7 @@
     "fiatWithdraw": "Penarikan Fiat",
     "cryptoWithdraw": "Penarikan Crypto",
     "bonus": "Bonus",
+    "bounty": "Bounty",
     "win": "Menang",
     "bet": "Taruhan",
     "refund": "Pengembalian Dana",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Bonus Rakeback",
     "cashbackbonus": "Bonus Cashback",
     "referral": "Referensi",
-    "commission": "Komisi"
+    "commission": "Komisi",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Slot",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Dana yang Dibuka",
     "rolloverMul": "Pengali Taruhan"
   },
-  "assistance": "Silakan periksa detail Anda dan coba lagi atau hubungi layanan pelanggan untuk bantuan"
+  "assistance": "Nama Anda tidak cocok dengan nama yang pertama kali Anda gunakan untuk saluran ini. Silakan hubungi layanan pelanggan."
 }

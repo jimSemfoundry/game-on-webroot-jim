@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Телефонният номер вече е използван. Моля, използвайте друг номер.",
     "mobileAlreadyBound": "Телефонният номер вече е свързан с този акаунт.",
     "fullscreen": "На цял екран",
-    "exitFullscreen": "Изход от цял екран"
+    "exitFullscreen": "Изход от цял екран",
+    "draw": "Равен"
   },
   "bonus_pool": "Бонусен фонд",
   "pleaseEnterValidUsernameOrEmail": "Моля, въведете валидно потребителско име или имейл",

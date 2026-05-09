@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Câștigurile din rotirile gratuite nu vor expira până nu sunt deblocate și revendicate.",
     "general_terms": "Termeni Generali",
     "general_terms_desc": "Recompensele din Rotiri Gratuite sunt calculate și creditate în BUCK, apoi afișate în moneda fiat preferată pentru comoditate. Vă rugăm să rețineți, conversiile valutare sunt aproximative.",
-    "general_terms_desc_2": "Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promovare."
+    "general_terms_desc_2": "Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promovare.",
+    "redeem_count_free_spins": "RĂSCUMPĂRĂ {{freeSpinsCount}} ROTIRI GRATUITE?"
   },
   "mysteryBox": {
     "description": "Cu cât joci mai mult, cu atât cresc șansele de câștig mare. Deschide Mystery Box în fiecare lună pentru a descoperi bonusuri surpriză adaptate activității tale. Învârte, joacă și revendică recompensa!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Bonus în numerar",
   "none": "Niciunul",
   "bonus_limit": "Limită bonus",
-  "minimum_deposit": "Depozit minim"
+  "minimum_deposit": "Depozit minim",
+  "get_buck": "OBȚINE BUCK",
+  "what_is_buck": "Ce este BUCK?",
+  "what_is_buck_description": "BUCK este un token exclusiv pentru toate recompensele platformei, evaluat la 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "Este BUCK schimbabil?",
+  "is_buck_exchangeable_description": "Da. Poți converti BUCK în criptomonede sau monede fiat acceptate oricând, direct pe platformă.",
+  "expiration_description": "Nu. BUCK nu expiră niciodată și rămâne în soldul tău până îl utilizezi.",
+  "general_terms_description": "Recompensele sunt calculate și creditate în USDT, apoi afișate în moneda ta fiat preferată pentru comoditate. Te rugăm să reții că conversiile valutare sunt aproximative. \n\n Casino-ul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Obțineți mai multe Buddy Balls",
+    "daily_check_in": "Check-in zilnic",
+    "refer_a_friend": "Recomandă un prieten",
+    "referral_first_deposit": "Prima depunere prin recomandare"
+  },
+  "bonus_details_modal": {
+    "description": "Bine ai venit la Magazin de Bonusuri, unde îți poți converti banii în Dolari Bonus și poți primi un plus de 20%-180%, în funcție de cerințele de rulaj (cerință de rulaj). Dolari Bonus sunt credite speciale de joc disponibile pentru anumite jocuri slot selectate. Dolari Bonus pot fi convertiți în bani retragabili după ce finalizezi cerința de rulaj.",
+    "claim_distribution": "Când finalizezi cerința de cerință de rulaj (rulaj), poți converti soldul de Dolari Bonus în moneda aleasă făcând clic pe butonul de revendicare.",
+    "expiration_description": "Dolari Bonus trebuie utilizați în perioada de valabilitate afișată în fila Magazin de Bonusuri. Soldurile de Dolari Bonus neutilizate vor fi pierdute după expirare. Te rugăm să reții că poți avea o singură promoție Dolari Bonus activă la un moment dat.",
+    "generalTerms_description": "Dolari Bonus sunt calculați și creditați în BONUS, apoi afișați în moneda de afișare aleasă pentru confortul tău. Conversiile valutare sunt aproximative. Cazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea fără obligația de a justifica. Orice abuz sau activitate frauduloasă va duce la descalificarea din promoție."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Bine ați venit la Sports Bonus, unde vă puteți converti banii în dolari Sports Bonus și puteți obține 50% suplimentar, în funcție de cerințele de pariere. Dolarii Bonus Sportivi sunt credite speciale de joc disponibile pentru a fi folosite la pariurile sportive. Dolarii Bonus Sportivi pot fi convertiți în numerar retras după ce îndepliniți cerințele de pariere.",
+    "claim_distribution": "Când îndepliniți cerința de pariere, puteți converti soldul bonusului sportiv într-o monedă la alegere făcând clic pe butonul de revendicare.",
+    "wagering_rules": "- Pariuri pierdute: Suma totală a pariului tău este luată în calcul integral pentru cerința de pariere.\n- Pariuri câștigătoare: Sunt luate în calcul doar dacă cotele sunt ≥ {{minOdds}}. Dacă cotele sunt sub {{minOdds}}, pariul nu este luat în calcul pentru cerința de pariere.\n- Pariuri cu cash out: Sunt luate în calcul doar dacă suma de cash out este mai mare decât suma inițială a pariului × {{minOdds}}.\n- Doar suma pariată este luată în calcul pentru cerința de pariere, niciodată câștigurile.",
+    "expiration_description": "Dolarii pentru bonusuri sportive trebuie utilizați în perioada de valabilitate afișată în fila Bonusuri sportive. Soldurile neutilizate în dolari din bonusurile sportive vor fi pierdute după perioada de valabilitate.",
+    "generalTerms_description": "- Recompensele Sports Bonus sunt calculate și creditate în SPORTS BONUS, apoi afișate în moneda preferată pentru comoditate. Vă rugăm să rețineți că conversiile valutare sunt aproximative.\n- Cazinoul își rezervă dreptul de a modifica sau revoca eligibilitatea în orice moment, fără obligația de a justifica. Orice abuz sau activitate frauduloasa va duce la descalificarea din promotie."
+  }
 }

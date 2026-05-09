@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Prosimy wypełnić informacje dotyczące wypłaty waluty fiducjarnej.",
   "updating_withdrawal_address": "Aktualizowanie adresu wypłaty, proszę czekać...",
   "please_select_withdrawal_method": "Proszę wybrać metodę wypłaty.",
-  "integer_deposit": "Ten kanał wymaga, aby kwota wpłaty była całkowitą wielokrotnością {{value}}.",
+  "integer_deposit": "Ten kanał wymaga, aby kwota wpłaty była w jednostkach {{value}}.",
   "enter_string_en_only": "Można wprowadzać tylko angielskie litery, cyfry i spacje.",
-  "enter_string_min_length": "Długość musi wynosić co najmniej {{length}}."
+  "enter_string_min_length": "Długość musi wynosić co najmniej {{length}}.",
+  "met_eligibility": "*Spełniłeś kryteria kwalifikacyjne do specjalnej oferty. Doładuj teraz, aby otrzymać nagrodę.",
+  "read_carefully": "Proszę przeczytać uważnie",
+  "no_channel": "Obecnie nie ma dostępnych kanałów"
 }

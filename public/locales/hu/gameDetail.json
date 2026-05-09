@@ -34,5 +34,12 @@
   "depositNow": "Betét Most",
   "free_spins": "Ingyenes Pörgetések",
   "play_with_balance_in": "Játssz a Kiegyenlített Összeggel",
-  "the_selected_currency_will_be_displayed_in": "A kiválasztott valuta itt lesz megjelenítve"
+  "the_selected_currency_will_be_displayed_in": "A kiválasztott valuta itt lesz megjelenítve",
+  "activity": "Tevékenység",
+  "come_join_me_now_at": "CSATLAKOZZ MOST",
+  "invite_friends_to_join_play": "Hívd meg barátaidat, hogy csatlakozzanak és Játsszanak",
+  "earn_up_to_50_commission_bonus": "Keress akár 50% jutalékot <0>+{{bonus}}</0> Bónusz",
+  "download_failed": "Letöltés sikertelen. Kérjük, próbálja újra.",
+  "image_downloaded": "Kép letöltve!",
+  "share_text_1": "Most találtam el egy {{multiplier}}x NAGY NYEREMÉNYT! 🔥"
 }

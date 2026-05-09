@@ -34,5 +34,12 @@
   "depositNow": "Vložte nyní",
   "free_spins": "Volné otočky",
   "play_with_balance_in": "Hrajte se zůstatkem v",
-  "the_selected_currency_will_be_displayed_in": "Vybranou měnu bude zobrazena v"
+  "the_selected_currency_will_be_displayed_in": "Vybranou měnu bude zobrazena v",
+  "activity": "Aktivita",
+  "come_join_me_now_at": "PŘIPOJTE SE NYNÍ K",
+  "invite_friends_to_join_play": "Pozvěte přátele, aby se připojili a Hráli",
+  "earn_up_to_50_commission_bonus": "Vydělejte až 50% provizi <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Stažení se nezdařilo. Zkuste to prosím znovu.",
+  "image_downloaded": "Obrázek stažen!",
+  "share_text_1": "Právě jsem trefil BIG WIN {{multiplier}}x! 🔥"
 }

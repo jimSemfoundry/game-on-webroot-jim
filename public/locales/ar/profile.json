@@ -108,5 +108,19 @@
     "statusFilterLabel": "الحالة"
   },
   "phone_number_has_been_verified": "تم التحقق من رقم هاتفك. يمكنك المتابعة الآن.",
-  "email_address_has_been_verified": "تم التحقق من عنوان بريدك الإلكتروني. يمكنك المتابعة."
+  "email_address_has_been_verified": "تم التحقق من عنوان بريدك الإلكتروني. يمكنك المتابعة.",
+  "re_enter_new_password": "أعد إدخال كلمة المرور الجديدة",
+  "change_withdrawal_pin": "تغيير رقم PIN للسحب",
+  "confirm_withdrawal_pin": "تأكيد رقم PIN للسحب",
+  "enter_email": "أدخل البريد الإلكتروني",
+  "rolloverDetails": "تفاصيل متطلبات الرهان",
+  "verified_email": "البريد الإلكتروني المُحقق",
+  "verified_phone_number": "رقم الهاتف المُحقق",
+  "change_key": "تغيير",
+  "update_successfully": "تم التحديث بنجاح. يرجى استخدام {<1>{{value}}</1>} لتسجيل الدخول القادم.",
+  "understand_key": "فهمت",
+  "ensure_email_valid": "تأكد من أن عنوان بريدك الإلكتروني صالح ويمكنك الوصول إليه.",
+  "ensure_phone_valid": "تأكد من أن رقم هاتفك صالح ويمكنك الوصول إليه.",
+  "enter_phone_number_to_receive_verification_code": "أدخل رقم هاتفك أدناه لتلقي رمز التحقق.",
+  "enter_email_address_to_receive_verification_code": "أدخل عنوان بريدك الإلكتروني أدناه لتلقي رمز التحقق."
 }

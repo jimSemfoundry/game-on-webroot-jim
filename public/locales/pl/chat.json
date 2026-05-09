@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Czat obsługi klienta nie mógł zostać załadowany",
   "read": "Przeczytane",
   "unread": "Nieprzeczytane",
-  "customerService": "Obsługa klienta"
+  "customerService": "Obsługa klienta",
+  "today": "dzisiaj",
+  "earlier": "wcześniej",
+  "older": "starsze"
 }

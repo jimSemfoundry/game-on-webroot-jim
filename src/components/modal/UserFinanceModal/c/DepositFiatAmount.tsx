@@ -1,16 +1,14 @@
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
-import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
-import { useDepositBonusConfig } from "@/hooks/api/usePublic.ts";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
 import Decimal from "decimal.js";
-import { Plus } from "lucide-react";
+// import { Plus } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import FormatAmount from "./FormatAmount";
+// import FormatAmount from "./FormatAmount";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import { useGetPromoByPage } from "@/query/promo";
 import {
@@ -18,9 +16,10 @@ import {
   InnerProviderAmountRangeFormat
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { DepositRangeOptions } from "@/components/modal/UserFinanceModal/c/DepositRangeOptions.tsx";
-import { InnerDisplayContent } from "@/components/header/message-v2/c/InnerComponents.tsx";
+// import { InnerDisplayContent } from "@/components/header/message-v2/c/InnerComponents.tsx";
 import { not_fiat_currency_deposit_activity_set } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import { emitter } from "@/store/emitter.ts";
 
 export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
   const { t } = useTranslation();
@@ -28,12 +27,7 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
   // TODO: finance窗口是否打开
   const { isUserFinanceOpen } = useFinanceModal();
 
-  const { status } = useAuth();
-
   const { currentPromo } = useGetPromoByPage(isUserFinanceOpen);
-
-  // 获取存款奖励配置
-  const { data: bonusConfig } = useDepositBonusConfig(isUserFinanceOpen);
 
   // from data store, share common data
   const { depositFiat, setDepositFiat } = useBoundStore();
@@ -96,7 +90,7 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
     if (promotion_for_deposit_fiat) {
       if (d_amount.lt(promotion_deposit_min_amount_limit)) return "0";
       if (deposit_special_offer_keys.has(currentPromo?.promo_code)) {
-        const bonus_rate = currentPromo?.bonus_rate ?? 0;
+        const bonus_rate = (Number(currentPromo?.bonus_rate) || Number(currentPromo?.fiat_bonus_rate)) ?? 0;
         return Decimal.min(d_amount, promotion_deposit_max_amount_limit).times(bonus_rate).toString();
       }
       return (Decimal(exchangeRates?.["USDT"] || 0)
@@ -104,16 +98,13 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
         .times(currentPromo?.bonus_amount || 0)).toFixed(depositFiat?.currency?.display_decimal, Decimal.ROUND_DOWN);
     }
     const min_limit = depositFiat.method?.min || 0;
-    const bonusPercent = bonusConfig?.data?.find((item: {
-      level: number
-    }) => item.level - 1 === status?.deposit_bonus_times)?.bonus_percent ?? 0;
-    return d_amount.lt(min_limit) ? "0" : d_amount.times(bonusPercent).toString();
+    return d_amount.lt(min_limit) ? "0" : d_amount.toString();
   }, [
-    bonusConfig?.data,
     currentPromo?.bonus_rate,
     currentPromo?.promo_type,
     currentPromo?.promo_code,
     currentPromo?.bonus_amount,
+    currentPromo?.fiat_bonus_rate,
     depositFiat.method?.min,
     depositFiat.formItem?.amount,
     depositFiat?.currency?.currency,
@@ -131,6 +122,11 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
   useEffect(() => {
     setDepositFiat({ range_error: rangeError, multiple_error: multipleError });
   }, [rangeError, multipleError]);
+
+  // 事件通知 - 计算优惠码带来的额外奖励
+  useEffect(() => {
+    emitter.emit('CALC_BONUS_AMOUNT', calcBonusAmount)
+  }, [calcBonusAmount]);
 
   // 存款活动开启时设置默认的填充值
   // useLayoutEffect(() => {
@@ -163,25 +159,21 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
 
       {/* deposit fiat amount control */}
       <div className="relative overflow-hidden rounded-sm flex flex-col gap-4">
-        <InnerErrorWrapper>
-          {/*TODO: debug code*/}
-          {/*精度{final_decimal}*/}
-          {/*倍数{multiple}*/}
+        <InnerErrorWrapper id={'AMOUNT'}>
           <NumericFormat
-            suf={
-              <div className="text-primary text-sm font-bold flex items-center gap-1">
-                <img src="/icons/ui/gift-box.png" alt="" className="w-5 h-5" />
-                <Plus size={10} strokeWidth={5} />
-                <FormatAmount
-                  unit={getCurrencySymbol(depositFiat.currency?.currency)}
-                  amount={calcBonusAmount}
-                  decimals={2}
-                  local
-                />
-              </div>
-            }
+            // suf={
+            //   <div className="text-primary text-sm font-bold flex items-center gap-1">
+            //     <img src="/icons/ui/gift-box.png" alt="" className="w-5 h-5" />
+            //     <Plus size={10} strokeWidth={5} />
+            //     <FormatAmount
+            //       unit={getCurrencySymbol(depositFiat.currency?.currency)}
+            //       amount={calcBonusAmount}
+            //       decimals={2}
+            //       local
+            //     />
+            //   </div>
+            // }
             isAllowed={({ value }) => Decimal(value || 0).lt(1000000000000)}
-            wrapCls="py-1"
             decimalScale={final_decimal}
             placeholder="0.00"
             prefix={getCurrencySymbol(depositFiat.currency?.currency)}
@@ -195,14 +187,14 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
           />
 
           {/* 动态的活动文本 */}
-          <InnerDisplayContent show={!promotion_for_deposit_fiat}>
-            <InnerBonusText text={t(`finance:toYourBonusPool`)} />
-          </InnerDisplayContent>
+          {/*<InnerDisplayContent show={!promotion_for_deposit_fiat}>*/}
+          {/*  <InnerBonusText text={t(`finance:toYourBonusPool`)} />*/}
+          {/*</InnerDisplayContent>*/}
 
           {/* 动态的活动文本 */}
-          <InnerDisplayContent show={promotion_for_deposit_fiat}>
-            <InnerBonusText text={t(`finance:to_your_account_balance`)} />
-          </InnerDisplayContent>
+          {/*<InnerDisplayContent show={promotion_for_deposit_fiat}>*/}
+          {/*  <InnerBonusText text={t(`finance:to_your_account_balance`)} />*/}
+          {/*</InnerDisplayContent>*/}
 
           {/* 输入发生错误 - 数值输入范围错误 */}
           <ErrorMessageBox
@@ -231,10 +223,10 @@ export const DepositFiatAmount = ({ multiple }: { multiple?: number }) => {
   );
 };
 
-const InnerBonusText = ({ text }: { text: string }) => {
-  return (<span
-    className="absolute top-0 right-0 bg-primary text-[8px] font-bold px-2 text-primary-content rounded-bl-sm z-1">{text}</span>);
-};
+// const InnerBonusText = ({ text }: { text: string }) => {
+//   return (<span
+//     className="absolute top-0 right-0 bg-primary text-[8px] font-bold px-2 text-primary-content rounded-bl-sm z-1">{text}</span>);
+// };
 
 //
 const deposit_special_offer_keys = new Set(["special_offer_thursday", "special_offer_sunday"]);

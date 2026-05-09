@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Le numéro de mobile a déjà été utilisé. Veuillez utiliser un autre numéro.",
     "mobileAlreadyBound": "Le numéro de mobile est déjà associé à ce compte.",
     "fullscreen": "Plein écran",
-    "exitFullscreen": "Quitter le plein écran"
+    "exitFullscreen": "Quitter le plein écran",
+    "draw": "Match nul"
   },
   "bonus_pool": "Cagnotte de bonus",
   "pleaseEnterValidUsernameOrEmail": "Veuillez entrer un nom d'utilisateur ou un email valide",

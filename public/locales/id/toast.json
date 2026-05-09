@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Silakan masukkan panjang tetap {{length}} karakter",
   "disabledCharNotAllowed": "Karakter {{char}} tidak diizinkan",
   "space": "spasi",
-  "thisWalletIsAlreadyUsed": "Dompet ini sudah digunakan"
+  "thisWalletIsAlreadyUsed": "Dompet ini sudah digunakan",
+  "login_failed": "Login gagal",
+  "login_error_code_1": "Nama pengguna harus berupa nomor telepon yang valid (diawali dengan + dan menggunakan - setelah kode negara) atau alamat email",
+  "account_created_and_logged_in_successfully": "Akun berhasil dibuat dan login!",
+  "requests_later": "Terlalu banyak permintaan dari IP ini. Silakan coba lagi nanti.",
+  "booster_activated_successfully": "Booster berhasil diaktifkan!",
+  "depositNameEntered": "Nama yang dimasukkan untuk deposit harus sesuai dengan nama lengkap<0>（Nama Depan + Nama Belakang）</0> pada rekening bank yang digunakan untuk penarikan, sesuai dengan regulasi anti-penipuan dan anti-pencucian uang.\n\n Jika Anda perlu mengubah rekening bank Anda, silakan hubungi layanan pelanggan dan selesaikan verifikasi KYC.",
+  "user_not_found_or_password_incorrect": "Pengguna tidak ditemukan atau kata sandi salah",
+  "free_spin_record_enabled_successfully": "Catatan putaran gratis berhasil diaktifkan!",
+  "check_in_success": "Check-in berhasil!",
+  "check_in_failed": "Check-in gagal!",
+  "check_in_already": "Check-in untuk tanggal ini sudah selesai.",
+  "ballsClaimed": "Bola teman berhasil diklaim",
+  "cannotBetby": "Dompet bonus olahraga hanya untuk taruhan olahraga."
 }

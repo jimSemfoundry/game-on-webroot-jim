@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">행운의 7을 맞추고 즉시 상금을 받으세요! PG Soft 또는 JILI 슬롯 플레이 중 베팅 ID가 7777로 끝나면 최대 <span class=\"font-bold\">₱2,868.20</span>까지 베팅 금액을 상금으로 돌려받습니다.</p>\n             <p class=\"mt-5 leading-5\">베팅 요건 없이 무료 현금! 보너스 페이지에서 받기 버튼을 클릭하면 상금을 받을 수 있습니다.</p>\n             <h4 class=\"mt-5 leading-5\">규칙 및 약관:</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                 <span class=\"font-medium\"></span>자격: PG 및 JILI 슬롯 베팅만 이 프로모션에 해당됩니다.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>당첨 조건: 베팅 ID가 7777로 끝나면 베팅 금액의 100%를 상금으로 받습니다(최대 $50).\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>받기 빈도: 조건 충족 시 하루 한 번 상금을 받을 수 있습니다.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>최대 상금: 상금은 적격 베팅 ID당 최대 $50로 제한됩니다.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>받기 방법:\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     <span class=\"\">• </span>조건 충족 후 보너스 페이지를 방문하세요.\n                   </li>\n                   <li>\n                     <span class=\"\">• </span>받기 버튼을 클릭하여 상금을 수령하세요.\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>베팅 요건 없음: 상금은 즉시 인출하거나 추가 게임에 사용할 수 있습니다.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>자동 자격: 시스템이 적격 베팅 ID를 추적하여 상금을 수령할 수 있도록 합니다.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>일반 약관: 카지노는 언제든지 이 프로모션을 수정하거나 종료할 권리를 보유합니다. 남용 또는 사기 행위는 프로모션 자격 박탈로 이어질 수 있습니다.\n               </li>\n             </ol>\n</div>",
   "beginnerTitle": "초보자 행운",
   "beginnerDescription": "규칙 및 약관",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">카지노가 처음이신가요? 초보자 행운 토너먼트는 매일 큰 상금을 획득할 기회를 제공합니다! VIP 1 전용 토너먼트로, 신규 플레이어가 슬롯 게임 플레이만으로 상금, 무료 스핀, 보너스 크레딧을 놓고 경쟁할 수 있습니다.</p>\n       <p class=\"mt-5 leading-5\">모든 VIP 1 플레이어의 베팅은 자동으로 토너먼트에 포함되므로, 추가 단계 없이 평소처럼 스핀하고 플레이하면 됩니다! 토너먼트 중 레벨 업 시 23:59 GMT까지 참가 가능하지만, 다음 날 재참가는 불가능합니다.</p>\n       <p class=\"mt-5 leading-5 font-medium\">진행 방식</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">슬롯 게임 플레이:</span> 슬롯 게임에 베팅한 금액만 토너먼트에 반영됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">자동 참여:</span> 모든 VIP 1 플레이어의 베팅은 자동으로 토너먼트에 포함됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">플레이어당 1회 참가:</span> 토너먼트 중 레벨 업 시 그날 참가자로 남지만, 다음 날 재참가는 불가능합니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">리그 리더보드 순위:</span> 플레이어는 승패가 아닌 총 베팅 금액으로 순위가 매겨집니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">토너먼트 기간:</span> 매일 00:00 GMT부터 23:59 GMT까지 진행됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">상위 10명 우승:</span> 상위 10명은 현금 상금, 무료 스핀, 또는 보너스 크레딧을 받습니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">실시간 리그 리더보드:</span> 실시간 업데이트로 순위를 추적하며 정상을 향해 도전하세요.\n           </li>\n           <li>\n              <span class=\"font-medium\">즉시 지급:</span> 토너먼트 종료 후 상금이 자동으로 지급됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">페어플레이 정책:</span> 부정 행위 또는 남용은 실격 처리됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">일반 약관:</span> 카지노는 언제든지 이 프로모션을 수정하거나 취소할 권리를 보유합니다.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">스핀하고 베팅하며 초보자 행운을 누리세요!</p>\n</div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">카지노가 처음이신가요? 초보자 행운 토너먼트는 매일 큰 상금을 획득할 기회를 제공합니다! VIP 1 전용 토너먼트로, 신규 플레이어가 슬롯 게임 플레이만으로 상금, 무료 스핀, 보너스 크레딧을 놓고 경쟁할 수 있습니다.</p>\n       <p class=\"mt-5 leading-5\">모든 VIP 1 플레이어의 베팅은 자동으로 토너먼트에 포함되므로, 추가 단계 없이 평소처럼 스핀하고 플레이하면 됩니다! 토너먼트 중 레벨 업 시 23:59 GMT까지 참가 가능하지만, 다음 날 재참가는 불가능합니다.</p>\n       <p class=\"mt-5 leading-5 font-medium\">진행 방식</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n              <span class=\"font-medium\">슬롯 게임 플레이:</span> 슬롯 게임에 베팅한 금액만 토너먼트에 반영됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">자동 참여:</span> 모든 VIP 1 플레이어의 베팅은 자동으로 토너먼트에 포함됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">플레이어당 1회 참가:</span> 토너먼트 중 레벨 업 시 그날 참가자로 남지만, 다음 날 재참가는 불가능합니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">리그 리더보드 순위:</span> 플레이어는 승패가 아닌 총 베팅 금액으로 순위가 매겨집니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">토너먼트 기간:</span> 매일 00:00 GMT부터 23:59 GMT까지 진행됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">상위 10명 우승:</span> 상위 10명은 현금 상금, 무료 스핀, 또는 보너스 크레딧을 받습니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">실시간 리그 리더보드:</span> 실시간 업데이트로 순위를 추적하며 정상을 향해 도전하세요.\n           </li>\n           <li>\n              <span class=\"font-medium\">즉시 지급:</span> 토너먼트 종료 후 상금이 자동으로 지급됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">페어플레이 정책:</span> 부정 행위 또는 남용은 실격 처리됩니다.\n           </li>\n           <li>\n              <span class=\"font-medium\">일반 약관:</span> 카지노는 언제든지 이 프로모션을 수정하거나 취소할 권리를 보유합니다.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">스핀하고 베팅하며 초보자 행운을 누리세요!</p>\n</div>",
+  "jiliSlot": "JILI 슬롯",
+  "MegaBonanza": "메가 보난자",
+  "pgSoft": "PG Soft",
+  "Races": "레이스",
+  "days": "일",
+  "RakeRace": "레이크 레이스",
+  "drops_races": "드롭 & 레이스",
+  "arena": "ARENA",
+  "howToParticipate": "참여 방법",
+  "howToParticipateContent": {
+    "rules1": "토너먼트 기간 동안 참가 게임을 플레이하세요",
+    "rules2": "각 베팅은 총 베팅 금액에 기여합니다",
+    "rules3": "더 많이 베팅하여 리더보드를 올라가세요"
+  },
+  "prizeDistribution": "상금 분배",
+  "prizeDistributionContent": {
+    "prize1": "상금은 최종 순위에 따라 분배됩니다",
+    "prize2": "토너먼트 종료 후 당첨자에게 통보됩니다",
+    "prize3": "상금 풀은 점진적이며 참가와 함께 증가합니다"
+  },
+  "termsAndConditions": "이용약관",
+  "termsAndConditionsContent": {
+    "term1": "실제 돈 베팅만 토너먼트에 산입됩니다",
+    "term2": "운영진은 토너먼트를 수정하거나 취소할 권리를 보유합니다",
+    "term3": "일반 이용약관이 적용됩니다"
+  },
+  "unranked": "순위 없음",
+  "rakerace": {
+    "title": "터보 레이크 레이스",
+    "desc": "터보 레이크 레이스에 준비하세요. 상위 <0>{{players}}</0>명 플레이어가 최소 상금 풀 <0>{{prize}}</0>에서 매주 거대한 보상을 받습니다!",
+    "p0_title": "토너먼트 일정",
+    "p0_desc": "토너먼트는 일요일 <0>{{start}}</0>부터 다음 일요일 <0>{{end}}</0>까지 진행되며, 7일 동안 리더보드에서 상승하고 우승자들 중에서 자신의 자리를 확보할 수 있습니다.",
+    "p1_title": "자격",
+    "p1_desc": "모든 베팅(프리 스핀과 보너스 지갑 제외)이 레이크 레이스에 계산됩니다.\n 순위는 귀하의 가중 총 베팅 금액(베팅 금액 * 게임 유형)을 기반으로 합니다 - 게임 결과는 귀하의 위치에 영향을 미치지 않습니다. 게임 유형에 대한 자세한 정보는 아래:",
+    "p2_title": "게임 유형",
+    "p2_desc": "",
+    "p3_title": "리더보드 순위",
+    "p3_desc": "<0>{{places}}</0>위 지급 \n 상위 <0>{{players}}</0>명 플레이어는 아래에 명시된 대로 매력적인 보상을 받습니다.",
+    "p4_title": "공정 플레이 정책",
+    "p4_desc": "사기 활동이나 남용은 실격 처리됩니다.",
+    "p5_title": "만료",
+    "p5_desc": "없음 - 토너먼트 보상은 청구될 때까지 축적됩니다.",
+    "p6_title": "일반 조건",
+    "p6_desc": "보상은 {{token}}으로 계산되고 크레딧된 후, 편의를 위해 귀하의 선호하는 법정 통화로 표시됩니다. 통화 변환은 대략적인 것임을 유의하십시오. \n\n 카지노는 언제든지 이 프로모션을 수정하거나 종료할 권리를 보유합니다. 남용이나 사기 활동은 프로모션에서 실격 처리됩니다."
+  },
+  "rank": "순위",
+  "jump": "점프",
+  "pastLeaderboard": "지난 리더보드",
+  "showMore": "더 보기",
+  "lastWeeksLeaderboard": "지난주 리더보드"
 }

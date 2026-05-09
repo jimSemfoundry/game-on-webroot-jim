@@ -156,10 +156,10 @@
   },
   "achievement_super_spreader": {
     "name": "Super Difusor",
-    "description": "Este logro se otorga a los jugadores que han referido con éxito a <0>{{count}} nuevos usuarios</0>. Un verdadero constructor de comunidad, expanden el círculo y traen nueva energía al juego. Su influencia crece con cada conexión que hacen."
+    "description": "Este logro se otorga a los jugadores que han referido con éxito a <0>{{count}} nuevos usuarios</0> que completaron su primera compra. Como verdaderos constructores de comunidad, amplían el círculo mediante un intercambio genuino y aportan nueva energía al juego. Su influencia crece con cada conexión significativa que crean."
   },
   "achievement_conquistador": {
-    "name": "Conquistador",
+    "name": "conquistador",
     "description": "Este logro se otorga a los jugadores que han completado un total de <0>{{count}} misiones</0>. Impulsados por la determinación y la sed de victoria, conquistan cada desafío que se les presenta: un verdadero campeón del viaje."
   },
   "achievement_game_explorer": {
@@ -255,7 +255,7 @@
     "description": "Este logro se otorga a los jugadores que han completado un retiro fiat de al menos <0>{{amount}}</0> en una sola transacción. Un Maestro del Dinero se erige en la encrucijada del juego y la recompensa, convirtiendo sus ganancias en valor del mundo real. Con manos firmes y un buen momento, muestran que el verdadero dominio no está solo en el juego: está en llevar las recompensas a casa."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "Cripto hermano",
     "description": "Este logro se otorga a los jugadores que han realizado un depósito de al menos <0>{{amount}}</0> en una sola transacción, con cualquier criptomoneda. Un Maestro Cripto dirige sus fondos como un verdadero artista, orquestando activos digitales con precisión y estilo. Con confianza en el escenario de la blockchain, son pioneros del juego que demuestran que la fortuna favorece a los audaces."
   },
   "achievement_crypto_baron": {
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Oferta Especial Primer Depósito",
     "monday_vip_bonus": "Bono VIP de Lunes",
     "special_offer_thursday": "Bono Cripto del Jueves",
-    "special_offer_sunday": "Impulso de Primer Depósito",
+    "special_offer_sunday": "Primer Depósito del Día",
     "conquest_bonus": "Bono de Conquista",
-    "dollars_bonus": "Bono"
+    "dollars_bonus": "Bono",
+    "buddy_balls": "Bolas de Amigos",
+    "special_offer": "Oferta Especial"
   },
   "achievements_description": "Desbloqueado en VIP {{vip}}, estas recompensas celebran tus hitos con emocionantes sorpresas en el camino.",
   "lucky_number_seven_description": "¡Acierta los {{number}}s de la Suerte y consigue un bono dulce cada día!",
@@ -354,7 +356,7 @@
     "achievement_verify_phone": "Verificar Teléfono",
     "achievement_add_desktop_app": "Agregar Aplicación de Escritorio",
     "achievement_super_spreader": "Super Difusor",
-    "achievement_conquistador": "Conquistador",
+    "achievement_conquistador": "conquistador",
     "achievement_game_explorer": "Explorador de Juegos"
   },
   "you_win": "Tú ganas",
@@ -365,7 +367,7 @@
   "share": "Compartir",
   "open_box_description": "¡Úsala para jugar juegos y disfrutar ganando más!",
   "get": "Obtener",
-  "buck": "BUCK",
+  "buck": "DÓLAR",
   "always_1_to_1": "Siempre 1 a 1",
   "what_is_buck": "¿Qué es BUCK?",
   "what_is_buck_description": "BUCK es un token exclusivo para todas las recompensas de la plataforma, valorado en 1 BUCK = 1 USDT.",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "¿Puedo renunciar a la promoción de Dólares de Bonificación en cualquier momento?",
-      "desc": "Sí. Puede elegir renunciar a la promoción de Dólares de Bonificación en cualquier momento durante su período de validez. Tenga en cuenta que una vez que renuncie, su saldo actual de Dólares de Bonificación será eliminado y no podrá ser restaurado ni retirado. Aún puede participar en futuras promociones de bonificación si están disponibles."
+      "desc": "Solo puedes elegir renunciar a la promoción de Dólares de Bonificación cuando el saldo de tu Billetera de Bonificación sea inferior al equivalente de {{amount}}USDT durante su período de validez.\nTen en cuenta que una vez que renuncies, tu saldo restante de la Billetera de Bonificación será eliminado y no podrá ser restaurado ni retirado.\nComo solo puede haber una promoción de Billetera de Bonificación activa a la vez, serás elegible para participar y comprar otras promociones de Billetera de Bonificación después de renunciar a tu promoción actual de Billetera de Bonificación."
     },
     "r1": {
       "title": "¿Qué es el Dólar de Bonificación?",
@@ -554,6 +556,10 @@
       "title": "¿Puedo continuar jugando incluso después de alcanzar el límite de retiro?",
       "desc": "Sí, puedes continuar jugando con tu saldo de bonos para diversión - pero tu reclamo seguirá limitado al límite de retiro."
     },
+    "r11": {
+      "title": "¿Cuándo expirarán los dólares de bono / Puedo renunciar a la promoción?",
+      "desc": "Los dólares de bono expiran 30 días después de ser emitidos, por lo que tienes 30 días para completar el requisito de rotación. También puedes elegir renunciar a la Promoción de Dólares de Bono en cualquier momento.\n Cuando renuncias a la promoción, tu saldo actual de Dólares de Bono será eliminado y no se dará reembolso. Podrás participar en futuras Promociones de Dólares de Bono.\n Solo puede haber 1 Promoción de Dólares de Bono activa en cualquier momento."
+    },
     "free": "Entra con dinero de bono gratuito — sin depósito requerido. Gira en juegos reales, prueba tu suerte y ve hasta dónde puedes llegar antes de retirar.\n\n Perfecto para comenzar con riesgo cero.",
     "mini": "Haz un pequeño depósito y recibe un bono de tragamonedas con requisitos ligeros de apuesta. Diseñado para juego rápido y progreso más rápido hacia el retiro.\n\n Ideal para jugadores casuales que quieren una experiencia de bono fluida.",
     "mega": "¡Juega con Dólares de Bono como si fuera dinero real! Cada apuesta te acerca más a desbloquear su valor completo. Cumple los requisitos de juego y mira cómo tus Dólares de Bono se convierten en recompensas retirables hoy!",
@@ -589,5 +595,82 @@
   "bonus_expired": "Expirado",
   "bonus_claimed": "Reclamado",
   "bonus_failure_end": "Fallido",
-  "bonus_give_up": "Renunciar"
+  "bonus_give_up": "Renunciar",
+  "goal": "OBJETIVO",
+  "state": "ESTADO",
+  "requirement_met": "Requisito cumplido",
+  "enjoy": "disfruta",
+  "achievement_details": "Detalles del Logro",
+  "promo_expired": "Este código promocional ha expirado.",
+  "claim_successful": "¡Reclamación exitosa!",
+  "promo_claimed": "Ya has reclamado este código promocional.",
+  "invalid_parameter": "Parámetro inválido.",
+  "promo_invalid": "Código promocional inválido. Por favor, verifica e intenta de nuevo.",
+  "promo_format_error": "Por favor, introduce un código que consista en números y letras, con una longitud mínima de {{length}} caracteres.",
+  "redeem_promotional": "¡Canjea tu código promocional para desbloquear recompensas exclusivas, descuentos o beneficios adicionales!\n Síguenos en nuestros canales de redes sociales para obtener códigos promocionales todos los días.",
+  "promo_unavailable": "Este código promocional no está disponible actualmente.",
+  "promo_claim_limit": "Este código promocional ha alcanzado su límite de reclamación.",
+  "similar_event": "Ya tienes una promoción similar en curso.",
+  "abnormality": "Anomalía en la cuenta, por favor contacta al servicio al cliente.",
+  "not_started_yet": "Esta promoción aún no ha comenzado.",
+  "not_eligible": "No elegible para reclamar.",
+  "cannot_claim": "Actualmente tienes saldo en la Cartera de Bonos y no puedes reclamar una promoción de Freespin.",
+  "bonus_store": "Tienda de Bonos",
+  "bonus_store_title": "Tienda de \n Bonos",
+  "wagering_in_progress": "Apuestas en curso",
+  "buddy_ball": "Bola Buddy",
+  "buddy_ball_title": "Bola\nBuddy",
+  "prize_pool": "Pozo de premios",
+  "lifetime_bonus_claimed": "Bono vitalicio reclamado",
+  "successful": "Exitoso",
+  "purchased": "Has comprado con éxito \n <0>{{amount}}</0>. ¡Buena suerte!",
+  "bonusStore": "Tienda de \n Bonos",
+  "buyAmount": "Cantidad de Compra",
+  "selectBonus": "Selecciona el bono para jugar",
+  "buyNow": "Comprar ahora",
+  "bonusExists": "Ya existe un bono activo",
+  "notAllowed": "Aún no se permite recomprar",
+  "amountLow": "Monto demasiado bajo",
+  "amountHigh": "Monto demasiado alto",
+  "failedCreate": "No se pudo crear el registro",
+  "buyBonus": "Comprar bono",
+  "bonusHistory": "Historial de bonos",
+  "wagerCompleted": "¡La apuesta está completada!",
+  "wageringProgress": "Apuestas en curso",
+  "bonus_store_welcome": "Bienvenido a la Tienda de Bonos, donde puedes convertir tu dinero en Dólares de bono y obtener un {{value}} extra, sujeto a los requisitos de apuesta (requisito de apuesta). Los Dólares de bono son créditos de juego especiales disponibles para jugar en determinados juegos de tragamonedas seleccionados. Los Dólares de bono pueden convertirse en dinero retirable una vez que completes el requisito de apuesta.",
+  "bonus_store_wagering": "Cuando completes el requisito de requisito de apuesta (apuesta), puedes convertir tu saldo de Dólares de bono a la moneda que elijas haciendo clic en el botón de reclamar.",
+  "bonus_store_validity": "Los Dólares de bono deben usarse dentro del período de validez mostrado en la pestaña de Tienda de Bonos. Los saldos de Dólares de bono no utilizados se perderán al finalizar el período de validez. Ten en cuenta que solo puedes tener una promoción de Dólares de bono activa a la vez.",
+  "bonus_store_calculated": "Los Dólares de bono se calculan y acreditan en BONUS y luego se muestran en la moneda de visualización que elijas para tu comodidad. Ten en cuenta que las conversiones de moneda son aproximadas. El Casino se reserva el derecho de modificar o revocar la elegibilidad sin obligación de justificarlo. Cualquier abuso o actividad fraudulenta resultará en la descalificación de la promoción.",
+  "youPay": "Tú pagas",
+  "extraBonus": "Bono extra",
+  "bonusReceived": "Bono recibido",
+  "youGet": "Tú recibes",
+  "extraBonusGet": "Obtén {{value}} de bono extra",
+  "minimumBuy": "Compra mínima",
+  "periodComplete": "Plazo para completar",
+  "bonusObtained": "BONUS obtenido x {{value}}",
+  "bonusGameplay": "Juega tragamonedas con Bonus y consigue más fichas. Diseñado para un juego de ritmo rápido y retiros más rápidos. \n\n Ideal para jugadores casuales que quieren una experiencia de bono fluida.",
+  "sportGameplay": "Juega deportes con Bonus y consigue más fichas. Diseñado para un juego de ritmo rápido y retiros más rápidos. \n\n Ideal para jugadores casuales que quieren una experiencia de bono fluida.",
+  "day_streak": "racha de <0>{{value}}</0> días",
+  "check_in": "registrarse",
+  "get_more": "obtener más",
+  "missed_key": "perdido",
+  "daily_check_in": "registro diario",
+  "check_in_today": "Regístrate hoy",
+  "get_more_buddy_balls": "Obtén más Buddy Balls",
+  "checked_in": "Registrado",
+  "no_games_available": "No hay juegos disponibles en tu región.",
+  "daily_reset": "Reinicio diario a las {{time}}",
+  "sportsBonusStore": "Bono deportivo",
+  "sportsBonusActivate": "Bono Deportivo Activado",
+  "sportsBonus": "Bono deportivo",
+  "buySportsBonus": "Comprar Bono Deportivo",
+  "sportsBonusGameplay": "Realiza apuestas deportivas con tu Bono Deportivo y desbloquea más valor. Diseñado para fanáticos de los deportes que buscan apuestas mejoradas y retiros más rápidos. \n\n Ideal para apostadores que desean una experiencia de bonificación fluida y adaptada a los deportes.",
+  "wagering_rules": "Reglas de apuestas",
+  "sports_bonus_title": "BONUS \n DEPORTIVO",
+  "withdrawal": "Retiro mínimo",
+  "switch_prompt_title": "Tu Bonus Deportivo está listo \n Cambia para usarlo",
+  "switch_prompt_more": "Más",
+  "switch_prompt_switch": "Cambiar",
+  "switched_back_wallet": "Vuelto a tu billetera {{currency}}"
 }

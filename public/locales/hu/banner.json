@@ -36,5 +36,5 @@
   "vip_monday": "VIP Hétfő",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BÓNUSZ \n <0>DOLLÁR</0>",
-  "super_everyday": "<0>A Nap Első Befizetése</0><br/><0>Kripto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Növelje Befizetéseit<br/>Minden Nap"
+  "super_everyday": "<0>A Nap Első Befizetése</0><br/>Kripto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Kaj je ojačevalec?",
-    "content": "<p class=\"leading-7\">Ojačevalci podvojijo vaše vračilo denarja za eno uro vsakič, ko napotitev opravi depozit.</p><p class=\"leading-7\">Povečana stopnja odklepanja:</p><p class=\"leading-7\">Stopnja odklepanja:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Ojačevalci podvojijo vaše vračilo denarja za tri ure vsakič, ko napotitev opravi depozit.</p><p class=\"leading-7\">Povečana stopnja odklepanja:</p><p class=\"leading-7\">Stopnja odklepanja:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Kaj je koledar bonusov?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Kaj so dosežki?",
-    "content": "<p class=\"leading-7\">Dosežki so naš način, da prepoznamo vašo aktivnost na naši platformi. Ko zahtevate svoj bonus za dosežke, se bo ta izplačal na vaš koledar bonusov in ga je mogoče zahtevati vsakih 8 ur ter poteče v 24 urah, če ga ne zahtevate.</p>"
+    "content": "<p class=\"leading-7\">Dosežki so naš način, da prepoznamo vašo aktivnost na naši platformi. Dosežki so na voljo za zahtevanje, ko dosežete VIP 2 in višje.</p>"
   }
 }

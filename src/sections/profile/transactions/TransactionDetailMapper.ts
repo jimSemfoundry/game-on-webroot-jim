@@ -20,10 +20,10 @@ export const useTransactionDetailMapper = () => {
   const { formatWithoutConversion } = useDisplayCurrencyFormatter();
 
   return ({
-    transaction,
-    transactionType,
-    t,
-  }: {
+            transaction,
+            transactionType,
+            t
+          }: {
     transaction: Transaction;
     transactionType: TransactionType;
     t: TFunction;
@@ -33,7 +33,7 @@ export const useTransactionDetailMapper = () => {
     const formattedAmount = formatWithoutConversion(amountValue, currency, {
       showSymbol: true,
       showCode: true,
-      minimizeDecimals: true,
+      minimizeDecimals: true
     }).formatted;
 
     const amountLabel = decorateAmountLabel(formattedAmount, amountValue, transactionType);
@@ -46,7 +46,7 @@ export const useTransactionDetailMapper = () => {
       timeline,
       orderId: resolveOrderId(transaction),
       transactionId: resolveTransactionId(transaction),
-      showTransactionHash: transactionType !== "Swap",
+      showTransactionHash: transactionType !== "Swap"
     };
   };
 };
@@ -57,8 +57,8 @@ const resolveAmount = (transaction: Transaction, transactionType: TransactionTyp
     if (!Number.isNaN(toAmount)) return toAmount;
   }
 
-  if (transactionType === 'Bonus') {
-    transaction.amount = transaction.bonus
+  if (transactionType === "Bonus") {
+    transaction.amount = transaction.bonus;
   }
 
   const candidates = [
@@ -68,7 +68,7 @@ const resolveAmount = (transaction: Transaction, transactionType: TransactionTyp
     transaction.reward,
     transaction.to_amount,
     transaction.toAmount,
-    transaction.bonus,
+    transaction.bonus
   ];
 
   for (const candidate of candidates) {
@@ -94,7 +94,7 @@ const resolveCurrency = (transaction: Transaction, transactionType: TransactionT
     transaction.to_currency,
     transaction.from_currency,
     transaction.toCurrency,
-    transaction.fromCurrency,
+    transaction.fromCurrency
   ];
 
   for (const candidate of candidates) {
@@ -107,7 +107,7 @@ const resolveCurrency = (transaction: Transaction, transactionType: TransactionT
 };
 
 const decorateAmountLabel = (formatted: string, amount: number, transactionType: TransactionType) => {
-  const shouldPrefixPlus = amount > 0 && ["Deposit", "Bonus", "Referral", "Commission"].includes(transactionType);
+  const shouldPrefixPlus = amount > 0 && ["Deposit", "Bonus", "Bounty", "Referral", "Commission"].includes(transactionType);
   if (shouldPrefixPlus && !formatted.startsWith("+")) {
     return `+${formatted}`;
   }
@@ -137,13 +137,13 @@ const resolveTransactionId = (transaction: Transaction): string | null | undefin
 const buildInfoRows = (
   transaction: Transaction,
   transactionType: TransactionType,
-  t: TFunction,
+  t: TFunction
 ) => {
   const rows: Array<{ label: string; value: string }> = [];
 
   rows.push({
     label: t("transaction:tableHeaders.status"),
-    value: t(getTransactionStatus(transactionType, transaction.status).trans),
+    value: t(getTransactionStatus(transactionType, transactionType === "Commission" ? 1 : transaction.status).trans)
   });
 
   const typeLabel = getTypeLabel(transactionType, transaction, t);
@@ -153,20 +153,20 @@ const buildInfoRows = (
   if (transactionType === "Swap") {
     const fromAmount = Number(transaction.from_amount ?? transaction.fromAmount ?? 0);
     const fromCurrency = transaction.from_currency ?? transaction.fromCurrency ?? "";
-    
+
     if (fromAmount && fromCurrency) {
       rows.push({
-        label: t("transaction:details.swapFrom", "Swap From"),
+        label: t("transaction:common.swapFrom", "Swap From"),
         value: `${fromAmount} ${fromCurrency}`,
       });
     }
 
     const toAmount = Number(transaction.to_amount_received ?? transaction.toAmountReceived ?? 0);
     const toCurrency = transaction.to_currency ?? transaction.toCurrency ?? "";
-    
+
     if (fromAmount && toAmount && fromCurrency && toCurrency) {
       rows.push({
-        label: t("transaction:details.rate", "Rate"),
+        label: t("finance:rate", "Rate"),
         value: `${fromAmount} ${fromCurrency} = ${toAmount} ${toCurrency}`,
       });
     }
@@ -175,7 +175,7 @@ const buildInfoRows = (
     if (method) {
       rows.push({
         label: t("transaction:details.paymentMethod", "Payment Method"),
-        value: t(`transaction:transactionTypes.${method}`, method),
+        value: t(`transaction:transactionTypes.${method}`, method)
       });
     }
   }
@@ -203,17 +203,17 @@ const buildTimeline = (transaction: Transaction, transactionType: TransactionTyp
     steps.push({
       label: t("transaction:details.depositOrderCreated"),
       description: createdAt ? `${t("transaction:details.createdAt")}: ${createdAt}` : undefined,
-      completed: true,
+      completed: true
     });
     steps.push({
       label: t("transaction:details.gatewayConfirmation"),
       description: buildStatusDescription(status, updatedAt, t),
-      completed: status === "SUCCESS",
+      completed: status === "SUCCESS"
     });
     steps.push({
       label: t("transaction:details.transactionCompleted"),
       description: status === "EXPIRED" ? t("transaction:details.expired") : undefined,
-      completed: status === "SUCCESS",
+      completed: status === "SUCCESS"
     });
     return steps;
   }
@@ -221,25 +221,25 @@ const buildTimeline = (transaction: Transaction, transactionType: TransactionTyp
   if (transactionType === "Withdraw") {
     const withdrawType = String(transaction.withdraw_type ?? transaction.network ?? "").toLowerCase();
     const isFiat = withdrawType === "fiat" || withdrawType.includes("fiat");
-    
+
     steps.push({
       label: t("transaction:details.withdrawOrderCreated"),
       description: createdAt ? `${t("transaction:details.createdAt")}: ${createdAt}` : undefined,
-      completed: true,
+      completed: true
     });
     steps.push({
-      label: isFiat 
-        ? t("transaction:details.withdrawProcessing") 
+      label: isFiat
+        ? t("transaction:details.withdrawProcessing")
         : t("transaction:details.blockchainProcessing"),
       description: buildWithdrawStatusDescription(status, updatedAt, isFiat, t),
-      completed: status === "SUCCESS",
+      completed: status === "SUCCESS"
     });
     steps.push({
       label: t("transaction:details.transactionCompleted"),
-      description: status === "FAILED" 
+      description: status === "FAILED"
         ? (isFiat ? t("transaction:details.withdrawOrderFailed") : t("transaction:details.blockchainFailed"))
         : undefined,
-      completed: status === "SUCCESS",
+      completed: status === "SUCCESS"
     });
     return steps;
   }
@@ -247,7 +247,7 @@ const buildTimeline = (transaction: Transaction, transactionType: TransactionTyp
   steps.push({
     label: t("transaction:details.transactionCompleted"),
     description: status === "SUCCESS" ? (updatedAt ?? undefined) : t("transaction:details.waiting"),
-    completed: status === "SUCCESS",
+    completed: status === "SUCCESS"
   });
   return steps;
 };
@@ -258,7 +258,7 @@ const getMethodValue = (transaction: Transaction) => {
     transaction.method,
     transaction.network,
     transaction.deposit_type,
-    transaction.withdraw_type,
+    transaction.withdraw_type
   ];
   for (const candidate of candidates) {
     if (typeof candidate === "string" && candidate.trim().length > 0) return candidate;

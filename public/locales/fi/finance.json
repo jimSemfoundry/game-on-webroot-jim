@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Täytäthän fiat-valuutan nostotietosi.",
   "updating_withdrawal_address": "Päivitetään nostosoitetta, odota hetki...",
   "please_select_withdrawal_method": "Valitse nostotapa.",
-  "integer_deposit": "Tämä kanava vaatii, että talletussumma on kokonaisluku, joka on {{value}}:n moninkertainen.",
+  "integer_deposit": "Tämä kanava vaatii, että talletussumma on {{value}} yksiköissä.",
   "enter_string_en_only": "Vain englanninkielisiä kirjaimia, numeroita ja välilyöntejä voidaan syöttää.",
-  "enter_string_min_length": "Pituuden on oltava vähintään {{length}}."
+  "enter_string_min_length": "Pituuden on oltava vähintään {{length}}.",
+  "met_eligibility": "*Olet täyttänyt erityistarjouksen kelpoisuusvaatimukset. Lataa nyt saadaksesi palkkiosi!",
+  "read_carefully": "Ole hyvä ja lue huolellisesti",
+  "no_channel": "Kanavia ei ole tällä hetkellä saatavilla"
 }

@@ -283,5 +283,9 @@
   "hacksaw_HSD_1971": "Murra end Toshi Ways Clubi!",
   "hacksaw_HSD_1977": "Ta on siin – Ares, sõjajumal.",
   "hacksaw_HSD_1946": "Valluta kosmos Jaws of Justice'iga. ",
-  "hacksaw_HSD_1969": "Sweet Escape tasuta keerutuste funktsioon aktiveerub 3–6 scatteri sümboliga, andes 10–16 keerutust, kusjuures kõik kordistajapositsioonid jäävad kogu mängu vältel aktiivseks. "
+  "hacksaw_HSD_1969": "Sweet Escape tasuta keerutuste funktsioon aktiveerub 3–6 scatteri sümboliga, andes 10–16 keerutust, kusjuures kõik kordistajapositsioonid jäävad kogu mängu vältel aktiivseks. ",
+  "hacksaw_HSD_2077": "Imesümbolid maanduvad vertikaalselt rullikutele 2, 3, 4 ja 5, paljastades kõrge väärtusega sümboleid, wild-sümboleid või imerullikuid. Paljastatud sümbolitega võidud käivitavad kleepuvad korduskeerutused, mis jätkuvad seni, kuni uusi võite enam ei teki või ilmub imerullik.",
+  "hacksaw_HSD_2057": "Võidukombinatsioonid muutuvad kuldseteks ruutudeks. Kui on olemas vikerkaare sümbol, aktiveerib see kuldsed ruudud pärast võitude kogumist ja paljastab mündid, rohelise ristikheina, kuldse ristikheina, ämbrid või globaalsed ämbrid.",
+  "hacksaw_HSD_2138": "Välk lööb sisse! Kui kaskaadiloendur aktiveerub, muudetakse kõik eemaldatud mittevõidavad sümbolid kordistaja väärtuseks. Lisaks lisandub iga eemaldatud sümboliga liitkordistaja. Kui kõik võidud ja superkaskaadid on arvesse võetud, korrutatakse lõplik võit kordistaja väärtusega, suurendades teie põneva võidu võimalusi!",
+  "hacksaw_HSD_2062": "Mängus „Hot Ross“ ilmuvad ekraanile vahel kollased ja roosad toonid, veidi sinist ja kõrgeima boonusvooru ajal ka rohelist, aga enamasti on „Hot Ross“ järjekordne mäng, mis kasutab palju musta, valget ja halli."
 }

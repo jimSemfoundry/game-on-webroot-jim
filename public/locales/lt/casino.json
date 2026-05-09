@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Kaip pirmaujantis pasaulinis žaidimų aljansas, mes sujungiame aukščiausio lygio platformų stiprybę ir rafinuotumą po viena vizija. Visuose mūsų portfelio prekių ženkluose veikiame kaip vienas — teikdami pramogas, suasmenintus apdovanojimus ir sklandų ryšį tarp valiutų, šalių ir kultūrų.",
   "footerDescriptionThree": "Ne tik žaiskite žaidimą. Meskite iššūkį viskam.",
   "footerDescriptionFour": "Išskirtinis {{supportName}} aljanso bruožas",
-  "footerDescriptionFive": "© 2025. Visos teisės saugomos.",
+  "footerDescriptionFive": "© {{year}}. Visos teisės saugomos.",
   "banner": {
     "oneDescription": "BŪKITE PIRMAS.",
     "oneDescriptionTwo": "IŠŠŪKITE\nVISKĄ",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Pridėti prie pradinio ekrano",
   "latestWins": "Naujausi Laimėjimai",
   "spinPlayAndWinAcrossTopCasinoHits": "Sukite, žaiskite ir laimėkite geriausiuose kazino hituose",
-  "scoreBigOnSportsFromAroundTheWorld": "Pasiekite didelių laimėjimų sporte iš viso pasaulio"
+  "scoreBigOnSportsFromAroundTheWorld": "Pasiekite didelių laimėjimų sporte iš viso pasaulio",
+  "liveDealers": "Gyvi dileriai jūsų mėgstamiems stalų žaidimams",
+  "show_less": "rodyti mažiau"
 }

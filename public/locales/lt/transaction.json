@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Išėmimas",
     "cryptoWithdraw": "Krypto Išėmimas",
     "bonus": "Premija",
+    "bounty": "Premija",
     "win": "Laimėjimas",
     "bet": "Lažybos",
     "refund": "Grąžinimas",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Premija",
     "cashbackbonus": "Cashback Premija",
     "referral": "Rekomendacija",
-    "commission": "Komisija"
+    "commission": "Komisija",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Automatai",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Atrakinti lėšos",
     "rolloverMul": "Statymo daugiklis"
   },
-  "assistance": "Patikrinkite savo duomenis ir bandykite dar kartą arba susisiekite su klientų aptarnavimo tarnyba pagalbos"
+  "assistance": "Jūsų vardas nesutampa su vardu, kurį pirmą kartą naudojote šiam kanalui. Susisiekite su klientų aptarnavimo tarnyba."
 }

@@ -34,6 +34,8 @@
   "upToReferral": "Iki {{amount}} už rekomendaciją",
   "language": "Kalba",
   "gameCurrency": "Žaidimo valiuta",
-  "hideBlockedGames": "Slėpti užblokuotus žaidimus",
-  "settings": "Nustatymai"
+  "hideBlockedGames": "Slėpti \n<0>užblokuotus žaidimus</0>",
+  "settings": "Nustatymai",
+  "problemReport": "Problemos ataskaita",
+  "logging_key": "Žurnalas"
 }

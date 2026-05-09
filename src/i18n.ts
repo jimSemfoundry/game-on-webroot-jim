@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
+import { criticalResources } from "./i18n-critical-resources";
 
 export const supportedLanguages = [
   "ar", // 阿拉伯语
@@ -51,24 +52,27 @@ i18n
   .init({
     fallbackLng: "en",
     debug: false,
+    // t110774 PR3 + PR12 + t110803: init ns 维持 10 个，其余 9 个走懒加载。
+    // 首屏会用但 ns 未 init 的极少数 key (sidebar BONUS / LastUpdate / header
+    // BonusHub / InnerCountdown / Message Center 共 17 个) 抽到独立的
+    // 'critical' ns，由 import.meta.glob 在编译期 inline 进 bundle（见
+    // resources 字段），运行期通过 fallbackNS 桥接，零 RTT 兜底。这样
+    // PR3 的首屏瘦身收益不退化。新增 critical key 的流程见
+    // scripts/build-critical-i18n.mjs（package.json `prebuild` hook 自动跑）。
+    resources: criticalResources,
+    partialBundledLanguages: true,
+    fallbackNS: "critical",
     ns: [
       "common",
       "casino",
-      "explore",
       "menu",
-      "gameDetail",
-      "login",
-      "finance",
-      "profile",
-      "transaction",
-      "information",
-      "responsibleGaming",
-      "toast",
-      "chat",
-      "bonus",
       "banner",
+      "toast",
       "popup",
-      "tournament"
+      "explore",
+      "login",
+      "luckySpin",
+      "profile"
     ],
     // defaultNS: 'common',
     supportedLngs: supportedLanguages,

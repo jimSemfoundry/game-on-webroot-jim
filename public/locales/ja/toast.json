@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "{{length}}文字の固定長を入力してください",
   "disabledCharNotAllowed": "文字{{char}}は許可されていません",
   "space": "スペース",
-  "thisWalletIsAlreadyUsed": "このウォレットはすでに使用されています"
+  "thisWalletIsAlreadyUsed": "このウォレットはすでに使用されています",
+  "login_failed": "ログインに失敗しました",
+  "login_error_code_1": "ユーザー名は有効な電話番号（+で始まり、国コードの後に-を使用）またはメールアドレスである必要があります",
+  "account_created_and_logged_in_successfully": "アカウントが作成され、正常にログインしました！",
+  "requests_later": "このIPからのリクエストが多すぎます。後でもう一度お試しください。",
+  "booster_activated_successfully": "ブースターが正常に有効化されました！",
+  "depositNameEntered": "入金時に入力された名前は、出金に使用する銀行口座の氏名<0>（名前 + 苗字）</0>と一致する必要があります。これは詐欺防止およびマネーロンダリング防止規制に準拠するためです。\n\n銀行口座を変更する必要がある場合は、カスタマーサポートに連絡し、KYC認証を完了してください。",
+  "user_not_found_or_password_incorrect": "ユーザーが見つからないか、パスワードが間違っています",
+  "free_spin_record_enabled_successfully": "フリースピン記録が正常に有効化されました！",
+  "check_in_success": "チェックインに成功しました！",
+  "check_in_failed": "チェックインに失敗しました！",
+  "check_in_already": "この日付のチェックインはすでに完了しています。",
+  "ballsClaimed": "バディボールが正常に請求されました",
+  "cannotBetby": "スポーツボーナスウォレットはスポーツベットのみです。"
 }

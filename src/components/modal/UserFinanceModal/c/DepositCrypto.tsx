@@ -6,7 +6,7 @@ import { WarningCard } from "@/components/modal/UserFinanceModal/c/WarningCard.t
 import { useBoundStore } from "@/store";
 import { Trans } from "react-i18next";
 import { SpecialOffersH5 } from "./SpecialOffers.tsx";
-import { SpecialOffersGuard } from "@/components/modal/UserFinanceModal/c/SpecialOffersGuard.tsx";
+import { InnerSpecialOffersWrapper } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const DepositCrypto = () => {
   // from data store, share common data
@@ -16,19 +16,18 @@ export const DepositCrypto = () => {
     <div className="flex flex-col gap-4">
       <CurrencyScrollBar />
 
-      <DepositCryptoSelect />
+      <div className="flex flex-col gap-4 bg-base-400 rounded-2xl p-3">
+        <DepositCryptoSelect />
 
-      <AddressCard />
+        <AddressCard />
 
-      <ExchangeRate />
+        <ExchangeRate />
 
-      {/* 优惠充值活动 */}
-      <div className="block md:hidden">
-        <SpecialOffersGuard>
+        {/* 优惠充值活动 */}
+        <InnerSpecialOffersWrapper>
           <SpecialOffersH5 />
-        </SpecialOffersGuard>
+        </InnerSpecialOffersWrapper>
       </div>
-
       <WarningCard>
         <div className="text-xs leading-4 flex-1">
           <Trans

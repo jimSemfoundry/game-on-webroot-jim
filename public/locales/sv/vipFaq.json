@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Vad är en Booster?",
-    "content": "<p class=\"leading-7\">Boosters dubblar din Rakeback i en timme varje gång en hänvisning gör en insättning.</p><p class=\"leading-7\">Boostad Låsningsgrad:</p><p class=\"leading-7\">Låsningsgrad:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters dubblar din Rakeback i tre timmar varje gång en hänvisning gör en insättning.</p><p class=\"leading-7\">Boostad Låsningsgrad:</p><p class=\"leading-7\">Låsningsgrad:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Vad är Bonuskalendern?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Vad är Prestationer?",
-    "content": "<p class=\"leading-7\">Prestationer är vårt sätt att erkänna din aktivitet på vår plattform. När du hämtar din prestationsbonus kommer den att betalas till din bonuskalender och kan hämtas var 8:e timme och går ut inom 24 timmar om den inte hämtas.</p>"
+    "content": "<p class=\"leading-7\">Prestationer är vårt sätt att erkänna din aktivitet på vår plattform. Prestationer är tillgängliga för att hämtas när du når VIP 2 och uppåt.</p>"
   }
 }

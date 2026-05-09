@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Ваш номер телефона подтверждён. Вы можете продолжить.",
   "email_address_has_been_verified": "Ваш адрес электронной почты подтвержден. Можно продолжать.",
   "setNewPassword": "Установить новый пароль",
-  "passwordLengthRequirement": "Пожалуйста, введите пароль от 6 до 64 символов."
+  "passwordLengthRequirement": "Пожалуйста, введите пароль от 6 до 64 символов.",
+  "re_enter_new_password": "Повторно введите новый пароль",
+  "change_withdrawal_pin": "Изменить PIN для вывода",
+  "confirm_withdrawal_pin": "Подтвердить PIN для вывода",
+  "enter_email": "Введите e-mail",
+  "rolloverDetails": "Детали отыгрыша",
+  "verified_email": "Подтверждённая почта",
+  "verified_phone_number": "Подтверждённый номер телефона",
+  "change_key": "Изменить",
+  "update_successfully": "Обновление выполнено. Используйте {<1>{{value}}</1>} для следующего входа.",
+  "understand_key": "Понятно",
+  "ensure_email_valid": "Убедитесь, что ваш адрес электронной почты действителен и доступен вам.",
+  "ensure_phone_valid": "Убедитесь, что ваш номер телефона действителен и доступен вам.",
+  "enter_phone_number_to_receive_verification_code": "Введите свой номер телефона ниже, чтобы получить код подтверждения.",
+  "enter_email_address_to_receive_verification_code": "Введите свой адрес электронной почты ниже, чтобы получить код подтверждения."
 }

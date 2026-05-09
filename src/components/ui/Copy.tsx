@@ -35,7 +35,7 @@ const Copy = ({ text, icon, onCopy, trigger, copyCls, copiedCls, className }: Co
       onCopy={() => {
         setV(true);
         onCopy?.();
-        toast.success(t("common:copied"));
+        toast.success(t("transaction:common.copied"));
       }}
     >
       <span className={!v ? copyCls || "text-base-content/50" : copiedCls || "text-primary"}>

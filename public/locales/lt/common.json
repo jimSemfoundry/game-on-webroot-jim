@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Telefono numeris jau naudojamas. Prašome naudoti kitą numerį.",
     "mobileAlreadyBound": "Telefono numeris jau susietas su šia paskyra.",
     "fullscreen": "Visas ekranas",
-    "exitFullscreen": "Išeiti iš viso ekrano"
+    "exitFullscreen": "Išeiti iš viso ekrano",
+    "draw": "Lygiosios"
   },
   "bonus_pool": "Premijų fondas",
   "pleaseEnterValidUsernameOrEmail": "Prašome įvesti galiojantį vartotojo vardą arba el. paštą",

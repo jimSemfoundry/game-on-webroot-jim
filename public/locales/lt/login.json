@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Prašome įvesti slaptažodį",
   "verification_code_sent_to_your": "Patvirtinimo kodas išsiųstas į jūsų el. paštą/telefoną",
   "one_min_error": "Gaukite patvirtinimo kodą dar kartą po 1 minutės.",
-  "signInWith": "Registruotis naudojant"
+  "must_agree": "Turite sutikti su taisyklėmis ir sąlygomis",
+  "signInWith": "Registruotis naudojant",
+  "usernameTooShort": "Vartotojo vardas turi būti bent 6 simbolių ilgio"
 }

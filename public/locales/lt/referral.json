@@ -190,5 +190,13 @@
   "programAccessUpdate": "Programos prieigos atnaujinimas",
   "referralProgramPrivileges": "Jūsų rekomendavimo programos privilegijos buvo panaikintos po jūsų paskyros ir dalyvavimo programoje peržiūros. Nustatėme veiklą, kuri neatitinka mūsų rekomendavimo programos sąlygų ar numatytos paskirties. Tai gali apimti įtartinus rekomendavimo modelius, neautorizuotus reklamos metodus, paskatų piktnaudžiavimą arba bandymus apeiti sąžiningo naudojimo gaires.",
   "referralRewardsPrivileges": "Dėl to buvo išjungta jūsų galimybė generuoti naujus rekomendavimo atlygius, dalintis rekomendavimo nuorodomis ar gauti naudą iš rekomendacijų. Laukiami arba būsimi atlygiai, susiję su rekomendavimo programa, bus sulaikyti ir atšaukti pagal mūsų politiką. <0>Visos kitos jūsų paskyros funkcijos išlieka nepakitusios ir šis pakeitimas jų neveikia</0>.",
-  "understandDisappointing": "Suprantame, kad tai gali nuvilti. Jei manote, kad sprendimas buvo priimtas per klaidą, arba norite daugiau informacijos, susisiekite su mūsų palaikymo komanda pateikdami bet kokią susijusią informaciją, ir mes peržiūrėsime jūsų atvejį."
+  "understandDisappointing": "Suprantame, kad tai gali nuvilti. Jei manote, kad sprendimas buvo priimtas per klaidą, arba norite daugiau informacijos, susisiekite su mūsų palaikymo komanda pateikdami bet kokią susijusią informaciją, ir mes peržiūrėsime jūsų atvejį.",
+  "spread_the_Love": "Dalinkitės meile",
+  "need": "Reikia",
+  "new_friends": "Naujų draugų?",
+  "timeToRecruit": "Laikas verbuoti! Bakstelėkite mygtuką, kad pasakytumėte apie mus visiškai nepažįstamam žmogui per WhatsApp.",
+  "date": "data",
+  "save": "išsaugoti",
+  "enterCampaignName": "Įveskite kampanijos pavadinimą",
+  "shareText": "🎮 Prisijunk prie manęs šioje nuostabioje platformoje!"
 }

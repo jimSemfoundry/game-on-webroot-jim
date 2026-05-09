@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Ditt telefonnummer har verifierats. Du kan fortsätta.",
   "email_address_has_been_verified": "Din e-postadress har verifierats. Du kan fortsätta.",
   "setNewPassword": "Ange nytt lösenord",
-  "passwordLengthRequirement": "Ange ett lösenord mellan 6 och 64 tecken."
+  "passwordLengthRequirement": "Ange ett lösenord mellan 6 och 64 tecken.",
+  "re_enter_new_password": "Ange nytt lösenord igen",
+  "change_withdrawal_pin": "Ändra uttags-PIN",
+  "confirm_withdrawal_pin": "Bekräfta uttags-PIN",
+  "enter_email": "Ange e-post",
+  "rolloverDetails": "Rollover-detaljer",
+  "verified_email": "Verifierad e-post",
+  "verified_phone_number": "Verifierat telefonnummer",
+  "change_key": "Ändra",
+  "update_successfully": "Uppdatering lyckades. Använd {<1>{{value}}</1>} för din nästa inloggning.",
+  "understand_key": "Förstått",
+  "ensure_email_valid": "Se till att din e-postadress är giltig och tillgänglig för dig.",
+  "ensure_phone_valid": "Se till att ditt telefonnummer är giltigt och tillgängligt för dig.",
+  "enter_phone_number_to_receive_verification_code": "Ange ditt telefonnummer nedan för att ta emot en verifieringskod.",
+  "enter_email_address_to_receive_verification_code": "Ange din e-postadress nedan för att ta emot en verifieringskod."
 }

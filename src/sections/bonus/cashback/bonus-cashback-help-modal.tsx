@@ -4,16 +4,16 @@ import { useTranslation } from "react-i18next";
 import { Countdown } from "@/components/ui";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { getNextUTCMidnight } from "@/sections/bonus/cashback/bonus-cashback-card.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusCashbackHelpModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/e344898e01d3ab8d8c618f8f5cb07dcf3bdde883.png";
-
 export const BonusCashbackHelpModal = ({ isOpen, onClose }: BonusCashbackHelpModalProps) => {
   const { t } = useTranslation(['bonus','popup']);
+  const ILLUSTRATION_URL = useBonusDetailsImage("cashback", 256);
   const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
     fallbackGradient:
       "radial-gradient(120% 260% at 100% 0%, rgba(34, 197, 94, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
@@ -58,7 +58,7 @@ export const BonusCashbackHelpModal = ({ isOpen, onClose }: BonusCashbackHelpMod
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[420px] overflow-y-auto pb-12">
+            <div className="max-h-[420px] overflow-y-auto pb-12 hide-scrollbar">
               <p className="text-xs text-base-content/50 leading-5">{t("popup:daily.description")}</p>
 
               <div className="py-3 bg-base-300 rounded-field px-4 mt-4">

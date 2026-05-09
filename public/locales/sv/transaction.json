@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Uttag",
     "cryptoWithdraw": "Krypto Uttag",
     "bonus": "Bonus",
+    "bounty": "Belöning",
     "win": "Vinst",
     "bet": "Insats",
     "refund": "Återbetalning",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bonus",
     "cashbackbonus": "Cashback Bonus",
     "referral": "Referens",
-    "commission": "Kommission"
+    "commission": "Kommission",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Spelautomater",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Upplåsta medel",
     "rolloverMul": "Insatsmultiplikator"
   },
-  "assistance": "Vänligen kontrollera dina uppgifter och försök igen eller kontakta kundtjänst för hjälp"
+  "assistance": "Ditt namn matchar inte det namn du först använde för denna kanal. Vänligen kontakta kundtjänst."
 }

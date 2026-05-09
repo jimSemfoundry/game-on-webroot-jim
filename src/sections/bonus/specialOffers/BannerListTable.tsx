@@ -1,18 +1,22 @@
 import { TableVirtuoso } from "react-virtuoso";
-import { BannerList } from "./BannerList";
 import { useQueryClient } from "@tanstack/react-query";
 import { useGetPromoByPage } from "@/query/promo";
 import { authService } from "@/services/authService";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import { EveryDayBonusExpand } from "@/sections/components/EveryDayBonusExpand.tsx";
+import { LimitOfferBonusExpand } from "@/sections/components/LimitOfferBonusExpand.tsx";
+import { DoubleBonusExpand } from "@/sections/components/DoubleBonusExpand.tsx";
+import { SPECIAL_OFFER_DEPOSIT_SET } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
   const queryClient = useQueryClient();
 
   const { t } = useTranslation();
 
-  const { isUserFinanceOpen } = useFinanceModal()
+  const { isUserFinanceOpen } = useFinanceModal();
   const { data, isFetching } = useGetPromoByPage(isUserFinanceOpen);
 
   const choicePromoFun = (id: string) => {
@@ -71,7 +75,7 @@ export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
     EmptyPlaceholder: () => (
       <tbody>
       <tr className={"text-xs text-base-content/50 text-center bg-base-300 rounded-lg mt-0.5"}>
-        <td className={'p-8 rounded-lg'}>{t("common:common.noData")}</td>
+        <td className={"p-8 rounded-lg"}>{t("common:common.noData")}</td>
       </tr>
       </tbody>
     ) as any
@@ -104,10 +108,20 @@ export const BannerListTable = ({ onClose }: { onClose: () => void }) => {
           return (
             <td className="p-0 align-top !p-0" style={{ padding: 0 }}>
               <div
-                className={`border rounded-lg mb-3 ${item.is_default === 1 ? "border-primary" : "border-transparent"}`}
+                className={`bg-base-300 rounded-lg mb-3 ${item.is_default === 1 ? "border-primary" : "border-transparent"}`}
                 onClick={() => choicePromoFun(item.id)}
               >
-                <BannerList currentPromo={item} />
+                <InnerDisplayContent show={item?.promo_code === "special_offer_don_deposit"}>
+                  <DoubleBonusExpand currentPromo={item} />
+                </InnerDisplayContent>
+
+                <InnerDisplayContent show={item?.promo_code === "special_offer_sunday"}>
+                  <EveryDayBonusExpand currentPromo={item} />
+                </InnerDisplayContent>
+
+                <InnerDisplayContent show={SPECIAL_OFFER_DEPOSIT_SET.has(item?.promo_code)}>
+                  <LimitOfferBonusExpand currentPromo={item} />
+                </InnerDisplayContent>
               </div>
             </td>
           );

@@ -30,5 +30,55 @@
   "luckyNumberSevenContent": "<div class=\"text-sm\">\n             <p class=\"leading-5\">Zadenite srečno sedmico in si prislužite takojšnji bonus! Če se vaš ID stave konča s 7777 med igranjem PG Soft ali JILI igralnih avtomatov, prejmete znesek svoje stave nazaj kot bonus – do <span class=\"font-bold\">₱2,868.20</span> (približno 50 USD).\n             </p>\n\n             <p class=\"mt-5 leading-5\">Brez zahtev za prevračanje, brez skritih pogojev – samo brezplačen denar! Obiščite stran z bonusi in kliknite »Zahtevaj«, da prejmete nagrado.\n             </p>\n\n             <h4 class=\"mt-5 leading-5\">PRAVILA IN POGOJI:</h4>\n             <ol class=\"list-decimal pl-4 leading-5\">\n               <li>\n                 <span class=\"font-medium\"></span>Upravičenost: Za promocijo štejejo samo stave, oddane na PG Soft in JILI igralnih avtomatih.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Pogoj za zmago: Če se vaš ID stave konča s 7777, prejmete 100 % svoje stave kot bonus (do 50 USD).\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Pogostost zahtevka: Uporabniki lahko ta bonus zahtevajo enkrat na dan, če izpolnjujejo pogoje.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Najvišji bonus: Znesek bonusa je omejen na 50 USD na kvalificiran ID stave.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Kako zahtevati:\n                 <ol class=\"pl-2 leading-5\">\n                   <li>\n                     <span class=\"\">• </span>Obiščite stran z bonusi po izpolnitvi pogoja.\n                   </li>\n                   <li>\n                     <span class=\"\">• </span>Kliknite gumb »Zahtevaj« za prejem bonusa.\n                   </li>\n                 </ol>\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Brez pogojev prevračanja: Sredstva so takoj na voljo za izplačilo ali nadaljnjo igro.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Samodejna kvalifikacija: Sistem samodejno sledi kvalificiranim ID-jem stav in omogoča zahtevek za bonus.\n               </li>\n               <li>\n                 <span class=\"font-medium\"></span>Splošni pogoji: Igralnica si pridržuje pravico do spremembe ali preklica promocije kadarkoli. Zloraba ali goljufivo ravnanje vodi do diskvalifikacije.\n               </li>\n             </ol>\n         </div>",
   "beginnerTitle": "SREČA ZAČETNIKOV",
   "beginnerDescription": "PRAVILA IN POGOJI",
-  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Prvič v igralnici? SREČA ZAČETNIKOV vam vsak dan ponuja priložnost za velike nagrade! Ta turnir, namenjen izključno igralcem VIP 1, je zasnovan za novince – tekmujte za denarne nagrade, brezplačne vrtljaje in bonus kredite z igranjem igralnih avtomatov.\n       </p>\n       <p class=\"mt-5 leading-5\">Vse stave igralcev VIP 1 se samodejno štejejo za turnir, kar pomeni, da ni dodatnih korakov – samo igrajte kot običajno! Če med turnirjem napredujete na višjo VIP raven, ostanete v turnirju do 23:59 GMT, naslednji dan pa ne morete več sodelovati.\n       </p>\n       <p class=\"mt-5 leading-5 font-medium\">KAKO DELUJE:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Igrajte igralne avtomate:</span> Za turnir štejejo samo stave, oddane na igralnih avtomatih.\n           </li>\n           <li>\n               <span class=\"font-medium\">Samodejna udeležba:</span> Vse stave igralcev VIP 1 se samodejno štejejo za turnir.\n           </li>\n           <li>\n               <span class=\"font-medium\">Enkratna prijava na igralca:</span> Če med turnirjem napredujete, ostanete udeleženi do konca dneva, naslednji dan pa ne morete več sodelovati.\n           </li>\n           <li>\n               <span class=\"font-medium\">Razvrstitev na lestvici:</span> Igralci so razvrščeni glede na skupni znesek stav, ne glede na dobitke ali izgube.\n           </li>\n           <li>\n               <span class=\"font-medium\">Trajanje turnirja:</span> Poteka vsak dan od 00:00 GMT do 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">10 najboljših prejme nagrade:</span> Najboljših 10 igralcev prejme denarne nagrade, brezplačne vrtljaje ali bonus kredite.\n           </li>\n           <li>\n               <span class=\"font-medium\">Lestvica v živo:</span> Spremljajte svojo uvrstitev z lestvico, posodobljeno v realnem času.\n           </li>\n           <li>\n               <span class=\"font-medium\">Takojšnja izplačila:</span> Nagrade se samodejno nakažejo po koncu turnirja.\n           </li>\n           <li>\n               <span class=\"font-medium\">Pravila poštene igre:</span> Vsaka goljufiva dejavnost ali zloraba vodi do diskvalifikacije.\n           </li>\n           <li>\n               <span class=\"font-medium\">Splošni pogoji:</span> Igralnica si pridržuje pravico do spremembe ali preklica promocije kadarkoli.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Samo igrajte, stavite in pustite, da začetniška sreča naredi svoje!</p>\n</div>"
+  "beginnerContent": "<div class=\"text-sm\">\n       <p class=\"leading-5\">Prvič v igralnici? SREČA ZAČETNIKOV vam vsak dan ponuja priložnost za velike nagrade! Ta turnir, namenjen izključno igralcem VIP 1, je zasnovan za novince – tekmujte za denarne nagrade, brezplačne vrtljaje in bonus kredite z igranjem igralnih avtomatov.\n       </p>\n       <p class=\"mt-5 leading-5\">Vse stave igralcev VIP 1 se samodejno štejejo za turnir, kar pomeni, da ni dodatnih korakov – samo igrajte kot običajno! Če med turnirjem napredujete na višjo VIP raven, ostanete v turnirju do 23:59 GMT, naslednji dan pa ne morete več sodelovati.\n       </p>\n       <p class=\"mt-5 leading-5 font-medium\">KAKO DELUJE:</p>\n       <ol class=\"list-decimal pl-4 leading-5\">\n           <li>\n               <span class=\"font-medium\">Igrajte igralne avtomate:</span> Za turnir štejejo samo stave, oddane na igralnih avtomatih.\n           </li>\n           <li>\n               <span class=\"font-medium\">Samodejna udeležba:</span> Vse stave igralcev VIP 1 se samodejno štejejo za turnir.\n           </li>\n           <li>\n               <span class=\"font-medium\">Enkratna prijava na igralca:</span> Če med turnirjem napredujete, ostanete udeleženi do konca dneva, naslednji dan pa ne morete več sodelovati.\n           </li>\n           <li>\n               <span class=\"font-medium\">Razvrstitev na lestvici:</span> Igralci so razvrščeni glede na skupni znesek stav, ne glede na dobitke ali izgube.\n           </li>\n           <li>\n               <span class=\"font-medium\">Trajanje turnirja:</span> Poteka vsak dan od 00:00 GMT do 23:59 GMT.\n           </li>\n           <li>\n               <span class=\"font-medium\">10 najboljših prejme nagrade:</span> Najboljših 10 igralcev prejme denarne nagrade, brezplačne vrtljaje ali bonus kredite.\n           </li>\n           <li>\n               <span class=\"font-medium\">Lestvica v živo:</span> Spremljajte svojo uvrstitev z lestvico, posodobljeno v realnem času.\n           </li>\n           <li>\n               <span class=\"font-medium\">Takojšnja izplačila:</span> Nagrade se samodejno nakažejo po koncu turnirja.\n           </li>\n           <li>\n               <span class=\"font-medium\">Pravila poštene igre:</span> Vsaka goljufiva dejavnost ali zloraba vodi do diskvalifikacije.\n           </li>\n           <li>\n               <span class=\"font-medium\">Splošni pogoji:</span> Igralnica si pridržuje pravico do spremembe ali preklica promocije kadarkoli.\n           </li>\n       </ol>\n       <p class=\"mt-5 leading-5\">Samo igrajte, stavite in pustite, da začetniška sreča naredi svoje!</p>\n</div>",
+  "jiliSlot": "JILI igralni avtomati",
+  "MegaBonanza": "Mega Bonanza",
+  "pgSoft": "PG Soft",
+  "Races": "DIRKE",
+  "days": "dni",
+  "RakeRace": "Rake Race",
+  "drops_races": "DROPS IN DIRKE",
+  "arena": "ARENA",
+  "howToParticipate": "Kako sodelovati",
+  "howToParticipateContent": {
+    "rules1": "Igrajte katero koli sodelujočo igro med turnirskim obdobjem",
+    "rules2": "Vsaka stava prispeva k vašemu skupnemu stavljenemu znesku",
+    "rules3": "Plezajte na lestvici z večjim stavkanjem"
+  },
+  "prizeDistribution": "Porazdelitev nagrad",
+  "prizeDistributionContent": {
+    "prize1": "Nagrade so porazdeljene glede na vaš končni položaj",
+    "prize2": "Zmagovalci bodo obveščeni po koncu turnirja",
+    "prize3": "Nagradni sklad je progresiven in raste s sodelovanjem"
+  },
+  "termsAndConditions": "Pogoji in določila",
+  "termsAndConditionsContent": {
+    "term1": "V turnirju se upoštevajo le stave z resničnim denarjem",
+    "term2": "Vodstvo si pridržuje pravico do spremembe ali odpovedi turnirja",
+    "term3": "Veljajo splošni pogoji in določila"
+  },
+  "unranked": "Brez rangiranja",
+  "rakerace": {
+    "title": "Turbo Rake Race",
+    "desc": "Pripravite se na Turbo Rake Race, kjer najboljši <0>{{players}}</0> igralci vsak teden osvojijo ogromne nagrade iz našega minimalnega nagradnega sklada <0>{{prize}}</0>!",
+    "p0_title": "Urnik Turnirja",
+    "p0_desc": "Turnir teče od nedelje <0>{{start}}</0> do naslednje nedelje <0>{{end}}</0>, kar vam daje sedem dni za vzpon na lestvico in zavarovanje vašega mesta med zmagovalci.",
+    "p1_title": "Upravičenost",
+    "p1_desc": "Vse stave (z izjemo brezplačnih vrtljajev in bonus denarnice) bodo štete za rake race.\n Uvrstitev temelji na vaši uteženi skupni vrednosti stav (vrednost stave * vrsta igre) - rezultati igre ne vplivajo na vaš položaj. Več informacij o vrstah iger spodaj:",
+    "p2_title": "Vrsta Igre",
+    "p2_desc": "",
+    "p3_title": "Uvrstitev na Lestvici",
+    "p3_desc": "<0>{{places}}</0> mest plačanih \n Najboljši <0>{{players}}</0> igralci bodo prejeli privlačne nagrade, kot je navedeno spodaj.",
+    "p4_title": "Politika Poštene Igre",
+    "p4_desc": "Vsaka goljufiva dejavnost ali zloraba bo vodila v diskvalifikacijo.",
+    "p5_title": "Potek",
+    "p5_desc": "Noben - Nagrade turnirja se kopičijo do zahtevanja.",
+    "p6_title": "Splošni Pogoji",
+    "p6_desc": "Nagrade se izračunajo in kreditirajo v {{token}}, nato se prikažejo v vaši preferirani fiat valuti za udobje. Prosimo, upoštevajte, da so menjave valut približne. \n\n Kazino si pridržuje pravico do spremembe ali prekinitve te promocije kadarkoli. Zloraba ali goljufiva dejavnost bo vodila v diskvalifikacijo iz promocije."
+  },
+  "rank": "Uvrstitev",
+  "jump": "Skoči",
+  "pastLeaderboard": "Prejšnja lestvica",
+  "showMore": "prikaži več",
+  "lastWeeksLeaderboard": "Lestvica prejšnjega tedna"
 }

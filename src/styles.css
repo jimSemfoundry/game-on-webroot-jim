@@ -293,9 +293,17 @@ input:-webkit-autofill:active {
   }
 }
 
+/* 隐藏 Chatwoot 默认气泡按钮（使用自定义浮动按钮替代） */
+.woot-widget-bubble,
+.woot--bubble-holder,
+#cw-bubble-holder {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
-  /* General mobile rule: applies safe-area logic across all environments (H5, PWA, iOS, Android) */
-  #cw-widget-holder {
+  /* Chatwoot 展开状态：移动端全屏聊天窗口 */
+  #cw-widget-holder:not(.woot--hide):not(.has-unread-view),
+  #cw-widget-holder.woot-widget--expanded {
     position: fixed !important;
     top: var(--safe-area-inset-top) !important;
     right: 0 !important;
@@ -307,8 +315,10 @@ input:-webkit-autofill:active {
     padding: 0;
   }
 
-  #cw-widget-holder .woot-widget-holder,
-  #cw-widget-holder iframe {
+  #cw-widget-holder:not(.woot--hide):not(.has-unread-view) .woot-widget-holder,
+  #cw-widget-holder:not(.woot--hide):not(.has-unread-view) iframe,
+  #cw-widget-holder.woot-widget--expanded .woot-widget-holder,
+  #cw-widget-holder.woot-widget--expanded iframe {
     position: absolute !important;
     inset: 0 !important;
     width: 100% !important;
@@ -372,7 +382,7 @@ input:-webkit-autofill:active {
   .banner-desktop-only {
     display: block;
   }
-  
+
   .banner-mobile-only {
     display: none;
   }
@@ -391,4 +401,55 @@ input:-webkit-autofill:active {
 
 .collapse {
   border-radius: 0;
+}
+
+/*TODO: 幸运轮盘 - 激活选项特殊样式 - 脱离主题控制 - 游戏类*/
+.spin-wheel-active {
+  border: 2px solid color(display-p3 0.7515 1 0.6686);
+  background: linear-gradient(180deg, color(display-p3 0.5816 1 0.7141) 0%, var(--d-color-semantic-primary-bg, color(display-p3 0.7702 0.8775 0.1745)) 100%), var(--d-color-base-200, color(display-p3 0.0941 0.1137 0.1412));
+  box-shadow: 0 0 2px 0 color(display-p3 0.8855 0.5178 0.5178)
+}
+
+@keyframes plinko-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.glass {
+  background: color-mix(in oklch, var(--color-base-200), transparent 20%);
+  backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in oklch, var(--color-base-content), transparent 85%);
+  border-radius: 1rem;
+}
+
+.plinko-board-bg {
+  background: radial-gradient(circle at 50% 20%, color-mix(in oklch, var(--color-primary), transparent 88%), transparent 60%),
+    linear-gradient(180deg, color-mix(in oklch, var(--color-base-200), transparent 10%), var(--color-base-300));
+}
+
+.animate-shake {
+  animation: plinko-shake 0.3s ease-in-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.3s ease-out;
 }

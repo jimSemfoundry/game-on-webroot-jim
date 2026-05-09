@@ -11,12 +11,12 @@ export const AlliancePartnerships = () => {
   return (
     <GameCarousel className="overflow-visible">
       <GameCarousel.Header showArrows={false}>
-        <img src="/icons/ui/okvip.svg" alt="okvip" />
+        <img src="/icons/ui/okvip.svg" alt="okvip" loading="lazy" decoding="async" />
         <p className="text-md sm:text-lg font-semibold">{t(`casino:alliancePartnerships`)}</p>
       </GameCarousel.Header>
 
       <GameCarousel.Content className="mt-6 overflow-visible">
-        <GameCarousel.Track className="gap-3 sm:gap-4 rounded-none pt-5 sm:pt-7 pb-2 px-2 -mt-5 sm:-mt-7 -mx-2">
+        <GameCarousel.Track className="gap-3 sm:gap-4 rounded-none pt-5 sm:pt-7 pb-2 px-2 -mt-5 sm:-mt-7">
           <GameCarousel.Item className="w-[83.333%] sm:w-[calc((100%-2rem)/3)]">
             <LiquidGlassEffect
               className="sm:h-[184px] h-[120px] w-full relative overflow-visible"
@@ -24,8 +24,7 @@ export const AlliancePartnerships = () => {
                 <img
                   src="/images/illustrations/mask1.png"
                   alt=""
-                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
-                />
+                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover" loading="lazy" decoding="async" />
               }
               onClick={() => {
                 navigate({
@@ -49,8 +48,7 @@ export const AlliancePartnerships = () => {
 
               <img
                 src="/images/illustrations/suarez1st.png"
-                className="object-cover absolute sm:right-4 right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[138px] h-[138px] sm:w-[211px] sm:h-[211px]"
-              />
+                className="object-cover absolute sm:right-4 right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[138px] h-[138px] sm:w-[211px] sm:h-[211px]" loading="lazy" decoding="async" />
             </LiquidGlassEffect>
           </GameCarousel.Item>
 
@@ -61,8 +59,7 @@ export const AlliancePartnerships = () => {
                 <img
                   src="/images/illustrations/mask1.png"
                   alt=""
-                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
-                />
+                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover" loading="lazy" decoding="async" />
               }
               onClick={() => {
                 navigate({
@@ -73,14 +70,13 @@ export const AlliancePartnerships = () => {
             >
               <div className="absolute left-0 rtl:left-auto rtl:right-0 rtl:sm:right-0 top-7 sm:top-11 bottom-0 right-0 z-10 flex items-start gap-4">
                 <div className="flex items-center gap-4 flex-col">
-                  <img src="/images/illustrations/114b3fd4af98414026a304a943a3ffaeb47d0c11.png" className="sm:w-[61px] w-[40px]" />
+                  <img src="/images/illustrations/114b3fd4af98414026a304a943a3ffaeb47d0c11.png" className="sm:w-[61px] w-[40px]" loading="lazy" decoding="async" />
                 </div>
               </div>
 
               <img
                 src="/images/illustrations/afa1st.png"
-                className="object-cover absolute -right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[192px] h-[138px] sm:w-[293px] sm:h-[211px]"
-              />
+                className="object-cover absolute -right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[192px] h-[138px] sm:w-[293px] sm:h-[211px]" loading="lazy" decoding="async" />
             </LiquidGlassEffect>
           </GameCarousel.Item>
 
@@ -91,8 +87,7 @@ export const AlliancePartnerships = () => {
                 <img
                   src="/images/illustrations/mask1.png"
                   alt=""
-                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover"
-                />
+                  className="absolute inset-0 w-full h-full rtl:rotate-y-180 opacity-50 object-cover" loading="lazy" decoding="async" />
               }
               onClick={() => {
                 navigate({
@@ -103,14 +98,13 @@ export const AlliancePartnerships = () => {
             >
               <div className="absolute left-0 rtl:left-auto rtl:right-0 rtl:sm:right-0 top-7 sm:top-11 bottom-0 right-0 z-10 flex items-start gap-4">
                 <div className="flex items-center gap-4 flex-col">
-                  <img src="/images/illustrations/vfc1.png" className="w-[52px] sm:w-[61px]" />
+                  <img src="/images/illustrations/vfc1.png" className="w-[52px] sm:w-[61px]" loading="lazy" decoding="async" />
                 </div>
               </div>
 
               <img
                 src="/images/illustrations/vfc1st.png"
-                className="object-cover absolute sm:right-3 right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[166px] h-[138px] sm:w-[253px] sm:h-[211px]"
-              />
+                className="object-cover absolute sm:right-3 right-2 rtl:left-0 rtl:right-auto bottom-[1px] w-[166px] h-[138px] sm:w-[253px] sm:h-[211px]" loading="lazy" decoding="async" />
             </LiquidGlassEffect>
           </GameCarousel.Item>
         </GameCarousel.Track>

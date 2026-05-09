@@ -69,5 +69,6 @@
   "verification_code_sent_to_your": "Verification code sent to your email/phone",
   "one_min_error": "Get the verification code again in 1 minute.",
   "must_agree": "You must agree to the terms and conditions",
-  "signInWith": "Sign Up with"
+  "signInWith": "Sign Up with",
+  "usernameTooShort": "UserName must be at least 6 characters long"
 }

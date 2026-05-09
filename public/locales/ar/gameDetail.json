@@ -34,5 +34,12 @@
   "depositNow": "قم بالإيداع الآن",
   "free_spins": "لفات مجانية",
   "play_with_balance_in": "العب مع الرصيد في",
-  "the_selected_currency_will_be_displayed_in": "ستظهر العملة المحددة في"
+  "the_selected_currency_will_be_displayed_in": "سيتم عرض العملة المختارة في",
+  "activity": "النشاط",
+  "come_join_me_now_at": "انضم إلينا الآن في",
+  "invite_friends_to_join_play": "ادعُ أصدقاءك للانضمام واللعب",
+  "earn_up_to_50_commission_bonus": "اكسب حتى 50% عمولة <0>+{{bonus}}</0> مكافأة",
+  "download_failed": "فشل التنزيل. يرجى المحاولة مرة أخرى.",
+  "image_downloaded": "تم تنزيل الصورة!",
+  "share_text_1": "لقد ربحت للتو {{multiplier}}x فوز كبير! 🔥"
 }

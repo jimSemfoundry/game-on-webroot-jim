@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "براہ کرم اپنی فیاٹ کرنسی نکاسی کی معلومات پُر کریں۔",
   "updating_withdrawal_address": "ودڈراول ایڈریس اپ ڈیٹ ہو رہا ہے، براہِ کرم انتظار کریں...",
   "please_select_withdrawal_method": "براہِ کرم ودڈراول کا طریقہ منتخب کریں۔",
-  "integer_deposit": "اس چینل کے لیے ڈپازٹ کی رقم {{value}} کا صحیح ضرب ہونا ضروری ہے۔",
+  "integer_deposit": "اس چینل کے لیے ڈپازٹ کی رقم {{value}} یونٹ میں ہونا ضروری ہے۔",
   "enter_string_en_only": "صرف انگریزی حروف، نمبرز اور اسپیس درج کیے جا سکتے ہیں۔",
-  "enter_string_min_length": "لمبائ کم از کم {{length}} ہونی چاہیئے۔"
+  "enter_string_min_length": "لمبائ کم از کم {{length}} ہونی چاہیئے۔",
+  "met_eligibility": "*آپ نے خصوصی آفر کے اہل کے معیارات پورے کر لئے ہیں۔ اپنا انعام حاصل کرنے کے لیے ابھی ریچارج کریں!",
+  "read_carefully": "براہ کرم غور سے پڑھیں",
+  "no_channel": "فی الحال کوئی چینل دستیاب نہیں"
 }

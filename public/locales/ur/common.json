@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "موبائل نمبر پہلے ہی استعمال ہو چکا ہے۔ براہِ کرم دوسرا نمبر استعمال کریں۔",
     "mobileAlreadyBound": "موبائل نمبر پہلے ہی اس اکاؤنٹ کے ساتھ منسلک ہے۔",
     "fullscreen": "فل اسکرین",
-    "exitFullscreen": "فل اسکرین سے باہر نکلیں"
+    "exitFullscreen": "فل اسکرین سے باہر نکلیں",
+    "draw": "ڈرا"
   },
   "bonus_pool": "بونس پول",
   "pleaseEnterValidUsernameOrEmail": "براہ کرم ایک درست صارف نام یا ای میل درج کریں",

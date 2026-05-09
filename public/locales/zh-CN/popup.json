@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "来自免费旋转的奖金在解锁和领取之前不会到期。",
     "general_terms": "一般条款",
     "general_terms_desc": "免费旋转奖励以 BUCK 计算并记入，然后以您首选的法定货币显示以方便使用。请注意，货币转换为近似值。",
-    "general_terms_desc_2": "赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈行为将导致取消促销资格。"
+    "general_terms_desc_2": "赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈行为将导致取消促销资格。",
+    "redeem_count_free_spins": "兑换 {{freeSpinsCount}} 次免费旋转？"
   },
   "mysteryBox": {
     "description": "你玩得越多，中大奖的机会就越大。每月开启你的神秘宝箱，解锁为你量身定制的惊喜奖金。旋转、畅玩，领取属于你的奖励！",
@@ -250,5 +251,31 @@
   "cash_bonus": "现金奖金",
   "none": "无",
   "bonus_limit": "奖金上限",
-  "minimum_deposit": "最低存款"
+  "minimum_deposit": "最低存款",
+  "get_buck": "获取 BUCK",
+  "what_is_buck": "什么是 BUCK？",
+  "what_is_buck_description": "BUCK 是一种专属代币，用于所有平台奖励，价值为 1 BUCK = 1 USDT。",
+  "is_buck_exchangeable": "BUCK 可以兑换吗？",
+  "is_buck_exchangeable_description": "可以。您可以随时在平台上直接将 BUCK 转换为支持的加密货币或法定货币。",
+  "expiration_description": "无。BUCK 永不过期，在您使用之前将一直保留在您的余额中。",
+  "general_terms_description": "奖励以USDT计算并记入，然后以您首选的法定货币显示以方便使用。请注意，货币转换为近似值。 \n\n 赌场保留随时修改或撤销资格的权利，无需说明理由。任何滥用或欺诈活动将导致取消促销资格。",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "获取更多幸运球",
+    "daily_check_in": "每日签到",
+    "refer_a_friend": "邀请好友",
+    "referral_first_deposit": "推荐首存"
+  },
+  "bonus_details_modal": {
+    "description": "欢迎来到奖金商店，您可以将现金兑换为免费彩金，并在满足打码要求的前提下额外获得 20%-180%。免费彩金是一种特殊的游戏点数，可用于部分指定的老虎机游戏。完成打码要求后，免费彩金可转换为可提现现金。",
+    "claim_distribution": "当您完成打码（打码）要求后，点击领取按钮即可将您的免费彩金余额兑换为您选择的货币。",
+    "expiration_description": "免费彩金必须在奖金商店标签页显示的有效期内使用。有效期结束后，未使用的免费彩金余额将被没收。请注意，您一次只能拥有一个进行中的免费彩金活动。",
+    "generalTerms_description": "免费彩金以 BONUS 计值计算并发放，随后为方便起见以您选择的显示货币展示。请注意，货币换算仅为估算值。赌场保留在无需说明理由的情况下修改或取消资格的权利。任何滥用或欺诈行为将导致被取消活动资格。"
+  },
+  "sports_bonus_details_modal": {
+    "description": "欢迎来到体育奖金，您可以将现金兑换成体育奖金美元，并根据下注要求获得额外 50% 的奖金。体育奖金是可用于体育博彩的特殊游戏积分。一旦您完成投注要求，体育奖金即可兑换为可提取现金。",
+    "claim_distribution": "当您完成下注要求后，您可以通过点击领取按钮将您的体育奖金余额转换为您选择的货币。",
+    "wagering_rules": "- 输单：您的下注金额全额计入下注要求。\n- 赢单：仅当赔率 ≥ {{minOdds}} 时计入。若赔率低于 {{minOdds}}，该注单不计入下注要求。\n- 已兑现注单（Cash Out）：仅当兑现金额大于原下注金额 × {{minOdds}} 时计入。\n- 仅下注金额计入下注要求，奖金部分不计入。",
+    "expiration_description": "体育奖金美元必须在体育奖金选项卡中显示的有效期内使用。有效期过后，未使用的体育奖金余额将被没收。",
+    "generalTerms_description": "- 体育奖金奖励在体育奖金中计算并记入，然后以您首选的货币显示以方便使用。请注意，货币换算为近似值。\n- 赌场保留随时修改或撤销资格的权利，而无需证明理由。任何滥用或欺诈活动都将导致取消促销资格。"
+  }
 }

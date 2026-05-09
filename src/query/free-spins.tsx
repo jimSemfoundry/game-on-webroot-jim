@@ -3,6 +3,7 @@ import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService";
 import { keepPreviousData, useInfiniteQuery, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 // ========== Type Definitions ==========
 
@@ -45,6 +46,7 @@ export interface FreeSpinRecord {
  */
 export const useEnableRecord = () => {
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
   return useMutation({
     mutationFn: (data: any) => authService.enableFreeSpinRecord(data),
     onSuccess: (result) => {
@@ -59,14 +61,14 @@ export const useEnableRecord = () => {
       });
 
       if (result.code === 0) {
-        toast.success("Free spin record enabled successfully!");
+        toast.success(t("toast:free_spin_record_enabled_successfully"));
       } else {
-        toast.error(result.msg || "Failed to enable free spin record");
+        toast.error(t("toast:game_not_exist"));
       }
     },
     onError: (error: any) => {
       console.error("Failed to enable free spin record:", error);
-      toast.error(error.response?.data?.msg || "Failed to enable free spin record");
+      toast.error(t("toast:game_not_exist"));
     },
   });
 };
@@ -75,10 +77,10 @@ export const useEnableRecord = () => {
  * Hook for fetching the earliest pending free spins record
  * @returns Query hook with pending free spins data
  */
-export const useEarliestPendingRecord = () => {
+export const useEarliestPendingRecord = (flag = '') => {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ["earliestPendingRecord"],
+    queryKey: ["earliestPendingRecord", flag], // TODO: flag服务于区分不同请求[当前辅助于手动优惠码的FreeSpins发放数据检测]
     queryFn: async () => {
       const result = await authService.getEarliestPendingRecord();
       return result.data;

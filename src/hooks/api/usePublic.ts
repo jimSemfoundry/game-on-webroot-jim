@@ -1,5 +1,6 @@
 import type { ApiResponse } from "@/types/auth";
 import { publicService } from "@/services/publicService";
+import { normalizeBackendLang } from "@/utils/languages";
 import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -23,7 +24,8 @@ export const PUBLIC_QUERY_KEYS = {
   gameCategories: ["public", "gameCategories"] as const,
   vipConfig: ["public", "vipConfig"] as const,
   mainBannerContent: ["public", "mainBannerContent"] as const,
-  globalCommissions: ["public", "globalCommissions"] as const
+  globalCommissions: ["public", "globalCommissions"] as const,
+  dailyCheckInConfig: ["public", "dailyCheckInConfig"] as const
 };
 
 const AGGREGATION_FIELDS = [
@@ -54,8 +56,8 @@ export function getAggregationPayload(
   const hasAggregationField = (value: unknown) =>
     Boolean(
       value &&
-        typeof value === "object" &&
-        AGGREGATION_FIELDS.some((field) => field in (value as Record<string, unknown>))
+      typeof value === "object" &&
+      AGGREGATION_FIELDS.some((field) => field in (value as Record<string, unknown>))
     );
 
   const responseData = (aggregationResponse as ApiResponse<any>)?.data;
@@ -94,6 +96,16 @@ export function useBaseConfig() {
     gcTime: 5 * 60 * 1000,
     refetchOnMount: false,
   });
+}
+
+/**
+ * 是否启用 League/Tournament 功能
+ * is_league === 1 时返回 true
+ */
+export function useIsLeagueEnabled() {
+  const { data: baseConfig, isLoading } = useBaseConfig();
+  const isLeagueEnabled = baseConfig?.data?.is_league === 1;
+  return { isLeagueEnabled, isLoading };
 }
 
 /**
@@ -258,7 +270,7 @@ export function useCasinoGameList(data: any, options: any = {}) {
  */
 export function useCasinoGameListInfinite(baseParams: any, options: any = {}) {
   const pageSize = baseParams?.limit || 24;
-  
+
   return useInfiniteQuery({
     queryKey: [...PUBLIC_QUERY_KEYS.casinoGameList, "infinite", baseParams],
     queryFn: async ({ pageParam = 1 }) => {
@@ -346,11 +358,21 @@ export function useGlobalCommissions() {
 
 export function useAggregationConfig() {
   const { i18n } = useTranslation();
-  const aggregationLang = (i18n.language || "en").toUpperCase();
+  // 统一到后端期望的小写 lang（与 SportsPromoCarousel 共享同一 query key 自动去重）
+  const aggregationLang = normalizeBackendLang(i18n.language);
 
   return useQuery({
     queryKey: [...PUBLIC_QUERY_KEYS.aggregationConfig, aggregationLang],
     queryFn: () => publicService.getAggregationConfig(aggregationLang),
+    // 共用此 hook 的 caller (bootstrap + SportsPromoCarousel + useCountryCodeByIp 等)
+    // t110774 PR13: 显式禁三个 refetch trigger，避免 lazy 组件（PR4 把 SportsPromoCarousel
+    // 包了 React.lazy）mount 时重新拉，或 tab focus 回来时拉。lighthouse 实测同 lang 仍 2 calls
+    // 应该就是 bootstrap 早期 fetch 后 SportsPromoCarousel 晚 mount 触发的二次 refetch。
+    staleTime: 120 * 1000,
+    gcTime: 5 * 60 * 1000,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
   });
 }
 
@@ -363,7 +385,7 @@ export function useAggregationBootstrap() {
     if (!isSuccess) return;
 
     const aggregationPayload = getAggregationPayload(aggregationResponse);
-    if (!aggregationPayload) return;
+    if (!aggregationPayload) return; 
 
     const setApiResponse = (key: readonly unknown[], response?: ApiResponse<any>) => {
       if (!response || response.code !== 0) return;
@@ -392,7 +414,15 @@ export function useAggregationBootstrap() {
 
     // // if (aggregationPayload.newest_v3?.code === 0) {
     //   const languageKey = (i18n.language || "en").toUpperCase();
-      // queryClient.setQueryData([...PUBLIC_QUERY_KEYS.latestWins, languageKey], aggregationPayload.newest_v3);
+    // queryClient.setQueryData([...PUBLIC_QUERY_KEYS.latestWins, languageKey], aggregationPayload.newest_v3);
     // }
   }, [aggregationResponse, i18n.language, isSuccess, queryClient]);
+}
+
+export function useDailyCheckInConfig() {
+  return useQuery({
+    queryKey: PUBLIC_QUERY_KEYS.dailyCheckInConfig,
+    queryFn: () => publicService.dailyCheckInConfig(),
+    enabled: true
+  });
 }

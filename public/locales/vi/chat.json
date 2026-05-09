@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Trò chuyện dịch vụ khách hàng không tải được",
   "read": "Đã đọc",
   "unread": "Chưa đọc",
-  "customerService": "Dịch vụ khách hàng"
+  "customerService": "Dịch vụ khách hàng",
+  "today": "hôm nay",
+  "earlier": "trước đó",
+  "older": "cũ hơn"
 }

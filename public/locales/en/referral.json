@@ -190,5 +190,13 @@
   "programAccessUpdate": "Program Access Update",
   "referralProgramPrivileges": "Your referral program privileges have been revoked following a review of your account and participation in the program. We identified activity that does not comply with the terms, conditions, or intended use of our referral program. This may include suspicious referral patterns, unauthorized promotional methods, misuse of incentives, or attempts to circumvent fair-use guidelines.",
   "referralRewardsPrivileges": "As a result, your ability to generate new referral rewards, share referral links, or receive benefits from referrals has been disabled. Pending or future rewards associated with the referral program will be withheld and canceled in line with our policies. <0>All other functionality of your account remains intact and unaffected by this change</0>.",
-  "understandDisappointing": "We understand this may be disappointing. If you believe this decision is in error, or would like more details, please contact our support team with any relevant information, and we will review your case."
+  "understandDisappointing": "We understand this may be disappointing. If you believe this decision is in error, or would like more details, please contact our support team with any relevant information, and we will review your case.",
+  "spread_the_Love": "Spread the Love",
+  "need": "Need",
+  "new_friends": "New Friends?",
+  "timeToRecruit": "Time to recruit! Tap the button to tell a total stranger about us on WhatsApp.",
+  "date": "date",
+  "save": "save",
+  "enterCampaignName": "Enter Campaign Name",
+  "shareText": "🎮 Join me on this amazing platform!"
 }

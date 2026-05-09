@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Numărul de mobil a fost deja folosit. Vă rugăm să folosiți un alt număr.",
     "mobileAlreadyBound": "Numărul de mobil este deja asociat acestui cont.",
     "fullscreen": "Ecran complet",
-    "exitFullscreen": "Ieși din ecran complet"
+    "exitFullscreen": "Ieși din ecran complet",
+    "draw": "Egal"
   },
   "bonus_pool": "Fond de Bonus",
   "pleaseEnterValidUsernameOrEmail": "Vă rugăm să introduceți un nume de utilizator sau un email valid",

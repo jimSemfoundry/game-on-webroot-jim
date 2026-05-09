@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Vaša telefonska številka je bila potrjena. Lahko nadaljujete.",
   "email_address_has_been_verified": "Vaš e-poštni naslov je bil potrjen. Lahko nadaljujete.",
   "setNewPassword": "Nastavi novo geslo",
-  "passwordLengthRequirement": "Prosimo, vnesite geslo med 6 in 64 znaki."
+  "passwordLengthRequirement": "Prosimo, vnesite geslo med 6 in 64 znaki.",
+  "re_enter_new_password": "Ponovno vnesite novo geslo",
+  "change_withdrawal_pin": "Spremeni PIN za dvig",
+  "confirm_withdrawal_pin": "Potrdi PIN za dvig",
+  "enter_email": "Vnesite e-pošto",
+  "rolloverDetails": "Podrobnosti rollover",
+  "verified_email": "Potrjen e-poštni naslov",
+  "verified_phone_number": "Potrjena telefonska številka",
+  "change_key": "Spremeni",
+  "update_successfully": "Posodobitev uspešna. Za naslednjo prijavo uporabite {<1>{{value}}</1>}.",
+  "understand_key": "Razumem",
+  "ensure_email_valid": "Prepričajte se, da je vaš e-poštni naslov veljaven in vam dostopen.",
+  "ensure_phone_valid": "Prepričajte se, da je vaša telefonska številka veljavna in vam dostopna.",
+  "enter_phone_number_to_receive_verification_code": "Spodaj vnesite svojo telefonsko številko, da prejmete potrditveno kodo.",
+  "enter_email_address_to_receive_verification_code": "Spodaj vnesite svoj e-poštni naslov, da prejmete potrditveno kodo."
 }

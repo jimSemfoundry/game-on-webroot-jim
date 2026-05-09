@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "A telefonszámod ellenőrizve lett. Folytathatod.",
   "email_address_has_been_verified": "Az e-mail-címed ellenőrizve lett. Folytathatod.",
   "setNewPassword": "Új jelszó beállítása",
-  "passwordLengthRequirement": "Kérem, adjon meg egy 6 és 64 karakter közötti jelszót."
+  "passwordLengthRequirement": "Kérem, adjon meg egy 6 és 64 karakter közötti jelszót.",
+  "re_enter_new_password": "Írd be újra az új jelszót",
+  "change_withdrawal_pin": "Kifizetési PIN módosítása",
+  "confirm_withdrawal_pin": "Kifizetési PIN megerősítése",
+  "enter_email": "Email megadása",
+  "rolloverDetails": "Rollover részletek",
+  "verified_email": "Ellenőrzött e-mail",
+  "verified_phone_number": "Ellenőrzött telefonszám",
+  "change_key": "Módosítás",
+  "update_successfully": "Frissítés sikeres. Kérjük, használja a {<1>{{value}}</1>} a következő bejelentkezéshez.",
+  "understand_key": "Értem",
+  "ensure_email_valid": "Győződjön meg arról, hogy az e-mail-címe érvényes és hozzáférhető az Ön számára.",
+  "ensure_phone_valid": "Győződjön meg arról, hogy a telefonszáma érvényes és hozzáférhető az Ön számára.",
+  "enter_phone_number_to_receive_verification_code": "Adja meg telefonszámát az alábbi mezőben az ellenőrző kód fogadásához.",
+  "enter_email_address_to_receive_verification_code": "Adja meg e-mail-címét az alábbi mezőben az ellenőrző kód fogadásához."
 }

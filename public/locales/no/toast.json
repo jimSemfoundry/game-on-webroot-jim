@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Vennligst skriv inn en fast lengde på {{length}} tegn",
   "disabledCharNotAllowed": "Tegnet {{char}} er ikke tillatt",
   "space": "mellomrom",
-  "thisWalletIsAlreadyUsed": "Denne lommeboken er allerede i bruk"
+  "thisWalletIsAlreadyUsed": "Denne lommeboken er allerede i bruk",
+  "login_failed": "Innlogging mislyktes",
+  "login_error_code_1": "Brukernavnet må være et gyldig telefonnummer (starter med + og bruker - etter landskode) eller en e-postadresse",
+  "account_created_and_logged_in_successfully": "Konto opprettet og logget inn!",
+  "requests_later": "For mange forespørsler fra denne IP-en. Vennligst prøv igjen senere.",
+  "booster_activated_successfully": "Booster aktivert!",
+  "depositNameEntered": "Navnet som er oppgitt for innskudd må matche det fulle navnet<0>（Fornavn + Etternavn）</0> på bankkontoen som brukes for uttak, i samsvar med regler mot svindel og hvitvasking.\n\n Hvis du trenger å endre bankkontoen din, vennligst kontakt kundeservice og fullfør KYC-verifisering.",
+  "user_not_found_or_password_incorrect": "Bruker ikke funnet eller feil passord",
+  "free_spin_record_enabled_successfully": "Gratisspinn-registrering aktivert!",
+  "check_in_success": "Innsjekking vellykket!",
+  "check_in_failed": "Innsjekking mislyktes!",
+  "check_in_already": "Innsjekking er allerede fullført for denne datoen.",
+  "ballsClaimed": "Vennball hentet med suksess",
+  "cannotBetby": "Sportsbonuslommeboken er kun for sportsveddemål."
 }

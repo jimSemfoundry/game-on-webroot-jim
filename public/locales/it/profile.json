@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Il tuo numero di telefono è stato verificato. Puoi continuare.",
   "email_address_has_been_verified": "Il tuo indirizzo email è stato verificato. Puoi continuare.",
   "setNewPassword": "Imposta nuova password",
-  "passwordLengthRequirement": "Inserisci una password tra 6 e 64 caratteri."
+  "passwordLengthRequirement": "Inserisci una password tra 6 e 64 caratteri.",
+  "re_enter_new_password": "Reinserisci la nuova password",
+  "change_withdrawal_pin": "Cambia PIN di prelievo",
+  "confirm_withdrawal_pin": "Conferma PIN di prelievo",
+  "enter_email": "Inserisci email",
+  "rolloverDetails": "Dettagli rollover",
+  "verified_email": "Email verificata",
+  "verified_phone_number": "Numero di telefono verificato",
+  "change_key": "Modifica",
+  "update_successfully": "Aggiornamento riuscito. Utilizza {<1>{{value}}</1>} per il prossimo accesso.",
+  "understand_key": "Ho capito",
+  "ensure_email_valid": "Assicurati che il tuo indirizzo email sia valido e accessibile da te.",
+  "ensure_phone_valid": "Assicurati che il tuo numero di telefono sia valido e accessibile da te.",
+  "enter_phone_number_to_receive_verification_code": "Inserisci il tuo numero di telefono qui sotto per ricevere un codice di verifica.",
+  "enter_email_address_to_receive_verification_code": "Inserisci il tuo indirizzo email qui sotto per ricevere un codice di verifica."
 }

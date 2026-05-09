@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Mikä on Booster?",
-    "content": "<p class=\"leading-7\">Boosterit tuplaavat Rakebackisi tunniksi joka kerta, kun suositus tekee talletuksen.</p><p class=\"leading-7\">Boostattu avausprosentti:</p><p class=\"leading-7\">Avausprosentti:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosterit tuplaavat Rakebackisi kolmeksi tunniksi joka kerta, kun suositus tekee talletuksen.</p><p class=\"leading-7\">Boostattu avausprosentti:</p><p class=\"leading-7\">Avausprosentti:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Mikä on bonuskalenteri?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Mitä ovat saavutukset?",
-    "content": "<p class=\"leading-7\">Saavutukset ovat tapa, jolla tunnustamme toimintasi alustallamme. Kun vaadit saavutuspalkintosi, se maksetaan bonuskalenteriisi ja sen voi vaatia joka 8. tunti ja se vanhenee 24 tunnin kuluessa, jos sitä ei vaadita.</p>"
+    "content": "<p class=\"leading-7\">Saavutukset ovat tapamme tunnustaa toimintasi alustallamme. Saavutukset ovat vaadittavissa, kun saavutat VIP 2 -tason tai korkeamman.</p>"
   }
 }

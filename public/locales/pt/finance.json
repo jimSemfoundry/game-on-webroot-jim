@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Por favor, preencha suas informações de saque de moeda fiduciária.",
   "updating_withdrawal_address": "Atualizando o endereço de saque, aguarde...",
   "please_select_withdrawal_method": "Selecione um método de saque.",
-  "integer_deposit": "Este canal exige que o valor do depósito seja um múltiplo inteiro de {{value}}.",
+  "integer_deposit": "Este canal exige que o valor do depósito seja em unidades de {{value}}.",
   "enter_string_en_only": "Apenas letras em inglês, números e espaços podem ser inseridos.",
-  "enter_string_min_length": "O comprimento deve ser de pelo menos {{length}}."
+  "enter_string_min_length": "O comprimento deve ser de pelo menos {{length}}.",
+  "met_eligibility": "*Você atendeu aos critérios de elegibilidade para a oferta especial. Recarregue agora para receber sua recompensa!",
+  "read_carefully": "Por favor, leia com atenção",
+  "no_channel": "Não há canais disponíveis no momento"
 }

@@ -34,5 +34,12 @@
   "depositNow": "Depozit zdaj",
   "free_spins": "Brezplačni vrtljaji",
   "play_with_balance_in": "Igraj z ravnotežjem v",
-  "the_selected_currency_will_be_displayed_in": "Izbrana valuta bo prikazana v"
+  "the_selected_currency_will_be_displayed_in": "Izbrana valuta bo prikazana v",
+  "activity": "Dejavnost",
+  "come_join_me_now_at": "PRIDRUŽITE SE ZDAJ",
+  "invite_friends_to_join_play": "Povabite prijatelje, naj se pridružijo in Igrajo",
+  "earn_up_to_50_commission_bonus": "Zaslužite do 50% provizije <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Prenos ni uspel. Poskusite znova.",
+  "image_downloaded": "Slika prenesena!",
+  "share_text_1": "Pravkar sem zadel BIG WIN {{multiplier}}x! 🔥"
 }

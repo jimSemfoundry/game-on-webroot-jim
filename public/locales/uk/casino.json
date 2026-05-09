@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Як провідний глобальний ігровий альянс, ми об’єднуємо силу та вишуканість найкращих платформ під єдиною візією. У всіх брендах нашого портфоліо ми діємо як одне ціле — надаючи розваги, персоналізовані нагороди та безперебійне з’єднання через валюти, країни та культури.",
   "footerDescriptionThree": "Не просто грайте в гру. Кидайте виклик усьому.",
   "footerDescriptionFour": "Відмінна риса {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Усі права захищено.",
+  "footerDescriptionFive": "© {{year}}. Усі права захищено.",
   "banner": {
     "oneDescription": "БУДЬ ПЕРШИМ.",
     "oneDescriptionTwo": "КИНЬ ВИКЛИК\nУСЬОМУ",
@@ -127,5 +127,6 @@
   "addHomeScreen": "Додати на головний екран",
   "latestWins": "Останні Виграші",
   "spinPlayAndWinAcrossTopCasinoHits": "Крути, грай та вигравай у найкращих казино",
-  "scoreBigOnSportsFromAroundTheWorld": "Заробляй великі виграші на спорті з усього світу"
+  "scoreBigOnSportsFromAroundTheWorld": "Заробляй великі виграші на спорті з усього світу",
+  "show_less": "Показати менше"
 }

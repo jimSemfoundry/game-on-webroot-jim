@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Čo je Booster?",
-    "content": "<p class=\"leading-7\">Boostery zdvojnásobujú váš Rakeback na jednu hodinu zakaždým, keď referral uskutoční vklad.</p><p class=\"leading-7\">Zvýšená miera odomknutia:</p><p class=\"leading-7\">Miera odomknutia:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boostery zdvojnásobujú váš Rakeback na tri hodiny zakaždým, keď referral uskutoční vklad.</p><p class=\"leading-7\">Zvýšená miera odomknutia:</p><p class=\"leading-7\">Miera odomknutia:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Čo je bonusový kalendár?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Čo sú úspechy?",
-    "content": "<p class=\"leading-7\">Úspechy sú naším spôsobom, ako uznať vašu aktivitu na našej platforme. Keď si uplatníte svoj bonus za úspech, bude vyplatený na váš bonusový kalendár a môže byť uplatnený každých 8 hodín a vyprší za 24 hodín, ak nebude uplatnený.</p>"
+    "content": "<p class=\"leading-7\">Úspechy sú naším spôsobom, ako uznať vašu aktivitu na našej platforme. Úspechy sú k dispozícii na uplatnenie, keď dosáhnete VIP 2 a vyššie.</p>"
   }
 }

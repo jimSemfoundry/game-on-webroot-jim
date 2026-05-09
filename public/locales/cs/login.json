@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Zadejte prosím heslo",
   "verification_code_sent_to_your": "Ověřovací kód byl odeslán na váš e-mail/telefon",
   "one_min_error": "Získejte ověřovací kód znovu za 1 minutu.",
-  "signInWith": "Zaregistrovat se pomocí"
+  "must_agree": "Musíte souhlasit s podmínkami",
+  "signInWith": "Zaregistrovat se pomocí",
+  "usernameTooShort": "Uživatelské jméno musí mít alespoň 6 znaků"
 }

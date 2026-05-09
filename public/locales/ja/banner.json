@@ -36,5 +36,5 @@
   "vip_monday": "VIP 月曜日",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "ボーナス \n <0>ドル</0>",
-  "super_everyday": "<0>本日の初回入金</0><br/><0>暗号通貨 {{crypto_bonus}}</0><br/><0>法定通貨 {{fiat_bonus}}</0><br/>毎日の入金を<br/>ブーストしよう"
+  "super_everyday": "<0>本日の初回入金</0><br/>暗号通貨 {{crypto_bonus}}<br/>法定通貨 {{fiat_bonus}}"
 }

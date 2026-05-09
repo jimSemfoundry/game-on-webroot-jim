@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Hvad er en Booster?",
-    "content": "<p class=\"leading-7\">Boostere fordobler din Rakeback i en time hver gang en henvisning foretager en indbetaling.</p><p class=\"leading-7\">Boostet Låseprocent:</p><p class=\"leading-7\">Låseprocent:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boostere fordobler din Rakeback i tre timer hver gang en henvisning foretager en indbetaling.</p><p class=\"leading-7\">Boostet Låseprocent:</p><p class=\"leading-7\">Låseprocent:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Hvad er Bonus Kalender?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Hvad er Præstationer?",
-    "content": "<p class=\"leading-7\">Præstationer er vores måde at anerkende din aktivitet på vores platform. Når du indløser din præstationsbonus, vil den blive udbetalt til din Bonus Kalender og kan indløses hver 8. time og udløber efter 24 timer, hvis den ikke indløses.</p>"
+    "content": "<p class=\"leading-7\">Præstationer er vores måde at anerkende din aktivitet på vores platform. Præstationer er tilgængelige for indløsning, når du når VIP 2 og derover.</p>"
   }
 }

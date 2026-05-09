@@ -34,5 +34,12 @@
   "depositNow": "अब जमा करें",
   "free_spins": "फ्री स्पिन",
   "play_with_balance_in": "शेष राशि में खेलें",
-  "the_selected_currency_will_be_displayed_in": "चुनी गई मुद्रा में प्रदर्शित किया जाएगा"
+  "the_selected_currency_will_be_displayed_in": "चुनी गई मुद्रा में प्रदर्शित किया जाएगा",
+  "activity": "गतिविधि",
+  "come_join_me_now_at": "अभी हमसे जुड़ें",
+  "invite_friends_to_join_play": "दोस्तों को जुड़ने और खेलने के लिए आमंत्रित करें",
+  "earn_up_to_50_commission_bonus": "50% तक कमीशन कमाएं <0>+{{bonus}}</0> बोनस",
+  "download_failed": "डाउनलोड विफल। कृपया पुनः प्रयास करें।",
+  "image_downloaded": "छवि डाउनलोड हो गई!",
+  "share_text_1": "मुझे अभी-अभी {{multiplier}}x बड़ी जीत मिली! 🔥"
 }

@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Kundtjänstchatten kunde inte laddas",
   "read": "Lästa",
   "unread": "Olästa",
-  "customerService": "Kundtjänst"
+  "customerService": "Kundtjänst",
+  "today": "idag",
+  "earlier": "tidigare",
+  "older": "äldre"
 }

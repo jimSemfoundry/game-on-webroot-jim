@@ -64,6 +64,7 @@
     "fiatWithdraw": "법정화폐 출금",
     "cryptoWithdraw": "암호화폐 출금",
     "bonus": "보너스",
+    "bounty": "바운티",
     "win": "승리",
     "bet": "베팅",
     "refund": "환불",
@@ -72,7 +73,8 @@
     "rakebackbonus": "리베이트 보너스",
     "cashbackbonus": "캐시백 보너스",
     "referral": "추천",
-    "commission": "커미션"
+    "commission": "커미션",
+    "FIAT": "법정화폐"
   },
   "gameTypes": {
     "slots": "슬롯",
@@ -150,5 +152,5 @@
     "unlockedFunds": "잠금 해제된 자금",
     "rolloverMul": "베팅 배수"
   },
-  "assistance": "세부 정보를 확인하고 다시 시도하거나 고객 서비스에 문의하세요"
+  "assistance": "귀하의 이름이 이 채널에서 처음 사용한 이름과 일치하지 않습니다. 고객 서비스에 문의하세요."
 }

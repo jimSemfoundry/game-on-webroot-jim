@@ -2,7 +2,6 @@ import { Suspense, lazy, useContext, useEffect, useMemo, useState } from "react"
 import { useModal } from "../components/ui/Modal";
 import { ModalsContext, type TipsModalType, type TabItemsType, ModalsContextType } from "./ModalsContext";
 import { useSidebar } from "./SidebarContext";
-import { UserFinanceModal } from "@/components/modal/UserFinanceModal";
 import { SignInModal } from "../components/modal/SignInModal";
 import { SignUpModal } from "../components/modal/SignUpModal";
 // Help Modals
@@ -12,7 +11,7 @@ import type { DoubleOrNothingModalProps } from "@/sections/double-or-nothing/Dou
 export type { TabItemsType } from "./ModalsContext";
 
 const LazyThemeSwitcherModal = lazy(() =>
-  import("@/components/modal/ThemeSwitcherModal.tsx").then((m) => ({ default: m.ThemeSwitcherModal })),
+  import("../components/modal/ThemeSwitcherModal.tsx").then((m) => ({ default: m.ThemeSwitcherModal })),
 );
 
 const LazyBetSlipModal = lazy(() =>
@@ -110,6 +109,10 @@ const LazyLanguageSelectModal = lazy(() =>
 
 const LazyGameCurrencySelectModal = lazy(() =>
   import("../components/modal/GameCurrencySelectModal").then((m) => ({ default: m.GameCurrencySelectModal })),
+);
+
+const LazyUserFinanceModal = lazy(() =>
+  import("../components/modal/UserFinanceModal").then((m) => ({ default: m.UserFinanceModal })),
 );
 
 
@@ -330,7 +333,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
   return (
     <ModalsContext.Provider value={value}>
       {children}
-      {/* 
+      {/*
       将 Suspense 提取到外层可能会有一些潜在问题
       1. 代码打包影响
       之前：每个 modal 可以独立打包，按需加载
@@ -339,7 +342,7 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       如果一个懒加载组件失败，可能影响整个 Suspense 块内的其他组件
       3. 性能考虑
       同时加载多个 modal 可能会增加初始加载时间 */}
-      
+
       {/* Auth Modals */}
       <SignInModal isOpen={isSignInOpen} onClose={closeSignInModal} />
       <SignUpModal isOpen={isSignUpOpen} onClose={closeSignUpModal} />
@@ -359,7 +362,11 @@ export function ModalsProvider({ children }: { children: React.ReactNode }) {
       )}
 
       {/* User Finance Modal */}
-      <UserFinanceModal isOpen={isUserFinanceOpen} onClose={closeUserFinanceModal} initialTab={userFinanceInitialTab} />
+      {isUserFinanceOpen && (
+        <Suspense fallback={null}>
+          <LazyUserFinanceModal isOpen={isUserFinanceOpen} onClose={closeUserFinanceModal} initialTab={userFinanceInitialTab} />
+        </Suspense>
+      )}
 
       {/* Bet Slip Modal */}
       {isBetSlipOpen && (

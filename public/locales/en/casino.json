@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "As a leading global gaming alliance, we bring together the strength and sophistication of top-tier platforms under one vision. Across every brand in our portfolio, we move as one — delivering entertainment, personalized rewards, and seamless connectivity across currencies, countries, and cultures.",
   "footerDescriptionThree": "Don’t just play the game. <0>Challenge Everything.</0>",
   "footerDescriptionFour": "A signature property of the {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. All Right Reserved.",
+  "footerDescriptionFive": "© {{year}}. All Right Reserved.",
   "banner": {
     "oneDescription": "BE THE FIRST.",
     "oneDescriptionTwo": "CHALLENGE\nEVERYTHING",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Add to Home Screen",
   "latestWins": "Latest Wins",
   "spinPlayAndWinAcrossTopCasinoHits": "Spin, play, and win across top casino hits",
-  "scoreBigOnSportsFromAroundTheWorld": "Score big on sports from around the world"
+  "scoreBigOnSportsFromAroundTheWorld": "Score big on sports from around the world",
+  "liveDealers": "Live dealers for your favorite table games",
+  "show_less": "show less"
 }

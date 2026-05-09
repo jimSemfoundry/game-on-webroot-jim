@@ -8,12 +8,17 @@ import { useGreatestGameOrder } from "@/hooks/api/usePublic";
 import { useMemo, useState, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 export const RecentBigWins = memo(() => {
   const { t } = useTranslation();
   const { data: greatestGameOrder, isLoading } = useGreatestGameOrder();
   const { openBetSlipModal } = useModals();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
+
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
   // const carousel = useCarousel(
@@ -44,11 +49,11 @@ export const RecentBigWins = memo(() => {
     const orders = greatestGameOrder?.data ?? [];
 
     const withImages = orders.filter((order: any) => {
-      return order?.image && order.image.trim() !== "" && !failedImages.has(order.id);
+      return !isGameBanned(order) && order?.image && order.image.trim() !== "" && !failedImages.has(order.id);
     });
 
     return withImages.slice(0, 30);
-  }, [failedImages, greatestGameOrder?.data]);
+  }, [failedImages, greatestGameOrder?.data, isGameBanned]);
 
   return (
     <SmallLoading

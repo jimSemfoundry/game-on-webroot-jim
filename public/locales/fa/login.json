@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "لطفاً یک رمز عبور وارد کنید",
   "verification_code_sent_to_your": "کد تأیید به ایمیل/تلفن شما ارسال شد",
   "one_min_error": "کد تأیید را دوباره در ۱ دقیقه دریافت کنید.",
-  "signInWith": "ثبت‌نام با"
+  "must_agree": "شما باید با شرایط و ضوابط موافقت کنید",
+  "signInWith": "ثبت‌نام با",
+  "usernameTooShort": "نام کاربری باید حداقل 6 کاراکتر باشد"
 }

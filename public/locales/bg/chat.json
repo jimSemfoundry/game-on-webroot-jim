@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Чатът за обслужване на клиенти не успя да се зареди",
   "read": "Прочетено",
   "unread": "Непрочетено",
-  "customerService": "Обслужване на клиенти"
+  "customerService": "Обслужване на клиенти",
+  "today": "днес",
+  "earlier": "по-рано",
+  "older": "по-стари"
 }

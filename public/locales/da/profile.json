@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Dit telefonnummer er blevet bekræftet. Du kan fortsætte.",
   "email_address_has_been_verified": "Din e-mailadresse er blevet bekræftet. Du kan fortsætte.",
   "setNewPassword": "Indstil ny adgangskode",
-  "passwordLengthRequirement": "Indtast venligst en adgangskode mellem 6 og 64 tegn."
+  "passwordLengthRequirement": "Indtast venligst en adgangskode mellem 6 og 64 tegn.",
+  "re_enter_new_password": "Indtast ny adgangskode igen",
+  "change_withdrawal_pin": "Skift udbetalings-PIN",
+  "confirm_withdrawal_pin": "Bekræft udbetalings-PIN",
+  "enter_email": "Indtast e-mail",
+  "rolloverDetails": "Rollover-detaljer",
+  "verified_email": "Bekræftet e-mail",
+  "verified_phone_number": "Bekræftet telefonnummer",
+  "change_key": "Ændre",
+  "update_successfully": "Opdatering gennemført. Brug venligst {<1>{{value}}</1>} til dit næste login.",
+  "understand_key": "Forstået",
+  "ensure_email_valid": "Sørg for, at din e-mailadresse er gyldig og tilgængelig for dig.",
+  "ensure_phone_valid": "Sørg for, at dit telefonnummer er gyldigt og tilgængeligt for dig.",
+  "enter_phone_number_to_receive_verification_code": "Indtast dit telefonnummer nedenfor for at modtage en bekræftelseskode.",
+  "enter_email_address_to_receive_verification_code": "Indtast din e-mailadresse nedenfor for at modtage en bekræftelseskode."
 }

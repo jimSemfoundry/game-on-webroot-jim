@@ -190,5 +190,13 @@
   "programAccessUpdate": "Actualizare acces program",
   "referralProgramPrivileges": "Privilegiile tale din programul de recomandări au fost revocate în urma unei revizuiri a contului tău și a participării tale la program. Am identificat activitate care nu respectă termenii, condițiile sau utilizarea intenționată a programului nostru de recomandări. Aceasta poate include tipare suspecte de recomandări, metode promoționale neautorizate, utilizarea abuzivă a stimulentelor sau încercări de a ocoli regulile de utilizare echitabilă.",
   "referralRewardsPrivileges": "Ca urmare, capacitatea ta de a genera noi recompense de recomandare, de a partaja linkuri de recomandare sau de a primi beneficii din recomandări a fost dezactivată. Recompensele în așteptare sau viitoare asociate programului de recomandări vor fi reținute și anulate în conformitate cu politicile noastre. <0>Toate celelalte funcționalități ale contului tău rămân intacte și nu sunt afectate de această schimbare</0>.",
-  "understandDisappointing": "Înțelegem că acest lucru poate fi dezamăgitor. Dacă crezi că această decizie este o eroare sau dorești mai multe detalii, te rugăm să contactezi echipa noastră de suport cu orice informații relevante, iar noi îți vom revizui cazul."
+  "understandDisappointing": "Înțelegem că acest lucru poate fi dezamăgitor. Dacă crezi că această decizie este o eroare sau dorești mai multe detalii, te rugăm să contactezi echipa noastră de suport cu orice informații relevante, iar noi îți vom revizui cazul.",
+  "spread_the_Love": "Răspândiți dragostea",
+  "need": "Aveți nevoie de",
+  "new_friends": "Prieteni noi?",
+  "timeToRecruit": "E timpul să recrutați! Atingeți butonul pentru a spune unui necunoscut despre noi pe WhatsApp.",
+  "date": "dată",
+  "save": "salvează",
+  "enterCampaignName": "Introduceți numele campaniei",
+  "shareText": "🎮 Alătură-te mie pe această platformă grozavă!"
 }

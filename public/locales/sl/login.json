@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Prosimo, vnesite geslo",
   "verification_code_sent_to_your": "Verifikacijska koda je bila poslana na vaš e-poštni naslov/telefon",
   "one_min_error": "Ponovno pridobite verifikacijsko kodo čez 1 minuto.",
-  "signInWith": "Registrirajte se z"
+  "must_agree": "Strinjati se morate s pogoji uporabe",
+  "signInWith": "Registrirajte se z",
+  "usernameTooShort": "Uporabniško ime mora vsebovati vsaj 6 znakov"
 }

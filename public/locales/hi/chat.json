@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "ग्राहक सेवा चैट लोड करने में विफल",
   "read": "पढ़ें",
   "unread": "अविकसित",
-  "customerService": "ग्राहक सेवा"
+  "customerService": "ग्राहक सेवा",
+  "today": "आज",
+  "earlier": "पहले",
+  "older": "पुराना"
 }

@@ -21,11 +21,19 @@ export interface Auth {
   noMd5?: string;
 }
 
+function isInvalidStoredValue(value: string | null | undefined): boolean {
+  return !value || value === "undefined" || value === "null";
+}
+
 export function getAuth(): Auth {
   let username = localStorage.getItem("username") || "";
   const storedToken = localStorage.getItem("token");
   const storedUser = localStorage.getItem("user");
   let userId: string | number | undefined;
+
+  if (isInvalidStoredValue(username)) {
+    username = "";
+  }
 
   try {
     if (storedUser) {
@@ -39,7 +47,7 @@ export function getAuth(): Auth {
     userId = undefined;
   }
 
-  if (!username || !storedToken) {
+  if (isInvalidStoredValue(username) || isInvalidStoredValue(storedToken)) {
     // throw new Error('User not authenticated');
   }
 
@@ -51,7 +59,7 @@ export function getAuth(): Auth {
     userid: userId,
   };
 
-  auth.token = md5(storedToken + auth.key + auth.timestamp);
+  auth.token = md5((storedToken || "") + auth.key + auth.timestamp);
   return auth;
 }
 
@@ -83,5 +91,7 @@ export function clearAuth(reason?: string) {
  * Check if user has authentication data
  */
 export function hasAuth(): boolean {
-  return !!(localStorage.getItem("token") && localStorage.getItem("username"));
+  const token = localStorage.getItem("token");
+  const username = localStorage.getItem("username");
+  return !isInvalidStoredValue(token) && !isInvalidStoredValue(username);
 }

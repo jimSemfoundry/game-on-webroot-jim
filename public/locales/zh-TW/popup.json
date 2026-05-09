@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "免費旋轉的獲勝金額在解鎖和索取之前不會到期。",
     "general_terms": "一般條款",
     "general_terms_desc": "免費旋轉獎勵以 BUCK 計算並入賬，然後以您首選的法定貨幣顯示以方便使用。請注意，貨幣轉換為近似值。",
-    "general_terms_desc_2": "賭場保留隨時修改或撤銷資格的權利，無需說明理由。任何濫用或欺詐行為將導致取消參加促銷的資格。"
+    "general_terms_desc_2": "賭場保留隨時修改或撤銷資格的權利，無需說明理由。任何濫用或欺詐行為將導致取消參加促銷的資格。",
+    "redeem_count_free_spins": "兌換 {{freeSpinsCount}} 次免費旋轉？"
   },
   "mysteryBox": {
     "description": "你玩得越多，中大獎的機會就越高。每月開啟你的神秘寶箱，解鎖為你量身打造的驚喜獎金。轉一轉、玩一玩，把獎勵帶走！",
@@ -250,5 +251,31 @@
   "cash_bonus": "現金獎金",
   "none": "無",
   "bonus_limit": "獎金上限",
-  "minimum_deposit": "最低存款"
+  "minimum_deposit": "最低存款",
+  "get_buck": "獲取 BUCK",
+  "what_is_buck": "什麼是 BUCK？",
+  "what_is_buck_description": "BUCK 是一種專屬代幣，用於所有平台獎勵，價值為 1 BUCK = 1 USDT。",
+  "is_buck_exchangeable": "BUCK 可以兌換嗎？",
+  "is_buck_exchangeable_description": "可以。您可以隨時在平台上直接將 BUCK 轉換為支持的加密貨幣或法定貨幣。",
+  "expiration_description": "無。BUCK 永不過期，在您使用之前將一直保留在您的餘額中。",
+  "general_terms_description": "獎勵以USDT計算並記入，然後為了方便顯示在您選擇的法定貨幣中。請注意，貨幣轉換是近似的。 \n\n 賭場保留隨時修改或撤銷資格的權利，無需說明。任何濫用或欺詐行為將導致取消參加促銷的資格。",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "取得更多夥伴球",
+    "daily_check_in": "每日簽到",
+    "refer_a_friend": "邀請好友",
+    "referral_first_deposit": "推薦首存"
+  },
+  "bonus_details_modal": {
+    "description": "歡迎來到獎金商店，您可以將現金兌換為免費彩金，並在符合打碼要求的前提下額外獲得 20%-180%。免費彩金是一種特殊的遊戲點數，可用於部分指定的老虎機遊戲。完成打碼要求後，免費彩金可轉換為可提領現金。",
+    "claim_distribution": "當您完成打碼要求後，點擊領取按鈕即可將您的免費彩金餘額兌換為您選擇的貨幣。",
+    "expiration_description": "免費彩金必須在獎金商店分頁顯示的有效期內使用。有效期結束後，未使用的免費彩金餘額將被沒收。請注意，您一次只能擁有一個進行中的免費彩金活動。",
+    "generalTerms_description": "免費彩金以 BONUS 計值計算並發放，隨後為方便起見以您選擇的顯示貨幣呈現。請注意，貨幣換算僅為約略值。賭場保留在無需說明理由的情況下修改或取消資格的權利。任何濫用或詐欺行為將導致被取消活動資格。"
+  },
+  "sports_bonus_details_modal": {
+    "description": "歡迎來到體育獎金，您可以將現金兌換成體育獎金美元，並根據下注要求獲得額外 50% 的獎金。體育獎金是可用於體育博彩的特殊遊戲積分。一旦您完成投注要求，體育獎金即可兌換為可提取現金。",
+    "claim_distribution": "當您完成下注要求後，您可以透過點擊領取按鈕將您的運動獎金餘額轉換為您選擇的貨幣。",
+    "wagering_rules": "- 輸單：您的下注金額全額計入下注要求。\n- 贏單：僅當賠率 ≥ {{minOdds}} 時計入。若賠率低於 {{minOdds}}，該注單不計入下注要求。\n- 已兌現注單（Cash Out）：僅當兌現金額大於原下注金額 × {{minOdds}} 時計入。\n- 僅下注金額計入下注要求，獎金部分不計入。",
+    "expiration_description": "體育獎金美元必須在體育獎金選項卡中顯示的有效期內使用。有效期過後，未使用的體育獎金餘額將被沒收。",
+    "generalTerms_description": "- 體育獎金獎勵在體育獎金中計算並記入，然後以您首選的貨幣顯示以方便使用。請注意，貨幣換算為近似值。\n- 賭場保留隨時修改或撤銷資格的權利，而無需證明理由。任何濫用或詐欺活動都將導致取消促銷資格。"
+  }
 }

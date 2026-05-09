@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "De chat van de klantenservice kon niet worden geladen",
   "read": "Lezen",
   "unread": "Ongelezen",
-  "customerService": "Klantenservice"
+  "customerService": "Klantenservice",
+  "today": "vandaag",
+  "earlier": "eerder",
+  "older": "ouder"
 }

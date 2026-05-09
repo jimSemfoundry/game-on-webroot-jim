@@ -5,9 +5,8 @@ import { Trans, useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { useNavigate } from "@tanstack/react-router";
 import { useBoundStore } from "@/store";
-import { useAuthModals, useFinanceModal } from "@/contexts/ModalsProvider.tsx";
+import { useAuthModals } from "@/contexts/ModalsProvider.tsx";
 import { ComponentProps, useCallback } from "react";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { bonus_dollars_router_path } from "@/sections/dollars/bonus-wallet.tsx";
 import { ChevronRight } from "lucide-react";
 import clsx from "clsx";
@@ -84,7 +83,7 @@ export const InnerBannerTitle = ({ list, data, banner, className }: {
 
 export const InnerBannerBrands = ({ type, banner }: { type: string, banner: Record<string, any> }) => {
   return (type.endsWith("_regional") || type.endsWith("_betting_partner")) &&
-    <div className="absolute z-20 top-[90px] max-w-40 flex flex-col items-center gap-4 rtl:left-4">
+    <div className="absolute z-20 top-[90px] max-w-40 flex flex-col items-center gap-4 rtl:right-4">
       <img src={banner?.float_image_list[1]?.mobile_image} alt="" loading="lazy" decoding="async"
            className="max-w-[30px]" />
       <img src={banner?.float_image_list[2]?.mobile_image} alt="" loading="lazy" decoding="async"
@@ -96,7 +95,7 @@ export const InnerBannerPerson = ({ src }: { src: string }) => {
   return <img
     src={getImgCompressParams(src, 209, 80)} alt="" fetchPriority="high"
     className={`absolute z-20 top-0 right-0 h-[209px] w-auto object-cover
-           sm:bottom-0 sm:top-auto rtl:right-auto rtl:left-0
+           sm:bottom-0 sm:top-auto rtl:right-auto rtl:left-0 rtl:-scale-x-100
            `} />;
 };
 
@@ -158,15 +157,14 @@ export const InnerTimeDesc = ({ text }: { text: string }) => {
 
 export const InnerTimeLabel = ({ value, label }: { value: number, label: string }) => {
   return <div
-    className="flex p-1 flex-1 flex-col items-center justify-center rounded-md leading-3"
-    style={{ background: "color(display-p3 0.082 0.098 0.118 / 0.8)" }}
+    className="flex p-1 flex-1 flex-col items-center justify-center rounded-md leading-3 bg-base-300/80"
   >
-    <div className="overflow-hidden font-montserrat countdown text-center text-2xl font-bold text-white">
+    <div className="overflow-hidden font-montserrat countdown text-center text-2xl font-bold text-base-content">
       <div style={{ "--value": value } as React.CSSProperties} aria-live="polite">
         {value}
       </div>
     </div>
-    <div className="font-montserrat text-neutral-content text-[8px]">{label}</div>
+    <div className="font-montserrat text-base-content/50 text-[8px]">{label}</div>
   </div>;
 };
 
@@ -220,14 +218,12 @@ export const useNavigateGuard = () => {
 
   const { openSignInModal } = useAuthModals();
 
-  const { openUserFinanceModalWithTab } = useFinanceModal();
-
   const fn1 = useCallback((path: string, auth = false) => {
     if (auth) {
       if (!isAuthenticated) return openSignInModal();
       if (path.includes("/vip-monday")) return setSyncAction("OPEN_VIP_MONDAY_BONUS_MODAL");
       if (path.includes("/referral/bonus")) return setSyncAction("OPEN_EXTRA_REFERRAL_BONUS_MODAL");
-      if (path.includes("deposit")) return openUserFinanceModalWithTab(`deposit_${randomString()}`);
+      if (path.includes("deposit")) return void navigate({ to: "/finance" });
       if (path.includes("referral")) return void navigate({ to: "/referral" });
       if (path.includes("vip")) return void navigate({ to: "/vip-club" });
       if (path.includes("tournament")) return void navigate({ to: "/tournament" });
@@ -262,9 +258,25 @@ export const InnerBannerButtonV2 = ({ text, onClick, className }: {
   return <div>
     <button
       onClick={onClick}
-      className={clsx("btn btn-primary btn-md px-2 rounded-md gap-2 font-bold", className)}>
+      className={clsx("btn btn-primary btn-md px-2 gap-2 font-bold", className)}>
       {text}
       <ChevronRight size={12} className="rtl:rotate-y-180" strokeWidth={4} />
     </button>
+  </div>;
+};
+
+export const InnerBannerTitleV2 = ({ value, banner, percent, className }: {
+  banner: Record<string, any>,
+  value?: string
+  percent?: string
+  className?: string
+}) => {
+  return <div className="flex flex-col whitespace-pre-line font-black leading-5">
+    <p className={clsx("text-base-content rtl:ml-auto", className)}>
+      <InnerDataTranslation
+        text={`${banner?.title || banner?.banner_name}`}
+        value={value ?? ""}
+        percent={percent ?? ""} />
+    </p>
   </div>;
 };

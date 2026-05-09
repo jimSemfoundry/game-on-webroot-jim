@@ -34,5 +34,12 @@
   "depositNow": "Jetzt einzahlen",
   "free_spins": "Freispiele",
   "play_with_balance_in": "Mit Guthaben in spielen",
-  "the_selected_currency_will_be_displayed_in": "Die ausgewählte Währung wird angezeigt in"
+  "the_selected_currency_will_be_displayed_in": "Die ausgewählte Währung wird angezeigt in",
+  "activity": "Aktivität",
+  "come_join_me_now_at": "SCHLIESSEN SIE SICH JETZT AN BEI",
+  "invite_friends_to_join_play": "Laden Sie Freunde ein & Spielen Sie",
+  "earn_up_to_50_commission_bonus": "Bis zu 50% Provision verdienen <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Download fehlgeschlagen. Bitte versuchen Sie es erneut.",
+  "image_downloaded": "Bild heruntergeladen!",
+  "share_text_1": "Ich habe gerade einen {{multiplier}}x BIG WIN erzielt! 🔥"
 }

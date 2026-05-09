@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "تم استخدام رقم الهاتف. يرجى استخدام رقم هاتف آخر.",
     "mobileAlreadyBound": "رقم الهاتف مرتبط بالفعل بهذا الحساب.",
     "fullscreen": "ملء الشاشة",
-    "exitFullscreen": "إنهاء ملء الشاشة"
+    "exitFullscreen": "إنهاء ملء الشاشة",
+    "draw": "تعادل"
   },
   "bonus_pool": "مجموعة المكافآت",
   "pleaseEnterValidUsernameOrEmail": "يرجى إدخال اسم مستخدم أو بريد إلكتروني صالح",

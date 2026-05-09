@@ -5,17 +5,19 @@ import { cn } from "@/utils/cn";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useReferralLink } from "@/hooks/useReferralLink.ts";
+import { toast } from "sonner";
 
 const ITEMS_PER_PAGE = 17;
 
 export const ReferralRewardsSchedule = () => {
   const { isAuthenticated } = useAuth();
-  const { t } = useTranslation(['referral', 'bonus']);
+  const { t } = useTranslation(['referral', 'bonus', 'common']);
   const { data: vipConfigData, isLoading } = useVipConfig();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const [currentPage, setCurrentPage] = useState(1);
 
   const { referralLink } = useReferralLink()
+  const hasShareableLink = /^https?:\/\//i.test(referralLink);
 
   const filteredVipConfig = useMemo(() => {
     if (!vipConfigData?.data) return [];
@@ -57,18 +59,29 @@ export const ReferralRewardsSchedule = () => {
     return pages;
   };
 
-  const handleShare = () => {
-    if (navigator.share && referralLink) {
-      navigator
-        .share({
+  const handleShare = async () => {
+    if (!hasShareableLink) {
+      return;
+    }
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
           title: t("referral:spreadTheLove"),
           url: referralLink,
-        })
-        .catch(() => {
-          navigator.clipboard.writeText(referralLink);
         });
-    } else if (referralLink) {
-      navigator.clipboard.writeText(referralLink);
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(referralLink);
+    } catch {
+      toast.error(t("common:error", "Something went wrong. Please try again."));
     }
   };
 
@@ -102,12 +115,16 @@ export const ReferralRewardsSchedule = () => {
               {isAuthenticated && (
                 <div className="bg-base-300 flex items-center gap-2 rounded-lg px-3 py-2">
                   <div className="flex-1 min-w-0 overflow-hidden">
-                    <div className="text-xs sm:text-sm text-base-content/50 truncate">{referralLink || t("referral:loadingLink")}</div>
+                    <div className="text-xs sm:text-sm text-base-content/50 truncate">
+                      {hasShareableLink ? referralLink : t("referral:loadingLink")}
+                    </div>
                   </div>
                   <button
-                    onClick={handleShare}
+                    onClick={() => {
+                      void handleShare();
+                    }}
                     className="btn btn-primary btn-sm h-8 min-h-0 px-4 rounded-full text-black font-bold"
-                    disabled={!referralLink}
+                    disabled={!hasShareableLink}
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path

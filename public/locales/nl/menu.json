@@ -34,6 +34,8 @@
   "upToReferral": "Tot {{amount}} per verwijzing",
   "language": "Taal",
   "gameCurrency": "Spelvaluta",
-  "hideBlockedGames": "Geblokkeerde spellen verbergen",
-  "settings": "Instellingen"
+  "hideBlockedGames": "Verberg \n<0>geblokkeerde spellen</0>",
+  "settings": "Instellingen",
+  "problemReport": "Probleemrapport",
+  "logging_key": "Loggen"
 }

@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Customer service chat failed to load",
   "read": "Read",
   "unread": "Unread",
-  "customerService": "Customer service"
+  "customerService": "Customer service",
+  "today": "today",
+  "earlier": "earlier",
+  "older": "older"
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Hva er en Booster?",
-    "content": "<p class=\"leading-7\">Boostere dobler din Rakeback i en time hver gang en henvisning gjør et innskudd.</p><p class=\"leading-7\">Boostet Låserate:</p><p class=\"leading-7\">Låserate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boostere dobler din Rakeback i tre timer hver gang en henvisning gjør et innskudd.</p><p class=\"leading-7\">Boostet Låserate:</p><p class=\"leading-7\">Låserate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Hva er Bonuskalenderen?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Hva er Prestasjoner?",
-    "content": "<p class=\"leading-7\">Prestasjoner er vår måte å anerkjenne din aktivitet på plattformen vår. Når du krever din prestasjonsbonus, vil den bli utbetalt til din Bonuskalender og kan kreves hver 8. time og utløper etter 24 timer hvis den ikke kreves.</p>"
+    "content": "<p class=\"leading-7\">Prestasjoner er vår måte å anerkjenne din aktivitet på plattformen vår. Prestasjoner er tilgjengelige for å kreves når du når VIP 2 og oppover.</p>"
   }
 }

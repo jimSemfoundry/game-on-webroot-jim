@@ -1,15 +1,14 @@
 import { Modal } from "@/components/ui/Modal";
 import { useTranslation } from "react-i18next";
 import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
-import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/utils/cn";
 import { X } from "lucide-react";
 import { useCurrencyData } from "@/hooks/useCurrency";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useSupportedCurrencyV2Filter } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useGetPromoByPage } from "@/query/promo.tsx";
+import { useNavigate } from "@tanstack/react-router";
 
 // TODO: 满足条件时候会自动弹出
 export const LimitedOffer = (
@@ -22,17 +21,17 @@ export const LimitedOffer = (
     data: any;
     onClose: () => void;
   }) => {
+  const navigate = useNavigate();
+
   const { t } = useTranslation("gameDetail");
 
   const { user } = useAuth();
-
-  const { openUserFinanceModalWithTab } = useFinanceModal();
 
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   const { convertCurrency, exchangeRates, formatCurrency } = useCurrencyData();
 
-  const { refetch: rfetchPromotion } = useGetPromoByPage(open);
+  const { refetch: reftchPromotion } = useGetPromoByPage(open);
 
   const [, , currencies] = useSupportedCurrencyV2Filter("FIAT", "DEPOSIT");
 
@@ -56,10 +55,8 @@ export const LimitedOffer = (
       <div className="relative h-[446px] max-w-[351px] pt-[90px] mx-auto">
         <img src="/images/special-offer/specialOffer.png" alt=""
              className="w-[180px] h-[180px] absolute top-0 left-[50%] translate-x-[-50%] z-[1]" />
-        <div className="h-[356px] w-full flex flex-col items-center justify-center rounded-2xl pt-[90px] relative"
-             style={{
-               background: "color(display-p3 0.027 0.043 0.063)"
-             }}>
+        <div
+          className="h-[356px] w-full flex flex-col items-center justify-center rounded-2xl pt-[90px] relative bg-base-400">
           <div
             className={`absolute top-4 right-4`}
             onClick={onClose}
@@ -78,7 +75,7 @@ export const LimitedOffer = (
               <X size={16} />
             </button>
           </div>
-          <p className="text-2xl font-bold text-white">{t("gameDetail:limitedOffer")}</p>
+          <p className="text-2xl font-bold text-base-content">{t("gameDetail:limitedOffer")}</p>
           <p className="text-base font-semibold test-sm pt-1 text-base-content/80">{t("gameDetail:deposit", {
             value: `${(() => {
               const value = convertCurrency({
@@ -104,7 +101,7 @@ export const LimitedOffer = (
               showCode: false
             }).formatted}`
           })}</p>
-          <p className="text-white font-bold leading-5 pt-6 test-sm">{t("gameDetail:instantCashBonus")} </p>
+          <p className="text-base-content font-bold leading-5 pt-6 test-sm">{t("gameDetail:instantCashBonus")} </p>
           <div
             className="text-base font-semibold test-sm pt-1 text-base-content/80 pt-1 flex items-center justify-center gap-1">
             <p>{t("gameDetail:expires")}</p>
@@ -131,8 +128,8 @@ export const LimitedOffer = (
             </div> */}
           </div>
           <button className="btn btn-primary mt-[10px]" onClick={() => {
-            void rfetchPromotion();
-            openUserFinanceModalWithTab(`deposit_${randomString()}`);
+            void reftchPromotion();
+            void navigate({ to: "/finance" });
             onClose();
           }}
           >{t("gameDetail:depositNow")}</button>

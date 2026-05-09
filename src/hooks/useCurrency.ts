@@ -329,7 +329,7 @@ export function useCurrencyData() {
     if (showSymbol) {
       switch (currencyInfo?.currency_type) {
         case "FIAT":
-          symbol = getSymbolFromCurrency(currency);
+          symbol = currencyMap.get(currency)?.symbol || getSymbolFromCurrency(currency);
           break;
         case "CRYPTO":
           symbol = currency; // 数字货币使用代码作为符号 (BTC, ETH, TON)
@@ -410,7 +410,7 @@ export function useCurrencyData() {
 
     switch (currency.currency_type) {
       case "FIAT":
-        return getSymbolFromCurrency(currencyCode);
+        return currencyMap.get(currencyCode)?.symbol || getSymbolFromCurrency(currencyCode);
       case "CRYPTO":
         return currencyCode; // 数字货币使用代码作为符号
       case "REWARDS":

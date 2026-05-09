@@ -124,6 +124,7 @@ function RouteComponent() {
 
   const fallbackCategory = gameType === "fishing" ? "" : "hot";
   const value = initialCategory || (isInitialized ? resolvedDefaultCategory : fallbackCategory);
+
   const sortValue = sort || (value === "new" ? "newest" : value === "hot" ? "popular" : "");
   const selectedProviders = useMemo(() => {
     if (!providers?.trim()) return [];
@@ -212,7 +213,7 @@ function RouteComponent() {
   // 是否是彩金币种
   const is_bonus_currency = gameType === 'casino' && value === 'bonus' && bonus_currencies.has(selectedCurrency);
 
-  const gameCategory1 = gameType === "casino" && value === "fishing" ? "fishing" : getPrimaryApiCategory(gameType, value);
+  const gameCategory1 = gameType === "casino" && value === "fishing" ? "fishing" : getPrimaryApiCategory(gameType);
   const gameCategory2 = gameType === "casino" && value === "fishing" ? "" : getSecondaryApiCategory(value);
 
   const filterParamsSig = useMemo(() => {
@@ -231,7 +232,6 @@ function RouteComponent() {
       game_category_2: gameCategory2,
       providers: providersSignature,
       sort: sortParam,
-      tag: is_bonus_currency ? "Bonus Wager" : "",
     });
   }, [gameCategory1, gameCategory2, isUserTab, is_bonus_currency, providersSignature, sortParam, value]);
 
@@ -247,10 +247,12 @@ function RouteComponent() {
   // 追踪上一次的 filterParamsSig，用于同步重置 page
   const prevFilterSigRef = useRef(filterParamsSig);
 
+  // 标记是否从 store 缓存恢复，防止 refetchOnMount 导致重复追加
+  const restoredFromCacheRef = useRef(isCacheValid && currentPage > 1);
+
   // 将菜单值映射到API参数
   const filterParams = useMemo(() => {
     return {
-      tag: is_bonus_currency ? "Bonus Wager" : "", // TODO: only for bonus wallet activities
       sort: sortParam,
       lang: user?.language_code.toUpperCase() || i18n.language.toUpperCase() || "EN",
       keyword: "",
@@ -335,7 +337,7 @@ function RouteComponent() {
       if (targetType !== "fishing") {
         nextSearch.category = defaultCategory || "hot";
       }
-
+      
       // 切换一级分类时，通常重置筛选条件
       navigate({
         to: "/explore",
@@ -369,7 +371,7 @@ function RouteComponent() {
       nextSearch.sort = sortValue;
     }
 
-    navigate({
+    void navigate({
       to: "/explore",
       search: nextSearch,
       replace: true,
@@ -384,6 +386,7 @@ function RouteComponent() {
     prevFilterSigRef.current = filterParamsSig;
     setCurrentPage(1);
     setAllGames([]);
+    restoredFromCacheRef.current = false;
   }, [filterParamsSig]);
 
   // Sync state to store whenever data changes
@@ -405,6 +408,9 @@ function RouteComponent() {
     if (casinoData?.data) {
       if (currentPage === 1) {
         setAllGames(casinoData.data);
+      } else if (restoredFromCacheRef.current) {
+        // 从缓存恢复后 refetchOnMount 触发的数据已包含在缓存中，跳过追加
+        restoredFromCacheRef.current = false;
       } else {
         setAllGames((prevGames) => [...prevGames, ...casinoData.data]);
       }

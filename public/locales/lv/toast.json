@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Lūdzu, ievadiet fiksētu garumu {{length}} rakstzīmēm",
   "disabledCharNotAllowed": "Rakstzīme {{char}} nav atļauta",
   "space": "atstarpe",
-  "thisWalletIsAlreadyUsed": "Šī maku jau tiek izmantots"
+  "thisWalletIsAlreadyUsed": "Šī maku jau tiek izmantots",
+  "login_failed": "Pieteikšanās neizdevās",
+  "login_error_code_1": "Lietotājvārdam jābūt derīgam tālruņa numuram (sākot ar + un izmantojot - pēc valsts koda) vai e-pasta adresei",
+  "account_created_and_logged_in_successfully": "Konts izveidots un veiksmīgi pieteicies!",
+  "requests_later": "Pārāk daudz pieprasījumu no šīs IP adreses. Lūdzu, mēģiniet vēlreiz vēlāk.",
+  "booster_activated_successfully": "Pastiprinātājs veiksmīgi aktivizēts!",
+  "depositNameEntered": "Depozītam ievadītais vārdam jāatbilst pilnam vārdam<0>（Vārds + Uzvārds）</0> bankas kontā, ko izmanto izņemšanai, atbilstoši pretkrāpību un naudas atmazāšanas noteikumiem.\n\n Ja jums jāmaina bankas konts, lūdzu, sazinieties ar klientu apkalpošanu un pabeidziet KYC verifikāciju.",
+  "user_not_found_or_password_incorrect": "Lietotājs nav atrasts vai parole ir nepareiza",
+  "free_spin_record_enabled_successfully": "Bezmaksas griezienu ieraksts veiksmīgi aktivizēts!",
+  "check_in_success": "Reģistrācija veiksmīga!",
+  "check_in_failed": "Reģistrācija neizdevās!",
+  "check_in_already": "Šim datumam reģistrācija jau ir pabeigta.",
+  "ballsClaimed": "Drauga bumba veiksmīgi saņemta",
+  "cannotBetby": "Sporta bonusa makiņa ir tikai sporta likmēm."
 }

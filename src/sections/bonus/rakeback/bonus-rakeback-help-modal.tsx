@@ -1,35 +1,28 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
-import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useTranslation } from "react-i18next";
 import { Trans } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusRakebackHelpModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ILLUSTRATION_URL = "/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png";
-
 export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpModalProps) => {
   const { t } = useTranslation(['popup', 'bonus']);
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const { gradient: vibrantGradient } = useVibrantColor(ILLUSTRATION_URL, {
-    fallbackGradient:
-      "radial-gradient(120% 260% at 100% 0%, rgba(92, 120, 240, 0.45) 0%, rgba(15, 20, 26, 0.05) 50%)",
-    opacity: 0.45,
-    colorTypes: ['DarkMuted']
-  });
-
+  const ILLUSTRATION_URL = useBonusDetailsImage("super_rakeback", 256);
+ 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
       <div className="flex flex-col gap-1">
         {/* Top highlight card */}
         <div
-          className="rounded-box px-7 py-4 relative overflow-hidden h-[180px] flex items-center justify-center"
+          className="rounded-box px-7 py-4 relative overflow-hidden h-[140px] flex items-center justify-center"
           style={{
-            background: `${vibrantGradient}, linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
+            background: `radial-gradient(100% 308% at 100% 0%, rgba(43, 78, 177, 0.4) 0%, rgba(15, 20, 26, 0.5) 100%), linear-gradient(0deg, var(--color-base-300), var(--color-base-300))`,
           }}
         >
           <div className="relative z-10 flex items-center h-full w-full justify-between">
@@ -37,7 +30,7 @@ export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMod
               <p className="text-2xl font-bold text-base-content">{t("popup:rakeback.super")}</p>
               <p className="text-2xl font-bold text-primary leading-7 whitespace-pre-line">{t("popup:rakeback.title")}</p>
             </div>
-            <img src="/images/illustrations/29283baa24f82bafe627e3b11c521761551173bb.png" alt="Super Rakeback" className="w-40 h-40" />
+            <img src={ILLUSTRATION_URL} alt="Super Rakeback" className="w-auto h-[128px] object-contain" />
           </div>
         </div>
 
@@ -53,7 +46,7 @@ export const BonusRakebackHelpModal = ({ isOpen, onClose }: BonusRakebackHelpMod
               <h3 className="text-base font-bold">{t("bonus:bonus_details")}</h3>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto pb-12">
+            <div className="max-h-[400px] overflow-y-auto pb-12 hide-scrollbar">
               {/* 描述文本 */}
               <p className="text-xs text-base-content/50 leading-5">{t("popup:rakeback.description")}</p>
 

@@ -18,16 +18,51 @@ import type { RouterContext } from "./routes/__root";
 import "./styles.css";
 import { initPWAUpdate } from "./utils/pwaUpdate";
 import {
+  disableTelegramVerticalSwipes,
+  enableTelegramClosingConfirmation,
+  ensureTelegramSdkMounted,
+  expandTelegramViewport,
   getTelegramInitData,
+  getTelegramViewportSnapshot,
   isTelegramContext,
-  isTelegramEnvironment,
-  requestTelegramFullscreen
+  markTelegramReady,
+  requestTelegramFullscreen,
+  setTelegramHeaderColor,
+  subscribeTelegramViewportChanges
 } from "./utils/telegramWebApp";
 import { publicService } from "./services/publicService";
 import { useQueryClient } from "@tanstack/react-query";
 import { AUTH_QUERY_KEYS } from "./hooks/api/useAuth";
 import { useEffect } from "react";
-import { scheduleIdle, uuidv4Generate } from "@/utils/helper.ts";
+import { scheduleIdle, trackCustomEvent, uuidv4Generate } from "@/utils/helper.ts";
+
+type TelegramBootDebugState = {
+  phase?: string;
+  reason?: string;
+  ready?: boolean;
+  mounted?: boolean;
+  hasInitData?: boolean;
+  initDataLength?: number;
+  loginStatus?: "idle" | "pending" | "success" | "failed";
+  error?: string;
+  timestamp?: number;
+  attempts?: number;
+};
+
+declare global {
+  interface Window {
+    __tgDebugBoot?: TelegramBootDebugState;
+  }
+}
+
+const updateTelegramBootDebugState = (patch: TelegramBootDebugState) => {
+  if (typeof window === "undefined") return;
+  window.__tgDebugBoot = {
+    ...(window.__tgDebugBoot ?? {}),
+    ...patch,
+    timestamp: Date.now()
+  };
+};
 
 // Create a new router instance
 const router = createRouter({
@@ -68,36 +103,54 @@ function InnerApp() {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    // 在 Telegram 环境中，每次启动时清空旧的认证信息，强制重新登录
-    // 这样可以确保切换 Telegram 账号后使用正确的账号
-    if (isTelegramContext()) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      localStorage.removeItem("user");
-      localStorage.removeItem("status");
-      console.log("🔄 Telegram context detected - cleared old auth data for fresh login");
-    }
+    const telegramContext = isTelegramContext();
+    if (!telegramContext) return;
+
+    // 注：原 localStorage 清空 + 首次登录调用已搬到下方 scheduleIdle 内（t110774 PR6），
+    // 让 TG 用户首屏 paint 不被 4 次 storage 写 + 同步 attemptTelegramLogin 阻塞。
 
     let cancelled = false;
     let inFlight = false;
-    let loginAttempts = 0;
-    const maxLoginAttempts = 3;
     let fullscreenRequested = false;
     let viewportListenersBound = false;
     let telegramBehaviorConfigured = false;
+    let loginRetryAttempts = 0;
+    let loginRetryTimer: ReturnType<typeof setTimeout> | null = null;
     const cleanupFns: Array<() => void> = [];
+    let loginAttempts = 0;
+
+    updateTelegramBootDebugState({
+      phase: "effect_start",
+      reason: "initial",
+      loginStatus: "idle",
+      attempts: 0,
+    });
+
+    const MAX_LOGIN_RETRY_ATTEMPTS = 6;
+    const LOGIN_RETRY_DELAYS_MS = [400, 900, 1500, 2500, 3500, 5000] as const;
+
+    const clearLoginRetryTimer = () => {
+      if (loginRetryTimer) {
+        clearTimeout(loginRetryTimer);
+        loginRetryTimer = null;
+      }
+    };
+
+    const scheduleLoginRetry = (reason: "initial" | "authExpired") => {
+      if (cancelled || inFlight) return;
+      if (localStorage.getItem("token")) return;
+      if (loginRetryAttempts >= MAX_LOGIN_RETRY_ATTEMPTS) return;
+
+      const delayMs = LOGIN_RETRY_DELAYS_MS[loginRetryAttempts] ?? LOGIN_RETRY_DELAYS_MS[LOGIN_RETRY_DELAYS_MS.length - 1];
+      loginRetryAttempts += 1;
+      clearLoginRetryTimer();
+      loginRetryTimer = setTimeout(() => {
+        loginRetryTimer = null;
+        void attemptTelegramLogin(reason);
+      }, delayMs);
+    };
 
     const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-    const waitForTelegramWebApp = async (timeoutMs = 5000, intervalMs = 100) => {
-      const start = Date.now();
-      while (!cancelled && Date.now() - start < timeoutMs) {
-        const tg = window.Telegram?.WebApp;
-        if (tg) return tg;
-        await delay(intervalMs);
-      }
-      return window.Telegram?.WebApp;
-    };
 
     const waitForInitData = async (timeoutMs = 4000, intervalMs = 300) => {
       const start = Date.now();
@@ -109,35 +162,33 @@ function InnerApp() {
       return getTelegramInitData() ?? "";
     };
 
-    function showRetryToast(description?: string) {
-      toast.error(i18n.t("toast:signInFailed"), {
-        description: description ?? i18n.t("login:pleaseTryAgainLater"),
-        action: {
-          label: i18n.t("information:retry"),
-          onClick: () => {
-            void attemptTelegramLogin();
-          }
-        }
-      });
-    }
-
     const ensureTelegramReady = async () => {
-      const tg = await waitForTelegramWebApp();
-      if (!tg || cancelled) return null;
-      tg.ready?.();
-      tg.expand?.();
+      updateTelegramBootDebugState({ phase: "ensure_ready_start" });
+      const mounted = await ensureTelegramSdkMounted();
+      updateTelegramBootDebugState({ mounted, phase: "ensure_ready_after_mount" });
+      if (!mounted || cancelled) {
+        updateTelegramBootDebugState({
+          ready: false,
+          phase: cancelled ? "ensure_ready_cancelled" : "ensure_ready_unavailable",
+          reason: cancelled ? "cancelled" : "webapp_unavailable",
+        });
+        return null;
+      }
+
+      markTelegramReady();
+      expandTelegramViewport();
 
       if (!telegramBehaviorConfigured) {
         telegramBehaviorConfigured = true;
-        tg.enableClosingConfirmation?.();
-        tg.disableVerticalSwipes?.();
+        enableTelegramClosingConfirmation();
+        disableTelegramVerticalSwipes();
       }
 
       if (!fullscreenRequested) {
-        fullscreenRequested = true;
-        const requestedFullscreen = requestTelegramFullscreen();
+        const requestedFullscreen = await requestTelegramFullscreen();
         if (requestedFullscreen) {
-          tg.setHeaderColor?.("bg_color");
+          setTelegramHeaderColor("bg_color");
+          fullscreenRequested = true;
         }
       }
 
@@ -146,45 +197,41 @@ function InnerApp() {
         const syncTelegramViewport = () => {
           if (typeof document === "undefined") return;
           const root = document.documentElement;
-          if (typeof tg.viewportHeight === "number" && tg.viewportHeight > 0) {
-            root.style.setProperty("--tg-viewport-height", `${tg.viewportHeight}px`);
-            root.style.setProperty("--app-viewport-height", `${tg.viewportHeight}px`);
+          const snapshot = getTelegramViewportSnapshot();
+
+          if (typeof snapshot.viewportHeight === "number" && snapshot.viewportHeight > 0) {
+            root.style.setProperty("--tg-viewport-height", `${snapshot.viewportHeight}px`);
+            root.style.setProperty("--app-viewport-height", `${snapshot.viewportHeight}px`);
           }
-          if (typeof tg.viewportStableHeight === "number" && tg.viewportStableHeight > 0) {
-            root.style.setProperty("--tg-viewport-stable-height", `${tg.viewportStableHeight}px`);
+          if (typeof snapshot.viewportStableHeight === "number" && snapshot.viewportStableHeight > 0) {
+            root.style.setProperty("--tg-viewport-stable-height", `${snapshot.viewportStableHeight}px`);
           }
 
           // Telegram Mini App safe areas (if supported by current client).
           // These drive `--safe-area-inset-*` (and Chatwoot sizing) via CSS.
-          if (tg.safeAreaInset) {
-            root.style.setProperty("--tg-safe-area-inset-top", `${Math.max(0, tg.safeAreaInset.top)}px`);
-            root.style.setProperty("--tg-safe-area-inset-right", `${Math.max(0, tg.safeAreaInset.right)}px`);
-            root.style.setProperty("--tg-safe-area-inset-bottom", `${Math.max(0, tg.safeAreaInset.bottom)}px`);
-            root.style.setProperty("--tg-safe-area-inset-left", `${Math.max(0, tg.safeAreaInset.left)}px`);
+          if (snapshot.safeAreaInset) {
+            root.style.setProperty("--tg-safe-area-inset-top", `${Math.max(0, snapshot.safeAreaInset.top)}px`);
+            root.style.setProperty("--tg-safe-area-inset-right", `${Math.max(0, snapshot.safeAreaInset.right)}px`);
+            root.style.setProperty("--tg-safe-area-inset-bottom", `${Math.max(0, snapshot.safeAreaInset.bottom)}px`);
+            root.style.setProperty("--tg-safe-area-inset-left", `${Math.max(0, snapshot.safeAreaInset.left)}px`);
           }
 
-          if (tg.contentSafeAreaInset) {
-            root.style.setProperty("--tg-content-safe-area-inset-top", `${Math.max(0, tg.contentSafeAreaInset.top)}px`);
-            root.style.setProperty("--tg-content-safe-area-inset-right", `${Math.max(0, tg.contentSafeAreaInset.right)}px`);
-            root.style.setProperty("--tg-content-safe-area-inset-bottom", `${Math.max(0, tg.contentSafeAreaInset.bottom)}px`);
-            root.style.setProperty("--tg-content-safe-area-inset-left", `${Math.max(0, tg.contentSafeAreaInset.left)}px`);
+          if (snapshot.contentSafeAreaInset) {
+            root.style.setProperty("--tg-content-safe-area-inset-top", `${Math.max(0, snapshot.contentSafeAreaInset.top)}px`);
+            root.style.setProperty("--tg-content-safe-area-inset-right", `${Math.max(0, snapshot.contentSafeAreaInset.right)}px`);
+            root.style.setProperty("--tg-content-safe-area-inset-bottom", `${Math.max(0, snapshot.contentSafeAreaInset.bottom)}px`);
+            root.style.setProperty("--tg-content-safe-area-inset-left", `${Math.max(0, snapshot.contentSafeAreaInset.left)}px`);
           }
-          if (typeof tg.isFullscreen === "boolean") {
-            root.classList.toggle("tg-fullscreen", tg.isFullscreen);
+          if (typeof snapshot.isFullscreen === "boolean") {
+            root.classList.toggle("tg-fullscreen", snapshot.isFullscreen);
           }
         };
 
         syncTelegramViewport();
-        tg.onEvent?.("viewportChanged", syncTelegramViewport);
-        tg.onEvent?.("fullscreenChanged", syncTelegramViewport);
-        tg.onEvent?.("safeAreaChanged", syncTelegramViewport);
-        tg.onEvent?.("contentSafeAreaChanged", syncTelegramViewport);
+        const unsubscribeViewport = subscribeTelegramViewportChanges(syncTelegramViewport);
 
         cleanupFns.push(() => {
-          tg.offEvent?.("viewportChanged", syncTelegramViewport);
-          tg.offEvent?.("fullscreenChanged", syncTelegramViewport);
-          tg.offEvent?.("safeAreaChanged", syncTelegramViewport);
-          tg.offEvent?.("contentSafeAreaChanged", syncTelegramViewport);
+          unsubscribeViewport();
           if (typeof document !== "undefined") {
             const root = document.documentElement;
             root.classList.remove("tg-fullscreen");
@@ -205,58 +252,89 @@ function InnerApp() {
         });
       }
 
-      return tg;
+      updateTelegramBootDebugState({ ready: true, phase: "ensure_ready_done" });
+      return true;
     };
 
-    const scheduleRetry = () => {
-      if (cancelled) return;
-      if (loginAttempts >= maxLoginAttempts) {
-        showRetryToast();
-        return;
-      }
-      setTimeout(() => {
-        void attemptTelegramLogin("retry");
-      }, 800);
-    };
-
-    async function attemptTelegramLogin(reason: "initial" | "retry" | "authExpired" = "initial") {
+    async function attemptTelegramLogin(reason: "initial" | "authExpired" = "initial") {
       if (cancelled || inFlight) return;
+      loginAttempts += 1;
+      updateTelegramBootDebugState({
+        phase: "attempt_login_start",
+        reason,
+        loginStatus: "idle",
+        attempts: loginAttempts,
+      });
       // 在 Telegram Mini App 中，每次都需要调用 loginByTMA
       // 不检查 localStorage.getItem("token")，确保切换账号后能正确登录
 
-      const tg = await ensureTelegramReady();
-      if (!tg || cancelled) {
+      const ready = await ensureTelegramReady();
+      if (!ready || cancelled) {
+        updateTelegramBootDebugState({
+          phase: "attempt_login_skip",
+          reason: cancelled ? "cancelled" : "webapp_unavailable",
+          ready: Boolean(ready),
+          loginStatus: "failed",
+        });
         console.warn(`Telegram login skipped: WebApp unavailable (reason: ${reason}).`);
-        // 如果确实不在 Telegram 环境，直接退出，不要无限重试
-        if (isTelegramEnvironment()) {
-          scheduleRetry();
-        }
+        scheduleLoginRetry(reason);
         return;
       }
-      if (localStorage.getItem("token")) return;
+      if (localStorage.getItem("token")) {
+        updateTelegramBootDebugState({
+          phase: "attempt_login_skip",
+          reason: "token_exists",
+          loginStatus: "success",
+        });
+        return;
+      }
 
       const initData = await waitForInitData();
+      updateTelegramBootDebugState({
+        phase: "attempt_login_after_wait_init_data",
+        hasInitData: Boolean(initData),
+        initDataLength: initData?.length ?? 0,
+      });
       if (!initData) {
+        updateTelegramBootDebugState({
+          phase: "attempt_login_skip",
+          reason: "init_data_empty",
+          loginStatus: "failed",
+        });
         console.warn("Telegram login skipped: initData is empty after wait.");
-        scheduleRetry();
+        scheduleLoginRetry(reason);
         return;
       }
 
       inFlight = true;
-      loginAttempts += 1;
+      updateTelegramBootDebugState({ phase: "attempt_login_request", loginStatus: "pending" });
 
       try {
         const device_id = uuidv4Generate();
         const res = await publicService.loginByTMA({ device_id });
         if (cancelled) return;
         if (res.code !== 0) {
+          updateTelegramBootDebugState({
+            phase: "attempt_login_failed",
+            loginStatus: "failed",
+            error: `code:${res.code}`,
+          });
           console.warn("Telegram login failed:", res);
-          scheduleRetry();
+          toast.error(i18n.t("toast:signInFailed"), {
+            description: i18n.t("login:pleaseTryAgainLater")
+          });
           return;
         }
         if (!res?.data?.token || !res?.data?.username) {
+          updateTelegramBootDebugState({
+            phase: "attempt_login_failed",
+            loginStatus: "failed",
+            error: "missing_token_or_username",
+          });
           console.warn("Telegram login response missing token or username.");
-          scheduleRetry();
+          toast.error(i18n.t("toast:signInFailed"), {
+            description: i18n.t("login:pleaseTryAgainLater")
+          });
           return;
         }
 
@@ -271,32 +349,79 @@ function InnerApp() {
 
         queryClient.setQueryData(AUTH_QUERY_KEYS.currentUser, res);
         queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
+
+        // GTM 记录推送
+        trackCustomEvent('login', 'userLogin', {
+          id: res?.user?.id,
+          username: res?.user?.username,
+          nick_name: res?.user?.nickname,
+          country: res?.user?.country
+        })
       } catch (error) {
         if (cancelled) return;
+        updateTelegramBootDebugState({
+          phase: "attempt_login_failed",
+          loginStatus: "failed",
+          error: error instanceof Error ? error.message : String(error),
+        });
         console.warn("Telegram login request failed:", error);
-        scheduleRetry();
+        toast.error(i18n.t("toast:signInFailed"), {
+          description: i18n.t("login:pleaseTryAgainLater")
+        });
+        scheduleLoginRetry(reason);
       } finally {
         inFlight = false;
       }
     }
 
-    if (isTelegramContext()) {
-      void ensureTelegramReady();
-    }
-    void attemptTelegramLogin();
+    void ensureTelegramReady();
+    // t110774 §3.6 / PR6: 把 4 次 localStorage.removeItem + 第一次 attemptTelegramLogin
+    // 推迟到首屏渲染完成后的 idle 期再做。仅 TG 路径生效（前面 isTelegramContext() 守卫）；
+    // 非 TG 用户零回归，已在 line 107 提前 return。
+    scheduleIdle(() => {
+      if (cancelled) return;
+      // 在 Telegram 环境中，每次启动时清空旧的认证信息，强制重新登录
+      // 这样可以确保切换 Telegram 账号后使用正确的账号
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("user");
+      localStorage.removeItem("status");
+      console.log("🔄 Telegram context detected - cleared old auth data for fresh login");
+      void attemptTelegramLogin();
+    });
 
     const handleAuthExpired = () => {
-      loginAttempts = 0;
       inFlight = false;
+      loginRetryAttempts = 0;
+      clearLoginRetryTimer();
       void attemptTelegramLogin("authExpired");
     };
 
+    const handleVisibilityOrFocus = () => {
+      if (cancelled || inFlight) return;
+      if (localStorage.getItem("token")) return;
+      void attemptTelegramLogin("initial");
+    };
+
     window.addEventListener("auth:expired", handleAuthExpired);
+    window.addEventListener("focus", handleVisibilityOrFocus);
+    window.addEventListener("pageshow", handleVisibilityOrFocus);
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        handleVisibilityOrFocus();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       cancelled = true;
+      clearLoginRetryTimer();
       cleanupFns.forEach((cleanup) => cleanup());
       window.removeEventListener("auth:expired", handleAuthExpired);
+      window.removeEventListener("focus", handleVisibilityOrFocus);
+      window.removeEventListener("pageshow", handleVisibilityOrFocus);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [queryClient]);
 
@@ -415,6 +540,8 @@ const initTelegramCacheGuard = () => {
 const initTelegramAuthBoot = () => {
   if (!isTelegramContext()) return;
 
+  updateTelegramBootDebugState({ phase: "auth_boot_start", reason: "initial" });
+
   // Always force a fresh TMA login on each open.
   // This prevents reusing a previous account's token when the user switches
   // Telegram accounts.
@@ -426,6 +553,8 @@ const initTelegramAuthBoot = () => {
   } catch {
     // ignore
   }
+
+  updateTelegramBootDebugState({ phase: "auth_boot_done" });
 };
 
 initTelegramAuthBoot();

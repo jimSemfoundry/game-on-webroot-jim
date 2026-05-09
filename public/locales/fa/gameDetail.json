@@ -34,5 +34,12 @@
   "depositNow": "همین حالا واریز کنید",
   "free_spins": "چرخش‌های رایگان",
   "play_with_balance_in": "بازی با موجودی در",
-  "the_selected_currency_will_be_displayed_in": "ارز انتخاب شده در"
+  "the_selected_currency_will_be_displayed_in": "ارز انتخاب شده در",
+  "activity": "فعالیت",
+  "come_join_me_now_at": "همین الان به ما بپیوندید در",
+  "invite_friends_to_join_play": "دوستان را دعوت کنید تا بپیوندند و بازی کنند",
+  "earn_up_to_50_commission_bonus": "تا ۵۰٪ کمیسیون کسب کنید <0>+{{bonus}}</0> پاداش",
+  "download_failed": "دانلود ناموفق بود. لطفاً دوباره تلاش کنید.",
+  "image_downloaded": "تصویر دانلود شد!",
+  "share_text_1": "من تازه {{multiplier}}x برنده بزرگ شدم! 🔥"
 }

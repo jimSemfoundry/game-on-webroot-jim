@@ -190,5 +190,13 @@
   "programAccessUpdate": "Mise à jour de l’accès au programme",
   "referralProgramPrivileges": "Vos privilèges de programme de parrainage ont été révoqués suite à l’examen de votre compte et de votre participation au programme. Nous avons identifié une activité qui ne respecte pas les conditions, les règles ou l’usage prévu de notre programme de parrainage. Cela peut inclure des schémas de parrainage suspects, des méthodes promotionnelles non autorisées, l’abus d’incitations ou des tentatives de contournement des règles d’usage équitable.",
   "referralRewardsPrivileges": "Par conséquent, votre capacité à générer de nouvelles récompenses de parrainage, à partager des liens de parrainage ou à recevoir des avantages liés aux parrainages a été désactivée. Les récompenses en attente ou futures associées au programme de parrainage seront retenues et annulées conformément à nos politiques. <0>Toutes les autres fonctionnalités de votre compte restent intactes et ne sont pas affectées par ce changement</0>.",
-  "understandDisappointing": "Nous comprenons que cela puisse être décevant. Si vous pensez que cette décision est une erreur ou si vous souhaitez plus de détails, veuillez contacter notre équipe d’assistance avec toute information pertinente, et nous examinerons votre cas."
+  "understandDisappointing": "Nous comprenons que cela puisse être décevant. Si vous pensez que cette décision est une erreur ou si vous souhaitez plus de détails, veuillez contacter notre équipe d’assistance avec toute information pertinente, et nous examinerons votre cas.",
+  "spread_the_Love": "Partagez l'amour",
+  "need": "Besoin de",
+  "new_friends": "Nouveaux amis ?",
+  "timeToRecruit": "C'est l'heure de recruter ! Appuyez sur le bouton pour parler de nous à un parfait inconnu sur WhatsApp.",
+  "date": "date",
+  "save": "enregistrer",
+  "enterCampaignName": "Entrez le nom de la campagne",
+  "shareText": "🎮 Rejoins-moi sur cette plateforme incroyable !"
 }

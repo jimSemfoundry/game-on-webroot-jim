@@ -621,7 +621,7 @@ export function BonusCalendarCard() {
             <Iconify icon="custom:cash" />
             <input
               type="text"
-              className="grow border-none outline-none"
+              className="grow border-none outline-none font-semibold"
               readOnly
               value={safeFormatCurrency(formatWithConversion, processedData.totalClaimable)}
             />

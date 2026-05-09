@@ -42,9 +42,13 @@ export const LanguageSelectModal = ({ isOpen, onClose }: LanguageSelectModalProp
         await authService.updateUserLanguage(lng)
       }
       
+      // 标记为用户主动选择 (必须在 changeLanguage 之前,避免 AuthContext 的 useEffect
+      // 在 i18n.language 变化触发的 re-render 中早于 setItem 跑一次,把语言切回 default_lang)
+      localStorage.setItem('userSelectedLang', 'true')
+
       // 切换语言
       await i18n.changeLanguage(lng)
-      
+
       // 刷新用户数据（保持后端同步）
       if (user) {
         await queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser })

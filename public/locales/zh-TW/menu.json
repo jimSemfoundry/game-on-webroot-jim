@@ -34,6 +34,8 @@
   "upToReferral": "每推薦最高 {{amount}}",
   "language": "語言",
   "gameCurrency": "遊戲貨幣",
-  "hideBlockedGames": "隱藏被封鎖的遊戲",
-  "settings": "設定"
+  "hideBlockedGames": "隱藏 \n<0>被封鎖的遊戲</0>",
+  "settings": "設置",
+  "problemReport": "问题报告",
+  "logging_key": "日誌記錄"
 }

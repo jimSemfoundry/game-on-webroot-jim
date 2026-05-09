@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "หมายเลขโทรศัพท์นี้ถูกใช้งานแล้ว โปรดใช้หมายเลขอื่น",
     "mobileAlreadyBound": "หมายเลขโทรศัพท์นี้ผูกกับบัญชีนี้แล้ว",
     "fullscreen": "เต็มหน้าจอ",
-    "exitFullscreen": "ออกจากโหมดเต็มหน้าจอ"
+    "exitFullscreen": "ออกจากโหมดเต็มหน้าจอ",
+    "draw": "เสมอ"
   },
   "bonus_pool": "โบนัสพูล",
   "pleaseEnterValidUsernameOrEmail": "กรุณาใส่ชื่อผู้ใช้หรืออีเมลที่ถูกต้อง",

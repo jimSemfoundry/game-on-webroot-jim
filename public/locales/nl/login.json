@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Voer een wachtwoord in",
   "verification_code_sent_to_your": "Verificatiecode verzonden naar uw e-mail/telefoon",
   "one_min_error": "Vraag de verificatiecode opnieuw aan in 1 minuut.",
-  "signInWith": "Inscrever-se com"
+  "must_agree": "U moet akkoord gaan met de algemene voorwaarden",
+  "signInWith": "Inscrever-se com",
+  "usernameTooShort": "Gebruikersnaam moet minimaal 6 tekens lang zijn"
 }

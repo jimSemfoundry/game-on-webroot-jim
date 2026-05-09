@@ -34,5 +34,12 @@
   "depositNow": "Deposit Now",
   "free_spins": "Free Spins",
   "play_with_balance_in": "Play with Balance In",
-  "the_selected_currency_will_be_displayed_in": "The selected currency will be displayed in"
+  "the_selected_currency_will_be_displayed_in": "The selected currency will be displayed in",
+  "activity": "Activity",
+  "come_join_me_now_at": "COME JOIN ME NOW AT",
+  "invite_friends_to_join_play": "Invite friends to join & Play",
+  "earn_up_to_50_commission_bonus": "Earn up to 50% commission <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Download failed. Please try again.",
+  "image_downloaded": "Image downloaded!",
+  "share_text_1": "I just hit a {{multiplier}}x BIG WIN! 🔥"
 }

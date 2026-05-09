@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Bitte geben Sie eine feste Länge von {{length}} Zeichen ein",
   "disabledCharNotAllowed": "Das Zeichen {{char}} ist nicht erlaubt",
   "space": "Leerzeichen",
-  "thisWalletIsAlreadyUsed": "Diese Wallet wird bereits verwendet"
+  "thisWalletIsAlreadyUsed": "Diese Wallet wird bereits verwendet",
+  "login_failed": "Anmeldung fehlgeschlagen",
+  "login_error_code_1": "Der Benutzername muss eine gültige Telefonnummer (beginnend mit + und - nach der Landesvorwahl) oder E-Mail-Adresse sein",
+  "account_created_and_logged_in_successfully": "Konto erstellt und erfolgreich angemeldet!",
+  "requests_later": "Zu viele Anfragen von dieser IP. Bitte versuchen Sie es später erneut.",
+  "booster_activated_successfully": "Booster erfolgreich aktiviert!",
+  "depositNameEntered": "Der für die Einzahlung eingegebene Name muss mit dem vollständigen Namen<0>（Vorname + Nachname）</0> auf dem für Auszahlungen verwendeten Bankkonto übereinstimmen, um den Betrugs- und Geldwäschevorschriften zu entsprechen.\n\n Wenn Sie Ihr Bankkonto ändern müssen, kontaktieren Sie bitte den Kundenservice und schließen Sie die KYC-Verifizierung ab.",
+  "user_not_found_or_password_incorrect": "Benutzer nicht gefunden oder Passwort falsch",
+  "free_spin_record_enabled_successfully": "Freispiel-Eintrag erfolgreich aktiviert!",
+  "check_in_success": "Check-in erfolgreich!",
+  "check_in_failed": "Check-in fehlgeschlagen!",
+  "check_in_already": "Der Check-in für dieses Datum ist bereits abgeschlossen.",
+  "ballsClaimed": "Buddy-Ball erfolgreich beansprucht",
+  "cannotBetby": "Das Sport-Bonus-Guthaben ist nur für Sportwetten gedacht."
 }

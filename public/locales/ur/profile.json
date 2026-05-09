@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "آپ کا فون نمبر تصدیق ہو گیا ہے۔ آپ آگے بڑھ سکتے ہیں۔",
   "email_address_has_been_verified": "آپ کا ای میل ایڈریس تصدیق ہو گیا ہے۔ آپ آگے بڑھ سکتے ہیں۔",
   "setNewPassword": "نیا پاسورڈ سیٹ کریں",
-  "passwordLengthRequirement": "برائے مہربانی 6 سے 64 حروف کے درمیان پاس ورڈ درج کریں۔"
+  "passwordLengthRequirement": "برائے مہربانی 6 سے 64 حروف کے درمیان پاس ورڈ درج کریں۔",
+  "re_enter_new_password": "نیا پاس ورڈ دوبارہ درج کریں",
+  "change_withdrawal_pin": "واپس لینے کا PIN تبدیل کریں",
+  "confirm_withdrawal_pin": "واپس لینے کا PIN تصدیق کریں",
+  "enter_email": "ای میل درج کریں",
+  "rolloverDetails": "رول اوور کی تفصیلات",
+  "verified_email": "تصدیق شدہ ای میل",
+  "verified_phone_number": "تصدیق شدہ فون نمبر",
+  "change_key": "تبدیل کریں",
+  "update_successfully": "اپ ڈیٹ کامیاب۔ براہ کرم اپنے اگلے لاگ ان کے لیے {<1>{{value}}</1>} استعمال کریں۔",
+  "understand_key": "سمجھ گیا",
+  "ensure_email_valid": "یقینی بنائیں کہ آپ کا ای میل ایڈریس درست ہے اور آپ اس تک رسائی حاصل کر سکتے ہیں۔",
+  "ensure_phone_valid": "یقینی بنائیں کہ آپ کا فون نمبر درست ہے اور آپ اس تک رسائی حاصل کر سکتے ہیں۔",
+  "enter_phone_number_to_receive_verification_code": "تصدیقی کوڈ حاصل کرنے کے لیے نیچے اپنا فون نمبر درج کریں۔",
+  "enter_email_address_to_receive_verification_code": "تصدیقی کوڈ حاصل کرنے کے لیے نیچے اپنا ای میل ایڈریس درج کریں۔"
 }

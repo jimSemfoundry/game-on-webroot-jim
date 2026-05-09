@@ -8,6 +8,7 @@ import type { ITournament } from "@/types/tournament";
 import { useNavigate } from "@tanstack/react-router";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { publicService } from "@/services/publicService";
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 interface TournamentParticipatingGamesProps {
   tournament: ITournament | null;
@@ -17,6 +18,8 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
   const { t } = useTranslation(['tournament', 'casino']);
   const navigate = useNavigate();
 
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
 
   const provider = tournament?.game_provider;
 
@@ -27,7 +30,7 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
       return publicService.getCasinoGameList({
         limit: 30,
         page: pageParam,
-        providers: provider,
+        providers: provider === "RakeRace" ? "" : provider,
         is_tournament: "1",
         lang: i18n.language?.toUpperCase?.() || "EN",
       });
@@ -43,9 +46,9 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
 
   const allItems = useMemo(() => {
     return (
-      data?.pages?.filter((p: any) => p?.code === 0 && Array.isArray(p?.data)).flatMap((p: any) => p.data || []) || []
+      data?.pages?.filter((p: any) => p?.code === 0 && Array.isArray(p?.data)).flatMap((p: any) => p.data || [])?.filter((game:Record<string, any>) => !isGameBanned(game)) || []
     );
-  }, [data]);
+  }, [data, isGameBanned]);
 
   const totalCount = data?.pages?.[0]?.count ?? 0;
   const loadedCount = allItems.length;
@@ -59,7 +62,17 @@ export function TournamentParticipatingGames({ tournament }: TournamentParticipa
             {t("tournament:participatingGames", "Participating Games")}
           </div>
         </div>
-        <button className="btn btn-sm btn-primary rounded-field px-4">{t("casino:all", "All")}</button>
+        <button className="btn btn-sm btn-primary rounded-field px-4"
+        onClick={() => {
+          void navigate({
+            to: "/explore",
+            search: {
+              type: "casino",
+              sort: "popular",
+              category: "hot"
+            },
+          });
+        }}>{t("casino:all", "All")}</button>
       </div>
 
       <div className={`${allItems.length > 0 ? "h-110" : "h-1"} mt-3 bg-base-300 rounded-field`}>

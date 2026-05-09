@@ -6,6 +6,7 @@ import { BonusAchievementsModal } from "./achievements";
 import { useAuth } from "@/contexts/AuthContext";
 import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
 import { useNavigate } from "@tanstack/react-router";
+import { useMediaQuery } from "@/hooks/useMediaQuery.ts";
 
 interface BonusTabsProps {
   value: string;
@@ -15,6 +16,8 @@ interface BonusTabsProps {
 }
 
 export function Tabs({ value, onChange, className, urlTab }: BonusTabsProps) {
+  const isMobile = useMediaQuery("(max-width: 640px)");
+
   const { t } = useTranslation('bonus');
   const [showAchievements, setShowAchievements] = useState(false);
   const { isAuthenticated } = useAuth();
@@ -68,7 +71,7 @@ export function Tabs({ value, onChange, className, urlTab }: BonusTabsProps) {
     <>
       <TabsComponent 
         tabs={tabs} 
-        size="sm" 
+        size={isMobile?'sm':'lg'}
         value={value} 
         onChange={handleTabClick} 
         className={className} 
@@ -81,7 +84,7 @@ export function Tabs({ value, onChange, className, urlTab }: BonusTabsProps) {
         onClose={() => {
           setShowAchievements(false);
           if (isUrlAchievementsTab) {
-            navigate({ to: "/bonus", search: { tab: undefined }, replace: true });
+            navigate({ to: "/bonus", search: { view: undefined, tab: undefined }, replace: true });
           }
         }} 
       />

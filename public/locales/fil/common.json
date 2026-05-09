@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Nagagamit na ang mobile number. Pakigamit ng ibang numero.",
     "mobileAlreadyBound": "Ang mobile number ay naka-bind na sa account na ito.",
     "fullscreen": "Buong screen",
-    "exitFullscreen": "Lumabas sa buong screen"
+    "exitFullscreen": "Lumabas sa buong screen",
+    "draw": "Tabla"
   },
   "bonus_pool": "Bonus Pool",
   "pleaseEnterValidUsernameOrEmail": "Mangyaring maglagay ng wastong username o email",

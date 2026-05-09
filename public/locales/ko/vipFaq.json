@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "부스터란 무엇인가요?",
-    "content": "<p class=\"leading-7\">부스터는 추천인이 입금을 할 때마다 한 시간 동안 레이크백을 두 배로 늘려줍니다.</p><p class=\"leading-7\">부스트된 잠금 해제 비율:</p><p class=\"leading-7\">잠금 해제 비율:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">부스터는 추천인이 입금을 할 때마다 세 시간 동안 레이크백을 두 배로 늘려줍니다.</p><p class=\"leading-7\">부스트된 잠금 해제 비율:</p><p class=\"leading-7\">잠금 해제 비율:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "보너스 캘린더란 무엇인가요?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "업적이란 무엇인가요?",
-    "content": "<p class=\"leading-7\">업적은 우리 플랫폼에서의 활동을 인정하는 방법입니다. 업적 보너스를 청구하면 보너스 캘린더에 지급되며, 8시간마다 청구할 수 있고 청구하지 않으면 24시간 후에 만료됩니다.</p>"
+    "content": "<p class=\"leading-7\">업적은 우리 플랫폼에서의 귀하의 활동을 인정하는 우리의 방법입니다. 업적은 VIP 2 이상에 도달하면 청구할 수 있습니다.</p>"
   }
 }

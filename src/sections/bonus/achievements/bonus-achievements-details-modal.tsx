@@ -1,7 +1,7 @@
 import { Modal } from "@/components/ui/Modal";
 import Iconify from "@/components/iconify";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useTranslation, Trans } from "react-i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
@@ -15,8 +15,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { AUTH_QUERY_KEYS } from "@/hooks/api/useAuth";
 import { useBoundStore } from "@/store";
 import { TActions } from "@/store/type";
-import { useFinanceModal } from "@/contexts/ModalsProvider";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
 import { useDoubleOrNothingModal } from "@/contexts/ModalsProvider";
 import { toast } from "sonner";
 
@@ -38,11 +36,11 @@ type BonusAchievementsDetailsModalProps = {
 let temporary_data: number = -1; // 服务于claim出现非0｜200的错误的时候，需要重试时候的参数留存
 
 export const BonusAchievementsDetailsModal = ({
-  isOpen,
-  onClose,
-  onCloseModal,
-  achievement
-}: BonusAchievementsDetailsModalProps) => {
+                                                isOpen,
+                                                onClose,
+                                                onCloseModal,
+                                                achievement
+                                              }: BonusAchievementsDetailsModalProps) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const navigate = useNavigate();
@@ -50,7 +48,6 @@ export const BonusAchievementsDetailsModal = ({
   const queryClient = useQueryClient();
 
   const { setSyncAction } = useBoundStore();
-  const { openUserFinanceModalWithTab } = useFinanceModal();
 
   const { openDoubleOrNothingModal } = useDoubleOrNothingModal();
 
@@ -80,32 +77,40 @@ export const BonusAchievementsDetailsModal = ({
   const formatRewardAmount = (step: AchievementStep) => {
     return formatWithConversion(
       parseFloat(step.reward_amount) || 0,
-      step.reward_currency || "BUCK"
+      step.reward_currency || "BUCK",
+      { showCode: false }
     ).formatted;
   };
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const doClaim = (reward_achievement_log_id: number) => {
+  const doClaim = (reward_achievement_log_id: number, data?: Record<string, any>) => {
     temporary_data = reward_achievement_log_id;
 
     setIsLoading(true);
     authService.claimAchievementBonus(reward_achievement_log_id).then((response) => {
       if (response.code === 0 || response.code === 200) {
-        toast.success(t('toast:bonusClaimedSuccessfully'));
 
-         openDoubleOrNothingModal({
-            don_record_id: response?.data?.don_record_id,
-            amount: response?.data?.amount
-          });
+        // TODO: buddy balls claimed
+        if (data && getAchievementBonusAmount(data)?.includes('x')) {
+          toast.success(t("toast:ballsClaimed"));
+        } else {
+          // TODO: bonus claimed
+          toast.success(t("toast:bonusClaimedSuccessfully"));
+        }
+
+        openDoubleOrNothingModal({
+          don_record_id: response?.data?.don_record_id,
+          amount: response?.data?.amount
+        });
 
         void queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.userAchievements });
       } else {
         setSyncAction("OPEN_BONUS_CLAIM_RESPONSE_MODAL", {
           code: response.code,
-          tryAgain: () => temporary_data > -1 && doClaim(temporary_data)
+          tryAgain: () => temporary_data > -1 && doClaim(temporary_data, data)
         });
-        onCloseModal()
+        onCloseModal();
       }
     }).catch((error) => {
       console.info(error);
@@ -117,23 +122,23 @@ export const BonusAchievementsDetailsModal = ({
   const doTask = () => {
     if (achievement?.modal) {
       if (achievement.modal === "OPEN_SWAP") {
-        openUserFinanceModalWithTab(`swap_${randomString()}`)
+        void navigate({to:'/finance', state: { activeTab: "swap" } as any});
       } else {
-        setSyncAction(achievement.modal as TActions)
+        setSyncAction(achievement.modal as TActions);
       }
-      onClose()
-      onCloseModal()
+      onClose();
+      onCloseModal();
     }
     if (achievement?.link) {
       const url = new URL(decodeURIComponent(achievement?.link), window.location.origin);
-      const pathname = url.pathname
+      const pathname = url.pathname;
       const searchParams = Object.fromEntries(url.searchParams?.entries() || []);
       void navigate({
         to: pathname || CASINO_ROUTE,
         search: searchParams
       });
     }
-  }
+  };
 
   return (
     <>
@@ -143,7 +148,7 @@ export const BonusAchievementsDetailsModal = ({
         onClose={onClose}
         hideTitle={true}
         zIndex={1006}
-        className="md:w-[500px] max-w-lg mx-auto overflow-scroll bg-base-400"
+        className="md:w-[500px] max-w-lg mx-auto overflow-auto hide-scrollbar bg-base-400"
       >
         <div
           className="flex flex-col -mx-5 -my-4 px-5 py-4"
@@ -266,19 +271,21 @@ export const BonusAchievementsDetailsModal = ({
                             }
                           </div>
                           <progress className="progress progress-primary w-full mt-2" value={step?.finish_number ?? 0}
-                            max={step?.total_number ?? 0}></progress>
+                                    max={step?.total_number ?? 0}></progress>
                         </>
                     }
 
                     {/* Step Reward */}
-                    <div className="h-[20px]">
-                      <div className="flex items-center justify-between">
+                    <div className=" ">
+                      <div className="flex   justify-between">
                         <span className="text-sm text-base-content/50">
                           {t("bonus:achievement_reward", { defaultValue: "Reward" })}
                         </span>
-                        <span className="text-sm text-primary">
-                          {formatRewardAmount(step)}
-                        </span>
+
+                        <InnerBonusTypeSwitch data={step}>
+                          {!step?.buddy_ball_count && <span className="text-xs font-semibold text-base-content/50">
+                            ≈{formatRewardAmount(step)}</span>}
+                        </InnerBonusTypeSwitch>
                       </div>
                     </div>
 
@@ -293,8 +300,8 @@ export const BonusAchievementsDetailsModal = ({
                             values={{
                               count: step?.number,
                               amount: formatWithConversion(step?.total_number ?? 0,
-                                step?.reward_currency ??'BUCK',
-                                {showCode: false}
+                                step?.reward_currency ?? "BUCK",
+                                { showCode: false }
                               ).formatted
                             }}
                             components={[<span className="font-semibold text-primary" key="highlight" />
@@ -308,18 +315,18 @@ export const BonusAchievementsDetailsModal = ({
                     <div className="h-[48px] flex items-end">
                       {!step.is_claim && step.is_finish &&
                         <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
-                          disabled={isLoading}
-                          onClick={() => doClaim(step.reward_achievement_log_id)}>{t("bonus:claim")}
+                                disabled={isLoading}
+                                onClick={() => doClaim(step.reward_achievement_log_id, step)}>{t("bonus:claim")}
                           {isLoading && <span className="loading loading-spinner loading-xs"></span>}
                         </button>}
                       {!step.is_finish && <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
-                        onClick={() => doTask()}>{t(`${achievement.btnText}`)}</button>}
+                                                  onClick={() => doTask()}>{t(`${achievement.btnText}`)}</button>}
                       {step.is_finish && step.is_claim && achievement.steps.length === 1 &&
-                        <button className='btn btn-primary w-full btn-md h-[48px] mt-3'
-                          onClick={() => onClose()}>{t('bonus:back')}</button>}
+                        <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
+                                onClick={() => onClose()}>{t("bonus:back")}</button>}
                       {step.is_finish && step.is_claim && achievement.steps.length > 1 &&
                         <button className="btn btn-primary w-full btn-md h-[48px] mt-3"
-                          onClick={() => doTask()}>{t(achievement.btnText)}</button>}
+                                onClick={() => doTask()}>{t(achievement.btnText)}</button>}
                     </div>
                   </div>
                 );
@@ -330,4 +337,26 @@ export const BonusAchievementsDetailsModal = ({
       </Modal>
     </>
   );
+};
+
+const getAchievementBonusIcon = (data: Record<string, any>) => {
+  if (Number(data?.buddy_ball_count) > 0)
+    return "/images/bonus/ball.png";
+  return "/icons/currency/buck.png";
+};
+const getAchievementBonusAmount = (data: Record<string, any>) => {
+  if (Number(data?.buddy_ball_count) > 0)
+    return `x${data?.buddy_ball_count}`;
+  return parseFloat(data.reward_amount).toString();
+};
+const InnerBonusTypeSwitch = ({ data, children }: { data: AchievementStep, children?: ReactNode }) => {
+  return (<div className="flex flex-col gap-1 items-end">
+    <div className="flex items-center gap-1">
+      <img src={getAchievementBonusIcon(data)} className="w-4 h-4" />
+      <div className="text-primary text-xs">
+        {getAchievementBonusAmount(data)}
+      </div>
+    </div>
+    {children}
+  </div>);
 };

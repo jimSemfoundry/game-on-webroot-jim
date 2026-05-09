@@ -115,8 +115,8 @@ export const SetWithdrawalPINModal = (
             <button className="btn btn-square btn-sm mr-2" onClick={() => setStatus((v) => ({ ...v, step: "STEP1" }))}>
               <ChevronLeft className="w-4 h-4" /></button>}
           <p className="text-lg font-bold truncate">
-            {status.step === "STEP1" && (operate_pin_type === "BIND_PIN" ? "Change Withdrawal PIN" : t("common.updateWithdrawalPin"))}
-            {status.step === "STEP2" && "Confirm Withdrawal PIN"}
+            {status.step === "STEP1" && (operate_pin_type === "BIND_PIN" ? t("profile:change_withdrawal_pin") : t("common.updateWithdrawalPin"))}
+            {status.step === "STEP2" && t("profile:confirm_withdrawal_pin")}
           </p>
         </div>
       }

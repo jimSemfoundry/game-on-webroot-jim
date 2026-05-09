@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 // TODO: 为了测试chatwoot自定义样式，暂时写死了hideMessageBubble, baseUrl, websiteToken 并没有从context拿
 interface ChatwootConfig {
   websiteToken: string;
-  enabled?: boolean;
   baseUrl?: string;
   hideMessageBubble?: boolean;
   darkMode?: "auto" | "light" | "dark";
@@ -17,7 +16,6 @@ export const useChatwoot = (config: ChatwootConfig) => {
   const scriptLoaded = useRef(false);
 
   useEffect(() => {
-    if (!config.enabled) return;
     // 如果没有websiteToken或已经初始化过，则不初始化
     if (!config.websiteToken || isInitialized) return;
 
@@ -67,21 +65,62 @@ export const useChatwoot = (config: ChatwootConfig) => {
       document.head.appendChild(script);
     };
 
-    loadScript();
+    // t110774 PR8: 把 Chatwoot SDK 加载推迟到 idle 期 + timeout 5s 兜底。
+    // SDK + 依赖 ~270 KB / 36 reqs 是首屏第二大第三方负载，用户绝大多数
+    // 首次访问不会立即点 chat icon。推迟到 paint 后能省 -1.5~3s LCP。
+    type RICWindow = Window & {
+      requestIdleCallback?: (cb: IdleRequestCallback, opts?: { timeout?: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const w = window as RICWindow;
+
+    let idleCancel: (() => void) | null = null;
+    if (typeof w.requestIdleCallback === "function") {
+      const handle = w.requestIdleCallback(() => loadScript(), { timeout: 5000 });
+      idleCancel = () => w.cancelIdleCallback?.(handle);
+    } else {
+      // Safari 16- fallback: paint 之后 1s 再加载
+      const handle = window.setTimeout(loadScript, 1000);
+      idleCancel = () => window.clearTimeout(handle);
+    }
 
     // 清理函数
     return () => {
+      // 取消 idle 加载（若 SDK 尚未下载）
+      idleCancel?.();
+      idleCancel = null;
       // 当token变化时，重置初始化状态
       if (isInitialized) {
         setIsInitialized(false);
       }
     };
-  }, [config.enabled, config.websiteToken, config.baseUrl, isInitialized]);
+  }, [config.websiteToken, config.baseUrl, isInitialized]);
 
   // 提供一些有用的方法
   const toggleWidget = () => {
     if ((window as any).$chatwoot) {
       (window as any).$chatwoot.toggle();
+    }
+  };
+
+  const openWidget = () => {
+    const cw = (window as any).$chatwoot;
+    if (!cw) return;
+    try {
+      // chatwoot supports toggle('open') / toggle('close')
+      cw.toggle?.("open");
+    } catch {
+      cw.toggle?.();
+    }
+  };
+
+  const closeWidget = () => {
+    const cw = (window as any).$chatwoot;
+    if (!cw) return;
+    try {
+      cw.toggle?.("close");
+    } catch {
+      // no-op
     }
   };
 
@@ -118,6 +157,8 @@ export const useChatwoot = (config: ChatwootConfig) => {
 
   return {
     toggleWidget,
+    openWidget,
+    closeWidget,
     setUser,
     setLocale,
     setCustomAttributes,

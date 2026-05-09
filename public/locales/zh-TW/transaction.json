@@ -64,6 +64,7 @@
     "fiatWithdraw": "法幣提款",
     "cryptoWithdraw": "加密貨幣提款",
     "bonus": "獎金",
+    "bounty": "賞金",
     "win": "贏",
     "bet": "投注",
     "refund": "退款",
@@ -72,7 +73,8 @@
     "rakebackbonus": "返佣獎金",
     "cashbackbonus": "現金返還獎金",
     "referral": "推薦",
-    "commission": "佣金"
+    "commission": "佣金",
+    "FIAT": "法幣"
   },
   "gameTypes": {
     "slots": "老虎機",
@@ -150,5 +152,5 @@
     "unlockedFunds": "解鎖資金",
     "rolloverMul": "投注倍數"
   },
-  "assistance": "請檢查您的詳細資訊並重試，或聯繫客服尋求協助"
+  "assistance": "您的姓名與您首次使用此渠道時的姓名不符。請聯繫客服。"
 }

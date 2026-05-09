@@ -13,14 +13,14 @@ import { BonusVipMondayHelpModal } from './bonus-vip-monday-help-modal';
 import { MysteryBoxModal } from './bonus-mystery-box-modal';
 import { useGetMondayVipBonus } from '@/hooks/api/useAuth';
 import { Decimal } from 'decimal.js';
-import Iconify from "@/components/iconify";
 import { VIP_REQUIREMENTS } from "../shared/config";
 import { VipButton } from "../shared/VipButton";
 import { useVibrantColor } from "@/hooks/useVibrantColor";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { Info } from "@/sections/bonus/components/Info.tsx";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 const BASE_SCRIM = "color-mix(in oklch, var(--color-base-300) 60%, transparent)";
-const ILLUSTRATION_URL = "/images/rewards/vip-monday.png";
 const DEFAULT_ACCENT = "#7C3AED";
 
 const buildBackground = (accentStop: string, isMobile: boolean) =>
@@ -53,6 +53,7 @@ export const BonusVipMondayCard = () => {
   const { mondayVipBonus } = useGetMondayVipBonus();
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const isMobile = useMediaQuery("(max-width: 640px)");
+  const ILLUSTRATION_URL = useBonusDetailsImage("vip_monday", 96);
 
   const [isOpenTipsModal, setIsOpenTipsModal] = useState(false);
   const accentStopFallback = useMemo(() => `color-mix(in oklch, ${DEFAULT_ACCENT} 40%, transparent)`, []);
@@ -87,17 +88,15 @@ export const BonusVipMondayCard = () => {
 
   return (
     <div
-      className={`min-h-34 relative flex justify-center w-full flex-col gap-3 overflow-hidden rounded-field border ${isClaimable ? 'border-warning' : 'border-base-200/60'} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 sm:min-h-[320px] sm:p-5`}
+      className={`min-h-[145px] relative flex justify-center w-full flex-col gap-3 overflow-hidden rounded-field border ${isClaimable ? 'border-warning' : 'border-base-200/60'} bg-base-300/30 p-4 shadow-md transition-transform duration-200 hover:-translate-y-1 sm:min-h-[320px] sm:p-5`}
       style={{ background }}
     >
-      <button className="btn btn-square btn-xs bg-base-200 absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={() => setIsOpenTipsModal(true)}>
-        <Iconify icon="custom:info" className="text-base-content/50" />
-      </button>
+      <Info className="absolute right-4 rtl:right-auto rtl:left-4 top-4" onClick={() => setIsOpenTipsModal(true)} />
       <div className="flex w-full items-center gap-4 sm:flex-1 sm:flex-col sm:items-center sm:gap-3 sm:text-center">
         <div className="w-16 h-16 sm:size-[90px] grid place-items-center rounded-xl">
           <img src={ILLUSTRATION_URL} className="w-full h-full object-contain" />
         </div>
-        <div className="flex flex-1 flex-col gap-1 sm:gap-2 sm:items-center">
+        <div className="flex flex-1 flex-col gap-2 sm:gap-2 sm:items-center">
           <p className="text-sm font-bold sm:text-base text-left w-full">{t('bonus:vip_monday')}</p>
           {!isUnlocked && (
             <p className="text-xs text-base-content/50 text-left w-full leading-5">{t('bonus:vip_monday_description')}</p>

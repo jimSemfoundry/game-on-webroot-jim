@@ -21,6 +21,7 @@ export interface Currency {
   weight: number;
   country_code: string;
   weight2: number;
+  symbol: string;
 }
 
 export interface ExchangeRates {

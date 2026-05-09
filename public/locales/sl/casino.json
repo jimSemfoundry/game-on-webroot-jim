@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Kot vodilno globalno igralno zavezništvo združujemo moč in prefinjenost vrhunskih platform pod enotno vizijo. Čez vse blagovne znamke v našem portfelju delujemo kot eno — ponujamo zabavo, prilagojene nagrade in brezhibno povezljivost med valutami, državami in kulturami.",
   "footerDescriptionThree": "Ne igrajte samo igre. Izzovite vse.",
   "footerDescriptionFour": "Značilna lastnost {{supportName}} zavezništva",
-  "footerDescriptionFive": "© 2025. Vse pravice pridržane.",
+  "footerDescriptionFive": "© {{year}}. Vse pravice pridržane.",
   "banner": {
     "oneDescription": "BODITE PRVI.",
     "oneDescriptionTwo": "IZZIVAJTE\nVSE",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Dodaj na začetni zaslon",
   "latestWins": "Najnovejše Zmage",
   "spinPlayAndWinAcrossTopCasinoHits": "Zavrtite, igrajte in zmagajte na vrhunskih kazino igrah",
-  "scoreBigOnSportsFromAroundTheWorld": "Zaslužite veliko na športu z vsega sveta"
+  "scoreBigOnSportsFromAroundTheWorld": "Zaslužite veliko na športu z vsega sveta",
+  "liveDealers": "Live dealerji za vaše najljubše namizne igre",
+  "show_less": "prikaži manj"
 }

@@ -241,10 +241,12 @@ const DEFAULT_ACHIEVEMENT_ICON = "/images/illustrations/achievement-champion.png
 
 export const BonusAchievementsList = ({
                                         enableCarousel = false,
-                                        closeModal
+                                        closeModal,
+                                        layout = "grid"
                                       }: {
   enableCarousel?: boolean
   closeModal: () => void
+  layout?: "grid" | "list"
 }) => {
   const { t } = useTranslation();
   // const [cardColors, setCardColors] = useState<Record<string, string>>({})
@@ -358,10 +360,66 @@ export const BonusAchievementsList = ({
 
   const achievementCards = (data: Achievement[]) => {
 
-    return data.map((achievement) => (
+    return data.map((achievement) => {
+      const isClaimable = achievement.steps.some((step) => step.is_finish && !step.is_claim);
+
+      return (
       <InnerGuardAchievementContainer
         key={achievement.id}
         item={achievement}>
+        {layout === "list" && !enableCarousel ? (
+          <div
+            className={cn(
+              "h-[80px] rounded-field border bg-base-200 p-4 transition-all duration-200 cursor-pointer",
+              "hover:bg-base-200/90",
+              isClaimable ? "border-warning" : "border-base-200/60"
+            )}
+            onClick={() => handleAchievementClick(achievement.id)}
+          >
+            <div className="flex h-full items-center gap-3">
+              <div className="size-[50px] flex items-center justify-center shrink-0">
+                <img src={achievement.icon} alt={achievement.name} className="size-[50px] object-contain" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-bold text-base-content truncate">{achievement.name}</p>
+                <div className="mt-1.5 flex items-center gap-2">
+                  <div className="h-1.5 bg-base-content/20 rounded-full flex-1 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-primary transition-all duration-300"
+                      style={{
+                        width: `${achievement.maxProgress > 0 ? (achievement.progress / achievement.maxProgress) * 100 : 0}%`
+                      }}
+                    />
+                  </div>
+                  <span className="text-xs text-base-content/50">{achievement.progress}/{achievement.maxProgress}</span>
+                </div>
+              </div>
+              {isClaimable ? (
+                <button
+                  type="button"
+                  className="btn btn-primary btn-md sm:btn-lg w-[80px]"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handleAchievementClick(achievement.id);
+                  }}
+                >
+                  {t("bonus:claim")}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-square btn-sm bg-primary/20 border-0 text-primary hover:bg-primary/30"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handleAchievementClick(achievement.id);
+                  }}
+                >
+                  <Iconify icon="mdi:chevron-right" className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          </div>
+        ) : (
         <div
           className={cn(
             enableCarousel ? "relative rounded-box cursor-pointer overflow-hidden w-28 md:w-32 h-full" : "relative rounded-box transition-all duration-200 cursor-pointer hover:scale-[1.02] hover:shadow-lg overflow-hidden",
@@ -420,8 +478,10 @@ export const BonusAchievementsList = ({
             </div>
           </div>
         </div>
+        )}
       </InnerGuardAchievementContainer>
-    ));
+      );
+    });
   };
 
   return (
@@ -442,13 +502,13 @@ export const BonusAchievementsList = ({
                 title={t("common.achievements")}
                 icon={<Iconify icon="custom:profile-achievements" className="text-primary" />}
               >
-                <Carousel carousel={carousel} className="mx-0 pr-10">
+                <Carousel carousel={carousel} className="mx-0">
                   {achievementCards(completedAchievements)}
                 </Carousel>
               </Card>
             )
           ) : (
-            <div className="grid grid-cols-3 gap-1.5 sm:gap-3 px-2 pb-2">
+            <div className={cn(layout === "list" ? "grid grid-cols-1 gap-3 px-1 pb-2 sm:grid-cols-2 xl:grid-cols-4" : "grid grid-cols-3 gap-1.5 sm:gap-3 px-2 pb-2")}>
               {achievementCards(achievements)}
             </div>
           )}

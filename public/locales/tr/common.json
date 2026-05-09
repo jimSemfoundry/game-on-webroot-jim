@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Telefon numarası zaten kullanılmış. Lütfen başka bir numara kullanın.",
     "mobileAlreadyBound": "Telefon numarası zaten bu hesaba bağlı.",
     "fullscreen": "Tam ekran",
-    "exitFullscreen": "Tam ekrandan çık"
+    "exitFullscreen": "Tam ekrandan çık",
+    "draw": "Berabere"
   },
   "bonus_pool": "Bonus Havuzu",
   "pleaseEnterValidUsernameOrEmail": "Lütfen geçerli bir kullanıcı adı veya e-posta girin",

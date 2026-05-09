@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Vinster från gratis spinn löper inte ut förrän de låses upp och krävs.",
     "general_terms": "Allmänna villkor",
     "general_terms_desc": "Belöningar från gratis spinn beräknas och krediteras i BUCK, och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga.",
-    "general_terms_desc_2": "Kasinoet förbehåller sig rätten att ändra eller återkalla berättigande när som helst, utan skyldighet att motivera. All missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen."
+    "general_terms_desc_2": "Kasinoet förbehåller sig rätten att ändra eller återkalla berättigande när som helst, utan skyldighet att motivera. All missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen.",
+    "redeem_count_free_spins": "LÖS IN {{freeSpinsCount}} GRATIS SPINN?"
   },
   "mysteryBox": {
     "description": "Ju mer du spelar, desto större chans att vinna stort. Öppna din Mystery Box varje månad för att avslöja överraskningsbonusar anpassade efter din aktivitet. Snurra, spela och hämta det som väntar!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Kontantbonus",
   "none": "Ingen",
   "bonus_limit": "Bonusgräns",
-  "minimum_deposit": "Minsta insättning"
+  "minimum_deposit": "Minsta insättning",
+  "get_buck": "FÅ BUCK",
+  "what_is_buck": "Vad är BUCK?",
+  "what_is_buck_description": "BUCK är en exklusiv token för alla plattformsbelöningar, värderad till 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "Kan BUCK växlas?",
+  "is_buck_exchangeable_description": "Ja. Du kan konvertera BUCK till stödda krypto- eller fiatvalutor när som helst, direkt på plattformen.",
+  "expiration_description": "Nej. BUCK löper aldrig ut och finns kvar i ditt saldo tills du använder det.",
+  "general_terms_description": "Belöningar beräknas och krediteras i USDT och visas sedan i din föredragna fiatvaluta för bekvämlighet. Observera att valutakonverteringar är ungefärliga. \n\n Casinot förbehåller sig rätten att när som helst ändra eller återkalla berättigande, utan skyldighet att motivera. Allt missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Få fler Buddy Balls",
+    "daily_check_in": "Daglig incheckning",
+    "refer_a_friend": "Värva en vän",
+    "referral_first_deposit": "Första insättning via värvning"
+  },
+  "bonus_details_modal": {
+    "description": "Välkommen till Bonus Butik där du kan växla dina kontanter till Bonusdollar och få extra 20%-180% i enlighet med omsättningskraven (omsättningskrav). Bonusdollar är särskilda spelkrediter som kan användas på vissa utvalda slotspel. Bonusdollar kan växlas till uttagsbara pengar när du har uppfyllt omsättningskravet.",
+    "claim_distribution": "När du har uppfyllt omsättningskrav- (omsättning-) kravet kan du växla ditt Bonusdollar-saldo till en valuta du väljer genom att klicka på claim-knappen.",
+    "expiration_description": "Bonusdollar måste användas inom den giltighetsperiod som visas i Bonus Butik-fliken. Oanvända Bonusdollar-saldon kommer att förverkas efter giltighetstidens slut. Observera att du bara kan ha en aktiv Bonusdollar-kampanj åt gången.",
+    "generalTerms_description": "Bonusdollar beräknas och krediteras i BONUS och visas sedan i din valda visningsvaluta för din bekvämlighet. Valutakonverteringar är ungefärliga. Casinot förbehåller sig rätten att ändra eller återkalla behörighet utan skyldighet att motivera. Missbruk eller bedräglig aktivitet leder till diskvalificering från kampanjen."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Välkommen till Sports Bonus där du kan konvertera dina pengar till Sports Bonus Dollars och få 50% extra beroende på omsättningskrav. Sportbonusdollar är speciella spelkrediter som är tillgängliga för sportspel. Sportbonusdollar kan omvandlas till uttagbara kontanter när du har fullföljt omsättningskravet.",
+    "claim_distribution": "När du har slutfört omsättningskravet kan du konvertera ditt Sportbonussaldo till en valfri valuta genom att klicka på anspråksknappen.",
+    "wagering_rules": "- Förlorade vad: Hela din insats räknas till fullo med i omsättningskravet.\n- Vinnande vad: Räknas endast om oddsen är ≥ {{minOdds}}. Om oddsen är under {{minOdds}} räknas vadet inte med i omsättningskravet.\n- Cash out-vad: Räknas endast om cash out-beloppet är större än den ursprungliga insatsen × {{minOdds}}.\n- Endast insatsen räknas med i omsättningskravet, aldrig vinsten.",
+    "expiration_description": "Sportbonusdollar måste användas inom giltighetsperioden som visas på fliken Sportbonus. Oanvända Sports Bonus Dollar-saldon kommer att förverkas efter giltighetsperioden.",
+    "generalTerms_description": "- Sportbonusbelöningar beräknas och krediteras i SPORTBONUS, och visas sedan i din föredragna valuta för enkelhetens skull. Observera att valutaomvandlingar är ungefärliga.\n- Kasinot förbehåller sig rätten att ändra eller återkalla kvalificeringen när som helst, utan skyldighet att motivera. All missbruk eller bedräglig aktivitet kommer att leda till diskvalificering från kampanjen."
+  }
 }

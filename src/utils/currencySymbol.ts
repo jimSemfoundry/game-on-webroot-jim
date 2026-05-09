@@ -1,4 +1,6 @@
 import getSymbolFromCurrencyBase from "currency-symbol-map";
+import { useSupportedGameCurrencies } from "@/hooks/api/usePublic.ts";
+import { useMemo } from "react";
 
 const customSymbolMap: Record<string, string> = {
   MXN: "MX$",
@@ -29,3 +31,24 @@ const getSymbolFromCurrency = (currencyCode?: string): string | undefined => {
 
 export default getSymbolFromCurrency;
 export { customSymbolMap };
+
+/**
+ * TODO: 使用服务端提供的法币缩写符号
+ */
+export const useFiatSymbol = () => {
+  const { data: currencies } = useSupportedGameCurrencies();
+
+  const currenciesMap = useMemo(() => {
+    const map = new Map<string, Record<string, any>>();
+    (currencies?.data || []).forEach((c: Record<string, any>) => {
+      map.set(c.currency, c);
+    });
+    return map;
+  }, [currencies]);
+
+  const showFiatSymbol = (currency: string) => currenciesMap.get(currency)?.symbol || currency;
+
+  return {
+    showFiatSymbol
+  };
+};

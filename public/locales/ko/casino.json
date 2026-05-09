@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "글로벌 게임 얼라이언스의 선두주자로서, 우리는 하나의 비전 아래 최고 수준의 플랫폼의 힘과 세련미를 결합합니다. 우리 포트폴리오의 모든 브랜드를 통해 우리는 하나로 움직이며 — 엔터테인먼트, 개인화된 보상, 그리고 통화, 국가, 문화를 초월하는 원활한 연결성을 제공합니다.",
   "footerDescriptionThree": "게임을 그냥 플레이하지 마세요. 모든 것에 도전하세요.",
   "footerDescriptionFour": "{{supportName}} 얼라이언스의 대표적인 특징",
-  "footerDescriptionFive": "© 2025. 모든 권리 보유.",
+  "footerDescriptionFive": "© {{year}}. 모든 권리 보유.",
   "banner": {
     "oneDescription": "첫 번째가 되세요.",
     "oneDescriptionTwo": "모든 것에 도전하세요\n",
@@ -127,5 +127,7 @@
   "addHomeScreen": "홈 화면에 추가",
   "latestWins": "최신 승리",
   "spinPlayAndWinAcrossTopCasinoHits": "최고의 카지노 히트작에서 스핀하고, 플레이하고, 승리하세요",
-  "scoreBigOnSportsFromAroundTheWorld": "전 세계 스포츠에서 큰 점수를 기록하세요"
+  "scoreBigOnSportsFromAroundTheWorld": "전 세계 스포츠에서 큰 점수를 기록하세요",
+  "liveDealers": "좋아하는 테이블 게임의 라이브 딜러",
+  "show_less": "접기"
 }

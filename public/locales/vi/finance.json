@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Vui lòng điền thông tin rút tiền tiền pháp định của bạn.",
   "updating_withdrawal_address": "Đang cập nhật địa chỉ rút tiền, vui lòng chờ...",
   "please_select_withdrawal_method": "Vui lòng chọn phương thức rút tiền.",
-  "integer_deposit": "Kênh này yêu cầu số tiền nạp phải là bội số nguyên của {{value}}.",
+  "integer_deposit": "Kênh này yêu cầu số tiền nạp phải theo đơn vị {{value}}.",
   "enter_string_en_only": "Chỉ có thể nhập chữ cái tiếng Anh, số và khoảng trắng.",
-  "enter_string_min_length": "Độ dài phải ít nhất là {{length}}."
+  "enter_string_min_length": "Độ dài phải ít nhất là {{length}}.",
+  "met_eligibility": "*Bạn đã đáp ứng các tiêu chí đủ điều kiện cho ưu đãi đặc biệt. Nạp tiền ngay để nhận phần thưởng của bạn.",
+  "read_carefully": "Vui lòng đọc kỹ",
+  "no_channel": "Hiện tại không có kênh nào khả dụng"
 }

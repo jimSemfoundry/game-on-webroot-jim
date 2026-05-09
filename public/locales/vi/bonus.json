@@ -156,7 +156,7 @@
   },
   "achievement_super_spreader": {
     "name": "Người Chia Sẻ Siêu Cấp",
-    "description": "Thành tích này được trao cho những người chơi đã giới thiệu thành công <0>{{count}} người dùng mới</0>. Một người xây dựng cộng đồng thực sự, họ mở rộng vòng tròn và mang lại năng lượng mới cho trò chơi. Ảnh hưởng của họ tăng lên với mỗi kết nối mà họ tạo ra."
+    "description": "Thành tích này được trao cho những người chơi đã giới thiệu thành công <0>{{count}} người dùng mới</0> đã hoàn tất giao dịch mua đầu tiên của họ. Là những người xây dựng cộng đồng đích thực, họ mở rộng vòng kết nối thông qua sự chia sẻ chân thành và mang đến nguồn năng lượng mới cho trò chơi. Ảnh hưởng của họ tăng lên theo từng kết nối ý nghĩa mà họ tạo ra."
   },
   "achievement_conquistador": {
     "name": "Người Chinh Phục",
@@ -223,7 +223,7 @@
     "description": "Danh hiệu này được trao cho những người chơi đã đặt ít nhất <0>10 cược hợp lệ</0> trong lịch sử chơi của họ. Người Thách Thức luôn sẵn sàng cho mọi cơ hội, được thúc đẩy bởi quyết tâm và sự hồi hộp của cuộc cạnh tranh. Dũng cảm và không ngừng nghỉ, họ chứng minh rằng những người tranh tài thực sự không lùi bước trước trò chơi — họ tiến lên, sẵn sàng thử thách giới hạn của mình và khẳng định vị trí của mình trong số những người không sợ hãi."
   },
   "achievement_dynamo": {
-    "name": "Dynamo",
+    "name": "Máy phát điện",
     "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành <0>1 khoản tiền gửi</0> ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất. Một Dynamo trở nên mạnh mẽ hơn với mỗi lần nạp tiền, chứng minh sự nhất quán và quyết tâm của họ trên con đường đến sự thành thạo."
   },
   "achievement_face_of_fortune": {
@@ -255,11 +255,11 @@
     "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành một khoản rút tiền fiat ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất. Một Bậc Thầy Tiền đứng vững ở ngã ba giữa trò chơi và phần thưởng, chuyển đổi chiến thắng của họ thành giá trị thực tế. Với đôi tay vững vàng và thời điểm chính xác, họ cho thấy rằng sự thành thạo thực sự không chỉ nằm trong trò chơi — mà còn trong việc mang phần thưởng về nhà."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "tiền điện tử anh em",
     "description": "Danh hiệu này được trao cho những người chơi đã thực hiện một khoản tiền gửi ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất, với bất kỳ loại tiền điện tử nào. Một Crypto Maestro điều khiển quỹ của họ như một nghệ sĩ thực thụ, tổ chức tài sản kỹ thuật số với sự chính xác và phong cách. Tự tin trên sân khấu blockchain, họ là những người tiên phong trong trò chơi, chứng minh rằng vận may ưu ái những người dũng cảm."
   },
   "achievement_crypto_baron": {
-    "name": "Crypto Baron",
+    "name": "Nam tước tiền điện tử",
     "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành một khoản rút tiền crypto ít nhất <0>{{amount}}</0> trong một giao dịch duy nhất, với bất kỳ loại tiền điện tử nào. Một Blockchain Baron cai trị lĩnh vực tài sản kỹ thuật số, di chuyển quỹ qua chuỗi với sự tự tin và quyền lực. Với mỗi lần rút tiền thành công, họ chứng minh rằng vận may có thể được kiếm được, bảo đảm và mang về nhà trên blockchain."
   },
   "achievement_chain_shifter": {
@@ -275,7 +275,7 @@
     "description": "Danh hiệu này được trao cho những người chơi đã hoàn thành thành công một <0>giao dịch trao đổi crypto</0>. Một Chain Shifter là người biết cách di chuyển giữa các token một cách tự tin, thích ứng với những biến động của thị trường một cách dễ dàng. Những bậc thầy về động lực, họ phát triển dựa trên sự linh hoạt và chuyển đổi, luôn sẵn sàng thay đổi và nắm bắt cơ hội."
   },
   "item": {
-    "achievement_slot_master": "Slot Master",
+    "achievement_slot_master": "Bậc thầy đánh bạc",
     "conquest_just_wager_on_100": "Chinh Phục Chỉ Đặt Cược 100",
     "conquest_just_wager_on_200": "Chinh Phục Chỉ Đặt Cược 200",
     "conquest_roulette_master": "Chinh Phục Bậc Thầy Roulette",
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Ưu Đãi Đặc Biệt Gửi Tiền Đầu Tiên",
     "monday_vip_bonus": "Tiền Thưởng VIP Thứ Hai",
     "special_offer_thursday": "Thưởng Crypto Thứ Năm",
-    "special_offer_sunday": "Tăng Cường Nạp Tiền Đầu Tiên",
+    "special_offer_sunday": "Nạp Tiền Đầu Tiên Của Ngày",
     "conquest_bonus": "Thưởng Chinh Phục",
-    "dollars_bonus": "Thưởng"
+    "dollars_bonus": "Thưởng",
+    "buddy_balls": "Bóng Bạn Bè",
+    "special_offer": "Ưu Đãi Đặc Biệt"
   },
   "achievements_description": "Mở khóa ở VIP {{vip}}, những phần thưởng này tôn vinh các cột mốc của bạn với những bất ngờ thú vị trên hành trình!",
   "lucky_number_seven_description": "Trúng các số may mắn {{number}} và nhận phần thưởng ngọt ngào mỗi ngày!",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "Tôi có thể từ bỏ chương trình khuyến mãi Đô La Thưởng bất cứ lúc nào không?",
-      "desc": "Có. Bạn có thể chọn từ bỏ chương trình khuyến mãi Đô La Thưởng bất cứ lúc nào trong thời gian hiệu lực. Vui lòng lưu ý rằng một khi từ bỏ, số dư Đô La Thưởng hiện tại của bạn sẽ bị xóa và không thể khôi phục hoặc rút. Bạn vẫn có thể tham gia các chương trình khuyến mãi thưởng trong tương lai nếu có sẵn."
+      "desc": "Bạn chỉ có thể chọn từ bỏ chương trình khuyến mãi Đô La Thưởng khi số dư Ví Thưởng của bạn thấp hơn tương đương {{amount}}USDT trong thời gian hiệu lực.\nVui lòng lưu ý rằng một khi từ bỏ, số dư Ví Thưởng còn lại của bạn sẽ bị xóa và không thể khôi phục hoặc rút.\nVì chỉ có thể có một chương trình Ví Thưởng hoạt động tại một thời điểm, bạn sẽ đủ điều kiện tham gia và mua các chương trình Ví Thưởng khác sau khi từ bỏ chương trình Ví Thưởng hiện tại của bạn."
     },
     "r1": {
       "title": "Đô La Thưởng là gì?",
@@ -554,6 +556,10 @@
       "title": "Tôi có thể tiếp tục chơi ngay cả sau khi đạt giới hạn rút tiền?",
       "desc": "Có, bạn có thể tiếp tục chơi với số dư thưởng của mình cho vui - nhưng yêu cầu của bạn vẫn sẽ bị giới hạn ở giới hạn rút tiền."
     },
+    "r11": {
+      "title": "Khi nào Đô la Thưởng hết hạn / Tôi có thể từ bỏ khuyến mãi không?",
+      "desc": "Đô la Thưởng hết hạn sau 30 ngày kể từ khi phát hành, vì vậy bạn có 30 ngày để hoàn thành yêu cầu vòng cược. Bạn cũng có thể chọn từ bỏ Khuyến mãi Đô la Thưởng bất cứ lúc nào.\n Khi bạn từ bỏ khuyến mãi, số dư Đô la Thưởng hiện tại của bạn sẽ bị xóa và không có hoàn tiền nào được đưa. Bạn sẽ có thể tham gia các Khuyến mãi Đô la Thưởng trong tương lai.\n Chỉ có thể có 1 Khuyến mãi Đô la Thưởng hoạt động tại một thời điểm."
+    },
     "free": "Tham gia với tiền thưởng miễn phí — không cần nạp tiền. Quay các trò chơi thực, thử vận may của bạn và xem bạn có thể đi được bao xa trước khi rút tiền.\n\n Hoàn hảo để bắt đầu với rủi ro bằng không.",
     "mini": "Nạp một khoản nhỏ và nhận thưởng slot với yêu cầu cược nhẹ. Được thiết kế để chơi nhanh và tiến bộ nhanh hơn hướng tới việc rút tiền.\n\n Lý tưởng cho người chơi thông thường muốn trải nghiệm thưởng mượt mà.",
     "mega": "Chơi với Đô la Thưởng giống như tiền thật! Mỗi cược đưa bạn đến gần hơn với việc mở khóa giá trị đầy đủ của chúng. Đáp ứng yêu cầu chơi và xem Đô la Thưởng của bạn biến thành phần thưởng có thể rút được hôm nay!",
@@ -589,5 +595,82 @@
   "bonus_expired": "Hết Hạn",
   "bonus_claimed": "Đã Yêu Cầu",
   "bonus_failure_end": "Thất Bại",
-  "bonus_give_up": "Từ Bỏ"
+  "bonus_give_up": "Từ Bỏ",
+  "goal": "MỤC TIÊU",
+  "state": "TRẠNG THÁI",
+  "requirement_met": "Đã đáp ứng yêu cầu",
+  "enjoy": "thưởng thức",
+  "achievement_details": "Chi Tiết Thành Tích",
+  "promo_expired": "Mã khuyến mãi này đã hết hạn.",
+  "claim_successful": "Yêu cầu thành công!",
+  "promo_claimed": "Bạn đã yêu cầu mã khuyến mãi này rồi.",
+  "invalid_parameter": "Tham số không hợp lệ.",
+  "promo_invalid": "Mã khuyến mãi không hợp lệ. Vui lòng kiểm tra và thử lại.",
+  "promo_format_error": "Vui lòng nhập mã gồm số và chữ cái, độ dài tối thiểu {{length}} ký tự.",
+  "redeem_promotional": "Sử dụng mã khuyến mãi của bạn để mở khóa các phần thưởng độc quyền, giảm giá hoặc lợi ích bổ sung!\n Theo dõi các kênh mạng xã hội của chúng tôi để nhận mã khuyến mãi mỗi ngày.",
+  "promo_unavailable": "Mã khuyến mãi này hiện không có sẵn.",
+  "promo_claim_limit": "Mã khuyến mãi này đã đạt giới hạn yêu cầu.",
+  "similar_event": "Bạn đã có một khuyến mãi tương tự đang diễn ra.",
+  "abnormality": "Bất thường tài khoản, vui lòng liên hệ dịch vụ khách hàng.",
+  "not_started_yet": "Khuyến mãi này chưa bắt đầu.",
+  "not_eligible": "Không đủ điều kiện nhận.",
+  "cannot_claim": "Bạn hiện có số dư Ví Tiền thưởng và không thể nhận khuyến mãi Freespin.",
+  "bonus_store": "Cửa hàng Tiền thưởng",
+  "bonus_store_title": "Cửa hàng \n Tiền thưởng",
+  "wagering_in_progress": "Đang thực hiện yêu cầu cược",
+  "buddy_ball": "Bóng Đồng Hành",
+  "buddy_ball_title": "Bóng\nĐồng Hành",
+  "prize_pool": "Quỹ giải thưởng",
+  "lifetime_bonus_claimed": "Đã nhận thưởng trọn đời",
+  "successful": "Thành công",
+  "purchased": "Bạn đã mua thành công \n <0>{{amount}}</0>. Chúc may mắn!",
+  "bonusStore": "Cửa hàng \n Tiền thưởng",
+  "buyAmount": "Số tiền mua",
+  "selectBonus": "Chọn tiền thưởng để chơi",
+  "buyNow": "Mua ngay",
+  "bonusExists": "Đã có tiền thưởng đang hoạt động",
+  "notAllowed": "Chưa cho phép mua lại",
+  "amountLow": "Số tiền quá thấp",
+  "amountHigh": "Số tiền quá cao",
+  "failedCreate": "Tạo bản ghi thất bại",
+  "buyBonus": "Mua tiền thưởng",
+  "bonusHistory": "Lịch sử tiền thưởng",
+  "wagerCompleted": "Đã hoàn thành yêu cầu cược!",
+  "wageringProgress": "Đang thực hiện yêu cầu cược",
+  "bonus_store_welcome": "Chào mừng bạn đến với Cửa hàng Tiền thưởng, nơi bạn có thể chuyển đổi tiền mặt thành Đô la Thưởng và nhận thêm {{value}} tùy thuộc vào yêu cầu yêu cầu hoàn cược. Đô la Thưởng là tín dụng chơi đặc biệt dùng được cho một số trò slot được chọn. Đô la Thưởng có thể được chuyển đổi thành tiền mặt có thể rút sau khi bạn hoàn thành yêu cầu yêu cầu hoàn cược.",
+  "bonus_store_wagering": "Khi bạn hoàn thành yêu cầu yêu cầu hoàn cược (yêu cầu cược), bạn có thể chuyển đổi số dư Đô la Thưởng của mình sang loại tiền tệ bạn chọn bằng cách nhấn nút nhận.",
+  "bonus_store_validity": "Đô la Thưởng phải được sử dụng trong thời hạn hiệu lực hiển thị trong tab Cửa hàng Tiền thưởng. Số dư Đô la Thưởng chưa sử dụng sẽ bị tịch thu sau khi hết hạn. Lưu ý rằng bạn chỉ có thể có một chương trình Đô la Thưởng đang hoạt động tại một thời điểm.",
+  "bonus_store_calculated": "Đô la Thưởng được tính và cộng bằng BONUS, sau đó hiển thị theo loại tiền tệ hiển thị mà bạn chọn để thuận tiện. Lưu ý rằng quy đổi tiền tệ chỉ mang tính xấp xỉ. Casino có quyền sửa đổi hoặc hủy tư cách đủ điều kiện mà không cần giải thích. Mọi hành vi lạm dụng hoặc gian lận sẽ dẫn đến bị loại khỏi chương trình khuyến mãi.",
+  "youPay": "Bạn trả",
+  "extraBonus": "Bonus thêm",
+  "bonusReceived": "Bonus nhận được",
+  "youGet": "Bạn nhận",
+  "extraBonusGet": "Nhận thêm {{value}} bonus",
+  "minimumBuy": "Mua tối thiểu",
+  "periodComplete": "Thời hạn hoàn thành",
+  "bonusObtained": "Nhận BONUS x {{value}}",
+  "bonusGameplay": "Chơi slot với Bonus và nhận thêm chip. Thiết kế cho lối chơi nhanh và rút tiền nhanh hơn. \n\n Lý tưởng cho người chơi giải trí muốn trải nghiệm bonus mượt mà.",
+  "sportGameplay": "Chơi thể thao với Bonus và nhận thêm chip. Thiết kế cho lối chơi nhanh và rút tiền nhanh hơn. \n\n Lý tưởng cho người chơi giải trí muốn trải nghiệm bonus mượt mà.",
+  "day_streak": "chuỗi <0>{{value}}</0> ngày",
+  "check_in": "điểm danh",
+  "get_more": "nhận thêm",
+  "missed_key": "bỏ lỡ",
+  "daily_check_in": "điểm danh hằng ngày",
+  "check_in_today": "Điểm danh hôm nay",
+  "get_more_buddy_balls": "Nhận thêm Buddy Balls",
+  "checked_in": "Đã điểm danh",
+  "no_games_available": "Không có trò chơi nào khả dụng trong khu vực của bạn.",
+  "daily_reset": "Đặt lại hằng ngày lúc {{time}}",
+  "withdrawal": "Rút tối thiểu",
+  "wagering_rules": "Quy tắc cược",
+  "sports_bonus_title": "THỂ THAO \n THƯỞNG",
+  "switch_prompt_title": "Tiền thưởng thể thao của bạn đã sẵn sàng \n Chuyển sang sử dụng nó",
+  "switch_prompt_more": "Hơn",
+  "switch_prompt_switch": "Công tắc",
+  "switched_back_wallet": "Switched back to your {{currency}} wallet",
+  "sportsBonusStore": "Tiền thưởng thể thao",
+  "sportsBonusActivate": "Tiền thưởng thể thao đã được kích hoạt",
+  "sportsBonus": "Tiền thưởng thể thao",
+  "buySportsBonus": "Mua tiền thưởng thể thao",
+  "sportsBonusGameplay": "Đặt cược thể thao bằng Tiền thưởng thể thao của bạn và mở khóa nhiều giá trị hơn. Được thiết kế dành cho những người hâm mộ thể thao đang tìm kiếm cách đặt cược nâng cao và rút tiền nhanh hơn. \n\n Lý tưởng cho những người đặt cược muốn có trải nghiệm tiền thưởng mượt mà phù hợp với thể thao."
 }

@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "請輸入固定長度的 {{length}} 個字符",
   "disabledCharNotAllowed": "字符 {{char}} 不允許",
   "space": "空格",
-  "thisWalletIsAlreadyUsed": "此錢包已被使用"
+  "thisWalletIsAlreadyUsed": "此錢包已被使用",
+  "login_failed": "登入失敗",
+  "login_error_code_1": "使用者名稱必須是有效的電話號碼（以 + 開頭，國家代碼後使用 -）或電子郵件地址",
+  "account_created_and_logged_in_successfully": "帳戶已建立並成功登入！",
+  "requests_later": "此 IP 請求過多。請稍後再試。",
+  "booster_activated_successfully": "加速器啟用成功！",
+  "depositNameEntered": "儲值時填寫的姓名需與提現銀行卡帳戶的<0>**姓氏 + 名字（全名）**</0>保持一致，以符合反詐騙及反洗錢要求。\n\n如需更換銀行卡，請聯絡客服並配合 KYC 認證。",
+  "user_not_found_or_password_incorrect": "找不到用戶或密碼不正確",
+  "free_spin_record_enabled_successfully": "免費旋轉記錄已成功啟用！",
+  "check_in_success": "簽到成功！",
+  "check_in_failed": "簽到失敗！",
+  "check_in_already": "此日期的簽到已完成。",
+  "ballsClaimed": "成功領取伙伴球",
+  "cannotBetby": "體育彩金僅用於體育博彩。"
 }

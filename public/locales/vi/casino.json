@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Là một liên minh game toàn cầu hàng đầu, chúng tôi kết hợp sức mạnh và sự tinh tế của các nền tảng hàng đầu dưới một tầm nhìn chung. Qua tất cả các thương hiệu trong danh mục của mình, chúng tôi hoạt động như một thể thống nhất — mang đến giải trí, phần thưởng cá nhân hóa, và kết nối liền mạch qua các loại tiền tệ, quốc gia và văn hóa.",
   "footerDescriptionThree": "Đừng chỉ chơi trò chơi. Hãy thách thức mọi thứ.",
   "footerDescriptionFour": "Một đặc trưng nổi bật của {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Bảo lưu mọi quyền.",
+  "footerDescriptionFive": "© {{year}}. Bảo lưu mọi quyền.",
   "banner": {
     "oneDescription": "HÃY LÀ NGƯỜI ĐẦU TIÊN.",
     "oneDescriptionTwo": "THÁCH THỨC\nMỌI THỨ",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Thêm vào màn hình chính",
   "latestWins": "Chiến Thắng Mới Nhất",
   "spinPlayAndWinAcrossTopCasinoHits": "Quay, chơi và thắng trên các trò chơi casino hàng đầu",
-  "scoreBigOnSportsFromAroundTheWorld": "Ghi điểm lớn trên các môn thể thao từ khắp nơi trên thế giới"
+  "scoreBigOnSportsFromAroundTheWorld": "Ghi điểm lớn trên các môn thể thao từ khắp nơi trên thế giới",
+  "liveDealers": "Người chia bài trực tiếp cho các trò chơi trên bàn yêu thích của bạn",
+  "show_less": "hiển thị ít hơn"
 }

@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Kivét",
     "cryptoWithdraw": "Kripto Kivét",
     "bonus": "Bónusz",
+    "bounty": "Jutalom",
     "win": "Nyertes",
     "bet": "Fogadás",
     "refund": "Visszatérítés",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bónusz",
     "cashbackbonus": "Cashback Bónusz",
     "referral": "Ajánlás",
-    "commission": "Jutalék"
+    "commission": "Jutalék",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Nyerőgépek",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Feloldott pénzeszközök",
     "rolloverMul": "Tét szorzó"
   },
-  "assistance": "Kérjük, ellenőrizze adatait és próbálja újra, vagy lépjen kapcsolatba az ügyfélszolgálattal segítségért"
+  "assistance": "Az Ön neve nem egyezik az ezen a csatornán először használt névvel. Kérjük, lépjen kapcsolatba az ügyfélszolgálattal."
 }

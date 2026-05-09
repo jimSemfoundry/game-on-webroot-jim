@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "什么是助推器？",
-    "content": "<p class=\"leading-7\">每当推荐人存款时，助推器会将您的返佣翻倍，持续一小时。</p><p class=\"leading-7\">助推解锁率：</p><p class=\"leading-7\">解锁率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">每当推荐人存款时，助推器会将您的返佣翻倍，持续三小时。</p><p class=\"leading-7\">助推解锁率：</p><p class=\"leading-7\">解锁率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "什么是奖金日历？",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "什么是成就？",
-    "content": "<p class=\"leading-7\">成就是我们对您在平台上活动的认可。当您领取成就奖金时，它将支付到您的奖金日历，并可以每8小时领取一次，未领取将在24小时内过期。</p>"
+    "content": "<p class=\"leading-7\">成就是我们对您在平台上活动的认可方式。成就在您达到VIP 2及以上时可领取。</p>"
   }
 }

@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from 'react-virtuoso';
 
 import { FreeSpinGameSelectionProps, GameItem } from './types';
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 export const FreeSpinGameSelection = ({
   open,
@@ -18,9 +19,12 @@ export const FreeSpinGameSelection = ({
   onClaimSuccess,
 }: FreeSpinGameSelectionProps) => {
 
-  const { t } = useTranslation('popup');
+  const { t } = useTranslation(['popup', 'common']);
   const [selectedGameIndex, setSelectedGameIndex] = useState<string | null>(null);
   const enableRecordMutation = useEnableRecord();
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
 
   const freeSpinsCount = freeSpinData?.bet_count || ''
 
@@ -38,8 +42,8 @@ export const FreeSpinGameSelection = ({
     if (!infiniteData?.pages) return [];
     return infiniteData.pages.flatMap((page: any) =>
       page.code === 0 ? page.data.games || [] : []
-    );
-  }, [infiniteData]);
+    )?.filter((game:Record<string, any>) => !isGameBanned(game));
+  }, [infiniteData, isGameBanned]);
 
   // Get total count from the first page
   const totalGames = useMemo(() => {
@@ -78,7 +82,7 @@ export const FreeSpinGameSelection = ({
     }
 
     enableRecordMutation.mutate({
-      // game_id: item.id,
+      game_id: item.id,
       record_id: freeSpinData.id,
       inner_game_id: item.inner_game_id,
     }, {
@@ -86,7 +90,7 @@ export const FreeSpinGameSelection = ({
         // API 成功后重置状态并调用成功回调
         setSelectedGameIndex(null);
         console.log("Free spin enabled successfully for game:", item.display_game_name);
-        
+
         // 调用成功回调，直接关闭所有modal
         if (onClaimSuccess) {
           onClaimSuccess();
@@ -118,7 +122,21 @@ export const FreeSpinGameSelection = ({
           <div className="badge badge-primary badge-soft font-semibold">{totalGames}</div>
         </div>
         <div className="flex-1 overflow-y-auto">
-          {chunkedGames.length > 0 ? (
+          {allGames.length === 0 ? (
+            // 空状态
+            <div className="flex items-center justify-center py-20 h-full">
+              <div className="flex flex-col items-center gap-4">
+                <img
+                  src="/images/illustrations/no-data.svg"
+                  alt="No data"
+                  className="w-32 h-32 sm:w-40 sm:h-40 opacity-50"
+                />
+                <div className="text-base-content/50 text-sm font-semibold">
+                  {t("common:common.noData")}
+                </div>
+              </div>
+            </div>
+          ) : chunkedGames.length > 0 ? (
             <Virtuoso
               data={chunkedGames}
               totalCount={chunkedGames.length}
@@ -133,66 +151,68 @@ export const FreeSpinGameSelection = ({
                     const gameKey = `${index}-${itemIndex}`;
                     const isSelected = selectedGameIndex === gameKey;
                     const isLoading = enableRecordMutation.isPending && isSelected;
-                    
+
                     return (
-                      <div 
-                        key={gameKey} 
+                      <div
+                        key={gameKey}
                         className={`relative cursor-pointer transition-all duration-300 ${
                           isSelected ? 'z-10' : 'z-0'
-                        }`}
+                          }`}
                         onClick={() => handleGameClick(item, itemIndex, index)}
                       >
-                          <GameImage
-                            data={item}
-                            game={{
-                              game_provider: item.game_provider,
-                              image: item.image,
-                            }}
-                            containerClassName="bg-transparent"
-                            className="rounded-field object-fill"
-                            disableNavigation={true}
-                          />
-                          
-                          {/* 确认覆盖层 */}
-                          <AnimatePresence>
-                            {isSelected && (
-                              <m.div 
-                                className="absolute inset-0 flex flex-col items-center justify-center rounded-field backdrop-blur-[2px]"
-                                variants={varFade('in')}
+                        <GameImage
+                          data={item}
+                          game={{
+                            game_provider: item.game_provider,
+                            image: item.image,
+                          }}
+                          containerClassName="bg-transparent"
+                          className="rounded-field object-fill"
+                          disableNavigation={true}
+                        />
+
+                        {/* 确认覆盖层 */}
+                        <AnimatePresence>
+                          {isSelected && (
+                            <m.div
+                              className="absolute inset-0 flex flex-col items-center justify-center rounded-field backdrop-blur-[2px]"
+                              variants={varFade('in')}
+                              initial="initial"
+                              animate="animate"
+                              exit="exit"
+                            >
+                              <m.div
+                                className="text-center text-white font-bold text-xs mb-6 px-2 bg-base-400/40 py-2"
+                                variants={varFade('inDown', { distance: 20 })}
                                 initial="initial"
                                 animate="animate"
-                                exit="exit"
+                                transition={{ delay: 0.1 }}
                               >
-                                <m.div 
-                                  className="text-center text-white font-bold text-xs mb-6 px-2 bg-base-400/40 py-2"
-                                  variants={varFade('inDown', { distance: 20 })}
-                                  initial="initial"
-                                  animate="animate"
-                                  transition={{ delay: 0.1 }}
-                                >
-                                  REDEEM {freeSpinsCount} FREE SPINS?
-                                </m.div>
-                                <m.button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleClaim(item);
-                                  }}
-                                  disabled={isLoading}
-                                  className="btn btn-primary btn-sm sm:btn-md px-4"
-                                  variants={varFade('inUp', { distance: 20 })}
-                                  initial="initial"
-                                  animate="animate"
-                                  transition={{ delay: 0.2 }}
-                                >
-                                  {isLoading ? (
-                                    <span className="loading loading-spinner loading-xs" />
-                                  ) : (
-                                    "CLAIM"
-                                  )}
-                                </m.button>
+                                {t('popup:freeSpins.redeem_count_free_spins', {
+                                  freeSpinsCount: freeSpinsCount,
+                                })}
                               </m.div>
-                            )}
-                          </AnimatePresence>
+                              <m.button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleClaim(item);
+                                }}
+                                disabled={isLoading}
+                                className="btn btn-primary btn-sm sm:btn-md px-4"
+                                variants={varFade('inUp', { distance: 20 })}
+                                initial="initial"
+                                animate="animate"
+                                transition={{ delay: 0.2 }}
+                              >
+                                {isLoading ? (
+                                  <span className="loading loading-spinner loading-xs" />
+                                ) : (
+                                  t("bonus:claim")
+                                )}
+                              </m.button>
+                            </m.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     );
                   })}
@@ -218,65 +238,67 @@ export const FreeSpinGameSelection = ({
                 const gameKey = `fallback-${index}`;
                 const isSelected = selectedGameIndex === gameKey;
                 const isLoading = enableRecordMutation.isPending && isSelected;
-                
+
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className={`relative cursor-pointer transition-all duration-300 ${
                       isSelected ? 'z-10' : 'z-0'
-                    }`}
+                      }`}
                     onClick={() => handleGameClick(item, index, -1)}
                   >
-                      <GameImage
-                        data={item}
-                        game={{
-                          game_provider: item.game_provider,
-                          image: item.image,
-                        }} 
-                        className="rounded-field object-fill"
-                        disableNavigation={true}
-                      />
-                      
-                      {/* 确认覆盖层 */}
-                      <AnimatePresence>
-                        {isSelected && (
-                          <m.div 
-                            className="absolute inset-0 flex flex-col items-center justify-center rounded-field backdrop-blur-[2px]"
-                            variants={varFade('in')}
+                    <GameImage
+                      data={item}
+                      game={{
+                        game_provider: item.game_provider,
+                        image: item.image,
+                      }}
+                      className="rounded-field object-fill"
+                      disableNavigation={true}
+                    />
+
+                    {/* 确认覆盖层 */}
+                    <AnimatePresence>
+                      {isSelected && (
+                        <m.div
+                          className="absolute inset-0 flex flex-col items-center justify-center rounded-field backdrop-blur-[2px]"
+                          variants={varFade('in')}
+                          initial="initial"
+                          animate="animate"
+                          exit="exit"
+                        >
+                          <m.div
+                            className="text-center text-base-content font-bold text-xs mb-3 px-2"
+                            variants={varFade('inDown', { distance: 20 })}
                             initial="initial"
                             animate="animate"
-                            exit="exit"
+                            transition={{ delay: 0.1 }}
                           >
-                            <m.div 
-                              className="text-center text-base-content font-bold text-xs mb-3 px-2"
-                              variants={varFade('inDown', { distance: 20 })}
-                              initial="initial"
-                              animate="animate"
-                              transition={{ delay: 0.1 }}
-                            >
-                              REDEEM {freeSpinsCount} FREE SPINS?
-                            </m.div>
-                            <m.button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleClaim(item);
-                              }}
-                              disabled={isLoading}
-                              className="btn btn-primary btn-sm sm:btn-md px-4"
-                              variants={varFade('inUp', { distance: 20 })}
-                              initial="initial"
-                              animate="animate"
-                              transition={{ delay: 0.2 }}
-                            >
-                              {isLoading ? (
-                                <span className="loading loading-spinner loading-xs" />
-                              ) : (
-                                "CLAIM"
-                              )}
-                            </m.button>
+                            {t('popup:freeSpins.redeem_count_free_spins', {
+                              freeSpinsCount: freeSpinsCount,
+                            })}
                           </m.div>
-                        )}
-                      </AnimatePresence>
+                          <m.button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleClaim(item);
+                            }}
+                            disabled={isLoading}
+                            className="btn btn-primary btn-sm sm:btn-md px-4"
+                            variants={varFade('inUp', { distance: 20 })}
+                            initial="initial"
+                            animate="animate"
+                            transition={{ delay: 0.2 }}
+                          >
+                            {isLoading ? (
+                              <span className="loading loading-spinner loading-xs" />
+                            ) : (
+                              t("bonus:claim")
+                            )}
+                          </m.button>
+                        </m.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}

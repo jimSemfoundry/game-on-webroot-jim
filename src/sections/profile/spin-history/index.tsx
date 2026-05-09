@@ -71,7 +71,7 @@ export const Index = () => {
 
   const statusOptions: StatusOption[] = useMemo(
     () => [
-      { value: "all", label: t("common:all", "All") },
+      { value: "all", label: t("transaction:filters.all", "All") },
       ...Object.entries(statusLabel).map(([k, labelValue]) => {
         const statusValue = Number(k) as FreeSpinStatus;
         const i18nKey = FREE_SPIN_STATUS_I18N_KEYS[statusValue];

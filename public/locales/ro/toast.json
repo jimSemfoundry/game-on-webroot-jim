@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Vă rugăm să introduceți o lungime fixă de {{length}} caractere",
   "disabledCharNotAllowed": "Caracterul {{char}} nu este permis",
   "space": "spațiu",
-  "thisWalletIsAlreadyUsed": "Acest portofel este deja folosit"
+  "thisWalletIsAlreadyUsed": "Acest portofel este deja folosit",
+  "login_failed": "Autentificarea a eșuat",
+  "login_error_code_1": "Numele de utilizator trebuie să fie un număr de telefon valid (începând cu + și folosind - după codul țării) sau o adresă de e-mail",
+  "account_created_and_logged_in_successfully": "Cont creat și autentificat cu succes!",
+  "requests_later": "Prea multe cereri de la acest IP. Vă rugăm să încercați din nou mai târziu.",
+  "booster_activated_successfully": "Booster activat cu succes!",
+  "depositNameEntered": "Numele introdus pentru depozit trebuie să corespundă cu numele complet<0>（Prenume + Nume）</0> de pe contul bancar utilizat pentru retragere, în conformitate cu reglementările anti-fraudă și anti-spălare de bani.\n\n Dacă trebuie să vă schimbați contul bancar, vă rugăm să contactați serviciul clienți și să finalizați verificarea KYC.",
+  "user_not_found_or_password_incorrect": "Utilizatorul nu a fost găsit sau parola este incorectă",
+  "free_spin_record_enabled_successfully": "Înregistrarea de rotiri gratuite a fost activată cu succes!",
+  "check_in_success": "Check-in realizat cu succes!",
+  "check_in_failed": "Check-in eșuat!",
+  "check_in_already": "Check-in-ul pentru această dată este deja finalizat.",
+  "ballsClaimed": "Mingea prietenului revendicată cu succes",
+  "cannotBetby": "Portofelul bonus sportiv este doar pentru pariuri sportive."
 }

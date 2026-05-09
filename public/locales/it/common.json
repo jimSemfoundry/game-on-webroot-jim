@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Il numero di cellulare è già stato utilizzato. Per favore usa un altro numero.",
     "mobileAlreadyBound": "Il numero di cellulare è già associato a questo account.",
     "fullscreen": "Schermo intero",
-    "exitFullscreen": "Esci da schermo intero"
+    "exitFullscreen": "Esci da schermo intero",
+    "draw": "Pareggio"
   },
   "bonus_pool": "Pool Bonus",
   "pleaseEnterValidUsernameOrEmail": "Si prega di inserire un nome utente o un'email valida",

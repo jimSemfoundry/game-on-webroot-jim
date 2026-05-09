@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Booster Nedir?",
-    "content": "<p class=\"leading-7\">Booster'lar, bir referans her para yatırdığında Rakeback'inizi bir saat boyunca iki katına çıkarır.</p><p class=\"leading-7\">Artırılmış Açılma Oranı:</p><p class=\"leading-7\">Açılma Oranı:</p><p class=\"leading-7\">VIP 0-40: %40</p><p class=\"leading-7\">VIP 41-60: %72</p><p class=\"leading-7\">VIP 61-80: %80</p><p class=\"leading-7\">VIP 81-100: %102</p><p class=\"leading-7\">VIP 101-125: %120</p>"
+    "content": "<p class=\"leading-7\">Booster'lar, bir referans her para yatırdığında Rakeback'inizi üç saat boyunca iki katına çıkarır.</p><p class=\"leading-7\">Artırılmış Açılma Oranı:</p><p class=\"leading-7\">Açılma Oranı:</p><p class=\"leading-7\">VIP 0-40: %40</p><p class=\"leading-7\">VIP 41-60: %72</p><p class=\"leading-7\">VIP 61-80: %80</p><p class=\"leading-7\">VIP 81-100: %102</p><p class=\"leading-7\">VIP 101-125: %120</p>"
   },
   "faqSeven": {
     "title": "Bonus Takvimi Nedir?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Başarılar Nedir?",
-    "content": "<p class=\"leading-7\">Başarılar, platformumuzdaki etkinliğinizi tanımanın bir yoludur. Başarı bonusunuzu talep ettiğinizde, Bonus Takviminize ödenecek ve her 8 saatte bir talep edilebilir ve talep edilmezse 24 saat içinde süresi dolacaktır.</p>"
+    "content": "<p class=\"leading-7\">Başarılar, platformumuzdaki etkinliğinizi tanımanın bir yoludur. Başarılar, VIP 2 ve üzerine ulaştığınızda talep edilebilir.</p>"
   }
 }

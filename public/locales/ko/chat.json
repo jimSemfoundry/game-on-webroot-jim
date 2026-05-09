@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "고객 서비스 채팅을 로드하지 못했습니다",
   "read": "읽음",
   "unread": "읽지 않음",
-  "customerService": "고객 서비스"
+  "customerService": "고객 서비스",
+  "today": "오늘",
+  "earlier": "이전",
+  "older": "더 오래된"
 }

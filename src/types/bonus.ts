@@ -68,6 +68,7 @@ export interface AchievementStep {
   is_finish: boolean
   is_claim: boolean
   reward_achievement_log_id: number
+  buddy_ball_count: number
 }
 
 export type IGetMondayVipBonus = {

@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Ο αριθμός τηλεφώνου σας έχει επαληθευτεί. Μπορείτε να συνεχίσετε.",
   "email_address_has_been_verified": "Η διεύθυνση email σας επαληθεύτηκε. Μπορείτε να συνεχίσετε.",
   "setNewPassword": "Ορισμός νέου κωδικού πρόσβασης",
-  "passwordLengthRequirement": "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης μεταξύ 6 και 64 χαρακτήρων."
+  "passwordLengthRequirement": "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης μεταξύ 6 και 64 χαρακτήρων.",
+  "re_enter_new_password": "Εισαγάγετε ξανά τον νέο κωδικό πρόσβασης",
+  "change_withdrawal_pin": "Αλλαγή PIN ανάληψης",
+  "confirm_withdrawal_pin": "Επιβεβαίωση PIN ανάληψης",
+  "enter_email": "Εισαγάγετε email",
+  "rolloverDetails": "Λεπτομέρειες rollover",
+  "verified_email": "Επαληθευμένο email",
+  "verified_phone_number": "Επαληθευμένος αριθμός τηλεφώνου",
+  "change_key": "Αλλαγή",
+  "update_successfully": "Η ενημέρωση ήταν επιτυχής. Χρησιμοποιήστε {<1>{{value}}</1>} για την επόμενη σύνδεσή σας.",
+  "understand_key": "Κατάλαβα",
+  "ensure_email_valid": "Βεβαιωθείτε ότι η διεύθυνση email σας είναι έγκυρη και προσβάσιμη από εσάς.",
+  "ensure_phone_valid": "Βεβαιωθείτε ότι ο αριθμός τηλεφώνου σας είναι έγκυρος και προσβάσιμος από εσάς.",
+  "enter_phone_number_to_receive_verification_code": "Εισαγάγετε τον αριθμό τηλεφώνου σας παρακάτω για να λάβετε κωδικό επαλήθευσης.",
+  "enter_email_address_to_receive_verification_code": "Εισαγάγετε τη διεύθυνση email σας παρακάτω για να λάβετε κωδικό επαλήθευσης."
 }

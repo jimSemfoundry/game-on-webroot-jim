@@ -3,16 +3,16 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Modal } from "@/components/ui/Modal";
 import { CountdownTimerThree } from "@/components/ui/CountdownTimer";
-import { useFinanceModal } from "@/contexts/ModalsProvider";
+import { useNavigate } from "@tanstack/react-router";
 
 
 export const SundaySuperBounsModal = () => {
+  const navigate = useNavigate()
 
   const { t } = useTranslation(['gameDetail', 'finance']);
   const [open, setOpen] = useState(true);
 
   const [currentPromo] = useState<any>(null);
-  const { openUserFinanceModalWithTab } = useFinanceModal();
 
 
   // useEffect(() => {
@@ -88,7 +88,7 @@ export const SundaySuperBounsModal = () => {
           </div>
           <button className="btn btn-primary h-12 w-50 mt-[10px]"
             onClick={() => {
-              openUserFinanceModalWithTab(`deposit`)
+              void navigate({to:'/finance' })
             }}
             >{t('gameDetail:depositNow')}</button>
         </div>

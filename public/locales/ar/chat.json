@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "فشل تحميل دردشة خدمة العملاء",
   "read": "اقرأ",
   "unread": "غير مقروء",
-  "customerService": "خدمة العملاء"
+  "customerService": "خدمة العملاء",
+  "today": "اليوم",
+  "earlier": "سابقاً",
+  "older": "أقدم"
 }

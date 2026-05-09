@@ -33,9 +33,7 @@ export const useCurrentPromo = () => {
   };
 };
 
-export const useGetPromoByPage = (enabled = true) => {
-  console.info(enabled);
-
+export const useGetPromoByPage = (_enabled = true) => {
   const { user } = useAuth();
   const { isUserFinanceOpen } = useFinanceModal();
   const { depositType } = useBoundStore();
@@ -84,7 +82,7 @@ export const useGetPromoByPage = (enabled = true) => {
   return {
     currentPromo: currentPromo,
     isFetching: isFetchingCurrentPromo,
-    total: (data?.length ?? 0) + 1,
+    total: (data?.length ?? 0),
     data: data,
     refetch
   };

@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Mobilais numurs jau ir izmantots. Lūdzu, izmantojiet citu numuru.",
     "mobileAlreadyBound": "Mobilais numurs jau ir piesaistīts šim kontam.",
     "fullscreen": "Pilnekrāna režīms",
-    "exitFullscreen": "Iziet no pilnekrāna"
+    "exitFullscreen": "Iziet no pilnekrāna",
+    "draw": "Neizšķirts"
   },
   "bonus_pool": "Bonusu fonds",
   "pleaseEnterValidUsernameOrEmail": "Lūdzu, ievadiet derīgu lietotājvārdu vai e-pastu",

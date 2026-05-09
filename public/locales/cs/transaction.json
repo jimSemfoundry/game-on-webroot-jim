@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat výběr",
     "cryptoWithdraw": "Krypto výběr",
     "bonus": "Bonus",
+    "bounty": "Odměna",
     "win": "Výhra",
     "bet": "Sázka",
     "refund": "Vrácení",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback bonus",
     "cashbackbonus": "Cashback bonus",
     "referral": "Doporučení",
-    "commission": "Provize"
+    "commission": "Provize",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Automaty",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Odemčené prostředky",
     "rolloverMul": "Násobitel sázky"
   },
-  "assistance": "Zkontrolujte prosím své údaje a zkuste to znovu nebo kontaktujte zákaznický servis pro pomoc"
+  "assistance": "Vaše jméno neodpovídá jménu, které jste poprvé použili pro tento kanál. Kontaktujte prosím zákaznický servis."
 }

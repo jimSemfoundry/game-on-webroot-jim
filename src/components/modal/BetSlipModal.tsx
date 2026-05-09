@@ -83,7 +83,9 @@ export const BetSlipModal = ({ isOpen, onClose, order }: BetSlipModalProps) => {
           <div className="bg-base-300 rounded-field p-4 flex flex-col">
             <p className="font-semibold text-base-content/50">X</p>
             <p className="font-bold sm:text-lg text-base">
-              {(Number(order.real_win_amount) / Number(order.real_bet_amount)).toLocaleString()}x
+              {Number(order.real_bet_amount) === 0
+                ? 0
+                : (Number(order.real_win_amount) / Number(order.real_bet_amount)).toLocaleString()}x
             </p>
           </div>
         </div>

@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Jako wiodący globalny alians gier, łączymy siłę i wyrafinowanie najlepszych platform pod jedną wizją. We wszystkich markach naszego portfolio działamy jako jedność — dostarczając rozrywkę, spersonalizowane nagrody i płynną łączność między walutami, krajami i kulturami.",
   "footerDescriptionThree": "Nie tylko graj w grę. Kwestionuj wszystko.",
   "footerDescriptionFour": "Charakterystyczna cecha {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Wszelkie prawa zastrzeżone.",
+  "footerDescriptionFive": "© {{year}}. Wszelkie prawa zastrzeżone.",
   "banner": {
     "oneDescription": "BĄDŹ PIERWSZY.",
     "oneDescriptionTwo": "WYZWANIE\nWSZYSTKO",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Dodaj do ekranu głównego",
   "latestWins": "Najnowsze Wygrane",
   "spinPlayAndWinAcrossTopCasinoHits": "Kręć, graj i wygrywaj w najlepszych grach kasynowych",
-  "scoreBigOnSportsFromAroundTheWorld": "Zgarnij wielkie wygrane w sportach z całego świata"
+  "scoreBigOnSportsFromAroundTheWorld": "Zgarnij wielkie wygrane w sportach z całego świata",
+  "liveDealers": "Krupierzy na żywo dla Twoich ulubionych gier stołowych",
+  "show_less": "pokaż mniej"
 }

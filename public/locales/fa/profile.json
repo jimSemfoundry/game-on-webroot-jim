@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "شماره تلفن شما تأیید شد. می‌توانید ادامه دهید.",
   "email_address_has_been_verified": "آدرس ایمیل شما تأیید شد. می‌توانید ادامه دهید.",
   "setNewPassword": "تنظیم رمز عبور جدید",
-  "passwordLengthRequirement": "لطفاً رمز عبوری بین 6 تا 64 کاراکتر وارد کنید."
+  "passwordLengthRequirement": "لطفاً رمز عبوری بین 6 تا 64 کاراکتر وارد کنید.",
+  "re_enter_new_password": "رمز عبور جدید را دوباره وارد کنید",
+  "change_withdrawal_pin": "تغییر PIN برداشت",
+  "confirm_withdrawal_pin": "تأیید PIN برداشت",
+  "enter_email": "ایمیل را وارد کنید",
+  "rolloverDetails": "جزئیات رول‌اور",
+  "verified_email": "ایمیل تأیید شده",
+  "verified_phone_number": "شماره تلفن تأیید شده",
+  "change_key": "تغییر",
+  "update_successfully": "به‌روزرسانی موفق. لطفاً از {<1>{{value}}</1>} برای ورود بعدی خود استفاده کنید.",
+  "understand_key": "متوجه شدم",
+  "ensure_email_valid": "مطمئن شوید که آدرس ایمیل شما معتبر است و به آن دسترسی دارید.",
+  "ensure_phone_valid": "مطمئن شوید که شماره تلفن شما معتبر است و به آن دسترسی دارید.",
+  "enter_phone_number_to_receive_verification_code": "شماره تلفن خود را در زیر وارد کنید تا کد تأیید دریافت کنید.",
+  "enter_email_address_to_receive_verification_code": "آدرس ایمیل خود را در زیر وارد کنید تا کد تأیید دریافت کنید."
 }

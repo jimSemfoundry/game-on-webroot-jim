@@ -1,12 +1,10 @@
-import { CurrencyIconPlaceholder } from "@/components/modal/UserFinanceModal/c/CurrencyIconPlaceholder.tsx";
 import { useSupportedSwapToCurrenciesFilter } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
-import { ExchangeUSD } from "@/components/modal/UserFinanceModal/c/SwapSend.tsx";
 import { SelectDropdown } from "@/components/modal/UserFinanceModal/c/SelectDropdown.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import getSymbolFromCurrency from "@/utils/currencySymbol";
+import { useFiatSymbol } from "@/utils/currencySymbol";
 import Decimal from "decimal.js";
 import { EqualApproximately } from "lucide-react";
 import { useEffect, useMemo } from "react";
@@ -68,23 +66,13 @@ export const SwapReceive = () => {
     return amount;
   }, [l2, swapTo, swapFrom, swapFeeRate, exchangeRates]);
 
-  const exchangeUSD = useMemo(() => {
-    if (!swapToAmount || !swapTo.currency?.currency) return "0.00";
-    return convertCurrency({
-      amount: swapToAmount,
-      fromCurrency: swapTo.currency.currency,
-      toCurrency: "USDT",
-      exchangeRates
-    }).toString();
-  }, [swapToAmount, swapTo, exchangeRates]);
-
   useEffect(() => {
     if (origin.length > 0) setSwapTo({ currency: origin[0] });
   }, [origin]);
 
   // 事件通知【CLOSE_FINANCE_MODAL- 关闭finance操作窗口】需要重置表单状态
   useEffect(() => {
-    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function() {
+    const em = emitter.addListener("CLOSE_FINANCE_MODAL", function () {
       setSwapTo({ outAmount: "" });
     });
 
@@ -93,23 +81,21 @@ export const SwapReceive = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="bg-base-300 p-4 flex items-center justify-between rounded-xl gap-2">
-        <div>
-          <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_receive")}</span>
-          <NumericFormat
-            readOnly
-            wrapCls={"!px-0"}
-            className="!px-0 !text-lg !h-7"
-            placeholder="0.00"
-            value={swapToAmount}
-            thousandSeparator
-            decimalScale={swapTo.currency?.decimal}
-          />
-
-          <ExchangeUSD amount={exchangeUSD} />
-        </div>
-        <div className="flex-shrink-0 flex flex-col gap-2 items-end">
-          <div className="flex items-center gap-2">
+      <div className="bg-base-300 p-4 rounded-xl">
+        <div className="flex justify-between">
+          <div>
+            <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_receive")}</span>
+            <NumericFormat
+              readOnly
+              wrapCls={"!px-0"}
+              className="!px-0 !text-lg !h-10 !py-2"
+              placeholder="0.00"
+              value={swapToAmount}
+              thousandSeparator
+              decimalScale={swapTo.currency?.decimal}
+            />
+          </div>
+          <div className="flex-shrink-0 flex flex-col justify-end">
             <SelectDropdown
               title={t("common.selectCurrency")}
               height="sm"
@@ -119,29 +105,31 @@ export const SwapReceive = () => {
                 setSwapTo({ currency: origin.find((o: Record<string, any>) => o.currency === v) });
               }}
               placeholder={t("common.selectCurrency")}
-              className="!w-[160px]"
+              className="!w-[120px]"
               buttonClassName="rounded-full !p-2 !bg-base-400"
               showSearch
               loading={l1}
             />
           </div>
+        </div>
+        <div className="flex justify-end">
           <SmallLoading loading={l2} className="bg-base-400 !rounded-full"
-                        content={<CurrencySymbol rate={exchangeRate} />} />
+            content={<CurrencySymbol rate={exchangeRate} />} />
         </div>
       </div>
       <div className="bg-base-300 p-4 rounded-xl">
         <div className="flex items-center justify-between">
           <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_send")}</span>
           <span className="text-base-content text-xs font-bold flex items-center gap-1">
-            <CurrencyIconPlaceholder currency={swapFrom.currency?.currency} />
             <FormatAmount amount={swapFrom.inAmount} local decimals={18} />
+            {swapFrom.currency?.currency}
           </span>
         </div>
         <div className="flex items-center justify-between mt-2">
           <span className="text-base-content/50 text-xs font-semibold">{t("finance:swap_receive")}</span>
           <span className="text-base-content text-xs font-bold flex items-center gap-1">
-            <CurrencyIconPlaceholder currency={swapTo.currency?.currency} />
             <FormatAmount amount={swapToAmount} local decimals={swapTo.currency?.decimal} />
+            {swapTo.currency?.currency}
           </span>
         </div>
       </div>
@@ -150,10 +138,13 @@ export const SwapReceive = () => {
 };
 
 const CurrencySymbol = ({ rate }: { rate: string }) => {
+  // TODO: 使用服务端提供的法币缩写符号
+  const { showFiatSymbol } = useFiatSymbol()
+
   const { swapTo, swapFrom } = useBoundStore();
   const fiat = useMemo(() => {
     const v = ["USDC", "USDT"].includes(swapTo.currency?.currency) ? "USD" : swapTo.currency?.currency;
-    return getSymbolFromCurrency(v);
+    return showFiatSymbol(v);
   }, [swapTo.currency]);
   return (
     <div className="text-base-content/50 text-xs font-semibold text-end flex items-center gap-1">

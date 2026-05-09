@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Ano ang Booster?",
-    "content": "<p class=\"leading-7\">Ang mga Boosters ay nagdodoble ng iyong Rakeback sa loob ng isang oras sa tuwing ang isang referral ay nag-deposito.</p><p class=\"leading-7\">Boosted Unlock Rate:</p><p class=\"leading-7\">Unlock Rate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Ang mga Boosters ay nagdodoble ng iyong Rakeback sa loob ng tatlong oras sa tuwing ang isang referral ay nag-deposito.</p><p class=\"leading-7\">Boosted Unlock Rate:</p><p class=\"leading-7\">Unlock Rate:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Ano ang Bonus Calendar?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Ano ang Achievements?",
-    "content": "<p class=\"leading-7\">Ang Achievements ay aming paraan ng pagkilala sa iyong aktibidad sa aming platform. Kapag na-claim mo ang iyong achievement bonus, ito ay ibabayad sa iyong Bonus Calendar at maaaring i-claim tuwing 8 oras at mawawalan ng bisa sa loob ng 24 na oras kung hindi ma-claim.</p>"
+    "content": "<p class=\"leading-7\">Ang Achievements ay aming paraan ng pagkilala sa iyong aktibidad sa aming platform. Ang Achievements ay maaaring i-claim kapag naabot mo ang VIP 2 at pataas.</p>"
   }
 }

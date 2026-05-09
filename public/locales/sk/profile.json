@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Vaše telefónne číslo bolo overené. Môžete pokračovať.",
   "email_address_has_been_verified": "Vaša e-mailová adresa bola overená. Môžete pokračovať.",
   "setNewPassword": "Nastaviť nové heslo",
-  "passwordLengthRequirement": "Prosím, zadajte heslo s dĺžkou od 6 do 64 znakov."
+  "passwordLengthRequirement": "Prosím, zadajte heslo s dĺžkou od 6 do 64 znakov.",
+  "re_enter_new_password": "Znovu zadajte nové heslo",
+  "change_withdrawal_pin": "Zmeniť PIN pre výber",
+  "confirm_withdrawal_pin": "Potvrdiť PIN pre výber",
+  "enter_email": "Zadajte e-mail",
+  "rolloverDetails": "Podrobnosti o rollover",
+  "verified_email": "Overený e-mail",
+  "verified_phone_number": "Overené telefónne číslo",
+  "change_key": "Zmeniť",
+  "update_successfully": "Aktualizácia úspešná. Pre ďalšie prihlásenie použite {<1>{{value}}</1>}.",
+  "understand_key": "Rozumiem",
+  "ensure_email_valid": "Uistite sa, že vaša e-mailová adresa je platná a máte k nej prístup.",
+  "ensure_phone_valid": "Uistite sa, že vaše telefónne číslo je platné a máte k nemu prístup.",
+  "enter_phone_number_to_receive_verification_code": "Zadajte nižšie svoje telefónne číslo, aby ste dostali overovací kód.",
+  "enter_email_address_to_receive_verification_code": "Zadajte nižšie svoju e-mailovú adresu, aby ste dostali overovací kód."
 }

@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Veuillez renseigner vos informations de retrait en monnaie fiduciaire.",
   "updating_withdrawal_address": "Mise à jour de l’adresse de retrait, veuillez patienter...",
   "please_select_withdrawal_method": "Veuillez sélectionner une méthode de retrait.",
-  "integer_deposit": "Ce canal exige que le montant du dépôt soit un multiple entier de {{value}}.",
+  "integer_deposit": "Ce canal exige que le montant du dépôt soit en unités de {{value}}.",
   "enter_string_en_only": "Seules les lettres anglaises, les chiffres et les espaces peuvent être saisis.",
-  "enter_string_min_length": "La longueur doit être d'au moins {{length}}."
+  "enter_string_min_length": "La longueur doit être d'au moins {{length}}.",
+  "met_eligibility": "*Vous avez rempli les critères d'éligibilité pour l'offre spéciale. Rechargez maintenant pour recevoir votre récompense !",
+  "read_carefully": "Veuillez lire attentivement",
+  "no_channel": "Aucun canal disponible pour le moment"
 }

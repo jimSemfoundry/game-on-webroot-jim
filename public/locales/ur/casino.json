@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "ایک عالمی گیمز الائنس کے طور پر، ہم ایک وژن کے تحت اعلیٰ درجے کے پلیٹ فارم کی طاقت اور مہارت کو اکٹھا کرتے ہیں. ہمارے پورٹ فولیو میں ہر برانڈ کے ساتھ، ہم ایک ساتھ چلتے ہیں — تفریح، ذاتی انعامات، اور کرنسیوں، ممالک، اور ثقافتوں کے درمیان ہموار کنیکٹیویٹی فراہم کرتے ہیں.",
   "footerDescriptionThree": "صرف کھیل مت کھیلیں. <0>ہر چیز کو چیلنج کریں.</0>",
   "footerDescriptionFour": "{{supportName}} الائنس کی ایک دستخطی پراپرٹی",
-  "footerDescriptionFive": "© 2025. تمام حقوق محفوظ ہیں.",
+  "footerDescriptionFive": "© {{year}}. تمام حقوق محفوظ ہیں.",
   "banner": {
     "oneDescription": "پہلے بنیں.",
     "oneDescriptionTwo": "چیلنج\nہر چیز",
@@ -127,5 +127,7 @@
   "addHomeScreen": "ہوم اسکرین میں شامل کریں",
   "latestWins": "تازہ ترین جیت",
   "spinPlayAndWinAcrossTopCasinoHits": "اسپن کریں، کھیلیں، اور ٹاپ کیسینو ہٹس میں جیتیں",
-  "scoreBigOnSportsFromAroundTheWorld": "دنیا بھر کے کھیلوں میں بڑی جیت حاصل کریں"
+  "scoreBigOnSportsFromAroundTheWorld": "دنیا بھر کے کھیلوں میں بڑی جیت حاصل کریں",
+  "liveDealers": "آپ کے پسندیدہ ٹیبل گیمز کے لیے لائیو ڈیلرز",
+  "show_less": "کم دکھائیں"
 }

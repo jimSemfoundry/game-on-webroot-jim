@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Số điện thoại của bạn đã được xác minh. Bạn có thể tiếp tục.",
   "email_address_has_been_verified": "Địa chỉ email của bạn đã được xác minh. Bạn có thể tiếp tục.",
   "setNewPassword": "Đặt Mật khẩu Mới",
-  "passwordLengthRequirement": "Vui lòng nhập mật khẩu từ 6 đến 64 ký tự."
+  "passwordLengthRequirement": "Vui lòng nhập mật khẩu từ 6 đến 64 ký tự.",
+  "re_enter_new_password": "Nhập lại mật khẩu mới",
+  "change_withdrawal_pin": "Đổi PIN rút tiền",
+  "confirm_withdrawal_pin": "Xác nhận PIN rút tiền",
+  "enter_email": "Nhập email",
+  "rolloverDetails": "Chi tiết rollover",
+  "verified_email": "Email đã xác minh",
+  "verified_phone_number": "Số điện thoại đã xác minh",
+  "change_key": "Thay đổi",
+  "update_successfully": "Cập nhật thành công. Vui lòng sử dụng {<1>{{value}}</1>} cho lần đăng nhập tiếp theo.",
+  "understand_key": "Đã hiểu",
+  "ensure_email_valid": "Đảm bảo rằng địa chỉ email của bạn hợp lệ và bạn có thể truy cập được.",
+  "ensure_phone_valid": "Đảm bảo rằng số điện thoại của bạn hợp lệ và bạn có thể truy cập được.",
+  "enter_phone_number_to_receive_verification_code": "Nhập số điện thoại của bạn bên dưới để nhận mã xác minh.",
+  "enter_email_address_to_receive_verification_code": "Nhập địa chỉ email của bạn bên dưới để nhận mã xác minh."
 }

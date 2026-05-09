@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "ブースターとは何ですか？",
-    "content": "<p class=\"leading-7\">ブースターは、紹介者が入金するたびに、あなたのレイクバックを1時間倍増させます。</p><p class=\"leading-7\">ブーストされたアンロック率：</p><p class=\"leading-7\">アンロック率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">ブースターは、紹介者が入金するたびに、あなたのレイクバックを3時間倍増させます。</p><p class=\"leading-7\">ブーストされたアンロック率：</p><p class=\"leading-7\">アンロック率：</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "ボーナスカレンダーとは何ですか？",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "アチーブメントとは何ですか？",
-    "content": "<p class=\"leading-7\">アチーブメントは、私たちのプラットフォームでのあなたの活動を認識する方法です。アチーブメントボーナスを請求すると、それはボーナスカレンダーに支払われ、8時間ごとに請求でき、請求されない場合は24時間で失効します。</p>"
+    "content": "<p class=\"leading-7\">アチーブメントは、私たちのプラットフォームでのあなたの活動を認識する方法です。アチーブメントはVIP 2以上に達すると獲得できます。</p>"
   }
 }

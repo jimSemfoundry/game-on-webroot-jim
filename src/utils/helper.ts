@@ -1,5 +1,3 @@
-import { useCallback, useEffect, useRef } from "react";
-import { debounce } from "es-toolkit";
 import { v4 as uuidv4 } from "uuid";
 import { readIDBValueByKey, writeIDBValueByKey } from "@/components/firebase/IndexDB";
 import { useAuth } from "@/contexts/AuthContext.tsx";
@@ -19,20 +17,122 @@ const ensureUUIDIDBLoaded = () => {
   })();
 };
 
-export function rum_sdk_user_log(data: Record<string, any>) {
+// 独立的异常上报函数
+export const rumException = (name: string, error: unknown, user?: Record<string, any>) => {
   if (window.RumSDK?.default) {
     const ArmsRum = window.RumSDK.default;
+    const err = error instanceof Error ? error : new Error(String(error));
 
-    const config = ArmsRum.getConfig();
-    ArmsRum.setConfig({
-      ...config,
+    ArmsRum.sendException({
+      name,
+      stack: err?.stack,
+      message: err?.message,
       user: {
-        name: data?.nickname || data?.username,
-        tags: data?.id
+        name: user?.username,
+        tags: user?.id
+      },
+      properties: {
+        trace_id: uuidv4Generate(),
+        user_tags: user?.id,
+        event_name: name,
+        request_api: (error as any)?.config?.url
       }
     });
   }
-}
+};
+
+// 独立的资源上报函数
+export const rumResource = (params: Record<string, any>, user?: Record<string, any>) => {
+  if (window.RumSDK?.default) {
+    const ArmsRum = window.RumSDK.default;
+    ArmsRum.sendResource({
+      type: "js", // 资源类型，例如：css、javascript、xmlhttprequest、fetch、api、image、font、other。
+      name: params?.name, // API请求相关
+      url: params?.url, // API请求相关
+      method: params?.name, // API请求相关
+      success: 0, // 请求成功状态：1：成功 0：失败 -1：未知
+      message: "", // 请求消息
+      duration: 0, // 请求耗时
+      trace_id: uuidv4Generate(), // 链路追踪ID
+      status_code: 0, // 请求状态码
+      /**
+       * 自定义的 user: rum控制台日志记录中的可以看到user字段的自定义数据
+       */
+      user: {
+        name: user?.nickname || user?.username,
+        tags: user?.id
+      },
+      properties: {
+        trace_id: uuidv4Generate(), // 链路追踪ID,
+        user_tags: user?.id,
+        event_name: params?.event,
+        request_api: params?.url  // API请求相关
+      }
+    });
+  }
+};
+
+// 独立的自定义上报
+export const rumCustomLog = (name: string, payload: any, user?: Record<string, any>) => {
+  if (window.RumSDK?.default) {
+    const ArmsRum = window.RumSDK.default;
+    ArmsRum.sendCustom({
+      name,
+      type: name,
+      /**
+       * 自定义的 user: rum控制台日志记录中的可以看到user字段的自定义数据
+       */
+      user: {
+        name: user?.nickname || user?.username,
+        tags: user?.id
+      },
+      properties: {
+        trace_id: uuidv4Generate(), // 链路追踪ID,
+        user_tags: user?.id,
+        event_name: name,
+        request_api: payload?.url  // API请求相关
+      }
+    });
+  }
+};
+
+export const useRumSdkUserLog = () => {
+  const { user } = useAuth();
+
+  const rumSetConfig = () => {
+    if (window.RumSDK?.default) {
+      const versionRaw = String(import.meta.env.VITE_VERSION ?? "");
+      const versionMs = versionRaw ? Number(versionRaw) : null;
+      const ArmsRum = window.RumSDK.default;
+      const config = ArmsRum.getConfig();
+      ArmsRum.setConfig({
+        ...config,
+        env: location.origin,
+        uid: String(user?.id),
+        version: versionMs
+      });
+    }
+  };
+
+  const handleRumCustomLog = (name: string, payload: any) => {
+    rumCustomLog(name, payload, user || undefined);
+  };
+
+  const handleRumException = (name: string, error: unknown) => {
+    rumException(name, error, user || undefined);
+  };
+
+  const handleRumResource = (params: Record<string, any>) => {
+    rumResource(params, user || undefined);
+  };
+
+  return {
+    rumResource: handleRumResource,
+    rumCustomLog: handleRumCustomLog,
+    rumException: handleRumException,
+    rumSetConfig
+  };
+};
 
 /**
  * 区域禁止 结算币禁止
@@ -80,66 +180,6 @@ export function getBroadcastChannel(): BroadcastChannel | null {
   if (typeof BroadcastChannel === "undefined") return null;
   return new BroadcastChannel("pwa-update");
 }
-
-export const useRumSdkUserLog = () => {
-  const { user } = useAuth();
-
-  const debouncedRef = useRef<ReturnType<typeof debounce> | null>(null);
-
-  const rumCustomLog = useCallback((name: string, payload: any) => {
-    if (!debouncedRef.current) {
-
-      debouncedRef.current = debounce((name: string, payload: any) => {
-        if (window.RumSDK?.default) {
-          const ArmsRum = window.RumSDK.default;
-
-          ArmsRum.sendCustom({
-            name,
-            metrics: {
-              page: location.pathname,
-              user_id: user?.id,
-            },
-            tags: {
-              user_name: user?.nickname,
-              // 把整个 payload 当作标签（如果 payload 是简单对象）
-              ...(typeof payload === 'object' ? payload : { action: payload })
-            }
-          });
-        }
-      }, 5_000);
-    }
-
-    debouncedRef.current(name, payload);
-  }, [user?.id]);
-
-  const rumException = useCallback((error: unknown, extra?: Record<string, any>) => {
-    if (window.RumSDK?.default) {
-      const ArmsRum = window.RumSDK.default;
-      const err = error instanceof Error ? error : new Error(String(error));
-      ArmsRum.sendException({
-        user: {
-          name: user?.id,
-          tags: user?.nickname
-        },
-        message: err.message,
-        stack: err.stack,
-        page: location.pathname,
-        extra
-      });
-    }
-  }, [user?.id]);
-
-  useEffect(() => {
-    return () => {
-      debouncedRef.current?.cancel();
-    };
-  }, []);
-
-  return {
-    rumCustomLog,
-    rumException
-  };
-};
 
 /**
  * TODO: 生成设备标识，即使一个浏览器登录了多个用户也认为是同一个人，放弃 fingerprint
@@ -271,7 +311,7 @@ export function getImgCompressParams(url: string, w: string | number = 140, q = 
       break;
   }
 
-  const _url = url?.replace(/(1stgame\.imgix\.net|image\.1st\.game)/g, 'cdn-a.imgix.net');
+  const _url = url?.replace(/(1stgame\.imgix\.net|images?\.1st\.game|image\.gmtserver\.com)/g, "cdn-a.imgix.net");
   return hasAnySearchParams(_url) ? `${_url}&${params}` : `${_url}?${params}`;
 }
 
@@ -308,8 +348,24 @@ export const scheduleIdle = (cb: () => void) => {
   window.setTimeout(cb, 0);
 };
 
+export const isROIBEST = () => {
+  const model = import.meta.env.VITE_PROMOTION_MODEL;
+  const appid = import.meta.env.VITE_FOLDER;
+  return appid && model === "roibest";
+};
+
 export const getPathInROIBEST = () => {
-  const model = import.meta.env.VITE_PROMOTION_MODEL
-  const appid = import.meta.env.VITE_FOLDER
-  return appid && model === 'roibest' ? `/${appid}` : ''
-}
+  const appid = import.meta.env.VITE_FOLDER;
+  return isROIBEST() ? `/${appid}` : "";
+};
+
+// GTM 记录推送
+// type: 事件类型, 用户监听方的事件匹配
+export const trackCustomEvent = (type: string, eventName: string, data: any) => {
+  const nativeEvent = new CustomEvent(`app_track_${type}`, {
+    detail: { eventName, data }
+  });
+  window?.dispatchEvent?.(nativeEvent);
+};
+
+export const pickImageWithEnv = (envName: string, defaultImg: string) => import.meta.env[envName] || defaultImg;

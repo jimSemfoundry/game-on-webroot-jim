@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Kas ir pastiprinātājs?",
-    "content": "<p class=\"leading-7\">Pastiprinātāji divkāršo jūsu Rakeback uz vienu stundu katru reizi, kad atsauce veic depozītu.</p><p class=\"leading-7\">Pastiprināta atbloķēšanas likme:</p><p class=\"leading-7\">Atbloķēšanas likme:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Pastiprinātāji divkāršo jūsu Rakeback uz trim stundām katru reizi, kad atsauce veic depozītu.</p><p class=\"leading-7\">Pastiprināta atbloķēšanas likme:</p><p class=\"leading-7\">Atbloķēšanas likme:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Kas ir bonusa kalendārs?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Kas ir sasniegumi?",
-    "content": "<p class=\"leading-7\">Sasniegumi ir mūsu veids, kā atzīt jūsu aktivitāti mūsu platformā. Kad jūs pieprasāt savu sasniegumu bonusu, tas tiks izmaksāts jūsu bonusa kalendārā un var tikt pieprasīts ik pēc 8 stundām un beigties 24 stundu laikā, ja netiek pieprasīts.</p>"
+    "content": "<p class=\"leading-7\">Sasniegumi ir mūsu veids, kā atzīt jūsu aktivitāti mūsu platformā. Sasniegumi ir pieejami pieprasīšanai, kad sasniedzat VIP 2 un augstāk.</p>"
   }
 }

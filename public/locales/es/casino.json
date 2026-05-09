@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Como una alianza global de juegos líder, reunimos la fuerza y la sofisticación de plataformas de primer nivel bajo una sola visión. A través de todas las marcas de nuestro portafolio, nos movemos como uno solo — ofreciendo entretenimiento, recompensas personalizadas y conectividad sin fisuras entre monedas, países y culturas.",
   "footerDescriptionThree": "No solo juegues el juego. Desafía todo.",
   "footerDescriptionFour": "Una característica distintiva de {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Todos los derechos reservados.",
+  "footerDescriptionFive": "© {{year}}. Todos los derechos reservados.",
   "banner": {
     "oneDescription": "SÉ EL PRIMERO.",
     "oneDescriptionTwo": "DESAFÍA\nTODO",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Añadir a la pantalla de inicio",
   "latestWins": "Últimas Victorias",
   "spinPlayAndWinAcrossTopCasinoHits": "Gira, juega y gana en los mejores éxitos de casino",
-  "scoreBigOnSportsFromAroundTheWorld": "Anota grande en deportes de todo el mundo"
+  "scoreBigOnSportsFromAroundTheWorld": "Anota grande en deportes de todo el mundo",
+  "liveDealers": "Repartidores en vivo para tus juegos de mesa favoritos",
+  "show_less": "mostrar menos"
 }

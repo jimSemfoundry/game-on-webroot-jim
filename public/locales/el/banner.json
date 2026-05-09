@@ -36,5 +36,5 @@
   "vip_monday": "VIP Δευτέρα",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "ΜΠΟΝΟΥΣ \n <0>ΔΟΛΑΡΙΑ</0>",
-  "super_everyday": "<0>1η Κατάθεση της Ημέρας</0><br/><0>Κρύπτο {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Ενισχύστε τις<br/>Καταθέσεις σας Κάθε Μέρα"
+  "super_everyday": "<0>1η Κατάθεση της Ημέρας</0><br/>Κρύπτο {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

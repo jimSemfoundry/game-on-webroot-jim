@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Silakan isi informasi penarikan mata uang fiat Anda.",
   "updating_withdrawal_address": "Memperbarui alamat penarikan, harap tunggu...",
   "please_select_withdrawal_method": "Silakan pilih metode penarikan.",
-  "integer_deposit": "Saluran ini memerlukan jumlah setoran merupakan kelipatan bulat dari {{value}}.",
+  "integer_deposit": "Saluran ini memerlukan jumlah setoran dalam unit {{value}}.",
   "enter_string_en_only": "Hanya huruf Inggris, angka, dan spasi yang dapat dimasukkan.",
-  "enter_string_min_length": "Panjang harus setidaknya {{length}}."
+  "enter_string_min_length": "Panjang harus setidaknya {{length}}.",
+  "met_eligibility": "*Anda telah memenuhi kriteria kelayakan untuk penawaran khusus. Isi ulang sekarang untuk menerima hadiah Anda!",
+  "read_carefully": "Harap Baca dengan Seksama",
+  "no_channel": "Saat ini tidak ada saluran yang tersedia"
 }

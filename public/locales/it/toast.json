@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Si prega di inserire una lunghezza fissa di {{length}} caratteri",
   "disabledCharNotAllowed": "Il carattere {{char}} non è consentito",
   "space": "spazio",
-  "thisWalletIsAlreadyUsed": "Questo portafoglio è già in uso"
+  "thisWalletIsAlreadyUsed": "Questo portafoglio è già in uso",
+  "login_failed": "Accesso non riuscito",
+  "login_error_code_1": "Il nome utente deve essere un numero di telefono valido (che inizia con + e usa - dopo il prefisso del paese) o un indirizzo email",
+  "account_created_and_logged_in_successfully": "Account creato e accesso effettuato con successo!",
+  "requests_later": "Troppe richieste da questo IP. Per favore riprova più tardi.",
+  "booster_activated_successfully": "Booster attivato con successo!",
+  "depositNameEntered": "Il nome inserito per il deposito deve corrispondere al nome completo<0>（Nome + Cognome）</0> sul conto bancario utilizzato per il prelievo, in conformità con le normative anti-frode e anti-riciclaggio di denaro.\n\n Se è necessario modificare il conto bancario, contattare il servizio clienti e completare la verifica KYC.",
+  "user_not_found_or_password_incorrect": "Utente non trovato o password errata",
+  "free_spin_record_enabled_successfully": "Registro dei giri gratuiti attivato con successo!",
+  "check_in_success": "Check-in riuscito!",
+  "check_in_failed": "Check-in non riuscito!",
+  "check_in_already": "Il check-in per questa data è già stato completato.",
+  "ballsClaimed": "Pallina dell'amico reclamata con successo",
+  "cannotBetby": "Il portafoglio bonus sportivo è solo per le scommesse sportive."
 }

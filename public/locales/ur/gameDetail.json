@@ -34,5 +34,12 @@
   "depositNow": "اب جمع کریں",
   "free_spins": "مفت اسپنز",
   "play_with_balance_in": "بیلنس میں کھیلیں",
-  "the_selected_currency_will_be_displayed_in": "منتخب کردہ کرنسی میں دکھائی جائے گی"
+  "the_selected_currency_will_be_displayed_in": "منتخب کردہ کرنسی میں دکھائی جائے گی",
+  "activity": "سرگرمی",
+  "come_join_me_now_at": "ابھی شامل ہوں",
+  "invite_friends_to_join_play": "دوستوں کو شامل ہونے اور کھیلنے کی دعوت دیں",
+  "earn_up_to_50_commission_bonus": "50% تک کمیشن کمائیں <0>+{{bonus}}</0> بونس",
+  "download_failed": "ڈاؤن لوڈ ناکام ہوا۔ براہ کرم دوبارہ کوشش کریں۔",
+  "image_downloaded": "تصویر ڈاؤن لوڈ ہو گئی!",
+  "share_text_1": "میں نے ابھی {{multiplier}}x بڑی جیت حاصل کی! 🔥"
 }

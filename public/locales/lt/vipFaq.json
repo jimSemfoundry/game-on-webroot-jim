@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Kas yra Boosteris?",
-    "content": "<p class=\"leading-7\">Boosteriai padvigubina jūsų Rakeback vienai valandai kiekvieną kartą, kai rekomenduojamas žaidėjas atlieka įnašą.</p><p class=\"leading-7\">Padidintas atrakinkimo tarifas:</p><p class=\"leading-7\">Atrakinkimo tarifas:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosteriai padvigubina jūsų Rakeback trims valandoms kiekvieną kartą, kai rekomenduojamas žaidėjas atlieka įnašą.</p><p class=\"leading-7\">Padidintas atrakinkimo tarifas:</p><p class=\"leading-7\">Atrakinkimo tarifas:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Kas yra premijų kalendorius?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Kas yra pasiekimai?",
-    "content": "<p class=\"leading-7\">Pasiekimai yra mūsų būdas pripažinti jūsų veiklą mūsų platformoje. Kai pareikalausite savo pasiekimų premijos, ji bus išmokėta į jūsų premijų kalendorių ir gali būti pareikalauta kas 8 valandas ir pasibaigs per 24 valandas, jei nebus pareikalauta.</p>"
+    "content": "<p class=\"leading-7\">Pasiekimai yra mūsų būdas pripažinti jūsų veiklą mūsų platformoje. Pasiekimus galima pareikalauti pasiekus VIP 2 ir aukščiau.</p>"
   }
 }

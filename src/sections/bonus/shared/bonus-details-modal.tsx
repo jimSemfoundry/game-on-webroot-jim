@@ -5,8 +5,6 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/utils/cn";
 import Decimal from "decimal.js";
-import { EBonus } from "@/components/modal/bonus-wallet/components.tsx";
-
 
 interface BonusDetailsModalProps {
   isOpen: boolean;
@@ -15,31 +13,33 @@ interface BonusDetailsModalProps {
 
 // 定义所有 bonus 类型及其显示顺序
 const ALL_BONUS_TYPES = [
-  { key: "rakeback", label: "bonus:super_rakeback" },
-  { key: "cashback", label: "bonus:daily_cashback" },
-  { key: "vip_bonus_mystery_box", label: "bonus:mystery_box" },
-  { key: "level_up", label: "vip:level_up_bonus" },
-  { key: "achievement", label: "bonus:achievements" },
-  { key: "tournament", label: "bonus:tournament_reward" },
-  { key: "referral", label: "bonus:referral_bonus" },
-  { key: "group", label: "bonus:item.group" },
-  { key: "free_spin_reward", label: "bonus:item.free_spin_reward" }, // 免费旋转奖金
+  // { key: "cashback", label: "bonus:daily_cashback" },
   // { key: "don_lose", label: "bonus:item.don_lose" }, // 归零
   // { key: "don_win", label: "bonus:item.don_win" }, // 翻倍
-  { key: "monday_vip_bonus", label: "bonus:item.monday_vip_bonus" }, // 周一VIP奖金
-  { key: "BONUS", label: "bonus:item.dollars_bonus" }, // 奖金
-  { key: "special_offer_first_deposit", label: "bonus:item.special_offer_first_deposit" }, // 第一次充值奖励
-  { key: "special_offer_second_deposit", label: "bonus:item.special_offer_second_deposit" }, // 第二次充值奖励
-  { key: "special_offer_don_deposit", label: "bonus:item.special_offer_don_deposit" }, // 恢复奖金
-  { key: "special_offer_thursday", label: "bonus:item.special_offer_thursday" }, // 加密周四奖励
-  { key: "special_offer_sunday", label: "bonus:item.special_offer_sunday" }, // 超级周天奖励
+  // { key: "special_offer_thursday", label: "bonus:item.special_offer_thursday" }, // 加密周四奖励
   // { key: "conquest", label: "bonus:item.conquest_bonus" }, // 征服奖励
-  // { key: "bonus_manual", label: "bonus:item.bonus_manual" }, // 征服奖励
-  { key: "don", label: "bonus:item.don" } // 征服奖励
+  // { key: "manual_bonus", label: "bonus:item.bonus_manual" }, // 手动奖励
+  // { key: "BONUS", label: "bonus:item.dollars_bonus" }, // 奖金
+  // { key: "special_offer_second_deposit", label: "bonus:item.special_offer_second_deposit" }, // 第二次充值奖励
+  // { key: "special_offer_don_deposit", label: "bonus:item.special_offer_don_deposit" }, // 恢复奖金
+  { key: "don", label: "bonus:item.don" }, // 征服奖励
+  { key: "group", label: "bonus:item.group" },
+  { key: "referral", label: "bonus:referral_bonus" },
+  { key: "rakeback", label: "bonus:super_rakeback" },
+  { key: "level_up", label: "vip:level_up_bonus" },
+  { key: "promo_code", label: "bonus:promo_code" }, // 优惠码
+  { key: "tournament", label: "bonus:tournament_reward" },
+  { key: "achievement", label: "bonus:achievements" },
+  { key: "buddy_balls", label: "buddyBalls:buddyBalls" }, // 幸运球
+  { key: "free_spin_reward", label: "bonus:item.free_spin_reward" }, // 免费旋转奖金
+  { key: "monday_vip_bonus", label: "bonus:item.monday_vip_bonus" }, // 周一VIP奖金
+  { key: "special_offer_sunday", label: "bonus:item.special_offer_sunday" }, // 超级周天奖励
+  { key: "vip_bonus_mystery_box", label: "bonus:mystery_box" },
+  { key: "special_offer_first_deposit", label: "bonus:item.special_offer" } // 第一次充值奖励
 ] as const;
 
 export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
-  const { t } = useTranslation('vip');
+  const { t } = useTranslation("vip");
   const { formatWithConversion } = useDisplayCurrencyFormatter();
   const { data: bonusDetailsData, isLoading } = useUserClaimBonus();
 
@@ -51,32 +51,35 @@ export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
       bonusDetailsData.data.data.forEach((item: any) => {
         apiDataMap.set(item.item, {
           sum: parseFloat(item.sum) || 0,
-          currency: item.currency || "USDT",
+          currency: item.currency || "USDT"
         });
       });
     }
 
     // 创建完整的 bonus 列表，包含所有类型
-    const completeList = ALL_BONUS_TYPES.map((bonusType) => {
+    const completeList = ALL_BONUS_TYPES.map((bonusType: Record<string, any>) => {
       const apiData = apiDataMap.get(bonusType.key);
 
-      let amount = 0
+      let amount = 0;
 
-      if (bonusType.key === 'don') {
-        const don_win = apiDataMap.get('don_win')?.sum ?? 0
-        const don_lose = apiDataMap.get('don_lose')?.sum ?? 0
-        amount = Decimal(don_win).plus(don_lose).toNumber()
-      } else if (bonusType.key === 'BONUS') {
-        amount = (apiDataMap.get(EBonus.MINI)?.sum ||apiDataMap.get(EBonus.MEGA)?.sum || apiDataMap.get(EBonus.FREE)?.sum) ?? 0
+      if (bonusType.key === "don") {
+        const don_win = apiDataMap.get("don_win")?.sum ?? 0;
+        const don_lose = apiDataMap.get("don_lose")?.sum ?? 0;
+        amount = Decimal(don_win).plus(don_lose).toNumber();
+      } else if (bonusType.key === "special_offer_first_deposit") {
+        const special_offer_don_deposit = apiDataMap.get("special_offer_don_deposit")?.sum ?? 0;
+        const special_offer_first_deposit = apiDataMap.get("special_offer_first_deposit")?.sum ?? 0;
+        const special_offer_second_deposit = apiDataMap.get("special_offer_second_deposit")?.sum ?? 0;
+        amount = Decimal(special_offer_don_deposit).plus(special_offer_first_deposit).plus(special_offer_second_deposit).toNumber();
       } else {
-        amount = apiData?.sum || 0
+        amount = apiData?.sum || 0;
       }
 
       return {
         type: bonusType.key,
         label: bonusType.label,
         amount,
-        currency: apiData?.currency || "USDT",
+        currency: apiData?.currency || "USDT"
       };
     });
 
@@ -103,8 +106,9 @@ export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
         ) : (
           <div className="flex flex-col">
             <div className="grid grid-cols-2 gap-4 p-2  rounded-t-box">
-              <p className="text-xs font-bold text-base-content/50 uppercase">{t("bonus:type")}</p>
-              <p className="text-xs font-bold text-base-content/50 uppercase text-right rtl:text-left">{t("bonus:amount")}</p>
+              <p className="text-xs font-bold text-base-content/50 uppercase">{t("transaction:tableHeaders.type")}</p>
+              <p
+                className="text-xs font-bold text-base-content/50 uppercase text-right rtl:text-left">{t("transaction:tableHeaders.amount")}</p>
             </div>
             <div className="flex flex-col ">
               {bonusDetails.map((detail, index) => (
@@ -119,7 +123,7 @@ export function BonusDetailsModal({ isOpen, onClose }: BonusDetailsModalProps) {
                   <p className="text-xs font-bold text-base-content/50 text-right col-span-4">
                     {formatWithConversion(detail.amount, detail.currency, {
                       showCode: false,
-                      minimizeDecimals: true,
+                      minimizeDecimals: true
                     }).formatted}
                   </p>
                 </div>

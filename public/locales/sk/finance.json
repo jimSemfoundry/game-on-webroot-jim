@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Prosím, vyplňte svoje údaje pre výber fiat meny.",
   "updating_withdrawal_address": "Aktualizuje sa adresa výberu, prosím počkajte...",
   "please_select_withdrawal_method": "Prosím, vyberte spôsob výberu.",
-  "integer_deposit": "Tento kanál vyžaduje, aby suma vkladu bola celé číslo násobkom {{value}}.",
+  "integer_deposit": "Tento kanál vyžaduje, aby suma vkladu bola v jednotkách {{value}}.",
   "enter_string_en_only": "Zadať možno iba anglické písmená, čísla a medzery.",
-  "enter_string_min_length": "Dĺžka musí byť aspoň {{length}}."
+  "enter_string_min_length": "Dĺžka musí byť aspoň {{length}}.",
+  "met_eligibility": "*Splnili ste kritériá spôsobilosti na špeciálnu ponuku. Dobite si teraz a získajte svoju odmenu!",
+  "read_carefully": "Prečítajte si prosím pozorne",
+  "no_channel": "V tejto chvíli nie sú k dispozícii žiadne kanály"
 }

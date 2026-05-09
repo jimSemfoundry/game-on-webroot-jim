@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "El número de móvil ya se ha utilizado. Por favor, usa otro número.",
     "mobileAlreadyBound": "El número de móvil ya está vinculado a esta cuenta.",
     "fullscreen": "Pantalla completa",
-    "exitFullscreen": "Salir de pantalla completa"
+    "exitFullscreen": "Salir de pantalla completa",
+    "draw": "Empate"
   },
   "bonus_pool": "Bote de Bonos",
   "pleaseEnterValidUsernameOrEmail": "Por favor, introduce un nombre de usuario o correo electrónico válido",

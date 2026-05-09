@@ -34,6 +34,8 @@
   "upToReferral": "추천당 최대 {{amount}}",
   "language": "언어",
   "gameCurrency": "게임 통화",
-  "hideBlockedGames": "차단된 게임 숨기기",
-  "settings": "설정"
+  "hideBlockedGames": "숨기기 \n<0>차단된 게임</0>",
+  "settings": "설정",
+  "problemReport": "문제 보고",
+  "logging_key": "로깅"
 }

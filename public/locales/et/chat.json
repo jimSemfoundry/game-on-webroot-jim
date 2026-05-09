@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Klienditeeninduse vestlus ei laadinud",
   "read": "Loe",
   "unread": "Lugemata",
-  "customerService": "Klienditeenindus"
+  "customerService": "Klienditeenindus",
+  "today": "täna",
+  "earlier": "varem",
+  "older": "vanemad"
 }

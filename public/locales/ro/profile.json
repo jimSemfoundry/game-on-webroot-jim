@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Numărul tău de telefon a fost verificat. Poți continua.",
   "email_address_has_been_verified": "Adresa ta de e-mail a fost verificată. Poți continua.",
   "setNewPassword": "Setează parolă nouă",
-  "passwordLengthRequirement": "Vă rugăm să introduceți o parolă între 6 și 64 de caractere."
+  "passwordLengthRequirement": "Vă rugăm să introduceți o parolă între 6 și 64 de caractere.",
+  "re_enter_new_password": "Reintroduceți parola nouă",
+  "change_withdrawal_pin": "Schimbați PIN-ul de retragere",
+  "confirm_withdrawal_pin": "Confirmați PIN-ul de retragere",
+  "enter_email": "Introduceți e-mailul",
+  "rolloverDetails": "Detalii rollover",
+  "verified_email": "E-mail verificat",
+  "verified_phone_number": "Număr de telefon verificat",
+  "change_key": "Modifică",
+  "update_successfully": "Actualizare reușită. Vă rugăm să utilizați {<1>{{value}}</1>} pentru următoarea autentificare.",
+  "understand_key": "Am înțeles",
+  "ensure_email_valid": "Asigurați-vă că adresa dvs. de e-mail este validă și accesibilă de către dvs.",
+  "ensure_phone_valid": "Asigurați-vă că numărul dvs. de telefon este valid și accesibil de către dvs.",
+  "enter_phone_number_to_receive_verification_code": "Introduceți numărul dvs. de telefon mai jos pentru a primi un cod de verificare.",
+  "enter_email_address_to_receive_verification_code": "Introduceți adresa dvs. de e-mail mai jos pentru a primi un cod de verificare."
 }

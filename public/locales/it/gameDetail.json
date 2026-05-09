@@ -34,5 +34,12 @@
   "depositNow": "Deposita Ora",
   "free_spins": "Giri Gratuiti",
   "play_with_balance_in": "Gioca con il Saldo In",
-  "the_selected_currency_will_be_displayed_in": "La valuta selezionata sarà visualizzata in"
+  "the_selected_currency_will_be_displayed_in": "La valuta selezionata sarà visualizzata in",
+  "activity": "Attività",
+  "come_join_me_now_at": "UNISCITI ORA A",
+  "invite_friends_to_join_play": "Invita amici a unirsi & Gioca",
+  "earn_up_to_50_commission_bonus": "Guadagna fino al 50% di commissione <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Download fallito. Riprova.",
+  "image_downloaded": "Immagine scaricata!",
+  "share_text_1": "Ho appena ottenuto un BIG WIN di {{multiplier}}x! 🔥"
 }

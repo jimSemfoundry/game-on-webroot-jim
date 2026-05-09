@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Johtavana globaalina peliallianssina yhdistämme huippualustojen voiman ja hienostuneisuuden yhden vision alle. Kaikkien portfoliomme brändien osalta toimimme yhtenäisesti — tarjoamme viihdettä, yksilöllisiä palkintoja ja saumatonta yhteyttä valuuttojen, maiden ja kulttuurien välillä.",
   "footerDescriptionThree": "Älä vain pelaa peliä. Haasta kaikki.",
   "footerDescriptionFour": "{{supportName}} Allianssin tunnusmerkki",
-  "footerDescriptionFive": "© 2025. Kaikki oikeudet pidätetään.",
+  "footerDescriptionFive": "© {{year}}. Kaikki oikeudet pidätetään.",
   "banner": {
     "oneDescription": "OLE ENSIMMÄINEN.",
     "oneDescriptionTwo": "HAASTA\nKAIKKEA",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Lisää kotinäytölle",
   "latestWins": "Viimeisimmät Voitot",
   "spinPlayAndWinAcrossTopCasinoHits": "Pyöritä, pelaa ja voita huippukasinohiteissä",
-  "scoreBigOnSportsFromAroundTheWorld": "Saavuta suuria voittoja urheilusta ympäri maailmaa"
+  "scoreBigOnSportsFromAroundTheWorld": "Saavuta suuria voittoja urheilusta ympäri maailmaa",
+  "liveDealers": "Live-jakajat suosikkipöytäpeleihisi",
+  "show_less": "näytä vähemmän"
 }

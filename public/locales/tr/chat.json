@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Müşteri hizmetleri sohbeti yüklenemedi",
   "read": "Oku",
   "unread": "Okunmamış",
-  "customerService": "Müşteri hizmetleri"
+  "customerService": "Müşteri hizmetleri",
+  "today": "bugün",
+  "earlier": "daha önce",
+  "older": "daha eski"
 }

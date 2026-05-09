@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Vui lòng nhập độ dài cố định là {{length}} ký tự",
   "disabledCharNotAllowed": "Ký tự {{char}} không được phép",
   "space": "khoảng trắng",
-  "thisWalletIsAlreadyUsed": "Ví này đã được sử dụng"
+  "thisWalletIsAlreadyUsed": "Ví này đã được sử dụng",
+  "login_failed": "Đăng nhập thất bại",
+  "login_error_code_1": "Tên người dùng phải là số điện thoại hợp lệ (bắt đầu bằng + và sử dụng - sau mã quốc gia) hoặc địa chỉ email",
+  "account_created_and_logged_in_successfully": "Tạo tài khoản và đăng nhập thành công!",
+  "requests_later": "Quá nhiều yêu cầu từ IP này. Vui lòng thử lại sau.",
+  "booster_activated_successfully": "Kích hoạt Booster thành công!",
+  "depositNameEntered": "Tên được nhập cho tiền gửi phải khớp với tên đầy đủ<0>（Tên + Họ）</0> trên tài khoản ngân hàng được sử dụng để rút tiền, tuân thủ các quy định chống gian lận và chống rửa tiền.\n\n Nếu bạn cần thay đổi tài khoản ngân hàng, vui lòng liên hệ hỗ trợ khách hàng và hoàn thành xác minh KYC.",
+  "user_not_found_or_password_incorrect": "Không tìm thấy người dùng hoặc mật khẩu không đúng",
+  "free_spin_record_enabled_successfully": "Kích hoạt bản ghi quay miễn phí thành công!",
+  "check_in_success": "Điểm danh thành công!",
+  "check_in_failed": "Điểm danh thất bại!",
+  "check_in_already": "Điểm danh cho ngày này đã được hoàn tất.",
+  "ballsClaimed": "Quả bóng bạn bè đã được nhận thành công",
+  "cannotBetby": "Ví tiền thưởng thể thao chỉ dành cho cá cược thể thao."
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Booster là gì?",
-    "content": "<p class=\"leading-7\">Boosters gấp đôi Rakeback của bạn trong một giờ mỗi khi một người giới thiệu thực hiện một khoản gửi tiền.</p><p class=\"leading-7\">Tỷ lệ mở khóa được tăng cường:</p><p class=\"leading-7\">Tỷ lệ mở khóa:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters gấp đôi Rakeback của bạn trong ba giờ mỗi khi một người giới thiệu thực hiện một khoản gửi tiền.</p><p class=\"leading-7\">Tỷ lệ mở khóa được tăng cường:</p><p class=\"leading-7\">Tỷ lệ mở khóa:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Lịch thưởng là gì?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Thành tựu là gì?",
-    "content": "<p class=\"leading-7\">Thành tựu là cách chúng tôi công nhận hoạt động của bạn trên nền tảng của chúng tôi. Khi bạn yêu cầu tiền thưởng thành tựu của mình, nó sẽ được trả vào Lịch thưởng của bạn và có thể được yêu cầu mỗi 8 giờ và sẽ hết hạn trong 24 giờ nếu không được yêu cầu.</p>"
+    "content": "<p class=\"leading-7\">Thành tựu là cách chúng tôi công nhận hoạt động của bạn trên nền tảng của chúng tôi. Thành tựu có thể được yêu cầu khi bạn đạt VIP 2 trở lên.</p>"
   }
 }

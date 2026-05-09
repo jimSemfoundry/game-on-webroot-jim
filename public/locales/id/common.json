@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Nomor ponsel sudah digunakan. Silakan gunakan nomor lain.",
     "mobileAlreadyBound": "Nomor ponsel sudah terikat ke akun ini.",
     "fullscreen": "Layar penuh",
-    "exitFullscreen": "Keluar dari layar penuh"
+    "exitFullscreen": "Keluar dari layar penuh",
+    "draw": "Seri"
   },
   "bonus_pool": "Kolam Bonus",
   "pleaseEnterValidUsernameOrEmail": "Silakan masukkan nama pengguna atau email yang valid",

@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Indtast venligst en adgangskode",
   "verification_code_sent_to_your": "Verifikationskode sendt til din e-mail/telefon",
   "one_min_error": "Få verifikationskoden igen om 1 minut.",
-  "signInWith": "Registrer dig med"
+  "must_agree": "Du skal acceptere vilkårene og betingelserne",
+  "signInWith": "Registrer dig med",
+  "usernameTooShort": "Brugernavn skal være mindst 6 tegn langt"
 }

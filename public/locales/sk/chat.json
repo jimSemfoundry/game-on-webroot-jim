@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Chat zákazníckej podpory sa nepodarilo načítať",
   "read": "Prečítané",
   "unread": "Neprečítané",
-  "customerService": "Zákaznícky servis"
+  "customerService": "Zákaznícky servis",
+  "today": "dnes",
+  "earlier": "skôr",
+  "older": "staršie"
 }

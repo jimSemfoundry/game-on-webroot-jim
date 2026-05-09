@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "{{length}}자 고정 길이를 입력해 주세요",
   "disabledCharNotAllowed": "문자 {{char}}는 허용되지 않습니다",
   "space": "공백",
-  "thisWalletIsAlreadyUsed": "이 지갑은 이미 사용 중입니다"
+  "thisWalletIsAlreadyUsed": "이 지갑은 이미 사용 중입니다",
+  "login_failed": "로그인 실패",
+  "login_error_code_1": "사용자 이름은 유효한 전화번호(+로 시작하고 국가 코드 뒤에 - 사용) 또는 이메일 주소여야 합니다",
+  "account_created_and_logged_in_successfully": "계정이 생성되고 성공적으로 로그인되었습니다!",
+  "requests_later": "이 IP에서 너무 많은 요청이 발생했습니다. 나중에 다시 시도해 주세요.",
+  "booster_activated_successfully": "부스터가 성공적으로 활성화되었습니다!",
+  "depositNameEntered": "입금 시 입력된 성명은 출금에 사용되는 은행 계좌의 전체 성명<0>（이름 + 성）</0>과 일치해야 합니다. 이는 사기 방지 및 자금 세탁 방지 규정을 준수하기 위함입니다.\n\n 은행 계좌를 변경해야 하는 경우 고객 지원에 문의하고 KYC 인증을 완료하세요.",
+  "user_not_found_or_password_incorrect": "사용자를 찾을 수 없거나 비밀번호가 올바르지 않습니다",
+  "free_spin_record_enabled_successfully": "무료 스핀 기록이 성공적으로 활성화되었습니다!",
+  "check_in_success": "출석이 완료되었습니다!",
+  "check_in_failed": "출석에 실패했습니다!",
+  "check_in_already": "이 날짜의 출석은 이미 완료되었습니다.",
+  "ballsClaimed": "버디 볼이 성공적으로 청구되었습니다",
+  "cannotBetby": "스포츠 보너스 지갑은 스포츠 베팅 전용입니다."
 }

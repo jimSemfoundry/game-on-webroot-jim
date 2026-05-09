@@ -34,6 +34,8 @@
   "upToReferral": "Akár {{amount}} ajánlásonként",
   "language": "Nyelv",
   "gameCurrency": "Játék pénzneme",
-  "hideBlockedGames": "Zárolt játékok elrejtése",
-  "settings": "Beállítások"
+  "hideBlockedGames": "Elrejtés \n<0>letiltott játékok</0>",
+  "settings": "Beállítások",
+  "problemReport": "Probléma jelentés",
+  "logging_key": "Naplózás"
 }

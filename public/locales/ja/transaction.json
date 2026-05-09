@@ -64,6 +64,7 @@
     "fiatWithdraw": "法定通貨出金",
     "cryptoWithdraw": "暗号通貨出金",
     "bonus": "ボーナス",
+    "bounty": "バウンティ",
     "win": "勝利",
     "bet": "ベット",
     "refund": "払い戻し",
@@ -72,7 +73,8 @@
     "rakebackbonus": "レイクバックボーナス",
     "cashbackbonus": "キャッシュバックボーナス",
     "referral": "紹介",
-    "commission": "コミッション"
+    "commission": "コミッション",
+    "FIAT": "法定通貨"
   },
   "gameTypes": {
     "slots": "スロット",
@@ -150,5 +152,5 @@
     "unlockedFunds": "ロック解除された資金",
     "rolloverMul": "ベット倍率"
   },
-  "assistance": "詳細を確認して再試行するか、カスタマーサービスにお問い合わせください"
+  "assistance": "お名前がこのチャネルで最初に使用した名前と一致しません。カスタマーサービスにお問い合わせください。"
 }

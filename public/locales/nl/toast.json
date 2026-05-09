@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Voer een vaste lengte van {{length}} tekens in",
   "disabledCharNotAllowed": "Het teken {{char}} is niet toegestaan",
   "space": "spatie",
-  "thisWalletIsAlreadyUsed": "Deze portemonnee wordt al gebruikt"
+  "thisWalletIsAlreadyUsed": "Deze portemonnee wordt al gebruikt",
+  "login_failed": "Inloggen mislukt",
+  "login_error_code_1": "Gebruikersnaam moet een geldig telefoonnummer zijn (beginnend met + en - na de landcode) of een e-mailadres",
+  "account_created_and_logged_in_successfully": "Account aangemaakt en succesvol ingelogd!",
+  "requests_later": "Te veel verzoeken van dit IP-adres. Probeer het later opnieuw.",
+  "booster_activated_successfully": "Booster succesvol geactiveerd!",
+  "depositNameEntered": "De naam die is ingevoerd voor storting moet overeenkomen met de volledige naam<0>（Voornaam + Achternaam）</0> op de bankrekening die wordt gebruikt voor opname, in overeenstemming met anti-fraude en anti-witwasregels.\n\n Als u uw bankrekening moet wijzigen, neem dan contact op met de klantenservice en voltooi de KYC-verificatie.",
+  "user_not_found_or_password_incorrect": "Gebruiker niet gevonden of wachtwoord onjuist",
+  "free_spin_record_enabled_successfully": "Gratis spins-record succesvol geactiveerd!",
+  "check_in_success": "Inchecken gelukt!",
+  "check_in_failed": "Inchecken mislukt!",
+  "check_in_already": "Het inchecken is al voltooid voor deze datum.",
+  "ballsClaimed": "Vriendenbal succesvol geclaimd",
+  "cannotBetby": "De sportbonusportemonnee is alleen voor sportweddenschappen."
 }

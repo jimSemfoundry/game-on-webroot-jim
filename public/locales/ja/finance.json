@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "法定通貨の出金情報を入力してください。",
   "updating_withdrawal_address": "出金アドレスを更新しています。しばらくお待ちください...",
   "please_select_withdrawal_method": "出金方法を選択してください。",
-  "integer_deposit": "このチャネルでは入金額が {{value}} の整数倍である必要があります。",
+  "integer_deposit": "このチャネルでは入金額を {{value}} 単位で入金する必要があります。",
   "enter_string_en_only": "入力できるのは英字、数字、スペースのみです。",
-  "enter_string_min_length": "長さは最低でも{{length}}である必要があります。"
+  "enter_string_min_length": "長さは最低でも{{length}}である必要があります。",
+  "met_eligibility": "*特別オファーの資格基準を満たしました。今すぐ入金して報酬を受け取ってください。",
+  "read_carefully": "注意深くお読みください",
+  "no_channel": "現在利用可能なチャンネルはありません"
 }

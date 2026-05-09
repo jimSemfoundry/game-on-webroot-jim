@@ -41,9 +41,9 @@
     "achievement_inferno": "Lalui tantangan",
     "achievement_the_challenger": "Hadapi setiap rintangan"
   },
-  "bonus": "Bonus",
+  "bonus": "Bonusnya",
   "total_bonus_claimed": "Total Bonus yang Diklaim",
-  "detail": "Detail",
+  "detail": "Detil",
   "details": "Detail",
   "redeem": "Tukar",
   "deposit_bonus": "Kumpulan Bonus Deposit",
@@ -88,7 +88,7 @@
   "the_cannon": "Meriam",
   "a_reward_so_powerful_so_exclusive_that_its_true_nature_remains_a_closely_guarded_secret": "Hadiah yang begitu kuat, begitu eksklusif, sehingga sifat aslinya tetap menjadi rahasia yang dijaga ketat.",
   "bonus_type": "Jenis Bonus",
-  "total_bonus": "Total Bonus",
+  "total_bonus": "Jumlah Bonusnya",
   "no_bonus_data_available": "Tidak ada data bonus yang tersedia",
   "lucky_spin": "Putaran Keberuntungan",
   "lucky_number_seven": "Angka Keberuntungan Tujuh",
@@ -132,10 +132,10 @@
   "rewards": "Hadiah",
   "progress": "Kemajuan",
   "achievement_reward": "Hadiah Pencapaian",
-  "level": "Level",
+  "level": "Tingkat",
   "download": "Unduh",
   "setavatar": "Atur Avatar",
-  "deposit": "Deposit",
+  "deposit": "Deposito",
   "play": "Mainkan",
   "achieved_on": "Dicapai Pada",
   "back": "Kembali",
@@ -155,11 +155,11 @@
     "description": "Prestasi ini diberikan kepada pemain yang telah menambahkan aplikasi mini Telegram kami ke layar utama mereka. Selalu dalam jangkauan, tindakan ini menunjukkan dedikasi sejati - karena pemain sejati menjaga permainan dekat."
   },
   "achievement_super_spreader": {
-    "name": "Super Spreader",
-    "description": "Prestasi ini diberikan kepada pemain yang telah berhasil merujuk <0>{{count}} pengguna baru</0>. Seorang pembangun komunitas sejati, mereka memperluas lingkaran dan membawa energi baru ke permainan. Pengaruh mereka tumbuh dengan setiap koneksi yang mereka buat."
+    "name": "Penyebar Super",
+    "description": "Prestasi ini diberikan kepada pemain yang telah berhasil merujuk <0>{{count}} pengguna baru</0> yang telah menyelesaikan pembelian pertama mereka. Sebagai pembangun komunitas sejati, mereka memperluas lingkaran melalui berbagi yang tulus dan membawa energi baru ke dalam permainan. Pengaruh mereka tumbuh dengan setiap koneksi bermakna yang mereka bangun."
   },
   "achievement_conquistador": {
-    "name": "Conquistador",
+    "name": "Penakluk",
     "description": "Prestasi ini diberikan kepada pemain yang telah menyelesaikan total <0>{{count}} misi</0>. Didorong oleh tekad dan dahaga akan kemenangan, mereka menaklukkan setiap tantangan yang datang — seorang juara sejati dari perjalanan."
   },
   "achievement_game_explorer": {
@@ -167,11 +167,11 @@
     "description": "Prestasi ini diberikan kepada pemain yang telah mencoba <0>{{count}} permainan berbeda</0>. Penuh rasa ingin tahu dan petualangan, mereka menjelajahi platform, selalu bersemangat untuk menemukan cara baru untuk bermain dan menang."
   },
   "achievement_card_shark": {
-    "name": "Card Shark",
+    "name": "Hiu Kartu",
     "description": "Prestasi ini diberikan kepada pemain yang telah bertaruh setidaknya <0>{{amount}}</0> pada permainan kartu, membuktikan ketahanan, strategi, dan kesediaan untuk mengambil risiko. Pemain dengan taruhan tinggi ini telah mendapatkan tempat mereka di antara yang elit. Kartu ada di tangan mereka, dan permainan adalah milik mereka untuk diperintah."
   },
   "achievement_slotmaster": {
-    "name": "Slotmaster",
+    "name": "slotmaster",
     "description": "Prestasi ini diberikan kepada pemain yang telah bertaruh setidaknya <0>{{amount}}</0> pada permainan slot, membuktikan ketekunan, semangat pencari sensasi, dan cinta untuk putaran. Pemain yang berdedikasi ini merangkul gulungan dengan percaya diri — keberuntungan mungkin memimpin, tetapi penguasaan menjaga mereka tetap dalam permainan."
   },
   "achievement_talkative": {
@@ -223,7 +223,7 @@
     "description": "Penghargaan ini diberikan kepada pemain yang telah memasang setidaknya <0>10 taruhan valid</0> dalam sejarah permainan mereka. Si Penantang bangkit untuk setiap kesempatan, didorong oleh tekad dan semangat kompetisi. Berani dan tak kenal lelah, mereka membuktikan bahwa para pesaing sejati tidak menghindar dari permainan — mereka melangkah maju, siap menguji batas mereka dan mengklaim tempat mereka di antara yang tak kenal takut."
   },
   "achievement_dynamo": {
-    "name": "Dynamo",
+    "name": "Dinamo",
     "description": "Penghargaan ini diberikan kepada pemain yang telah menyelesaikan <0>1 setoran</0> minimal <0>{{amount}}</0> dalam satu transaksi. Seorang Dynamo semakin kuat dengan setiap pengisian ulang, membuktikan konsistensi dan tekad mereka di jalur menuju keahlian."
   },
   "achievement_face_of_fortune": {
@@ -239,11 +239,11 @@
     "description": "Penghargaan ini diberikan kepada pemain yang telah menambahkan permainan ke Layar Utama mereka atau mengunduh aplikasi. Seorang Bintang Penuntun menjaga jalan menuju keberuntungan tetap jelas, menerangi jalan kembali untuk bermain dengan satu ketukan."
   },
   "achievement_highroller": {
-    "name": "Highroller",
+    "name": "pemain papan atas",
     "description": "Penghargaan ini diberikan kepada pemain yang telah mempertaruhkan total minimal <0>{{amount}}</0> dalam seluruh sejarah permainan mereka. Highrollers mengenakan tanda komitmen dan prestise, membuktikan dedikasi mereka terhadap permainan dengan setiap putaran, taruhan, dan ronde. Mahkota mereka bukan hanya simbol — itu adalah bukti ketekunan, hasrat, dan pencarian keberuntungan."
   },
   "achievement_inferno": {
-    "name": "Inferno",
+    "name": "Neraka",
     "description": "Penghargaan ini diberikan kepada pemain yang telah mendapatkan pengganda <0>20x</0> pada slot mana pun. Dengan api yang berkobar, seorang Inferno mengubah satu taruhan menjadi badai keberuntungan."
   },
   "achievement_money_maverick": {
@@ -255,7 +255,7 @@
     "description": "Penghargaan ini diberikan kepada pemain yang telah menyelesaikan penarikan fiat minimal <0>{{amount}}</0> dalam satu transaksi. Seorang Master Uang berdiri tegak di persimpangan permainan dan imbalan, mengubah kemenangan mereka menjadi nilai dunia nyata. Dengan tangan yang mantap dan waktu yang tepat, mereka menunjukkan bahwa keahlian sejati tidak hanya ada dalam permainan — itu ada dalam membawa pulang imbalan."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "Kripto Bro",
     "description": "Penghargaan ini diberikan kepada pemain yang telah melakukan setoran minimal <0>{{amount}}</0> dalam satu transaksi, dengan cryptocurrency apa pun. Seorang Maestro Crypto mengatur dana mereka seperti seorang seniman sejati, mengorkestrasi aset digital dengan presisi dan gaya. Percaya diri di panggung blockchain, mereka adalah pelopor permainan yang membuktikan bahwa keberuntungan berpihak pada yang berani."
   },
   "achievement_crypto_baron": {
@@ -275,7 +275,7 @@
     "description": "Prestasi ini diberikan kepada pemain yang telah berhasil menyelesaikan <0>transaksi pertukaran crypto</0>. Seorang Chain Shifter adalah seseorang yang tahu cara bergerak antar token dengan percaya diri, beradaptasi dengan arus pasar dengan mudah. Master momentum, mereka berkembang dalam fleksibilitas dan transformasi, selalu siap untuk mengubah arah dan meraih kesempatan."
   },
   "item": {
-    "achievement_slot_master": "Slot Master",
+    "achievement_slot_master": "Master Slot",
     "conquest_just_wager_on_100": "Penaklukan Hanya Bertaruh pada 100",
     "conquest_just_wager_on_200": "Penaklukan Hanya Bertaruh pada 200",
     "conquest_roulette_master": "Penaklukan Master Roulette",
@@ -309,16 +309,16 @@
     "achievement_slots_multiplier": "Prestasi Pengganda Slot",
     "level_up": "Tingkatkan",
     "rakeback": "Rakeback",
-    "cashback": "Cashback",
+    "cashback": "Uang kembali",
     "group": "Komisi",
     "referral": "Rujukan",
     "tournament": "Turnamen",
     "conquest_extra_reward": "Hadiah Ekstra Penaklukan",
-    "bonus": "Bonus",
+    "bonus": "Bonusnya",
     "bonus_manual": "Bonus Manual",
-    "max_win": "Max Win",
-    "pending": "Pending",
-    "ongoing": "Ongoing",
+    "max_win": "Kemenangan Maks",
+    "pending": "Tertunda",
+    "ongoing": "Sedang berlangsung",
     "wager": "Taruhan",
     "on_any_game_to_unlock_your_free_spin_winnings": "di permainan mana saja untuk membuka kemenangan putaran gratis Anda",
     "vip_bonus_lucky_number_seven": "Bonus VIP Nomor Tujuh Beruntung",
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Penawaran Khusus Setoran Pertama",
     "monday_vip_bonus": "Bonus VIP Senin",
     "special_offer_thursday": "Bonus Kripto Kamis",
-    "special_offer_sunday": "Boost Deposit Pertama",
+    "special_offer_sunday": "Deposit Pertama Hari Ini",
     "conquest_bonus": "Bonus Penaklukan",
-    "dollars_bonus": "Bonus"
+    "dollars_bonus": "Bonusnya",
+    "buddy_balls": "Bola Teman",
+    "special_offer": "Penawaran Khusus"
   },
   "achievements_description": "Terbuka pada VIP {{vip}}, hadiah ini merayakan pencapaian Anda dengan kejutan menarik sepanjang perjalanan!",
   "lucky_number_seven_description": "Dapatkan Angka Keberuntungan {{number}} dan raih bonus manis setiap hari!",
@@ -353,8 +355,8 @@
     "achievement_verify_email": "Verifikasi Email",
     "achievement_verify_phone": "Verifikasi Telepon",
     "achievement_add_desktop_app": "Tambahkan Aplikasi Desktop",
-    "achievement_super_spreader": "Super Spreader",
-    "achievement_conquistador": "Conquistador",
+    "achievement_super_spreader": "Penyebar Super",
+    "achievement_conquistador": "Penakluk",
     "achievement_game_explorer": "Penjelajah Permainan"
   },
   "you_win": "Kamu menang",
@@ -365,7 +367,7 @@
   "share": "Bagikan",
   "open_box_description": "Gunakan untuk bermain game dan nikmati kemenangan lebih banyak!",
   "get": "Dapatkan",
-  "buck": "BUCK",
+  "buck": "BUKAN",
   "always_1_to_1": "Selalu 1 banding 1",
   "what_is_buck": "Apa itu BUCK?",
   "what_is_buck_description": "BUCK adalah token eksklusif untuk semua hadiah di platform, dengan nilai 1 BUCK = 1 USDT.",
@@ -439,8 +441,8 @@
   "vip_monday_description": "Penurunan mingguan khusus untuk menghargai pemain setia setiap Senin",
   "vip_monday_wager": "Pertaruhkan setidaknya {{amount}} dalam 7 hari sebelumnya untuk mendapatkan penurunan Misteri setiap Senin.",
   "claim_on_monday": "Klaim pada hari Senin",
-  "max_win": "Max Win",
-  "pending": "Pending",
+  "max_win": "Kemenangan Maks",
+  "pending": "Tertunda",
   "wager": "Taruhan",
   "on_any_game_to_unlock_your_free_spin_winnings": "di permainan mana saja untuk membuka kemenangan putaran gratis Anda",
   "vip_monday_title": "VIP \n <0>SENIN</0>",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "Bisakah saya menyerah promosi Dolar Bonus kapan saja?",
-      "desc": "Ya. Anda dapat memilih untuk menyerah promosi Dolar Bonus kapan saja selama masa berlakunya. Harap dicatat bahwa setelah Anda menyerah, saldo Dolar Bonus Anda saat ini akan dihapus dan tidak dapat dipulihkan atau ditarik. Anda masih dapat berpartisipasi dalam promosi bonus di masa mendatang jika tersedia."
+      "desc": "Anda hanya dapat memilih untuk menyerah promosi Dolar Bonus ketika saldo Dompet Bonus Anda di bawah setara dengan {{amount}}USDT selama masa berlakunya.\nHarap dicatat bahwa setelah Anda menyerah, saldo Dompet Bonus Anda yang tersisa akan dihapus dan tidak dapat dipulihkan atau ditarik.\nKarena hanya dapat ada satu promosi Dompet Bonus yang aktif pada satu waktu, Anda akan memenuhi syarat untuk berpartisipasi dan membeli promosi Dompet Bonus lain setelah Anda menyerah promosi Dompet Bonus Anda saat ini."
     },
     "r1": {
       "title": "Apa itu Dolar Bonus?",
@@ -554,6 +556,10 @@
       "title": "Bisakah saya terus bermain bahkan setelah mencapai batas penarikan?",
       "desc": "Ya, Anda dapat terus bermain dengan saldo bonus untuk bersenang-senang - tetapi klaim Anda masih akan dibatasi oleh batas penarikan."
     },
+    "r11": {
+      "title": "Kapan Dolar Bonus kedaluwarsa / Dapatkah saya menyerah promosi?",
+      "desc": "Dolar Bonus kedaluwarsa 30 hari setelah diterbitkan, jadi Anda memiliki 30 hari untuk menyelesaikan persyaratan turnover. Anda juga dapat memilih untuk menyerah Promosi Dolar Bonus kapan saja.\n Ketika Anda menyerah promosi, saldo Dolar Bonus Anda saat ini akan dihapus dan tidak ada pengembalian yang akan diberikan. Anda dapat berpartisipasi dalam Promosi Dolar Bonus masa depan.\n Hanya dapat ada 1 Promosi Dolar Bonus yang aktif pada satu waktu."
+    },
     "free": "Bergabung dengan uang bonus gratis — tidak perlu deposit. Putar game nyata, uji keberuntungan Anda, dan lihat seberapa jauh Anda bisa pergi sebelum menarik.\n\n Sempurna untuk memulai dengan risiko nol.",
     "mini": "Lakukan deposit kecil dan terima bonus slot dengan persyaratan taruhan ringan. Dirancang untuk permainan cepat dan kemajuan lebih cepat menuju penarikan.\n\n Ideal untuk pemain kasual yang menginginkan pengalaman bonus yang mulus.",
     "mega": "Mainkan dengan Dolar Bonus seperti uang tunai nyata! Setiap taruhan membawa Anda lebih dekat untuk membuka nilai penuh mereka. Penuhi persyaratan bermain dan saksikan Dolar Bonus Anda berubah menjadi hadiah yang dapat ditarik hari ini!",
@@ -570,8 +576,8 @@
   "bonus_credited2": "<0>{{bonus}}</0> akan dikreditkan ke akun berikut",
   "welcomeBonus": "Bonus Selamat Datang",
   "skip": "Lewati",
-  "megaSlotBonus": "Mega Slot \n Bonus",
-  "miniSlotBonus": "Mini Slot \n Bonus",
+  "megaSlotBonus": "Slot Besar \n Bonusnya",
+  "miniSlotBonus": "Slot Mini \n Bonusnya",
   "freePlayBonus": "Bermain Gratis \n Bonus",
   "depositSlotBonus": "Deposit {{amount}}+ \n {{value}} Bonus Slot",
   "noDepositBonus": "Tanpa Deposit \n Dapatkan {{amount}} Bonus",
@@ -589,5 +595,82 @@
   "bonus_expired": "Kedaluwarsa",
   "bonus_claimed": "Diklaim",
   "bonus_failure_end": "Gagal",
-  "bonus_give_up": "Menyerah"
+  "bonus_give_up": "Menyerah",
+  "goal": "TUJUAN",
+  "state": "STATUS",
+  "requirement_met": "Persyaratan terpenuhi",
+  "enjoy": "nikmati",
+  "achievement_details": "Detail Pencapaian",
+  "promo_expired": "Kode promo ini telah kedaluwarsa.",
+  "claim_successful": "Klaim berhasil!",
+  "promo_claimed": "Anda telah mengklaim kode promo ini.",
+  "invalid_parameter": "Parameter tidak valid.",
+  "promo_invalid": "Kode promo tidak valid. Silakan periksa dan coba lagi.",
+  "promo_format_error": "Silakan masukkan kode yang terdiri dari angka dan huruf, dengan panjang minimum {{length}} karakter.",
+  "redeem_promotional": "Tukar kode promo Anda untuk membuka hadiah eksklusif, diskon, atau manfaat tambahan!\n Ikuti saluran media sosial kami untuk mendapatkan kode promo setiap hari.",
+  "promo_unavailable": "Kode promo ini saat ini tidak tersedia.",
+  "promo_claim_limit": "Kode promo ini telah mencapai batas klaim.",
+  "similar_event": "Anda sudah memiliki promosi serupa yang sedang berlangsung.",
+  "abnormality": "Anomali akun, silakan hubungi layanan pelanggan.",
+  "not_started_yet": "Promosi ini belum dimulai.",
+  "not_eligible": "Tidak memenuhi syarat untuk klaim.",
+  "cannot_claim": "Anda saat ini memiliki saldo Dompet Bonus dan tidak dapat mengklaim promosi Freespin.",
+  "bonus_store": "Toko Bonus",
+  "bonus_store_title": "Toko \n Bonus",
+  "wagering_in_progress": "Syarat taruhan sedang berlangsung",
+  "buddy_ball": "Bola Buddy",
+  "buddy_ball_title": "Bola\nBuddy",
+  "prize_pool": "Kolam Hadiah",
+  "lifetime_bonus_claimed": "Bonus Seumur Hidup Diklaim",
+  "successful": "Berhasil",
+  "purchased": "Anda berhasil membeli \n <0>{{amount}}</0>. Semoga beruntung!",
+  "bonusStore": "Toko \n Bonus",
+  "buyAmount": "Jumlah Pembelian",
+  "selectBonus": "Pilih bonus untuk dimainkan",
+  "buyNow": "Beli sekarang",
+  "bonusExists": "Bonus aktif sudah ada",
+  "notAllowed": "Pembelian ulang belum diizinkan",
+  "amountLow": "Jumlah terlalu rendah",
+  "amountHigh": "Jumlah terlalu tinggi",
+  "failedCreate": "Gagal membuat catatan",
+  "buyBonus": "Beli bonus",
+  "bonusHistory": "Riwayat bonus",
+  "wagerCompleted": "Syarat taruhan sudah terpenuhi!",
+  "wageringProgress": "Syarat taruhan sedang berlangsung",
+  "bonus_store_welcome": "Selamat datang di Toko Bonus, tempat Anda dapat mengonversi uang tunai menjadi Dolar Bonus dan mendapatkan ekstra {{value}} dengan syarat memenuhi persyaratan persyaratan playthrough. Dolar Bonus adalah kredit permainan khusus yang dapat digunakan pada beberapa permainan slot tertentu yang dipilih. Dolar Bonus dapat dikonversi menjadi uang tunai yang dapat ditarik setelah Anda menyelesaikan persyaratan persyaratan playthrough.",
+  "bonus_store_wagering": "Saat Anda menyelesaikan persyaratan persyaratan playthrough (wagering), Anda dapat mengonversi saldo Dolar Bonus Anda ke mata uang pilihan dengan mengklik tombol klaim.",
+  "bonus_store_validity": "Dolar Bonus harus digunakan dalam periode berlaku yang ditampilkan di tab Toko Bonus. Saldo Dolar Bonus yang tidak digunakan akan hangus setelah periode berlaku berakhir. Harap diperhatikan bahwa Anda hanya dapat memiliki satu promosi Dolar Bonus aktif pada satu waktu.",
+  "bonus_store_calculated": "Dolar Bonus dihitung dan dikreditkan dalam BONUS, lalu ditampilkan dalam mata uang tampilan pilihan Anda untuk kenyamanan. Harap dicatat bahwa konversi mata uang bersifat perkiraan. Kasino berhak mengubah atau mencabut kelayakan tanpa kewajiban memberikan alasan. Setiap penyalahgunaan atau aktivitas penipuan akan mengakibatkan diskualifikasi dari promosi.",
+  "youPay": "Anda bayar",
+  "extraBonus": "Bonus ekstra",
+  "bonusReceived": "Bonus diterima",
+  "youGet": "Anda dapat",
+  "extraBonusGet": "Dapatkan bonus ekstra {{value}}",
+  "minimumBuy": "Pembelian minimum",
+  "periodComplete": "Periode untuk menyelesaikan",
+  "bonusObtained": "BONUS diperoleh x {{value}}",
+  "bonusGameplay": "Mainkan slot dengan Bonus dan dapatkan lebih banyak chip. Dirancang untuk permainan cepat dan penarikan lebih cepat. \n\n Ideal untuk pemain kasual yang menginginkan pengalaman bonus yang mulus.",
+  "sportGameplay": "Mainkan olahraga dengan Bonus dan dapatkan lebih banyak chip. Dirancang untuk permainan cepat dan penarikan lebih cepat. \n\n Ideal untuk pemain kasual yang menginginkan pengalaman bonus yang mulus.",
+  "day_streak": "streak <0>{{value}}</0> hari",
+  "check_in": "check-in",
+  "get_more": "dapatkan lebih banyak",
+  "missed_key": "terlewat",
+  "daily_check_in": "check-in harian",
+  "check_in_today": "Check-in Hari Ini",
+  "get_more_buddy_balls": "Dapatkan Lebih Banyak Buddy Balls",
+  "checked_in": "Sudah check-in",
+  "no_games_available": "Tidak ada permainan yang tersedia di wilayah Anda.",
+  "daily_reset": "Reset harian pada {{time}}",
+  "withdrawal": "Penarikan minimum",
+  "wagering_rules": "Aturan Taruhan",
+  "sports_bonus_title": "BONUS \n OLAHRAGA",
+  "switch_prompt_title": "Bonus Olahraga Anda sudah siap \n Beralih untuk menggunakannya",
+  "switch_prompt_more": "Lagi",
+  "switch_prompt_switch": "Mengalihkan",
+  "switched_back_wallet": "Switched back to your {{currency}} wallet",
+  "sportsBonusStore": "Bonus Olahraga",
+  "sportsBonusActivate": "Bonus Olahraga Diaktifkan",
+  "sportsBonus": "Bonus Olahraga",
+  "buySportsBonus": "Beli Bonus Olahraga",
+  "sportsBonusGameplay": "Pasang taruhan olahraga dengan Bonus Olahraga Anda dan dapatkan nilai lebih. Dirancang untuk penggemar olahraga yang mencari taruhan yang lebih baik dan pembayaran yang lebih cepat. \n\n Ideal untuk petaruh yang menginginkan pengalaman bonus lancar yang disesuaikan dengan olahraga."
 }

@@ -15,7 +15,7 @@ count.txt
 AGENTS.md
 branch-assets/
 
-# AI generated documentation files (根目录)
+# AI generated documentation files
 /*.md
 !README.md
 
@@ -25,3 +25,8 @@ stats.html
 
 # TanStack Router generated files
 src/routeTree.gen.ts
+
+scripts
+claude-code-doc
+playwright-report
+test-results

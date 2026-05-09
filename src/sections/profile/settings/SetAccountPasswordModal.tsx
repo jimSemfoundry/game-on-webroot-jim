@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Eye, EyeOff } from "lucide-react";
+import type { Country } from "react-phone-number-input";
 import { toast } from "sonner";
 import { Modal } from "@/components/ui/Modal";
 import { ConfirmBox } from "@/components/modal/UserFinanceModal/c/ConfirmBox";
@@ -13,6 +14,7 @@ import { authService } from "@/services/authService";
 import { useCurrentUser } from "@/hooks/api/useAuth";
 import Iconify from "@/components/iconify";
 import { InnerImg } from "@/sections/profile/security/ChangePassword";
+import { useCountryCodeByIp } from "@/sections/profile/security/helper";
 
 type PasswordField = "new" | "confirm";
 
@@ -35,6 +37,7 @@ const initTouchedState = {
 export function SetAccountPasswordModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t } = useTranslation('profile');
   const { refetch } = useCurrentUser();
+  const { data: countryCodeResponse } = useCountryCodeByIp();
 
   const [account, setAccount] = useState("");
   const [accountValid, setAccountValid] = useState(false);
@@ -43,6 +46,12 @@ export function SetAccountPasswordModal({ open, onClose }: { open: boolean; onCl
   const [touched, setTouched] = useState(initTouchedState);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const defaultPhoneCountry = useMemo(() => {
+    const code = countryCodeResponse?.data?.country_code;
+    if (!code) return undefined;
+    return code.toUpperCase() as Country;
+  }, [countryCodeResponse?.data?.country_code]);
 
   const trimmedAccount = account.trim();
   const accountIsValid = trimmedAccount !== "" && accountValid;
@@ -186,6 +195,7 @@ export function SetAccountPasswordModal({ open, onClose }: { open: boolean; onCl
             <PhoneEmailInput
               placeholder={t("login:emailOrPhoneNumber")}
               value={account}
+              defaultCountry={defaultPhoneCountry}
               onChange={(value) => {
                 setAccount(value);
                 if (touched.account) {

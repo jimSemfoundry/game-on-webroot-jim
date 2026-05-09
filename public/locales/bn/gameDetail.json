@@ -34,5 +34,12 @@
   "depositNow": "এখন জমা দিন",
   "free_spins": "ফ্রি স্পিন",
   "play_with_balance_in": "ব্যালেন্সে খেলুন",
-  "the_selected_currency_will_be_displayed_in": "নির্বাচিত মুদ্রাটি প্রদর্শিত হবে"
+  "the_selected_currency_will_be_displayed_in": "নির্বাচিত মুদ্রাটি প্রদর্শিত হবে",
+  "activity": "কার্যকলাপ",
+  "come_join_me_now_at": "এখনই যুক্ত হোন",
+  "invite_friends_to_join_play": "বন্ধুদের যুক্ত হতে এবং খেলতে আমন্ত্রণ জানান",
+  "earn_up_to_50_commission_bonus": "৫০% পর্যন্ত কমিশন অর্জন করুন <0>+{{bonus}}</0> বোনাস",
+  "download_failed": "ডাউনলোড ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+  "image_downloaded": "ছবি ডাউনলোড হয়েছে!",
+  "share_text_1": "আমি এইমাত্র {{multiplier}}x বড় জয় পেয়েছি! 🔥"
 }

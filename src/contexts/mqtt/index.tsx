@@ -77,16 +77,16 @@ export const MqttServiceProvider = ({ children }: { children: ReactNode }) => {
 
     mqttClient.subscribe(subscriptionMap, (err) => {
       if (err) {
-        console.error("Subscription failed for pending topics:", topics, err);
+        // console.error("Subscription failed for pending topics:", topics, err);
       } else {
-        console.info(topics?.join(" | "), "🆗");
+        console.info('WSS', topics?.join(" | "), "✅");
       }
     });
   }, []);
 
   // 连接成功处理：更新 connected 状态
   const handleConnect = useCallback(() => {
-    console.log("wss connected 🆗");
+    // console.log("wss connected 🆗");
     setService((v) => ({ ...v, connected: true }));
     flushPendingSubscriptions();
   }, [flushPendingSubscriptions]);
@@ -156,33 +156,62 @@ export const MqttServiceProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   // 错误和关闭
-  const handleDisconnect = useCallback((err?: any) => {
-    console.log("wss connect [error | close] ❌", err);
+  const handleDisconnect = useCallback((_err?: any) => {
+    // console.log("wss connect [error | close] ❌", err);
     setService((v) => ({ ...v, connected: false }));
   }, []);
 
   useEffect(() => {
+    // t110774 §3.2 / PR2: 把 wss 连接推迟到首屏渲染完毕后的浏览器空闲期再发起，
+    // 避免冷启动期间 TLS 握手 + EMQX auth 阻塞 paint。Safari 16- 没有 rIC，fallback setTimeout(200ms)。
+    let idleCancel: (() => void) | null = null;
+
     if (!clientRef.current && baseConf?.data?.emqx_r_host && baseConf?.data?.emqx_r_pass && baseConf?.data?.emqx_r_user) {
-      const mqttClient = mqtt.connect(`wss://${baseConf?.data?.emqx_r_host}/mqtt`, {
-        ...mqtt_options,
-        username: baseConf?.data?.emqx_r_user,
-        password: baseConf?.data?.emqx_r_pass
-      });
+      const startConnect = () => {
+        // 重入保护：effect 卸载或被新一轮 idleCallback 抢跑时跳过
+        if (clientRef.current) return;
 
-      clientRef.current = mqttClient;
+        const mqttClient = mqtt.connect(`wss://${baseConf?.data?.emqx_r_host}/mqtt`, {
+          ...mqtt_options,
+          username: baseConf?.data?.emqx_r_user,
+          password: baseConf?.data?.emqx_r_pass
+        });
 
-      setService((v) => ({ ...v, client: mqttClient }));
+        clientRef.current = mqttClient;
 
-      mqttClient.on("error", (err) => {
-        handleDisconnect(err);
-      });
-      mqttClient.on("close", handleDisconnect);
-      mqttClient.on("connect", handleConnect);
-      mqttClient.on("message", handleMessages);
+        setService((v) => ({ ...v, client: mqttClient }));
+
+        mqttClient.on("error", (err) => {
+          handleDisconnect(err);
+        });
+        mqttClient.on("close", handleDisconnect);
+        mqttClient.on("connect", handleConnect);
+        mqttClient.on("message", handleMessages);
+      };
+
+      type RICWindow = Window & {
+        requestIdleCallback?: (cb: IdleRequestCallback, opts?: { timeout?: number }) => number;
+        cancelIdleCallback?: (handle: number) => void;
+      };
+      const w = window as RICWindow;
+
+      if (typeof w.requestIdleCallback === "function") {
+        // timeout: 2000 兜底——极慢机器上若 idle 一直没空，2s 后强制跑
+        const handle = w.requestIdleCallback(() => startConnect(), { timeout: 2000 });
+        idleCancel = () => w.cancelIdleCallback?.(handle);
+      } else {
+        const handle = window.setTimeout(startConnect, 200);
+        idleCancel = () => window.clearTimeout(handle);
+      }
     }
 
     // 组件卸载时断开连接
     return () => {
+      // 1. 如果连接还没开始（idle 等待中），取消 idle 回调
+      idleCancel?.();
+      idleCancel = null;
+
+      // 2. 如果连接已建立，按原逻辑清理
       if (clientRef.current) {
         pendingSubscriptionsRef.current = new Map();
 
@@ -211,7 +240,7 @@ export const MqttServiceProvider = ({ children }: { children: ReactNode }) => {
           // TODO: sentry.io 错误上报
           console.error("Failed to publish message:", err);
         } else {
-          console.info(`Successfully published message to topic: ${topic}`, message);
+          // console.info(`Successfully published message to topic: ${topic}`, message);
         }
       });
     }
@@ -227,9 +256,9 @@ export const MqttServiceProvider = ({ children }: { children: ReactNode }) => {
     clientRef.current.subscribe(topic, opts, (err) => {
       if (err) {
         // TODO: sentry.io 错误上报
-        console.error(topic, "✖️");
+        // console.error(topic, "✖️");
       } else {
-        typeof topic === "object" ? console.info(topic) : console.info(topic, "🆗");
+        // typeof topic === "object" ? console.info(topic) : console.info(topic, "🆗");
       }
     });
   }, [queuePendingSubscribe, service.connected]);
@@ -245,9 +274,9 @@ export const MqttServiceProvider = ({ children }: { children: ReactNode }) => {
     clientRef.current.unsubscribe(topic, opts, (err) => {
       if (err) {
         // TODO: sentry.io 错误上报
-        console.error(`Unsubscription failed for topic ${topic}:`, err);
+        // console.error(`Unsubscription failed for topic ${topic}:`, err);
       } else {
-        console.info(`Successfully unsubscribed from topic: ${topic}`);
+        // console.info(`Successfully unsubscribed from topic: ${topic}`);
       }
     });
   }, [service.connected]);

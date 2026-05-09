@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Als führende globale Spieleallianz vereinen wir die Stärke und Raffinesse erstklassiger Plattformen unter einer Vision. Über alle Marken in unserem Portfolio hinweg agieren wir als Einheit — wir bieten Unterhaltung, personalisierte Belohnungen und nahtlose Konnektivität über Währungen, Länder und Kulturen hinweg.",
   "footerDescriptionThree": "Spielen Sie nicht nur das Spiel. Fordern Sie alles heraus.",
   "footerDescriptionFour": "Ein Markenzeichen der {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Alle Rechte vorbehalten.",
+  "footerDescriptionFive": "© {{year}}. Alle Rechte vorbehalten.",
   "banner": {
     "oneDescription": "SEI DER ERSTE.",
     "oneDescriptionTwo": "FORDERE\nALLES HERAUS",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Zum Startbildschirm hinzufügen",
   "latestWins": "Neueste Gewinne",
   "spinPlayAndWinAcrossTopCasinoHits": "Drehen, spielen und gewinnen bei den besten Casino-Hits",
-  "scoreBigOnSportsFromAroundTheWorld": "Große Gewinne bei Sportereignissen aus aller Welt"
+  "scoreBigOnSportsFromAroundTheWorld": "Große Gewinne bei Sportereignissen aus aller Welt",
+  "liveDealers": "Live-Dealer für Ihre Lieblingstischspiele",
+  "show_less": "weniger anzeigen"
 }

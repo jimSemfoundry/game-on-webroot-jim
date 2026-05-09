@@ -20,7 +20,7 @@ import {
   useUserBalance
 } from "@/hooks/api/useAuth.ts";
 
-import { useCasinoHomeGameList } from "@/hooks/api/usePublic.ts";
+import { useCasinoHomeGameList, useIsLeagueEnabled, useSupportedSettlementCurrencies } from "@/hooks/api/usePublic.ts";
 import { useIsMobileDevice } from "@/hooks/useIsMobileDevice";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { FeaturedGames } from "@/sections/casino";
@@ -30,8 +30,9 @@ import { GameMyBets } from "@/sections/casino/GameMyBets";
 import { GameProviders } from "@/sections/casino/GameProviders.tsx";
 import { GameProviderTournaments } from "@/sections/tournament";
 import { publicService } from "@/services/publicService.ts";
+import { GoBountyGame } from "@/sections/bounty/GoBountyGame";
 import { useBoundStore } from "@/store";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useBlocker } from "@tanstack/react-router";
 import { ChevronDown, Maximize, Minimize, X } from "lucide-react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -39,7 +40,7 @@ import { toast } from "sonner";
 import {
   fn_ban_regions,
   fn_ban_support_settlement_currencies, fn_regions,
-  fn_support_settlement_currencies, getPathInROIBEST
+  fn_support_settlement_currencies, getPathInROIBEST, trackCustomEvent
 } from "@/utils/helper";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
@@ -52,14 +53,30 @@ type SectionKey = "tournament" | "bets";
 // Game Detail Component
 const GameDetail = () => {
   const { gameId } = Route.useParams();
+  const { data: settlement } = useSupportedSettlementCurrencies();
   const navigate = Route.useNavigate();
   const searchParams = Route.useSearch();
   const isFreeSpinsMode = searchParams?.freeSpins === "true";
-  const searchCurrency = typeof searchParams?.currency === "string" ? searchParams.currency.trim() : "";
+
+  // 验证 currency 是否在支持的结算币列表中，否则使用 USDT
+  const searchCurrency = useMemo(() => {
+    const rawCurrency = typeof searchParams?.currency === "string" ? searchParams.currency.trim().toUpperCase() : "";
+    if (!rawCurrency) return "";
+
+    const supportedList = settlement?.data ?? [];
+    const isSupported = supportedList.some(
+      (c: { currency: string }) => c.currency.toUpperCase() === rawCurrency
+    );
+
+    return isSupported ? rawCurrency : "USD";
+  }, [searchParams?.currency, settlement?.data]);
+
   const { t, i18n } = useTranslation(["common", "menu", "gameDetail", "bonus"]);
   const [gameInfoTransLoaded, setGameInfoTransLoaded] = useState(false);
 
   const { gameIsFullScreen, setGameIsFullScreen, setHeaderBackAction } = useBoundStore();
+  const openModal = useBoundStore((state) => state.openModal);
+  const closeModal = useBoundStore((state) => state.closeModal);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const [game, setGame] = useState<any>(null);
@@ -77,6 +94,7 @@ const GameDetail = () => {
   const { selectedCurrency: displayCurrency } = useDisplayCurrency();
   const { openSignUpModal } = useAuthModals();
   const { isAuthenticated, user, setStatus, status } = useAuth();
+  const { isLeagueEnabled } = useIsLeagueEnabled();
   const { mutate: likeGame } = useLikeGameMutation();
   const { mutate: launchGame, isPending: isLaunchingGame } = useLaunchGameMutation();
   const { mutate: launchDemoGame, isPending: isLaunchingDemoGame } = useLaunchDemoGameMutation();
@@ -173,25 +191,29 @@ const GameDetail = () => {
   }, [game, likeGame, setStatus, t]);
 
   const segmentOptions = useMemo(
-    () => [
-      {
-        value: "tournament",
-        label: (
-          <div className="text-xs flex items-center gap-2 whitespace-nowrap">
-            {t("menu:tournaments", "Tournaments")}
-          </div>
-        )
-      },
-      {
+    () => {
+      const options = [];
+      if (isLeagueEnabled) {
+        options.push({
+          value: "tournament",
+          label: (
+            <div className="text-xs flex items-center gap-2 whitespace-nowrap">
+              {t("menu:tournaments", "Tournaments")}
+            </div>
+          )
+        });
+      }
+      options.push({
         value: "bets",
         label: (
           <div className="text-xs flex items-center gap-2 whitespace-nowrap">
             {t("gameDetail:myBets", "My Bets")}
           </div>
         )
-      }
-    ],
-    [t]
+      });
+      return options;
+    },
+    [t, isLeagueEnabled]
   );
 
   const selectOptions = useMemo(() => segmentOptions.map((option) => ({
@@ -200,11 +222,6 @@ const GameDetail = () => {
   })), [segmentOptions]);
 
   const { data: casinoHomeGameList } = casinoHomeGameListResponse ?? {};
-
-  const isHiddenTournamentProvider = useMemo(() => {
-    const normalized = (game?.game_provider || "").toLowerCase();
-    return normalized === "pp" || normalized === "pragmatic" || normalized === "pragmaticplay";
-  }, [game?.game_provider]);
 
   const settlementBalanceAmount = useMemo(() => {
     if (!Array.isArray(userBalances)) {
@@ -396,8 +413,19 @@ const GameDetail = () => {
           if (gameIsFullScreen && isMobileDevice) {
             setIsMobileFullscreen(true);
           }
+
+          // GTM 记录推送
+          trackCustomEvent('user_play_game', 'userPlayGame', {
+            ...launchParams,
+            user_id: user?.id,
+            launchType: response.launch_type,
+          })
         } else {
-          toast.error(response.msg || "Failed to launch game");
+          if (response.code === 30009) {
+            toast.error(t('toast:cannotBetby'));
+          } else {
+            toast.error(response.msg || "Failed to launch game");
+          }
         }
       },
       onError: (error) => {
@@ -435,13 +463,38 @@ const GameDetail = () => {
   useEffect(() => {
     if (isPlayingGame) {
       setHeaderBackAction(handleCloseGame);
+      closeModal("OPEN_REFERRAL_SHARE_BIG_WIN_MODAL");
     } else {
       setHeaderBackAction(null);
     }
     return () => {
       setHeaderBackAction(null);
     };
-  }, [isPlayingGame, setHeaderBackAction, handleCloseGame]);
+  }, [isPlayingGame, setHeaderBackAction, handleCloseGame, closeModal]);
+
+  useEffect(() => {
+    if (!isPlayingGame) return;
+    return () => {
+      openModal("OPEN_REFERRAL_SHARE_BIG_WIN_MODAL");
+    };
+  }, [isPlayingGame, openModal]);
+
+  const gameBlocker = useBlocker({
+    shouldBlockFn: ({ current, next }) => {
+      if (!isPlayingGame) return false;
+      return current.fullPath !== next.fullPath;
+    },
+    withResolver: true,
+    enableBeforeUnload: false,
+  });
+
+  useEffect(() => {
+    if (gameBlocker.status === 'blocked' && isPlayingGame) {
+      closeModal("OPEN_REFERRAL_SHARE_BIG_WIN_MODAL");
+      openModal("OPEN_REFERRAL_SHARE_BIG_WIN_MODAL");
+      gameBlocker.proceed?.();
+    }
+  }, [gameBlocker.status, isPlayingGame, gameBlocker, openModal, closeModal]);
 
   const handleGameError = () => {
     toast.error("Game failed to load");
@@ -788,7 +841,7 @@ const GameDetail = () => {
                 {/* Desktop Layout */}
                 <div className="hidden sm:flex items-center sm:gap-8">
                   <div className="aspect-3/4 w-[140px] sm:w-[160px] rounded-box overflow-hidden">
-                    <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
+                    <GameImage src={game?.image} alt={game?.display_game_name} data={game} enabledBanGameList={false} />
                   </div>
 
                   <div className="flex-col sm:gap-3 hidden sm:flex max-w-96">
@@ -801,6 +854,7 @@ const GameDetail = () => {
                       )}
                     </div>
                     <h1 className="text-4xl font-bold text-base-content">{game?.display_game_name}</h1>
+                    <GoBountyGame bounty={game?.bounty} />
                     <div className="flex flex-wrap gap-2">
                       <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} className={"badge-xl"} />
                       <InnerBadge extra={<Iconify icon="custom:max-win" />} value={game?.max_win}
@@ -881,7 +935,7 @@ const GameDetail = () => {
                     {/* Game Image - Mobile */}
                     <div className="flex items-center flex-col gap-3">
                       <div className="aspect-3/4 w-[140px] shrink-0">
-                        <GameImage src={game?.image} alt={game?.display_game_name} data={game} />
+                        <GameImage src={game?.image} alt={game?.display_game_name} data={game} enabledBanGameList={false} />
                       </div>
                       {isAuthenticated && game?.inner_game_id && (
                         <div className="flex gap-2 justify-center items-center">
@@ -900,8 +954,7 @@ const GameDetail = () => {
                         /* Authenticated User - Full Controls */
                         <>
                           <h3
-                            className="text-xs sm:text-sm font-semibold text-base-content/60 mb-1 text-start px-1">Play
-                            with Balance In</h3>
+                            className="text-xs sm:text-sm font-semibold text-base-content/60 mb-1 text-start px-1">{t("gameDetail:play_with_balance_in", "Play with Balance In")}</h3>
                           {/* Currency Selector */}
                           <div className="mb-3">
                             <CurrencySelector
@@ -989,6 +1042,8 @@ const GameDetail = () => {
 
                   <p className="text-xl font-bold mb-3">{game?.display_game_name}</p>
 
+                  <GoBountyGame bounty={game?.bounty} className="mb-3 w-full" />
+
                   <div className="flex gap-2 flex-wrap">
                     <InnerBadge extra={<Iconify icon="custom:rtp" />} value={game?.rtp} />
                     <InnerBadge extra={<Iconify icon="custom:max-win" />} value={game?.max_win} />
@@ -1014,7 +1069,7 @@ const GameDetail = () => {
                              country_code={casinoHomeGameList.country_code} />
             )}
 
-            <GameProviders />
+            <GameProviders type="detail" />
 
             {isAuthenticated && (
               <>
@@ -1051,13 +1106,13 @@ const GameDetail = () => {
                   </div>
                 </div>
 
-                {activeSection === "tournament" && !isHiddenTournamentProvider ? (
+                {activeSection === "tournament" ? (
                   <GameProviderTournaments provider={game?.game_provider} withContainer={false} showHeading={false} />
                 ) : activeSection === "bets" ? (
                   <div className="container mx-auto px-0 mb-6">
                     <GameMyBets game_id={game?.inner_game_id} />
                   </div>
-                ) : null}
+                ) : <div className={'text-center p-6 text-xs bg-base-200 rounded-lg text-base-content/50 font-semibold'}>{t('common:common.noData')}</div>}
               </>
             )}
 

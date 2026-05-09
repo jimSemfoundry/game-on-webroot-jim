@@ -11,6 +11,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="%_FAVICON_APPLE_URL_%?_t=%_VERSION_%" />
   <link rel="preload" href="%BASE_URL%fonts/font.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="%BASE_URL%fonts/font.css" /></noscript>
+  <!-- t110774 §3.7 / PR7: 提前 preload woff2 字体，避免 CSS 加载完才发起字体请求（FOUT）-->
+  <link rel="preload" href="%BASE_URL%fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="%BASE_URL%fonts/tektur-variable.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   <meta name="screen-orientation" content="portrait">
   <meta name="x5-orientation" content="portrait">
   <meta name="orientation" content="portrait">
@@ -40,9 +43,6 @@
 <!-- Initial loading screen -->
 <div id="initial-loader"><div class="loader-logo"><img src="%_LOGO_LOADER_URL_%" alt=""></div></div>
 <div id="app"></div>
-<script type="module">
-  import.meta.env.VITE_TELEGRAM_SUPPORT==="true"&&(()=>{const e=document.createElement("script");e.src="https://telegram.org/js/telegram-web-app.js",e.defer=true,document.head.appendChild(e)})();
-</script>
 <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

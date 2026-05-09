@@ -1,24 +1,23 @@
 import Iconify from "@/components/iconify";
 import { useTranslation } from "react-i18next";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
 import { emitter } from "@/store/emitter.ts";
 import { ComponentProps } from "react";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
+import { useNavigate } from "@tanstack/react-router";
 
 export function FastFinanceLink() {
-  const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const { openUserFinanceModalWithTab } = useFinanceModal();
+  const { t } = useTranslation();
 
   return (
     <div className="flex items-center gap-2 mt-4">
       <button className="btn btn-primary btn-md sm:btn-lg flex-1"
-              onClick={() => openUserFinanceModalWithTab(`deposit_${randomString()}`)}>
+              onClick={() => void navigate({ to: "/finance" })}>
         <Iconify icon="custom:deposit" width={20} height={20} />
         <span>{t("common:common.deposit")}</span>
       </button>
       <button className="btn btn-ghost btn-md sm:btn-lg z-10 flex-1"
-              onClick={() => openUserFinanceModalWithTab(`withdraw_${randomString()}`)}>
+              onClick={() => void navigate({ to: "/finance", state: { activeTab: "withdraw" } as any })}>
         <Iconify icon="custom:withdraw" className="text-primary" width={20} height={20} />
         <span>{t("common:common.withdraw")}</span>
       </button>
@@ -27,13 +26,13 @@ export function FastFinanceLink() {
 }
 
 export function FastViewDataLink() {
-  const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const { openUserFinanceModalWithTab } = useFinanceModal();
+  const { t } = useTranslation();
 
   const items = [
     {
-      event: () => openUserFinanceModalWithTab(`swap_${randomString()}`),
+      event: () => void navigate({ to: "/finance", state: { activeTab: "swap" } as any }),
       id: "swap",
       label: t("common:common.swap")
     },
@@ -62,7 +61,8 @@ export function FastViewDataLink() {
         onClick={() => item.event()}
         className="p-2 rounded-lg truncate cursor-pointer h-10 font-semibold flex gap-1 items-center text-base-content/50 border border-1 border-base-100">
         <Iconify icon={`custom:${item.id}`} className="w-5 h-5" />
-        <span className="text-[12px] font-bold truncate max-w-full overflow-hidden whitespace-nowrap">{item.label}</span>
+        <span
+          className="text-[12px] font-bold truncate max-w-full overflow-hidden whitespace-nowrap">{item.label}</span>
       </div>))}
     </StopPropagation>
   );

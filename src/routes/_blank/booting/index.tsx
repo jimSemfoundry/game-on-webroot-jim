@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { publicService } from "@/services/publicService.ts";
 import { sleep, parseURLParamsToJson, getAdvertisementParams } from "@/components/socialLogin/helper.ts";
-import { rum_sdk_user_log, uuidv4Generate } from "@/utils/helper.ts";
+import { trackCustomEvent, uuidv4Generate } from "@/utils/helper.ts";
 import { getLogoFullUrl } from "@/utils/assetPaths";
 
 const controller = new AbortController();
@@ -99,13 +99,18 @@ export function RouteComponent() {
           localStorage.setItem("user", JSON.stringify(res?.user));
           localStorage.setItem("status", JSON.stringify(res?.status));
 
-          // 用户信息上传 rum
-          rum_sdk_user_log(res?.user)
-
           void navigate({
             to: "/casino",
             search: { openLogin: undefined, openSignUp: undefined, redirect: undefined, startapp: undefined, openFinance: undefined }
           });
+
+          // GTM 记录推送
+          trackCustomEvent('login', 'userLogin', {
+            id: res?.user?.id,
+            username: res?.user?.username,
+            nick_name: res?.user?.nickname,
+            country: res?.user?.country
+          })
         } else {
           toast.error(t("toast:signInFailed"));
         }

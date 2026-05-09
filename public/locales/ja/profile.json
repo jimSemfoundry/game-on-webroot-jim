@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "電話番号の認証が完了しました。続行できます。",
   "email_address_has_been_verified": "メールアドレスの確認が完了しました。続行する準備が整いました。",
   "setNewPassword": "新しいパスワードを設定",
-  "passwordLengthRequirement": "6文字から64文字の間でパスワードを入力してください。"
+  "passwordLengthRequirement": "6文字から64文字の間でパスワードを入力してください。",
+  "re_enter_new_password": "新しいパスワードを再入力",
+  "change_withdrawal_pin": "出金PINを変更",
+  "confirm_withdrawal_pin": "出金PINを確認",
+  "enter_email": "メールアドレスを入力",
+  "rolloverDetails": "ロールオーバー詳細",
+  "verified_email": "認証済みメール",
+  "verified_phone_number": "認証済み電話番号",
+  "change_key": "変更",
+  "update_successfully": "更新に成功しました。次回のログインには {<1>{{value}}</1>} をご使用ください。",
+  "understand_key": "了解",
+  "ensure_email_valid": "メールアドレスが有効で、ご自身がアクセスできることを確認してください。",
+  "ensure_phone_valid": "電話番号が有効で、ご自身がアクセスできることを確認してください。",
+  "enter_phone_number_to_receive_verification_code": "確認コードを受け取るには、以下に電話番号を入力してください。",
+  "enter_email_address_to_receive_verification_code": "確認コードを受け取るには、以下にメールアドレスを入力してください。"
 }

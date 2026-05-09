@@ -190,5 +190,13 @@
   "programAccessUpdate": "Aktualizacja dostępu do programu",
   "referralProgramPrivileges": "Twoje uprawnienia do programu poleceń zostały cofnięte po weryfikacji Twojego konta i udziału w programie. Zidentyfikowaliśmy działania niezgodne z warunkami lub przeznaczeniem naszego programu poleceń. Może to obejmować podejrzane wzorce poleceń, nieautoryzowane metody promocji, nadużycia zachęt lub próby obejścia zasad uczciwego korzystania.",
   "referralRewardsPrivileges": "W rezultacie wyłączono Twoją możliwość generowania nowych nagród za polecenia, udostępniania linków polecających lub otrzymywania korzyści z poleceń. Oczekujące lub przyszłe nagrody powiązane z programem poleceń zostaną wstrzymane i anulowane zgodnie z naszymi zasadami. <0>Wszystkie pozostałe funkcje Twojego konta pozostają bez zmian i nie są dotknięte tą zmianą</0>.",
-  "understandDisappointing": "Rozumiemy, że może to być rozczarowujące. Jeśli uważasz, że ta decyzja jest błędna lub chcesz uzyskać więcej informacji, skontaktuj się z naszym zespołem wsparcia, przekazując istotne informacje, a my przeanalizujemy Twoją sprawę."
+  "understandDisappointing": "Rozumiemy, że może to być rozczarowujące. Jeśli uważasz, że ta decyzja jest błędna lub chcesz uzyskać więcej informacji, skontaktuj się z naszym zespołem wsparcia, przekazując istotne informacje, a my przeanalizujemy Twoją sprawę.",
+  "spread_the_Love": "Podziel się miłością",
+  "need": "Potrzebujesz",
+  "new_friends": "Nowych przyjaciół?",
+  "timeToRecruit": "Czas rekrutować! Dotknij przycisku, aby opowiedzieć o nas zupełnie obcej osobie na WhatsAppie.",
+  "date": "data",
+  "save": "zapisz",
+  "enterCampaignName": "Wpisz nazwę kampanii",
+  "shareText": "🎮 Dołącz do mnie na tej niesamowitej platformie!"
 }

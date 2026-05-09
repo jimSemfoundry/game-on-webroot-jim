@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Qu'est-ce qu'un Booster ?",
-    "content": "<p class=\"leading-7\">Les Boosters doublent votre Rakeback pendant une heure chaque fois qu'un parrainage effectue un dépôt.</p><p class=\"leading-7\">Taux de déblocage boosté :</p><p class=\"leading-7\">Taux de déblocage :</p><p class=\"leading-7\">VIP 0-40 : 40%</p><p class=\"leading-7\">VIP 41-60 : 72%</p><p class=\"leading-7\">VIP 61-80 : 80%</p><p class=\"leading-7\">VIP 81-100 : 102%</p><p class=\"leading-7\">VIP 101-125 : 120%</p>"
+    "content": "<p class=\"leading-7\">Les Boosters doublent votre Rakeback pendant trois heures chaque fois qu'un parrainage effectue un dépôt.</p><p class=\"leading-7\">Taux de déblocage boosté :</p><p class=\"leading-7\">Taux de déblocage :</p><p class=\"leading-7\">VIP 0-40 : 40%</p><p class=\"leading-7\">VIP 41-60 : 72%</p><p class=\"leading-7\">VIP 61-80 : 80%</p><p class=\"leading-7\">VIP 81-100 : 102%</p><p class=\"leading-7\">VIP 101-125 : 120%</p>"
   },
   "faqSeven": {
     "title": "Qu'est-ce que le Calendrier des Bonus ?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Quelles sont les Réalisations ?",
-    "content": "<p class=\"leading-7\">Les Réalisations sont notre façon de reconnaître votre activité sur notre plateforme. Lorsque vous réclamez votre bonus de réalisation, il sera payé sur votre Calendrier des Bonus et peut être réclamé toutes les 8 heures et expirera dans les 24 heures s'il n'est pas réclamé.</p>"
+    "content": "<p class=\"leading-7\">Les Réalisations sont notre façon de reconnaître votre activité sur notre plateforme. Les Réalisations peuvent être réclamées lorsque vous atteignez VIP 2 et plus.</p>"
   }
 }

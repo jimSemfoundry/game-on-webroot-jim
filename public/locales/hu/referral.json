@@ -190,5 +190,13 @@
   "programAccessUpdate": "Programhozzáférés frissítése",
   "referralProgramPrivileges": "Az ajánlóprogramhoz kapcsolódó jogosultságaidat a fiókod és a programban való részvételed felülvizsgálata után visszavontuk. Olyan tevékenységet azonosítottunk, amely nem felel meg az ajánlóprogramunk feltételeinek vagy rendeltetésszerű használatának. Ez magában foglalhat gyanús ajánlási mintákat, nem engedélyezett promóciós módszereket, ösztönzők visszaélését vagy a méltányos használati irányelvek megkerülésére irányuló kísérleteket.",
   "referralRewardsPrivileges": "Ennek eredményeként letiltottuk azt a lehetőségedet, hogy új ajánlói jutalmakat generálj, ajánlói linkeket ossz meg, vagy előnyöket szerezz az ajánlásokból. Az ajánlóprogramhoz kapcsolódó függőben lévő vagy jövőbeli jutalmakat a szabályzatunknak megfelelően visszatartjuk és töröljük. <0>A fiókod minden egyéb funkciója változatlanul elérhető, és ezt a változást nem érinti</0>.",
-  "understandDisappointing": "Megértjük, hogy ez csalódást okozhat. Ha úgy gondolod, hogy a döntés tévedés, vagy további részletekre vagy kíváncsi, vedd fel a kapcsolatot támogatási csapatunkkal minden releváns információval, és felülvizsgáljuk az ügyedet."
+  "understandDisappointing": "Megértjük, hogy ez csalódást okozhat. Ha úgy gondolod, hogy a döntés tévedés, vagy további részletekre vagy kíváncsi, vedd fel a kapcsolatot támogatási csapatunkkal minden releváns információval, és felülvizsgáljuk az ügyedet.",
+  "spread_the_Love": "Oszd meg a szeretetet",
+  "need": "Szükséged van",
+  "new_friends": "Új barátokra?",
+  "timeToRecruit": "Ideje toborozni! Koppints a gombra, hogy mesélj rólunk egy teljesen idegennek WhatsAppon.",
+  "date": "dátum",
+  "save": "mentés",
+  "enterCampaignName": "Adja meg a kampány nevét",
+  "shareText": "🎮 Csatlakozz hozzám ezen a fantasztikus platformon!"
 }

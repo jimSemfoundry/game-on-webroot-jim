@@ -63,6 +63,7 @@
     "fiatWithdraw": "Fiat Withdraw",
     "cryptoWithdraw": "Crypto Withdraw",
     "bonus": "Bonus",
+    "bounty": "Bounty",
     "win": "Win",
     "bet": "Bet",
     "refund": "Refund",
@@ -71,7 +72,8 @@
     "rakebackbonus": "Rakeback Bonus",
     "cashbackbonus": "Cashback Bonus",
     "referral": "Referral",
-    "commission": "Commission"
+    "commission": "Commission",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Slots",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Unlocked Funds",
     "rolloverMul": "Rollover Multiplier"
   },
-  "assistance": "Please check your details and try again or contact customer service for assistance"
+  "assistance": "Your name does not match the name you first used for this channel. Please contact customer service."
 }

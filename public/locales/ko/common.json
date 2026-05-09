@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "이미 사용 중인 휴대폰 번호입니다. 다른 번호를 사용해 주세요.",
     "mobileAlreadyBound": "휴대폰 번호가 이미 이 계정에 연결되어 있습니다.",
     "fullscreen": "전체 화면",
-    "exitFullscreen": "전체 화면 종료"
+    "exitFullscreen": "전체 화면 종료",
+    "draw": "무승부"
   },
   "bonus_pool": "보너스 풀",
   "pleaseEnterValidUsernameOrEmail": "유효한 사용자 이름 또는 이메일을 입력하세요",

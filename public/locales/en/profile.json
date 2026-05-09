@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Your phone number has been verified. You're all set to continue.",
   "email_address_has_been_verified": "Your email address has been verified. You're all set to continue.",
   "setNewPassword": "Set New Password",
-  "passwordLengthRequirement": "Please enter a password between 6 and 64 characters."
+  "passwordLengthRequirement": "Please enter a password between 6 and 64 characters.",
+  "re_enter_new_password": "Re-Enter New Password",
+  "change_withdrawal_pin": "Change Withdrawal PIN",
+  "confirm_withdrawal_pin": "Confirm Withdrawal PIN",
+  "enter_email": "Enter Email",
+  "rolloverDetails": "Rollover Details",
+  "verified_email": "Verified email",
+  "verified_phone_number": "Verified phone number",
+  "change_key": "Change",
+  "update_successfully": "Update successful. Please use {<1>{{value}}</1>} for your next login.",
+  "understand_key": "Understand",
+  "ensure_email_valid": "Ensure your email address is valid and accessible by you.",
+  "ensure_phone_valid": "Ensure your phone number is valid and accessible by you.",
+  "enter_phone_number_to_receive_verification_code": "Enter your phone number below to receive a verification code.",
+  "enter_email_address_to_receive_verification_code": "Enter your email address below to receive a verification code."
 }

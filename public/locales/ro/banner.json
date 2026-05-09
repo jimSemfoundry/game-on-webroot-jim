@@ -36,5 +36,5 @@
   "vip_monday": "Luni VIP",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONUS \n <0>DOLARI</0>",
-  "super_everyday": "<0>Prima Depunere a Zilei</0><br/><0>Cripto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Îmbunătățiți-vă<br/>Depunerile În Fiecare Zi"
+  "super_everyday": "<0>Prima Depunere a Zilei</0><br/>Cripto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

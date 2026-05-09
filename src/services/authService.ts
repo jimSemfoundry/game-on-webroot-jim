@@ -25,6 +25,13 @@ export const authService = {
     const response = await publicAxiosInstance.post<LoginResponse>("/Authentication/login", credentials);
 
     if (response.data.code !== 0) {
+      if (response.data.code === 11 || response.data.code === 5004) {
+        throw new Error(i18n.t("toast:login_error_code_1"));
+      }
+      if (response.data.code === 5002 ) {
+        throw new Error(i18n.t("toast:user_not_found_or_password_incorrect"));
+      }
+
       throw new Error(response.data.msg || "Login failed");
     }
 
@@ -54,6 +61,9 @@ export const authService = {
     });
 
     if (response.data.code !== 0) {
+      if (response.data.code === 11 || response.data.code === 5004) {
+        throw new Error(i18n.t("toast:login_error_code_1"));
+      }
       const error: Error & { code?: number; responseData?: LoginResponse } = new Error(
         response.data.msg || "Sign up failed"
       );
@@ -509,14 +519,17 @@ export const authService = {
    * 获取 Tournament 排行榜
    */
   async getTournamentLeaderboard(params: {
-    tournament_id: number;
+    tournament_id: string;
     tournament_level: string;
     limit?: number;
     page?: number;
-    last_id?: number | string;
+    last_id?: string;
     last_wagered?: string;
   }): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/Tournament/getTournamentLeaderboard", params);
+    const filteredParams = Object.fromEntries(
+      Object.entries(params || {}).filter(([_, v]) => v != null && v !== "")
+    );
+    const response = await authAxiosInstance.post("/Tournament/getTournamentLeaderboard", filteredParams);
     return response.data;
   },
 
@@ -596,7 +609,7 @@ export const authService = {
    * 获取支持的Free Spin游戏列表
    */
   async getSupportedFreeSpinGames(data: any): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.post("/FreeSpin/getSupportedGames", data);
+    const response = await authAxiosInstance.post("/FreeSpin/getSupportedGamesV1", data);
     return response.data;
   },
 
@@ -612,8 +625,8 @@ export const authService = {
    * 启用Free Spin记录
    */
   async enableFreeSpinRecord(data: any): Promise<ApiResponse<any>> {
-    // const response = await authAxiosInstance.post("/FreeSpin/enableRecordV1", data);
-    const response = await authAxiosInstance.post("/FreeSpin/enableRecord", data);
+    const response = await authAxiosInstance.post("/FreeSpin/enableRecordV1", data);
+    // const response = await authAxiosInstance.post("/FreeSpin/enableRecord", data);
     return response.data;
   },
 
@@ -761,6 +774,12 @@ export const authService = {
 
   async getUserSwapRecords(query?: Record<string, any>): Promise<ApiResponse<any>> {
     const endpoint = query ? `/UserSwap?${new URLSearchParams(query)}` : "/UserSwap";
+    const response = await authAxiosInstance.get(endpoint);
+    return response.data;
+  },
+
+  async getBonusWalletRecords(query?: Record<string, any>): Promise<ApiResponse<any>> {
+    const endpoint = query ? `/BonusWallet/transactionsList?${new URLSearchParams(query)}` : "/BonusWallet/transactionsList";
     const response = await authAxiosInstance.get(endpoint);
     return response.data;
   },
@@ -961,7 +980,7 @@ export const authService = {
     return response.data;
   },
 
-// 周四充值奖励激活
+  // 周四充值奖励激活
   async userAddThursdayBonus() {
     const response = await authAxiosInstance.post("/Promo/addThursdayBonus");
     return response.data;
@@ -971,7 +990,6 @@ export const authService = {
     const response = await authAxiosInstance.get(`/GameList/getBanGameList?currency=${currency}`);
     return response.data;
   },
-
 
   // 获取彩金账户信息
   async getBonusWallet(): Promise<ApiResponse<any>> {
@@ -1005,7 +1023,7 @@ export const authService = {
 
   // 彩金类型列表
   async getBonusConfigList(): Promise<ApiResponse<any>> {
-    const response = await authAxiosInstance.get("/BonusWallet/configList");
+    const response = await authAxiosInstance.get("/BonusWallet/purchaseConfigList");
     return response.data;
   },
 
@@ -1024,6 +1042,269 @@ export const authService = {
   // 用户今日首冲次数
   async getTodayDepositCount(): Promise<ApiResponse<any>> {
     const response = await authAxiosInstance.get(`/Promo/getUtcTodayDepositCount`);
+    return response.data;
+  },
+
+  // 用户获取优惠码
+  async userClaimPromoCode(promo_code: string, device_id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post(`/PromoCode/claim`, { promo_code, device_id });
+    return response.data;
+  },
+
+  // 获取用户最近的锦标赛信息
+  async getUserLastTournamentInfo(tournament_id: any): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/Tournament/getUserLastTournamentInfo`, {
+      params: {
+        tournament_id
+      }
+    });
+    return response.data;
+  },
+
+  // 用户购买彩金
+  async userPurchaseBonus(purchase_amount: string, purchase_currency: string, bonus_config_id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post(`/BonusWallet/purchase`, {
+      purchase_amount,
+      purchase_currency,
+      bonus_config_id
+    });
+    return response.data;
+  },
+
+  // 获取最近锦标赛排行榜
+  async getLastTournamentLeaderboard(tournament_id: string, page: number, limit: number): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/Tournament/getLastTournamentLeaderboard`, {
+      params: {
+        tournament_id,
+        page,
+        limit
+      }
+    });
+    return response.data;
+  },
+
+  // 获取用户彩金记录
+  async getBonusWalletHistory(params: {
+    page: number;
+    limit: number;
+    status: string;
+    last_id?: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BonusWallet/historyList?limit=${params.limit}&page=${params.page}&last_id=${params.last_id}&status=${params.status}`);
+    return response.data;
+  },
+
+  // ========== Sports Bonus Wallet（独立于 slots BonusWallet）==========
+
+  // 获取体育彩金账户信息
+  async getSportsBonusWallet(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/SportsBonusWallet/index`);
+    return response.data;
+  },
+
+  // 体育彩金类型列表
+  async getSportsBonusConfigList(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/SportsBonusWallet/purchaseConfigList");
+    return response.data;
+  },
+
+  // 体育彩金禁区判断(按请求 IP 所在区域)
+  async getSportsBonusIsRegionBanned(): Promise<ApiResponse<{ is_region_banned: 0 | 1 }>> {
+    const response = await authAxiosInstance.get("/SportsBonusWallet/isRegionBanned");
+    return response.data;
+  },
+
+  // 用户购买体育彩金
+  async userPurchaseSportsBonus(purchase_amount: string, purchase_currency: string, bonus_config_id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post(`/SportsBonusWallet/purchase`, {
+      purchase_amount,
+      purchase_currency,
+      bonus_config_id
+    });
+    return response.data;
+  },
+
+  // 提取体育彩金账户收益
+  async claimSportsBonusWallet(id: string, currency: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/SportsBonusWallet/claim?id=${id}&claim_currency=${currency}`);
+    return response.data;
+  },
+
+  // 用户放弃体育彩金
+  async userAbandonSport(id: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/SportsBonusWallet/abandonBonus?id=${id}`);
+    return response.data;
+  },
+
+  // 体育彩金最近操作记录
+  async userSportsBonusLatestHistory(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/SportsBonusWallet/latestHistoryData`);
+    return response.data;
+  },
+
+  // 体育彩金完整记录
+  async getSportsBonusWalletHistory(params: {
+    page: number;
+    limit: number;
+    status: string;
+    last_id?: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/SportsBonusWallet/historyList?limit=${params.limit}&page=${params.page}&last_id=${params.last_id}&status=${params.status}`);
+    return response.data;
+  },
+
+  // 体育彩金购买/领取流水(Transactions 页面用)
+  async getSportsBonusWalletRecords(query?: Record<string, any>): Promise<ApiResponse<any>> {
+    const endpoint = query
+      ? `/SportsBonusWallet/transactionsList?${new URLSearchParams(query)}`
+      : "/SportsBonusWallet/transactionsList";
+    const response = await authAxiosInstance.get(endpoint);
+    return response.data;
+  },
+
+  // 球游戏 -> 球游戏的主页信息
+  async userBuddyBallsHome(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BuddyBalls/index`);
+    return response.data;
+  },
+
+  // BuddyBalls
+  async getBuddyBalls(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BuddyBalls/index`);
+    return response.data;
+  },
+
+  // BuddyBalls/dailyCheckin
+  async dailyCheckin(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post(`/BuddyBalls/dailyCheckin`);
+    return response.data;
+  },
+
+
+  // BuddyBalls/checkInHistory
+  async checkInHistory(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BuddyBalls/checkInHistory`);
+    return response.data;
+  },
+  // 球游戏 -> 提取球游戏的奖励
+  async userBuddyBallsClaim(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post(`/BuddyBalls/claim`);
+    return response.data;
+  },
+
+  // 球游戏 -> 球的消耗记录
+  async getBuddyBallsPlayList(params: {
+    page?: number;
+    limit?: number;
+    last_id?: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/BuddyBalls/playList", { params });
+    return response.data;
+  },
+
+  // 球游戏 -> 收益提取操作记录
+  async getBuddyBallsClaimList(params: {
+    page?: number;
+    limit?: number;
+    last_id?: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/BuddyBalls/claimList", { params });
+    return response.data;
+  },
+
+  // 球游戏 -> 签到来获取球游戏的球
+  async userBuddyBallsDailyCheck(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/BuddyBalls/dailyCheckIn`);
+    return response.data;
+  },
+
+  // 球游戏 -> 获取BuddyBalls玩球数据
+  async getBuddyBallsPlay(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post<ApiResponse<any>>("/BuddyBalls/play");
+    /*if (response.data.code !== 0) {
+      throw new Error(response.data.msg || "Failed to get game baddy balls play");
+    }*/
+    return response.data;
+  },
+  // 球游戏 -> 获取BuddyBalls球数量
+  async getBuddyBallsCount(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/BuddyBalls/index");
+    return response.data;
+  },
+
+  // 幸运盘 -> 主页信息
+  async userLuckySpinHome(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/LuckySpin/index");
+    return response.data;
+  },
+
+  // 幸运盘 -> 用户抽奖
+  async userLuckySpinLottery(type: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.post("/LuckySpin/lottery", { type });
+    return response.data;
+  },
+
+  // 幸运盘 -> 奖池详情接口
+  async getPoolPrizeList(type: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/LuckySpin/getPoolPrizeList?type=${type}`);
+    return response.data;
+  },
+
+  // 幸运盘 -> 我的中奖列表接口
+  async getUserSpinWinList(params: {
+    page: number;
+    limit: number;
+    sort_type: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`LuckySpin/myWinList?limit=${params.limit}&page=${params.page}&sort_type=${params.sort_type}`);
+    return response.data;
+  },
+
+  // 幸运盘 -> 用户的抽奖机会获得
+  async getUserSpinChance(params: {
+    page: number;
+    limit: number;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`LuckySpin/chanceList?limit=${params.limit}&page=${params.page}`);
+    return response.data;
+  },
+
+  // 幸运盘 -> 所有人中奖列表接口
+  async getAllSpinWinList(params: {
+    page: number;
+    limit: number;
+    sort_type: string;
+  }): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`LuckySpin/winList?limit=${params.limit}&page=${params.page}&sort_type=${params.sort_type}`);
+    return response.data;
+  },
+
+  // TODO: 法币存款通道分类支持
+  async getDepositChannelClassList(currency: string): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get(`/PaymentChannelClass/getDepositChannelClassList?currency=${currency}`);
+    return response.data;
+  },
+  // 球游戏 -> 获取球袋倍率配置
+  async buddyBallConfigList(): Promise<ApiResponse<any>> {
+    const response = await authAxiosInstance.get("/BuddyBalls/buddyBallConfigList");
+    return response.data;
+  },
+
+  /**
+   * 上传玩家分享图片（Big Win / Mega Win 等）
+   * @param file 图片文件（jpg/png/jpeg/gif，≤2MB）
+   * @param imageType 图片类型，如 'Big Win' / 'Mega Win' / 'Super Mega Win'
+   */
+  async uploadShareImage(file: File, imageType: string): Promise<ApiResponse<{
+    number: number;
+    image_url: string;
+  }>> {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("image_type", imageType);
+    const response = await authAxiosInstance.post("/Images/uploadShareImage", formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    });
     return response.data;
   }
 };

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Mi az a Booster?",
-    "content": "<p class=\"leading-7\">A boosterek megduplázzák a rakebackedet egy órára, minden alkalommal, amikor egy ajánlott játékos befizetést végez.</p><p class=\"leading-7\">Fokozott Feloldási Arány:</p><p class=\"leading-7\">Feloldási Arány:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">A boosterek megduplázzák a rakebackedet három órára, minden alkalommal, amikor egy ajánlott játékos befizetést végez.</p><p class=\"leading-7\">Fokozott Feloldási Arány:</p><p class=\"leading-7\">Feloldási Arány:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Mi az a Bónusz Naptár?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Mik azok az Eredmények?",
-    "content": "<p class=\"leading-7\">Az eredmények a platformunkon végzett tevékenységed elismerésének módja. Amikor igényled az eredmény bónuszodat, az a Bónusz Naptáradba kerül kifizetésre, és 8 óránként igényelhető, valamint 24 órán belül lejár, ha nem igénylik.</p>"
+    "content": "<p class=\"leading-7\">Az eredmények a platformunkon végzett tevékenységed elismerésének módja. Az eredmények igényelhetők, amikor eléred a VIP 2 szintet és afelett.</p>"
   }
 }

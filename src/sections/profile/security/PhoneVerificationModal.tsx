@@ -19,6 +19,7 @@ import { useCountryCodeByIp } from "@/sections/profile/security/helper.ts";
 import { getCountryCallingCode } from "react-phone-number-input/min";
 import { useQueryClient } from "@tanstack/react-query";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
+import { useCurrentUser } from "@/hooks/api/useAuth";
 
 interface IStatus {
   step: "STEP1" | "STEP2" | "STEP3",
@@ -62,6 +63,8 @@ export const PhoneVerificationModal = (
 
   const { t } = useTranslation("profile");
 
+  const { refetch } = useCurrentUser();
+
   /**
    * 当前用户IP对应的地区
    */
@@ -102,8 +105,8 @@ export const PhoneVerificationModal = (
           toast.error(t(matchResponseCodeErrorForPhone(res.code)));
         }
       }).catch((error) => {
-      console.info(error);
-    })
+        console.info(error);
+      })
       .finally(() => {
         setStatus((old) => ({
           ...old,
@@ -126,13 +129,16 @@ export const PhoneVerificationModal = (
     })
       .then((res) => {
         if (res.code === 0) {
+          void refetch();
           setStatus((old) => ({ ...old, step: "STEP3", opt_code: "" }));
+        } else if (res.code === 1002) {
+          toast.error(t("common:invalid_or_expired_verification_code"));
         } else {
           toast.error(t(matchResponseCodeError(res.code)));
         }
       }).catch((error) => {
-      console.info(error);
-    })
+        console.info(error);
+      })
       .finally(() => {
         setStatus((old) => ({ ...old, bind_phone_loading: false }));
       });
@@ -174,7 +180,7 @@ export const PhoneVerificationModal = (
       isOpen={open}
       onClose={onClose}
       position="modal-middle"
-      className="bg-base-400 md:max-w-[420px] shadow-lg"
+      className="bg-base-400 md:max-w-[420px] shadow-lg hide-scrollbar"
     >
       {/* send phone verification code form */}
       <DisplayContent status={status.step === "STEP1"}>
@@ -182,7 +188,7 @@ export const PhoneVerificationModal = (
           <InnerImg name="security-phone-number-verification" className="md:w-auto md:h-auto w-25 h-25" />
 
           <p className="text-base-content/50 text-sm font-semibold">
-            {t("profile:phoneVerificationDescription")}
+            {t("profile:enter_phone_number_to_receive_verification_code")}
           </p>
 
           <div className="flex flex-col gap-2 w-full">
@@ -211,7 +217,7 @@ export const PhoneVerificationModal = (
 
           {/* confirm */}
           <ConfirmBox disabled={!status.phone || phone_format_error} onClick={sendCode}
-                      loading={status.send_code_loading}>
+            loading={status.send_code_loading}>
             {t("common:common.continue")}
           </ConfirmBox>
         </div>
@@ -227,10 +233,10 @@ export const PhoneVerificationModal = (
           </h2>
 
           <p className="text-base-content/50 text-sm font-semibold text-center">
-            {t("profile:codeSentTo")}: {status.phone}
+            {t("profile:codeSentTo")}: {status.country ? "+" + getCountryCallingCode(status.country as Country) + "-" + status.phone : status.phone}
           </p>
 
-          <div className="relative flex flex-col gap-2 w-full">
+          <div className="relative flex flex-col gap-2 w-full overflow-hidden">
             {/* 输入手机验证码 */}
             <OTPInput
               ref={inputRef}
@@ -241,7 +247,7 @@ export const PhoneVerificationModal = (
               render={({ slots }) => (
                 <div className="flex gap-2 justify-between flex-1">
                   {slots.map((slot, idx) => (
-                    <div key={idx} className="flex-1 min-w-10 min-h-12 rounded-md flex items-center justify-center bg-base-200 text-2xl font-extrabold font-sans">
+                    <div key={idx} className="flex-1 min-w-10 min-h-12 rounded-md flex items-center justify-center bg-base-200 text-base-content text-2xl font-extrabold font-sans">
                       {slot.char}
                       {slot.hasFakeCaret && <div className="w-px h-4 bg-primary animate-caret-blink" />}
                     </div>
@@ -265,7 +271,7 @@ export const PhoneVerificationModal = (
 
           {/* confirm */}
           <ConfirmBox disabled={!status.phone || !status.opt_code || phone_opt_code_error} onClick={bindPhone}
-                      loading={status.bind_phone_loading}>
+            loading={status.bind_phone_loading}>
             {t("common:common.continue")}
           </ConfirmBox>
 
@@ -273,8 +279,8 @@ export const PhoneVerificationModal = (
           <div className="text-[11px] text-base-content/50 font-semibold flex items-center gap-1">
             {t("profile:notReceiveCode")}
             {status.finished && <div className="text-primary cursor-pointer flex items-center gap-1"
-                                     onClick={sendCode}>{t("profile:resend")} {status.send_code_loading && (
-              <span className="loading loading-spin w-2.5 h-2.5" />)}.</div>}
+              onClick={sendCode}>{t("profile:resend")} {status.send_code_loading && (
+                <span className="loading loading-spin w-2.5 h-2.5" />)}.</div>}
             {!status.finished && status.end_timestamp > 0 && (<div className="inline-flex items-center gap-1">
               {t("profile:resendIn")}
               <Countdown end={status.end_timestamp} onFinished={(v) => {
@@ -298,13 +304,14 @@ export const PhoneVerificationModal = (
             <div className="flex flex-col gap-4 items-center">
               <p className="text-md">{t("profile:verificationSuccess")}</p>
               <p className="text-base-content/50 text-sm text-center">
-                <Trans i18nKey="profile:phone_number_has_been_verified" />
+                {/* <Trans i18nKey="profile:phone_number_has_been_verified" /> */}
+                <Trans i18nKey="profile:update_successfully" values={{ value: status.country ? "+" + getCountryCallingCode(status.country as Country) + "-" + status.phone : status.phone }} components={{ 1: <span className="text-warning" /> }} />
               </p>
             </div>
             <ConfirmBox onClick={() => {
               setStatus(initStatus);
               onClose();
-            }}>{t("common:common.close")}</ConfirmBox>
+            }}>{t("profile:understand_key")}</ConfirmBox>
           </div>} />
       </DisplayContent>
     </Modal>

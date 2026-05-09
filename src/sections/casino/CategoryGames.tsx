@@ -5,6 +5,7 @@ import { isMobile } from "@/utils/browser";
 import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "@tanstack/react-router";
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 type CategoryGamesProps = {
   games: any[];
@@ -15,6 +16,9 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
 
   // 因为后端返回的字符串格式与翻译key不匹配，需要将 kebab-case 格式转换为 camelCase 格式
   const categoryKey = category.replace(/-([a-z])/g, (_, letter) =>
@@ -27,7 +31,7 @@ export const CategoryGames = ({ games, category }: CategoryGamesProps) => {
   }, []);
 
   // 过滤掉加载失败的游戏
-  const validGames = games.filter((game) => !failedImages.has(game.id));
+  const validGames = games.filter((game) => !isGameBanned(game) && !failedImages.has(game.id));
 
   // 处理 All 按钮点击 - 导航到 explore 页面并设置正确的过滤器
   const handleAllClick = useCallback(() => {

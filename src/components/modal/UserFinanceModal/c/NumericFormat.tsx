@@ -3,7 +3,20 @@ import { forwardRef, ReactNode, useMemo } from "react";
 import { NumericFormat as _NumericFormat, NumericFormatProps } from "react-number-format";
 
 export const o = (value: string | number, decimal = 8): string => {
-  const str = typeof value === "number" ? String(value) : value;
+  let str: string;
+  if (typeof value === "number") {
+    str = String(value);
+  } else {
+    str = value;
+  }
+  // 优先判断是否为科学计数法
+  if (str.includes("e") || str.includes("E")) {
+    const match = str.match(/[eE]([+-]?\d+)$/);
+    const exponent = match ? parseInt(match[1], 10) : 0;
+    // 根据指数动态调整小数位数，避免极大数产生超长字符串
+    const safeDecimal = exponent > 10 ? Math.max(0, 20 - exponent) : 20;
+    str = Number(str).toFixed(safeDecimal).replace(/\.?0+$/, "");
+  }
   return str.indexOf(".") > -1 ? f(str, decimal) : str;
 };
 
@@ -37,7 +50,7 @@ export const NumericFormat = forwardRef<HTMLDivElement, NumericFormatProps<{
         {...props}
         value={final_value}
         allowNegative={false}
-        className={clsx("flex-1 input px-0 border-0 rounded-none !outline-0 font-bold bg-inherit disabled:bg-inherit", props.className)} />
+        className={clsx("flex-1 input px-0 border-0 rounded-none !outline-0 font-bold bg-inherit disabled:bg-inherit [&::placeholder]:text-base-content", props.className)} />
       {suf && <div className="text-base-content/70">{suf}</div>}
     </div>
   );

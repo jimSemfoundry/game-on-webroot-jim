@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "يرجى تعبئة معلومات سحب العملة الورقية الخاصة بك.",
   "updating_withdrawal_address": "جارٍ تحديث عنوان السحب، يرجى الانتظار...",
   "please_select_withdrawal_method": "يرجى اختيار طريقة السحب.",
-  "integer_deposit": "يتطلب هذا القناة أن يكون مبلغ الإيداع مضاعفًا صحيحًا لـ {{value}}.",
+  "integer_deposit": "يتطلب هذا القناة أن يكون مبلغ الإيداع بوحدة {{value}}.",
   "enter_string_en_only": "يمكن إدخال أحرف إنجليزية وأرقام ومسافات فقط.",
-  "enter_string_min_length": "يجب أن يكون الطول على الأقل {{length}}."
+  "enter_string_min_length": "يجب أن يكون الطول على الأقل {{length}}.",
+  "met_eligibility": "*لقد استوفيت معايير الأهلية للعرض الخاص. قم بالشحن الآن لتلقي مكافأتك!",
+  "read_carefully": "يرجى القراءة بعناية",
+  "no_channel": "لا توجد قنوات متاحة في الوقت الحالي"
 }

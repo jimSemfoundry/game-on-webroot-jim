@@ -2,24 +2,9 @@ import { Modal } from "@/components/ui/Modal";
 import Copy from "@/components/ui/Copy";
 import Iconify from "@/components/iconify";
 import { useTranslation } from "react-i18next";
-import { useMemo } from "react";
-import { isIOS, isMobile } from "@/utils/browser";
 import { toast } from "sonner";
-
-const isStandalonePwa = () => {
-  const isIosStandalone = typeof (navigator as any)?.standalone === 'boolean' && (navigator as any).standalone;
-  const isDisplayModeStandalone = typeof window !== 'undefined' && window.matchMedia?.('(display-mode: standalone)')?.matches;
-  return Boolean(isIosStandalone || isDisplayModeStandalone);
-}
-
-const openExternalUrl = (url: string) => {
-  if (!url) return;
-  if (isStandalonePwa() || (isMobile() && isIOS())) {
-    window.location.assign(url);
-    return;
-  }
-  window.open(url, "_blank", "noopener,noreferrer");
-}
+import { shareTo } from "@/features/social/lib/socialShare";
+import type { SocialNavigationResult } from "@/features/social/lib/socialNavigation";
 
 type ReferralShareModalProps = {
   isOpen: boolean;
@@ -33,93 +18,80 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
   referralLink = "",
 }) => {
   const { t } = useTranslation(['referral', 'common']);
+  const hasShareableLink = /^https?:\/\//i.test(referralLink);
 
-  const shareMessage = useMemo(() => {
-    return encodeURIComponent(
-      `🎮 Join me on this amazing platform! Use my referral link: ${referralLink}`
-    );
-  }, [referralLink]);
+  const shareText = t("referral:shareText", "🎮 Join me on this amazing platform!");
 
-  const handleSocialShare = (platform: string) => {
+  const notifyShareIssue = (result?: SocialNavigationResult) => {
+    if (!result) {
+      toast.error(t("referral:shareLinkUnavailable", "Share link isn't ready yet. Please try again."));
+      return;
+    }
+
+    if (result.status === "blocked") {
+      toast.error(
+        t(
+          "referral:sharePopupBlocked",
+          "Unable to open the share target. Please allow pop-ups or open it in your browser."
+        )
+      );
+      return;
+    }
+
+    if (result.status === "failed" && result.reason === "telegram-open-failed") {
+      toast.error(
+        t(
+          "referral:shareTelegramFailed",
+          "Unable to open this share target from Telegram right now."
+        )
+      );
+      return;
+    }
+
+    if (result.status === "failed" && result.reason === "clipboard-failed") {
+      toast.error(
+        t(
+          "referral:copyFailed",
+          "Unable to copy the link right now. Please try again."
+        )
+      );
+      return;
+    }
+
+    toast.error(t("common:error", "Something went wrong. Please try again."));
+  };
+
+  const handleSocialShare = async (platform: string) => {
     try {
-      let url = "";
-      
-      switch (platform) {
-        case "telegram":
-          url = `https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent("🎮 Join me on this amazing platform!")}`;
-          break;
-        case "whatsapp":
-          if (isMobile()) {
-            const whatsappMobileLink = `whatsapp://send?text=${shareMessage}`;
-            if (isStandalonePwa()) {
-              window.location.assign(whatsappMobileLink);
-            } else if (isIOS()) {
-              window.location.assign(whatsappMobileLink);
-            } else {
-              const link = document.createElement('a');
-              link.href = whatsappMobileLink;
-              link.setAttribute('data-action', 'share/whatsapp/share');
-              link.setAttribute('target', '_blank');
-              link.setAttribute('rel', 'noopener noreferrer');
-              link.click();
-            }
-
-            setTimeout(() => {
-              window.location.href = `https://api.whatsapp.com/send?text=${shareMessage}`;
-            }, 300);
-            return;
-          } else {
-            url = `https://web.whatsapp.com/send?text=${shareMessage}`;
-          }
-          break;
-        case "messenger":
-          if (isMobile()) {
-            url = `fb-messenger://share/?link=${encodeURIComponent(referralLink)}`;
-          } else {
-            url = `https://www.messenger.com/t/?link=${encodeURIComponent(referralLink)}`;
-          }
-          break;
-        case "facebook":
-          url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralLink)}`;
-          break;
-        case "instagram":
-          navigator.clipboard?.writeText(referralLink);
-          toast.success(t("referral:linkCopiedOpenInstagram", "Link copied! Open Instagram to share."));
-          return;
-        default:
-          return;
+      const result = await shareTo(platform as any, {
+        url: referralLink,
+        text: shareText,
+      });
+      if (!result.handled) {
+        notifyShareIssue();
+        return;
       }
-      
-      openExternalUrl(url);
+      if (result.copied) {
+        toast.success(t("referral:linkCopiedOpenInstagram", "Link copied! Open Instagram to share."));
+        return;
+      }
+      if (result.result?.status !== "opened") {
+        notifyShareIssue(result.result);
+      }
     } catch (error) {
       console.error("Share error:", error);
       toast.error(t("common:error", "Something went wrong. Please try again."));
     }
   };
 
-  const handleWhatsAppRecruit = () => {
+  const handleWhatsAppRecruit = async () => {
     try {
-      if (isMobile()) {
-        const whatsappMobileLink = `whatsapp://send?text=${shareMessage}`;
-        if (isStandalonePwa()) {
-          window.location.assign(whatsappMobileLink);
-        } else if (isIOS()) {
-          window.location.assign(whatsappMobileLink);
-        } else {
-          const link = document.createElement('a');
-          link.href = whatsappMobileLink;
-          link.setAttribute('data-action', 'share/whatsapp/share');
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
-          link.click();
-        }
-
-        setTimeout(() => {
-          window.location.href = `https://api.whatsapp.com/send?text=${shareMessage}`;
-        }, 300);
-      } else {
-        const url = `https://web.whatsapp.com/send?text=${shareMessage}`;
-        openExternalUrl(url);
+      const result = await shareTo("whatsapp", {
+        url: referralLink,
+        text: shareText,
+      });
+      if (!result.handled || result.result?.status !== "opened") {
+        notifyShareIssue(result.result);
       }
     } catch (error) {
       console.error("WhatsApp share error:", error);
@@ -140,6 +112,7 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       hideTitle
+      zIndex={1111111}
       position="modal-middle"
       className="bg-base-400 max-w-full sm:w-[460px] sm:max-w-[92vw] rounded-t-3xl sm:rounded-3xl text-base-content shadow-[0_25px_60px_rgba(0,0,0,0.45)]"
       closeButtonClassName="btn-sm btn-square bg-base-300/40 border-0 text-base-content/70 hover:bg-base-300"
@@ -148,22 +121,24 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
       <div className="space-y-6">
         <div className="flex items-center gap-2 text-lg sm:text-xl font-bold text-base-content">
           <Iconify icon="mdi:share-variant" width={24} height={24} className="text-primary" />
-          <span>{t("referral:spreadTheLove", "Spread the Love")}</span>
+          <span>{t("referral:spread_the_Love", "Spread the Love")}</span>
         </div>
 
         <div className="bg-base-300/70 rounded-field px-3 py-2 flex items-center gap-2 min-w-0">
           <div className="flex-1 min-w-0 overflow-x-auto hide-scrollbar">
             <span className="text-xs font-semibold text-base-content/60 whitespace-nowrap">
-              {referralLink || "https://game.on/start?323z1DF"}
+              {hasShareableLink
+                ? referralLink
+                : t("referral:loadingLink", "Loading link...")}
             </span>
           </div>
-          {referralLink && (
+          {hasShareableLink && (
             <Copy
               text={referralLink}
               trigger={
                 <button
                   type="button"
-                  className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60 flex-shrink-0"
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-md text-primary hover:text-primary-focus focus:outline-none focus:ring-2 focus:ring-primary/60 shrink-0"
                   aria-label={t("referral:copyLink", "Copy link")}
                 >
                   <Iconify icon="solar:copy-linear" width={14} height={14} />
@@ -181,9 +156,12 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
             {socialIcons.map((social) => (
               <button
                 key={social.id}
-                onClick={() => handleSocialShare(social.id)}
+                onClick={() => {
+                  void handleSocialShare(social.id);
+                }}
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-base-200 hover:bg-base-300 transition-all hover:scale-110"
                 aria-label={`Share on ${social.id}`}
+                disabled={!hasShareableLink}
               >
                 <Iconify icon={social.icon} width={28} height={28} />
               </button>
@@ -194,8 +172,7 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
         <div className="space-y-3">
           <h3 className="text-base sm:text-lg font-bold text-base-content">
             <span>{t("referral:need", "Need")} </span>
-            <span className="text-primary">{t("referral:newFriends", "New Friends")}</span>
-            <span>?</span>
+            <span className="text-primary">{t("referral:new_friends", "New Friends?")}</span>
           </h3>
           <p className="text-sm text-base-content/60">
             {t(
@@ -204,8 +181,11 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
             )}
           </p>
           <button
-            onClick={handleWhatsAppRecruit}
+            onClick={() => {
+              void handleWhatsAppRecruit();
+            }}
             className="btn btn-lg w-full text-base rounded-field border-0 font-bold text-black bg-primary hover:bg-primary/80 transition-colors"
+            disabled={!hasShareableLink}
           >
             {t("referral:sendOnWhatsapp", "Send on Whatsapp")}
           </button>
@@ -214,4 +194,3 @@ export const ReferralShareModal: React.FC<ReferralShareModalProps> = ({
     </Modal>
   );
 };
-

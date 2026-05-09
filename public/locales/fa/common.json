@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "این شماره موبایل قبلاً استفاده شده است. لطفاً از شماره دیگری استفاده کنید.",
     "mobileAlreadyBound": "این شماره موبایل قبلاً به این حساب متصل شده است.",
     "fullscreen": "تمام صفحه",
-    "exitFullscreen": "خروج از تمام صفحه"
+    "exitFullscreen": "خروج از تمام صفحه",
+    "draw": "مساوی"
   },
   "bonus_pool": "استخر جایزه",
   "pleaseEnterValidUsernameOrEmail": "لطفاً یک نام کاربری یا ایمیل معتبر وارد کنید",

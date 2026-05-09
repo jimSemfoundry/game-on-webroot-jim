@@ -17,8 +17,8 @@ export function Index() {
       <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
         {isTelegram ? <SetAccountPassword /> : <ChangePassword />}
         <SetWithdrawalPIN />
-        <EmailVerification />
         <PhoneVerification />
+        <EmailVerification />
       </div>
     </Card>
   );

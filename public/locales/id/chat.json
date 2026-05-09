@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Obrolan layanan pelanggan gagal dimuat",
   "read": "Baca",
   "unread": "Belum dibaca",
-  "customerService": "Layanan pelanggan"
+  "customerService": "Layanan pelanggan",
+  "today": "hari ini",
+  "earlier": "sebelumnya",
+  "older": "lebih lama"
 }

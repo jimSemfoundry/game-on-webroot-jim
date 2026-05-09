@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Por favor, ingrese una longitud fija de {{length}} caracteres",
   "disabledCharNotAllowed": "El carácter {{char}} no está permitido",
   "space": "espacio",
-  "thisWalletIsAlreadyUsed": "Esta billetera ya está en uso"
+  "thisWalletIsAlreadyUsed": "Esta billetera ya está en uso",
+  "login_failed": "Error de inicio de sesión",
+  "login_error_code_1": "El nombre de usuario debe ser un número de teléfono válido (comenzando con + y usando - después del código de país) o una dirección de correo electrónico",
+  "account_created_and_logged_in_successfully": "¡Cuenta creada e inicio de sesión exitoso!",
+  "requests_later": "Demasiadas solicitudes desde esta IP. Por favor, inténtelo de nuevo más tarde.",
+  "booster_activated_successfully": "¡Booster activado con éxito!",
+  "depositNameEntered": "El nombre ingresado para depósito debe coincidir con el nombre completo<0>（Nombre + Apellido）</0> en la cuenta bancaria utilizada para retiro, cumpliendo con las regulaciones anti-fraude y anti-lavado de dinero.\n\n Si necesita cambiar su cuenta bancaria, contacte al servicio de atención al cliente y complete la verificación KYC.",
+  "user_not_found_or_password_incorrect": "Usuario no encontrado o contraseña incorrecta",
+  "free_spin_record_enabled_successfully": "¡Registro de giros gratis activado con éxito!",
+  "check_in_success": "¡Check-in realizado con éxito!",
+  "check_in_failed": "¡El check-in falló!",
+  "check_in_already": "El check-in ya se completó para esta fecha.",
+  "ballsClaimed": "Bola del compañero reclamada con éxito",
+  "cannotBetby": "El monedero de bonos deportivos es solo para apuestas deportivas."
 }

@@ -6,10 +6,10 @@ import {
 } from "@/components/ui/Accordion";
 import { useTranslation } from "react-i18next";
 import { ReactNode, useMemo } from "react";
-import { useBonusSwitch } from "@/hooks/api/useAuth.ts";
+import { useBonusSwitch, useCurrentUser } from "@/hooks/api/useAuth.ts";
 
 export function VipFAQ() {
-  const { t } = useTranslation(['vipFaq', 'vip']);
+  const { t } = useTranslation(["vipFaq", "vip"]);
 
   const faqItems = [
     {
@@ -17,11 +17,11 @@ export function VipFAQ() {
       question: t("vipFaq:faqOne.title"),
       answer: t("vipFaq:faqOne.content")
     },
-    {
-      id: "vip-faq-2",
-      question: t("vipFaq:faqTwo.title"),
-      answer: t("vipFaq:faqTwo.content")
-    },
+    // {
+    //   id: "vip-faq-2",
+    //   question: t("vipFaq:faqTwo.title"),
+    //   answer: t("vipFaq:faqTwo.content")
+    // },
     {
       id: "vip-faq-4",
       question: t("vipFaq:faqFour.title"),
@@ -86,9 +86,14 @@ export const InnerGuardContainer = (
     children: ReactNode
   }
 ) => {
+  const { data } = useCurrentUser();
+
   const { switchData } = useBonusSwitch();
 
+  // TODO: 是否隐藏用户成就
   const is_achievements = useMemo(() => switchData?.bonus_switch?.achievements === 0 && (item?.id === "vip-faq-3" || item?.field === "achievements"), [switchData]);
-
-  return (is_achievements ? null : children);
+  // TODO: 是否隐藏推荐佣金
+  const is_referral_commission = useMemo(() => data?.status?.referral_enable === 0 && item?.field === "group", [data?.status?.referral_enable]);
+  
+  return ((is_achievements || is_referral_commission) ? null : children);
 };

@@ -78,6 +78,8 @@ export const InternalMessageEntry = () => {
             </label>
           </div>
           <div className="drawer-side hide-scrollbar z-1003">
+            {/* 点击遮罩层关闭 drawer */}
+            <label aria-label="close message sidebar" className="drawer-overlay" onClick={() => set(false)} />
             <div className="bg-base-400 h-[calc(100%-16px)] w-90 p-4 m-2 rounded-box">
               <div className={"flex justify-between sticky top-0 bg-base-400"}>
                 <InnerModalTitle />

@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Modal } from "@/components/ui/Modal.tsx";
-import { useFinanceModal } from "@/contexts/ModalsProvider.tsx";
-import { randomString } from "@/components/modal/UserFinanceModal/helper.ts";
+import { emitter } from "@/store/emitter.ts";
+import { Service } from "@/components/icons/Service.tsx";
 
 export enum ECode {
   "CODE_50001" = 50001,
@@ -33,8 +33,6 @@ export const BonusClaimResponseModal = (
   }) => {
   const { t } = useTranslation();
 
-  const { openUserFinanceModalWithTab } = useFinanceModal();
-
   return (
     <Modal
       hideTitle
@@ -64,23 +62,13 @@ export const BonusClaimResponseModal = (
         btnText={t("information:tryAgain")}
         subTitle={t("bonus:quick_reset")}
         onClick={() => {
-          onClose()
+          onClose();
           data?.tryAgain?.();
         }}
       />
 
-      <InnerClaimStatus
-        show={data?.code === ECode.CODE_50006}
-        desc={t("bonus:next_claim")}
-        icon="claim-fuel"
-        title={t("bonus:out_of_fuel")}
-        btnText={t("bonus:refill_claim")}
-        subTitle={t("bonus:out_of_charge")}
-        onClick={() => {
-          onClose()
-          openUserFinanceModalWithTab(`deposit_${randomString()}`);
-        }}
-      />
+      {/*寻求客服帮助*/}
+      <InnerServiceAssistance show={data?.code === ECode.CODE_50006} onClick={onClose} />
 
       <InnerClaimStatus
         show={data?.code === ECode.CODE_50011}
@@ -117,21 +105,26 @@ const InnerClaimStatus = ({ icon, show, title, subTitle, desc, btnText, onClick 
   </div>);
 };
 
-/**
- *  /api/Achievement/claim
- *  /api/Claim/claim
- *  /api/Conquest/claim
- *  CODE_BONUS_START = 50001;
- *  CODE_BONUS_CLAIM_NOT_FOUND = 50001; //
- *  CODE_BONUS_CLAIM_VALUE_IS_0 = 50002; //
- *  CODE_BONUS_CLAIM_TOMORROW = 50003; //。
- *  CODE_BONUS_CLAIM_ALREADY_CLAIMED = 50004; //
- *  CODE_BONUS_CLAIM_TOO_FREQUENT = 50005; //。
- *  CODE_BONUS_POOL_NOT_ENOUGH = 50006; //
- *  CODE_BONUS_POOL_NOT_FOUND = 50007; //
- *  CODE_BONUS_CLAIM_EXPIRED = 50008; //。
- *  CODE_BONUS_CLAIM_TRY_AGAIN = 50009; //
- *  CODE_BONUS_INPUT_PARAM_ERROR = 50010; //
- *  CODE_BONUS_GENERATE_FAILED = 59999;   //
- *  CODE_BONUS_END = 59999;
- */
+// 寻求客服帮助
+const InnerServiceAssistance = ({ show, onClick }: { show: boolean, onClick: () => void }) => {
+  const { t } = useTranslation();
+
+  return show && <div className="flex flex-col gap-4 items-center font-semibold overflow-hidden">
+    <img src="/images/bonus/claim-warning.png" className="h-25" alt="" />
+    <div className="flex flex-col gap-4 items-center">
+      <p className="text-lg">{t("transaction:transactionStatus.failed")}</p>
+      <p className="text-base-content/50 text-sm text-center">
+        <Trans i18nKey="toast:pleaseContactCustomerService" />
+      </p>
+    </div>
+
+    <div className="flex gap-4 items-center w-full">
+      <button className={"btn btn-primary"}
+              onClick={onClick}>{t("common:common.back")}</button>
+      <button className={"flex-1 btn btn-outline btn-primary"} onClick={() => {
+        onClick();
+        emitter.emit("OPEN_CHAT");
+      }}><Service width={18} />{t("chat:customerService")}</button>
+    </div>
+  </div>;
+};

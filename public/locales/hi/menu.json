@@ -34,6 +34,8 @@
   "upToReferral": "प्रति रेफ़रल {{amount}} तक",
   "language": "भाषा",
   "gameCurrency": "गेम करेंसी",
-  "hideBlockedGames": "ब्लॉक किए गए गेम्स छुपाएँ",
-  "settings": "सेटिंग्स"
+  "hideBlockedGames": "छुपाएँ \n<0>ब्लॉक किए गए गेम्स</0>",
+  "settings": "सेटिंग्स",
+  "problemReport": "समस्या रिपोर्ट",
+  "logging_key": "लॉगिंग"
 }

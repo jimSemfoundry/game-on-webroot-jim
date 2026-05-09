@@ -2,93 +2,218 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import Iconify from "@/components/iconify";
-import type { ITournament, ITournamentTable } from "@/types/tournament";
-import { authService } from "@/services/authService";
-import { cn } from "@/utils/cn";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { ITournament } from "@/types/tournament";
+import { Decimal } from "decimal.js";
+import clsx from "clsx";
+import { Paginate } from "@/sections/tournament/components/Paginate.tsx";
+import { useTournamentLeaderboard } from "@/hooks/api/useAuth.ts";
 
 interface TournamentLeaderboardProps {
   tournament: ITournament | null;
 }
 
 export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps) {
-  const { t } = useTranslation(["tournament", "bonus", "vip"]);
+  const { t } = useTranslation(["tournament"]);
+
   const { formatWithConversion } = useDisplayCurrencyFormatter();
-  const [tableData, setTableData] = useState<ITournamentTable[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [hasMore, setHasMore] = useState(false);
-  const pageSize = 10;
-  const [lastIds, setLastIds] = useState<string[]>([""]);
-  const [lastWagereds, setLastWagereds] = useState<string[]>([""]);
 
-  const tournamentLevel = tournament?.user_info?.tournament_level || "bronze";
-  const levelLabel = tournamentLevel.charAt(0).toUpperCase() + tournamentLevel.slice(1);
+  const [status, setStatus] = useState<Record<string, any>>({
+    data: [],
+    page: 1,
+    limit: 10,
+    last_id: "",
+    last_wagered: "",
+    tournament_id: "",
+    tournament_level: "",
+    is_jump_page: false
+  });
 
+  const tournament_id = tournament?.user_info?.tournament_id;
+  const tournament_level = tournament?.user_info?.tournament_level || "bronze";
+
+  const { data, isFetching } = useTournamentLeaderboard({
+    page: status.page,
+    limit: status.limit,
+    // last_id: status.is_jump_page ? "" : status.last_id,
+    // last_wagered: status.is_jump_page ? "" : status.last_wagered,
+    tournament_id,
+    tournament_level
+  });
+
+  /**
+   * TODO: 快速点击分页的时候会导致数据更新出问题,需要限制更新频率
+   *       isFetching
+   */
   useEffect(() => {
-    if (tournament && tournament.user_info) {
-      setLoading(true);
-      authService
-        .getTournamentLeaderboard({
-          tournament_id: tournament.user_info.tournament_id,
-          tournament_level: tournamentLevel,
-          limit: pageSize,
-          page: currentPage,
-          last_id: lastIds[currentPage - 1] || undefined,
-          last_wagered: lastWagereds[currentPage - 1] || undefined
-        })
-        .then((res) => {
-          if (res.code === 0 && res.data) {
-            setTableData(res.data);
-            const total = Number(res.total || res.count || 0);
-            const pages = total > 0 ? Math.ceil(total / pageSize) : (res.has_more ? currentPage + 1 : currentPage);
-            setTotalPages(Math.max(1, pages));
-            setHasMore(Boolean(res.has_more));
-
-            const next = res.next_page_params || {};
-            const nextLastId = String(next.last_id || "");
-            const nextLastWagered = String(next.last_wagered || "");
-            // 记录下一页指针
-            if (nextLastId || nextLastWagered) {
-              setLastIds((prev) => {
-                const arr = [...prev];
-                arr[currentPage] = nextLastId;
-                return arr;
-              });
-              setLastWagereds((prev) => {
-                const arr = [...prev];
-                arr[currentPage] = nextLastWagered;
-                return arr;
-              });
-            }
-          }
-        })
-        .catch((error) => {
-          console.error("Failed to fetch leaderboard:", error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, [tournament, tournamentLevel, currentPage]);
+    if (isFetching) return;
+    setStatus((v) => ({
+      ...v,
+      ...data?.next_page_params,
+      data: data?.data ?? [],
+      is_jump_page: false
+    }));
+  }, [data, isFetching]);
 
   if (!tournament) return null;
 
-  const getRankIconByRank = (rank?: number) => {
-    if (rank === 1) return "/icons/isometric/gold-cup.svg";
-    if (rank === 2) return "/icons/isometric/silver-cup.svg";
-    if (rank === 3) return "/icons/isometric/bronze-cup.svg";
-    return null;
-  };
+  return (
+    <div className="bg-base-200 rounded-field overflow-hidden pb-6">
+      {/* Header */}
+      <div className="p-3 sm:p-4">
+        <div className="flex items-center gap-2">
+          <Iconify
+            icon="custom:leaderboard"
+            className="w-4 h-4 text-primary"
+          />
+          <h3 className="text-sm sm:text-lg font-bold text-base-content">
+            {t("tournament:leagueLeaderboard")}
+          </h3>
+        </div>
+      </div>
 
-  const getRankLabelByRank = (rank?: number) => {
-    if (rank === 1) return "1st";
-    if (rank === 2) return "2nd";
-    if (rank === 3) return "3rd";
-    return null;
-  };
+      {/* Header row */}
+      <div className="relative min-h-[300px]">
+        {/* PC端的展开模式 */}
+        <div className="hidden sm:block">
+          <div
+            className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_1fr_1fr] gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
+            <div>{t("tournament:player", "Player")}</div>
+            <div className="text-right">{t("tournament:wagered", "Wagered")}</div>
+            <div className="text-right">{t("tournament:prize", "Prize")}</div>
+          </div>
+        </div>
 
+        {/* 移动端时候的卡片模式 */}
+        <div className="block sm:hidden gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
+          <div className="flex justify-between">
+            <span>{t("tournament:player", "Wagered")} | {t("tournament:wagered", "Wagered")}</span>
+            <span>{t("tournament:prize", "Prize")}</span>
+          </div>
+        </div>
+
+        <div className="px-2 sm:px-4 pb-4 space-y-1 sm:space-y-3">
+          {status.data.map((item: Record<string, any>, index: number) => {
+            // 前端自行管理排名顺序：按分页计算全局名次
+            const baseRank = (status.page - 1) * status.limit;
+            const rank = baseRank + (index + 1);
+            const rankIcon = getRankIconByRank(Number.isNaN(rank) ? undefined : rank);
+            const rankLabel = getRankLabelByRank(Number.isNaN(rank) ? undefined : rank);
+            const formattedWagered = formatWithConversion(
+              Number(item.wagered || 0),
+              "USD",
+              { showCode: false, showSymbol: true, displayDecimal: 0 }
+            );
+            const formattedPrize = formatWithConversion(
+              Number(item.prize || 0),
+              "USD",
+              { showCode: false, showSymbol: true }
+            );
+            const prizeRate = Number(item.prize_rate || 0) * 100;
+
+            return (
+              <div
+                key={index}
+                className={clsx("rounded-field bg-base-200 px-2 py-2 sm:py-1 mb-0 hover:bg-base-100 bg-base-300 sm:bg-base-200 mb-2 sm:mb-0")}
+              >
+                {/* PC端的展开模式 */}
+                <div className="hidden sm:block">
+                  <div
+                    className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_1fr_1fr] items-center gap-2 font-semibold">
+                    {/* Player */}
+                    <div className="flex items-center gap-2 min-w-0">
+                      {/* 用户排名 */}
+                      <InnerRankValue rank={rank} icon={rankIcon ?? ""} text={rankLabel ?? ""} className={"min-w-30"} />
+
+                      {/* 奖牌匹配 */}
+                      <InnerMedalLabel item={item} />
+
+                      {/* 用户昵称 */}
+                      <InnerUserName username={item?.username ?? ""} />
+                    </div>
+
+                    {/* Wagered */}
+                    <div className="text-right text-base-content/50 text-xs sm:text-sm">
+                      {formattedWagered.formatted}
+                    </div>
+
+                    {/* Prize */}
+                    <InnerPrizeValue
+                      rate={Decimal(prizeRate).toDP(8).toString()}
+                      prize={formattedPrize.formatted}
+                    />
+                  </div>
+                </div>
+
+                {/* 移动端时候的卡片模式 */}
+                <div className="block sm:hidden font-semibold">
+                  <div className="flex justify-between">
+                    <div className={"max-w-[50%] overflow-hidden"}>
+                      {/* Player */}
+                      <div className="flex items-center gap-2">
+                        {/* 用户排名 */}
+                        <InnerRankValue rank={rank} icon={rankIcon ?? ""} text={rankLabel ?? ""} />
+
+                        {/* 奖牌匹配 */}
+                        <InnerMedalLabel item={item} />
+
+                        {/* 用户昵称 */}
+                        <InnerUserName className="text-xs" username={item?.username ?? ""} />
+                      </div>
+
+                      {/* Wagered */}
+                      <div className="mt-2 text-base-content/50 text-xs">
+                        {formattedWagered.formatted}
+                      </div>
+                    </div>
+
+                    {/* Prize */}
+                    <InnerPrizeValue
+                      rate={Decimal(prizeRate).toDP(8).toString()}
+                      prize={formattedPrize.formatted}
+                      className="text-xs" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {isFetching && (
+          <div className="absolute inset-0 flex items-center justify-center bg-base-300/50">
+            <span className="loading loading-spinner loading-xl text-primary" />
+          </div>
+        )}
+      </div>
+
+      {/* Pagination */}
+      <Paginate
+        page={status.page}
+        limit={status.limit}
+        disabled={isFetching}
+        pageCount={Math.ceil((data?.total || 0) / status.limit)}
+        onJumpPage={(page) => {
+          setStatus((v) => ({
+            ...v,
+            page,
+            last_id: "",
+            last_wagered: "",
+            is_jump_page: true,
+          }));
+        }}
+        onPaginate={(page) => {
+          setStatus((v) => ({ ...v, page, is_jump_page: false }));
+        }} />
+    </div>
+  );
+}
+
+const InnerUserName = ({ username, className }: { username: string, className?: string }) => {
+  return <div className={clsx("font-semibold text-base-content/50 truncate text-sm", className)}>
+    {username}
+  </div>;
+};
+
+const InnerMedalLabel = ({ item }: { item: Record<string, any> }) => {
   // medal mapping from API: 'bronze' | 'silver' | 'gold'
   // fallback: numeric ranges if backend returns level numbers
   const getMedalIconByLevel = (medal?: number | string) => {
@@ -106,158 +231,56 @@ export function TournamentLeaderboard({ tournament }: TournamentLeaderboardProps
     return null;
   };
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  const icon = getMedalIconByLevel(item.medal);
+  return icon
+    ? (<img src={icon} alt="medal" className="w-4 h-4" />)
+    : (<Iconify icon="solar:medal-star-bold" className="w-5 h-5 text-warning flex-shrink-0" />);
+};
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  // numeric page clicks are no longer used (cursor-based pagination with prev/next only)
-
-  // 生成分页器页码
-  // page number list removed; only prev/next retained to preserve cursor (last_id)
-
-  return (
-    <div className="bg-base-200 rounded-field overflow-hidden">
-      {/* Header */}
-      <div className="p-3 sm:p-4">
-        <div className="flex items-center gap-2">
-          <Iconify
-            icon="custom:leaderboard"
-            className="w-4 h-4 text-primary"
-          />
-          <h3 className="text-base sm:text-lg font-bold text-base-content">
-            {t(`vip:${levelLabel?.toLowerCase()}`)} {t("tournament:leagueLeaderboard")}
-          </h3>
-        </div>
-      </div>
-
-      {/* Header row */}
-      <div className="relative min-h-[500px]">
-        <div
-          className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] gap-2 px-4 sm:px-6 py-3 text-base-content/50 text-xs font-bold uppercase">
-          <div>{t("tournament:player", "Player")}</div>
-          <div className="text-center ">{t("tournament:wagered", "Wagered")}</div>
-          <div className="text-center sm:w-[207px] sm:text-center text-right">{t("tournament:prize", "Prize")}</div>
-        </div>
-
-        <div className="px-2 sm:px-4 pb-4 space-y-1 sm:space-y-3">
-          {tableData.map((item, index) => {
-            // 前端自行管理排名顺序：按分页计算全局名次
-            const baseRank = (currentPage - 1) * pageSize;
-            const rank = baseRank + (index + 1);
-            const rankIcon = getRankIconByRank(Number.isNaN(rank) ? undefined : rank);
-            const rankLabel = getRankLabelByRank(Number.isNaN(rank) ? undefined : rank);
-            const formattedWagered = formatWithConversion(
-              Number(item.wagered || 0),
-              "USD",
-              { showCode: false, showSymbol: true }
-            );
-            const formattedPrize = formatWithConversion(
-              Number(item.prize || 0),
-              "USD",
-              { showCode: false, showSymbol: true }
-            );
-            const prizeRate = Number(item.prize_rate || 0) * 100;
-
-            return (
-              <div
-                key={index}
-                className={cn("rounded-field bg-base-200 px-2 py-3 mb-0 hover:bg-base-100", index % 2 === 0 && "bg-base-300 sm:bg-base-200")}
-              >
-                <div className="grid grid-cols-[1fr_30%_30%] sm:grid-cols-[1fr_auto_auto] items-center gap-2">
-                  {/* Player */}
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className="sm:w-[109px]">
-                      {rankIcon ? (
-                        <span className="flex items-center gap-2">
-                          <img src={rankIcon} alt={`Rank ${rank}`} className="w-6 h-6" />
-                          <span className="text-xs sm:text-lg font-semibold hidden sm:block text-base-content/50">
-                            {rankLabel}
-                          </span>
-                        </span>
-                      ) : (
-                        <span className="badge w-6 h-6 font-semibold text-xs text-base-content/50">
-                          {rank}
-                        </span>
-                      )}
-                    </div>
-
-                    {(() => {
-                      const icon = getMedalIconByLevel(item.medal);
-                      return icon ? (
-                        <img src={icon} alt="medal" className="w-4 h-4" />
-                      ) : (
-                        <Iconify icon="solar:medal-star-bold" className="w-5 h-5 text-warning flex-shrink-0" />
-                      );
-                    })()}
-                    <span className="font-semibold text-base-content/50 truncate text-xs sm:text-lg -ml-1">
-                      {item?.username || `User ${item.user_id}`}
-                    </span>
-                  </div>
-
-                  {/* Wagered */}
-                  <div className="text-center font-semibold text-base-content/50 text-xs sm:text-lg  ">
-                    {formattedWagered.formatted}
-                  </div>
-
-                  {/* Prize */}
-                  <div className="font-semibold text-xs sm:text-lg sm:w-[207px] sm:text-center text-right">
-                    <span className="text-primary">{formattedPrize.formatted} ({prizeRate.toFixed(0)}%)</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {loading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-base-300/50">
-            <span className="loading loading-spinner loading-xl text-primary" />
-          </div>
-        )}
-
-        {!loading && tableData.length === 0 && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="text-6xl mb-4">🏆</div>
-            <p className="text-base-content/70">{t("bonus:no_leaderboard_data_available")}</p>
-          </div>
-        )}
-      </div>
-
-      {/* Pagination */}
-      {(currentPage > 1 || hasMore) && (
-        <div className="p-6 border-t border-base-content/10">
-          <div className="w-full max-w-[340px] mx-auto flex items-center justify-between">
-            <button
-              className="btn btn-sm bg-base-100 btn-square rounded-field disabled:opacity-30"
-              onClick={handlePrevPage}
-              disabled={currentPage === 1}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-
-            <div
-              className="text-xs text-base-content/50 select-none rounded-field badge badge-soft font-semibold w-8 h-8 ">
-              {currentPage}
-            </div>
-
-            <button
-              className="btn btn-sm bg-base-100 btn-square rounded-field disabled:opacity-30"
-              onClick={handleNextPage}
-              disabled={!hasMore}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      )}
+const InnerPrizeValue = ({ prize, rate, className }: { prize: string, rate: string, className?: string }) => {
+  return <div className={clsx("text-right text-sm", className)}>
+    <div className="text-primary">{prize}</div>
+    <div className={clsx("text-[12px] text-base-content/50")}>
+      {rate}%
     </div>
-  );
-}
+  </div>;
+};
+
+const InnerRankValue = ({ icon, text, rank, className }: {
+  icon: string,
+  text: string,
+  rank: string | number,
+  className?: string
+}) => {
+  return <div>
+    {icon ? (
+      <div className={clsx("flex items-center gap-2", className)}>
+        <img src={icon} className="w-5 h-5" />
+        <div className="text-xs sm:text-sm font-semibold hidden sm:block text-base-content/50">
+          {text}
+        </div>
+      </div>
+    ) : (
+      <div className={className}>
+        <div
+          className="bg-base-100 flex items-center justify-center rounded-sm min-w-5 h-5 px-1 font-bold text-[11px] text-base-content/60">
+          {rank}
+        </div>
+      </div>
+    )}
+  </div>;
+};
+
+const getRankIconByRank = (rank?: number) => {
+  if (rank === 1) return "/icons/isometric/gold-cup.svg";
+  if (rank === 2) return "/icons/isometric/silver-cup.svg";
+  if (rank === 3) return "/icons/isometric/bronze-cup.svg";
+  return null;
+};
+
+const getRankLabelByRank = (rank?: number) => {
+  if (rank === 1) return "1st";
+  if (rank === 2) return "2nd";
+  if (rank === 3) return "3rd";
+  return null;
+};

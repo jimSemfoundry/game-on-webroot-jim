@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Số điện thoại đã được sử dụng. Vui lòng dùng số khác.",
     "mobileAlreadyBound": "Số điện thoại đã được liên kết với tài khoản này.",
     "fullscreen": "Toàn màn hình",
-    "exitFullscreen": "Thoát toàn màn hình"
+    "exitFullscreen": "Thoát toàn màn hình",
+    "draw": "Hòa"
   },
   "bonus_pool": "Quỹ thưởng",
   "pleaseEnterValidUsernameOrEmail": "Vui lòng nhập tên người dùng hoặc email hợp lệ",

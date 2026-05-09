@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Pakilagay ang iyong impormasyon sa pag-withdraw ng fiat currency.",
   "updating_withdrawal_address": "Ina-update ang withdrawal address, pakihintay...",
   "please_select_withdrawal_method": "Mangyaring pumili ng withdrawal method.",
-  "integer_deposit": "Ang channel na ito ay nangangailangan na ang halaga ng deposito ay isang integer na multiple ng {{value}}.",
+  "integer_deposit": "Ang channel na ito ay nangangailangan na ang halaga ng deposito ay sa unit ng {{value}}.",
   "enter_string_en_only": "Mga letrang Ingles, numero, at espasyo lamang ang maaaring ilagay.",
-  "enter_string_min_length": "Ang haba ay dapat hindi bababa sa {{length}}."
+  "enter_string_min_length": "Ang haba ay dapat hindi bababa sa {{length}}.",
+  "met_eligibility": "*Nakakatugon ka na sa kriteria ng eligibility para sa special offer. I-recharge na para makakuha ng reward mo!",
+  "read_carefully": "Mangyaring Basahin nang Maingat",
+  "no_channel": "Walang magagamit na channel sa ngayon"
 }

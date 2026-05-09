@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Prosimo, izpolnite svoje podatke za dvig fiat valute.",
   "updating_withdrawal_address": "Posodabljanje naslova za dvig, prosimo počakajte...",
   "please_select_withdrawal_method": "Prosimo, izberite način dviga.",
-  "integer_deposit": "Ta kanal zahteva, da je znesek pologa celo število, ki je večkratnik {{value}}.",
+  "integer_deposit": "Ta kanal zahteva, da je znesek pologa v enotah {{value}}.",
   "enter_string_en_only": "Vnesete lahko samo angleške črke, številke in presledke.",
-  "enter_string_min_length": "Dolžina mora biti vsaj {{length}}."
+  "enter_string_min_length": "Dolžina mora biti vsaj {{length}}.",
+  "met_eligibility": "*Izpolnjujete merila za upravičenost do posebne ponudbe. Napolnite zdaj, da prejmete svojo nagrado!",
+  "read_carefully": "Prosimo, preberite pozorno",
+  "no_channel": "Trenutno ni na voljo nobenega kanala"
 }

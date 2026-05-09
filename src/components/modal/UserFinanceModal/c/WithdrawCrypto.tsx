@@ -23,9 +23,11 @@ export const WithdrawCrypto = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <WithdrawCryptoSelect />
-      <WithdrawAddressAdd />
-      <WithdrawCryptoAmount />
+      <div className="flex flex-col gap-4 bg-base-400 rounded-2xl p-3">
+        <WithdrawCryptoSelect />
+        <WithdrawAddressAdd />
+        <WithdrawCryptoAmount />
+      </div>
       <WarningCard>
         <p className="text-xs leading-4 flex-1">
           {t("finance:forSecurityPurposesLargeOrSuspiciousWithdrawalsMayTakeUpTo24HoursToProcess")}

@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Vaše telefonní číslo bylo ověřeno. Můžete pokračovat.",
   "email_address_has_been_verified": "Vaše e-mailová adresa byla ověřena. Můžete pokračovat.",
   "setNewPassword": "Nastavit nové heslo",
-  "passwordLengthRequirement": "Zadejte heslo o délce 6 až 64 znaků."
+  "passwordLengthRequirement": "Zadejte heslo o délce 6 až 64 znaků.",
+  "re_enter_new_password": "Znovu zadejte nové heslo",
+  "change_withdrawal_pin": "Změnit PIN pro výběr",
+  "confirm_withdrawal_pin": "Potvrdit PIN pro výběr",
+  "enter_email": "Zadejte e-mail",
+  "rolloverDetails": "Detaily rolloveru",
+  "verified_email": "Ověřený e-mail",
+  "verified_phone_number": "Ověřené telefonní číslo",
+  "change_key": "Změnit",
+  "update_successfully": "Aktualizace úspěšná. Pro příští přihlášení použijte {<1>{{value}}</1>}.",
+  "understand_key": "Rozumím",
+  "ensure_email_valid": "Ujistěte se, že vaše e-mailová adresa je platná a máte k ní přístup.",
+  "ensure_phone_valid": "Ujistěte se, že vaše telefonní číslo je platné a máte k němu přístup.",
+  "enter_phone_number_to_receive_verification_code": "Zadejte své telefonní číslo níže pro přijetí ověřovacího kódu.",
+  "enter_email_address_to_receive_verification_code": "Zadejte svou e-mailovou adresu níže pro přijetí ověřovacího kódu."
 }

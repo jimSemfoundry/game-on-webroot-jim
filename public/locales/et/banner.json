@@ -36,5 +36,5 @@
   "vip_monday": "VIP Esmaspäev",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BOONUS \n <0>DOLLARID</0>",
-  "super_everyday": "<0>Päeva Esimene Sissemakse</0><br/><0>Krüpto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Suurendage Oma<br/>Sissemakseid Iga Päev"
+  "super_everyday": "<0>Päeva Esimene Sissemakse</0><br/>Krüpto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

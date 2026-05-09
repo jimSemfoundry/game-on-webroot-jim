@@ -1,8 +1,6 @@
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
-import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
+import { useAvailableBalance, useSupportedFiatWithdrawGatewaysV2 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { NumericFormat } from "@/components/modal/UserFinanceModal/c/NumericFormat.tsx";
-import { useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
 import Decimal from "decimal.js";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -10,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import FormatAmount from "./FormatAmount";
 import { RequireItem } from "@/components/modal/UserFinanceModal/c/RequireItem.tsx";
 import {
-  DisplayContent, InnerErrorGapWrapper, InnerErrorWrapper, InnerMaintenance,
+  DisplayContent, InnerErrorGapWrapper, InnerErrorWrapper,
   InnerProviderAmountRangeFormat
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useNavigate } from "@tanstack/react-router";
@@ -52,8 +50,8 @@ export const WithdrawFiatAmount = ({ version = "V1", formKey }: {
   // 区分 withdraw V1 V2 的数据操作源
   const dataReset = version === "V1" ? resetWithdrawFiat : resetWithdrawFiatV2;
 
-  // 获取支持法币存款的网关
-  const { isLoading: isGatewaysLoading } = useSupportedFiatDepositGateways(withdrawFiat.currency?.currency);
+  // 获取支持法币提款的网关
+  const { isLoading: isGatewaysLoading } = useSupportedFiatWithdrawGatewaysV2(withdrawFiat.currency?.currency);
 
   // 用户的可提款数量
   const availableAndLocked = useAvailableBalance(withdrawFiat.currency?.currency);
@@ -187,17 +185,14 @@ export const WithdrawFiatAmount = ({ version = "V1", formKey }: {
       <div className="flex flex-col">
         <div className="flex items-center justify-between pb-2 text-xs text-base-content/50 font-semibold">
           <RequireItem label={t(`finance:amount`)} />
-          <SmallLoading
-            loading={isGatewaysLoading}
-            content={
-              Decimal(source.method?.min || 0).gt(0)
-                ? <InnerProviderAmountRangeFormat
-                  min={source.method?.min}
-                  max={source.method?.max}
-                  currency={withdrawFiat.currency?.currency} />
-                : <InnerMaintenance show className={"rounded-xs relative !bg-base-200 text-white/20"} />
-            }
-          />
+          {
+            Decimal(source.method?.min || 0).gt(0)
+              ? <InnerProviderAmountRangeFormat
+                min={source.method?.min}
+                max={source.method?.max}
+                currency={withdrawFiat.currency?.currency} />
+              : <>0.00{' '}{withdrawFiat.currency?.currency}</>
+          }
         </div>
 
         <InnerErrorGapWrapper>

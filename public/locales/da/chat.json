@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Kundeservicechatten kunne ikke indlæses",
   "read": "Læs",
   "unread": "Ulæst",
-  "customerService": "Kundeservice"
+  "customerService": "Kundeservice",
+  "today": "i dag",
+  "earlier": "tidligere",
+  "older": "ældre"
 }

@@ -26,7 +26,7 @@ export function RolloverDetailsDialog({ isOpen, onClose, detail }: RolloverDetai
       title={
         <span className="flex items-center gap-2 text-sm font-semibold">
           <Iconify icon="solar:dollar-minimalistic-bold-duotone" className="text-primary" />
-          {t("profile.rolloverDetails", "Rollover Details")}
+          {t("profile:rolloverDetails", "Rollover Details")}
         </span>
       }
       position="modal-middle"

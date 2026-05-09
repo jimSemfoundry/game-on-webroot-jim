@@ -11,6 +11,8 @@ import { BetHistoryFilters } from "./BetHistoryFilters";
 import { BetHistoryTable } from "./BetHistoryTable";
 import { SportsBetHistoryTable } from "./SportsBetHistoryTable";
 import type { BetHistoryFiltersState } from "./types";
+import { BetbyLinkGuard } from "@/components/sidebar/BetbyLinkGuard.tsx";
+import { bonus_currencies } from "@/sections/explore";
 
 const DEFAULT_FILTERS: BetHistoryFiltersState = {
   game: "all",
@@ -255,12 +257,14 @@ function SportsBetHistorySection({ balanceData }: BetHistorySectionProps) {
   const combinedAssets = useMemo(() => {
     const unique = new Set<string>();
     filterGroup?.assets?.forEach((asset) => {
-      if (typeof asset === "string" && asset.length > 0) {
+      // TODO: 体育的下注资产要排除掉 BONUS 彩金币种
+      if (typeof asset === "string" && asset.length > 0 && !bonus_currencies.has(asset)) {
         unique.add(asset);
       }
     });
     balanceCurrencies.forEach((asset) => {
-      if (typeof asset === "string" && asset.length > 0) {
+      // TODO: 体育的下注资产要排除掉 BONUS 彩金币种
+      if (typeof asset === "string" && asset.length > 0 && !bonus_currencies.has(asset)) {
         unique.add(asset);
       }
     });
@@ -390,14 +394,16 @@ export function Index() {
         title={
           <div className="flex items-center justify-between w-full">
             {t("profile:betHistory.title", "Bet History")}{" "}
-            <SmoothTabs
-              items={tabItems}
-              value={activeTab}
-              size="xs"
-              onChange={(value) => setActiveTab(value as "casino" | "sports")}
-              className="bg-base-300"
-              layoutId="bet-history-tabs"
-            />
+            <BetbyLinkGuard>
+              <SmoothTabs
+                items={tabItems}
+                value={activeTab}
+                size="xs"
+                onChange={(value) => setActiveTab(value as "casino" | "sports")}
+                className="bg-base-300"
+                layoutId="bet-history-tabs"
+              />
+            </BetbyLinkGuard>
           </div>
         }
       >

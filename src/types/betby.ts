@@ -18,6 +18,9 @@ export interface BetbyInitConfig {
   betSlipOffsetRight?: number;
   stickyTop?: number;
   betslipZIndex?: number;
+  // Promo Banner 相关配置
+  widgetName?: 'promo';
+  widgetParams?: BetbyWidgetParams;
   onRouteChange?: () => void;
   onLogin?: () => void;
   onRegister?: () => void;
@@ -26,6 +29,15 @@ export interface BetbyInitConfig {
   onTokenExpired?: () => Promise<string | null>;
   onTokenRefresh?: () => Promise<string | null>;
   onBetSlipStateChange?: (state: any) => void;
+}
+
+/**
+ * Betby Promo Banner Widget 参数
+ */
+export interface BetbyWidgetParams {
+  placeholder: string;
+  onBannerClick?: (params: { url?: string; customAction?: string }) => void;
+  onOutcomeClick?: (params: { url?: string }) => void;
 }
 
 /**

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Ce este un Booster?",
-    "content": "<p class=\"leading-7\">Boosterele îți dublează Rakeback-ul timp de o oră de fiecare dată când un referral face o depunere.</p><p class=\"leading-7\">Rata de deblocare îmbunătățită:</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosterele îți dublează Rakeback-ul timp de trei ore de fiecare dată când un referral face o depunere.</p><p class=\"leading-7\">Rata de deblocare îmbunătățită:</p><p class=\"leading-7\">Rata de deblocare:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Ce este Calendarul Bonusurilor?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Ce sunt Realizările?",
-    "content": "<p class=\"leading-7\">Realizările sunt modul nostru de a recunoaște activitatea ta pe platforma noastră. Când revendici bonusul tău de realizare, acesta va fi plătit în Calendarul Tău de Bonusuri și poate fi revendicat la fiecare 8 ore și expiră în 24 de ore dacă nu este revendicat.</p>"
+    "content": "<p class=\"leading-7\">Realizările sunt modul nostru de a recunoaște activitatea ta pe platforma noastră. Realizările sunt disponibile pentru revendicare când atingi VIP 2 și mai sus.</p>"
   }
 }

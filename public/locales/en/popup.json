@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Winnings from free spins will not expire until unlocked and claimed.",
     "general_terms": "General Terms",
     "general_terms_desc": "Free Spin rewards are calculated and credited in BUCK, then displayed in your preferred fiat currency for convenience. Please note, currency conversions are approximate.",
-    "general_terms_desc_2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+    "general_terms_desc_2": "The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion.",
+    "redeem_count_free_spins": "REDEEM {{freeSpinsCount}} FREE SPINS?"
   },
   "mysteryBox": {
     "description": "The more you play, the better your chances to score big. Open your Mystery Box every month to reveal surprise bonuses, tailored to your activity. Spin, play, and claim what's waiting inside!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Cash Bonus",
   "none": "None",
   "bonus_limit": "Bonus Limit",
-  "minimum_deposit": "Minimum Deposit"
+  "minimum_deposit": "Minimum Deposit",
+  "get_buck": "GET BUCK",
+  "what_is_buck": "What is BUCK?",
+  "what_is_buck_description": "BUCK is an exclusive token for all platform rewards, valued at 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "Is BUCK exchangeable?",
+  "is_buck_exchangeable_description": "Yes. You can convert BUCK into supported crypto or fiat currencies anytime, directly on the platform.",
+  "expiration_description": "None. BUCK never expires and stays in your balance until you use it.",
+  "general_terms_description": "Rewards are calculated and credited in USDT, then displayed in your preferred fiat currency for convenience. Please note,currency conversions are approximate. \n\n The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Get More Buddy Balls",
+    "daily_check_in": "Daily Check In",
+    "refer_a_friend": "Refer a Friend",
+    "referral_first_deposit": "Referral First Deposit"
+  },
+  "bonus_details_modal": {
+    "description": "Welcome to the Bonus Store where you can convert your cash into Bonus Dollars and get an extra 20%-180% subject to playthrough requirements. Bonus Dollars are special play credits available to play on certain selected slots games. Bonus Dollars can be converted into withdrawable cash once you complete the playthrough requirement.",
+    "claim_distribution": "When you complete the playthrough (wagering) requirement, you can convert your Bonus Dollars balance into a currency of your choice by clicking the claim button.",
+    "expiration_description": "Bonus Dollars must be used within the validity period displayed in the Bonus Store tab. Unused Bonus Dollar balances will be forfeited after the validity period. \n\n Please note that you can only have one active Bonus Dollar promotion at a time. ",
+    "generalTerms_description": "Bonus Dollars are calculated and credited in BONUS and then displayed in your chosen display currency for your convenience. Please note that currency conversions are approximate. \n\n The Casino reserves the right to  modify or revoke eligibility without the obligation to justify. Any abuse or fraudulent activity will result in disqualification from the promotion."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Welcome to Sports Bonus where you can convert your cash into Sports Bonus Dollars and get an extra 50% subject to wagering requirements. Sports Bonus Dollars are special play credits available to use on sports betting. Sports Bonus Dollars can be converted into withdrawable cash once you complete the wagering requirement.",
+    "claim_distribution": "When you complete the wagering requirement, you can convert your Sports Bonus balance into a currency of your choice by clicking the claim button.",
+    "wagering_rules": "- Losing bets: Your bet amount counts in full toward wagering.\n- Winning bets: Only count if the odds are ≥ {{minOdds}}. If the odds are below {{minOdds}}, the bet does not count toward wagering.\n- Cashed out bets: Only count if the cash out amount is greater than the original bet amount × {{minOdds}}.\n- Only the bet amount counts toward wagering, never the winnings.",
+    "expiration_description": "Sports Bonus Dollars must be used within the validity period displayed in the Sports Bonus tab. Unused Sports Bonus Dollar balances will be forfeited after the validity period.",
+    "generalTerms_description": "- Sports Bonus rewards are calculated and credited in SPORTS BONUS, then displayed in your preferred currency for convenience. Please note, currency conversions are approximate.\n- The casino reserves the right to modify or revoke eligibility at any time, without the obligation to justify. Any abuse or fraudulent activity will lead to disqualification from the promotion."
+  }
 }

@@ -36,5 +36,5 @@
   "vip_monday": "VIP Maanantai",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONUS \n <0>DOLLARIA</0>",
-  "super_everyday": "<0>Päivän Ensimmäinen Talletus</0><br/><0>Krypto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Tehosta Talletuksiasi<br/>Joka Päivä"
+  "super_everyday": "<0>Päivän Ensimmäinen Talletus</0><br/>Krypto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

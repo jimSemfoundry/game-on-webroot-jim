@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Tiền thắng từ vòng quay miễn phí sẽ không hết hạn cho đến khi được mở khóa và yêu cầu.",
     "general_terms": "Điều khoản chung",
     "general_terms_desc": "Phần thưởng Vòng quay miễn phí được tính toán và ghi có bằng BUCK, sau đó được hiển thị bằng tiền tệ fiat mà bạn ưa thích để tiện lợi. Xin lưu ý, việc chuyển đổi tiền tệ là gần đúng.",
-    "general_terms_desc_2": "Sòng bạc có quyền sửa đổi hoặc thu hồi đủ điều kiện bất kỳ lúc nào, mà không có nghĩa vụ phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi."
+    "general_terms_desc_2": "Sòng bạc có quyền sửa đổi hoặc thu hồi đủ điều kiện bất kỳ lúc nào, mà không có nghĩa vụ phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi.",
+    "redeem_count_free_spins": "ĐỔI {{freeSpinsCount}} VÒNG QUAY MIỄN PHÍ?"
   },
   "mysteryBox": {
     "description": "Càng chơi nhiều, cơ hội thắng lớn càng cao. Mỗi tháng hãy mở Mystery Box để nhận các phần thưởng bất ngờ phù hợp với hoạt động của bạn. Quay, chơi và nhận phần thưởng đang chờ!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Tiền thưởng tiền mặt",
   "none": "Không",
   "bonus_limit": "Giới hạn tiền thưởng",
-  "minimum_deposit": "Tiền nạp tối thiểu"
+  "minimum_deposit": "Tiền nạp tối thiểu",
+  "get_buck": "NHẬN BUCK",
+  "what_is_buck": "BUCK là gì?",
+  "what_is_buck_description": "BUCK là token độc quyền cho tất cả phần thưởng nền tảng, có giá trị 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "BUCK có thể đổi được không?",
+  "is_buck_exchangeable_description": "Có. Bạn có thể chuyển đổi BUCK thành các loại tiền điện tử hoặc tiền pháp định được hỗ trợ bất cứ lúc nào, trực tiếp trên nền tảng.",
+  "expiration_description": "Không. BUCK không bao giờ hết hạn và nằm trong số dư của bạn cho đến khi bạn sử dụng.",
+  "general_terms_description": "Phần thưởng được tính toán và ghi có bằng USDT, sau đó được hiển thị bằng tiền tệ fiat mà bạn ưa thích để thuận tiện. Xin lưu ý, việc chuyển đổi tiền tệ chỉ mang tính chất ước lượng. \n\n Sòng bạc có quyền sửa đổi hoặc thu hồi quyền đủ điều kiện bất cứ lúc nào, mà không có nghĩa vụ phải giải thích. Bất kỳ hành vi lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Nhận thêm Buddy Ball",
+    "daily_check_in": "Điểm danh hằng ngày",
+    "refer_a_friend": "Giới thiệu bạn bè",
+    "referral_first_deposit": "Nạp lần đầu từ giới thiệu"
+  },
+  "bonus_details_modal": {
+    "description": "Chào mừng bạn đến với Cửa hàng Tiền thưởng, nơi bạn có thể chuyển đổi tiền mặt thành Đô la Thưởng và nhận thêm 20%-180% tùy thuộc vào yêu cầu yêu cầu hoàn cược. Đô la Thưởng là tín dụng chơi đặc biệt dùng được cho một số trò slot được chọn. Đô la Thưởng có thể được chuyển đổi thành tiền mặt có thể rút sau khi bạn hoàn thành yêu cầu yêu cầu hoàn cược.",
+    "claim_distribution": "Khi bạn hoàn thành yêu cầu yêu cầu hoàn cược (yêu cầu cược), bạn có thể chuyển đổi số dư Đô la Thưởng của mình sang loại tiền tệ bạn chọn bằng cách nhấn nút nhận.",
+    "expiration_description": "Đô la Thưởng phải được sử dụng trong thời hạn hiệu lực hiển thị trong tab Cửa hàng Tiền thưởng. Số dư Đô la Thưởng chưa sử dụng sẽ bị tịch thu sau khi hết hạn. Lưu ý rằng bạn chỉ có thể có một chương trình Đô la Thưởng đang hoạt động tại một thời điểm.",
+    "generalTerms_description": "Đô la Thưởng được tính và cộng bằng BONUS, sau đó hiển thị theo loại tiền tệ hiển thị mà bạn chọn để thuận tiện. Lưu ý rằng quy đổi tiền tệ chỉ mang tính xấp xỉ. Casino có quyền sửa đổi hoặc hủy tư cách đủ điều kiện mà không cần giải thích. Mọi hành vi lạm dụng hoặc gian lận sẽ dẫn đến bị loại khỏi chương trình khuyến mãi."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Chào mừng bạn đến với Tiền thưởng thể thao, nơi bạn có thể chuyển đổi tiền mặt của mình thành Đô la tiền thưởng thể thao và nhận thêm 50% tùy theo yêu cầu đặt cược. Đô la tiền thưởng thể thao là các khoản tín dụng chơi đặc biệt có sẵn để sử dụng cho cá cược thể thao. Đô la thưởng thể thao có thể được chuyển đổi thành tiền mặt có thể rút sau khi bạn hoàn thành yêu cầu đặt cược.",
+    "claim_distribution": "Khi bạn hoàn thành yêu cầu đặt cược, bạn có thể chuyển đổi số dư Tiền thưởng thể thao của mình thành loại tiền bạn chọn bằng cách nhấp vào nút yêu cầu.",
+    "wagering_rules": "- Cược thua: Toàn bộ số tiền cược của bạn được tính đầy đủ vào yêu cầu đặt cược.\n- Cược thắng: Chỉ được tính nếu tỷ lệ cược ≥ {{minOdds}}. Nếu tỷ lệ cược thấp hơn {{minOdds}}, cược đó sẽ không được tính vào yêu cầu đặt cược.\n- Cược đã rút tiền (Cash Out): Chỉ được tính nếu số tiền rút lớn hơn số tiền cược gốc × {{minOdds}}.\n- Chỉ số tiền cược được tính vào yêu cầu đặt cược, không bao gồm tiền thắng.",
+    "expiration_description": "Đô la tiền thưởng thể thao phải được sử dụng trong thời hạn hiệu lực được hiển thị trong tab Tiền thưởng thể thao. Số dư Đô la thưởng thể thao chưa sử dụng sẽ bị mất sau thời gian hiệu lực.",
+    "generalTerms_description": "- Phần thưởng Tiền thưởng thể thao được tính toán và ghi có vào TIỀN THƯỞNG THỂ THAO, sau đó được hiển thị bằng loại tiền tệ ưa thích của bạn để thuận tiện. Xin lưu ý, chuyển đổi tiền tệ chỉ mang tính tương đối.\n- Sòng bạc có quyền sửa đổi hoặc thu hồi tính đủ điều kiện bất kỳ lúc nào mà không có nghĩa vụ phải giải thích. Bất kỳ hoạt động lạm dụng hoặc gian lận nào sẽ dẫn đến việc bị loại khỏi chương trình khuyến mãi."
+  }
 }

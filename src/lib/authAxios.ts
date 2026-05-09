@@ -1,6 +1,9 @@
 import { clearAuth, getAuth } from "@/utils/auth";
 import axios from "axios";
 import { setTraceIdHeader } from "./trace";
+import { getUserFromCache } from "@/lib/publicAxios.ts";
+import { rumCustomLog, rumException, rumResource } from "../utils/helper";
+import { shouldExcludeFromRumLog } from "./auth-guards";
 
 // Authenticated axios instance - includes custom auth headers
 // Uses getAuth() to generate authentication parameters for each request
@@ -11,7 +14,7 @@ const authAxiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
     "Cache-Control": "no-cache, no-store, must-revalidate",
-    "Pragma": "no-cache",
+    "Pragma": "no-cache"
   }
 });
 
@@ -21,6 +24,7 @@ authAxiosInstance.interceptors.request.use(
       const auth = getAuth();
       if (auth) {
         config.headers.auth = JSON.stringify(auth);
+        config.headers.Auth = config.headers.auth;
       }
       if (config.data instanceof FormData) {
         config.headers["Content-Type"] = "multipart/form-data";
@@ -32,10 +36,10 @@ authAxiosInstance.interceptors.request.use(
 
     config.params = {
       ...(config.params || {})
-    }
-    
+    };
+
     // 每次请求生成新的 trace ID
-    config.headers['X-Trace-Id'] = `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
+    config.headers["X-Trace-Id"] = `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
 
     // 每次请求生成新的 trace ID
     setTraceIdHeader(config);
@@ -44,7 +48,7 @@ authAxiosInstance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 authAxiosInstance.interceptors.response.use(
@@ -59,6 +63,26 @@ authAxiosInstance.interceptors.response.use(
       clearAuth(`❌ Auth request failed:${response.config.url}`);
     }
 
+    // TODO: rum ****************************
+    // TODO: 服务于rum数据收集
+    if (response.data && typeof response.data === "object") {
+      response.data._request_url = (response.config.baseURL || "") + (response.config.url || "");
+      response.data._request_name = response.config.url || "";
+    }
+    const user = getUserFromCache();
+    if (user && !shouldExcludeFromRumLog(response.data._request_url)) {
+      // TODO: 发送资源信息到 RUM
+      rumResource({
+        url: response.data._request_url,
+        name: "Auth Request ✅",
+        event: "Auth Request ✅"
+      }, user);
+
+      // TODO: 发送常规日志到 RUM
+      rumCustomLog(`Auth Request ✅`, { url: response.data._request_url }, user);
+    }
+    // TODO: rum ****************************
+
     return response;
   },
   async (error) => {
@@ -69,6 +93,22 @@ authAxiosInstance.interceptors.response.use(
       console.error(`❌ Auth request failed: ${error.response?.status || "Network Error"} ${originalRequest?.url}`, error);
     }
 
+    // TODO: rum ****************************
+    const errorUrl = (error.config.baseURL || "") + error?.config?.url;
+    const user = getUserFromCache();
+    if (user && !shouldExcludeFromRumLog(errorUrl)) {
+      // TODO: 发送资源信息到 RUM
+      rumResource({
+        url: errorUrl,
+        name: "Auth Request ❌",
+        event: "Auth Request ❌"
+      }, user);
+
+      // TODO: 发送异常到 RUM
+      rumException("Auth Request ❌", error, user);
+    }
+    // TODO: rum ****************************
+
     // Handle 401 unauthorized errors
     if (error.response?.status === 401) {
       clearAuth(`http_401:${originalRequest?.url}`);
@@ -76,7 +116,7 @@ authAxiosInstance.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  },
+  }
 );
 
 export default authAxiosInstance;

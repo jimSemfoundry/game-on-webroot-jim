@@ -190,5 +190,13 @@
   "programAccessUpdate": "Program erişimi güncellemesi",
   "referralProgramPrivileges": "Hesabınız ve programa katılımınız incelendikten sonra referans programı ayrıcalıklarınız iptal edilmiştir. Referans programımızın şartlarına, koşullarına veya amaçlanan kullanımına uymayan bir etkinlik tespit ettik. Bu; şüpheli referans kalıplarını, yetkisiz tanıtım yöntemlerini, teşviklerin kötüye kullanımını veya adil kullanım yönergelerini aşmaya yönelik girişimleri içerebilir.",
   "referralRewardsPrivileges": "Bunun sonucunda yeni referans ödülleri oluşturma, referans bağlantılarını paylaşma veya referanslardan fayda elde etme imkanınız devre dışı bırakılmıştır. Referans programıyla ilişkili bekleyen veya gelecekteki ödüller, politikalarımız doğrultusunda alıkonulacak ve iptal edilecektir. <0>Hesabınızdaki diğer tüm işlevler aynen korunur ve bu değişiklikten etkilenmez</0>.",
-  "understandDisappointing": "Bunun hayal kırıklığı yaratabileceğini anlıyoruz. Bu kararın hatalı olduğunu düşünüyorsanız veya daha fazla ayrıntı istiyorsanız, lütfen ilgili bilgilerle birlikte destek ekibimizle iletişime geçin; durumunuzu inceleyeceğiz."
+  "understandDisappointing": "Bunun hayal kırıklığı yaratabileceğini anlıyoruz. Bu kararın hatalı olduğunu düşünüyorsanız veya daha fazla ayrıntı istiyorsanız, lütfen ilgili bilgilerle birlikte destek ekibimizle iletişime geçin; durumunuzu inceleyeceğiz.",
+  "spread_the_Love": "Sevgiyi yayın",
+  "need": "İhtiyacınız var mı",
+  "new_friends": "Yeni arkadaşlara?",
+  "timeToRecruit": "Davet zamanı! Düğmeye dokunarak WhatsApp'ta tanımadığınız birine bizden bahsedin.",
+  "date": "tarih",
+  "save": "kaydet",
+  "enterCampaignName": "Kampanya adını girin",
+  "shareText": "🎮 Bu harika platformda bana katıl!"
 }

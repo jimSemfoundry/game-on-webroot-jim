@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Как ведущий мировой игровой альянс, мы объединяем силу и изысканность лучших платформ под единой миссией. Во всех брендах нашего портфеля мы действуем как единое целое — предоставляя развлечения, персонализированные награды и бесшовное соединение через валюты, страны и культуры.",
   "footerDescriptionThree": "Не просто играйте в игру. Бросьте вызов всему.",
   "footerDescriptionFour": "Отличительная черта {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Все права защищены.",
+  "footerDescriptionFive": "© {{year}}. Все права защищены.",
   "banner": {
     "oneDescription": "БУДЬТЕ ПЕРВЫМИ.",
     "oneDescriptionTwo": "БРОСЬТЕ ВЫЗОВ\nВСЕМ",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Добавить на главный экран",
   "latestWins": "Последние Победы",
   "spinPlayAndWinAcrossTopCasinoHits": "Крутите, играйте и выигрывайте в лучших казино",
-  "scoreBigOnSportsFromAroundTheWorld": "Заработайте крупно на спорте со всего мира"
+  "scoreBigOnSportsFromAroundTheWorld": "Заработайте крупно на спорте со всего мира",
+  "liveDealers": "Живые дилеры для ваших любимых настольных игр",
+  "show_less": "показать меньше"
 }

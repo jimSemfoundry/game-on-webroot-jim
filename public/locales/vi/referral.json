@@ -190,5 +190,13 @@
   "programAccessUpdate": "Cập nhật quyền truy cập chương trình",
   "referralProgramPrivileges": "Quyền lợi chương trình giới thiệu của bạn đã bị thu hồi sau khi chúng tôi xem xét tài khoản và việc bạn tham gia chương trình. Chúng tôi đã phát hiện hoạt động không tuân thủ các điều khoản, điều kiện hoặc mục đích sử dụng dự kiến của chương trình giới thiệu. Điều này có thể bao gồm các mẫu giới thiệu đáng ngờ, phương thức quảng bá trái phép, lạm dụng ưu đãi hoặc cố gắng lách các hướng dẫn sử dụng hợp lý.",
   "referralRewardsPrivileges": "Do đó, khả năng tạo phần thưởng giới thiệu mới, chia sẻ liên kết giới thiệu hoặc nhận lợi ích từ lượt giới thiệu của bạn đã bị vô hiệu hóa. Các phần thưởng đang chờ xử lý hoặc trong tương lai liên quan đến chương trình giới thiệu sẽ bị giữ lại và hủy theo chính sách của chúng tôi. <0>Mọi chức năng khác của tài khoản của bạn vẫn nguyên vẹn và không bị ảnh hưởng bởi thay đổi này</0>.",
-  "understandDisappointing": "Chúng tôi hiểu điều này có thể gây thất vọng. Nếu bạn cho rằng quyết định này là nhầm lẫn hoặc muốn biết thêm chi tiết, vui lòng liên hệ đội ngũ hỗ trợ của chúng tôi kèm theo các thông tin liên quan, và chúng tôi sẽ xem xét trường hợp của bạn."
+  "understandDisappointing": "Chúng tôi hiểu điều này có thể gây thất vọng. Nếu bạn cho rằng quyết định này là nhầm lẫn hoặc muốn biết thêm chi tiết, vui lòng liên hệ đội ngũ hỗ trợ của chúng tôi kèm theo các thông tin liên quan, và chúng tôi sẽ xem xét trường hợp của bạn.",
+  "spread_the_Love": "Lan tỏa yêu thương",
+  "need": "Cần",
+  "new_friends": "Bạn bè mới?",
+  "timeToRecruit": "Đã đến lúc tuyển mộ! Nhấn nút để giới thiệu chúng tôi với một người hoàn toàn xa lạ trên WhatsApp.",
+  "date": "ngày",
+  "save": "lưu",
+  "enterCampaignName": "Nhập tên chiến dịch",
+  "shareText": "🎮 Hãy tham gia cùng tôi trên nền tảng tuyệt vời này!"
 }

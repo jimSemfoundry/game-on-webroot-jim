@@ -226,8 +226,8 @@ const SportsBetHistoryTableComponent = ({ records, isLoading, isFetchingMore, sh
           <td className="px-4 py-3 align-middle text-xs text-base-content/80 rtl:text-right min-w-0">
             <div className="flex items-center gap-2 rtl:flex-row-reverse min-w-0 w-full">
               <div className="min-w-0 flex-1">
-                <span className="font-mono text-xs truncate max-w-full sm:hidden" dir="ltr">{betId}</span>
-                <span className="font-mono text-xs truncate max-w-full hidden sm:block" dir="ltr" title={betId}>
+                <span className="text-xs truncate max-w-full sm:hidden" dir="ltr">{betId}</span>
+                <span className="text-xs truncate max-w-full hidden sm:block" dir="ltr" title={betId}>
                   {betId}
                 </span>
               </div>

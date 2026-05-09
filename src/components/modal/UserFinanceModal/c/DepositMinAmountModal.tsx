@@ -7,7 +7,6 @@
 import { Modal } from "@/components/ui/Modal.tsx";
 import { useBoundStore } from "@/store";
 import { useToggle } from "@/hooks/useToggle";
-import { BadgeAlert } from "lucide-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -26,7 +25,7 @@ export const DepositMinAmountModal = () => {
 
   return (
     <Modal
-      title={<BadgeAlert className={"w-6 h-6 text-primary"} />}
+      title={''}
       isOpen={status}
       onClose={() => set(false)}
       position="modal-middle"

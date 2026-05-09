@@ -287,9 +287,50 @@ VITE_VERSION=${version}
 // 写入版本号到 .env 文件
 writeVersionToEnv(timeVersion);
 
+function normalizeEnvValue(value?: string) {
+  if (!value) return value;
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  const first = trimmed.charAt(0);
+  const last = trimmed.charAt(trimmed.length - 1);
+  if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
+    return trimmed.slice(1, -1).trim();
+  }
+  return trimmed;
+}
+
+function getRawEnvValue(key: string, mode: string) {
+  const envFileCandidates = [`.env.${mode}.local`, `.env.${mode}`, ".env.local", ".env"];
+
+  for (const fileName of envFileCandidates) {
+    const filePath = resolve(process.cwd(), fileName);
+    if (!existsSync(filePath)) continue;
+
+    const content = readFileSync(filePath, "utf8");
+    const lines = content.split(/\r?\n/);
+    for (const line of lines) {
+      if (!line || line.trimStart().startsWith("#")) continue;
+      if (!line.startsWith(`${key}=`)) continue;
+      return line.slice(key.length + 1);
+    }
+  }
+
+  return undefined;
+}
+
+function getEnvValueWithRawFallback(env: Record<string, string>, key: string, mode: string) {
+  const loadedValue = normalizeEnvValue(env[key]);
+  if (loadedValue) return loadedValue;
+  const rawValue = getRawEnvValue(key, mode);
+  return normalizeEnvValue(rawValue);
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  const resolvedThemeConfig = getEnvValueWithRawFallback(env, "VITE_THEME_CONFIG", mode);
+  const resolvedPwaThemeColor = getEnvValueWithRawFallback(env, "VITE_PWA_THEME_COLOR", mode);
+  const resolvedPwaBackgroundColor = getEnvValueWithRawFallback(env, "VITE_PWA_BACKGROUND_COLOR", mode);
   const baseFolder = env.VITE_FOLDER;
   const isRoibest = env.VITE_PROMOTION_MODEL === 'roibest';
   const isLanding = env.VITE_PROMOTION_MODEL === 'landing';
@@ -299,8 +340,8 @@ export default defineConfig(({ mode }) => {
   const normalizeHtmlBaseUrl = (value?: string) => (value ? `${value.replace(/\/+$/, "")}/` : undefined);
   const faviconBaseUrl = normalizeAssetBaseUrl(env.VITE_FAVICON_BASE_URL);
   const faviconAssetPrefix = faviconBaseUrl ? `${faviconBaseUrl}/` : "";
-  const pwaThemeColor = env.VITE_PWA_THEME_COLOR || '#0f1419';
-  const pwaBackgroundColor = env.VITE_PWA_BACKGROUND_COLOR || '#0f1419';
+  const pwaThemeColor = resolvedPwaThemeColor || '#0f1419';
+  const pwaBackgroundColor = resolvedPwaBackgroundColor || '#0f1419';
   const pwaName = env.VITE_PWA_NAME || env.VITE_WEBSITE_NICKNAME || '1st.game';
   const pwaShortName = env.VITE_PWA_SHORT_NAME || env.VITE_WEBSITE_NICKNAME_LEFT || '1ST';
   const pwaDescription = env.VITE_PWA_DESCRIPTION || env.VITE_SEO_DESCRIPTION || `Enter the world of ${env.VITE_WEBSITE_NICKNAME || '1st.game'} - your premier crypto entertainment hub. Play instantly, earn exclusive rewards, rise through the ranks, and challenge everything. No limits. Just the thrill.`;
@@ -311,7 +352,7 @@ export default defineConfig(({ mode }) => {
       // 自动清理过期缓存（解决新旧版本共存报错的关键）
       cleanupOutdatedCaches: true,
       navigateFallback: 'index.html',
-      navigateFallbackDenylist: [/^\/landing\//, /^\/api/],
+      navigateFallbackDenylist: [/^\/landing\//, /^\/api/, /^\/game\//],
       // Increase maximum file size limit for precached assets (default is 2 MiB)
       maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       // 确保导航总是尝试最新的网络请求
@@ -334,29 +375,32 @@ export default defineConfig(({ mode }) => {
       name: pwaName,
       short_name: pwaShortName,
       description: pwaDescription,
+      start_url: "/",
+      scope: "/",
+      display: "standalone",
       theme_color: pwaThemeColor,
       background_color: pwaBackgroundColor,
       icons: [
         {
-          src: `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
+          src: env.VITE_PWA_ICON_192 || `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
           sizes: "192x192",
           type: "image/png",
           purpose: "any",
         },
         {
-          src: `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
+          src: env.VITE_PWA_ICON_192 || `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-192x192.png`,
           sizes: "192x192",
           type: "image/png",
           purpose: "maskable",
         },
         {
-          src: `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
+          src: env.VITE_PWA_ICON_512 || `favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
           sizes: "512x512",
           type: "image/png",
           purpose: "any",
         },
         {
-          src: `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
+          src: env.VITE_PWA_ICON_512 || `${faviconAssetPrefix}favicon/${env.VITE_THEME || '1stgame'}/web-app-manifest-512x512.png`,
           sizes: "512x512",
           type: "image/png",
           purpose: "maskable",
@@ -459,12 +503,14 @@ export default defineConfig(({ mode }) => {
       nickname: env.VITE_WEBSITE_NICKNAME || '1st.game',
       websiteUrl: env.VITE_WEBSITE_URL || 'https://1st.game',
       theme: env.VITE_THEME || '1stgame',
-      alibabaRumId: env.VITE_ALIBABA_RUM_ID,
-      themeConfig: env.VITE_THEME_CONFIG,
+      alibabaRumEndpoint: env.VITE_ALIBABA_RUM_ENDPOINT,
+      gtmId: env.VITE_GTM_ID,
+      themeConfig: resolvedThemeConfig,
       logoBaseUrl: normalizeHtmlBaseUrl(env.VITE_LOGO_BASE_URL),
       faviconBaseUrl: normalizeHtmlBaseUrl(env.VITE_FAVICON_BASE_URL),
       baseUrl,
       logoLoaderUrl: env.VITE_LOGO_LOADER_URL,
+      logoPwaUrl: env.VITE_LOGO_PWA_URL,
       faviconPngUrl: env.VITE_FAVICON_PNG_URL,
       faviconSvgUrl: env.VITE_FAVICON_SVG_URL,
       faviconIcoUrl: env.VITE_FAVICON_ICO_URL,
@@ -477,7 +523,8 @@ export default defineConfig(({ mode }) => {
       seoOgImageWidth: env.VITE_SEO_OG_IMAGE_WIDTH,
       seoOgImageHeight: env.VITE_SEO_OG_IMAGE_HEIGHT,
       seoOgSiteName: env.VITE_SEO_OG_SITE_NAME,
-      pwaThemeColor: env.VITE_PWA_THEME_COLOR,
+      pwaThemeColor,
+      pwaBackgroundColor,
       pwaStatusBarStyle: env.VITE_PWA_STATUS_BAR_STYLE,
     }),
     ...(env.VITE_ENABLED_VISUALIZER === 'true' ? [visualizer({

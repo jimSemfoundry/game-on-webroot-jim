@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Proszę wprowadzić stałą długość {{length}} znaków",
   "disabledCharNotAllowed": "Znak {{char}} nie jest dozwolony",
   "space": "spacja",
-  "thisWalletIsAlreadyUsed": "Ten portfel jest już używany"
+  "thisWalletIsAlreadyUsed": "Ten portfel jest już używany",
+  "login_failed": "Logowanie nie powiodło się",
+  "login_error_code_1": "Nazwa użytkownika musi być prawidłowym numerem telefonu (zaczynającym się od + i używającym - po kodzie kraju) lub adresem e-mail",
+  "account_created_and_logged_in_successfully": "Konto utworzone i pomyślnie zalogowano!",
+  "requests_later": "Zbyt wiele żądań z tego adresu IP. Spróbuj ponownie później.",
+  "booster_activated_successfully": "Booster aktywowany pomyślnie!",
+  "depositNameEntered": "Wpisane imię dla wpłaty musi odpowiadać pełnemu imieniu<0>（Imię + Nazwisko）</0> na koncie bankowym używanym do wypłaty, zgodnie z przepisami antyfraudowymi i antypralniczymi.\n\n Jeśli musisz zmienić swoje konto bankowe, skontaktuj się z obsługą klienta i ukończ weryfikację KYC.",
+  "user_not_found_or_password_incorrect": "Nie znaleziono użytkownika lub hasło jest nieprawidłowe",
+  "free_spin_record_enabled_successfully": "Rekord darmowych spinów pomyślnie aktywowany!",
+  "check_in_success": "Zameldowanie zakończone sukcesem!",
+  "check_in_failed": "Zameldowanie nie powiodło się!",
+  "check_in_already": "Zameldowanie dla tej daty zostało już zakończone.",
+  "ballsClaimed": "Piłka przyjaciela pomyślnie odebrana",
+  "cannotBetby": "Portfel bonusowy sportowy jest przeznaczony tylko do zakładów sportowych."
 }

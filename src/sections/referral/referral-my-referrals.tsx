@@ -262,7 +262,7 @@ export const ReferralMyReferrals = () => {
                               : "bg-base-content/10 text-base-content/70"
                           )}
                         >
-                          {item.refer_type}
+                          {t(item.refer_type,item.refer_type)}
                         </div>
                       </td>
 

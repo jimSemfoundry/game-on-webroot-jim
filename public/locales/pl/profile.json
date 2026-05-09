@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Twój numer telefonu został zweryfikowany. Możesz kontynuować.",
   "email_address_has_been_verified": "Twój adres e-mail został zweryfikowany. Możesz kontynuować.",
   "setNewPassword": "Ustaw nowe hasło",
-  "passwordLengthRequirement": "Proszę podać hasło składające się z 6 do 64 znaków."
+  "passwordLengthRequirement": "Proszę podać hasło składające się z 6 do 64 znaków.",
+  "re_enter_new_password": "Wprowadź ponownie nowe hasło",
+  "change_withdrawal_pin": "Zmień PIN wypłaty",
+  "confirm_withdrawal_pin": "Potwierdź PIN wypłaty",
+  "enter_email": "Wprowadź e-mail",
+  "rolloverDetails": "Szczegóły rollover",
+  "verified_email": "Zweryfikowany e-mail",
+  "verified_phone_number": "Zweryfikowany numer telefonu",
+  "change_key": "Zmień",
+  "update_successfully": "Aktualizacja powiodła się. Proszę użyć {<1>{{value}}</1>} do następnego logowania.",
+  "understand_key": "Rozumiem",
+  "ensure_email_valid": "Upewnij się, że Twój adres e-mail jest prawidłowy i masz do niego dostęp.",
+  "ensure_phone_valid": "Upewnij się, że Twój numer telefonu jest prawidłowy i masz do niego dostęp.",
+  "enter_phone_number_to_receive_verification_code": "Wpisz poniżej swój numer telefonu, aby otrzymać kod weryfikacyjny.",
+  "enter_email_address_to_receive_verification_code": "Wpisz poniżej swój adres e-mail, aby otrzymać kod weryfikacyjny."
 }

@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "O número de celular já foi usado. Por favor, use outro número.",
     "mobileAlreadyBound": "O número de celular já está vinculado a esta conta.",
     "fullscreen": "Tela cheia",
-    "exitFullscreen": "Sair da tela cheia"
+    "exitFullscreen": "Sair da tela cheia",
+    "draw": "Empate"
   },
   "bonus_pool": "Fundo de Bônus",
   "pleaseEnterValidUsernameOrEmail": "Por favor, insira um nome de usuário ou e-mail válido",

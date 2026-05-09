@@ -40,7 +40,7 @@ export const BonusClaimModal = (
   return (
     <Modal
       isOpen={status.open}
-      hideTitle
+      hideTitle={true}
       onClose={() => {
         setStatus((v) => ({ ...v, open: false }));
         onClose();

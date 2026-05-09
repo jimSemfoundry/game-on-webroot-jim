@@ -36,5 +36,5 @@
   "vip_monday": "وی آئی پی پیر",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "بونس \n <0>ڈالر</0>",
-  "super_everyday": "<0>دن کی پہلی جمع</0><br/><0>کرپٹو {{crypto_bonus}}</0><br/><0>فیاٹ {{fiat_bonus}}</0><br/>اپنی جمع رقم<br/>ہر روز بڑھائیں"
+  "super_everyday": "<0>دن کی پہلی جمع</0><br/>کرپٹو {{crypto_bonus}}<br/>فیاٹ {{fiat_bonus}}"
 }

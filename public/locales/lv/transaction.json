@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Izmaksa",
     "cryptoWithdraw": "Krypto Izmaksa",
     "bonus": "Bonuss",
+    "bounty": "Balva",
     "win": "Uzvara",
     "bet": "Likme",
     "refund": "Atmaksa",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bonuss",
     "cashbackbonus": "Naudas Atmaksas Bonuss",
     "referral": "Ieteikums",
-    "commission": "Komisija"
+    "commission": "Komisija",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Spēļu Automāti",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Atbloķētie līdzekļi",
     "rolloverMul": "Likmes reizinātājs"
   },
-  "assistance": "Lūdzu, pārbaudiet savus datus un mēģiniet vēlreiz vai sazinieties ar klientu apkalpošanas dienestu, lai saņemtu palīdzību"
+  "assistance": "Jūsu vārds neatbilst vārdam, ko pirmo reizi izmantojāt šim kanālam. Lūdzu, sazinieties ar klientu apkalpošanas dienestu."
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "O que é um Booster?",
-    "content": "<p class=\"leading-7\">Boosters dobram seu Rakeback por uma hora toda vez que uma referência faz um depósito.</p><p class=\"leading-7\">Taxa de Desbloqueio Aumentada:</p><p class=\"leading-7\">Taxa de Desbloqueio:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters dobram seu Rakeback por três horas toda vez que uma referência faz um depósito.</p><p class=\"leading-7\">Taxa de Desbloqueio Aumentada:</p><p class=\"leading-7\">Taxa de Desbloqueio:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "O que é o Calendário de Bônus?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "O que são Conquistas?",
-    "content": "<p class=\"leading-7\">As conquistas são a nossa forma de reconhecer sua atividade em nossa plataforma. Quando você reivindica seu bônus de conquista, ele será pago ao seu Calendário de Bônus e pode ser reivindicado a cada 8 horas e expirar em 24 horas se não for reivindicado.</p>"
+    "content": "<p class=\"leading-7\">As conquistas são a nossa forma de reconhecer sua atividade em nossa plataforma. As conquistas estão disponíveis para reivindicação quando você atinge VIP 2 ou superior.</p>"
   }
 }

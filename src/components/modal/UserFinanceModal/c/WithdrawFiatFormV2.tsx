@@ -12,16 +12,13 @@ import {
   WithdrawMethodInfoAdd
 } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
 import {
-  debug_target,
-  open_debug,
-  useAvailableBalance,
   useUserWithdrawFiatInfo
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import {
   DisplayContent
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { fn_withdraw_common_status } from "@/components/modal/UserFinanceModal/c/WithdrawCryptoAmount.tsx";
-import { useRumSdkUserLog } from "@/utils/helper.ts";
+import { useRumSdkUserLog, rumException } from "@/utils/helper.ts";
 import { emitter } from "@/store/emitter.ts";
 import { isEmpty } from "@/utils/helper.ts";
 import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
@@ -31,13 +28,10 @@ export const WithdrawFiatFormV2 = () => {
 
   const [loading, { set }] = useToggle<boolean>(false);
 
-  const { rumCustomLog, rumException } = useRumSdkUserLog();
+  const { rumCustomLog, rumResource } = useRumSdkUserLog();
 
   // from data store, share common data
   const { withdrawFiat, withdrawFiatV2, syncAction, setSyncAction, setWithdrawFiatV2, openModal } = useBoundStore();
-
-  // 用户的可提款数量
-  const availableAndLocked = useAvailableBalance(withdrawFiat.currency?.currency);
 
   // 法币提现用用户添加的快捷信息列表
   const { data: wallets, isLoading: fiatInfoLoading } = useUserWithdrawFiatInfo(withdrawFiat.currency?.currency);
@@ -61,19 +55,8 @@ export const WithdrawFiatFormV2 = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      console.info("CreateOrder Withdraw Fiat V2");
-      console.info({
-        // pin: md5(syncAction?.data),
-        amount: withdrawFiatV2.formItem?.amount,
-        currency: withdrawFiat.currency?.currency,
-        userWithdrawInfoId: withdrawFiatV2.method?.id
-      });
-      return;
-    }
-
     set(true);
-    setSyncAction(undefined)
+    setSyncAction(undefined);
 
     const params = {
       // pin: md5(syncAction?.data),
@@ -82,14 +65,23 @@ export const WithdrawFiatFormV2 = () => {
       userWithdrawInfoId: withdrawFiatV2.method?.id
     };
 
+    let url = "";
+    let name = "";
+
     authService
       .createWithdrawFiatOrderV2(params)
       .then((res) => {
+        url = res?._request_url || "";
+        name = res?._request_name || "";
+
         fn_withdraw_common_status(() => {
 
           // 提款订单提交成功
           if (res.code === 0 || res.code === 200) {
             setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL");
+
+            // TODO rum 下单成功推送
+            rumCustomLog(`Withdraw ${withdrawFiat.currency?.currency} ✅`, { url });
           }
 
           // 提款AML措施-错误提示
@@ -102,10 +94,18 @@ export const WithdrawFiatFormV2 = () => {
         toast.error(t("toast:failedToCreateWithdrawalOrder"));
         set(false);
 
-        rumException(error, params);
+        // 异常推送
+        rumException(`Withdraw ${withdrawFiat.currency?.currency} ❌`, error);
       })
       .finally(() => {
         set(false);
+
+        // TODO rum 资源访问推送
+        rumResource({
+          url,
+          name,
+          event: `Withdraw ${withdrawFiat.currency?.currency}`
+        });
       });
   }, [t, syncAction, withdrawFiat, withdrawFiatV2]);
 
@@ -124,19 +124,6 @@ export const WithdrawFiatFormV2 = () => {
       em?.remove();
     };
   }, []);
-
-  useEffect(() => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      // console.info("************ V2 withdrawFiatV2 start ************");
-      // console.info(withdrawFiatV2);
-      // console.info("************ V2 withdrawFiatV2 ended ************");
-    }
-  }, [withdrawFiatV2]);
-
-  // 数据推送 - 延迟
-  useEffect(() => {
-    rumCustomLog("withdrawFiatV2", { ...withdrawFiatV2, available: availableAndLocked.available });
-  }, [rumCustomLog, withdrawFiatV2]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -170,7 +157,7 @@ export const WithdrawFiatFormV2 = () => {
           disabled={filed_value_null || filed_value_error || provider_error}
           loading={loading}
           onClick={() => {
-            void createOrder()
+            void createOrder();
             // setSyncAction("OPEN_WITHDRAW_FIAT_PIN_MODAL");
           }}
         >

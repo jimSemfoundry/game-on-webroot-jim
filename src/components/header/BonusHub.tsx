@@ -1,5 +1,6 @@
 import { useRTLContext } from "@/contexts/RTLContext";
 import { useSidebar } from "@/contexts/SidebarContext";
+import { useIsLeagueEnabled } from "@/hooks/api/usePublic";
 import { getIconDirection } from "@/utils/rtl";
 import { cn } from "@/utils/themeMerger";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
@@ -14,6 +15,7 @@ import { useNavigate } from "@tanstack/react-router";
 export const BonusHub = () => {
   const { isMobile } = useSidebar();
   const { isRTL } = useRTLContext();
+  const { isLeagueEnabled } = useIsLeagueEnabled();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation('tournament');
   const navigate = useNavigate();
@@ -186,6 +188,7 @@ export const BonusHub = () => {
                   </button>
                 </div>
               </div>
+              {isLeagueEnabled && (
               <div className="rounded-field bg-[#0F141A] bg-[radial-gradient(ellipse_100%_157.05%_at_0%_46.47%,rgba(246,109,25,0.4)_0%,rgba(15,20,26,0)_100%)] p-4">
                 <div className="flex items-center gap-x-4">
                   <img
@@ -213,6 +216,7 @@ export const BonusHub = () => {
                   </button>
                 </div>
               </div>
+            )}
               <div className="rounded-field bg-[#0F141A] bg-[radial-gradient(ellipse_100%_157.05%_at_0%_46.47%,rgba(230,173,67,0.4)_0%,rgba(15,20,26,0)_100%)] p-4">
                 <div className="flex items-center gap-x-4">
                   <img
@@ -319,36 +323,38 @@ export const BonusHub = () => {
                 </button>
               </div>
             </div>
-            <div className="rounded-field bg-[#0F141A] bg-[radial-gradient(ellipse_100%_157.05%_at_0%_46.47%,rgba(246,109,25,0.4)_0%,rgba(15,20,26,0)_100%)] p-4">
-              <div className="flex items-center gap-x-4">
-                <img
-                  src="/images/games/categories/flag.svg"
-                  alt="flag"
-                  className="w-8 h-8"
-                />
-                <div className="flex flex-col gap-y-1">
-                  <h2 className="text-sm md:text-base font-bold">
-                    {t("menu:tournaments")}
-                  </h2>
-                  <p className="text-xs md:text-sm text-base-content/50 font-normal">
-                    <Trans
-                      i18nKey="bonus:bonusHub.ongoing"
-                      values={{ count: bonusStats.tournament.ongoing }}
-                    />
-                  </p>
-                </div>
-
-                <button 
-                  className="btn btn-square btn-soft btn-primary ms-auto"
-                  onClick={(e) => handleNavigate(e, '/tournament')}
-                >
-                  <ChevronRight
-                    className={getIconDirection(isRTL, true)}
-                    size={16}
+            {isLeagueEnabled && (
+              <div className="rounded-field bg-[#0F141A] bg-[radial-gradient(ellipse_100%_157.05%_at_0%_46.47%,rgba(246,109,25,0.4)_0%,rgba(15,20,26,0)_100%)] p-4">
+                <div className="flex items-center gap-x-4">
+                  <img
+                    src="/images/games/categories/flag.svg"
+                    alt="flag"
+                    className="w-8 h-8"
                   />
-                </button>
+                  <div className="flex flex-col gap-y-1">
+                    <h2 className="text-sm md:text-base font-bold">
+                      {t("menu:tournaments")}
+                    </h2>
+                    <p className="text-xs md:text-sm text-base-content/50 font-normal">
+                      <Trans
+                        i18nKey="bonus:bonusHub.ongoing"
+                        values={{ count: bonusStats.tournament.ongoing }}
+                      />
+                    </p>
+                  </div>
+
+                  <button 
+                    className="btn btn-square btn-soft btn-primary ms-auto"
+                    onClick={(e) => handleNavigate(e, '/tournament')}
+                  >
+                    <ChevronRight
+                      className={getIconDirection(isRTL, true)}
+                      size={16}
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
             <div className="rounded-field bg-[#0F141A] bg-[radial-gradient(ellipse_100%_157.05%_at_0%_46.47%,rgba(230,173,67,0.4)_0%,rgba(15,20,26,0)_100%)] p-4">
               <div className="flex items-center gap-x-4">
                 <img

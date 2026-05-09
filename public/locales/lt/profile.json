@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Jūsų telefono numeris patvirtintas. Galite tęsti.",
   "email_address_has_been_verified": "Tavo el. pašto adresas patvirtintas. Gali tęsti.",
   "setNewPassword": "Nustatyti naują slaptažodį",
-  "passwordLengthRequirement": "Įveskite slaptažodį, kuris turi 6-64 simbolių."
+  "passwordLengthRequirement": "Įveskite slaptažodį, kuris turi 6-64 simbolių.",
+  "re_enter_new_password": "Pakartotinai įveskite naują slaptažodį",
+  "change_withdrawal_pin": "Keisti išėmimo PIN kodą",
+  "confirm_withdrawal_pin": "Patvirtinti išėmimo PIN kodą",
+  "enter_email": "Įveskite el. paštą",
+  "rolloverDetails": "Rollover informacija",
+  "verified_email": "Patvirtintas el. paštas",
+  "verified_phone_number": "Patvirtintas telefono numeris",
+  "change_key": "Keisti",
+  "update_successfully": "Atnaujinimas sėkmingas. Prašome naudoti {<1>{{value}}</1>} kitam prisijungimui.",
+  "understand_key": "Supratau",
+  "ensure_email_valid": "Įsitikinkite, kad jūsų el. pašto adresas yra galiojantis ir jums prieinamas.",
+  "ensure_phone_valid": "Įsitikinkite, kad jūsų telefono numeris yra galiojantis ir jums prieinamas.",
+  "enter_phone_number_to_receive_verification_code": "Įveskite savo telefono numerį žemiau, kad gautumėte patvirtinimo kodą.",
+  "enter_email_address_to_receive_verification_code": "Įveskite savo el. pašto adresą žemiau, kad gautumėte patvirtinimo kodą."
 }

@@ -190,5 +190,13 @@
   "programAccessUpdate": "Oppdatering av programtilgang",
   "referralProgramPrivileges": "Dine privilegier i henvisningsprogrammet er tilbakekalt etter en gjennomgang av kontoen din og deltakelsen din i programmet. Vi identifiserte aktivitet som ikke er i samsvar med vilkårene eller tiltenkt bruk av henvisningsprogrammet vårt. Dette kan inkludere mistenkelige henvisningsmønstre, uautoriserte markedsføringsmetoder, misbruk av insentiver eller forsøk på å omgå retningslinjer for rimelig bruk.",
   "referralRewardsPrivileges": "Som et resultat er muligheten din til å generere nye henvisningsbelønninger, dele henvisningslenker eller motta fordeler fra henvisninger deaktivert. Ventende eller fremtidige belønninger knyttet til henvisningsprogrammet vil bli holdt tilbake og kansellert i tråd med våre retningslinjer. <0>All annen funksjonalitet på kontoen din forblir intakt og påvirkes ikke av denne endringen</0>.",
-  "understandDisappointing": "Vi forstår at dette kan være skuffende. Hvis du mener at denne avgjørelsen er feil, eller ønsker flere detaljer, vennligst kontakt supportteamet vårt med relevant informasjon, så vil vi gjennomgå saken din."
+  "understandDisappointing": "Vi forstår at dette kan være skuffende. Hvis du mener at denne avgjørelsen er feil, eller ønsker flere detaljer, vennligst kontakt supportteamet vårt med relevant informasjon, så vil vi gjennomgå saken din.",
+  "spread_the_Love": "Spre kjærligheten",
+  "need": "Trenger du",
+  "new_friends": "Nye venner?",
+  "timeToRecruit": "På tide å rekruttere! Trykk på knappen for å fortelle en helt fremmed om oss på WhatsApp.",
+  "date": "dato",
+  "save": "lagre",
+  "enterCampaignName": "Skriv inn kampanjenavn",
+  "shareText": "🎮 Bli med meg på denne fantastiske plattformen!"
 }

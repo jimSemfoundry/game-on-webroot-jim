@@ -34,6 +34,8 @@
   "upToReferral": "Jopa {{amount}} per suositus",
   "language": "Kieli",
   "gameCurrency": "Pelivaluutta",
-  "hideBlockedGames": "Piilota estetyt pelit",
-  "settings": "Asetukset"
+  "hideBlockedGames": "Piilota \n<0>estetyt pelit</0>",
+  "settings": "Asetukset",
+  "problemReport": "Ongelmaraportti",
+  "logging_key": "Lokitus"
 }

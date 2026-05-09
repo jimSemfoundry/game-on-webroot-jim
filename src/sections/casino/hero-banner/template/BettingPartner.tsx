@@ -1,29 +1,26 @@
-import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import {
-  InnerBannerContent,
-  InnerBannerWrapper, InnerDataTranslation
+  InnerBannerContent, InnerBannerTitleV2,
+  InnerBannerWrapper
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import {
   InnerBannerPerson
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
-import clsx from "clsx";
+import { useMemo } from "react";
+import i18n from "@/i18n.ts";
 
 export const BettingPartner = ({ content }: {
   content: string
 }) => {
-  const banner = parser(content);
+  // 根据用户的语言匹配相应的模版内容
+  const banner = useMemo(() => {
+    const keys = JSON.parse(content)
+    return keys.find((l: Record<string, any>) => l?.language === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
 
   return (
     <InnerBannerWrapper>
       <InnerBannerContent>
-        <div className="flex flex-col whitespace-pre-line font-black leading-5">
-          <p className={clsx("text-base-content rtl:ml-auto")}>
-            <InnerDataTranslation
-              text={`${banner?.title}`}
-              value=""
-              percent="" />
-          </p>
-        </div>
+        <InnerBannerTitleV2 banner={banner} />
       </InnerBannerContent>
 
       {/* 人物 */}

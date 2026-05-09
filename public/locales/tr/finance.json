@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Lütfen itibari para çekim bilgilerinizi doldurun.",
   "updating_withdrawal_address": "Çekim adresi güncelleniyor, lütfen bekleyin...",
   "please_select_withdrawal_method": "Lütfen bir çekim yöntemi seçin.",
-  "integer_deposit": "Bu kanal, yatırma tutarının {{value}} tam katı olmasını gerektirir.",
+  "integer_deposit": "Bu kanal, yatırma tutarının {{value}} biriminde olmasını gerektirir.",
   "enter_string_en_only": "Yalnızca İngilizce harfler, sayılar ve boşluk girilebilir.",
-  "enter_string_min_length": "Uzunluk en az {{length}} olmalıdır."
+  "enter_string_min_length": "Uzunluk en az {{length}} olmalıdır.",
+  "met_eligibility": "*Özel teklif için uygunluk kriterlerini karşıladınız. Ödülünüzü almak için şimdi yükleyin!",
+  "read_carefully": "Lütfen Dikkatle Okuyun",
+  "no_channel": "Şu anda kullanılabilir kanal yok"
 }

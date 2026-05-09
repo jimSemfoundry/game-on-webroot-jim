@@ -194,7 +194,20 @@ export const publicService = {
    * @param type 游戏类型
    */
   async getCasinoGameList(data: any): Promise<ApiResponse<any>> {
-    const response = await publicAxiosInstance.post<ApiResponse<any>>("/GameList/getCommonGameListV2", data);
+    let final_data = { ...data };
+
+    if (data?.game_category_2 === "bonus") {
+      final_data = { ...final_data, game_category_2: "", tag: "Bonus Wager" };
+    } else {
+      final_data = { ...final_data, tag: "" };
+    }
+
+    console.info(final_data);
+
+    const response = await publicAxiosInstance.post<ApiResponse<any>>("/GameList/getCommonGameListV2", {
+      ...final_data,
+      sort: "popular"
+    });
 
     if (response.data.code !== 0) {
       throw new Error(response.data.msg || "Failed to get casino game list");
@@ -312,9 +325,15 @@ export const publicService = {
     return response.data;
   },
 
-  async getBannerContentList (user_id?: number): Promise<ApiResponse<any>> {
-    const path = user_id ? `/Banner/list?user_id=${user_id}` : `/Banner/list`
-    const response = await publicAxiosInstance.get(path)
+  async getBannerContentList(user_id?: number): Promise<ApiResponse<any>> {
+    const path = user_id ? `/Banner/list?user_id=${user_id}` : `/Banner/list`;
+    const response = await publicAxiosInstance.get(path);
     return response.data;
-  }
+  },
+
+  // BuddyBalls/dailyCheckInConfig
+  async dailyCheckInConfig(): Promise<ApiResponse<any>> {
+    const response = await publicAxiosInstance.get(`/BuddyBalls/dailyCheckInConfig`);
+    return response.data;
+  },
 };

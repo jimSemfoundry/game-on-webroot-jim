@@ -9,7 +9,7 @@ export const TournamentHeroSection = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div className="flex flex-col gap-0 sm:gap-4">
+    <div className="flex flex-col gap-0">
       {/* Hero Banner */}
       <div
         className="flex flex-col gap-4 px-5 pt-8 pb-4 sm:px-12 relative h-[210px] sm:min-h-[340px] sm:rounded-box sm:justify-center select-none overflow-hidden touch-none"
@@ -31,15 +31,15 @@ export const TournamentHeroSection = () => {
           <div className="flex flex-col gap-2 sm:gap-3 z-10 sm:max-w-[48%] h-full pl-4">
             <div className="flex flex-col h-full justify-center">
               <div className="text-lg sm:text-[40px] font-black  uppercase leading-[1.05]">
-                <h2 className="text-base-content">{t("tournament:explore", "EXPLORE")}</h2>
-                <span className="text-primary">{t("tournament:tournaments", "TOURNAMENTS")},</span>
+                <h2 className="text-base-content">{t("common:common.explore", "EXPLORE")}</h2>
+                <span className="text-primary">{t("casino:tournaments", "TOURNAMENTS")},</span>
                 <br />
-                <span className="text-base-content">{t("tournament:dropsAndRaces", "DROPS & RACES")}</span>
+                <span className="text-base-content">{t("tournament:drops_races", "DROPS & RACES")}</span>
               </div>
             </div>
           </div>
 
-          {/* 角色插画 - 桌面端（置于卡片之上） */}
+          {/* 角色插画 - 桌面端（sm+ 都用 PC 定位） */}
           <img
             src={tournamentHeroImage}
             alt="Tournament Character"
@@ -47,7 +47,7 @@ export const TournamentHeroSection = () => {
             draggable="false"
           />
 
-          {/* 角色插画 - 移动端 */}
+          {/* 角色插画 - 移动端 (<sm) */}
           <img
             src={tournamentHeroImage}
             alt="Tournament Character"
@@ -55,12 +55,12 @@ export const TournamentHeroSection = () => {
             draggable="false"
           />
 
-          {/* Enter the Arena - 桌面端右侧覆盖卡片 */}
-          <div className="hidden sm:block absolute sm:w-[480px] sm:right-10 rtl:sm:right-auto rtl:sm:left-10 sm:top-8 sm:h-[calc(100%-4rem)] sm:bg-base-300 sm:rounded-box shadow-lg overflow-hidden z-10">
+          {/* Enter the Arena - 桌面端右侧覆盖卡片 (≥1280px) */}
+          <div className="hidden xl:block absolute xl:w-[480px] xl:right-10 rtl:xl:right-auto rtl:xl:left-10 xl:top-8 xl:h-[calc(100%-4rem)] xl:bg-base-300 xl:rounded-box shadow-lg overflow-hidden z-100">
             <LiquidGlassEffect className="absolute inset-0 pointer-events-none min-h-full rounded-2xl w-full -z-10 bg-base-300">
               <div className="w-full h-full"></div>
             </LiquidGlassEffect>
-            <div className="relative flex h-full w-full flex-col gap-4 rounded-box p-6 sm:p-8 justify-center">
+            <div className="relative flex h-full w-full flex-col gap-4 rounded-box p-6 xl:p-8 justify-center">
               <h2 className="text-3xl font-bold text-base-content mb-4">{t("tournament:enterTheArena", "Enter the Arena")}</h2>
               <div className="flex flex-col gap-4 text-base text-base-content/50 leading-relaxed">
                 <p>
@@ -77,16 +77,17 @@ export const TournamentHeroSection = () => {
         </div>
       </div>
 
-      {/* Enter the Arena Card - 移动端使用，桌面端已覆盖到上方 */}
-      <div className="relative min-h-[280px] sm:min-h-[240px] z-0 mx-5 sm:mx-0 sm:hidden">
+      {/* Enter the Arena Card - 中小屏堆叠态 (<1280px)，桌面已覆盖到上方
+          手机 (<sm=640) 保留原移动样式；sm 到 xl 之间采用 PC 样式 */}
+      <div className="relative z-0 xl:hidden sm:shadow-lg sm:rounded-box overflow-hidden">
         <LiquidGlassEffect className="absolute inset-0 pointer-events-none min-h-full w-full -z-10 bg-base-300 rounded-2xl">
           <div className="w-full h-full"></div>
         </LiquidGlassEffect>
 
-        <div className="w-full h-full p-6 sm:p-8 flex flex-col gap-4 sm:gap-6">
-          <h2 className="text-2xl sm:text-4xl font-bold text-base-content">{t("tournament:enterTheArena", "Enter the Arena")}</h2>
+        <div className="w-full h-full p-6 sm:p-8 flex flex-col gap-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-base-content sm:mb-4">{t("tournament:enterTheArena", "Enter the Arena")}</h2>
 
-          <div className="flex flex-col gap-3 sm:gap-4 text-sm sm:text-base text-base-content/50 leading-5">
+          <div className="flex flex-col gap-3 sm:gap-4 text-sm sm:text-base text-base-content/50 leading-5 sm:leading-relaxed">
             <p>
               {t(
                 "tournament:enterTheArenaDescription1",

@@ -34,6 +34,8 @@
   "upToReferral": "紹介ごとに最大{{amount}}",
   "language": "言語",
   "gameCurrency": "ゲーム通貨",
-  "hideBlockedGames": "ブロックされたゲームを非表示にする",
-  "settings": "設定"
+  "hideBlockedGames": "非表示 \n<0>ブロックされたゲーム</0>",
+  "settings": "設定",
+  "problemReport": "問題報告",
+  "logging_key": "ロギング"
 }

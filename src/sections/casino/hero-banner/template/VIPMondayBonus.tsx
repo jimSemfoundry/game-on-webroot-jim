@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef, useMemo } from "react";
 import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import { useTranslation } from "react-i18next";
 import { InnerConfirmBox } from "@/sections/dollars/components.tsx";
@@ -8,18 +8,19 @@ import {
   InnerTimeDesc,
   InnerTimeLabel,
   InnerContainer,
-  useNavigateGuard, InnerBannerWrapper, InnerBannerContent, InnerDataTranslation
+  useNavigateGuard, InnerBannerWrapper, InnerBannerContent, InnerBannerTitleV2
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import duration from "dayjs/plugin/duration";
-import clsx from "clsx";
 import { useNavigate } from "@tanstack/react-router";
+import i18n from "@/i18n.ts";
 
 dayjs.extend(duration);
 
 const init = [0, 0, 0, 0];
 
-export const VIPMondayBonus = ({ content }: {
+export const VIPMondayBonus = ({ content, extra_content }: {
   content: string
+  extra_content: string
 }) => {
   const timerRef = useRef<any>(null);
 
@@ -34,6 +35,12 @@ export const VIPMondayBonus = ({ content }: {
 
   const [_timeFinished, setTimeFinished] = useState<boolean>(false);
   const [estimatedTime, setEstimatedTime] = useState<number[]>(init);
+
+  // 根据用户的语言匹配相应的模版内容
+  const banner_extra_content = useMemo(() => {
+    const keys = JSON.parse(extra_content)
+    return keys.find((l: Record<string, any>) => l?.language === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
 
   // 钱包数据不是实时更新，有些情况下需要自己监听过期时间--start
   const stopTimer = () => {
@@ -85,14 +92,7 @@ export const VIPMondayBonus = ({ content }: {
   return (
     <InnerBannerWrapper>
       <InnerBannerContent>
-        <div className="flex flex-col whitespace-pre-line font-black leading-5">
-          <p className={clsx("text-base-content rtl:ml-auto")}>
-            <InnerDataTranslation
-              text={`${banner?.title}`}
-              value=""
-              percent="" />
-          </p>
-        </div>
+        <InnerBannerTitleV2 banner={banner_extra_content} />
 
         {/* 倒计时 */}
         <InnerContainer className="relative w-50 rounded-lg p-2 mt-2">
@@ -126,7 +126,7 @@ export const VIPMondayBonus = ({ content }: {
       </InnerBannerContent>
 
       {/* 人物 */}
-      <InnerBannerPerson src={banner?.picture} />
+      <InnerBannerPerson src={banner_extra_content?.picture} />
     </InnerBannerWrapper>
   );
 };

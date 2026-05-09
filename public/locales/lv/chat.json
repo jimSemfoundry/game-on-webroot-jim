@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Klientu apkalpošanas tērzēšana neizdevās ielādēt",
   "read": "Lasīt",
   "unread": "Nelasīts",
-  "customerService": "Klientu apkalpošana"
+  "customerService": "Klientu apkalpošana",
+  "today": "šodien",
+  "earlier": "agrāk",
+  "older": "vecāki"
 }

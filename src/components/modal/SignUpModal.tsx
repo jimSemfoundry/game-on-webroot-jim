@@ -14,10 +14,11 @@ import { PasswordInput } from "../ui/PasswordInput";
 import { PhoneEmailInput } from "../ui/PhoneEmailInput";
 import SocialLogin from "@/components/socialLogin";
 import { getCookie } from "@/utils/browser";
+import { password_reg_exp } from "@/utils/regexp";
 import { useCountryCodeByIp } from "@/sections/profile/security/helper";
 import type { Country } from "react-phone-number-input";
 import { useBaseConfig } from "@/hooks/api/usePublic.ts";
-import { uuidv4Generate } from "@/utils/helper.ts";
+import { trackCustomEvent, uuidv4Generate } from "@/utils/helper.ts";
 
 type SignUpModalProps = {
   isOpen: boolean;
@@ -70,18 +71,24 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
       toast.error(t("login:must_agree"));
       return;
     }
+
     if (!username.trim()) {
-      toast.error("Username is required");
+      toast.error(t("login:pleaseEnterValidUsernameOrEmail"));
+      return;
+    }
+
+    if (username.length < 6) {
+      toast.error(t("login:usernameTooShort"));
       return;
     }
 
     if (!password.trim()) {
-      toast.error("Password is required");
+      toast.error(t("login:pleaseEnterPassword"));
       return;
     }
 
     if (password.length < 6) {
-      toast.error("Password must be at least 6 characters");
+      toast.error(t("login:passwordTooShort"));
       return;
     }
 
@@ -168,8 +175,16 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
       // 注册成功后自动登录
       try {
         await login(username, password);
-        toast.success("Account created and logged in successfully!");
+        toast.success(
+          t("toast:account_created_and_logged_in_successfully", {
+            defaultValue: "Account created and logged in successfully!"
+          })
+        );
         onClose();
+
+        // GTM 记录推送
+        const { password: _password, hcaptcha_token: _hcaptcha_token, ...trackData } = signupData;
+        trackCustomEvent('signup', 'userSignUp', trackData)
       } catch (loginError) {
         console.error("Auto-login failed:", loginError);
         toast.success("Account created successfully! Please sign in.");
@@ -236,7 +251,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
       </div>
       {/** Illustration */}
       <img
-        src="/images/illustrations/d4e43016f111393f13035dec78c262fcd55ee1ed.png"
+        src={import.meta.env.VITE_SIGNUP_MODAL_IMAGE || "/images/illustrations/d4e43016f111393f13035dec78c262fcd55ee1ed.png"}
         className="absolute z-20 w-[229px] h-[229px] left-[153px] rtl:right -[153px] rtl:rotate-y-180 top-0 md:-left-[48px] md:top-[179px] md:min-w-[442px] md:min-h-[442px] object-cover bg-no-repeat"
       />
     </div>
@@ -261,7 +276,7 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
           onChange={(value) => setUsername(value)}
           defaultCountry={defaultPhoneCountry}
         />
-        <PasswordInput value={password} onChange={(value) => setPassword(value)} />
+        <PasswordInput value={password} onChange={(value) => setPassword(value.replace(password_reg_exp, ""))} autoComplete="new-password" />
 
         {/* <p className="text-sm text-base-content/50 text-end hover:underline cursor-pointer sm:text-md font-semibold">{t('forgotPassword')}</p> */}
         {/*<Accordion type="single" collapsible className="w-full">*/}
@@ -361,6 +376,9 @@ export const SignUpModal = ({ isOpen, onClose }: SignUpModalProps) => {
             size="invisible"
             onVerify={handleCaptchaVerify}
             onError={handleCaptchaError}
+            onClose={() => {
+              setIsSubmitting(false);
+            }}
             ref={captchaRef}
             custom
             theme="dark"

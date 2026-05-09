@@ -34,5 +34,12 @@
   "depositNow": "今すぐ入金",
   "free_spins": "フリースピン",
   "play_with_balance_in": "残高でプレイする",
-  "the_selected_currency_will_be_displayed_in": "選択した通貨は次のように表示されます"
+  "the_selected_currency_will_be_displayed_in": "選択した通貨は次のように表示されます",
+  "activity": "アクティビティ",
+  "come_join_me_now_at": "今すぐ参加してください",
+  "invite_friends_to_join_play": "友達を招待してプレイ",
+  "earn_up_to_50_commission_bonus": "最大50%コミッション <0>+{{bonus}}</0> ボーナスを獲得",
+  "download_failed": "ダウンロードに失敗しました。もう一度お試しください。",
+  "image_downloaded": "画像がダウンロードされました！",
+  "share_text_1": "{{multiplier}}x のビッグウィンを当てました！🔥"
 }

@@ -63,6 +63,7 @@ export interface User {
   ad_uuid: string | null;
   uuid: string | null;
   pin_setted: boolean;
+  is_show_blocked_games: number;
 }
 
 export interface UserStatus {

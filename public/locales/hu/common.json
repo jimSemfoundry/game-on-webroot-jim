@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "A telefonszám már használatban van. Kérjük, használjon egy másik számot.",
     "mobileAlreadyBound": "A telefonszám már hozzá van rendelve ehhez a fiókhoz.",
     "fullscreen": "Teljes képernyő",
-    "exitFullscreen": "Kilépés a teljes képernyőből"
+    "exitFullscreen": "Kilépés a teljes képernyőből",
+    "draw": "Döntetlen"
   },
   "bonus_pool": "Bónusz Alap",
   "pleaseEnterValidUsernameOrEmail": "Kérjük, adjon meg egy érvényes felhasználónevet vagy emailt",

@@ -17,7 +17,6 @@ import { sleep } from "@/components/socialLogin/helper.ts";
 import { useThemeSystem } from "@/hooks/useThemeSystem";
 import {
   DisplayContent,
-  ImageWithPlaceholder,
   InnerMaintenance
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
@@ -277,7 +276,15 @@ const InnerAddress = (
       <input type="radio" readOnly checked={withdrawFiatV2.method?.id === data?.id}
              className="radio radio-sm radio-primary" />
     </InnerDisplayContent>
-    <ImageWithPlaceholder src={displayIcon} />
+    {/* 固定尺寸 wrapper：避免 iOS Safari 17 在 flex item + 父无显式高度时把 ImageWithPlaceholder 内部 h-full 解析为图片 intrinsic 高度，导致地址卡被撑爆（Lark task t110704，仅 iPhone 15 Pro / iOS 17.1.1 复现） */}
+    <div className="h-12 w-25 shrink-0 bg-base-400 rounded-lg p-1 overflow-hidden flex items-center justify-center">
+      <img
+        src={displayIcon}
+        alt=""
+        loading="lazy"
+        className="max-h-full max-w-full object-contain"
+      />
+    </div>
     <div className="flex-1 flex flex-col gap-2 text-xs">
       {
         source.map((v: any) => {

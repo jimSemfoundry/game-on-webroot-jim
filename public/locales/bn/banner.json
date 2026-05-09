@@ -36,5 +36,5 @@
   "vip_monday": "ভিআইপি সোমবার",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "বোনাস \n <0>ডলার</0>",
-  "super_everyday": "<0>আজকের প্রথম জমা</0><br/><0>ক্রিপ্টো {{crypto_bonus}}</0><br/><0>ফিয়াট {{fiat_bonus}}</0><br/>আপনার জমা<br/>প্রতিদিন বাড়ান"
+  "super_everyday": "<0>আজকের প্রথম জমা</0><br/>ক্রিপ্টো {{crypto_bonus}}<br/>ফিয়াট {{fiat_bonus}}"
 }

@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "휴대폰 번호가 인증되었습니다. 계속 진행할 수 있습니다.",
   "email_address_has_been_verified": "이메일 주소가 인증되었습니다. 계속 진행할 준비가 완료되었습니다.",
   "setNewPassword": "새 비밀번호 설정",
-  "passwordLengthRequirement": "6자에서 64자 사이의 비밀번호를 입력해주세요."
+  "passwordLengthRequirement": "6자에서 64자 사이의 비밀번호를 입력해주세요.",
+  "re_enter_new_password": "새 비밀번호 다시 입력",
+  "change_withdrawal_pin": "출금 PIN 변경",
+  "confirm_withdrawal_pin": "출금 PIN 확인",
+  "enter_email": "이메일 입력",
+  "rolloverDetails": "롤오버 상세 정보",
+  "verified_email": "인증된 이메일",
+  "verified_phone_number": "인증된 전화번호",
+  "change_key": "변경",
+  "update_successfully": "업데이트 성공. 다음 로그인 시 {<1>{{value}}</1>}을(를) 사용해 주세요.",
+  "understand_key": "확인",
+  "ensure_email_valid": "이메일 주소가 유효하고 본인이 접근할 수 있는지 확인하세요.",
+  "ensure_phone_valid": "전화번호가 유효하고 본인이 접근할 수 있는지 확인하세요.",
+  "enter_phone_number_to_receive_verification_code": "인증 코드를 받으려면 아래에 전화번호를 입력하세요.",
+  "enter_email_address_to_receive_verification_code": "인증 코드를 받으려면 아래에 이메일 주소를 입력하세요."
 }

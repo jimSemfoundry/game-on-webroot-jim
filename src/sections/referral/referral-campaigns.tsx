@@ -202,7 +202,7 @@ export const ReferralCampaigns = () => {
                             <span className="font-semibold text-left rtl:text-right truncate text-base-content/50 text-sm max-w-full sm:hidden" dir="ltr">
                               {item.code}
                             </span>
-                            <div className="tooltip tooltip-top hidden sm:block min-w-0 flex-1" data-tip={item.code}>
+                            <div className="tooltip tooltip-top hidden sm:block min-w-0 flex-1">
                               <span className="font-semibold text-left rtl:text-right truncate text-base-content/50 text-sm max-w-full block" dir="ltr">
                                 {item.code}
                               </span>

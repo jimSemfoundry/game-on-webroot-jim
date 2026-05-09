@@ -1,15 +1,22 @@
 import { CurrencySelector } from "@/components/ui/CurrencySelector";
 import { useFinanceModal } from "@/contexts/ModalsProvider";
 import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext";
-import { useLocation } from "@tanstack/react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import Iconify from "../iconify";
 import { useTranslation } from "react-i18next";
 import { ComponentProps, useMemo } from "react";
-import { useBonusWalletCurrencySwitch, useUserBalance } from "@/hooks/api/useAuth.ts";
+import { useUserBalance } from "@/hooks/api/useAuth.ts";
 import clsx from "clsx";
+import { useBonusWalletMqttSync, useUserBalanceMqttSync } from "@/query/dollars.ts";
+import { useSportsBonusWalletMqttSync } from "@/query/sports-bonus.ts";
 
 export const WalletFinance = () => {
-  useBonusWalletCurrencySwitch()
+  // 启动 slots 彩金钱包数据 -> mqtt 数据融合
+  useBonusWalletMqttSync();
+  // 启动体育彩金钱包数据 -> mqtt 数据融合
+  useSportsBonusWalletMqttSync();
+  // 启动用户余额变化数据 -> mqtt 数据融合
+  useUserBalanceMqttSync();
 
   const { selectedCurrency, updateSettlementCurrency } = useSettlementCurrency();
   const location = useLocation();
@@ -71,11 +78,13 @@ const InnerGuideDeposits = () => {
         <Iconify icon="custom:wallet" className="w-8 h-8 text-primary-content text-primary" />
       </InnerWalletButton>);
     }
-    return null
+    return null;
   }, [t, is_all_zero, isLoading]);
 };
 
 const InnerWalletButton = (props: ComponentProps<"button">) => {
+  const navigate = useNavigate();
+
   const location = useLocation();
 
   const { openUserFinanceModal } = useFinanceModal();
@@ -85,7 +94,15 @@ const InnerWalletButton = (props: ComponentProps<"button">) => {
 
   return <button
     className={clsx(`btn btn-primary h-9 w-9 rounded-md ${isGameDetailPage ? "ml-auto" : ""}`, props.className)}
-    onClick={openUserFinanceModal}>
+    onClick={() => {
+      if (isGameDetailPage) {
+        // TODO: 游戏页面需要保持原有的弹窗模式
+        openUserFinanceModal();
+      } else {
+        // TODO: 非游戏页面使用新的存取款模式
+        void navigate({ to: "/finance" });
+      }
+    }}>
     {props.children}
   </button>;
 };

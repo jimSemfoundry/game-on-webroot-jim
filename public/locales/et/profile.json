@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "Sinu telefoninumber on kinnitatud. Võid jätkata.",
   "email_address_has_been_verified": "Sinu e-posti aadress on kinnitatud. Võid jätkata.",
   "setNewPassword": "Määra uus parool",
-  "passwordLengthRequirement": "Palun sisestage parool, mis on 6 kuni 64 märki pikk."
+  "passwordLengthRequirement": "Palun sisestage parool, mis on 6 kuni 64 märki pikk.",
+  "re_enter_new_password": "Sisesta uus parool uuesti",
+  "change_withdrawal_pin": "Muuda väljamakse PIN-koodi",
+  "confirm_withdrawal_pin": "Kinnita väljamakse PIN-kood",
+  "enter_email": "Sisesta e-post",
+  "rolloverDetails": "Rolloveri üksikasjad",
+  "verified_email": "Kinnitatud e-post",
+  "verified_phone_number": "Kinnitatud telefoninumber",
+  "change_key": "Muuda",
+  "update_successfully": "Uuendamine õnnestus. Kasutage järgmiseks sisselogimiseks {<1>{{value}}</1>}.",
+  "understand_key": "Selge",
+  "ensure_email_valid": "Veenduge, et teie e-posti aadress on kehtiv ja teile ligipääsetav.",
+  "ensure_phone_valid": "Veenduge, et teie telefoninumber on kehtiv ja teile ligipääsetav.",
+  "enter_phone_number_to_receive_verification_code": "Sisestage allpool oma telefoninumber, et saada kinnituskood.",
+  "enter_email_address_to_receive_verification_code": "Sisestage allpool oma e-posti aadress, et saada kinnituskood."
 }

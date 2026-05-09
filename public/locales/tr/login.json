@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Lütfen bir şifre girin",
   "verification_code_sent_to_your": "Doğrulama kodu e-posta/telefonunuza gönderildi",
   "one_min_error": "Doğrulama kodunu tekrar almak için 1 dakika bekleyin.",
-  "signInWith": "Kaydol"
+  "must_agree": "Şartları ve koşulları kabul etmelisiniz",
+  "signInWith": "Kaydol",
+  "usernameTooShort": "Kullanıcı adı en az 6 karakter olmalıdır"
 }

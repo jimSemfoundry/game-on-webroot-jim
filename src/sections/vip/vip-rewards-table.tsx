@@ -37,21 +37,21 @@ const REWARD_ROWS: VipRewardRow[] = [
       return numValue > 0 ? `${(numValue * 100).toFixed(2)}%` : "-";
     }
   },
-  {
-    icon: "/icons/isometric/4.svg",
-    label: "vip:daily_cashback",
-    type: "percentage",
-    field: "cashback_other",
-    getValue: (config: IVipLevelConfig) => {
-      const value = config.cashback_other;
-      if (!value) return "-";
-      const numValue = parseFloat(value);
-      return numValue > 0 ? `${(numValue * 100).toFixed(2)}%` : "-";
-    }
-  },
+  // {
+  //   icon: "/icons/isometric/4.svg",
+  //   label: "vip:daily_cashback",
+  //   type: "percentage",
+  //   field: "cashback_other",
+  //   getValue: (config: IVipLevelConfig) => {
+  //     const value = config.cashback_other;
+  //     if (!value) return "-";
+  //     const numValue = parseFloat(value);
+  //     return numValue > 0 ? `${(numValue * 100).toFixed(2)}%` : "-";
+  //   }
+  // },
   {
     icon: "/icons/isometric/5.svg",
-    label: "vip:super_rakeback",
+    label: "bonus:super_rakeback",
     type: "percentage",
     field: "rakeback",
     getValue: (config: IVipLevelConfig) => {
@@ -70,7 +70,6 @@ const REWARD_ROWS: VipRewardRow[] = [
       return config.vip > 1;
     }
   },
-
   {
     icon: "/icons/isometric/12.svg",
     label: "vip:mystery_box",
@@ -170,8 +169,8 @@ export function VipRewardsTable() {
     if (value == null || value === "-") return <span>-</span>;
 
     if (row.type === "boolean") {
-      return value ? <input type="checkbox" defaultChecked
-                            className="checkbox checkbox-primary checkbox-xs sm:checkbox-sm"></input> : <span>-</span>;
+      return value ? <input type="checkbox" checked readOnly
+                            className="checkbox checkbox-primary checkbox-xs sm:checkbox-sm pointer-events-none"></input> : <span>-</span>;
     }
 
     return <span className="font-medium">{value}</span>;

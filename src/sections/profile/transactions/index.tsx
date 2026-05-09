@@ -1,13 +1,15 @@
 import Iconify from "@/components/iconify";
 import {
   TRANSACTION_PAGE_SIZE,
-  useBonusRecords,
+  useBonusRecords, useBonusWalletRecords,
+  useBountyClaimRecords,
   useCommissionRecords,
   useDepositRecords,
   useReferralRecords,
+  useSportsBonusWalletRecords,
   useSwapRecords,
   useUserBalance,
-  useWithdrawRecords,
+  useWithdrawRecords
 } from "@/query/transactions";
 import dayjs from "dayjs";
 import { useEffect, useMemo, useState } from "react";
@@ -19,9 +21,10 @@ import { TransactionFilters } from "./TransactionFilters";
 import { TransactionList } from "./TransactionList";
 import type { TransactionFilters as TFilters, Transaction, TransactionType } from "./types";
 
-const extractTransactionPayload = (rawData: any) => {
+const extractTransactionPayload = (rawData: any, extra?: string) => {
   const payload = rawData?.data && !Array.isArray(rawData.data) ? rawData.data : (rawData?.data ?? rawData);
   const pagination = payload?.pagination ?? rawData?.pagination;
+  const last_created_at = rawData?.last_created_at ?? 0;
 
   const records = Array.isArray(payload?.records)
     ? payload.records
@@ -66,7 +69,27 @@ const extractTransactionPayload = (rawData: any) => {
           ? rawData.total
           : undefined;
 
-  return { records, hasNext, totalPages, totalCount };
+  const chunkPaired = extra === 'BonusStore' || extra === 'SportsBonusStore';
+  // 按 (note, source_id) 分组而不是盲目 chunk(2)：
+  // 旧的 purchase / bonus_claim 写入是成对（2 行同 source_id+同 note）；
+  // 新的 b03_sports_bonus_wallet_promo_grant 是单行；
+  // 直接 chunk(2) 在出现单行时会错配到下一对里，render 端解构 b 时 crash。
+  const groupedRecords = chunkPaired
+    ? (() => {
+        const groups: Record<string, Transaction[]> = {};
+        const order: string[] = [];
+        for (const r of records as Transaction[]) {
+          const key = `${r.note ?? ''}::${r.source_id ?? r.source ?? r.id ?? ''}`;
+          if (!groups[key]) {
+            groups[key] = [];
+            order.push(key);
+          }
+          groups[key].push(r);
+        }
+        return order.map(k => groups[k]);
+      })()
+    : records;
+  return { records: groupedRecords, hasNext, totalPages, totalCount, last_created_at };
 };
 
 const getPageNumbers = (currentPage: number, totalPages: number) => {
@@ -111,6 +134,7 @@ export function Index() {
     asset: "all",
     period: "Past 30 Days",
   });
+  const [lastCtdMap, setLastCtdMap] = useState<Record<string, Record<number, number | undefined>>>({});
   const [lastIdsMap, setLastIdsMap] = useState<Record<string, Record<number, string | number | undefined>>>({});
 
   const { data: balanceData } = useUserBalance();
@@ -188,14 +212,39 @@ export function Index() {
     [baseQueryParams.end_timestamp, baseQueryParams.currency, currentPage],
   );
 
+  const lastCtdForKey = lastCtdMap[paginationKey] ?? {};
+  const lastCtdForCurrentPage = currentPage > 1 ? (lastCtdForKey[currentPage - 1] ?? 0) : 0;
+
+  const dollarsParams = useMemo(
+    () => ({
+      end_timestamp: baseQueryParams.end_timestamp,
+      currency: "",
+      limit: TRANSACTION_PAGE_SIZE,
+      last_created_at: lastCtdForCurrentPage,
+    }),
+    [baseQueryParams.end_timestamp, baseQueryParams.currency, currentPage],
+  );
+
   const activeType = filters.type;
+
+  const bountyParams = useMemo(
+    () => ({
+      page: currentPage,
+      limit: TRANSACTION_PAGE_SIZE,
+    }),
+    [currentPage],
+  );
 
   const depositQuery = useDepositRecords(paginatedParams, { enabled: activeType === "Deposit" });
   const withdrawQuery = useWithdrawRecords(paginatedParams, { enabled: activeType === "Withdraw" });
   const bonusQuery = useBonusRecords(paginatedParams, { enabled: activeType === "Bonus" });
+  const bountyQuery = useBountyClaimRecords(bountyParams, { enabled: activeType === "Bounty" });
   const swapQuery = useSwapRecords(paginatedParams, { enabled: activeType === "Swap" });
   const referralQuery = useReferralRecords(referralParams, { enabled: activeType === "Referral" });
   const commissionQuery = useCommissionRecords(commissionParams, { enabled: activeType === "Commission" });
+  const dollarsQuery = useBonusWalletRecords(dollarsParams, { enabled: activeType === "BonusStore" });
+  const sportsDollarsQuery = useSportsBonusWalletRecords(dollarsParams, { enabled: activeType === "SportsBonusStore" });
+
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedDetail, setSelectedDetail] = useState<ReturnType<ReturnType<typeof useTransactionDetailMapper>> | null>(null);
   const mapTransactionDetail = useTransactionDetailMapper();
@@ -214,6 +263,12 @@ export function Index() {
         return withdrawQuery;
       case "Bonus":
         return bonusQuery;
+      case "Bounty":
+        return bountyQuery;
+      case "BonusStore":
+        return dollarsQuery;
+      case "SportsBonusStore":
+        return sportsDollarsQuery;
       case "Swap":
         return swapQuery;
       case "Referral":
@@ -227,7 +282,7 @@ export function Index() {
 
   const currentQuery = getCurrentQuery();
   const { data, isLoading, isFetching } = currentQuery;
-  const { records: transactions, hasNext: hasNextPage, totalPages: totalPagesFromApi, totalCount } = extractTransactionPayload(data);
+  const { records: transactions, hasNext: hasNextPage, totalPages: totalPagesFromApi, totalCount, last_created_at } = extractTransactionPayload(data, filters.type);
   const derivedTotalPages =
     totalPagesFromApi ?? (typeof totalCount === "number" ? Math.ceil(totalCount / TRANSACTION_PAGE_SIZE) : undefined);
   const totalPages = derivedTotalPages ?? (hasNextPage ? currentPage + 1 : currentPage);
@@ -268,6 +323,24 @@ export function Index() {
       };
     });
   }, [transactions, paginationKey, currentPage]);
+
+  useEffect(() => {
+    if (!last_created_at) return;
+
+    setLastCtdMap((prev) => {
+      const existingForKey = prev[paginationKey] ?? {};
+      if (existingForKey[currentPage] === last_created_at) {
+        return prev;
+      }
+      return {
+        ...prev,
+        [paginationKey]: {
+          ...existingForKey,
+          [currentPage]: last_created_at,
+        },
+      };
+    });
+  }, [last_created_at]);
 
   return (
     <div className="bg-base-300 flex flex-col rounded-field overflow-visible">

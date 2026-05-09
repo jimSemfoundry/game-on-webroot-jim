@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "به عنوان یک اتحاد بازی جهانی پیشرو، ما قدرت و پیچیدگی پلتفرم‌های برتر را تحت یک چشم‌انداز گرد هم می‌آوریم. در سراسر هر برند در پرتفولیوی ما، ما به عنوان یکی حرکت می‌کنیم — ارائه سرگرمی، پاداش‌های شخصی‌سازی‌شده، و اتصال seamless در سراسر ارزها، کشورها و فرهنگ‌ها.",
   "footerDescriptionThree": "فقط بازی نکنید. همه چیز را چالش بکشید.",
   "footerDescriptionFour": "یک ویژگی امضا شده از اتحاد {{supportName}}",
-  "footerDescriptionFive": "© ۲۰۲۵. همه حقوق محفوظ است.",
+  "footerDescriptionFive": "© {{year}}. همه حقوق محفوظ است.",
   "banner": {
     "oneDescription": "نخستین باشید.",
     "oneDescriptionTwo": "چالش\nهمه چیز",
@@ -127,5 +127,7 @@
   "addHomeScreen": "افزودن به صفحه اصلی",
   "latestWins": "آخرین بردهای",
   "spinPlayAndWinAcrossTopCasinoHits": "چرخش، بازی و برنده شدن در بهترین بازی‌های کازینو",
-  "scoreBigOnSportsFromAroundTheWorld": "در ورزش‌های سراسر جهان به پیروزی‌های بزرگ دست یابید"
+  "scoreBigOnSportsFromAroundTheWorld": "در ورزش‌های سراسر جهان به پیروزی‌های بزرگ دست یابید",
+  "liveDealers": "دیلرهای زنده برای بازی‌های میزی مورد علاقه شما",
+  "show_less": "نمایش کمتر"
 }

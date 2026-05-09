@@ -95,5 +95,19 @@
   "phone_number_has_been_verified": "Na-verify na ang phone number mo. Maaari ka nang magpatuloy.",
   "email_address_has_been_verified": "Na-verify na ang email address mo. Maaari ka nang magpatuloy.",
   "setNewPassword": "Itakda ang Bagong Password",
-  "passwordLengthRequirement": "Mangyaring maglagay ng password na 6 hanggang 64 karakter."
+  "passwordLengthRequirement": "Mangyaring maglagay ng password na 6 hanggang 64 karakter.",
+  "re_enter_new_password": "Muling Ipasok ang Bagong Password",
+  "change_withdrawal_pin": "Palitan ang Withdrawal PIN",
+  "confirm_withdrawal_pin": "Kumpirmahin ang Withdrawal PIN",
+  "enter_email": "Ilagay ang Email",
+  "rolloverDetails": "Mga Detalye ng Rollover",
+  "verified_email": "Na-verify na email",
+  "verified_phone_number": "Na-verify na phone number",
+  "change_key": "Palitan",
+  "update_successfully": "Matagumpay na na-update. Gamitin ang {<1>{{value}}</1>} para sa susunod na pag-login.",
+  "understand_key": "Naiintindihan",
+  "ensure_email_valid": "Siguraduhin na valid ang iyong email address at ma-access mo ito.",
+  "ensure_phone_valid": "Siguraduhin na valid ang iyong phone number at ma-access mo ito.",
+  "enter_phone_number_to_receive_verification_code": "Ilagay ang iyong phone number sa ibaba para makatanggap ng verification code.",
+  "enter_email_address_to_receive_verification_code": "Ilagay ang iyong email address sa ibaba para makatanggap ng verification code."
 }

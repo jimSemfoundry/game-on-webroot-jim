@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Ole hyvä ja syötä salasana",
   "verification_code_sent_to_your": "Vahvistuskoodi lähetetty sähköpostiisi/puhelimeesi",
   "one_min_error": "Hanki vahvistuskoodi uudelleen 1 minuutin kuluttua.",
-  "signInWith": "Rekisteröidy käyttäen"
+  "must_agree": "Sinun on hyväksyttävä käyttöehdot",
+  "signInWith": "Rekisteröidy käyttäen",
+  "usernameTooShort": "Käyttäjänimen on oltava vähintään 6 merkkiä pitkä"
 }

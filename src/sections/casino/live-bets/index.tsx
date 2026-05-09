@@ -131,7 +131,7 @@ export const LiveBets = () => {
             <div className="font-bold text-start">{t("casino:game")?.toUpperCase()}</div>
             <div className="font-bold text-start">{t("casino:user")?.toUpperCase()}</div>
             <div className="font-bold hidden sm:block text-start">{t("casino:bet")?.toUpperCase()}</div>
-            <div className="font-bold hidden sm:block text-start">{t("casino:multiplier")?.toUpperCase()}</div>
+            <div className="font-bold hidden sm:block text-start">{t("transaction:tableHeaders.multiplier")?.toUpperCase()}</div>
             <div className="font-bold text-end">{t("casino:profit")?.toUpperCase()}</div>
           </div>
         </div>

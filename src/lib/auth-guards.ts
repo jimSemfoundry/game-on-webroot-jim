@@ -1,5 +1,14 @@
 import type { RouterContext } from "@/routes/__root";
 import { redirect } from "@tanstack/react-router";
+import { API_PATHS_UNNECESSARY_RUM_LOG } from "@/services/apiPaths";
+
+// 缓存排除路径数组，避免每次调用都展开 Set
+const EXCLUDED_PATHS = [...API_PATHS_UNNECESSARY_RUM_LOG];
+
+// 检查URL是否在RUM日志排除列表中
+export const shouldExcludeFromRumLog = (url: string): boolean => {
+  return EXCLUDED_PATHS.some(path => url.includes(path));
+};
 
 /**
  * 认证守卫 - 要求用户必须登录

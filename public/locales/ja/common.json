@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "この携帯番号はすでに使用されています。別の携帯番号を使用してください。",
     "mobileAlreadyBound": "この携帯番号はすでにこのアカウントに紐付けられています。",
     "fullscreen": "全画面",
-    "exitFullscreen": "全画面を終了"
+    "exitFullscreen": "全画面を終了",
+    "draw": "引き分け"
   },
   "bonus_pool": "ボーナスプール",
   "pleaseEnterValidUsernameOrEmail": "有効なユーザー名またはメールアドレスを入力してください",

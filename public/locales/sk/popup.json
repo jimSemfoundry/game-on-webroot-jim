@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Výhry z voľných točení nevypršia, kým nebudú odomknuté a uplatnené.",
     "general_terms": "Všeobecné podmienky",
     "general_terms_desc": "Odměny za voľné točenia sú počítané a pripisované v BUCK, potom zobrazené vo vašej preferovanej fiat mene pre pohodlie. Upozorňujeme, že konverzie mien sú približné.",
-    "general_terms_desc_2": "Kasíno si vyhradzuje právo kedykoľvek zmeniť alebo odobrať oprávnenosť bez povinnosti odôvodniť. Akékoľvek zneužitie alebo podvodná činnosť povedie k diskvalifikácii z akcie."
+    "general_terms_desc_2": "Kasíno si vyhradzuje právo kedykoľvek zmeniť alebo odobrať oprávnenosť bez povinnosti odôvodniť. Akékoľvek zneužitie alebo podvodná činnosť povedie k diskvalifikácii z akcie.",
+    "redeem_count_free_spins": "UPLATNIŤ {{freeSpinsCount}} VOĽNÝCH TOČENÍ?"
   },
   "mysteryBox": {
     "description": "Čím viac hráte, tým väčšia je šanca na veľkú výhru. Otvorte si Mystery Box každý mesiac a objavte prekvapivé bonusy prispôsobené vašej aktivite. Roztočte, hrajte a vyzdvihnite si, čo na vás čaká!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Hotovostný bonus",
   "none": "Žiadne",
   "bonus_limit": "Limit bonusu",
-  "minimum_deposit": "Minimálny vklad"
+  "minimum_deposit": "Minimálny vklad",
+  "get_buck": "ZÍSKAJTE BUCK",
+  "what_is_buck": "Čo je BUCK?",
+  "what_is_buck_description": "BUCK je exkluzívny token pre všetky odmeny platformy s hodnotou 1 BUCK = 1 USDT.",
+  "is_buck_exchangeable": "Je BUCK vymeniteľný?",
+  "is_buck_exchangeable_description": "Áno. BUCK môžete kedykoľvek previesť na podporované kryptomeny alebo fiat meny priamo na platforme.",
+  "expiration_description": "Nie. BUCK nikdy nevyprší a zostane vo vašom zostatku, kým ho nepoužijete.",
+  "general_terms_description": "Odmeny sú vypočítané a pripísané v USDT, potom zobrazené vo vašej preferovanej fiat mene pre pohodlie. Upozorňujeme, že konverzie mien sú približné. \n\n Kasíno si vyhradzuje právo kedykoľvek upraviť alebo zrušiť oprávnenosť bez povinnosti to odôvodniť. Akékoľvek zneužitie alebo podvodná činnosť povedie k diskvalifikácii z akcie.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Získajte viac Buddy Ball",
+    "daily_check_in": "Denné prihlásenie",
+    "refer_a_friend": "Odporučte priateľa",
+    "referral_first_deposit": "Prvý vklad z odporúčania"
+  },
+  "bonus_details_modal": {
+    "description": "Vitajte v Bonusový Obchod, kde môžete premeniť svoje peniaze na Bonusové doláre a získať navyše 20%-180% v závislosti od požiadaviek na pretočenie (požiadavka pretočenia). Bonusové doláre sú špeciálne herné kredity dostupné pre vybrané slotové hry. Bonusové doláre je možné premeniť na vyberatenú hotovosť po splnení požiadavky na pretočenie.",
+    "claim_distribution": "Po splnení požiadavky na pretočenie (stávkovanie) môžete svoj zostatok Bonusové doláre premeniť na menu podľa vlastného výberu kliknutím na tlačidlo pre uplatnenie.",
+    "expiration_description": "Bonusové doláre musia byť použité v rámci doby platnosti zobrazenej na karte Bonusový Obchod. Nevyužité zostatky Bonusové doláre prepadnú po uplynutí platnosti. Upozorňujeme, že môžete mať aktívnu iba jednu akciu Bonusové doláre naraz.",
+    "generalTerms_description": "Bonusové doláre sa vypočítavajú a pripisujú v BONUS a následne sa pre vaše pohodlie zobrazujú vo vami zvolenej zobrazovanej mene. Konverzie mien sú približné. Kasíno si vyhradzuje právo zmeniť alebo odvolať oprávnenostʹ bez povinnosti uvádzať dôvod. Akékoľvek zneužitie alebo podvodná činnosť povedie k diskvalifikacii z akcie."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Vitajte v športovom bonuse, kde môžete previesť svoju hotovosť na doláre športového bonusu a získať ďalších 50 % podľa stávkových požiadaviek. Športové bonusové doláre sú špeciálne herné kredity, ktoré je možné použiť na športové stávkovanie. Po splnení požiadavky na stávkovanie je možné športové bonusové doláre premeniť na vyberateľnú hotovosť.",
+    "claim_distribution": "Po splnení požiadavky na stávkovanie môžete svoj zostatok športového bonusu previesť na menu podľa vášho výberu kliknutím na tlačidlo nároku.",
+    "wagering_rules": "- Prehraté stávky: Celá suma vašej stávky sa plne započítava do požiadavky na stávkovanie.\n- Víťazné stávky: Započítavajú sa iba vtedy, ak sú kurzy ≥ {{minOdds}}. Ak sú kurzy nižšie ako {{minOdds}}, stávka sa do požiadavky na stávkovanie nezapočítava.\n- Vyplatené stávky (cash out): Započítavajú sa iba vtedy, ak je vyplatená suma vyššia ako pôvodná suma stávky × {{minOdds}}.\n- Do požiadavky na stávkovanie sa započítava iba suma stávky, nikdy výhra.",
+    "expiration_description": "Doláre športového bonusu musia byť použité počas doby platnosti zobrazenej na karte Športový bonus. Nevyužité zostatky v dolároch športového bonusu po uplynutí doby platnosti prepadnú.",
+    "generalTerms_description": "- Športové bonusové odmeny sú vypočítané a pripísané v SPORTS BONUS, potom sú pre pohodlie zobrazené vo vami preferovanej mene. Upozorňujeme, že menové prevody sú približné.\n- Kasíno si vyhradzuje právo kedykoľvek upraviť alebo odvolať spôsobilosť bez povinnosti odôvodňovať. Akékoľvek zneužitie alebo podvodná aktivita bude viesť k diskvalifikácii z propagácie."
+  }
 }

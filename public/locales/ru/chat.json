@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Чат службы поддержки не удалось загрузить",
   "read": "Читать",
   "unread": "Непрочитанное",
-  "customerService": "Служба поддержки"
+  "customerService": "Служба поддержки",
+  "today": "сегодня",
+  "earlier": "ранее",
+  "older": "старые"
 }

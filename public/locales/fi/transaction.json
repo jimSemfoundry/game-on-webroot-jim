@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Nosto",
     "cryptoWithdraw": "Kryptonos",
     "bonus": "Bonus",
+    "bounty": "Palkkio",
     "win": "Voitto",
     "bet": "Veto",
     "refund": "Palautus",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bonus",
     "cashbackbonus": "Cashback Bonus",
     "referral": "Suositus",
-    "commission": "Komissio"
+    "commission": "Komissio",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Kolikkopelit",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Avatut varat",
     "rolloverMul": "Panoskerroin"
   },
-  "assistance": "Tarkista tietosi ja yritä uudelleen tai ota yhteyttä asiakaspalveluun saadaksesi apua"
+  "assistance": "Nimesi ei vastaa nimeä, jota käytit ensimmäisen kerran tässä kanavassa. Ota yhteyttä asiakaspalveluun."
 }

@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Der Kundenservice-Chat konnte nicht geladen werden",
   "read": "Gelesen",
   "unread": "Ungelesen",
-  "customerService": "Kundenservice"
+  "customerService": "Kundenservice",
+  "today": "heute",
+  "earlier": "früher",
+  "older": "älter"
 }

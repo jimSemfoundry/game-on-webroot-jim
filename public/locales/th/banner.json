@@ -36,5 +36,5 @@
   "vip_monday": "VIP วันจันทร์",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "โบนัส \n <0>ดอลลาร์</0>",
-  "super_everyday": "<0>ฝากเงินครั้งแรกของวัน</0><br/><0>คริปโต {{crypto_bonus}}</0><br/><0>เงินฟเียต {{fiat_bonus}}</0><br/>เพิ่มพลังการฝากเงิน<br/>ทุกวัน"
+  "super_everyday": "<0>ฝากเงินครั้งแรกของวัน</0><br/>คริปโต {{crypto_bonus}}<br/>เงินฟiat {{fiat_bonus}}"
 }

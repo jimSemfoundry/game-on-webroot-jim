@@ -63,7 +63,7 @@
   "claim": "Resgatar",
   "tournament_reward": "Recompensa do Torneio",
   "your_tournament_reward_is_ready_tap_to_claim_now": "Sua recompensa do torneio está pronta, toque para resgatar agora!",
-  "super_rakeback": "Super Rakeback",
+  "super_rakeback": "Super rakeback",
   "active": "Ativo",
   "activate_booster": "Ativar Booster",
   "daily_cashback": "Cashback Diário",
@@ -90,7 +90,7 @@
   "bonus_type": "Tipo de Bônus",
   "total_bonus": "Total de Bônus",
   "no_bonus_data_available": "Nenhum dado de bônus disponível",
-  "lucky_spin": "Lucky Spin",
+  "lucky_spin": "Giro da sorte",
   "lucky_number_seven": "Número Sete da Sorte",
   "expires_in": "Expira Em",
   "expires": "Expira",
@@ -156,7 +156,7 @@
   },
   "achievement_super_spreader": {
     "name": "Super Difusor",
-    "description": "Esta conquista é concedida aos jogadores que referenciaram com sucesso <0>{{count}} novos usuários</0>. Um verdadeiro construtor de comunidade, eles expandem o círculo e trazem nova energia ao jogo. Sua influência cresce a cada conexão que fazem."
+    "description": "Esta conquista é concedida aos jogadores que indicaram com sucesso <0>{{count}} novos usuários</0> que concluíram sua primeira compra. Como verdadeiros construtores de comunidade, eles expandem o círculo por meio de um compartilhamento genuíno e trazem nova energia ao jogo. Sua influência cresce com cada conexão significativa que criam."
   },
   "achievement_conquistador": {
     "name": "Conquistador",
@@ -239,7 +239,7 @@
     "description": "Esta conquista é concedida a jogadores que adicionaram o jogo à sua Tela Inicial ou baixaram o aplicativo. Uma Estrela Guia mantém o caminho para a fortuna claro, iluminando o caminho de volta ao jogo com um único toque."
   },
   "achievement_highroller": {
-    "name": "Highroller",
+    "name": "Grande apostador",
     "description": "Esta conquista é concedida a jogadores que apostaram um total de pelo menos <0>{{amount}}</0> ao longo de toda a sua história de jogo. Highrollers ostentam a marca de compromisso e prestígio, provando sua dedicação ao jogo a cada giro, aposta e rodada. Sua coroa não é apenas um símbolo — é um testemunho de persistência, paixão e a busca pela fortuna."
   },
   "achievement_inferno": {
@@ -255,7 +255,7 @@
     "description": "Esta conquista é concedida a jogadores que completaram um saque fiat de pelo menos <0>{{amount}}</0> em uma única transação. Um Mestre do Dinheiro se destaca na encruzilhada entre jogo e recompensa, convertendo seus ganhos em valor real. Com mãos firmes e tempo preciso, eles mostram que o verdadeiro domínio não está apenas no jogo — está em trazer as recompensas para casa."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "Cripto mano",
     "description": "Esta conquista é concedida a jogadores que fizeram um depósito de pelo menos <0>{{amount}}</0> em uma única transação, com qualquer criptomoeda. Um Maestro Crypto conduz seus fundos como um verdadeiro artista, orquestrando ativos digitais com precisão e estilo. Confiante no palco da blockchain, eles são pioneiros do jogo que provam que a fortuna favorece os ousados."
   },
   "achievement_crypto_baron": {
@@ -309,7 +309,7 @@
     "achievement_slots_multiplier": "Conquista Multiplicador de Caça-níqueis",
     "level_up": "Subir de Nível",
     "rakeback": "Rakeback",
-    "cashback": "Cashback",
+    "cashback": "Reembolso",
     "group": "Comissão",
     "referral": "Referência",
     "tournament": "Torneio",
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Oferta Especial Primeiro Depósito",
     "monday_vip_bonus": "Bônus VIP de Segunda-feira",
     "special_offer_thursday": "Bônus Cripto de Quinta-feira",
-    "special_offer_sunday": "Impulso de Primeiro Depósito",
+    "special_offer_sunday": "Primeiro Depósito do Dia",
     "conquest_bonus": "Bônus de Conquista",
-    "dollars_bonus": "Bônus"
+    "dollars_bonus": "Bônus",
+    "buddy_balls": "Bolas de Amigos",
+    "special_offer": "Oferta Especial"
   },
   "achievements_description": "Desbloqueado no VIP {{vip}}, essas recompensas celebram seus marcos com surpresas emocionantes pelo caminho!",
   "lucky_number_seven_description": "Acerte os Números da Sorte {{number}} e ganhe um bônus incrível todos os dias!",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "Posso desistir da promoção de Dólares de Bônus a qualquer momento?",
-      "desc": "Sim. Você pode escolher desistir da promoção de Dólares de Bônus a qualquer momento durante seu período de validade. Por favor, note que uma vez que você desista, seu saldo atual de Dólares de Bônus será limpo e não poderá ser restaurado ou sacado. Você ainda pode participar de promoções de bônus futuras, se disponíveis."
+      "desc": "Você só pode escolher desistir da promoção de Dólares de Bônus quando o saldo da sua Carteira de Bônus estiver abaixo do equivalente a {{amount}}USDT durante seu período de validade.\nPor favor, note que uma vez que você desista, seu saldo restante da Carteira de Bônus será limpo e não poderá ser restaurado ou sacado.\nComo só pode haver uma promoção de Carteira de Bônus ativa a qualquer momento, você estará elegível para participar e comprar outras promoções de Carteira de Bônus após desistir da sua promoção atual de Carteira de Bônus."
     },
     "r1": {
       "title": "O que é o Dólar de Bônus?",
@@ -554,6 +556,10 @@
       "title": "Posso continuar jogando mesmo após atingir o limite de saque?",
       "desc": "Sim, você pode continuar jogando com seu saldo de bônus por diversão - mas seu resgate ainda será limitado ao limite de saque."
     },
+    "r11": {
+      "title": "Quando os dólares de bônus expiram / Posso desistir da promoção?",
+      "desc": "Os dólares de bônus expiram 30 dias após serem emitidos, então você tem 30 dias para completar o requisito de turnover. Você também pode escolher desistir da Promoção de Dólares de Bônus a qualquer momento.\n Quando você desiste da promoção, seu saldo atual de Dólares de Bônus será limpo e nenhum reembolso será dado. Você poderá participar de futuras Promoções de Dólares de Bônus.\n Só pode haver 1 Promoção de Dólares de Bônus ativa a qualquer momento."
+    },
     "free": "Entre com dinheiro de bônus gratuito — sem depósito necessário. Gire em jogos reais, teste sua sorte e veja até onde pode ir antes de sacar.\n\n Perfeito para começar com risco zero.",
     "mini": "Faça um pequeno depósito e receba um bônus de caça-níqueis com requisitos leves de aposta. Projetado para jogo rápido e progresso mais rápido para saque.\n\n Ideal para jogadores casuais que querem uma experiência de bônus suave.",
     "mega": "Jogue com Dólares de Bônus como dinheiro real! Cada aposta o aproxima do desbloqueio de seu valor completo. Cumpra os requisitos de jogo e veja seus Dólares de Bônus se transformarem em recompensas sacáveis hoje!",
@@ -589,5 +595,82 @@
   "bonus_expired": "Expirado",
   "bonus_claimed": "Reivindicado",
   "bonus_failure_end": "Falhou",
-  "bonus_give_up": "Desistir"
+  "bonus_give_up": "Desistir",
+  "goal": "OBJETIVO",
+  "state": "STATUS",
+  "requirement_met": "Requisito atendido",
+  "enjoy": "aproveite",
+  "achievement_details": "Detalhes da Conquista",
+  "promo_expired": "Este código promocional expirou.",
+  "claim_successful": "Reivindicação bem-sucedida!",
+  "promo_claimed": "Você já reivindicou este código promocional.",
+  "invalid_parameter": "Parâmetro inválido.",
+  "promo_invalid": "Código promocional inválido. Por favor, verifique e tente novamente.",
+  "promo_format_error": "Por favor, insira um código composto por números e letras, com comprimento mínimo de {{length}} caracteres.",
+  "redeem_promotional": "Resgate seu código promocional para desbloquear recompensas exclusivas, descontos ou benefícios adicionais!\n Siga-nos em nossos canais de mídia social para obter códigos promocionais todos os dias.",
+  "promo_unavailable": "Este código promocional não está disponível atualmente.",
+  "promo_claim_limit": "Este código promocional atingiu seu limite de resgate.",
+  "similar_event": "Você já tem uma promoção similar em andamento.",
+  "abnormality": "Anomalia na conta, por favor contate o serviço ao cliente.",
+  "not_started_yet": "Esta promoção ainda não começou.",
+  "not_eligible": "Não elegível para resgatar.",
+  "cannot_claim": "Você tem saldo na Carteira de Bônus e não pode reivindicar uma promoção de Freespin.",
+  "bonus_store": "Loja de Bônus",
+  "bonus_store_title": "Loja de \n Bônus",
+  "wagering_in_progress": "Apostas em andamento",
+  "buddy_ball": "Bola Buddy",
+  "buddy_ball_title": "Bola\nBuddy",
+  "prize_pool": "Bolsa de prêmios",
+  "lifetime_bonus_claimed": "Bônus vitalício resgatado",
+  "successful": "Bem-sucedido",
+  "purchased": "Você comprou com sucesso \n <0>{{amount}}</0>. Boa sorte!",
+  "bonusStore": "Loja de \n Bônus",
+  "buyAmount": "Valor da Compra",
+  "selectBonus": "Selecione o bônus para jogar",
+  "buyNow": "Comprar agora",
+  "bonusExists": "Já existe um bônus ativo",
+  "notAllowed": "Ainda não é permitido recomprar",
+  "amountLow": "Valor muito baixo",
+  "amountHigh": "Valor muito alto",
+  "failedCreate": "Falha ao criar registro",
+  "buyBonus": "Comprar bônus",
+  "bonusHistory": "Histórico de bônus",
+  "wagerCompleted": "A aposta foi concluída!",
+  "wageringProgress": "Apostas em andamento",
+  "bonus_store_welcome": "Bem-vindo à Loja de Bônus, onde você pode converter seu dinheiro em Dólares de Bônus e receber um extra de {{value}}, sujeito aos requisitos de requisito de apostas (apostas). Dólares de Bônus são créditos especiais de jogo disponíveis para determinados jogos de slots selecionados. Os Dólares de Bônus podem ser convertidos em dinheiro sacável assim que você concluir o requisito de requisito de apostas.",
+  "bonus_store_wagering": "Quando você concluir o requisito de requisito de apostas (aposta), poderá converter seu saldo de Dólares de Bônus para a moeda de sua escolha clicando no botão de resgatar.",
+  "bonus_store_validity": "Os Dólares de Bônus devem ser usados dentro do período de validade exibido na aba Loja de Bônus. Saldos de Dólares de Bônus não utilizados serão perdidos após o término da validade. Observe que você só pode ter uma promoção de Dólares de Bônus ativa por vez.",
+  "bonus_store_calculated": "Os Dólares de Bônus são calculados e creditados em BONUS e, em seguida, exibidos na moeda de exibição escolhida para sua conveniência. Observe que as conversões de moeda são aproximadas. O Cassino se reserva o direito de modificar ou revogar a elegibilidade sem obrigação de justificativa. Qualquer abuso ou atividade fraudulenta resultará em desqualificação da promoção.",
+  "youPay": "Você paga",
+  "extraBonus": "Bônus extra",
+  "bonusReceived": "Bônus recebido",
+  "youGet": "Você recebe",
+  "extraBonusGet": "Ganhe {{value}} de bônus extra",
+  "minimumBuy": "Compra mínima",
+  "periodComplete": "Prazo para concluir",
+  "bonusObtained": "BONUS obtido x {{value}}",
+  "bonusGameplay": "Jogue slots com Bonus e ganhe mais fichas. Projetado para jogabilidade rápida e saques mais rápidos. \n\n Ideal para jogadores casuais que querem uma experiência de bônus suave.",
+  "sportGameplay": "Jogue esportes com Bonus e ganhe mais fichas. Projetado para jogabilidade rápida e saques mais rápidos. \n\n Ideal para jogadores casuais que querem uma experiência de bônus suave.",
+  "day_streak": "sequência de <0>{{value}}</0> dias",
+  "check_in": "check-in",
+  "get_more": "obter mais",
+  "missed_key": "perdido",
+  "daily_check_in": "check-in diário",
+  "check_in_today": "Faça check-in hoje",
+  "get_more_buddy_balls": "Obtenha mais Buddy Balls",
+  "checked_in": "Check-in feito",
+  "no_games_available": "Não há jogos disponíveis na sua região.",
+  "daily_reset": "Reinício diário às {{time}}",
+  "sportsBonusStore": "Bônus esportivo",
+  "sportsBonusActivate": "Bônus esportivo ativado",
+  "sportsBonus": "Bônus esportivo",
+  "buySportsBonus": "Compre bônus esportivo",
+  "sportsBonusGameplay": "Faça apostas esportivas com seu Bônus Esportivo e desbloqueie mais valor. Projetado para fãs de esportes que buscam apostas melhores e saques mais rápidos. \n\n Ideal para apostadores que desejam uma experiência de bônus tranquila e adaptada ao esporte.",
+  "wagering_rules": "Regras de apostas",
+  "sports_bonus_title": "BONUS \n DESPORTIVO",
+  "withdrawal": "Levantamento mín.",
+  "switch_prompt_title": "O seu Bónus Desportivo está pronto \n Mude para o utilizar",
+  "switch_prompt_more": "Mais",
+  "switch_prompt_switch": "Mudar",
+  "switched_back_wallet": "Voltou para a sua carteira {{currency}}"
 }

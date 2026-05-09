@@ -3,20 +3,21 @@ import { authService } from "@/services/authService";
 import type { LoginCredentials } from "@/types/auth";
 import type { CreateAdTagParams, GetReferralListParams, SetDefaultAdTagParams } from "@/types/referral";
 import { clearAuth, hasAuth } from "@/utils/auth";
-import { useInfiniteQuery, useMutation, useQuery, useQueryClient, type UseQueryOptions } from "@tanstack/react-query";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import {
+  keepPreviousData,
+  useInfiniteQuery,
+  useMutation,
+  useQuery,
+  useQueryClient,
+  type UseQueryOptions
+} from "@tanstack/react-query";
+import { useEffect, useMemo } from "react";
 import { toast } from "sonner";
 import type { KycDetail } from "@/types/profile";
 import type { ITournament } from "@/types/tournament";
 import type { UserGameListParams, UserGameListResponse } from "@/types/game";
 import type { IGetMondayVipBonus } from "@/types/bonus";
 import { useTranslation } from "react-i18next";
-import { rum_sdk_user_log } from "@/utils/helper.ts";
-import { useBaseConfig } from "@/hooks/api/usePublic.ts";
-import { useBonusWallet } from "@/query/dollars.ts";
-import { useMqttService } from "@/contexts/mqtt";
-import { useSettlementCurrency } from "@/contexts/SettlementCurrencyContext.tsx";
-import { useLocation } from "@tanstack/react-router";
 
 export const AUTH_QUERY_KEYS = {
   currentUser: ["auth", "currentUser"] as const,
@@ -54,9 +55,26 @@ export const AUTH_QUERY_KEYS = {
   tournamentPoolPrize: ["auth", "tournamentPoolPrize"] as const,
   notificationMessage: ["auth", "notificationMessage"] as const,
   bonusConfigList: ["auth", "bonusConfigList"] as const,
+  sportsBonusConfigList: ["auth", "sportsBonusConfigList"] as const,
+  sportsBonusWalletHistory: ["auth", "sportsBonusWalletHistory"] as const,
+  sportsBonusIsRegionBanned: ["auth", "sportsBonusIsRegionBanned"] as const,
   userBonusLatestHistory: ["auth", "userBonusLatestHistory"] as const,
   checkDetailPromo: ["auth", "checkDetailPromo"] as const,
-  todayDepositCount: ["auth", "todayDepositCount"] as const
+  todayDepositCount: ["auth", "todayDepositCount"] as const,
+  tournamentLeaderboard: ["auth", "tournamentLeaderboard"] as const,
+  userBuddyBallsHome: ["auth", "userBuddyBallsHome"] as const,
+  bonusWalletHistory: ["auth", "bonusWalletHistory"] as const,
+  buddyBallsClaimList: ["auth", "buddyBallsClaimList"] as const,
+  buddyBallsPlayList: ["auth", "buddyBallsPlayList"] as const,
+  lastTournamentLeaderboard: ["auth", "lastTournamentLeaderboard"] as const,
+  buddyBalls: ["auth", "buddyBalls"] as const,
+  dailyCheckInConfig: ["auth", "dailyCheckInConfig"] as const,
+  checkInHistory: ["auth", "checkInHistory"] as const,
+  userLuckySpinHome: ["auth", "userLuckySpinHome"] as const,
+  spinPoolPrizeList: ["auth", "spinPoolPrizeList"] as const,
+  allSpinWinList: ["auth", "allSpinWinList"] as const,
+  userSpinChance: ["auth", "userSpinChance"] as const,
+  userSpinWinList: ["auth", "userSpinWinList"] as const
 };
 
 export function useLogin() {
@@ -66,18 +84,29 @@ export function useLogin() {
     mutationFn: (credentials: LoginCredentials) => authService.signIn(credentials),
     onSuccess: (data) => {
       console.debug("Login success:", data);
-      localStorage.setItem("token", data.data.token);
-      localStorage.setItem("username", data.data.username);
+      const token = data?.data?.token;
+      const username = data?.data?.username || data?.user?.username;
+
+      if (token && token !== "undefined" && token !== "null") {
+        localStorage.setItem("token", token);
+      } else {
+        localStorage.removeItem("token");
+      }
+
+      if (username && username !== "undefined" && username !== "null") {
+        localStorage.setItem("username", username);
+      } else {
+        localStorage.removeItem("username");
+      }
+
       // Persist user & status for auth header (userid) and cross-tab sync
       if (data.user) {
         localStorage.setItem("user", JSON.stringify(data.user));
       }
+
       if (data.status) {
         localStorage.setItem("status", JSON.stringify(data.status));
       }
-
-      // 用户信息上传 rum
-      rum_sdk_user_log(data.user);
 
       queryClient.setQueryData(AUTH_QUERY_KEYS.currentUser, data);
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
@@ -270,9 +299,7 @@ export const useUserBalance = () => {
       const { data } = await authService.getUserBalance();
       return data;
     },
-    enabled: !!user && hasAuth(), // 只有当用户已登录时才执行查询
-    staleTime: 15 * 1000, // 30秒缓存，余额需要较频繁更新
-    refetchInterval: 15 * 1000 // 每分钟自动刷新一次
+    enabled: !!user && hasAuth() // 只有当用户已登录时才执行查询
   });
 };
 
@@ -311,7 +338,7 @@ export const useUserBalanceExtension = () => {
       return data;
     },
     enabled: !!user && hasAuth(),
-    refetchInterval: 15 * 1000
+    refetchInterval: 60 * 1000
   });
 };
 
@@ -460,13 +487,14 @@ export const useUserFreeGameRecords = () => {
 
 export const useActivateBoosterMutation = () => {
   const queryClient = useQueryClient();
+  const { t } = useTranslation();
 
   return useMutation({
     mutationFn: () => authService.activateBooster(),
     onSuccess: () => {
       // Invalidate user profile to refresh battery status
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.currentUser });
-      toast.success("Booster activated successfully!");
+      toast.success(t("toast:booster_activated_successfully"));
     },
     onError: (error: any) => {
       console.error("Failed to activate booster:", error);
@@ -749,8 +777,12 @@ export const useCreateAdTag = () => {
 
   return useMutation({
     mutationFn: (params: CreateAdTagParams) => authService.createAdTag(params),
-    onSuccess: () => {
+    onSuccess: (_data, variables) => {
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.adTagList });
+      // 如果创建时设为默认，刷新 defaultAdTag 确保推广链接实时更新
+      if (variables.is_default) {
+        queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.defaultAdTag });
+      }
       toast.success(t("referral:campaignCreateSuccess", "Campaign created successfully!"));
     },
     onError: (error: any) => {
@@ -778,6 +810,8 @@ export const useSetDefaultAdTag = () => {
     mutationFn: (params: SetDefaultAdTagParams) => authService.setDefaultAdTag(params),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.adTagList });
+      // 同时刷新 defaultAdTag，确保推广链接实时更新
+      queryClient.invalidateQueries({ queryKey: AUTH_QUERY_KEYS.defaultAdTag });
       toast.success("Campaign set as default successfully!");
     },
     onError: (error: any) => {
@@ -854,8 +888,7 @@ export const useUnreadNotificationCounter = () => {
       limit: 1,
       has_read: 0
     }),
-    enabled: !!user && hasAuth(),
-    refetchInterval: 20_000
+    enabled: !!user && hasAuth()
   });
 };
 
@@ -893,7 +926,6 @@ export const useMondayVipBonus = () => {
     refetchOnWindowFocus: "always"
   });
 };
-
 
 export const useGetMondayVipBonus = () => {
   const { user } = useAuth();
@@ -943,165 +975,6 @@ export const useBonusSwitch = () => {
   };
 };
 
-export const useBonusWalletCurrencySwitch = () => {
-  // 订阅暂停标记：当满足阈值并执行切换后，避免在同一路由下重复订阅/重复触发
-  const isSubscriptionPausedRef = useRef(false);
-
-  const { user } = useAuth();
-
-  const { updateSettlementCurrency } = useSettlementCurrency();
-
-  const { client, connected, subscribe, unsubscribe } = useMqttService();
-
-  // 获取当前路由信息
-  const location = useLocation();
-
-  // 基础配置数据
-  const { data: baseConfig } = useBaseConfig();
-
-  // 彩金钱包数据
-  const { data: bonusWallet } = useBonusWallet();
-
-  // 彩金钱包的总开关是否开启
-  const slot_bonus_wallet = baseConfig?.data?.bonus_switch?.slot_bonus_wallet !== 0;
-
-  /**
-   * 切换彩金币种为普通结算币种
-   */
-  const handle = useCallback(async () => {
-    // 检查当前路由是否在游戏页面，如果是则禁止执行
-    const currentPath = location.pathname;
-
-    // 如果路由包含 /main/games/，则不执行切换逻辑, 因为可能在游戏中
-    if (currentPath.includes("/games/")) {
-      return;
-    }
-
-    try {
-      const data = await authService.getCurrencyOtherThanBonusCoin();
-      if (data?.data?.currency) {
-        console.info(`Switch the invalid bonus currency to = ${data?.data?.currency}`);
-        void updateSettlementCurrency(data?.data?.currency);
-      }
-    } catch (error) {
-      console.info(error);
-    }
-  }, [location.pathname, updateSettlementCurrency]);
-
-  // 重新拉起订阅：路由变化（离开/进入页面）时重置暂停标记，允许下次进入后再次订阅
-  useEffect(() => {
-    isSubscriptionPausedRef.current = false;
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const isMqttConnected = Boolean(connected && client);
-    const isUserAuthenticated = Boolean(user?.id && hasAuth());
-    const isBonusWalletEnabled = slot_bonus_wallet;
-
-    /**
-     * {
-     *     "user_id": 3606186783,
-     *     "currency": "BONUS",
-     *     "bonus_wallet_name": "free_bonus",
-     *     "extra_data": {
-     *         "type": "free_bonus",
-     *         "bonus_value": "2",
-     *         "claim_max_value": "5",
-     *         "claim_min_value": "2",
-     *         "wager_require_multiplier": "25"
-     *     },
-     *     "init_amount": 2,
-     *     "amount": 2,
-     *     "wager_require": 50,
-     *     "claim_min": 2,
-     *     "claim_max": 5,
-     *     "expired_at": 1773074580,
-     *     "status": 1,
-     *     "handle_status": 1,
-     *     "created_at": 1770482580,
-     *     "updated_at": 1770482580,
-     *     "last_notify_at": 1770482580,
-     *     "id": 59
-     * }
-     */
-
-    if (
-      !isMqttConnected ||
-      !isUserAuthenticated ||
-      !isBonusWalletEnabled ||
-      isSubscriptionPausedRef.current
-    ) {
-      return;
-    }
-
-    let didUnsubscribe = false;
-    const balanceTopic = `user/${user!.id}/balance_detail`;
-    const balanceTopic1 = `user/${user!.id}/bonus_wallet`;
-
-    subscribe(balanceTopic);
-    subscribe(balanceTopic1);
-
-    const messageHandler = (_topic: string, message: any) => {
-      if (_topic === balanceTopic1) {
-        const msgStr = message?.toString?.() ?? String(message);
-        console.info(JSON.parse(msgStr));
-      }
-      if (_topic !== balanceTopic) return;
-
-      const msgStr = message?.toString?.() ?? String(message);
-
-      try {
-        const data = JSON.parse(msgStr);
-        const changes = data?.changes ?? [];
-
-        const balance = changes.find((c: { currency: string }) => c.currency === "BONUS");
-
-        console.info("balance = ", balance?.balance_after);
-
-        // 彩金币种切换临界条件 -》余额 <= 0.1USDT
-        const shouldUnsubscribe = Number(balance?.balance_after ?? 0) <= 0.1;
-
-        console.info("shouldUnsubscribe = ", shouldUnsubscribe);
-
-        if (shouldUnsubscribe) {
-          isSubscriptionPausedRef.current = true;
-
-          didUnsubscribe = true;
-
-          unsubscribe(balanceTopic);
-
-          // 仅移除当前 hook 注册的 messageHandler，避免重复监听导致多次触发
-          client!.off("message", messageHandler);
-
-          void handle();
-        }
-      } catch {
-        console.warn("Non-JSON format:", msgStr);
-      }
-    };
-
-    client!.on("message", messageHandler);
-
-    return () => {
-      /**
-       * 目的:
-       *  1. 避免重复执行逻辑 - 每条消息触发多次 handle()
-       *  2. 避免内存泄漏 - handler 函数持有闭包引用，无法被 GC
-       *  3. 避免性能下降 - 大量无用的 handler 被调用
-       */
-      client!.off("message", messageHandler);
-
-      if (!didUnsubscribe) {
-        unsubscribe(balanceTopic);
-      }
-    };
-  }, [bonusWallet?.data?.length, client, connected, handle, slot_bonus_wallet, user?.id]);
-
-  return {
-    switchBonusCurrencyToOther: handle
-  };
-};
-
 /**
  * 彩金活动配置列表
  */
@@ -1114,12 +987,28 @@ export function useBonusConfigList() {
   });
 }
 
-export function useUserBonusLatestHistory() {
+/**
+ * 体育彩金活动配置列表
+ */
+export function useSportsBonusConfigList() {
   const { user } = useAuth();
   return useQuery({
-    queryKey: AUTH_QUERY_KEYS.userBonusLatestHistory,
-    queryFn: () => authService.userBonusLatestHistory(),
+    queryKey: AUTH_QUERY_KEYS.sportsBonusConfigList,
+    queryFn: () => authService.getSportsBonusConfigList(),
     enabled: hasAuth() && !!user
+  });
+}
+
+/**
+ * 当前用户请求 IP 所在区域是否属于 Betby 禁区(决定是否隐藏 sports bonus 入口)
+ */
+export function useSportsBonusIsRegionBanned() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.sportsBonusIsRegionBanned,
+    queryFn: () => authService.getSportsBonusIsRegionBanned(),
+    enabled: hasAuth() && !!user,
+    staleTime: 5 * 60 * 1000,
   });
 }
 
@@ -1128,7 +1017,7 @@ export function useCheckDetailPromo() {
   return useQuery({
     queryKey: AUTH_QUERY_KEYS.checkDetailPromo,
     queryFn: () => authService.checkDetailPromo(),
-    enabled: hasAuth() && !!user
+    enabled: hasAuth() && !!user,
   });
 }
 
@@ -1138,5 +1027,197 @@ export function useTodayDepositCount() {
     queryKey: AUTH_QUERY_KEYS.todayDepositCount,
     queryFn: () => authService.getTodayDepositCount(),
     enabled: hasAuth() && !!user
+  });
+}
+
+/**
+ * 路由位置: https://localhost:3000/main/tournament/arena?id=%22200015%22
+ * 排行榜列表数据
+ * @param params
+ */
+export function useTournamentLeaderboard(params: {
+  page: number
+  limit: number
+  // last_id: string
+  // last_wagered: string
+  tournament_id: string
+  tournament_level: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.tournamentLeaderboard, params.page, params.tournament_id, params.tournament_level],
+    queryFn: () => authService.getTournamentLeaderboard(params),
+    enabled: hasAuth() && !!user && !!params.tournament_id,
+    placeholderData: keepPreviousData
+  });
+}
+
+export function useLastTournamentLeaderboard(params: {
+  page: number
+  limit: number
+  tournament_id: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.lastTournamentLeaderboard, params.page, params.tournament_id],
+    queryFn: () => authService.getLastTournamentLeaderboard(params.tournament_id, params.page, params.limit),
+    enabled: hasAuth() && !!user && !!params.tournament_id
+  });
+}
+
+export function useBonusWalletHistory(params: {
+  page: number
+  limit: number
+  status: string
+  last_id?: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.bonusWalletHistory, params.page, params.status],
+    queryFn: () => authService.getBonusWalletHistory(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+export function useSportsBonusWalletHistory(params: {
+  page: number
+  limit: number
+  status: string
+  last_id?: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.sportsBonusWalletHistory, params.page, params.status],
+    queryFn: () => authService.getSportsBonusWalletHistory(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+// 球游戏 -> 球游戏的主页信息
+export function useUserBuddyBallsHome() {
+  const { user } = useAuth();
+
+  // TODO: 20260323记录 -》未来会替换为EMQX订阅通知
+
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.userBuddyBallsHome,
+    queryFn: () => authService.userBuddyBallsHome(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+// 球游戏 -> 收益提取操作记录
+export function useBuddyBallsClaimList(params: {
+  page: number
+  limit: number
+  last_id?: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.buddyBallsClaimList, params.page],
+    queryFn: () => authService.getBuddyBallsClaimList(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+// 球游戏 -> 球的消耗记录
+export function useBuddyBallsPlayList(params: {
+  page: number
+  limit: number
+  last_id?: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.buddyBallsPlayList, params.page],
+    queryFn: () => authService.getBuddyBallsPlayList(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+export function useBuddyBalls() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.buddyBalls],
+    queryFn: () => authService.getBuddyBalls(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+export function useCheckInHistory() {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.checkInHistory],
+    queryFn: () => authService.checkInHistory(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+// 幸运盘 -> 主页信息
+export function useUserLuckySpinHome() {
+  const { user } = useAuth();
+
+  return useQuery({
+    queryKey: AUTH_QUERY_KEYS.userLuckySpinHome,
+    queryFn: () => authService.userLuckySpinHome(),
+    enabled: hasAuth() && !!user
+  });
+}
+
+// 幸运盘 -> 奖池详情接口
+export function useSpinPoolPrizeList(type: string) {
+  const { user } = useAuth();
+
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.spinPoolPrizeList, type],
+    queryFn: () => authService.getPoolPrizeList(type),
+    enabled: hasAuth() && !!user
+  });
+}
+
+// 幸运盘 -> 所有人中奖列表接口
+export function useAllSpinWinList(params: {
+  page: number
+  limit: number
+  sort_type: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.allSpinWinList, params.page, params.sort_type],
+    queryFn: () => authService.getAllSpinWinList(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+// 幸运盘 -> 用户的抽奖机会获得
+export function useUserSpinChance(params: {
+  page: number
+  limit: number
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.userSpinChance, params.page],
+    queryFn: () => authService.getUserSpinChance(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
+  });
+}
+
+// 幸运盘 -> 我的中奖列表接口
+export function useUserSpinWinList(params: {
+  page: number
+  limit: number
+  sort_type: string
+}) {
+  const { user } = useAuth();
+  return useQuery({
+    queryKey: [...AUTH_QUERY_KEYS.userSpinWinList, params.page, params.sort_type],
+    queryFn: () => authService.getUserSpinWinList(params),
+    enabled: hasAuth() && !!user,
+    placeholderData: keepPreviousData
   });
 }

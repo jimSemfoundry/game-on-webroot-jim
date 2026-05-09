@@ -36,5 +36,5 @@
   "vip_monday": "VIP Pirmdiena",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "BONUSS \n <0>DOLĀRI</0>",
-  "super_everyday": "<0>Dienas Pirmais Iemaksa</0><br/><0>Kripto {{crypto_bonus}}</0><br/><0>Fiat {{fiat_bonus}}</0><br/>Palieliniet Savas<br/>Iemaksas Katru Dienu"
+  "super_everyday": "<0>Dienas Pirmais Iemaksa</0><br/>Kripto {{crypto_bonus}}<br/>Fiat {{fiat_bonus}}"
 }

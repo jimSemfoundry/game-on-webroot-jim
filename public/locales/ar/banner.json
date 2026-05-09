@@ -36,5 +36,5 @@
   "vip_monday": "الاثنين VIP",
   "sp_bo": "رياضات \n <0>بونص</0>",
   "bo_do": "بونص \n <0>دولارات</0>",
-  "super_everyday": "<0>أول إيداع اليوم</0><br/><0>كريبتو {{crypto_bonus}}</0><br/><0>فيات {{fiat_bonus}}</0><br/>عزز إيداعاتك<br/>كل يوم"
+  "super_everyday": "<0>أول إيداع اليوم</0><br/>كريبتو {{crypto_bonus}}<br/>فيات {{fiat_bonus}}"
 }

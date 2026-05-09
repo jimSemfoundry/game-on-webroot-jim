@@ -34,6 +34,8 @@
   "upToReferral": "প্রতি রেফারেলে {{amount}} পর্যন্ত",
   "language": "ভাষা",
   "gameCurrency": "গেম কারেন্সি",
-  "hideBlockedGames": "ব্লকড গেমস লুকান",
-  "settings": "সেটিংস"
+  "hideBlockedGames": "লুকান \n<0>ব্লকড গেমস</0>",
+  "settings": "সেটিংস",
+  "problemReport": "সমস্যা রিপোর্ট",
+  "logging_key": "লগিং"
 }

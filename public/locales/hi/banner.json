@@ -36,5 +36,5 @@
   "vip_monday": "वीआईपी सोमवार",
   "sp_bo": "SPORTS \n <0>BONUS</0>",
   "bo_do": "बोनस \n <0>डॉलर</0>",
-  "super_everyday": "<0>दिन की पहली जमा</0><br/><0>क्रिप्टो {{crypto_bonus}}</0><br/><0>फियाट {{fiat_bonus}}</0><br/>अपनी जमा राशि<br/>हर दिन बढ़ाएं"
+  "super_everyday": "<0>दिन की पहली जमा</0><br/>क्रिप्टो {{crypto_bonus}}<br/>फियाट {{fiat_bonus}}"
 }

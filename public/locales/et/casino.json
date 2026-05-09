@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Juhtiva globaalse mängualliansina ühendame tipp-platvormide tugevuse ja rafineerituse ühe visiooni alla. Kõigi meie portfelli kaubamärkide lõikes liigume ühtsena — pakkudes meelelahutust, isikupärastatud preemiaid ja sujuvat ühenduvust üle valuutade, riikide ja kultuuride.",
   "footerDescriptionThree": "Ära ainult mängi mängu. Esita väljakutse kõigele.",
   "footerDescriptionFour": "{{supportName}} Alliansi tunnusomadus",
-  "footerDescriptionFive": "© 2025. Kõik õigused kaitstud.",
+  "footerDescriptionFive": "© {{year}}. Kõik õigused kaitstud.",
   "banner": {
     "oneDescription": "OLE ESIMENE.",
     "oneDescriptionTwo": "VÄLJAKUTSE\nKÕIKE",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Lisa avakuvale",
   "latestWins": "Viimased Võidud",
   "spinPlayAndWinAcrossTopCasinoHits": "Keeruta, mängi ja võida parimates kasiinomängudes",
-  "scoreBigOnSportsFromAroundTheWorld": "Saavuta suuri võite spordis üle kogu maailma"
+  "scoreBigOnSportsFromAroundTheWorld": "Saavuta suuri võite spordis üle kogu maailma",
+  "liveDealers": "Live diilerid sinu lemmik lauamängude jaoks",
+  "show_less": "näita vähem"
 }

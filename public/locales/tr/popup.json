@@ -182,7 +182,8 @@
     "winnings_from_free_spins_will_not_expire_until_unlocked_and_claimed": "Ücretsiz dönüşlerden elde edilen kazançlar, açılana ve talep edilene kadar süresi dolmayacaktır.",
     "general_terms": "Genel Şartlar",
     "general_terms_desc": "Ücretsiz Dönüş ödülleri BUCK cinsinden hesaplanır ve kredi edilir, ardından kolaylık için tercih ettiğiniz fiat para biriminde gösterilir. Lütfen döviz dönüşümlerinin yaklaşık olduğunu unutmayın.",
-    "general_terms_desc_2": "Kumarhane, herhangi bir zaman diliminde uygunluğu değiştirme veya iptal etme hakkını saklı tutar, gerekçelendirme yükümlülüğü olmaksızın. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti, promosyondan diskalifiye edilmenize yol açacaktır."
+    "general_terms_desc_2": "Kumarhane, herhangi bir zaman diliminde uygunluğu değiştirme veya iptal etme hakkını saklı tutar, gerekçelendirme yükümlülüğü olmaksızın. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti, promosyondan diskalifiye edilmenize yol açacaktır.",
+    "redeem_count_free_spins": "{{freeSpinsCount}} ÜCRETSİZ DÖNÜŞÜ KULLAN?"
   },
   "mysteryBox": {
     "description": "Ne kadar çok oynarsan, büyük kazanma şansın o kadar artar. Her ay Mystery Box'ını aç ve etkinliğine özel sürpriz bonusları keşfet. Dön, oyna ve seni bekleyen ödülü al!",
@@ -250,5 +251,31 @@
   "cash_bonus": "Nakit Bonusu",
   "none": "Yok",
   "bonus_limit": "Bonus Limiti",
-  "minimum_deposit": "Minimum Yatırım"
+  "minimum_deposit": "Minimum Yatırım",
+  "get_buck": "BUCK KAZAN",
+  "what_is_buck": "BUCK nedir?",
+  "what_is_buck_description": "BUCK, tüm platform ödülleri için özel bir token olup 1 BUCK = 1 USDT değerindedir.",
+  "is_buck_exchangeable": "BUCK değiştirilebilir mi?",
+  "is_buck_exchangeable_description": "Evet. BUCK'ı desteklenen kripto veya fiat para birimlerine istediğiniz zaman doğrudan platformda dönüştürebilirsiniz.",
+  "expiration_description": "Hayır. BUCK'ın süresi asla dolmaz ve kullanana kadar bakiyenizde kalır.",
+  "general_terms_description": "Ödüller USDT cinsinden hesaplanır ve yatırılır, ardından kolaylık için tercih ettiğiniz fiat para biriminde görüntülenir. Lütfen para birimi dönüşümlerinin yaklaşık olduğunu unutmayın. \n\n Casino, uygunluğu herhangi bir zamanda değiştirme veya iptal etme hakkını saklı tutar; gerekçe gösterme zorunluluğu yoktur. Herhangi bir kötüye kullanım veya dolandırıcılık faaliyeti, promosyondan diskalifiye edilmenize yol açar.",
+  "buddy_ball_modal": {
+    "get_more_buddy_balls": "Daha Fazla Buddy Ball Al",
+    "daily_check_in": "Günlük giriş",
+    "refer_a_friend": "Arkadaşını davet et",
+    "referral_first_deposit": "Referans ilk yatırımı"
+  },
+  "bonus_details_modal": {
+    "description": "Bonus Mağaza'a hoş geldiniz. Burada nakdinizi Bonus Dolarları'a dönüştürebilir ve çevrim şartlarına tabi olarak ekstra 20%-180% kazanabilirsiniz. Bonus Dolarları, belirli seçili slot oyunlarında kullanılabilen özel oyun kredileridir. Çevirim şartını tamamladığınızda Bonus Dolarları çekilebilir nakde dönüştürülebilir.",
+    "claim_distribution": "Çevirim (çevirim) şartını tamamladığınızda, talep et düğmesine tıklayarak Bonus Dolarları bakiyenizi seçtiğiniz para birimine dönüştürebilirsiniz.",
+    "expiration_description": "Bonus Dolarları, Bonus Mağaza sekmesinde gösterilen geçerlilik süresi içinde kullanılmalıdır. Kullanılmayan Bonus Dolarları bakiyeleri geçerlilik süresi sonunda kaybedilecektir. Lütfen aynı anda yalnızca bir aktif Bonus Dolarları promosyonuna sahip olabileceğinizi unutmayın.",
+    "generalTerms_description": "Bonus Dolarları BONUS üzerinden hesaplanır ve hesabınıza yatırılır; ardından kolaylık olması için seçtiğiniz görüntüleme para biriminde gösterilir. Para birimi dönüşümlerinin yaklaşık olduğunu lütfen unutmayın. Casino, gerekçe sunma zorunluluğu olmaksızın uygunluğu değiştirme veya iptal etme hakkını saklı tutar. Her türlü suistimal veya dolandırıcılık faaliyeti promosyondan men edilmenize neden olur."
+  },
+  "sports_bonus_details_modal": {
+    "description": "Nakit paranızı Spor Bonus Dolarına çevirebileceğiniz ve bahis şartlarına bağlı olarak ekstra %50 kazanabileceğiniz Spor Bonusuna hoş geldiniz. Spor Bonus Doları, spor bahislerinde kullanılabilecek özel oyun kredileridir. Spor Bonus Doları, bahis şartını tamamladıktan sonra çekilebilir nakde çevrilebilir.",
+    "claim_distribution": "Çevrim şartını tamamladığınızda Spor Bonus bakiyenizi talep butonuna tıklayarak istediğiniz para birimine çevirebilirsiniz.",
+    "wagering_rules": "- Kaybeden bahisler: Bahis tutarınızın tamamı çevrim şartına sayılır.\n- Kazanan bahisler: Yalnızca oranlar ≥ {{minOdds}} ise sayılır. Oranlar {{minOdds}} değerinin altındaysa bahis çevrim şartına sayılmaz.\n- Cash out edilen bahisler: Yalnızca cash out tutarı orijinal bahis tutarı × {{minOdds}} değerinden büyükse sayılır.\n- Çevrim şartına yalnızca bahis tutarı sayılır, kazançlar asla sayılmaz.",
+    "expiration_description": "Spor Bonus Doları, Spor Bonus sekmesinde görüntülenen geçerlilik süresi içerisinde kullanılmalıdır. Kullanılmayan Spor Bonus Doları bakiyeleri, geçerlilik süresi dolduktan sonra kaybedilecektir.",
+    "generalTerms_description": "- Spor Bonusu ödülleri SPOR BONUS'una hesaplanır ve aktarılır, ardından kolaylık olması açısından tercih ettiğiniz para biriminde görüntülenir. Lütfen para birimi dönüşümlerinin yaklaşık değerler olduğunu unutmayın.\n- Casino, herhangi bir zamanda gerekçe gösterme zorunluluğu olmaksızın uygunluğu değiştirme veya iptal etme hakkını saklı tutar. Herhangi bir suiistimal veya dolandırıcılık faaliyeti promosyondan diskalifiye edilmenize yol açacaktır."
+  }
 }

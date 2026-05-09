@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Hindi na-load ang chat ng serbisyo sa customer",
   "read": "Basahin",
   "unread": "Hindi Nabasa",
-  "customerService": "Serbisyo sa customer"
+  "customerService": "Serbisyo sa customer",
+  "today": "ngayon",
+  "earlier": "kanina",
+  "older": "mas luma"
 }

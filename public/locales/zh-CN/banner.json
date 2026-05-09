@@ -36,5 +36,5 @@
   "vip_monday": "VIP 星期一",
   "sp_bo": "体育 \n <0>奖金</0>",
   "bo_do": "免费 \n <0>彩金</0>",
-  "super_everyday": "<0>每日首存</0><br/><0>加密货币 {{crypto_bonus}}</0><br/><0>法币 {{fiat_bonus}}</0><br/>每日提升<br/>您的存款"
+  "super_everyday": "<0>每日首存</0><br/>加密货币 {{crypto_bonus}}<br/>法币 {{fiat_bonus}}"
 }

@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Η συνομιλία εξυπηρέτησης πελατών απέτυχε να φορτώσει",
   "read": "Διαβάστηκε",
   "unread": "Μη διαβασμένο",
-  "customerService": "Εξυπηρέτηση πελατών"
+  "customerService": "Εξυπηρέτηση πελατών",
+  "today": "σήμερα",
+  "earlier": "νωρίτερα",
+  "older": "παλαιότερα"
 }

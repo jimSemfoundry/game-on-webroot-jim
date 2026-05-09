@@ -1,6 +1,7 @@
 import Iconify from "@/components/iconify";
 import { Modal } from "@/components/ui/Modal";
 import { Trans, useTranslation } from "react-i18next";
+import { useBonusDetailsImage } from "@/hooks/api/useBonusDetailsImage";
 
 interface BonusCalendarHelpModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface BonusCalendarHelpModalProps {
 
 export const BonusCalendarHelpModal = ({ isOpen, onClose }: BonusCalendarHelpModalProps) => {
   const { t } = useTranslation(['popup', 'bonus']);
+  const ILLUSTRATION_URL = useBonusDetailsImage("members_day", 192);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideTitle={true} className="bg-transparent md:w-[500px] max-w-lg p-0" position="modal-middle">
@@ -55,7 +57,7 @@ export const BonusCalendarHelpModal = ({ isOpen, onClose }: BonusCalendarHelpMod
             </div>
             {/* Calendar illustration will be implemented manually by user */}
             <div className="flex-shrink-0">
-              <img src="/images/illustrations/6df60175af2bfcc308ff69b83a6a320795c694b3.png" className="w-30 h-30" />
+              <img src={ILLUSTRATION_URL} className="w-30 h-30" />
             </div>
           </div>
         </div>

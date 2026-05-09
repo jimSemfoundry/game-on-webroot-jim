@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "Chat-ul pentru asistență clienți nu a putut fi încărcat",
   "read": "Citește",
   "unread": "Necitit",
-  "customerService": "Serviciu clienți"
+  "customerService": "Serviciu clienți",
+  "today": "astăzi",
+  "earlier": "mai devreme",
+  "older": "mai vechi"
 }

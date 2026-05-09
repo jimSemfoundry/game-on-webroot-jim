@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Vyplňte prosím své údaje pro výběr fiat měny.",
   "updating_withdrawal_address": "Aktualizace výběrové adresy, prosím počkejte...",
   "please_select_withdrawal_method": "Vyberte prosím způsob výběru.",
-  "integer_deposit": "Tento kanál vyžaduje, aby částka vkladu byla celým násobkem {{value}}.",
+  "integer_deposit": "Tento kanál vyžaduje, aby částka vkladu byla v jednotkách {{value}}.",
   "enter_string_en_only": "Lze zadávat pouze anglická písmena, čísla a mezery.",
-  "enter_string_min_length": "Délka musí být alespoň {{length}}."
+  "enter_string_min_length": "Délka musí být alespoň {{length}}.",
+  "met_eligibility": "*Splnili jste kritéria způsobilosti pro speciální nabídku. Dobijte nyní a získejte svou odměnu!",
+  "read_carefully": "Přečtěte si prosím pozorně",
+  "no_channel": "V tuto chvíli nejsou k dispozici žádné kanály"
 }

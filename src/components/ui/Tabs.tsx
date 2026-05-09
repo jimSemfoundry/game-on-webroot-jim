@@ -1,6 +1,5 @@
-import { m } from "motion/react";
 import type { ReactNode } from "react";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { cn } from "@/utils/themeMerger";
 
 export interface TabItem {
@@ -31,7 +30,7 @@ interface TabsProps {
   size?: TabsSize;
   className?: string;
   tabClassName?: string;
-  layoutId?: string;
+  layoutId?: string; // 保留接口兼容性，但不再使用动画
   orientation?: "horizontal" | "vertical";
 }
 
@@ -93,12 +92,12 @@ export function Tabs({
   size = "md", 
   className,
   tabClassName,
-  layoutId = "tabs",
+  layoutId: _layoutId = "tabs",
   orientation = "horizontal"
 }: TabsProps) {
   const isVertical = orientation === "vertical";
   const variantStyles = variantClasses[variant];
-  const [isMounted, setIsMounted] = useState(false);
+  // layoutId 动画已移除，避免 H5 端图标闪烁
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 拖拽状态
@@ -106,9 +105,6 @@ export function Tabs({
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   // 当选中值变化时，自动滚动使当前选中项尽量居中可见（仅水平方向）
   useEffect(() => {
@@ -226,17 +222,12 @@ export function Tabs({
           }!tab.disabled && onChange(tab.value)}}
           disabled={tab.disabled}
           className={cn(
-            "btn relative flex items-center justify-center rounded-field transition-all duration-200",
+            "btn relative isolate flex items-center justify-center rounded-field transition-all duration-200",
             "border-0 bg-transparent font-medium",
             sizeClasses[size],
             isVertical ? "w-full" : "min-w-fit px-1 flex-shrink-0",
-            value === tab.value
-              ? cn("text-current", variantStyles.text)
-              : cn(
-                  "text-base-content/70",
-                  !tab.disabled && variantStyles.hover,
-                  tab.disabled && "opacity-50 cursor-not-allowed"
-                ),
+            value !== tab.value && !tab.disabled && variantStyles.hover,
+            tab.disabled && "opacity-50 cursor-not-allowed",
             tabClassName,
             tab.className
           )}
@@ -245,38 +236,23 @@ export function Tabs({
           aria-selected={value === tab.value}
           aria-disabled={tab.disabled}
         >
-          <span className="relative z-10 flex items-center gap-2">
+          <span
+            className={cn(
+              "relative z-10 flex items-center gap-2",
+              value === tab.value ? variantStyles.text : "text-base-content/70"
+            )}
+          >
             {tab.icon}
             {tab.label}
           </span>
 
           {value === tab.value && (
-            isMounted ? (
-              <m.div
-                layoutId={`${layoutId}-highlight`}
-                className={cn(
-                  "absolute inset-0 z-0 rounded-field shadow-sm",
-                  variantStyles.bg
-                )}
-                initial={false}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ 
-                  type: "spring", 
-                  stiffness: 300, 
-                  damping: 25,
-                  duration: 0.2 
-                }}
-                style={{ transform: "translateZ(0)" }}
-              />
-            ) : (
-              <div
-                className={cn(
-                  "absolute inset-0 z-0 rounded-field shadow-sm",
-                  variantStyles.bg
-                )}
-                style={{ transform: "translateZ(0)" }}
-              />
-            )
+            <div
+              className={cn(
+                "absolute inset-0 z-0 rounded-field shadow-sm",
+                variantStyles.bg
+              )}
+            />
           )}
         </button>
       ))}

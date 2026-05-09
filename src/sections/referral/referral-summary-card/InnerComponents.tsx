@@ -6,13 +6,16 @@ import { ReferralShareModal } from "@/sections/referral/referral-share-modal.tsx
 import { useState, useEffect, useRef } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useReferralLink } from "@/hooks/useReferralLink.ts";
+import clsx from "clsx";
+
 export const InnerNotAuthenticated = () => {
   const { t } = useTranslation();
 
   const { formatWithConversion } = useDisplayCurrencyFormatter();
 
   return (
-    <div className="relative min-h-[252px] z-0 mx-5 sm:mx-0 sm:absolute sm:w-[600px] sm:right-4 sm:rtl:right-auto sm:rtl:left-4 sm:top-4 sm:bottom-2 sm:h-[calc(100%-2rem)] sm:bg-base-300 sm:rounded-box">
+    <div
+      className="relative min-h-[252px] z-0 mx-5 sm:mx-0 sm:absolute sm:w-[600px] sm:right-4 sm:rtl:right-auto sm:rtl:left-4 sm:top-4 sm:bottom-2 sm:h-[calc(100%-2rem)] sm:bg-base-300 sm:rounded-box">
       <LiquidGlassEffect className="absolute inset-0 pointer-events-none min-h-full w-full -z-10">
         <div className="w-full h-full"></div>
       </LiquidGlassEffect>
@@ -37,31 +40,32 @@ export const InnerNotAuthenticated = () => {
   );
 };
 
-export const InnerReferralShareLink = () => {
+export const InnerReferralShareLink = ({ btnCls, linkCls, onClick }: { btnCls?: string, linkCls?: string, onClick?: () => void }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const { t } = useTranslation();
 
-  const { referralLink } = useReferralLink()
+  const { referralLink } = useReferralLink();
+  const hasShareableLink = /^https?:\/\//i.test(referralLink);
 
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (el && document.documentElement.dir === 'rtl') {
+    if (el && document.documentElement.dir === "rtl") {
       el.scrollLeft = -el.scrollWidth;
     }
 
     // 监听 dir 属性变化
     const observer = new MutationObserver(() => {
-      if (el && document.documentElement.dir === 'rtl') {
+      if (el && document.documentElement.dir === "rtl") {
         el.scrollLeft = -el.scrollWidth;
       }
     });
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['dir']
+      attributeFilter: ["dir"]
     });
 
     return () => observer.disconnect();
@@ -70,17 +74,20 @@ export const InnerReferralShareLink = () => {
   return (
     <>
       <div className="w-full flex flex-row items-center sm:h-12 gap-2 sm:gap-3">
-        <div className="rounded-field flex-1 min-w-0 h-8 sm:h-full bg-base-400 flex items-center pl-1 pr-1 sm:px-4 gap-1 sm:gap-3">
+        <div
+          className={clsx("rounded-field flex-1 min-w-0 h-8 sm:h-full bg-base-400 flex items-center pl-1 pr-1 sm:px-4 gap-1 sm:gap-3", linkCls)}>
           <div
             className="flex-1 min-w-0 overflow-x-auto hide-scrollbar"
             ref={scrollRef}
           >
-            <span className="text-base-content/50 text-xs sm:text-base font-semibold whitespace-nowrap">
-              {referralLink || t("referral:loadingLink", "Loading link...")}
+            <span className="text-base-content/50 text-xs sm:text-sm font-semibold whitespace-nowrap">
+              {hasShareableLink
+                ? referralLink
+                : t("referral:loadingLink", "Loading link...")}
             </span>
           </div>
           <Copy
-            text={referralLink}
+            text={hasShareableLink ? referralLink : ""}
             trigger={
               <button className="btn btn-primary btn-soft btn-square btn-xs sm:btn-sm shrink-0 rounded-md">
                 <Iconify icon="custom:copied" />
@@ -88,12 +95,20 @@ export const InnerReferralShareLink = () => {
             }
           />
         </div>
-        <button className="btn btn-primary btn-soft btn-sm sm:btn-lg shrink-0 justify-center" onClick={() => setIsShareModalOpen(true)}>
+        <button
+          className={clsx("btn btn-primary btn-sm sm:btn-lg shrink-0 justify-center", btnCls)}
+          onClick={() => {
+            onClick?.();
+            setIsShareModalOpen(true);
+          }}
+          disabled={!hasShareableLink}
+        >
           <Iconify icon="custom:share" />
           <span>{t("bonus:share")}</span>
         </button>
       </div>
-      <ReferralShareModal isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} referralLink={referralLink} />
+      <ReferralShareModal isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)}
+                          referralLink={referralLink} />
     </>
   );
 };

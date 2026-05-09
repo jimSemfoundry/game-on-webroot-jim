@@ -14,25 +14,42 @@ import { Route as BlankRouteImport } from './routes/_blank'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingSplatRouteImport } from './routes/landing/$splat'
 import { Route as MainAuthenticatedRouteImport } from './routes/_main/_authenticated'
+import { Route as MainWithdrawIndexRouteImport } from './routes/_main/withdraw/index'
 import { Route as MainVipClubIndexRouteImport } from './routes/_main/vip-club/index'
 import { Route as MainTournamentIndexRouteImport } from './routes/_main/tournament/index'
+import { Route as MainSwapIndexRouteImport } from './routes/_main/swap/index'
 import { Route as MainSportsIndexRouteImport } from './routes/_main/sports/index'
+import { Route as MainSignupIndexRouteImport } from './routes/_main/signup/index'
 import { Route as MainReferralIndexRouteImport } from './routes/_main/referral/index'
+import { Route as MainLuckySpinIndexRouteImport } from './routes/_main/lucky-spin/index'
+import { Route as MainLoginIndexRouteImport } from './routes/_main/login/index'
 import { Route as MainGamesIndexRouteImport } from './routes/_main/games/index'
+import { Route as MainFreeSpinGameIndexRouteImport } from './routes/_main/free-spin-game/index'
 import { Route as MainFinanceIndexRouteImport } from './routes/_main/finance/index'
 import { Route as MainExploreIndexRouteImport } from './routes/_main/explore/index'
+import { Route as MainDepositIndexRouteImport } from './routes/_main/deposit/index'
 import { Route as MainCasinoIndexRouteImport } from './routes/_main/casino/index'
+import { Route as MainBuddyBallsIndexRouteImport } from './routes/_main/buddy-balls/index'
+import { Route as MainBountyIndexRouteImport } from './routes/_main/bounty/index'
 import { Route as MainBonusIndexRouteImport } from './routes/_main/bonus/index'
 import { Route as BlankTestIndexRouteImport } from './routes/_blank/test/index'
 import { Route as BlankForgotpasswordIndexRouteImport } from './routes/_blank/forgotpassword/index'
 import { Route as BlankBootingIndexRouteImport } from './routes/_blank/booting/index'
 import { Route as MainTournamentArenaRouteImport } from './routes/_main/tournament/arena'
 import { Route as MainPartnershipsPartnershipIdRouteImport } from './routes/_main/partnerships/$partnershipId'
+import { Route as MainLuckySpinMeRouteImport } from './routes/_main/lucky-spin/me'
+import { Route as MainLuckySpinHistoryRouteImport } from './routes/_main/lucky-spin/history'
 import { Route as MainGamesGameIdRouteImport } from './routes/_main/games/$gameId'
+import { Route as MainBuddyBallsHistoryRouteImport } from './routes/_main/buddy-balls/history'
+import { Route as MainBonusCheckRouteImport } from './routes/_main/bonus/check'
+import { Route as MainBonusAchievementsRouteImport } from './routes/_main/bonus/achievements'
 import { Route as MainAuthenticatedProfileRouteImport } from './routes/_main/_authenticated/profile'
-import { Route as MainDollarsSportsIndexRouteImport } from './routes/_main/dollars/sports/index'
+import { Route as MainDollarsSportsBonusIndexRouteImport } from './routes/_main/dollars/sports-bonus/index'
 import { Route as MainDollarsBonusIndexRouteImport } from './routes/_main/dollars/bonus/index'
+import { Route as MainTournamentLastweekIdRouteImport } from './routes/_main/tournament/lastweek.$id'
 import { Route as MainGamesPlayGameIdRouteImport } from './routes/_main/games/play.$gameId'
+import { Route as MainDollarsSportsBonusHistoryRouteImport } from './routes/_main/dollars/sports-bonus/history'
+import { Route as MainDollarsBonusHistoryRouteImport } from './routes/_main/dollars/bonus/history'
 
 const MainRoute = MainRouteImport.update({
   id: '/_main',
@@ -56,6 +73,11 @@ const MainAuthenticatedRoute = MainAuthenticatedRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => MainRoute,
 } as any)
+const MainWithdrawIndexRoute = MainWithdrawIndexRouteImport.update({
+  id: '/withdraw/',
+  path: '/withdraw/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainVipClubIndexRoute = MainVipClubIndexRouteImport.update({
   id: '/vip-club/',
   path: '/vip-club/',
@@ -66,9 +88,19 @@ const MainTournamentIndexRoute = MainTournamentIndexRouteImport.update({
   path: '/tournament/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainSwapIndexRoute = MainSwapIndexRouteImport.update({
+  id: '/swap/',
+  path: '/swap/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainSportsIndexRoute = MainSportsIndexRouteImport.update({
   id: '/sports/',
   path: '/sports/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainSignupIndexRoute = MainSignupIndexRouteImport.update({
+  id: '/signup/',
+  path: '/signup/',
   getParentRoute: () => MainRoute,
 } as any)
 const MainReferralIndexRoute = MainReferralIndexRouteImport.update({
@@ -76,9 +108,24 @@ const MainReferralIndexRoute = MainReferralIndexRouteImport.update({
   path: '/referral/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainLuckySpinIndexRoute = MainLuckySpinIndexRouteImport.update({
+  id: '/lucky-spin/',
+  path: '/lucky-spin/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainLoginIndexRoute = MainLoginIndexRouteImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainGamesIndexRoute = MainGamesIndexRouteImport.update({
   id: '/games/',
   path: '/games/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainFreeSpinGameIndexRoute = MainFreeSpinGameIndexRouteImport.update({
+  id: '/free-spin-game/',
+  path: '/free-spin-game/',
   getParentRoute: () => MainRoute,
 } as any)
 const MainFinanceIndexRoute = MainFinanceIndexRouteImport.update({
@@ -91,9 +138,24 @@ const MainExploreIndexRoute = MainExploreIndexRouteImport.update({
   path: '/explore/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainDepositIndexRoute = MainDepositIndexRouteImport.update({
+  id: '/deposit/',
+  path: '/deposit/',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainCasinoIndexRoute = MainCasinoIndexRouteImport.update({
   id: '/casino/',
   path: '/casino/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBuddyBallsIndexRoute = MainBuddyBallsIndexRouteImport.update({
+  id: '/buddy-balls/',
+  path: '/buddy-balls/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBountyIndexRoute = MainBountyIndexRouteImport.update({
+  id: '/bounty/',
+  path: '/bounty/',
   getParentRoute: () => MainRoute,
 } as any)
 const MainBonusIndexRoute = MainBonusIndexRouteImport.update({
@@ -128,9 +190,34 @@ const MainPartnershipsPartnershipIdRoute =
     path: '/partnerships/$partnershipId',
     getParentRoute: () => MainRoute,
   } as any)
+const MainLuckySpinMeRoute = MainLuckySpinMeRouteImport.update({
+  id: '/lucky-spin/me',
+  path: '/lucky-spin/me',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainLuckySpinHistoryRoute = MainLuckySpinHistoryRouteImport.update({
+  id: '/lucky-spin/history',
+  path: '/lucky-spin/history',
+  getParentRoute: () => MainRoute,
+} as any)
 const MainGamesGameIdRoute = MainGamesGameIdRouteImport.update({
   id: '/games/$gameId',
   path: '/games/$gameId',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBuddyBallsHistoryRoute = MainBuddyBallsHistoryRouteImport.update({
+  id: '/buddy-balls/history',
+  path: '/buddy-balls/history',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBonusCheckRoute = MainBonusCheckRouteImport.update({
+  id: '/bonus/check',
+  path: '/bonus/check',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBonusAchievementsRoute = MainBonusAchievementsRouteImport.update({
+  id: '/bonus/achievements',
+  path: '/bonus/achievements',
   getParentRoute: () => MainRoute,
 } as any)
 const MainAuthenticatedProfileRoute =
@@ -139,19 +226,37 @@ const MainAuthenticatedProfileRoute =
     path: '/profile',
     getParentRoute: () => MainAuthenticatedRoute,
   } as any)
-const MainDollarsSportsIndexRoute = MainDollarsSportsIndexRouteImport.update({
-  id: '/dollars/sports/',
-  path: '/dollars/sports/',
-  getParentRoute: () => MainRoute,
-} as any)
+const MainDollarsSportsBonusIndexRoute =
+  MainDollarsSportsBonusIndexRouteImport.update({
+    id: '/dollars/sports-bonus/',
+    path: '/dollars/sports-bonus/',
+    getParentRoute: () => MainRoute,
+  } as any)
 const MainDollarsBonusIndexRoute = MainDollarsBonusIndexRouteImport.update({
   id: '/dollars/bonus/',
   path: '/dollars/bonus/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainTournamentLastweekIdRoute =
+  MainTournamentLastweekIdRouteImport.update({
+    id: '/tournament/lastweek/$id',
+    path: '/tournament/lastweek/$id',
+    getParentRoute: () => MainRoute,
+  } as any)
 const MainGamesPlayGameIdRoute = MainGamesPlayGameIdRouteImport.update({
   id: '/games/play/$gameId',
   path: '/games/play/$gameId',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainDollarsSportsBonusHistoryRoute =
+  MainDollarsSportsBonusHistoryRouteImport.update({
+    id: '/dollars/sports-bonus/history',
+    path: '/dollars/sports-bonus/history',
+    getParentRoute: () => MainRoute,
+  } as any)
+const MainDollarsBonusHistoryRoute = MainDollarsBonusHistoryRouteImport.update({
+  id: '/dollars/bonus/history',
+  path: '/dollars/bonus/history',
   getParentRoute: () => MainRoute,
 } as any)
 
@@ -159,47 +264,81 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/landing/$splat': typeof LandingSplatRoute
   '/profile': typeof MainAuthenticatedProfileRoute
+  '/bonus/achievements': typeof MainBonusAchievementsRoute
+  '/bonus/check': typeof MainBonusCheckRoute
+  '/buddy-balls/history': typeof MainBuddyBallsHistoryRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
+  '/lucky-spin/history': typeof MainLuckySpinHistoryRoute
+  '/lucky-spin/me': typeof MainLuckySpinMeRoute
   '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/tournament/arena': typeof MainTournamentArenaRoute
   '/booting': typeof BlankBootingIndexRoute
   '/forgotpassword': typeof BlankForgotpasswordIndexRoute
   '/test': typeof BlankTestIndexRoute
   '/bonus': typeof MainBonusIndexRoute
+  '/bounty': typeof MainBountyIndexRoute
+  '/buddy-balls': typeof MainBuddyBallsIndexRoute
   '/casino': typeof MainCasinoIndexRoute
+  '/deposit': typeof MainDepositIndexRoute
   '/explore': typeof MainExploreIndexRoute
   '/finance': typeof MainFinanceIndexRoute
+  '/free-spin-game': typeof MainFreeSpinGameIndexRoute
   '/games': typeof MainGamesIndexRoute
+  '/login': typeof MainLoginIndexRoute
+  '/lucky-spin': typeof MainLuckySpinIndexRoute
   '/referral': typeof MainReferralIndexRoute
+  '/signup': typeof MainSignupIndexRoute
   '/sports': typeof MainSportsIndexRoute
+  '/swap': typeof MainSwapIndexRoute
   '/tournament': typeof MainTournamentIndexRoute
   '/vip-club': typeof MainVipClubIndexRoute
+  '/withdraw': typeof MainWithdrawIndexRoute
+  '/dollars/bonus/history': typeof MainDollarsBonusHistoryRoute
+  '/dollars/sports-bonus/history': typeof MainDollarsSportsBonusHistoryRoute
   '/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/tournament/lastweek/$id': typeof MainTournamentLastweekIdRoute
   '/dollars/bonus': typeof MainDollarsBonusIndexRoute
-  '/dollars/sports': typeof MainDollarsSportsIndexRoute
+  '/dollars/sports-bonus': typeof MainDollarsSportsBonusIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/landing/$splat': typeof LandingSplatRoute
   '/profile': typeof MainAuthenticatedProfileRoute
+  '/bonus/achievements': typeof MainBonusAchievementsRoute
+  '/bonus/check': typeof MainBonusCheckRoute
+  '/buddy-balls/history': typeof MainBuddyBallsHistoryRoute
   '/games/$gameId': typeof MainGamesGameIdRoute
+  '/lucky-spin/history': typeof MainLuckySpinHistoryRoute
+  '/lucky-spin/me': typeof MainLuckySpinMeRoute
   '/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/tournament/arena': typeof MainTournamentArenaRoute
   '/booting': typeof BlankBootingIndexRoute
   '/forgotpassword': typeof BlankForgotpasswordIndexRoute
   '/test': typeof BlankTestIndexRoute
   '/bonus': typeof MainBonusIndexRoute
+  '/bounty': typeof MainBountyIndexRoute
+  '/buddy-balls': typeof MainBuddyBallsIndexRoute
   '/casino': typeof MainCasinoIndexRoute
+  '/deposit': typeof MainDepositIndexRoute
   '/explore': typeof MainExploreIndexRoute
   '/finance': typeof MainFinanceIndexRoute
+  '/free-spin-game': typeof MainFreeSpinGameIndexRoute
   '/games': typeof MainGamesIndexRoute
+  '/login': typeof MainLoginIndexRoute
+  '/lucky-spin': typeof MainLuckySpinIndexRoute
   '/referral': typeof MainReferralIndexRoute
+  '/signup': typeof MainSignupIndexRoute
   '/sports': typeof MainSportsIndexRoute
+  '/swap': typeof MainSwapIndexRoute
   '/tournament': typeof MainTournamentIndexRoute
   '/vip-club': typeof MainVipClubIndexRoute
+  '/withdraw': typeof MainWithdrawIndexRoute
+  '/dollars/bonus/history': typeof MainDollarsBonusHistoryRoute
+  '/dollars/sports-bonus/history': typeof MainDollarsSportsBonusHistoryRoute
   '/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/tournament/lastweek/$id': typeof MainTournamentLastweekIdRoute
   '/dollars/bonus': typeof MainDollarsBonusIndexRoute
-  '/dollars/sports': typeof MainDollarsSportsIndexRoute
+  '/dollars/sports-bonus': typeof MainDollarsSportsBonusIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -209,24 +348,41 @@ export interface FileRoutesById {
   '/_main/_authenticated': typeof MainAuthenticatedRouteWithChildren
   '/landing/$splat': typeof LandingSplatRoute
   '/_main/_authenticated/profile': typeof MainAuthenticatedProfileRoute
+  '/_main/bonus/achievements': typeof MainBonusAchievementsRoute
+  '/_main/bonus/check': typeof MainBonusCheckRoute
+  '/_main/buddy-balls/history': typeof MainBuddyBallsHistoryRoute
   '/_main/games/$gameId': typeof MainGamesGameIdRoute
+  '/_main/lucky-spin/history': typeof MainLuckySpinHistoryRoute
+  '/_main/lucky-spin/me': typeof MainLuckySpinMeRoute
   '/_main/partnerships/$partnershipId': typeof MainPartnershipsPartnershipIdRoute
   '/_main/tournament/arena': typeof MainTournamentArenaRoute
   '/_blank/booting/': typeof BlankBootingIndexRoute
   '/_blank/forgotpassword/': typeof BlankForgotpasswordIndexRoute
   '/_blank/test/': typeof BlankTestIndexRoute
   '/_main/bonus/': typeof MainBonusIndexRoute
+  '/_main/bounty/': typeof MainBountyIndexRoute
+  '/_main/buddy-balls/': typeof MainBuddyBallsIndexRoute
   '/_main/casino/': typeof MainCasinoIndexRoute
+  '/_main/deposit/': typeof MainDepositIndexRoute
   '/_main/explore/': typeof MainExploreIndexRoute
   '/_main/finance/': typeof MainFinanceIndexRoute
+  '/_main/free-spin-game/': typeof MainFreeSpinGameIndexRoute
   '/_main/games/': typeof MainGamesIndexRoute
+  '/_main/login/': typeof MainLoginIndexRoute
+  '/_main/lucky-spin/': typeof MainLuckySpinIndexRoute
   '/_main/referral/': typeof MainReferralIndexRoute
+  '/_main/signup/': typeof MainSignupIndexRoute
   '/_main/sports/': typeof MainSportsIndexRoute
+  '/_main/swap/': typeof MainSwapIndexRoute
   '/_main/tournament/': typeof MainTournamentIndexRoute
   '/_main/vip-club/': typeof MainVipClubIndexRoute
+  '/_main/withdraw/': typeof MainWithdrawIndexRoute
+  '/_main/dollars/bonus/history': typeof MainDollarsBonusHistoryRoute
+  '/_main/dollars/sports-bonus/history': typeof MainDollarsSportsBonusHistoryRoute
   '/_main/games/play/$gameId': typeof MainGamesPlayGameIdRoute
+  '/_main/tournament/lastweek/$id': typeof MainTournamentLastweekIdRoute
   '/_main/dollars/bonus/': typeof MainDollarsBonusIndexRoute
-  '/_main/dollars/sports/': typeof MainDollarsSportsIndexRoute
+  '/_main/dollars/sports-bonus/': typeof MainDollarsSportsBonusIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -234,47 +390,81 @@ export interface FileRouteTypes {
     | '/'
     | '/landing/$splat'
     | '/profile'
+    | '/bonus/achievements'
+    | '/bonus/check'
+    | '/buddy-balls/history'
     | '/games/$gameId'
+    | '/lucky-spin/history'
+    | '/lucky-spin/me'
     | '/partnerships/$partnershipId'
     | '/tournament/arena'
     | '/booting'
     | '/forgotpassword'
     | '/test'
     | '/bonus'
+    | '/bounty'
+    | '/buddy-balls'
     | '/casino'
+    | '/deposit'
     | '/explore'
     | '/finance'
+    | '/free-spin-game'
     | '/games'
+    | '/login'
+    | '/lucky-spin'
     | '/referral'
+    | '/signup'
     | '/sports'
+    | '/swap'
     | '/tournament'
     | '/vip-club'
+    | '/withdraw'
+    | '/dollars/bonus/history'
+    | '/dollars/sports-bonus/history'
     | '/games/play/$gameId'
+    | '/tournament/lastweek/$id'
     | '/dollars/bonus'
-    | '/dollars/sports'
+    | '/dollars/sports-bonus'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/landing/$splat'
     | '/profile'
+    | '/bonus/achievements'
+    | '/bonus/check'
+    | '/buddy-balls/history'
     | '/games/$gameId'
+    | '/lucky-spin/history'
+    | '/lucky-spin/me'
     | '/partnerships/$partnershipId'
     | '/tournament/arena'
     | '/booting'
     | '/forgotpassword'
     | '/test'
     | '/bonus'
+    | '/bounty'
+    | '/buddy-balls'
     | '/casino'
+    | '/deposit'
     | '/explore'
     | '/finance'
+    | '/free-spin-game'
     | '/games'
+    | '/login'
+    | '/lucky-spin'
     | '/referral'
+    | '/signup'
     | '/sports'
+    | '/swap'
     | '/tournament'
     | '/vip-club'
+    | '/withdraw'
+    | '/dollars/bonus/history'
+    | '/dollars/sports-bonus/history'
     | '/games/play/$gameId'
+    | '/tournament/lastweek/$id'
     | '/dollars/bonus'
-    | '/dollars/sports'
+    | '/dollars/sports-bonus'
   id:
     | '__root__'
     | '/'
@@ -283,24 +473,41 @@ export interface FileRouteTypes {
     | '/_main/_authenticated'
     | '/landing/$splat'
     | '/_main/_authenticated/profile'
+    | '/_main/bonus/achievements'
+    | '/_main/bonus/check'
+    | '/_main/buddy-balls/history'
     | '/_main/games/$gameId'
+    | '/_main/lucky-spin/history'
+    | '/_main/lucky-spin/me'
     | '/_main/partnerships/$partnershipId'
     | '/_main/tournament/arena'
     | '/_blank/booting/'
     | '/_blank/forgotpassword/'
     | '/_blank/test/'
     | '/_main/bonus/'
+    | '/_main/bounty/'
+    | '/_main/buddy-balls/'
     | '/_main/casino/'
+    | '/_main/deposit/'
     | '/_main/explore/'
     | '/_main/finance/'
+    | '/_main/free-spin-game/'
     | '/_main/games/'
+    | '/_main/login/'
+    | '/_main/lucky-spin/'
     | '/_main/referral/'
+    | '/_main/signup/'
     | '/_main/sports/'
+    | '/_main/swap/'
     | '/_main/tournament/'
     | '/_main/vip-club/'
+    | '/_main/withdraw/'
+    | '/_main/dollars/bonus/history'
+    | '/_main/dollars/sports-bonus/history'
     | '/_main/games/play/$gameId'
+    | '/_main/tournament/lastweek/$id'
     | '/_main/dollars/bonus/'
-    | '/_main/dollars/sports/'
+    | '/_main/dollars/sports-bonus/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -347,6 +554,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainAuthenticatedRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/withdraw/': {
+      id: '/_main/withdraw/'
+      path: '/withdraw'
+      fullPath: '/withdraw'
+      preLoaderRoute: typeof MainWithdrawIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/vip-club/': {
       id: '/_main/vip-club/'
       path: '/vip-club'
@@ -361,11 +575,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainTournamentIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/swap/': {
+      id: '/_main/swap/'
+      path: '/swap'
+      fullPath: '/swap'
+      preLoaderRoute: typeof MainSwapIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/sports/': {
       id: '/_main/sports/'
       path: '/sports'
       fullPath: '/sports'
       preLoaderRoute: typeof MainSportsIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/signup/': {
+      id: '/_main/signup/'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof MainSignupIndexRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/referral/': {
@@ -375,11 +603,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainReferralIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/lucky-spin/': {
+      id: '/_main/lucky-spin/'
+      path: '/lucky-spin'
+      fullPath: '/lucky-spin'
+      preLoaderRoute: typeof MainLuckySpinIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/login/': {
+      id: '/_main/login/'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof MainLoginIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/games/': {
       id: '/_main/games/'
       path: '/games'
       fullPath: '/games'
       preLoaderRoute: typeof MainGamesIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/free-spin-game/': {
+      id: '/_main/free-spin-game/'
+      path: '/free-spin-game'
+      fullPath: '/free-spin-game'
+      preLoaderRoute: typeof MainFreeSpinGameIndexRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/finance/': {
@@ -396,11 +645,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainExploreIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/deposit/': {
+      id: '/_main/deposit/'
+      path: '/deposit'
+      fullPath: '/deposit'
+      preLoaderRoute: typeof MainDepositIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/casino/': {
       id: '/_main/casino/'
       path: '/casino'
       fullPath: '/casino'
       preLoaderRoute: typeof MainCasinoIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/buddy-balls/': {
+      id: '/_main/buddy-balls/'
+      path: '/buddy-balls'
+      fullPath: '/buddy-balls'
+      preLoaderRoute: typeof MainBuddyBallsIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/bounty/': {
+      id: '/_main/bounty/'
+      path: '/bounty'
+      fullPath: '/bounty'
+      preLoaderRoute: typeof MainBountyIndexRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/bonus/': {
@@ -445,11 +715,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainPartnershipsPartnershipIdRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/lucky-spin/me': {
+      id: '/_main/lucky-spin/me'
+      path: '/lucky-spin/me'
+      fullPath: '/lucky-spin/me'
+      preLoaderRoute: typeof MainLuckySpinMeRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/lucky-spin/history': {
+      id: '/_main/lucky-spin/history'
+      path: '/lucky-spin/history'
+      fullPath: '/lucky-spin/history'
+      preLoaderRoute: typeof MainLuckySpinHistoryRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/games/$gameId': {
       id: '/_main/games/$gameId'
       path: '/games/$gameId'
       fullPath: '/games/$gameId'
       preLoaderRoute: typeof MainGamesGameIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/buddy-balls/history': {
+      id: '/_main/buddy-balls/history'
+      path: '/buddy-balls/history'
+      fullPath: '/buddy-balls/history'
+      preLoaderRoute: typeof MainBuddyBallsHistoryRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/bonus/check': {
+      id: '/_main/bonus/check'
+      path: '/bonus/check'
+      fullPath: '/bonus/check'
+      preLoaderRoute: typeof MainBonusCheckRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/bonus/achievements': {
+      id: '/_main/bonus/achievements'
+      path: '/bonus/achievements'
+      fullPath: '/bonus/achievements'
+      preLoaderRoute: typeof MainBonusAchievementsRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/_authenticated/profile': {
@@ -459,11 +764,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainAuthenticatedProfileRouteImport
       parentRoute: typeof MainAuthenticatedRoute
     }
-    '/_main/dollars/sports/': {
-      id: '/_main/dollars/sports/'
-      path: '/dollars/sports'
-      fullPath: '/dollars/sports'
-      preLoaderRoute: typeof MainDollarsSportsIndexRouteImport
+    '/_main/dollars/sports-bonus/': {
+      id: '/_main/dollars/sports-bonus/'
+      path: '/dollars/sports-bonus'
+      fullPath: '/dollars/sports-bonus'
+      preLoaderRoute: typeof MainDollarsSportsBonusIndexRouteImport
       parentRoute: typeof MainRoute
     }
     '/_main/dollars/bonus/': {
@@ -473,11 +778,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainDollarsBonusIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/tournament/lastweek/$id': {
+      id: '/_main/tournament/lastweek/$id'
+      path: '/tournament/lastweek/$id'
+      fullPath: '/tournament/lastweek/$id'
+      preLoaderRoute: typeof MainTournamentLastweekIdRouteImport
+      parentRoute: typeof MainRoute
+    }
     '/_main/games/play/$gameId': {
       id: '/_main/games/play/$gameId'
       path: '/games/play/$gameId'
       fullPath: '/games/play/$gameId'
       preLoaderRoute: typeof MainGamesPlayGameIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/dollars/sports-bonus/history': {
+      id: '/_main/dollars/sports-bonus/history'
+      path: '/dollars/sports-bonus/history'
+      fullPath: '/dollars/sports-bonus/history'
+      preLoaderRoute: typeof MainDollarsSportsBonusHistoryRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/dollars/bonus/history': {
+      id: '/_main/dollars/bonus/history'
+      path: '/dollars/bonus/history'
+      fullPath: '/dollars/bonus/history'
+      preLoaderRoute: typeof MainDollarsBonusHistoryRouteImport
       parentRoute: typeof MainRoute
     }
   }
@@ -510,40 +836,74 @@ const MainAuthenticatedRouteWithChildren =
 
 interface MainRouteChildren {
   MainAuthenticatedRoute: typeof MainAuthenticatedRouteWithChildren
+  MainBonusAchievementsRoute: typeof MainBonusAchievementsRoute
+  MainBonusCheckRoute: typeof MainBonusCheckRoute
+  MainBuddyBallsHistoryRoute: typeof MainBuddyBallsHistoryRoute
   MainGamesGameIdRoute: typeof MainGamesGameIdRoute
+  MainLuckySpinHistoryRoute: typeof MainLuckySpinHistoryRoute
+  MainLuckySpinMeRoute: typeof MainLuckySpinMeRoute
   MainPartnershipsPartnershipIdRoute: typeof MainPartnershipsPartnershipIdRoute
   MainTournamentArenaRoute: typeof MainTournamentArenaRoute
   MainBonusIndexRoute: typeof MainBonusIndexRoute
+  MainBountyIndexRoute: typeof MainBountyIndexRoute
+  MainBuddyBallsIndexRoute: typeof MainBuddyBallsIndexRoute
   MainCasinoIndexRoute: typeof MainCasinoIndexRoute
+  MainDepositIndexRoute: typeof MainDepositIndexRoute
   MainExploreIndexRoute: typeof MainExploreIndexRoute
   MainFinanceIndexRoute: typeof MainFinanceIndexRoute
+  MainFreeSpinGameIndexRoute: typeof MainFreeSpinGameIndexRoute
   MainGamesIndexRoute: typeof MainGamesIndexRoute
+  MainLoginIndexRoute: typeof MainLoginIndexRoute
+  MainLuckySpinIndexRoute: typeof MainLuckySpinIndexRoute
   MainReferralIndexRoute: typeof MainReferralIndexRoute
+  MainSignupIndexRoute: typeof MainSignupIndexRoute
   MainSportsIndexRoute: typeof MainSportsIndexRoute
+  MainSwapIndexRoute: typeof MainSwapIndexRoute
   MainTournamentIndexRoute: typeof MainTournamentIndexRoute
   MainVipClubIndexRoute: typeof MainVipClubIndexRoute
+  MainWithdrawIndexRoute: typeof MainWithdrawIndexRoute
+  MainDollarsBonusHistoryRoute: typeof MainDollarsBonusHistoryRoute
+  MainDollarsSportsBonusHistoryRoute: typeof MainDollarsSportsBonusHistoryRoute
   MainGamesPlayGameIdRoute: typeof MainGamesPlayGameIdRoute
+  MainTournamentLastweekIdRoute: typeof MainTournamentLastweekIdRoute
   MainDollarsBonusIndexRoute: typeof MainDollarsBonusIndexRoute
-  MainDollarsSportsIndexRoute: typeof MainDollarsSportsIndexRoute
+  MainDollarsSportsBonusIndexRoute: typeof MainDollarsSportsBonusIndexRoute
 }
 
 const MainRouteChildren: MainRouteChildren = {
   MainAuthenticatedRoute: MainAuthenticatedRouteWithChildren,
+  MainBonusAchievementsRoute: MainBonusAchievementsRoute,
+  MainBonusCheckRoute: MainBonusCheckRoute,
+  MainBuddyBallsHistoryRoute: MainBuddyBallsHistoryRoute,
   MainGamesGameIdRoute: MainGamesGameIdRoute,
+  MainLuckySpinHistoryRoute: MainLuckySpinHistoryRoute,
+  MainLuckySpinMeRoute: MainLuckySpinMeRoute,
   MainPartnershipsPartnershipIdRoute: MainPartnershipsPartnershipIdRoute,
   MainTournamentArenaRoute: MainTournamentArenaRoute,
   MainBonusIndexRoute: MainBonusIndexRoute,
+  MainBountyIndexRoute: MainBountyIndexRoute,
+  MainBuddyBallsIndexRoute: MainBuddyBallsIndexRoute,
   MainCasinoIndexRoute: MainCasinoIndexRoute,
+  MainDepositIndexRoute: MainDepositIndexRoute,
   MainExploreIndexRoute: MainExploreIndexRoute,
   MainFinanceIndexRoute: MainFinanceIndexRoute,
+  MainFreeSpinGameIndexRoute: MainFreeSpinGameIndexRoute,
   MainGamesIndexRoute: MainGamesIndexRoute,
+  MainLoginIndexRoute: MainLoginIndexRoute,
+  MainLuckySpinIndexRoute: MainLuckySpinIndexRoute,
   MainReferralIndexRoute: MainReferralIndexRoute,
+  MainSignupIndexRoute: MainSignupIndexRoute,
   MainSportsIndexRoute: MainSportsIndexRoute,
+  MainSwapIndexRoute: MainSwapIndexRoute,
   MainTournamentIndexRoute: MainTournamentIndexRoute,
   MainVipClubIndexRoute: MainVipClubIndexRoute,
+  MainWithdrawIndexRoute: MainWithdrawIndexRoute,
+  MainDollarsBonusHistoryRoute: MainDollarsBonusHistoryRoute,
+  MainDollarsSportsBonusHistoryRoute: MainDollarsSportsBonusHistoryRoute,
   MainGamesPlayGameIdRoute: MainGamesPlayGameIdRoute,
+  MainTournamentLastweekIdRoute: MainTournamentLastweekIdRoute,
   MainDollarsBonusIndexRoute: MainDollarsBonusIndexRoute,
-  MainDollarsSportsIndexRoute: MainDollarsSportsIndexRoute,
+  MainDollarsSportsBonusIndexRoute: MainDollarsSportsBonusIndexRoute,
 }
 
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)

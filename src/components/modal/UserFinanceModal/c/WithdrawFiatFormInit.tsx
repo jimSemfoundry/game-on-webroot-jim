@@ -1,16 +1,17 @@
 import { Loading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
-import { useFiatGatewayWithdrawParams, useSupportedFiatDepositGateways } from "@/hooks/api/useAuth.ts";
+import { useFiatGatewayWithdrawParams } from "@/hooks/api/useAuth.ts";
 import { useBoundStore } from "@/store";
 import { PropsWithChildren, useCallback, useEffect, useMemo } from "react";
 import { handleBindOrHideFormItemDefaultValue } from "@/components/modal/UserFinanceModal/c/DepositFiatFormInit.tsx";
 import { emitter } from "@/store/emitter.ts";
+import { useSupportedFiatWithdrawGatewaysV1 } from "@/components/modal/UserFinanceModal/helper.ts";
 
 export const WithdrawFiatFormInit = (props: PropsWithChildren) => {
   // from data store, share common data
   const { withdrawFiat, setWithdrawFiat, syncAction } = useBoundStore();
 
   // 获取支持网关
-  const { data: gateways, isLoading: l1 } = useSupportedFiatDepositGateways(withdrawFiat.currency?.currency);
+  const { data: gateways, isLoading: l1 } = useSupportedFiatWithdrawGatewaysV1(withdrawFiat.currency?.currency);
 
   // 获取必填字段
   const {

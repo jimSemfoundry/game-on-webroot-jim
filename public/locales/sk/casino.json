@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Ako vedúca globálna herná aliancia spájame silu a sofistikovanosť špičkových platforiem pod jednou víziou. Naprieč všetkými značkami v našom portfóliu pôsobíme ako jeden celok — poskytujeme zábavu, personalizované odmeny a bezproblémové prepojenie naprieč menami, krajinami a kultúrami.",
   "footerDescriptionThree": "Nehrajte len hru. Vyzvite všetko.",
   "footerDescriptionFour": "Charakteristický rys {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Všetky práva vyhradené.",
+  "footerDescriptionFive": "© {{year}}. Všetky práva vyhradené.",
   "banner": {
     "oneDescription": "BUĎ PRVÝ.",
     "oneDescriptionTwo": "VYZVITE\nVŠETKO",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Pridať na domovskú obrazovku",
   "latestWins": "Najnovšie Výhry",
   "spinPlayAndWinAcrossTopCasinoHits": "Točte, hrajte a vyhrajte na najlepších kasínových hitoch",
-  "scoreBigOnSportsFromAroundTheWorld": "Získajte veľké výhry na športoch z celého sveta"
+  "scoreBigOnSportsFromAroundTheWorld": "Získajte veľké výhry na športoch z celého sveta",
+  "liveDealers": "Live dealeri pre vaše obľúbené stolové hry",
+  "show_less": "zobraziť menej"
 }

@@ -29,7 +29,7 @@
   "nonKeno": "Non-Keno",
   "eSport": "E-Sport",
   "arcade": "Arcade",
-  "sport": "Sport",
+  "sport": "Sports",
   "casual": "Casual",
   "fishing": "Fishing",
   "blockchainGames": "Blockchain Games",
@@ -72,5 +72,6 @@
   "sports": "Sports",
   "lotteries": "Lotteries",
   "gamesYouShouldTry": "Games You Should Try",
-  "bonus": "Bonus"
+  "bonus": "Bonus",
+  "allGamesLoaded": "All games loaded"
 }

@@ -1,14 +1,15 @@
 import { DepositFiatForm } from "@/components/modal/UserFinanceModal/c/DepositFiatForm.tsx";
 import { DepositFiatSelect } from "@/components/modal/UserFinanceModal/c/DepositFiatSelect.tsx";
-import { Trans, useTranslation } from "react-i18next";
-import { ErrorMessageBox } from "@/components/modal/UserFinanceModal/c/ErrorMessageBox.tsx";
-import { InnerDisplayContent } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAdd.tsx";
+import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
 import { useBoundStore } from "@/store";
 import { SecureCard } from "@/components/modal/UserFinanceModal/c/SecureCard.tsx";
 import { WarningCard } from "@/components/modal/UserFinanceModal/c/WarningCard.tsx";
 import { SpecialOffersH5 } from "./SpecialOffers.tsx";
-import { SpecialOffersGuard } from "@/components/modal/UserFinanceModal/c/SpecialOffersGuard.tsx";
+import {
+  InnerDepositProviderError,
+  InnerSpecialOffersWrapper
+} from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 
 export const DepositFiat = () => {
   const { t } = useTranslation();
@@ -23,32 +24,21 @@ export const DepositFiat = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* 币种和通道选择 */}
-      <DepositFiatSelect />
+      <div className="flex flex-col gap-4 bg-base-400 rounded-2xl p-3">
+        {/* 币种和通道选择 */}
+        <DepositFiatSelect />
 
-      {/* 通道在维护 */}
-      <InnerDisplayContent show={Boolean(provider_error)}>
-        <div className="bg-base-300 rounded-lg p-2">
-          <ErrorMessageBox
-            sample
-            className={"!mt-0"}
-            content={<Trans
-              i18nKey={"finance:channel_under_maintenance"}
-              values={{ channel: depositFiat.method?.display_name }}
-              components={[<span className="underline font-bold" />]} />}
-            show={Boolean(provider_error)} />
-        </div>
-      </InnerDisplayContent>
+        {/* 通道在维护 */}
+        <InnerDepositProviderError show={Boolean(provider_error)} channel={depositFiat.method?.display_name} />
 
-      {/* 优惠充值活动 */}
-      <div className="block md:hidden">
-        <SpecialOffersGuard>
-          <SpecialOffersH5 />
-        </SpecialOffersGuard>
+        {/* 动态表单 */}
+        <DepositFiatForm extraNode={
+          // 优惠充值活动
+          <InnerSpecialOffersWrapper>
+            <SpecialOffersH5 />
+          </InnerSpecialOffersWrapper>}
+        />
       </div>
-
-      {/* 动态表单 */}
-      <DepositFiatForm />
 
       {/* 介绍 */}
       <SecureCard />

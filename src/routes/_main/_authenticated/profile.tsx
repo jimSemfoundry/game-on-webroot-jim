@@ -16,7 +16,7 @@ import { emitter } from "@/store/emitter.ts";
 import { DisplayContent } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
 import { useEffect } from "react";
 import { ProfileSearch } from "@/sections/profile/c/NavScrollBar.tsx";
-import { getPathInROIBEST } from "@/utils/helper.ts";
+import { getImgCompressParams, getPathInROIBEST, pickImageWithEnv } from "@/utils/helper.ts";
 
 export const Route = createFileRoute("/_main/_authenticated/profile")({
   component: ProfilePage
@@ -27,7 +27,7 @@ function ProfilePage() {
 
   const { user } = useAuth();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const { t } = useTranslation('profile');
+  const { t } = useTranslation("profile");
   // const [selectedCategory, setSelectedCategory] = useState<
   //   "dashboard" | "transactions" | "rollover" | "betHistory" | "security" | "settings" | "legal"
   // >("dashboard");
@@ -143,14 +143,16 @@ function ProfilePage() {
         <div className="flex flex-col gap-2 sm:flex-row sm:gap-10 sm:items-center -mt-4 mb-4">
           {/* FIXME: roibest 前缀异常 */}
           <img
-            src={`${getPathInROIBEST()}/images/illustrations/7d9e2a1cab9d27045f7a0364eadc17c01e2b654e.png`}
-            className="absolute rtl:left-5 rtl:right-auto rtl:rotate-y-180 right-5 top-0 w-[170px] h-[170px] drop-shadow-[0_4px_40px_rgba(238,216,92,0.30)] z-10 sm:hidden"
+            src={getImgCompressParams(pickImageWithEnv("VITE_USER_PROFILE_IMAGE",
+              `${getPathInROIBEST()}/images/illustrations/7d9e2a1cab9d27045f7a0364eadc17c01e2b654e.png`), 209, 80)}
+            className="absolute rtl:left-5 rtl:right-auto rtl:rotate-y-180 right-5 top-0 w-[209px] h-[209px] drop-shadow-[0_4px_40px_rgba(238,216,92,0.30)] z-10 sm:hidden"
           />
 
           {/* <img className="w-[170px] h-[170px] shadow-[0px_4px_100px_0px_rgba(238,216,92,0.30)]" src="https://placehold.co/170x170" /> */}
           <div className="avatar">
             <div className="w-12 h-12 sm:w-36 sm:h-36 rounded-full flex items-center justify-center">
-              <img src={user?.avatar || "/images/default-avatar.png"} className="w-full h-full rtl:rotate-y-180" alt="Avatar" />
+              <img src={user?.avatar || "/images/default-avatar.png"} className="w-full h-full rtl:rotate-y-180"
+                   alt="Avatar" />
             </div>
           </div>
 
@@ -163,7 +165,12 @@ function ProfilePage() {
               className="text-2xl sm:text-4xl text-base-content font-bold z-10 capitalize truncate max-w-[62%] sm:max-w-full">{user?.nickname}</p>
             <div className="font-semibold text-base-content/50 sm:mb-0">
               <div className="inline-flex items-center gap-2 sm:cursor-pointer"
-                   onClick={() => emitter.emit("SYNC_TABS_INDEX", "profile")}>
+                   onClick={() => {
+                     emitter.emit("SYNC_TABS_INDEX", "profile");
+                     setTimeout(() => {
+                       document.getElementById("NAVS")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                     }, 100);
+                   }}>
                 <span className="text-sm sm:text-lg text-primary">{t("profile:editProfile")}</span>
                 <ChevronRight className="w-3 h-3 rtl:rotate-180" strokeWidth={4} />
               </div>

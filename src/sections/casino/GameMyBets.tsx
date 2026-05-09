@@ -1,7 +1,7 @@
 import { CurrencyIcon } from "@/components/ui/CurrencyIcon";
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { normalizeBetHistoryResponse, useUserBetHistory } from "@/query/bet-history";
-import { BetHistoryRecord } from "@/types/bet-history";
+
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Copy from "@/components/ui/Copy";
@@ -76,7 +76,7 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
   const pageNumbers = useMemo(() => getPageNumbers(currentPage, safeTotalPages), [currentPage, safeTotalPages]);
 
   const isInitialLoading = (isLoading || isPending) && betHistoryPages.length === 0;
-  const isAwaitingDesiredPage = desiredPage > normalizedPages.length;
+  const isAwaitingDesiredPage = desiredPage > normalizedPages.length && !isInitialLoading;
   const showEmptyState = !isInitialLoading && !recordsForPage.length && !isAwaitingDesiredPage;
 
   useEffect(() => {
@@ -108,18 +108,23 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
   const canGoPrev = currentPage > 1;
   const canGoNext = currentPage < safeTotalPages;
 
-  const parseX = (item: BetHistoryRecord) => {
-    const betAmount = new Decimal(item.bet_amount || 0);
+  const parseX = (item: { bet_amount: Decimal, win_amount: Decimal }) => {
+    const winAmount = item.win_amount
+    const betAmount = item.bet_amount
     if (betAmount.isZero()) {
       return "0";
     }
-    return new Decimal(item.win_amount || 0).div(betAmount).toFixed(2);
+    return winAmount.div(betAmount).toFixed(2);
   };
 
   const renderTableRows = () => {
     return recordsForPage.map((betItem) => {
-      const betAmountInfo = formatWithConversion(betItem.bet_amount || 0, betItem.currency || "USD", { minimizeDecimals: true, showCode: false });
-      const winAmountInfo = formatWithConversion(betItem.win_amount || 0, betItem.currency || "USD", { minimizeDecimals: true, showCode: false });
+      // bet 和 win 需要减去 f6
+      const f6Value = new Decimal(betItem.f6 as string | number || 0);
+      const adjustedBetAmount = new Decimal(betItem.bet_amount || 0).minus(f6Value);
+      const adjustedWinAmount = new Decimal(betItem.win_amount || 0).minus(f6Value);
+      const betAmountInfo = formatWithConversion(adjustedBetAmount.toNumber(), betItem.currency || "USD", { minimizeDecimals: true, showCode: false });
+      const winAmountInfo = formatWithConversion(adjustedWinAmount.toNumber(), betItem.currency || "USD", { minimizeDecimals: true, showCode: false });
       const key = betItem.bet_id ?? betItem.id ?? `${betItem.order_id}-${betItem.bet_amount}`;
 
       return (
@@ -142,8 +147,8 @@ export const GameMyBets = ({ game_id }: { game_id: string }) => {
             </div>
           </td>
           <td className="px-2 py-3 text-center font-semibold sm:w-[15%] w-[20%]">
-            <span className="inline-block w-full tabular-nums" title={parseX(betItem)}>
-              {parseX(betItem)}
+            <span className="inline-block w-full tabular-nums" title={parseX({ bet_amount: adjustedBetAmount, win_amount: adjustedWinAmount })}>
+              {parseX({ bet_amount: adjustedBetAmount, win_amount: adjustedWinAmount })}
             </span>
           </td>
           <td className="pr-2 pl-0 sm:px-2 py-3 text-right sm:w-[20%] w-[30%]">

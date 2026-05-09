@@ -34,5 +34,12 @@
   "depositNow": "Depozitează Acum",
   "free_spins": "Rotiri Gratuite",
   "play_with_balance_in": "Joacă cu Soldul În",
-  "the_selected_currency_will_be_displayed_in": "Moneda selectată va fi afișată în"
+  "the_selected_currency_will_be_displayed_in": "Moneda selectată va fi afișată în",
+  "activity": "Activitate",
+  "come_join_me_now_at": "ALĂTURĂ-TE ACUM LA",
+  "invite_friends_to_join_play": "Invită prieteni să se alăture & Joacă",
+  "earn_up_to_50_commission_bonus": "Câștigă până la 50% comision <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Descărcare eșuată. Vă rugăm să încercați din nou.",
+  "image_downloaded": "Imagine descărcată!",
+  "share_text_1": "Tocmai am obținut un BIG WIN de {{multiplier}}x! 🔥"
 }

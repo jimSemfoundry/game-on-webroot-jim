@@ -1,15 +1,15 @@
-import { parser } from "@/components/modal/UserFinanceModal/c/WithdrawMethodInfoAddModal.tsx";
 import {
   InnerBannerButtonV2,
-  InnerBannerContent,
-  InnerBannerWrapper, InnerDataTranslation, useNavigateGuard
+  InnerBannerContent, InnerBannerTitleV2,
+  InnerBannerWrapper, useNavigateGuard
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import {
   InnerBannerPerson
 } from "@/sections/casino/hero-banner/InnerComponents.tsx";
 import { useTranslation } from "react-i18next";
 import { useBoundStore } from "@/store";
-import clsx from "clsx";
+import { useMemo } from "react";
+import i18n from "@/i18n.ts";
 
 export const FirstReferralBonus = ({ content }: {
   content: string
@@ -20,25 +20,22 @@ export const FirstReferralBonus = ({ content }: {
 
   const setSyncAction = useBoundStore((state) => state.setSyncAction);
 
-  const banner = parser(content);
+  // 根据用户的语言匹配相应的模版内容
+  const banner = useMemo(() => {
+    const keys = JSON.parse(content)
+    return keys.find((l: Record<string, any>) => l?.language === i18n.language) ?? (keys[0] || "en");
+  }, [i18n.language]);
 
   return (
     <InnerBannerWrapper>
       <InnerBannerContent>
-        <div className="flex flex-col whitespace-pre-line font-black leading-5">
-          <p className={clsx("text-base-content rtl:ml-auto")}>
-            <InnerDataTranslation
-              text={`${banner?.title}`}
-              value=""
-              percent="" />
-          </p>
-        </div>
+        <InnerBannerTitleV2 banner={banner} />
 
         <InnerBannerButtonV2 text={t(`banner:MORE_INFO`)} onClick={() => {
           navigateCallback(() => {
             setSyncAction("OPEN_EXTRA_REFERRAL_BONUS_MODAL");
           }, true);
-        }} className={'btn-outline'} />
+        }} className={"btn-outline"} />
       </InnerBannerContent>
 
       {/* 人物 */}

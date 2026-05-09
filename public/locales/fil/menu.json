@@ -34,6 +34,8 @@
   "upToReferral": "Hanggang {{amount}} bawat referral",
   "language": "Wika",
   "gameCurrency": "Pera ng laro",
-  "hideBlockedGames": "Itago ang mga hinintong laro",
-  "settings": "Mga Setting"
+  "hideBlockedGames": "Itago \n<0>ang mga hinintong laro</0>",
+  "settings": "Mga Setting",
+  "problemReport": "Ulat ng problema",
+  "logging_key": "Pag-log"
 }

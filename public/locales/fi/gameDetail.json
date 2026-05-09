@@ -34,5 +34,12 @@
   "depositNow": "Talleta nyt",
   "free_spins": "Ilmaiskierrokset",
   "play_with_balance_in": "Pelaa saldolla",
-  "the_selected_currency_will_be_displayed_in": "Valittu valuutta näytetään"
+  "the_selected_currency_will_be_displayed_in": "Valittu valuutta näytetään",
+  "activity": "Toiminta",
+  "come_join_me_now_at": "LIITY NYT",
+  "invite_friends_to_join_play": "Kutsu ystäviä liittymään ja Pelaamaan",
+  "earn_up_to_50_commission_bonus": "Ansaitse jopa 50% provisiota <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Lataus epäonnistui. Yritä uudelleen.",
+  "image_downloaded": "Kuva ladattu!",
+  "share_text_1": "Sain juuri {{multiplier}}x ISON VOITON! 🔥"
 }

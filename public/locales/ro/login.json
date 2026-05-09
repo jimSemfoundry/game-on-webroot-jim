@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Vă rugăm să introduceți o parolă",
   "verification_code_sent_to_your": "Codul de verificare a fost trimis la emailul/telefonul dumneavoastră",
   "one_min_error": "Obțineți din nou codul de verificare în 1 minut.",
-  "signInWith": "Înregistrează-te cu"
+  "must_agree": "Trebuie să fiți de acord cu termenii și condițiile",
+  "signInWith": "Înregistrează-te cu",
+  "usernameTooShort": "Numele de utilizator trebuie să aibă cel puțin 6 caractere"
 }

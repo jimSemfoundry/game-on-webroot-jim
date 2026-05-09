@@ -21,6 +21,8 @@ const SidebarItemComponent = ({ icon, label, to, search, isActive, isMini }: Sid
   const linkClassName = useMemo(() => `
     flex items-center transition-all duration-200
     group relative h-11 hover:text-primary text-base-content/70
+    hover:bg-base-200/70 active:bg-base-200 focus-visible:bg-base-200
+    active:text-base-content focus-visible:text-base-content
     ${isActive ? 'text-primary' : ''}
     ${isMini ? 'justify-center py-3 px-2 w-11 max-w-none mx-auto' : 'gap-3 px-3 py-3'}
   `, [isActive, isMini])

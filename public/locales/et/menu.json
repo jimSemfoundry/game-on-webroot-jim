@@ -34,6 +34,8 @@
   "upToReferral": "Kuni {{amount}} soovituse kohta",
   "language": "Keel",
   "gameCurrency": "Mängu valuuta",
-  "hideBlockedGames": "Peida blokeeritud mängud",
-  "settings": "Seaded"
+  "hideBlockedGames": "Peida \n<0>blokeeritud mängud</0>",
+  "settings": "Seaded",
+  "problemReport": "Probleemi aruanne",
+  "logging_key": "Logimine"
 }

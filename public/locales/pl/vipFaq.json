@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Czym jest Booster?",
-    "content": "<p class=\"leading-7\">Boostery podwajają Twój Rakeback przez jedną godzinę za każdym razem, gdy polecony gracz dokonuje depozytu.</p><p class=\"leading-7\">Wzmocniony wskaźnik odblokowania:</p><p class=\"leading-7\">Wskaźnik odblokowania:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boostery podwajają Twój Rakeback przez trzy godziny za każdym razem, gdy polecony gracz dokonuje depozytu.</p><p class=\"leading-7\">Wzmocniony wskaźnik odblokowania:</p><p class=\"leading-7\">Wskaźnik odblokowania:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Czym jest kalendarz bonusów?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Czym są osiągnięcia?",
-    "content": "<p class=\"leading-7\">Osiągnięcia to nasz sposób na uznanie Twojej aktywności na naszej platformie. Gdy odbierzesz swój bonus za osiągnięcie, zostanie on wypłacony do Twojego Kalendarza Bonusów i można go odebrać co 8 godzin, a wygasa w ciągu 24 godzin, jeśli nie zostanie odebrany.</p>"
+    "content": "<p class=\"leading-7\">Osiągnięcia to nasz sposób na uznanie Twojej aktywności na naszej platformie. Osiągnięcia są dostępne do odebrania po osiągnięciu poziomu VIP 2 i wyżej.</p>"
   }
 }

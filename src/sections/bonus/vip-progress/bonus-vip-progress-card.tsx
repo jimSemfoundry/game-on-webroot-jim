@@ -158,9 +158,7 @@ export const BonusVipProgressCard = () => {
               <span>{t("bonus:progress")}</span>
               <span>{progress}%</span>
             </div>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-base-content/10">
-              <div className="h-full rounded-full bg-primary transition-all duration-500 ease-out" style={{ width: `${progress}%` }} />
-            </div>
+            <progress className={'progress progress-primary'} value={progress} max={100}></progress>
           </div>
 
           {isClaimAvailable ? (

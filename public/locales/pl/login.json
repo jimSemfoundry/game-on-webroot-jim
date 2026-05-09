@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Proszę wprowadzić hasło",
   "verification_code_sent_to_your": "Kod weryfikacyjny został wysłany na Twój e-mail/telefon",
   "one_min_error": "Uzyskaj kod weryfikacyjny ponownie za 1 minutę.",
-  "signInWith": "Zarejestruj się za pomocą"
+  "must_agree": "Musisz zaakceptować regulamin",
+  "signInWith": "Zarejestruj się za pomocą",
+  "usernameTooShort": "Nazwa użytkownika musi mieć co najmniej 6 znaków"
 }

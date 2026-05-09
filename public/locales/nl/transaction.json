@@ -64,6 +64,7 @@
     "fiatWithdraw": "Fiat Opname",
     "cryptoWithdraw": "Crypto Opname",
     "bonus": "Bonus",
+    "bounty": "Bounty",
     "win": "Winst",
     "bet": "Weddenschap",
     "refund": "Terugbetaling",
@@ -72,7 +73,8 @@
     "rakebackbonus": "Rakeback Bonus",
     "cashbackbonus": "Cashback Bonus",
     "referral": "Verwijzing",
-    "commission": "Commissie"
+    "commission": "Commissie",
+    "FIAT": "FIAT"
   },
   "gameTypes": {
     "slots": "Gokkasten",
@@ -150,5 +152,5 @@
     "unlockedFunds": "Ontgrendelde fondsen",
     "rolloverMul": "Inzetmultiplicator"
   },
-  "assistance": "Controleer uw gegevens en probeer het opnieuw of neem contact op met de klantenservice voor hulp"
+  "assistance": "Uw naam komt niet overeen met de naam die u voor het eerst voor dit kanaal hebt gebruikt. Neem contact op met de klantenservice."
 }

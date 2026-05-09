@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Wat is een Booster?",
-    "content": "<p class=\"leading-7\">Boosters verdubbelen jouw Rakeback voor één uur elke keer dat een verwijzing een storting doet.</p><p class=\"leading-7\">Verhoogd Ontgrendelpercentage:</p><p class=\"leading-7\">Ontgrendelpercentage:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosters verdubbelen jouw Rakeback voor drie uur elke keer dat een verwijzing een storting doet.</p><p class=\"leading-7\">Verhoogd Ontgrendelpercentage:</p><p class=\"leading-7\">Ontgrendelpercentage:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Wat is de Bonuskalender?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Wat zijn Prestaties?",
-    "content": "<p class=\"leading-7\">Prestaties zijn onze manier om jouw activiteit op ons platform te erkennen. Wanneer je jouw prestatiebonus claimt, wordt deze uitbetaald aan jouw Bonuskalender en kan deze elke 8 uur worden geclaimd en vervalt binnen 24 uur als deze niet wordt geclaimd.</p>"
+    "content": "<p class=\"leading-7\">Prestaties zijn onze manier om jouw activiteit op ons platform te erkennen. Prestaties kunnen worden geclaimd wanneer je VIP 2 en hoger bereikt.</p>"
   }
 }

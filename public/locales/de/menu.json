@@ -34,6 +34,8 @@
   "upToReferral": "Bis zu {{amount}} pro Empfehlung",
   "language": "Sprache",
   "gameCurrency": "Spielwährung",
-  "hideBlockedGames": "Gesperrte Spiele ausblenden",
-  "settings": "Einstellungen"
+  "hideBlockedGames": "Ausblenden \n<0>gesperrte Spiele</0>",
+  "settings": "Einstellungen",
+  "problemReport": "Problembericht",
+  "logging_key": "Protokollierung"
 }

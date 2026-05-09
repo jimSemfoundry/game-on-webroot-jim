@@ -34,6 +34,8 @@
   "upToReferral": "สูงสุด {{amount}} ต่อการแนะนำ",
   "language": "ภาษา",
   "gameCurrency": "สกุลเงินของเกม",
-  "hideBlockedGames": "ซ่อนเกมที่ถูกบล็อก",
-  "settings": "การตั้งค่า"
+  "hideBlockedGames": "ซ่อน \n<0>เกมที่ถูกบล็อก</0>",
+  "settings": "การตั้งค่า",
+  "problemReport": "รายงานปัญหา",
+  "logging_key": "การบันทึก"
 }

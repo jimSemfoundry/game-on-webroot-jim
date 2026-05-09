@@ -26,7 +26,7 @@ type TRead = `read_${number}`;
 const Index = ({ status, className, onClose }: { status: boolean, className?: string, onClose?: () => void }) => {
   const observerTarget = useRef<HTMLDivElement>(null)
 
-  const { data: data, refetch, isFetching, fetchNextPage } = useNotificationMessage({ read: -1 }, status);
+  const { data: data, isFetching, fetchNextPage } = useNotificationMessage({ read: -1 }, status);
 
   const { refetch: unreadCounterRefetch } = useUnreadNotificationCounter();
 
@@ -81,11 +81,6 @@ const Index = ({ status, className, onClose }: { status: boolean, className?: st
       if (res.success) void unreadCounterRefetch()
     });
   }
-
-  // 打开消息列表则主动更新一次消息列表
-  useEffect(() => {
-    if (status) void refetch();
-  }, [status]);
 
   // 触底加载，交叉观察
   useEffect(() => {

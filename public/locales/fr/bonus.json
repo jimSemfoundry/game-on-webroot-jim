@@ -9,7 +9,7 @@
   "lifetime_bonus": "Bonus à Vie",
   "claimed": "Réclamé",
   "starter": "Démarreur",
-  "pack": "Pack",
+  "pack": "Paquet",
   "achievements_card_description": "Collectez des récompenses spéciales pour les réalisations conçues pour célébrer chaque étape de votre progression !",
   "achievement_short_descriptions": {
     "achievement_verify_email": "Maîtrisez l'art de la chance",
@@ -41,7 +41,7 @@
     "achievement_inferno": "Brûlez à travers les défis",
     "achievement_the_challenger": "Affrontez chaque obstacle"
   },
-  "bonus": "Bonus",
+  "bonus": "Prime",
   "total_bonus_claimed": "Total des Bonus Réclamés",
   "detail": "Détail",
   "details": "Détails",
@@ -156,7 +156,7 @@
   },
   "achievement_super_spreader": {
     "name": "Super Propagateur",
-    "description": "Cette réalisation est attribuée aux joueurs qui ont réussi à référer <0>{{count}} nouveaux utilisateurs</0>. Un véritable bâtisseur de communauté, ils élargissent le cercle et apportent une nouvelle énergie au jeu. Leur influence grandit avec chaque connexion qu'ils établissent."
+    "description": "Cette réalisation est attribuée aux joueurs qui ont réussi à parrainer <0>{{count}} nouveaux utilisateurs</0> ayant effectué leur premier achat. Véritables bâtisseurs de communauté, ils élargissent le cercle grâce à un partage sincère et apportent une énergie nouvelle au jeu. Leur influence grandit avec chaque lien significatif qu'ils créent."
   },
   "achievement_conquistador": {
     "name": "Conquistador",
@@ -243,7 +243,7 @@
     "description": "Cette réalisation est attribuée aux joueurs qui ont misé un total d'au moins <0>{{amount}}</0> au cours de leur historique de jeu. Les Highrollers portent la marque de l'engagement et du prestige, prouvant leur dévouement au jeu à chaque tour, pari et round. Leur couronne n'est pas qu'un symbole — c'est un témoignage de persistance, de passion et de la quête de la fortune."
   },
   "achievement_inferno": {
-    "name": "Inferno",
+    "name": "Enfer",
     "description": "Cette réalisation est attribuée aux joueurs qui ont atteint un multiplicateur de <0>20x</0> sur n'importe quelle machine à sous. Avec des flammes rugissantes, un Inferno transforme un seul pari en une tempête de fortune."
   },
   "achievement_money_maverick": {
@@ -255,7 +255,7 @@
     "description": "Cette réalisation est attribuée aux joueurs qui ont effectué un retrait fiat d'au moins <0>{{amount}}</0> en une seule transaction. Un Maître de l'Argent se tient fier à la croisée des chemins entre le jeu et la récompense, convertissant ses gains en valeur réelle. Avec des mains stables et un timing précis, il montre que la véritable maîtrise ne réside pas seulement dans le jeu — elle se trouve dans le fait de ramener les récompenses chez soi."
   },
   "achievement_crypto_bro": {
-    "name": "Crypto Bro",
+    "name": "Crypto frère",
     "description": "Cette réalisation est attribuée aux joueurs qui ont effectué un dépôt d'au moins <0>{{amount}}</0> en une seule transaction, avec n'importe quelle cryptomonnaie. Un Maestro Crypto dirige ses fonds comme un véritable artiste, orchestrant des actifs numériques avec précision et flair. Confiant sur la scène de la blockchain, il est un pionnier du jeu qui prouve que la fortune favorise les audacieux."
   },
   "achievement_crypto_baron": {
@@ -309,12 +309,12 @@
     "achievement_slots_multiplier": "Réalisation Multiplicateur de Machines à Sous",
     "level_up": "Niveau Supérieur",
     "rakeback": "Rakeback",
-    "cashback": "Cashback",
+    "cashback": "Remise en argent",
     "group": "Commission",
     "referral": "Référence",
     "tournament": "Tournoi",
     "conquest_extra_reward": "Conquête Récompense Supplémentaire",
-    "bonus": "Bonus",
+    "bonus": "Prime",
     "bonus_manual": "Bonus Manuel",
     "max_win": "Gain Max",
     "pending": "En Attente",
@@ -339,9 +339,11 @@
     "special_offer_first_deposit": "Offre Spéciale Premier Dépôt",
     "monday_vip_bonus": "Bonus VIP du Lundi",
     "special_offer_thursday": "Bonus Crypto du Jeudi",
-    "special_offer_sunday": "Boost Premier Dépôt",
+    "special_offer_sunday": "Premier Dépôt du Jour",
     "conquest_bonus": "Bonus de Conquête",
-    "dollars_bonus": "Bonus"
+    "dollars_bonus": "Prime",
+    "buddy_balls": "Balles d'Amis",
+    "special_offer": "Offre Spéciale"
   },
   "achievements_description": "Débloqué au VIP {{vip}}, ces récompenses célèbrent vos étapes avec des surprises excitantes en chemin !",
   "lucky_number_seven_description": "Trouvez les {{number}} chanceux et gagnez un bonus doux chaque jour !",
@@ -365,7 +367,7 @@
   "share": "Partager",
   "open_box_description": "Utilise-la pour jouer à des jeux et profiter de plus de gains !",
   "get": "Obtenir",
-  "buck": "BUCK",
+  "buck": "MÂLE",
   "always_1_to_1": "Toujours 1 pour 1",
   "what_is_buck": "Qu'est-ce que BUCK ?",
   "what_is_buck_description": "BUCK est un jeton exclusif pour toutes les récompenses de la plateforme, évalué à 1 BUCK = 1 USDT.",
@@ -512,7 +514,7 @@
   "bonus_rules_desc": {
     "r0": {
       "title": "Puis-je renoncer à la promotion des Dollars Bonus à tout moment ?",
-      "desc": "Oui. Vous pouvez choisir de renoncer à la promotion des Dollars Bonus à tout moment pendant sa période de validité. Veuillez noter qu'une fois que vous renoncez, votre solde actuel de Dollars Bonus sera effacé et ne pourra pas être restauré ou retiré. Vous pouvez toujours participer aux futures promotions de bonus si elles sont disponibles."
+      "desc": "Vous ne pouvez choisir de renoncer à la promotion des Dollars Bonus que lorsque le solde de votre Portefeuille Bonus est inférieur à l'équivalent de {{amount}}USDT pendant sa période de validité.\nVeuillez noter qu'une fois que vous renoncez, votre solde restant du Portefeuille Bonus sera effacé et ne pourra pas être restauré ou retiré.\nComme il ne peut y avoir qu'une seule promotion de Portefeuille Bonus active à la fois, vous serez éligible pour participer et acheter d'autres promotions de Portefeuille Bonus après avoir renoncé à votre promotion actuelle de Portefeuille Bonus."
     },
     "r1": {
       "title": "Qu'est-ce que le Dollar Bonus ?",
@@ -554,6 +556,10 @@
       "title": "Puis-je continuer à jouer même après avoir atteint la limite de retrait ?",
       "desc": "Oui, vous pouvez continuer à jouer avec votre solde bonus pour le plaisir - mais votre réclamation restera limitée à la limite de retrait."
     },
+    "r11": {
+      "title": "Quand les dollars bonus expirent-ils / Puis-je abandonner la promotion ?",
+      "desc": "Les dollars bonus expirent 30 jours après leur émission, donc vous avez 30 jours pour compléter l'exigence de rotation. Vous pouvez également choisir d'abandonner la Promotion de Dollars Bonus à tout moment.\n Lorsque vous abandonnez la promotion, votre solde actuel de Dollars Bonus sera effacé et aucun remboursement ne sera donné. Vous pourrez participer aux futures Promotions de Dollars Bonus.\n Il ne peut y avoir qu'1 Promotion de Dollars Bonus active à la fois."
+    },
     "free": "Entrez avec de l'argent bonus gratuit — aucun dépôt requis. Faites tourner de vrais jeux, testez votre chance et voyez jusqu'où vous pouvez aller avant de retirer.\n\n Parfait pour commencer sans risque.",
     "mini": "Faites un petit dépôt et recevez un bonus de machines à sous avec des exigences de mise légères. Conçu pour un jeu rapide et une progression plus rapide vers le retrait.\n\n Idéal pour les joueurs occasionnels qui veulent une expérience de bonus fluide.",
     "mega": "Jouez avec des Dollars Bonus comme de l'argent réel ! Chaque mise vous rapproche du déblocage de leur pleine valeur. Remplissez les exigences de jeu et regardez vos Dollars Bonus se transformer en récompenses retirables aujourd'hui !",
@@ -570,8 +576,8 @@
   "bonus_credited2": "<0>{{bonus}}</0> sera crédité sur le compte suivant",
   "welcomeBonus": "Bonus de Bienvenue",
   "skip": "Ignorer",
-  "megaSlotBonus": "Mega Slot \n Bonus",
-  "miniSlotBonus": "Mini Slot \n Bonus",
+  "megaSlotBonus": "Méga machine à sous \n Bonus",
+  "miniSlotBonus": "Mini-fente \n Bonus",
   "freePlayBonus": "Jeu Gratuit \n Bonus",
   "depositSlotBonus": "Dépôt {{amount}}+ \n {{value}} Bonus Slot",
   "noDepositBonus": "Sans Dépôt \n Obtenez {{amount}} Bonus",
@@ -589,5 +595,82 @@
   "bonus_expired": "Expiré",
   "bonus_claimed": "Réclamé",
   "bonus_failure_end": "Échoué",
-  "bonus_give_up": "Abandonner"
+  "bonus_give_up": "Abandonner",
+  "goal": "OBJECTIF",
+  "state": "STATUT",
+  "requirement_met": "Condition remplie",
+  "enjoy": "profitez",
+  "achievement_details": "Détails de l'accomplissement",
+  "promo_expired": "Ce code promotionnel a expiré.",
+  "claim_successful": "Réclamation réussie !",
+  "promo_claimed": "Vous avez déjà réclamé ce code promotionnel.",
+  "invalid_parameter": "Paramètre invalide.",
+  "promo_invalid": "Code promotionnel invalide. Veuillez vérifier et réessayer.",
+  "promo_format_error": "Veuillez entrer un code composé de chiffres et de lettres, avec une longueur minimale de {{length}} caractères.",
+  "redeem_promotional": "Échangez votre code promotionnel pour débloquer des récompenses exclusives, des remises ou des avantages supplémentaires !\n Suivez-nous sur nos réseaux sociaux pour obtenir des codes promotionnels chaque jour.",
+  "promo_unavailable": "Ce code promotionnel n'est actuellement pas disponible.",
+  "promo_claim_limit": "Ce code promotionnel a atteint sa limite de réclamation.",
+  "similar_event": "Vous avez déjà une promotion similaire en cours.",
+  "abnormality": "Anomalie du compte, veuillez contacter le service client.",
+  "not_started_yet": "Cette promotion n'a pas encore commencé.",
+  "not_eligible": "Non éligible pour réclamer.",
+  "cannot_claim": "Vous avez actuellement un solde de Portefeuille Bonus et ne pouvez pas réclamer une promotion Freespin.",
+  "bonus_store": "Boutique de Bonus",
+  "bonus_store_title": "Boutique de \n Bonus",
+  "wagering_in_progress": "Wagering en cours",
+  "buddy_ball": "Balle Buddy",
+  "buddy_ball_title": "Balle\nBuddy",
+  "prize_pool": "Cagnotte",
+  "lifetime_bonus_claimed": "Bonus à vie réclamé",
+  "successful": "Réussi",
+  "purchased": "Vous avez acheté avec succès \n <0>{{amount}}</0>. Bonne chance !",
+  "bonusStore": "Boutique de \n Bonus",
+  "buyAmount": "Montant d'Achat",
+  "selectBonus": "Sélectionnez le bonus à jouer",
+  "buyNow": "Acheter maintenant",
+  "bonusExists": "Un bonus actif existe déjà",
+  "notAllowed": "Le rachat n'est pas encore autorisé",
+  "amountLow": "Montant trop faible",
+  "amountHigh": "Montant trop élevé",
+  "failedCreate": "Échec de la création de l'enregistrement",
+  "buyBonus": "Acheter un bonus",
+  "bonusHistory": "Historique des bonus",
+  "wagerCompleted": "Le wagering est terminé !",
+  "wageringProgress": "Wagering en cours",
+  "bonus_store_welcome": "Bienvenue dans la Boutique de Bonus, où vous pouvez convertir votre argent en Dollars bonus et obtenir un {{value}} supplémentaire, sous réserve des exigences de mise (condition de mise). Les Dollars bonus sont des crédits de jeu spéciaux utilisables sur certains jeux de machines à sous sélectionnés. Les Dollars bonus peuvent être convertis en argent retirable une fois l'exigence de mise remplie.",
+  "bonus_store_wagering": "Une fois l'exigence de mise (condition de mise/mise) remplie, vous pouvez convertir votre solde de Dollars bonus dans la devise de votre choix en cliquant sur le bouton Réclamer.",
+  "bonus_store_validity": "Les Dollars bonus doivent être utilisés pendant la période de validité affichée dans l'onglet Boutique de Bonus. Tout solde de Dollars bonus non utilisé sera perdu après cette période. Veuillez noter que vous ne pouvez avoir qu'une seule promotion Dollars bonus active à la fois.",
+  "bonus_store_calculated": "Les Dollars bonus sont calculés et crédités en BONUS, puis affichés dans la devise d'affichage que vous avez choisie pour votre confort. Veuillez noter que les conversions de devises sont approximatives. Le casino se réserve le droit de modifier ou de révoquer l'éligibilité sans obligation de justification. Tout abus ou activité frauduleuse entraînera la disqualification de la promotion.",
+  "youPay": "Vous payez",
+  "extraBonus": "Bonus supplémentaire",
+  "bonusReceived": "Bonus reçu",
+  "youGet": "Vous recevez",
+  "extraBonusGet": "Obtenez {{value}} de bonus supplémentaire",
+  "minimumBuy": "Achat minimum",
+  "periodComplete": "Délai pour compléter",
+  "bonusObtained": "BONUS obtenu x {{value}}",
+  "bonusGameplay": "Jouez aux machines à sous avec Bonus et obtenez plus de jetons. Conçu pour un gameplay rapide et des retraits plus rapides. \n\n Idéal pour les joueurs occasionnels qui veulent une expérience bonus fluide.",
+  "sportGameplay": "Jouez au sport avec Bonus et obtenez plus de jetons. Conçu pour un gameplay rapide et des retraits plus rapides. \n\n Idéal pour les joueurs occasionnels qui veulent une expérience bonus fluide.",
+  "day_streak": "série de <0>{{value}}</0> jours",
+  "check_in": "s'enregistrer",
+  "get_more": "obtenir plus",
+  "missed_key": "manqué",
+  "daily_check_in": "pointage quotidien",
+  "check_in_today": "Pointer aujourd'hui",
+  "get_more_buddy_balls": "Obtenir plus de Buddy Balls",
+  "checked_in": "Enregistré",
+  "no_games_available": "Aucun jeu n'est disponible dans votre région.",
+  "daily_reset": "Réinitialisation quotidienne à {{time}}",
+  "withdrawal": "Retrait minimum",
+  "wagering_rules": "Règles de mise",
+  "sports_bonus_title": "BONUS \n SPORTIF",
+  "switch_prompt_title": "Votre Bonus Sport est prêt \n Changer pour l'utiliser",
+  "switch_prompt_more": "Plus",
+  "switch_prompt_switch": "Changer",
+  "switched_back_wallet": "Switched back to your {{currency}} wallet",
+  "sportsBonusStore": "Bonus sportif",
+  "sportsBonusActivate": "Bonus sportif activé",
+  "sportsBonus": "Bonus sportif",
+  "buySportsBonus": "Acheter un bonus sportif",
+  "sportsBonusGameplay": "Placez des paris sportifs avec votre bonus sportif et débloquez plus de valeur. Conçu pour les amateurs de sport à la recherche de mises améliorées et de retraits plus rapides. \n\n Idéal pour les parieurs qui souhaitent une expérience de bonus fluide et adaptée au sport."
 }

@@ -1,35 +1,43 @@
 import { useDisplayCurrencyFormatter } from "@/contexts/DisplayCurrencyContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useUserClaimBonus } from "@/hooks/api/useAuth";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
 // import { BonusCollectorCard } from "./collector";
 import { BonusDetailsModal } from "@/sections/bonus/shared";
+import { CheckInCard } from "./check_in";
 
 interface BonusHeroProps {
+  type?: "totalBonus" | "achievementBonus";
+  disabled?: boolean;
   totalBonusClaimed?: number; // 可选，用作fallback
 }
 
 const rewardsNotRequireStatistics = new Set([
-  "don", "conquest", "bonus_manual"
+  "don",
+  "BONUS",
+  "conquest",
+  "bonus_manual",
+  "special_offer_thursday"
 ]);
 
 const bonusHeroImage = import.meta.env.VITE_BONUS_HERO_IMAGE || "/images/illustrations/b12dd722cafd02781363b2dbaaf5c18afa9be2d3.png";
 
-export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
-  const { t } = useTranslation('bonus');
+export function Hero({ disabled, totalBonusClaimed = 0 }: BonusHeroProps) {
+  const { t } = useTranslation("bonus");
+
   const { formatWithConversion } = useDisplayCurrencyFormatter();
+
   const { isInitialized, isAuthenticated } = useAuth();
-  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   // 获取用户的奖励详情数据
-  const { data: claimBonusData, isLoading: isDataLoading } = useUserClaimBonus();
+  const { data: claimBonusData, isLoading } = useUserClaimBonus();
 
   // 优化的loading状态：未初始化或数据加载中时显示骨架屏
-  const isLoading = isAuthenticated && (!isInitialized || isDataLoading);
+  const loading = isAuthenticated && (!isInitialized || isLoading);
 
   // 计算总的已领取奖励金额（所有 bonus 的 sum 总和，统一转换为用户显示货币）
   const calculatedTotalClaimed = useMemo(() => {
@@ -47,81 +55,65 @@ export function Hero({ totalBonusClaimed = 0 }: BonusHeroProps) {
 
   return (
     <div
-      className="flex flex-col gap-4 px-5 pt-3 sm:px-12 relative overflow-hidden sm:bg-base-200/50 sm:min-h-[385px] sm:rounded-box sm:justify-center select-none"
-      style={{
-        backgroundImage: isMobile
-          ? undefined
-          : `repeating-linear-gradient(
-          -45deg,
-          oklch(from var(--color-base-200) l c h / 0.1) 0px,
-          oklch(from var(--color-base-200) l c h / 0.1) 6px,
-          oklch(from var(--color-base-300) l c h / 0.3) 6px,
-          oklch(from var(--color-base-300) l c h / 0.3) 12px,
-          oklch(from var(--color-base-200) l c h / 0.1) 12px,
-          oklch(from var(--color-base-200) l c h / 0.1) 18px
-        )`
-      }}
-    >
-      <div className="flex flex-col">
-        <div className="flex items-center gap-4 w-full">
-          <div className="h-[158px] sm:h-auto flex justify-center flex-col p-3 gap-1 sm:gap-2">
-            {isAuthenticated ? (
-              <>
-                <p className="text-sm sm:text-xl font-semibold text-base-content/50">
-                  <span className="block sm:inline">{t("bonus:lifetime_bonus")}</span>
-                  <span className="block sm:inline">{t("bonus:claimed")}</span>
-                </p>
-                <p className="text-2xl sm:text-5xl text-base-content font-bold z-10">
-                  {isLoading ? (
-                    <span className="skeleton w-32 h-8 sm:h-12 rounded"></span>
-                  ) : (
-                    formatWithConversion(calculatedTotalClaimed, "USDT", {
-                      showSymbol: true,
-                      showCode: false
-                    }).formatted
-                  )}
-                </p>
-                <button
-                  className="font-semibold text-base-content/50 flex items-center gap-2 sm:cursor-pointer hover:text-base-content/70 transition-colors"
-                  onClick={() => setIsDetailsModalOpen(true)}
-                >
-                  <span className="text-sm sm:text-xl">{t("bonus:details")}</span>
-                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-                </button>
-              </>
-            ) : (
-              <p
-                className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
-                <span className="text-base-content block">
-                  {t("bonus:enjoy")}
-                </span>
-                <span className="text-primary block">
-                  {t("bonus:exclusive")}
-                </span>
-                <span className="text-primary">
-                  {t("bonus:rewards")}
-                </span>
+      className="flex items-center justify-center rounded-box  sm:px-7 relative overflow-hidden bg-base-200 h-[209px] sm:h-[300px] sm:rounded-box sm:justify-center select-none">
+      <div className="flex items-center w-full h-full z-100">
+        <div className="flex flex-col justify-center p-3 gap-1 sm:gap-2">
+          {(isAuthenticated && !disabled) && (
+            <>
+              <p className="text-sm sm:text-xl font-semibold text-base-content/50">
+                <span className="block sm:inline">{t("bonus:lifetime_bonus")}</span>
+                <span className="block sm:inline sm:ml-1">{t("bonus:claimed")}</span>
               </p>
-            )}
-            {/* CollectorCard - 只在PC端显示 */}
-            {/* {!isMobile && (
-              <div className="absolute bottom-6 left-6">
-                <BonusCollectorCard className="relative z-10" />
-              </div>
-            )} */}
-          </div>
-          <img
-            src={bonusHeroImage}
-            alt=""
-            className="object-cover w-[512px] object-top hidden sm:block absolute left-[224px] rtl:left-auto rtl:right-[224px] top-0"
-          />
+              <p className="text-2xl sm:text-5xl text-base-content font-bold z-10">
+                {loading
+                  ? "0.00"
+                  : formatWithConversion(calculatedTotalClaimed, "USDT", {
+                    showSymbol: true,
+                    showCode: false
+                  }).formatted}
+              </p>
+              <button
+                className="font-semibold text-base-content/50 flex items-center gap-2 sm:cursor-pointer hover:text-base-content/70 transition-colors"
+                onClick={() => setIsDetailsModalOpen(true)}
+              >
+                <span className="text-sm sm:text-xl">{t("bonus:details")}</span>
+                <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+              </button>
+            </>
+          )}
+          {(!isAuthenticated || disabled) && (
+            <p
+              className="text-2xl sm:text-5xl text-base-content font-black leading-6 sm:leading-11 whitespace-pre-line uppercase">
+              <span className="text-base-content block">{t("bonus:enjoy")}</span>
+              <span className="text-primary block">{t("casino:exclusive")}</span>
+              <span className="text-primary">{t("bonus:rewards")}</span>
+            </p>
+          )}
         </div>
-        <img
-          src={bonusHeroImage}
-          alt=""
-          className="absolute top-3 -right-2 rtl:right-auto rtl:-left-2 object-cover w-[233px] object-top h-[158px] sm:hidden rtl:rotate-y-180"
-        />
       </div>
+
+      <div className="hidden sm:block z-100 sm:pr-10">
+        <div className="w-[355px] rounded-2xl bg-base-300/50 p-2.5 hidden xl:block" >
+          <CheckInCard />
+        </div>
+      </div>
+
+      <img
+        src={bonusHeroImage}
+        alt=""
+        className="object-cover w-auto h-full object-top hidden sm:block absolute left-1/2 -translate-x-1/2 top-0 z-50 rtl:rotate-y-180"
+      />
+      <img
+        src={bonusHeroImage}
+        alt=""
+        className="absolute -right-8 rtl:right-auto rtl:-left-8 object-cover w-auto object-top h-full sm:hidden rtl:rotate-y-180 z-50"
+      />
+      <div
+        className="absolute right-0 top-0 w-[209px] sm:w-[285px] h-full bg-gradient-to-b from-[#BEE100] to-[#00481A] rtl:rotate-y-180 rtl:right-auto rtl:left-0"
+        style={{
+          clipPath: "polygon(46% 0%, 100% 0%, 100% 100%, 0% 100%)"
+        }}
+      />
 
       <BonusDetailsModal
         isOpen={isDetailsModalOpen}

@@ -100,7 +100,7 @@
     "menu": "Меню",
     "profile": "Профіль",
     "bonus": "Бонус",
-    "explore": "Досліджувати",
+    "explore": "Дослідити",
     "pinMustBeAtLeast6Digits": "Введіть 6-значний PIN-код",
     "enterNewPINPlaceholder": "Введіть новий 6-значний PIN",
     "confirmNew": "Підтвердити PIN",
@@ -167,7 +167,8 @@
     "mobileHasBeenUsed": "Номер телефону вже використано. Будь ласка, використайте інший номер.",
     "mobileAlreadyBound": "Номер телефону вже прив’язано до цього облікового запису.",
     "fullscreen": "На весь екран",
-    "exitFullscreen": "Вийти з повноекранного режиму"
+    "exitFullscreen": "Вийти з повноекранного режиму",
+    "draw": "Нічия"
   },
   "bonus_pool": "Бонусний фонд",
   "pleaseEnterValidUsernameOrEmail": "Будь ласка, введіть дійсне ім'я користувача або електронну пошту",

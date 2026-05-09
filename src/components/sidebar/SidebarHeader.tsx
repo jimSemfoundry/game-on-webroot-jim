@@ -4,6 +4,7 @@ import { SmoothTabs } from "../ui/SmoothTabs";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "@tanstack/react-router";
+import { BetbyLinkGuard } from "@/components/sidebar/BetbyLinkGuard.tsx";
 
 export const SidebarHeader = () => {
   const location = useLocation();
@@ -53,16 +54,18 @@ export const SidebarHeader = () => {
   ];
 
   return (
-    <div className={`flex items-center justify-center overflow-hidden ${isMini ? "" : "w-full"}`}>
-      <SmoothTabs
-        size={'md'}
-        items={items}
-        value={active}
-        onChange={handleChange}
-        layoutId={isMini ? "mini-sidebar" : "desktop-sidebar"}
-        orientation={isMini ? "vertical" : "horizontal"}
-        className={isMini ? "w-12" : "w-full"}
-      />
-    </div>
+    <BetbyLinkGuard>
+      <div className={`flex items-center justify-center overflow-hidden ${isMini ? "" : "w-full"}`}>
+        <SmoothTabs
+          size={'md'}
+          items={items}
+          value={active}
+          onChange={handleChange}
+          layoutId={isMini ? "mini-sidebar" : "desktop-sidebar"}
+          orientation={isMini ? "vertical" : "horizontal"}
+          className={isMini ? "w-12" : "w-full"}
+        />
+      </div>
+    </BetbyLinkGuard>
   );
 };

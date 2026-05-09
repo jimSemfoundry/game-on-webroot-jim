@@ -2,9 +2,10 @@ import { CurrencyIconPlaceholder } from "@/components/modal/UserFinanceModal/c/C
 import { useAuth } from "@/contexts/AuthContext.tsx";
 import { useCurrencyData } from "@/hooks/useCurrency.ts";
 import { useBoundStore } from "@/store";
-import { BadgeAlert, EqualApproximately } from "lucide-react";
+import { EqualApproximately } from "lucide-react";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { Alert } from "@/components/icons/Alert.tsx";
 
 const ExchangeRate = () => {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ const ExchangeRate = () => {
       <div className="flex gap-2">
         <div className="text-xs leading-5 font-semibold">{t("finance:cryptoBalanceDescription")}</div>
         <button className={"btn bg-base-200 btn-sm btn-square text-base-content/50"}>
-          <BadgeAlert strokeWidth={3} className="w-4 h-4" onClick={() => setSyncAction("OPEN_CRYPTO_SETTLEMENT_MODAL")} />
+          <Alert onClick={() => setSyncAction("OPEN_CRYPTO_SETTLEMENT_MODAL")} />
         </button>
       </div>
       <div className="flex items-center gap-2 justify-center font-semibold text-xs">

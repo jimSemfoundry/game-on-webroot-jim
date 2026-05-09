@@ -34,6 +34,8 @@
   "upToReferral": "Upp till {{amount}} per värvning",
   "language": "Språk",
   "gameCurrency": "Spelvaluta",
-  "hideBlockedGames": "Dölj blockerade spel",
-  "settings": "Inställningar"
+  "hideBlockedGames": "Dölj \n<0>blockerade spel</0>",
+  "settings": "Inställningar",
+  "problemReport": "Problemrapport",
+  "logging_key": "Loggning"
 }

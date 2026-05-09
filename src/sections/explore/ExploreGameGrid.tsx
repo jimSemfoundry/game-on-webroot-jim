@@ -1,8 +1,9 @@
 import { GameImage } from "@/components/ui/GameImage";
-import { Loader2 } from "lucide-react";
+import { LogoLoader } from "@/components/ui/LogoLoader";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { VirtuosoGrid } from "react-virtuoso";
+import { useBannedGameCheck } from "@/hooks/useBannedGameCheck.ts";
 
 interface ExploreGameGridProps {
   isLoading: boolean;
@@ -36,6 +37,9 @@ export function ExploreGameGrid({
   // 防止重复触发加载的标记
   const isLoadingRef = useRef(false);
   const lastLoadTimeRef = useRef(0);
+
+  // 使用自定义 hook 检查游戏是否被禁止
+  const isGameBanned = useBannedGameCheck(true);
 
   // 获取滚动父容器
   const [scrollParent, setScrollParent] = useState<HTMLElement | null>(null);
@@ -79,7 +83,7 @@ export function ExploreGameGrid({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
-        <Loader2 className="animate-spin" />
+        <LogoLoader size={60} />
       </div>
     );
   }
@@ -92,14 +96,15 @@ export function ExploreGameGrid({
     );
   }
 
-  const games = casinoGameList?.data ?? [];
+  // 过滤掉被禁止的游戏
+  const games = (casinoGameList?.data ?? []).filter(game => !isGameBanned(game));
   const hasGames = games.length > 0;
 
   // 先等待 scrollParent 准备好，避免首次加载时闪现 noResultsFound
   if (!scrollParent) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
-        <Loader2 className="animate-spin" />
+        <LogoLoader size={60} />
       </div>
     );
   }
@@ -135,7 +140,7 @@ export function ExploreGameGrid({
           }}
           showHoverEffects={true}
           lazy={false}
-          enabledBanGameList
+          enabledBanGameList={false}
         />
       )}
       components={{
@@ -144,7 +149,7 @@ export function ExploreGameGrid({
             {/* 加载中指示器 */}
             {isLoadingMore && (
               <div className="flex items-center justify-center py-2">
-                <Loader2 className="animate-spin w-6 h-6" />
+                <LogoLoader size={40} />
               </div>
             )}
             {/* 已加载全部 */}

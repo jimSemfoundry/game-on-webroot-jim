@@ -23,6 +23,7 @@ export const BonusSelectCurrency = (
   const [currency, selectedCurrency] = useState<string>("");
 
   const options = useMemo(() => {
+    // TODO: 这些类型的币种不支持作为购买的支付币种
     const filter_condition = new Set(["REWARDS", "BONUS", "SPORT"]);
     return currency_data
       .filter((currency: { currency_type: string; }) => !filter_condition.has(currency?.currency_type))

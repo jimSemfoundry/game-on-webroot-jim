@@ -1,7 +1,7 @@
 import { cn } from "@/utils/themeMerger";
 import { Check, ChevronDown, Search } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState, type ReactNode } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 export interface SelectOption {
   value: string | number;
@@ -190,6 +190,8 @@ export const Select = forwardRef<SelectRef, SelectProps>(
     const [isOpen, setIsOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [focusedIndex, setFocusedIndex] = useState(-1);
+    const [dropUp, setDropUp] = useState(false);
+    const [dropMaxHeight, setDropMaxHeight] = useState<number | null>(null);
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const searchInputRef = useRef<HTMLInputElement>(null);
@@ -210,6 +212,31 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             return label.toLowerCase().includes(searchQuery.toLowerCase());
           })
         : options;
+
+    // 从 maxHeight tailwind class 解析像素上限，如 "max-h-60" → 240
+    const maxHeightPx = (() => {
+      const m = maxHeight.match(/max-h-(\d+)/);
+      return m ? Number(m[1]) * 4 : 240;
+    })();
+
+    // 计算下拉方向和可用高度
+    const calcDropLayout = useCallback(() => {
+      if (!buttonRef.current) return { up: false, maxH: maxHeightPx };
+      const rect = buttonRef.current.getBoundingClientRect();
+      const dockHeight = 72;
+      const safeMargin = 16;
+      // 下方可用空间：视口底部 - 按钮底部 - Dock - 安全边距
+      const spaceBelow = window.innerHeight - rect.bottom - dockHeight - safeMargin;
+      // 上方可用空间：按钮顶部 - 安全边距
+      const spaceAbove = rect.top - safeMargin;
+      const estimatedH = Math.min(filteredOptions.length * 40 + 16, maxHeightPx);
+      // 选择空间更大的方向
+      const up = spaceBelow < estimatedH && spaceAbove > spaceBelow;
+      // 可用高度取方向对应空间与 maxHeightPx 的较小值
+      const availableSpace = up ? spaceAbove : spaceBelow;
+      const maxH = Math.min(maxHeightPx, Math.max(availableSpace, 120));
+      return { up, maxH };
+    }, [filteredOptions.length, maxHeightPx]);
 
     // Handle selection
     const handleSelect = (option: SelectOption) => {
@@ -235,6 +262,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
         case "Enter":
         case " ":
           if (!isOpen) {
+            const { up, maxH } = calcDropLayout();
+            setDropUp(up);
+            setDropMaxHeight(maxH);
             setIsOpen(true);
             setFocusedIndex(0);
           } else if (focusedIndex >= 0 && filteredOptions[focusedIndex]) {
@@ -249,6 +279,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(
           break;
         case "ArrowDown":
           if (!isOpen) {
+            const { up, maxH } = calcDropLayout();
+            setDropUp(up);
+            setDropMaxHeight(maxH);
             setIsOpen(true);
             setFocusedIndex(0);
           } else {
@@ -284,6 +317,15 @@ export const Select = forwardRef<SelectRef, SelectProps>(
       };
     }, [isOpen]);
 
+    // 搜索过滤变化时在绘制前重新计算方向和高度
+    useLayoutEffect(() => {
+      if (isOpen) {
+        const { up, maxH } = calcDropLayout();
+        setDropUp(up);
+        setDropMaxHeight(maxH);
+      }
+    }, [isOpen, calcDropLayout]);
+
     // Focus search input when dropdown opens
     useEffect(() => {
       if (isOpen && searchable && searchInputRef.current) {
@@ -302,13 +344,29 @@ export const Select = forwardRef<SelectRef, SelectProps>(
     }, [focusedIndex]);
 
     // Expose ref methods
-    useImperativeHandle(ref, () => ({
-      open: () => setIsOpen(true),
-      close: () => setIsOpen(false),
-      toggle: () => setIsOpen((prev) => !prev),
-      focus: () => buttonRef.current?.focus(),
-      blur: () => buttonRef.current?.blur(),
-    }));
+    useImperativeHandle(
+      ref,
+      () => ({
+        open: () => {
+          const { up, maxH } = calcDropLayout();
+          setDropUp(up);
+          setDropMaxHeight(maxH);
+          setIsOpen(true);
+        },
+        close: () => setIsOpen(false),
+        toggle: () => {
+          if (!isOpen) {
+            const { up, maxH } = calcDropLayout();
+            setDropUp(up);
+            setDropMaxHeight(maxH);
+          }
+          setIsOpen((prev) => !prev);
+        },
+        focus: () => buttonRef.current?.focus(),
+        blur: () => buttonRef.current?.blur(),
+      }),
+      [calcDropLayout, isOpen],
+    );
 
     // Render option content
     const renderOptionContent = (option: SelectOption) => {
@@ -353,7 +411,15 @@ export const Select = forwardRef<SelectRef, SelectProps>(
             disabled && "opacity-50 cursor-not-allowed",
             className,
           )}
-          onClick={() => !disabled && setIsOpen(!isOpen)}
+          onClick={() => {
+            if (disabled) return;
+            if (!isOpen) {
+              const { up, maxH } = calcDropLayout();
+              setDropUp(up);
+              setDropMaxHeight(maxH);
+            }
+            setIsOpen(!isOpen);
+          }}
           onKeyDown={handleKeyDown}
           disabled={disabled || loading}
           aria-haspopup="listbox"
@@ -362,7 +428,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(
         >
           <div className={cn("flex items-center gap-2 flex-1 min-w-0 text-base-content", sizeStyles.text)}>
             {icon && <span className="shrink-0">{icon}</span>}
-            <div className="text-xs flex-1 text-left rtl:text-right truncate">
+            <div className="text-sm flex-1 text-left rtl:text-right truncate">
               {loading ? (
                 <div className="flex items-center gap-2">
                   <span className="loading loading-spinner loading-sm"></span>
@@ -391,15 +457,16 @@ export const Select = forwardRef<SelectRef, SelectProps>(
         <AnimatePresence>
           {isOpen && !loading && (
             <m.div
-              initial={{ opacity: 0, y: -8 }}
+              initial={{ opacity: 0, y: dropUp ? 8 : -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+              exit={{ opacity: 0, y: dropUp ? 8 : -8 }}
               transition={{
                 duration: 0.15,
                 ease: "easeOut",
               }}
               className={cn(
-                "absolute z-50 w-full mt-1 bg-base-100 rounded-field shadow-sm px-1",
+                "absolute z-50 w-full bg-base-100 rounded-field shadow-sm px-1",
+                dropUp ? "bottom-full mb-1" : "top-full mt-1",
                 sizeStyles.dropdown,
                 variantStyles.dropdown,
                 dropdownClassName,
@@ -433,7 +500,10 @@ export const Select = forwardRef<SelectRef, SelectProps>(
               )}
 
               {/* Options List */}
-              <div className={cn("py-1 overflow-auto", maxHeight)}>
+              <div
+                className={cn("py-1 overflow-auto", !dropMaxHeight && maxHeight)}
+                style={{ maxHeight: dropMaxHeight ? `${dropMaxHeight}px` : undefined }}
+              >
                 {filteredOptions.length === 0 ? (
                   <div className="px-4 py-2 text-base-content/50 text-center">{emptyMessage}</div>
                 ) : (

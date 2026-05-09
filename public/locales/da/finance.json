@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "Udfyld venligst dine oplysninger til udbetaling af fiatvaluta.",
   "updating_withdrawal_address": "Opdaterer udbetalingsadresse, vent venligst...",
   "please_select_withdrawal_method": "Vælg venligst en udbetalingsmetode.",
-  "integer_deposit": "Denne kanal kræver, at indbetalingsbeløbet er et heltalsmultipel af {{value}}.",
+  "integer_deposit": "Denne kanal kræver, at indbetalingsbeløbet er i enheder af {{value}}.",
   "enter_string_en_only": "Kun engelske bogstaver, tal og mellemrum kan indtastes.",
-  "enter_string_min_length": "Længden skal være mindst {{length}}."
+  "enter_string_min_length": "Længden skal være mindst {{length}}.",
+  "met_eligibility": "*Du har opfyldt kriterierne for berettigelse til det specielle tilbud. Genoplad nu for at modtage din belønning!",
+  "read_carefully": "Læs venligst omhyggeligt",
+  "no_channel": "Ingen kanaler tilgængelige i øjeblikket"
 }

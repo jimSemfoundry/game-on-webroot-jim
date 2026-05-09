@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Vui lòng nhập mật khẩu",
   "verification_code_sent_to_your": "Mã xác minh đã được gửi đến email/số điện thoại của bạn",
   "one_min_error": "Lấy mã xác minh lại trong 1 phút.",
-  "signInWith": "Đăng ký bằng"
+  "must_agree": "Bạn phải đồng ý với các điều khoản và điều kiện",
+  "signInWith": "Đăng ký bằng",
+  "usernameTooShort": "Tên người dùng phải có ít nhất 6 ký tự"
 }

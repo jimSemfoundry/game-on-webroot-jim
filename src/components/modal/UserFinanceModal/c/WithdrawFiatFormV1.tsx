@@ -5,7 +5,7 @@ import { useFiatGatewayWithdrawParams } from "@/hooks/api/useAuth.ts";
 import { authService } from "@/services/authService.ts";
 import { useBoundStore } from "@/store";
 import { useToggle } from "@/hooks/useToggle";
-import React, { useCallback, useEffect, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { ErrorString } from "@/store/type.ts";
@@ -14,7 +14,7 @@ import {
   InnerOptions,
   InnerUnnecessary
 } from "@/components/modal/UserFinanceModal/c/InnerComponents.tsx";
-import { debug_target, open_debug, useAvailableBalance } from "@/components/modal/UserFinanceModal/helper.ts";
+import { debug_target, open_debug } from "@/components/modal/UserFinanceModal/helper.ts";
 import { fn_withdraw_common_status } from "@/components/modal/UserFinanceModal/c/WithdrawCryptoAmount.tsx";
 import { useRumSdkUserLog } from "@/utils/helper.ts";
 import { isEmpty } from "@/utils/helper.ts";
@@ -26,13 +26,10 @@ export const WithdrawFiatFormV1 = () => {
 
   const [loading, { set }] = useToggle<boolean>(false);
 
-  const { rumCustomLog, rumException } = useRumSdkUserLog();
+  const { rumCustomLog, rumException, rumResource } = useRumSdkUserLog();
 
   // from data store, share common data
   const { withdrawFiat, setWithdrawFiat, setSyncAction, openModal } = useBoundStore();
-
-  // 用户的可提款数量
-  const availableAndLocked = useAvailableBalance(withdrawFiat.currency?.currency);
 
   // 获取取款网关必填字段
   const {
@@ -115,17 +112,6 @@ export const WithdrawFiatFormV1 = () => {
 
   // 创建订单
   const createOrder = useCallback(async () => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      console.info("Withdraw Fiat Order Data V1");
-      console.info({
-        ...withdrawFiat.formItem,
-        // pin: md5(pin),
-        currency: withdrawFiat.currency?.currency,
-        gateway_id: withdrawFiat.method?.gateway_id
-      });
-      // return;
-    }
-
     set(true);
     setSyncAction(undefined);
 
@@ -137,14 +123,23 @@ export const WithdrawFiatFormV1 = () => {
       pay_bankcode: withdrawFiat.method?.pay_bankcode
     };
 
+    let url = "";
+    let name = "";
+
     authService
       .createWithdrawFiatOrder(params)
       .then((res) => {
+        url = res?._request_url || "";
+        name = res?._request_name || "";
+
         fn_withdraw_common_status(() => {
 
           // 提款订单提交成功
           if (res.code === 0 || res.code === 200) {
             setSyncAction("OPEN_WITHDRAW_ORDER_OK_MODAL");
+
+            // TODO rum 下单成功推送
+            rumCustomLog(`Withdraw ${withdrawFiat.currency?.currency} ✅`, { url });
           }
 
           // 提款AML措施-错误提示
@@ -158,10 +153,17 @@ export const WithdrawFiatFormV1 = () => {
         set(false);
 
         // 异常推送
-        rumException(error, params);
+        rumException(`Withdraw ${withdrawFiat.currency?.currency} ❌`, error);
       })
       .finally(() => {
         set(false);
+
+        // TODO rum 资源访问推送
+        rumResource({
+          url,
+          name,
+          event: `Withdraw ${withdrawFiat.currency?.currency}`
+        });
       });
   }, [t, withdrawFiat]);
 
@@ -186,18 +188,6 @@ export const WithdrawFiatFormV1 = () => {
   // useEffect(() => {
   //   if (syncAction.type === "SYNC_WITHDRAW_FIAT_CREATE") void createOrder();
   // }, [syncAction]);
-
-  useEffect(() => {
-    if (open_debug && debug_target === "WITHDRAW") {
-      console.info(`WithdrawFiatFormV1:`);
-      console.info(withdrawFiat);
-    }
-  }, [withdrawFiat]);
-
-  // 数据推送 - 延迟
-  useEffect(() => {
-    rumCustomLog("withdrawFiatV1", { ...withdrawFiat, available: availableAndLocked.available });
-  }, [rumCustomLog, withdrawFiat]);
 
   return (
     <WithdrawFiatFormInit>

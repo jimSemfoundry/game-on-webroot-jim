@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "كتحالف ألعاب عالمي رائد، نجمع بين القوة والتطور لمنصات النخبة تحت رؤية واحدة. عبر كل علامة تجارية في محفظتنا، نتحرك كوحدة واحدة — نقدم الترفيه، المكافآت المخصصة، والربط السلس عبر العملات، البلدان، والثقافات.",
   "footerDescriptionThree": "لا تلعب اللعبة فقط. تحدى كل شيء.",
   "footerDescriptionFour": "خاصية مميزة لتحالف {{supportName}}",
-  "footerDescriptionFive": "© 2025. جميع الحقوق محفوظة.",
+  "footerDescriptionFive": "© {{year}}. جميع الحقوق محفوظة.",
   "banner": {
     "oneDescription": "كن الأول.",
     "oneDescriptionTwo": "تحدي\nكل شيء",
@@ -127,5 +127,7 @@
   "addHomeScreen": "إضافة إلى الشاشة الرئيسية",
   "latestWins": "أحدث الفوز",
   "spinPlayAndWinAcrossTopCasinoHits": "قم بالدوران واللعب والفوز عبر أفضل ألعاب الكازينو",
-  "scoreBigOnSportsFromAroundTheWorld": "احصل على نقاط كبيرة في الرياضات من جميع أنحاء العالم"
+  "scoreBigOnSportsFromAroundTheWorld": "احصل على نقاط كبيرة في الرياضات من جميع أنحاء العالم",
+  "liveDealers": "موزعون مباشرون لألعاب الطاولة المفضلة لديك",
+  "show_less": "عرض أقل"
 }

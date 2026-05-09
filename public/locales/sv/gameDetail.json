@@ -34,5 +34,12 @@
   "depositNow": "Sätt in Nu",
   "free_spins": "Gratissnurr",
   "play_with_balance_in": "Spela med Balans I",
-  "the_selected_currency_will_be_displayed_in": "Den valda valutan kommer att visas i"
+  "the_selected_currency_will_be_displayed_in": "Den valda valutan kommer att visas i",
+  "activity": "Aktivitet",
+  "come_join_me_now_at": "GÅ MED NU PÅ",
+  "invite_friends_to_join_play": "Bjud in vänner att gå med & Spela",
+  "earn_up_to_50_commission_bonus": "Tjäna upp till 50% provision <0>+{{bonus}}</0> Bonus",
+  "download_failed": "Nedladdning misslyckades. Försök igen.",
+  "image_downloaded": "Bilden har laddats ner!",
+  "share_text_1": "Jag fick precis en {{multiplier}}x STOR VINST! 🔥"
 }

@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "โปรดกรอกข้อมูลการถอนเงินสกุลเงินเฟียตของคุณ",
   "updating_withdrawal_address": "กำลังอัปเดตที่อยู่การถอน โปรดรอสักครู่...",
   "please_select_withdrawal_method": "โปรดเลือกวิธีการถอนเงิน",
-  "integer_deposit": "ช่องทางนี้ต้องการให้ยอดฝากเป็นจำนวนเต็มที่เป็นหลายเท่าของ {{value}}",
+  "integer_deposit": "ช่องทางนี้ต้องการให้ยอดฝากเป็นหน่วยของ {{value}}",
   "enter_string_en_only": "กรอกได้เฉพาะตัวอักษรภาษาอังกฤษ ตัวเลข และช่องว่างเท่านั้น",
-  "enter_string_min_length": "ความยาวต้องอย่างน้อย {{length}}"
+  "enter_string_min_length": "ความยาวต้องอย่างน้อย {{length}}",
+  "met_eligibility": "*คุณมีคุณสมบัติตามเงื่อนไขสำหรับข้อเสนอพิเศษ อัปโหลดตอนนี้เพื่อรับรางวัลของคุณ!",
+  "read_carefully": "โปรดอ่านอย่างละเอียด",
+  "no_channel": "ขณะนี้ไม่มีช่องทางที่ใช้งานได้"
 }

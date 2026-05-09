@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Silakan masukkan kata sandi",
   "verification_code_sent_to_your": "Kode verifikasi telah dikirim ke email/telepon Anda",
   "one_min_error": "Dapatkan kode verifikasi lagi dalam 1 menit.",
-  "signInWith": "Daftar dengan"
+  "must_agree": "Anda harus menyetujui syarat dan ketentuan",
+  "signInWith": "Daftar dengan",
+  "usernameTooShort": "Nama pengguna harus minimal 6 karakter"
 }

@@ -21,7 +21,7 @@
   },
   "faqSix": {
     "title": "Mis on booster?",
-    "content": "<p class=\"leading-7\">Boosterid kahekordistavad teie tagasimakse ühe tunni jooksul iga kord, kui soovitus teeb sissemakse.</p><p class=\"leading-7\">Tõhustatud avamise määr:</p><p class=\"leading-7\">Avamise määr:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
+    "content": "<p class=\"leading-7\">Boosterid kahekordistavad teie tagasimakse kolme tunni jooksul iga kord, kui soovitus teeb sissemakse.</p><p class=\"leading-7\">Tõhustatud avamise määr:</p><p class=\"leading-7\">Avamise määr:</p><p class=\"leading-7\">VIP 0-40: 40%</p><p class=\"leading-7\">VIP 41-60: 72%</p><p class=\"leading-7\">VIP 61-80: 80%</p><p class=\"leading-7\">VIP 81-100: 102%</p><p class=\"leading-7\">VIP 101-125: 120%</p>"
   },
   "faqSeven": {
     "title": "Mis on boonuste kalender?",
@@ -33,6 +33,6 @@
   },
   "faqNine": {
     "title": "Mis on saavutused?",
-    "content": "<p class=\"leading-7\">Saavutused on meie viis tunnustada teie tegevust meie platvormil. Kui nõuate oma saavutuse boonust, makstakse see teie boonuste kalendrisse ja seda saab nõuda iga 8 tunni järel ning see aegub 24 tunni jooksul, kui seda ei nõuta.</p>"
+    "content": "<p class=\"leading-7\">Saavutused on meie viis tunnustada teie tegevust meie platvormil. Saavutused on saadaval nõudmiseks, kui jõuate VIP 2 ja kõrgemale.</p>"
   }
 }

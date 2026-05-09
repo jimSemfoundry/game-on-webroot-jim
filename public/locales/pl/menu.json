@@ -34,6 +34,8 @@
   "upToReferral": "Do {{amount}} za polecenie",
   "language": "Język",
   "gameCurrency": "Waluta gry",
-  "hideBlockedGames": "Ukryj zablokowane gry",
-  "settings": "Ustawienia"
+  "hideBlockedGames": "Ukryj \n<0>zablokowane gry</0>",
+  "settings": "Ustawienia",
+  "problemReport": "Raport problemu",
+  "logging_key": "Rejestrowanie"
 }

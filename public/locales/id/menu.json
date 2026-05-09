@@ -34,6 +34,8 @@
   "upToReferral": "Hingga {{amount}} per rujukan",
   "language": "Bahasa",
   "gameCurrency": "Mata uang permainan",
-  "hideBlockedGames": "Sembunyikan permainan yang diblokir",
-  "settings": "Pengaturan"
+  "hideBlockedGames": "Sembunyikan \n<0>permainan yang diblokir</0>",
+  "settings": "Pengaturan",
+  "problemReport": "Laporan masalah",
+  "logging_key": "Pencatatan"
 }

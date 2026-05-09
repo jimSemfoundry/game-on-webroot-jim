@@ -110,5 +110,19 @@
   "phone_number_has_been_verified": "আপনার ফোন নম্বর যাচাই করা হয়েছে। আপনি এগিয়ে যেতে পারেন।",
   "email_address_has_been_verified": "আপনার ইমেইল ঠিকানা যাচাই করা হয়েছে। আপনি এগিয়ে যেতে পারেন।",
   "setNewPassword": "নতুন পাসওয়ার্ড সেট করুন",
-  "passwordLengthRequirement": "অনুগ্রহ করে 6 থেকে 64 অক্ষরের মধ্যে একটি পাসওয়ার্ড লিখুন।"
+  "passwordLengthRequirement": "অনুগ্রহ করে 6 থেকে 64 অক্ষরের মধ্যে একটি পাসওয়ার্ড লিখুন।",
+  "re_enter_new_password": "নতুন পাসওয়ার্ড আবার লিখুন",
+  "change_withdrawal_pin": "উত্তোলন PIN পরিবর্তন করুন",
+  "confirm_withdrawal_pin": "উত্তোলন PIN নিশ্চিত করুন",
+  "enter_email": "ইমেইল লিখুন",
+  "rolloverDetails": "রোলওভার বিবরণ",
+  "verified_email": "যাচাইকৃত ইমেইল",
+  "verified_phone_number": "যাচাইকৃত ফোন নম্বর",
+  "change_key": "পরিবর্তন",
+  "update_successfully": "আপডেট সফল। আপনার পরবর্তী লগইনের জন্য {<1>{{value}}</1>} ব্যবহার করুন।",
+  "understand_key": "বুঝেছি",
+  "ensure_email_valid": "আপনার ইমেইল ঠিকানাটি বৈধ এবং আপনার অ্যাক্সেসযোগ্য কিনা নিশ্চিত করুন।",
+  "ensure_phone_valid": "আপনার ফোন নম্বরটি বৈধ এবং আপনার অ্যাক্সেসযোগ্য কিনা নিশ্চিত করুন।",
+  "enter_phone_number_to_receive_verification_code": "যাচাইকরণ কোড পেতে নিচে আপনার ফোন নম্বর লিখুন।",
+  "enter_email_address_to_receive_verification_code": "যাচাইকরণ কোড পেতে নিচে আপনার ইমেইল ঠিকানা লিখুন।"
 }

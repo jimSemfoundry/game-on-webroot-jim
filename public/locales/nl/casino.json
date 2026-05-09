@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Als toonaangevende wereldwijde game-alliantie brengen we de kracht en verfijning van topplatforms samen onder één visie. Over alle merken in onze portefeuille heen bewegen we als één — we bieden entertainment, gepersonaliseerde beloningen en naadloze connectiviteit over valuta's, landen en culturen heen.",
   "footerDescriptionThree": "Speel niet alleen het spel. Daag alles uit.",
   "footerDescriptionFour": "Een kenmerkend eigenschap van de {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Alle rechten voorbehouden.",
+  "footerDescriptionFive": "© {{year}}. Alle rechten voorbehouden.",
   "banner": {
     "oneDescription": "WEES DE EERSTE.",
     "oneDescriptionTwo": "DAAG\nIEDEREEN UIT",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Toevoegen aan startscherm",
   "latestWins": "Laatste Winsten",
   "spinPlayAndWinAcrossTopCasinoHits": "Draai, speel en win op de beste casino-hits",
-  "scoreBigOnSportsFromAroundTheWorld": "Scoor groot op sport van over de hele wereld"
+  "scoreBigOnSportsFromAroundTheWorld": "Scoor groot op sport van over de hele wereld",
+  "liveDealers": "Live dealers voor je favoriete tafelspellen",
+  "show_less": "minder tonen"
 }

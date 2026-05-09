@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { MType } from "@/components/header/message-v2/c/InnerCountdown.tsx";
 import { NavigateFn, useNavigate } from "@tanstack/react-router";
 import { useChatwootContext } from "@/contexts/ChatwootContext.tsx";
+import { isTelegramWebApp, openExternalUrl as openTelegramExternalUrl } from "@/utils/telegramWebApp";
 
 export const InnerMsgLink = ({ type, status, jump_url, expired_at, onClose }: {
   type: MType,
@@ -57,8 +58,16 @@ const GeneralLink = ({ jump_url, onClose }: {
       // }
       if (jump_url.includes("jump-chat")) return toggleWidget();
       const isOuterLink = /^https?:\/\/.*/.test(jump_url);
-      if (isOuterLink) window.open(decodeURIComponent(jump_url));
-      else {
+      if (isOuterLink) {
+        const decodedUrl = decodeURIComponent(jump_url);
+        // TMA 环境下用外部浏览器打开，避免内部跳转
+        if (isTelegramWebApp()) {
+          openTelegramExternalUrl(decodedUrl);
+        } else {
+          window.open(decodedUrl);
+        }
+        return;
+      } else {
         // 解析jump_url为路径和查询参数
         const url = new URL(decodeURIComponent(jump_url), window.location.origin);
         const pathname = url.pathname.replace('/main', ''); // 移除/main前缀

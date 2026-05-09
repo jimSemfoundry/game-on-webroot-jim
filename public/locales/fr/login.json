@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Veuillez entrer un mot de passe",
   "verification_code_sent_to_your": "Code de vérification envoyé à votre e-mail/téléphone",
   "one_min_error": "Obtenez à nouveau le code de vérification dans 1 minute.",
-  "signInWith": "S'inscrire avec"
+  "must_agree": "Vous devez accepter les conditions générales",
+  "signInWith": "S'inscrire avec",
+  "usernameTooShort": "Le nom d'utilisateur doit comporter au moins 6 caractères"
 }

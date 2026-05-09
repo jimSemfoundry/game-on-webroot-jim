@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Vezető globális játékszövetségként egyesítjük a csúcskategóriás platformok erejét és kifinomultságát egyetlen vízió alatt. Portfóliónk minden márkáján keresztül egységesen mozgunk — szórakozást, személyre szabott jutalmakat és zökkenőmentes kapcsolatot biztosítva pénznemek, országok és kultúrák között.",
   "footerDescriptionThree": "Ne csak játszd a játékot. Kérdőjelezz meg mindent.",
   "footerDescriptionFour": "Az {{supportName}} Szövetség jellegzetes tulajdonsága",
-  "footerDescriptionFive": "© 2025. Minden jog fenntartva.",
+  "footerDescriptionFive": "© {{year}}. Minden jog fenntartva.",
   "banner": {
     "oneDescription": "LEGYÉL AZ ELSŐ.",
     "oneDescriptionTwo": "KIHÍVÁS\nMINDENRE",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Hozzáadás a kezdőképernyőhöz",
   "latestWins": "Legutóbbi Nyertesek",
   "spinPlayAndWinAcrossTopCasinoHits": "Pörögj, játssz, és nyerj a legjobb kaszinó slágereken",
-  "scoreBigOnSportsFromAroundTheWorld": "Nyerj nagyot a világ minden tájáról származó sportokban"
+  "scoreBigOnSportsFromAroundTheWorld": "Nyerj nagyot a világ minden tájáról származó sportokban",
+  "liveDealers": "Élő kereskedők a kedvenc asztali játékaidhoz",
+  "show_less": "kevesebb megjelenítése"
 }

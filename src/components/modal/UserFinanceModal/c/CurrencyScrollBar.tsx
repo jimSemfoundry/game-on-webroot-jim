@@ -1,19 +1,23 @@
-import { CurrencyIconPlaceholder } from "@/components/modal/UserFinanceModal/c/CurrencyIconPlaceholder.tsx";
+import {
+  CurrencyIconPlaceholder,
+} from "@/components/modal/UserFinanceModal/c/CurrencyIconPlaceholder.tsx";
 import {
   useSupportedCurrencyV2Filter
 } from "@/components/modal/UserFinanceModal/helper.ts";
 import { SmallLoading } from "@/components/modal/UserFinanceModal/c/Loading.tsx";
 import { useBoundStore } from "@/store";
 import { cn } from "@/utils/cn.ts";
-import { useEffect, useRef, WheelEvent } from "react";
+import { useEffect, useRef, useState, WheelEvent } from "react";
 import Measure from "react-measure";
 
 export const CurrencyScrollBar = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const [l1, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "DEPOSIT");
+  const [a, b] = useState<boolean>(true)
 
   const { depositCrypto, setDepositCrypto } = useBoundStore();
+
+  const [l1, currencies] = useSupportedCurrencyV2Filter("CRYPTO", "DEPOSIT");
 
   // 代币选择滚动
   const onScroll = (offset: { width: number, left: number }) => {
@@ -37,8 +41,10 @@ export const CurrencyScrollBar = () => {
 
     if (!container) return;
 
-    let raf_id = 0;
+    let interval_id: NodeJS.Timeout | null = null;
     let closed = false;
+    let retryCount = 0;
+    const maxRetries = 20;
 
     const callback = () => {
       if (closed) return;
@@ -47,27 +53,38 @@ export const CurrencyScrollBar = () => {
 
       if (!target) return;
 
-      onScroll({ width: target.getBoundingClientRect().width, left: target.offsetLeft });
-
-      observer.disconnect();
-
-      closed = true;
+      // 使用 interval 轮询确保获取到有效值
+      interval_id = setInterval(() => {
+        const rect = target.getBoundingClientRect();
+        if (rect.width > 0) {
+          onScroll({ width: rect.width, left: target.offsetLeft });
+          observer.disconnect();
+          if (interval_id) clearInterval(interval_id);
+          closed = true;
+        } else if (retryCount >= maxRetries) {
+          // 超过最大重试次数，停止轮询
+          if (interval_id) clearInterval(interval_id);
+        }
+        retryCount++;
+      }, 50);
     };
 
     const observer = new MutationObserver(() => {
+      if (interval_id) clearInterval(interval_id);
+      retryCount = 0;
       callback();
     });
 
     observer.observe(container, { childList: true, subtree: true, attributes: true });
 
-    raf_id = requestAnimationFrame(callback);
+    callback();
 
     return () => {
       closed = true;
       observer.disconnect();
-      if (raf_id) cancelAnimationFrame(raf_id);
+      if (interval_id) clearInterval(interval_id);
     };
-  }, [l1, depositCrypto.currency?.currency]);
+  }, [l1, depositCrypto.network?.network]);
 
   useEffect(() => {
     const element = ref.current;
@@ -87,29 +104,32 @@ export const CurrencyScrollBar = () => {
   }, []);
 
   return (
-    <div ref={ref} className="relative overflow-x-auto gap-4 flex overflow-y-hidden md:mx-0 hide-scrollbar">
+    <div ref={ref} className="relative overflow-x-auto gap-2 flex overflow-y-hidden md:mx-0 hide-scrollbar">
       <SmallLoading
         className="h-8 !rounded-lg w-full"
         loading={l1}
         content={currencies.map((item: Record<string, any>) => (
           <Measure offset key={item?.id}>
-            {({ measureRef, contentRect }) => (
-              <button
-                ref={measureRef}
-                className={cn(
-                  "relative btn btn-sm bg-base-300 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-2 font-sans",
-                  item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
-                )}
-                id={item?.currency === depositCrypto.currency?.currency ? "target" : ""}
-                onClick={() => {
-                  onScroll(contentRect.offset!);
-                  setDepositCrypto({ currency: currencies.find((o: Record<string, any>) => o.currency === item?.currency) });
-                }}
-              >
-                <CurrencyIconPlaceholder currency={item?.currency} />
-                <span className="text-xs">{item?.currency}</span>
-              </button>
-            )}
+            {({ measureRef, contentRect }) => {
+              return (
+                <button
+                  ref={measureRef}
+                  className={cn(
+                    "relative btn btn-sm bg-base-400 flex items-center gap-1 rounded-full border-0 font-bold text-base-content/50 px-2",
+                    !a && item?.currency === depositCrypto.currency?.currency ? "text-base-400 bg-primary" : ""
+                  )}
+                  id={!a && item?.currency === depositCrypto.currency?.currency ? "target" : ""}
+                  onClick={() => {
+                    onScroll(contentRect.offset!);
+                    setDepositCrypto({ currency: currencies.find((o: Record<string, any>) => o.currency === item?.currency) });
+                    b(false)
+                  }}
+                >
+                  <CurrencyIconPlaceholder currency={item?.currency} />
+                  <span className="text-xs">{item?.currency}</span>
+                </button>
+              );
+            }}
           </Measure>
         ))}
       />

@@ -206,7 +206,10 @@
   "fill_in_your_fiat_currency_withdrawal_information": "법정화폐 출금 정보를 입력해 주세요.",
   "updating_withdrawal_address": "출금 주소를 업데이트하는 중입니다. 잠시만 기다려 주세요...",
   "please_select_withdrawal_method": "출금 방법을 선택해 주세요.",
-  "integer_deposit": "이 채널은 입금액이 {{value}}의 정수 배수여야 합니다.",
+  "integer_deposit": "이 채널은 입금액을 {{value}} 단위로 입금해야 합니다.",
   "enter_string_en_only": "영문자, 숫자, 공백만 입력할 수 있습니다.",
-  "enter_string_min_length": "길이는 최소 {{length}} 이상이어야 합니다."
+  "enter_string_min_length": "길이는 최소 {{length}} 이상이어야 합니다.",
+  "met_eligibility": "*특별 혜택 자격 기준을 충족했습니다. 지금 충전하여 보상을 받으세요.",
+  "read_carefully": "주의 깊게 읽어주세요",
+  "no_channel": "현재 사용 가능한 채널이 없습니다"
 }

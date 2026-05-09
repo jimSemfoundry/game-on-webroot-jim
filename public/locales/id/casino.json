@@ -97,7 +97,7 @@
   "footerDescriptionTwo": "Sebagai aliansi permainan global terkemuka, kami menyatukan kekuatan dan kecanggihan platform kelas atas di bawah satu visi. Di seluruh merek dalam portofolio kami, kami bergerak sebagai satu — menghadirkan hiburan, hadiah yang dipersonalisasi, dan konektivitas tanpa batas di berbagai mata uang, negara, dan budaya.",
   "footerDescriptionThree": "Jangan hanya bermain. Tantang segalanya.",
   "footerDescriptionFour": "Ciri khas dari {{supportName}} Alliance",
-  "footerDescriptionFive": "© 2025. Hak cipta dilindungi.",
+  "footerDescriptionFive": "© {{year}}. Hak cipta dilindungi.",
   "banner": {
     "oneDescription": "JADILAH YANG PERTAMA.",
     "oneDescriptionTwo": "TANTANG\nSEGALANYA",
@@ -127,5 +127,7 @@
   "addHomeScreen": "Tambahkan ke Layar Beranda",
   "latestWins": "Kemenangan Terbaru",
   "spinPlayAndWinAcrossTopCasinoHits": "Putar, mainkan, dan menangkan di permainan kasino teratas",
-  "scoreBigOnSportsFromAroundTheWorld": "Dapatkan kemenangan besar di olahraga dari seluruh dunia"
+  "scoreBigOnSportsFromAroundTheWorld": "Dapatkan kemenangan besar di olahraga dari seluruh dunia",
+  "liveDealers": "Dealer langsung untuk permainan meja favorit Anda",
+  "show_less": "tampilkan lebih sedikit"
 }

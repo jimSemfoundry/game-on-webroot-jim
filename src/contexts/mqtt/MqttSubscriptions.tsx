@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { ISubscriptionMap } from "mqtt/lib/client";
 import { useMqttService } from "@/contexts/mqtt";
+import { useAuth } from "@/contexts/AuthContext.tsx";
 
 type Props = {
   subscriptions?: ISubscriptionMap | null;
@@ -57,13 +58,25 @@ export const MqttSubscriptions = ({ subscriptions }: Props) => {
  */
 
 export const MqttSubscriptionsEntry = () => {
-  const subscriptions: ISubscriptionMap | null = useMemo(() => {
-    return {
-      [`public/order/greatest`]: { qos: 0 },   // 最大投注
-      [`public/order/latest_win`]: { qos: 0 }, // 最新赢奖
-      [`public/order/latest_bet`]: { qos: 0 }  // 最新投注
-    };
-  }, []);
+  const { user } = useAuth();
+
+  const subscriptions: ISubscriptionMap = useMemo(() => ({
+    // 公共订阅 - 始终有效
+    [`public/order/greatest`]: { qos: 0 },   // 最大投注
+    [`public/order/latest_win`]: { qos: 0 }, // 最新赢奖
+    [`public/order/latest_bet`]: { qos: 0 },  // 最新投注
+    // 用户订阅 - 条件性添加
+    ...(user?.id && { [`user/${user.id}/bonus_wallet`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/sports_bonus_wallet`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/balance_detail`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/notification`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/promo_code_result`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/free_spin`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/deposit`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/lucky_spin`]: { qos: 0 } }), // Lucky Spin 抽奖次数发放通知
+    ...(user?.id && { [`user/${user.id}/big_win_share`]: { qos: 0 } }),
+    ...(user?.id && { [`user/${user.id}/bounty_winner`]: { qos: 2 } }), // Bounty 中奖个人通知 (t110585)
+  }), [user?.id]);
 
   return <MqttSubscriptions subscriptions={subscriptions} />;
 };

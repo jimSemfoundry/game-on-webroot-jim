@@ -70,5 +70,18 @@
   "pleaseEnterFixedLength": "Vänligen ange en fast längd av {{length}} tecken",
   "disabledCharNotAllowed": "Tecknet {{char}} är inte tillåtet",
   "space": "mellanslag",
-  "thisWalletIsAlreadyUsed": "Denna plånbok används redan"
+  "thisWalletIsAlreadyUsed": "Denna plånbok används redan",
+  "login_failed": "Inloggningen misslyckades",
+  "login_error_code_1": "Användarnamnet måste vara ett giltigt telefonnummer (börjar med + och använder - efter landskod) eller en e-postadress",
+  "account_created_and_logged_in_successfully": "Konto skapat och inloggad!",
+  "requests_later": "För många förfrågningar från denna IP. Vänligen försök igen senare.",
+  "booster_activated_successfully": "Booster aktiverad!",
+  "depositNameEntered": "Namnet som angetts för insättning måste matcha det fullständiga namnet<0>（Förnamn + Efternamn）</0> på bankkontot som används för uttag, i enlighet med regler mot bedrägeri och penningtvätt.\n\n Om du behöver ändra ditt bankkonto, vänligen kontakta kundtjänst och slutför KYC-verifiering.",
+  "user_not_found_or_password_incorrect": "Användaren hittades inte eller lösenordet är fel",
+  "free_spin_record_enabled_successfully": "Gratisspinn-registrering aktiverad!",
+  "check_in_success": "Incheckning lyckades!",
+  "check_in_failed": "Incheckning misslyckades!",
+  "check_in_already": "Incheckningen är redan slutförd för detta datum.",
+  "ballsClaimed": "Vänboll hämtad med framgång",
+  "cannotBetby": "Sportbonusplånboken är endast för sportspel."
 }

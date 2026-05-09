@@ -2,7 +2,7 @@ import { Modal } from "@/components/ui/Modal";
 import { useCancelFreeSpinRecord } from "@/query/free-spins";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-
+import { useState } from "react";
 import { FreeSpinExitConfirmProps } from "./types";
 
 export const FreeSpinExitConfirm = ({
@@ -15,8 +15,14 @@ export const FreeSpinExitConfirm = ({
   const cancelFreeSpinRecordMutation = useCancelFreeSpinRecord();
 
   const freeSpinsCount = freeSpinData?.bet_count || "";
+  const [isExiting, setIsExiting] = useState(false);
 
   const handleExitAnyway = () => {
+    if (isExiting) {
+      return;
+    }
+
+    setIsExiting(true);
     cancelFreeSpinRecordMutation.mutate(freeSpinData?.id || "", {
       onSuccess: (data: any) => {
         if (data.code === 0) {
@@ -30,6 +36,9 @@ export const FreeSpinExitConfirm = ({
         } else {
           toast.error(t("toast:bonusCancelledFailed"));
         }
+      },
+      onSettled: () => {
+        setIsExiting(false);
       }
     });
   };
@@ -64,7 +73,7 @@ export const FreeSpinExitConfirm = ({
             onClick={handleExitAnyway}
             className="btn btn-soft text-primary flex-1"
           >
-            {t("popup:freeSpins.exit_anyway")}
+            { isExiting ? <span className="loading loading-spinner loading-md" /> : t("popup:freeSpins.exit_anyway")}
           </button>
         </div>
       </div>

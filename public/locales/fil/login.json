@@ -68,5 +68,7 @@
   "pleaseEnterPassword": "Mangyaring maglagay ng password",
   "verification_code_sent_to_your": "Naipadala ang verification code sa iyong email/telepono",
   "one_min_error": "Kumuha ng verification code muli sa loob ng 1 minuto.",
-  "signInWith": "Mag-sign Up gamit ang"
+  "must_agree": "Kailangan mong sumang-ayon sa mga tuntunin at kundisyon",
+  "signInWith": "Mag-sign Up gamit ang",
+  "usernameTooShort": "Ang username ay dapat may hindi bababa sa 6 na karakter"
 }

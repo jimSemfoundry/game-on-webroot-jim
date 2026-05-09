@@ -34,5 +34,12 @@
   "depositNow": "Депозит сейчас",
   "free_spins": "Бесплатные вращения",
   "play_with_balance_in": "Играть с балансом в",
-  "the_selected_currency_will_be_displayed_in": "Выбранная валюта будет отображаться в"
+  "the_selected_currency_will_be_displayed_in": "Выбранная валюта будет отображаться в",
+  "activity": "Активность",
+  "come_join_me_now_at": "ПРИСОЕДИНЯЙТЕСЬ ПРЯМО СЕЙЧАС К",
+  "invite_friends_to_join_play": "Пригласите друзей присоединиться и Играть",
+  "earn_up_to_50_commission_bonus": "Зарабатывайте до 50% комиссии <0>+{{bonus}}</0> Бонус",
+  "download_failed": "Ошибка загрузки. Пожалуйста, попробуйте снова.",
+  "image_downloaded": "Изображение загружено!",
+  "share_text_1": "Я только что сорвал BIG WIN x{{multiplier}}! 🔥"
 }

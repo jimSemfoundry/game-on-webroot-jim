@@ -6,5 +6,8 @@
   "customerServiceChatFailedToLoad": "کسٹمر سروس چیٹ لوڈ کرنے میں ناکام",
   "read": "پڑھیں",
   "unread": "نہیں پڑھی",
-  "customerService": "کسٹمر سروس"
+  "customerService": "کسٹمر سروس",
+  "today": "آج",
+  "earlier": "پہلے",
+  "older": "پرانا"
 }
